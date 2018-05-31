@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The Physical Layer &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">The Physical Layer</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-physicallayer.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-physical-layer">
+<span id="dg-cha-physicallayer"></span><h1>The Physical Layer<a class="headerlink" href="#the-physical-layer" title="Permalink to this headline">¶</a></h1>
+<p>TODO which modules? C++ interface</p>
+<ul class="simple">
+<li>ongoing transmissions</li>
+<li>recent successful receptions</li>
+<li>recent obstacle intersections and surface normal vectors</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span><span class="p">:</span>
+ <span class="o">-</span> <span class="n">exploit</span> <span class="n">multiple</span> <span class="n">CPUs</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">highly</span> <span class="n">parallel</span> <span class="n">GPU</span> <span class="n">to</span> <span class="n">increase</span> <span class="n">performance</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">performance</span> <span class="n">vs</span><span class="o">.</span> <span class="n">accuracy</span> <span class="n">tradeoff</span> <span class="n">configuration</span> <span class="n">options</span>
+   <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="nb">range</span> <span class="nb">filter</span><span class="p">,</span> <span class="n">radio</span> <span class="n">mode</span> <span class="nb">filter</span><span class="p">,</span> <span class="n">listening</span> <span class="n">mode</span> <span class="nb">filter</span><span class="p">,</span> <span class="n">MAC</span> <span class="n">address</span> <span class="nb">filter</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">level</span> <span class="n">of</span> <span class="n">details</span> <span class="p">(</span><span class="n">see</span> <span class="n">details</span> <span class="n">below</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">transmitters</span> <span class="ow">and</span> <span class="n">receivers</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">flat</span> <span class="n">to</span> <span class="n">layered</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">radio</span> <span class="n">signal</span> <span class="n">models</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">range</span> <span class="n">based</span> <span class="n">to</span> <span class="n">accurate</span> <span class="n">emulation</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">propagation</span> <span class="n">models</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">immediate</span> <span class="n">to</span> <span class="n">accurate</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">attenuation</span> <span class="n">models</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">free</span> <span class="n">space</span> <span class="n">to</span> <span class="n">trace</span> <span class="n">based</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">antenna</span> <span class="n">models</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">isotropic</span> <span class="n">to</span> <span class="n">directional</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">support</span> <span class="n">different</span> <span class="n">power</span> <span class="n">consumption</span> <span class="n">models</span> <span class="p">(</span><span class="n">scale</span> <span class="kn">from</span> <span class="nn">mode</span> <span class="n">based</span> <span class="n">to</span> <span class="n">signal</span> <span class="n">based</span> <span class="n">models</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">concurrent</span> <span class="n">transmitter</span> <span class="ow">and</span> <span class="n">receiver</span> <span class="n">mode</span> <span class="p">(</span><span class="n">transceiver</span> <span class="n">mode</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">burst</span> <span class="n">mode</span> <span class="p">(</span><span class="n">back</span> <span class="n">to</span> <span class="n">back</span><span class="p">)</span> <span class="n">transmissions</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">synchronization</span><span class="o">/</span><span class="n">preamble</span> <span class="n">detection</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">capture</span> <span class="n">during</span> <span class="n">reception</span> <span class="p">(</span><span class="n">switching</span> <span class="n">to</span> <span class="n">another</span> <span class="n">transmission</span><span class="p">)</span>
+ <span class="o">-</span> <span class="n">provide</span> <span class="n">finite</span> <span class="n">time</span> <span class="n">radio</span> <span class="n">mode</span> <span class="n">switching</span>
+
+<span class="n">TODO</span><span class="p">:</span> <span class="n">scalar</span> <span class="n">vs</span> <span class="n">dimensional</span>
+<span class="n">TODO</span><span class="p">:</span> <span class="n">flat</span> <span class="n">vs</span> <span class="n">layered</span>
+<span class="n">TODO</span><span class="p">:</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">IEEE</span> <span class="mf">802.11</span><span class="p">,</span> <span class="n">IEEE</span> <span class="mf">802.15</span><span class="o">.</span><span class="mi">4</span>
+<span class="n">TODO</span><span class="p">:</span> <span class="n">acoustic</span> <span class="n">underwater</span> <span class="n">example</span>
+<span class="n">TODO</span><span class="p">:</span> <span class="n">wireless</span> <span class="n">vs</span><span class="o">.</span> <span class="n">wired</span> <span class="n">medium</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Today’s computing devices use a variety of wireless communication means,
+such as Wifi, Bluetooth, NFC, UMTS, and LTE. Despite the diversity of
+these devices, there are many commonalities in the way their physical
+layers can be simulated. The models often have similar signal
+representations and signal processing steps, and they also share the
+physical medium model where communication takes place.</p>
+<p>Simulating the physical layer is generally a computation-intensive task.
+A detailed simulation of signal propagation, signal fading, signal
+interference, and signal decoding often results in an unacceptable
+performance. Finding the right abstractions, the right level of detail,
+and the right trade-offs between accuracy and performance is both
+difficult and important.</p>
+<p>The physical layer model in the INET Framework has been designed with
+the following goals in mind:</p>
+<ul class="simple">
+<li>customizability</li>
+<li>extensibility</li>
+<li>scalable level of detail</li>
+<li>ability to exploit parallel hardware</li>
+</ul>
+<p>The following sections provide a brief overview of the physical layer
+model. For more details on the available modules, their parameterization
+and the actual implementations please refer to the documentation in the
+corresponding NED and C++ source files.</p>
+<div class="section" id="customizability">
+<h3>Customizability<a class="headerlink" href="#customizability" title="Permalink to this headline">¶</a></h3>
+<p>Real-world communication devices often provide a wide variety of
+configuration options to allow them to be adaped to the physical
+conditions where they are required to operate. For example, a Wifi
+router’s administration interface often provides parameters to configure
+the transmission power, bitrate, preamble type, carrier frequency, RTS
+threshold, beacon interval, etc. Most of those parameters have sensible
+default values assigned, so the user is not required to configure them,
+but may override them as needed.</p>
+<p>Similar to real-world devices, the INET physical layer models also
+provide a wide variety of parameters to control their behavior. Many NED
+parameters correspond to physical quantities such as transmission power
+<code class="docutils literal notranslate"><span class="pre">[W]</span></code>, reception sensitivity <code class="docutils literal notranslate"><span class="pre">[W]</span></code>, carrier frequency
+<code class="docutils literal notranslate"><span class="pre">[Hz]</span></code>, communication range <code class="docutils literal notranslate"><span class="pre">[m]</span></code>, propagation speed
+<code class="docutils literal notranslate"><span class="pre">[m/s]</span></code>, SNIR reception threshold <code class="docutils literal notranslate"><span class="pre">[dB]</span></code>, or bitrate
+<code class="docutils literal notranslate"><span class="pre">[b/s]</span></code>. Occasionally, models have more degrees of freedom than the
+real devices, to allow further experimentation.</p>
+<p>Another important and commonly used parameter kind selects among
+alternative implementations of a particular interface by providing its
+name. Different implementations are often separate modules, which come
+with their own set of parameters to avoid the confusion of mixing their
+unrelated parameters. Some modules may be split into more submodules.
+This further deepens the module hierarchy, but allows better
+extensibility.</p>
+</div>
+<div class="section" id="extensibility">
+<h3>Extensibility<a class="headerlink" href="#extensibility" title="Permalink to this headline">¶</a></h3>
+<p>Similar to designing other simulation models, modeling the physical
+layer is not at all an unambiguous task. For example, the research
+literature contains a number of different path loss models for signal
+propagation, there are different bit error models for a particular
+protocol standard, representing the signal in the analog domain can also
+be done in several different ways, and so on.</p>
+<p>In order to support this diversity, the physical layer model is designed
+to be extensible with alternative implementations at various parts of
+the model. This is realized by separately defining C++ and NED
+interfaces between modules, and also by providing parameters in their
+parent modules to easily select among the available implementations.</p>
+<p>New models can be added by implementing the required interfaces from
+scratch, or by deriving from already existing implementations and
+overriding functionality. This architecture allows the user to create
+new models with less effort, and to focus on the real differences, while
+the rest of the physical layer remains the same.</p>
+</div>
+<div class="section" id="scalable-level-of-detail">
+<h3>Scalable Level of Detail<a class="headerlink" href="#scalable-level-of-detail" title="Permalink to this headline">¶</a></h3>
+<p>There are many possible ways to model various aspects of the physical
+layer. The most important difference lies in the trade-off between
+performance versus accuracy. In order to support the different
+trade-offs the physical layer is designed to be scalable with respect to
+the simulated level of detail. In other words, it is scalable from
+high-performance less accurate simulations to high fidelity slower
+simulations.</p>
+<p>The physical layer model is scalable along the following axes:</p>
+<ul class="simple">
+<li>simulation model – statistical vs accurate</li>
+<li>software architecture – flat vs layered</li>
+<li>data representation – scalar vs multi-dimensional</li>
+<li>number of messages – TODO</li>
+</ul>
+<p>The simulation model might vary from simple statistical models to
+accurate emulation. The simplest models ignore the actual bits of the
+transmission. For example, the extremely simple unit disc radio even
+ignores the signal power. The most accurate models use precise signal
+representation for all four domains: bit domain, symbol domain, sample
+domain, and analog domain representations. They also emulate most
+functions of real hardware in detail: forward error correction,
+interleaving, scrambling, modulation, spreading, pulse shaping, and so
+on.</p>
+<p>The software architecture might vary from flat to layered. A flat
+architecture is efficient but not modular. Functionality can only be
+affected through simple parameters and not by providing alternative
+implementations. Whereas a layered architecture is more flexible at the
+cost of more complex data structures, more data conversions, more
+resource management, and thus slower processing. On the other hand, it
+provides more customization opportunities to replace parts with
+alternative implementations and to do research easier in the area.</p>
+<p>The data representation might vary from scalar to multidimensional
+values. In the analog domain of the physical layer data quite often
+changes over time, frequency, space, or any combination thereof. The
+most obvious example is the analog signal power, but there are others
+such as signal phase or the signal to noise ratio.</p>
+<p>The number of messages per transmission added to the future event queue
+might vary from one to the number of radios. One message might be
+sufficient, for example, if the transmission is intended to a single
+destination, and other receivers are either not affected, or the effect
+is negligible. On the other hand, it might be necessary to process all
+transmissions by all receivers in order to have the desired effect on
+the higher layers. For example, if a MAC model is configured to
+promiscuous mode, it needs to receive all transmissions.</p>
+</div>
+<div class="section" id="exploiting-parallel-hardware">
+<h3>Exploiting Parallel Hardware<a class="headerlink" href="#exploiting-parallel-hardware" title="Permalink to this headline">¶</a></h3>
+<p>The physical processes simulated by the physical layer are inherently
+parallel. The computation of the transmission arrival space-time
+coordinates, the analog signal representation of transmissions and
+receptions, the interfering receptions and noises, the signal to noise
+ratio, the decoded bits, the bit errors, and the physical layer
+indications all provide a good parallelization opportunity, because they
+dominate the physical layer performance and are independent for each
+receiver. Therefore the physical layer is designed to be able to utilize
+parallel hardware, multi-core CPUs, vector instructions and the highly
+parallel GPU.</p>
+<p>The idea is to have a central component in the software architecture
+where parallel computation can happen. This central component is the
+medium model that knows about all radios, transmissions, interferences,
+and receptions anyway. It uses optimistic parallel computation in
+multiple background threads while the main simulation thread continues
+normal execution. When a new transmission enters the channel the already
+computed and affected results are invalidated or updated, and the
+affected ongoing optimistic parallel computations are canceled.</p>
+</div>
+</div>
+<div class="section" id="the-radio-model">
+<h2>The Radio Model<a class="headerlink" href="#the-radio-model" title="Permalink to this headline">¶</a></h2>
+<p>The radio model describes the physical device that is capable of
+transmitting and receiving signals on the medium. It contains an antenna
+model, a transmitter model, a receiver model, and an energy consumer
+model. The antenna model is shared between the transmitter model and the
+receiver model. The separation of the transmitter model and the receiver
+model allows asymmetric configurations. The energy consumer model is
+optional and it is only used when the simulation of energy consumption
+is necessary.</p>
+<p>The radio model has an operational mode that is called the radio mode.
+The radio mode is externally controlled usually by the MAC model. In
+transceiver mode, the radio can simultaneously transmit and receive a
+signal. Changing the radio mode may optionally take a non-zero amount of
+time. The supported radio modes are the following:</p>
+<ul class="simple">
+<li><em>off</em>: communication isn’t possible, energy consumption is zero</li>
+<li><em>sleep</em>: communication isn’t possible, energy consumption is minimal</li>
+<li><em>receiver</em>: only reception is possible, energy consumption is low</li>
+<li><em>transmitter</em>: only transmission is possible, energy consumption is
+high</li>
+<li><em>transceiver</em>: reception and transmission is simultaneously possible,
+energy consumption is high</li>
+<li><em>switching</em>: communication isn’t possible, energy consumption is
+minimal</li>
+</ul>
+<p>In addition to the radio mode, the transmitter and the receiver models
+have separate states which describe what they are doing. Changes to
+these states are automatically published by the radio. The signaled
+transmitter states are the following:</p>
+<ul class="simple">
+<li><em>undefined</em>: not in operation</li>
+<li><em>idle</em>: no transmission in progress</li>
+<li><em>transmitting</em>: a transmission is in progress</li>
+</ul>
+<p>The signaled receiver states are the following:</p>
+<ul class="simple">
+<li><em>undefined</em>: not in operation</li>
+<li><em>idle</em>: no reception in progress</li>
+<li><em>busy</em>: received signal is not interpretable</li>
+<li><em>synchronizing</em>: synchronization is in progress</li>
+<li><em>receiving</em>: reception is in progress</li>
+</ul>
+<p>When a radio wants to transmit a signal on the medium, it sends direct
+messages to all affected radios with the help of the central medium
+module. The messages contain a shared data structure which describes the
+transmission the way it entered the medium. The messages arrive at the
+moment when start of the transmission arrive at the receiver. The
+receiver radios also handle the incoming messages with the help of the
+central medium module. This kind of centralization allows the medium to
+do shared computations in a more efficient way and it also makes
+parallel computation possible.</p>
+<p>To maintain modularity, the radio module delegates many of is functions
+to submodules. The following sections describe the parts of the radio
+model.</p>
+<div class="section" id="antenna-models">
+<h3>Antenna Models<a class="headerlink" href="#antenna-models" title="Permalink to this headline">¶</a></h3>
+<p>The antenna model describes the effects of the physical device which
+converts electric signals into radio waves, and vice versa. This model
+captures the antenna characteristics that heavily affect the quality of
+the communication channel. For example, various antenna shapes, antenna
+size and geometry, antenna arrays, and antenna orientation causes
+different directional or frequency selectivity.</p>
+<p>The antenna model provides a position and an orientation using a
+mobility model that defaults to the mobility of the node. The main
+purpose of this model is to compute the antenna gain based on the
+specific antenna characteristics and the direction of the signal. The
+signal direction is computed by the medium from the position and the
+orientation of the transmitter and the receiver. The following list
+provides some examples:</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">IsotropicAntenna</span></code>: antenna gain is exactly 1 in any direction</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">ConstantGainAntenna</span></code>: antenna gain is a constant determined by
+a parameter</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">DipoleAntenna</span></code>: antenna gain depends on the direction according
+to the dipole antenna characteristics</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">InterpolatingAntenna</span></code>: antenna gain is computed by linear
+interpolation according to a table indexed by the direction angles</li>
+</ul>
+<p>The antenna models are in the <code class="docutils literal notranslate"><span class="pre">src/physicallayer/antenna/</span></code>
+directory.</p>
+</div>
+<div class="section" id="transmitter-models">
+<h3>Transmitter Models<a class="headerlink" href="#transmitter-models" title="Permalink to this headline">¶</a></h3>
+<p>The transmitter model describes the physical process which converts
+packets into electric signals. In other words, this model converts a MAC
+packet into a signal that is transmitted on the medium. The conversion
+process and the representation of the signal depends on the level of
+detail and the physical characteristics of the implemented protocol.</p>
+<p>In the flat model the transmitter model skips the symbol domain and the
+sample domain representations, and it directly creates the analog domain
+representation. The bit domain representation is reduced to the bit
+length of the packet and the actual bits are ignored.</p>
+<p>In the layered model the conversion process involves various processing
+steps such as packet serialization, forward error correction encoding,
+scrambling, interleaving, and modulation. This transmitter model
+requires much more computation, but it produces accurate bit domain,
+symbol domain, and sample domain representations.</p>
+<p>The various protocol specific transmitter models are in the
+corresponding directories.</p>
+</div>
+<div class="section" id="receiver-models">
+<h3>Receiver Models<a class="headerlink" href="#receiver-models" title="Permalink to this headline">¶</a></h3>
+<p>The receiver model describes the physical process which converts
+electric signals into packets. In other words, this model converts a
+reception, along with an interference computed by the medium model, into
+a MAC packet and a reception indication. It also determines the
+following for each transmission:</p>
+<ul class="simple">
+<li><em>is the reception possible or not</em>: based on the signal
+characteristics such as reception power, carrier frequency,
+bandwidth, preamble mode, modulation scheme</li>
+<li><em>if the reception is possible, is reception attempted or not</em>: based
+on the ongoing reception and the support of signal capturing</li>
+<li><em>if the reception is attempted, is reception successful or not</em>:
+based on the error model and the simulated part of the signal
+decoding</li>
+</ul>
+<p>In the flat model the receiver model skips the sample domain, the symbol
+domain, and the bit domain representations, and it directly creates the
+packet domain representation by copying the packet from the
+transmission. It uses the error model to decide if the reception is
+successful or not.</p>
+<p>In the layered model the conversion process involves various processing
+steps such as demodulation, descrambling, deinterleaving, forward error
+correction decoding, and deserialization. This reception model requires
+much more computation, but it produces accurate sample domain, symbol
+domain, and bit domain representations.</p>
+<p>The various protocol specific receiver models are in the corresponding
+directories.</p>
+</div>
+<div class="section" id="transmission-error-modeling">
+<h3>Transmission Error Modeling<a class="headerlink" href="#transmission-error-modeling" title="Permalink to this headline">¶</a></h3>
+<p>Determining the reception errors is a crucial part of the reception
+process. There are often several different statistical error models in
+the literature even for a particular physical layer. In order to support
+this diversity the error model is a separate replaceable component of
+the receiver.</p>
+<p>The error model describes how the signal to noise ratio affects the
+amount of errors at the receiver. The main purpose of this model is to
+determine whether if the received packet has errors or not. It also
+computes various physical layer indications for higher layers such as
+packet error rate, bit error rate, and symbol error rate. For the
+layered reception model it needs to compute the erroneous bits, symbols,
+or samples depending on the lowest simulated physical domain where the
+real decoding starts. The error model is optional, if omitted all
+receptions are considered successful.</p>
+<p>The error models are in the <code class="docutils literal notranslate"><span class="pre">src/physicallayer/errormodel/</span></code>
+directory and also in the corresponding protocol specific directories.</p>
+</div>
+<div class="section" id="power-consumption-models">
+<h3>Power Consumption Models<a class="headerlink" href="#power-consumption-models" title="Permalink to this headline">¶</a></h3>
+<p>A substantial part of the energy consumption of communication devices
+comes from transmitting and receiving signals. The energy consumer model
+describes how the radio consumes energy depending on its activity. This
+model is optional, if omitted energy consumption is ignored. The
+following list provides some examples:</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">StateBasedEnergyConsumer</span></code>: the constant power consumption is
+determined by valid combinations of the radio mode, the transmitter
+state and the receiver state</li>
+</ul>
+<p>The energy consumer models are in the
+<code class="docutils literal notranslate"><span class="pre">src/physicallayer/energyconsumer/</span></code> directory.</p>
+<p>TODO: layered</p>
+<p>This module further splits the transmitter and receiver models to allow
+bit precise communication modeling.</p>
+<p>TODO: layered</p>
+<p>The following sections describe the parts of the layered radio model.</p>
+<div class="section" id="encoding-and-decoding">
+<h4>Encoding and Decoding<a class="headerlink" href="#encoding-and-decoding" title="Permalink to this headline">¶</a></h4>
+<p>This module describes how the packet domain signal representation is
+converted into the bit domain, and vice versa.</p>
+<p>TODO: layered</p>
+</div>
+<div class="section" id="modulation-and-demodulation">
+<h4>Modulation and Demodulation<a class="headerlink" href="#modulation-and-demodulation" title="Permalink to this headline">¶</a></h4>
+<p>This module describes how the bit domain signal representation is
+converted into the symbol domain, and vice versa.</p>
+<p>TODO: layered</p>
+</div>
+<div class="section" id="pulse-shaping-and-pulse-filtering">
+<h4>Pulse Shaping and Pulse Filtering<a class="headerlink" href="#pulse-shaping-and-pulse-filtering" title="Permalink to this headline">¶</a></h4>
+<p>This module describes how the symbol domain signal representation is
+converted into the sample domain, and vice versa.</p>
+<p>TODO: layered</p>
+</div>
+<div class="section" id="digital-analog-and-analog-digital-conversion">
+<h4>Digital Analog and Analog Digital Conversion<a class="headerlink" href="#digital-analog-and-analog-digital-conversion" title="Permalink to this headline">¶</a></h4>
+<p>This module describes how the sample domain signal representation is
+converted into the analog domain, and vice versa.</p>
+<p>TODO: layered</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-medium-model">
+<h2>The Medium Model<a class="headerlink" href="#the-medium-model" title="Permalink to this headline">¶</a></h2>
+<p>The medium model describes the shared physical medium where
+communication takes place. It keeps track of radios, noise sources,
+ongoing transmissions, background noise, and other ongoing noises. The
+medium computes when, where and how transmissions and noises arrive at
+receivers. It also efficiently provides the set of interfering
+transmissions and noises for the receivers. It doesn’t send or handle
+messages on its own, it rather acts as a mediator between radios.</p>
+<p>The medium model has a separate chapter devoted to it, see
+<a class="reference internal" href="ch-transmission-medium.html"><span class="doc">Transmission Medium</span></a>.</p>
+</div>
+<div class="section" id="signal-representation">
+<h2>Signal Representation<a class="headerlink" href="#signal-representation" title="Permalink to this headline">¶</a></h2>
+<p>The data structures that represent the transmitted and the received
+signals might contain many different data depending on the simulated
+level of detail. In addition, the reception data structure might contain
+various physical layer indications, which are computed during the
+reception process. The following list provides some examples:</p>
+<ul class="simple">
+<li><em>packet domain</em>: actual packet, packet error rate, packet error bit,
+etc.</li>
+<li><em>bit domain</em>: various bit lengths, bitrates, actual bits, forward
+error correction code, interleaving scheme, scrambling scheme, bit
+error rate, number of bit errors, actual erroneous bits, etc.</li>
+<li><em>symbol domain</em>: number of symbols, symbol rate, actual symbols,
+modulation scheme, symbol error rate, number of symbol errors, actual
+erroneous symbols, etc.</li>
+<li><em>sample domain</em>: number of samples, sampling rate, actual samples,
+etc.</li>
+<li><em>analog domain</em>: space-time coordinates, antenna orientations,
+communication range, interference range, detection range, carrier
+frequency, subcarrier frequencies, bandwidths, scalar or dimensional
+power, receive signal strength indication, signal to noise and
+interference ratio, etc.</li>
+</ul>
+<p>In simple case the packet domain specifies the MAC packet only, and the
+bit domain specifies the bit length and the bitrate. The symbol domain
+specifies the used modulation, and the sample domain is simply ignored.
+The most important part is the analog domain representation, because it
+is indispensable to be able to compute some kind of signal to noise and
+interference ratio. The following figure shows four different kinds of
+analog domain representations, but other representations are also
+possible.</p>
+<div class="figure align-center" id="id1">
+<img alt="Various analog signal representations" src="../_images/phyanalog.png" />
+<p class="caption"><span class="caption-text">Various analog signal representations</span></p>
+</div>
+<p>The first representation is called range-based, and it is used by the
+unit disc radio. The advantage of this data structure is that it is
+compact, predictable, and provides high performance. The disadvantage is
+that it is very inaccurate in terms of modeling reality. Nevertheless,
+this representation might be sufficient for developing a new routing
+protocol if accurate simulation of packet loss is not important.</p>
+<p>The second data structure represents a narrowband signal with a scalar
+signal power, a carrier frequency, and a bandwidth. The advantage of
+this representation is that it allows to compute a real signal to noise
+ratio, which in turn can be used by the error model to compute bit and
+packet error rates. This representation is most of the time sufficient
+for the simulation of IEEE 802.11 networks.</p>
+<p>The third data structure describes a signal power that changes over
+time. In this case the signal power is represented with a
+one-dimensional time dependent value that precisely follows the
+transmitted pulses. This representation is used by the IEEE 802.15.4a
+UWB radio.</p>
+<p>The last representation uses a multi-dimensional value to describe the
+signal power that changes over both time and frequency. The IEEE 802.11b
+model might use this representation to simulate crosstalk, where one
+channel interferes with another. In order to make it work the frequency
+spectrum of the signal has to follow the real spectrum more precisely at
+both ends of the band.</p>
+<p>The flat signal representation uses a single object to simulatenously
+describe all domains of the transmission or the reception. In contrast,
+the layered signal representation uses one object to describe every
+domain seperately. The advantage of the latter is that it is extensible
+with alternative implementations for each domain. The disadvantage is
+that it needs more allocation and resource management.</p>
+</div>
+<div class="section" id="signal-processing">
+<h2>Signal Processing<a class="headerlink" href="#signal-processing" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows the process of how a MAC packet gets from the
+transmitter radio through the medium to the receiver radio. The figure
+focues on how data flows between the processing components of the
+physical layer. The blue boxes represent the data structures, and the
+red boxes represent the processing components.</p>
+<div class="figure align-center" id="id2">
+<img alt="Signal processing data flow" src="../_images/phydataflow.png" />
+<p class="caption"><span class="caption-text">Signal processing data flow</span></p>
+</div>
+<p>The transmission process starts in the transmitter radio when it
+receives a MAC packet from the higher layer. The radio must be in
+transmitter or transceiver mode before receiving a MAC packet, otherwise
+it throws an exception. At first the transmitter model creates a data
+structure that describes the transmitted signal based on the received
+MAC packet and the attached transmission request. The resulting data
+structure is immutable, it is not going to be changed in any later
+processing step.</p>
+<p>Thereafter the propagation model computes the arrival space-time
+coordinates for all receivers. In the next step the medium model
+determines the set of affected receivers. Which radio constitutes
+affected depends on a number of factors such as the maximum
+communication range of the transmitter, the radio mode of the receiver,
+the listening mode of the receiver, or potentially the MAC address of
+the receiver. Using the result the medium model sends a separate message
+with the shared transmission data structure to all affected receivers.
+There’s no need to send a message to all radios on the channel, because
+the computation of interfering signals is independent of this step.</p>
+<p>Thereafter the attenuation model computes the reception for the receiver
+using the original transmission and the arrival data structure. It
+applies the path loss model, the obstacle loss model and the multipath
+model to the transmission. The resulting data structure is also
+immutable, it is not going to be changed in any later processing step.</p>
+<p>Thereafter the medium model computes the interference for the reception
+by collecting all interfering receptions and noises. Another signal is
+considered interfering if it owerlaps both in time and frequency domains
+with respect to the minimum interference parameters. The background
+noise model also computes a noise signal that is added to the
+interference.</p>
+<p>The reception process starts in the receiver radio when it receives a
+message from the transmitter radio. The radio must be in receiver or
+transceiver mode before the message arrives, otherwise it ignores the
+message. At first the receiver model determines is whether the reception
+is actually attempted or not. This decision depends on the reception
+power, whether there’s another ongoing reception process, and capturing
+is enabled or not.</p>
+<p>Thereafter the receiver model computes the signal to noise and
+interference ratio from the reception and the interference. Using the
+result, the bitrate, and the modulation scheme the error model computes
+the necessary error rates. Alternatively the error model might compute
+the erroneous bits, or symbols by altering the corresponding data of the
+original transmission.</p>
+<p>Thereafter the receiver determines the received MAC packet by either
+simply reusing the original, or actually decoding from the lowest
+represented domain in the reception. Finally, it attaches the physical
+layer indication to the MAC packet, and sends it up to the higher layer.</p>
+<p>The following sections describe the data structures that are created
+during signal processing.</p>
+<div class="section" id="transmission-request">
+<h3>Transmission Request<a class="headerlink" href="#transmission-request" title="Permalink to this headline">¶</a></h3>
+<p>This data structure contains parameters that control how the transmitter
+produces the transmission. For example, it might override the default
+transmission power, ot the default bitrate of the transmitter. It is
+attached as a control info object to the MAC packet sent down from the
+MAC module to the radio.</p>
+</div>
+<div class="section" id="transmission">
+<h3>Transmission<a class="headerlink" href="#transmission" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the transmission of a signal. It specifies
+the start/end time, start/end antenna position, start/end antenna
+orientation of the transmitter. In other words, it describes when, where
+and how the signal started/ended to interact with the medium. The
+transmitter model creates one transmission instance per MAC packet.</p>
+</div>
+<div class="section" id="arrival">
+<h3>Arrival<a class="headerlink" href="#arrival" title="Permalink to this headline">¶</a></h3>
+<p>This data structure decscirbes the space and time coordinates of a
+transmission arriving at a particular receiver. It specifies the
+start/end time, start/end antenna position, start/end antenna
+orientation of the receiver. The propagation model creates one arrival
+instance per transmission per receiver.</p>
+</div>
+<div class="section" id="listening">
+<h3>Listening<a class="headerlink" href="#listening" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the way the receiver radio is listening on
+the medium. The physical layer ignores certain transmissions either
+during computing the interference or even the complete reception of such
+transmissions. For example, a narrowband listening specifies a carrier
+frequency and a bandwidth.</p>
+</div>
+<div class="section" id="reception">
+<h3>Reception<a class="headerlink" href="#reception" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the reception of a signal by a particular
+receiver. It specifies at least the start/end time, start/end antenna
+position, start/end antenna orientation of the receiver. The attenuation
+model creates one reception instance per transmission per receiver.</p>
+</div>
+<div class="section" id="noise">
+<h3>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes a meaningless signal or a meaningless
+composition of multiple signals. All models contain at least the
+start/end time, and start/end position.</p>
+</div>
+<div class="section" id="interference">
+<h3>Interference<a class="headerlink" href="#interference" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the interfering signals and noises that
+affect a particular reception. It also specifies the total noise that is
+the composition of all interference.</p>
+</div>
+<div class="section" id="snir">
+<h3>SNIR<a class="headerlink" href="#snir" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the signal to noise and interference ratio
+of a particular reception. It also specifies the minimum signal to noise
+and interference ratio.</p>
+</div>
+<div class="section" id="reception-decision">
+<h3>Reception Decision<a class="headerlink" href="#reception-decision" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes whether if the reception of a signal is
+possible or not, is attempted or not, and is successful or not.</p>
+</div>
+<div class="section" id="reception-indication">
+<h3>Reception Indication<a class="headerlink" href="#reception-indication" title="Permalink to this headline">¶</a></h3>
+<p>This data structure describes the physical layer indications such as
+RSSI, SNIR, PER, BER, SER. These physical properties are optional and
+may be omitted if the receiver is configured to do so or if it doesn’t
+support providing the data. The reception indication is attached as a
+control info object to the MAC packet sent up from the radio to the MAC
+module.</p>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<p>In order to help understanding the communication in the network the
+physical layer supports visualizing its state. The following list shows
+what can be displayed:</p>
+<ul class="simple">
+<li>ongoing transmissions</li>
+<li>recent successful receptions</li>
+<li>recent obstacle intersections and surface normal vectors</li>
+</ul>
+<p>The ongoing transmissions can be displayed with 3 dimensional spheres or
+with 2 dimensional rings laying in the XY plane. As the signal
+propagates through space the figure grows with it to show where the
+beginning of the signal is. The inner circle of the ring figure shows as
+the end of the signal propagates through space.</p>
+<p>The recent successful receptions are displayed as straight lines between
+the original positions of the transmission and the reception. The recent
+obstacle intersections are also displayed as straight lines from the
+start of the intersection to the end of it.</p>
+</div>
+<div class="section" id="todo-other-stuff">
+<h2>TODO other stuff<a class="headerlink" href="#todo-other-stuff" title="Permalink to this headline">¶</a></h2>
+<p>TODO: scalar vs dimensional</p>
+<p>TODO: flat vs layered</p>
+<p>TODO: Generic, IEEE 802.11, IEEE 802.15.4</p>
+<p>TODO: acoustic underwater example</p>
+<p>TODO: wireless vs. wired medium</p>
+</div>
+<div class="section" id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">The Physical Layer</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#customizability">Customizability</a></li>
+<li><a class="reference internal" href="#extensibility">Extensibility</a></li>
+<li><a class="reference internal" href="#scalable-level-of-detail">Scalable Level of Detail</a></li>
+<li><a class="reference internal" href="#exploiting-parallel-hardware">Exploiting Parallel Hardware</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-radio-model">The Radio Model</a><ul>
+<li><a class="reference internal" href="#antenna-models">Antenna Models</a></li>
+<li><a class="reference internal" href="#transmitter-models">Transmitter Models</a></li>
+<li><a class="reference internal" href="#receiver-models">Receiver Models</a></li>
+<li><a class="reference internal" href="#transmission-error-modeling">Transmission Error Modeling</a></li>
+<li><a class="reference internal" href="#power-consumption-models">Power Consumption Models</a><ul>
+<li><a class="reference internal" href="#encoding-and-decoding">Encoding and Decoding</a></li>
+<li><a class="reference internal" href="#modulation-and-demodulation">Modulation and Demodulation</a></li>
+<li><a class="reference internal" href="#pulse-shaping-and-pulse-filtering">Pulse Shaping and Pulse Filtering</a></li>
+<li><a class="reference internal" href="#digital-analog-and-analog-digital-conversion">Digital Analog and Analog Digital Conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-medium-model">The Medium Model</a></li>
+<li><a class="reference internal" href="#signal-representation">Signal Representation</a></li>
+<li><a class="reference internal" href="#signal-processing">Signal Processing</a><ul>
+<li><a class="reference internal" href="#transmission-request">Transmission Request</a></li>
+<li><a class="reference internal" href="#transmission">Transmission</a></li>
+<li><a class="reference internal" href="#arrival">Arrival</a></li>
+<li><a class="reference internal" href="#listening">Listening</a></li>
+<li><a class="reference internal" href="#reception">Reception</a></li>
+<li><a class="reference internal" href="#noise">Noise</a></li>
+<li><a class="reference internal" href="#interference">Interference</a></li>
+<li><a class="reference internal" href="#snir">SNIR</a></li>
+<li><a class="reference internal" href="#reception-decision">Reception Decision</a></li>
+<li><a class="reference internal" href="#reception-indication">Reception Indication</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#visualization">Visualization</a></li>
+<li><a class="reference internal" href="#todo-other-stuff">TODO other stuff</a></li>
+<li><a class="reference internal" href="#use-cases">Use Cases</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Ipv4 &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Ipv4</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-ipv4.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="ipv4">
+<span id="dg-cha-ipv4"></span><h1>Ipv4<a class="headerlink" href="#ipv4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-ipv4-module">
+<h2>The IPv4 Module<a class="headerlink" href="#the-ipv4-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="processing-time">
+<h3>Processing time<a class="headerlink" href="#processing-time" title="Permalink to this headline">¶</a></h3>
+<p>The C++ class of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module is derived from
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">QueueBase</span></code>. There is a processing time associated with each
+incoming packet. This processing time is specified by the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">procDelay</span></code> module parameter. If a packet arrives, when the
+processing of a previous has not been finished, it is placed in a FIFO
+queue.</p>
+<p>The current performance model assumes that each datagram is processed
+within the same time, and there is no priority between the datagrams. If
+you need a more sophisticated performance model, you may change the
+module implementation (the IP class), and:</p>
+<ol class="arabic simple">
+<li>override the <code class="code literal-cpp docutils literal notranslate"><span class="pre">startService()</span></code> method which determines
+processing time for a packet, or</li>
+<li>use a different base class.</li>
+</ol>
+</div>
+<div class="section" id="interface-with-higher-layer">
+<h3>Interface with higher layer<a class="headerlink" href="#interface-with-higher-layer" title="Permalink to this headline">¶</a></h3>
+<p>Higher layer protocols should be connected to the
+<code class="docutils literal notranslate"><span class="pre">transportIn</span></code>/<code class="docutils literal notranslate"><span class="pre">transportOut</span></code> gates of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module.</p>
+<div class="section" id="sending-packets">
+<h4>Sending packets<a class="headerlink" href="#sending-packets" title="Permalink to this headline">¶</a></h4>
+<p>Higher layer protocols can send a packet by attaching a
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> object to their packet and sending it to the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module.</p>
+<p>The following fields must be set in the control info:</p>
+<ul class="simple">
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">procotol</span></code>: the <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> field of the IP datagram. Valid
+values are defined in the <code class="docutils literal notranslate"><span class="pre">IpProtocolId</span></code> enumeration.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">destAddr</span></code>: the <code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Address</span></code> of the IP datagram.</li>
+</ul>
+<p>Optionally the following fields can be set too:</p>
+<ul class="simple">
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">scrAddr</span></code>: <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Address</span></code> of the IP datagram. If given it
+must match with the address of one of the interfaces of the node, but
+the datagram is not necessarily routed through that interface. If
+left unspecified, then the address of the outgoing interface will be
+used.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">timeToLive</span></code>: TTL of the IP datagram or -1 (unspecified). If
+unspecified then the TTL of the datagram will be 1 for destination
+addresses in the 224.0.0.0 – 224.0.0.255 range. (Datagrams with these
+special multicast addresses do not need to go further that one hop,
+routers does not forward these datagrams.) Otherwise the TTL field is
+determined by the <code class="code literal-ini docutils literal notranslate"><span class="pre">defaultTimeToLive</span></code> or
+<code class="code literal-ini docutils literal notranslate"><span class="pre">defaultMCTimeToLive</span></code> module parameters depending whether the
+destination address is a multicast address or not.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">dontFragment</span></code>: the <code class="docutils literal notranslate"><span class="pre">Don’t</span> <span class="pre">Fragment</span></code> flag of the outgoing
+datagram (default is <code class="docutils literal notranslate"><span class="pre">false</span></code>)</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">diffServCodePoint</span></code>: the <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">of</span> <span class="pre">Service</span></code> field of the
+outgoing datagram. (ToS is called <code class="docutils literal notranslate"><span class="pre">diffServCodePoint</span></code> in
+<code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4Datagram</span></code> too.)</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">multicastLoop</span></code>: if <code class="docutils literal notranslate"><span class="pre">true</span></code>, then a copy of the multicast
+datagrams are sent to the loopback interface, so applications on the
+same host can receive it.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">interfaceId</span></code>: id of outgoing interface (can be used to limit
+broadcast or restrict routing).</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">nextHopAddr</span></code>: explicit routing info, used by Manet DSR routing.
+If specified, then <code class="docutils literal notranslate"><span class="pre">interfaceId</span></code> must also be specified. Ignored
+in Manet routing is disabled.</li>
+</ul>
+<p>The IP module encapsulates the transport layer datagram into an
+<code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4Datagram</span></code> and fills in the header fields according to the
+control info. The <code class="docutils literal notranslate"><span class="pre">Identification</span></code> field is generated by
+incrementing a counter.</p>
+<p>The generated IP datagram is passed to the routing algorithm. The
+routing decides if the datagram should be delivered locally, or passed
+to one of the network interfaces with a specified next hop address, or
+broadcasted on one or all of the network interfaces. The details of the
+routing is described in the next subsection
+(<a class="reference external" href="#subsec:ip_routing">1.1.3</a>) in detail.</p>
+<p>Before sending the datagram on a specific interface, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>
+module checks if the packet length is smaller than the <code class="docutils literal notranslate"><span class="pre">MTU</span></code> of the
+interface. If not, then the datagram is fragmented. When the <code class="docutils literal notranslate"><span class="pre">Don’t</span>
+<span class="pre">Fragment</span></code> flag forbids fragmentation, an <code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Unreachable</span></code>
+ICMP error is generated with the <code class="docutils literal notranslate"><span class="pre">Fragmentation</span> <span class="pre">Error</span> <span class="pre">(5)</span></code> error
+code.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Each fragment will encapsulate the whole higher layer datagram, although the
+length of the IP datagram corresponds to the fragment length.</p>
+</div>
+<p>The fragments are sent to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module through the
+<code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module forwards the datagram
+immediately to point-to-point interface cards. If the outgoing interface
+is a 802.x card, then before forwarding the datagram it performs address
+resolution to obtain the MAC address of the destination.</p>
+</div>
+<div class="section" id="receiving-packets">
+<h4>Receiving packets<a class="headerlink" href="#receiving-packets" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module of hosts processes the datagrams received from
+the network in three steps:</p>
+<ol class="arabic simple">
+<li>Reassemble fragments</li>
+<li>Decapsulate the transport layer datagram</li>
+<li>Dispatch the datagram to the appropriate transport protocol</li>
+</ol>
+<p>When a fragment received, it is added to the fragment buffer of the IP.
+If the fragment was the last fragment of a datagram, the processing of
+the datagram continues with step 2. The fragment buffer stores the
+reception time of each fragment. Fragments older than
+<code class="code literal-ini docutils literal notranslate"><span class="pre">fragmentTimeout</span></code> are purged from the buffer. The default value of
+the timeout is 60s. The timeout is only checked when a fragment is
+received, and at least 10s elapsed since the last check.</p>
+<p>An <code class="code literal-msg docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> attached to the decapsulated transport layer
+packet. The control info contains fields copied from the IP header
+(source and destination address, protocol, TTL, ToS) as well as the
+interface id through it was received. The control info also stores the
+original IP datagram, because the transport layer might signal an ICMP
+error, and the ICMP packet must encapsulate the erronous IP datagram.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">IP datagrams containing a DSR packet are not decapsulated, the unchanged IP
+datagram is passed to the DSR module instead.</p>
+</div>
+<p>After decapsulation, the transport layer packet will be passed to the
+appropriate transport protocol. It must be connected to one of the
+<code class="docutils literal notranslate"><span class="pre">transportOut[]</span></code> gate. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module finds the gate using
+the <code class="docutils literal notranslate"><span class="pre">protocol</span> <span class="pre">id</span></code><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">gate</span> <span class="pre">index</span></code> mapping
+given in the <code class="code literal-ini docutils literal notranslate"><span class="pre">protocolMapping</span></code> string parameter. The value must be
+a comma separated list of ”&lt;protocol_id&gt;:&lt;gate_index&gt;” items. For
+example the following line in the ini file maps TCP (6) to gate 0, UDP
+(17) to gate 1, ICMP (1) to gate 2, IGMP (2) to gate 3, and RVSP (46) to
+gate 4.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.ip.protocolMapping</span><span class="o">=</span><span class="s">&quot;6:0,17:1,1:2,2:3,46:4&quot;</span>
+</pre></div>
+</div>
+<p>If the protocol of the received IP datagram is not mapped, or the gate
+is not connected, the datagram will be silently dropped.</p>
+<p>Some protocols are handled differently:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Icmp</span></code>: ICMP errors are delivered to the protocol whose packet
+triggered the error. Only ICMP query requests and responses are sent
+to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module.</li>
+<li><code class="docutils literal notranslate"><span class="pre">IP</span></code>: sent through <code class="docutils literal notranslate"><span class="pre">preRoutingOut</span></code> gate. (bug!)</li>
+<li><code class="docutils literal notranslate"><span class="pre">DSR</span></code>: ??? (subsection about Manet routing?)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="routing-and-interfacing-with-lower-layers">
+<span id="subsec-ip-routing"></span><h3>Routing, and interfacing with lower layers<a class="headerlink" href="#routing-and-interfacing-with-lower-layers" title="Permalink to this headline">¶</a></h3>
+<p>The output of the network interfaces are connected to the <code class="docutils literal notranslate"><span class="pre">queueIn</span></code>
+gates of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module. The incoming packets are either IP
+datagrams or ARP responses. The IP datagrams are processed by the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module, the ARP responses are forwarded to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code>.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module first checks the error bit of the incoming IP
+datagrams. There is a <span class="math notranslate nohighlight">\(header length/packet length\)</span> probability
+that the IP header contains the error (assuming 1&nbsp;bit error). With this
+probability an ICMP <code class="docutils literal notranslate"><span class="pre">Parameter</span> <span class="pre">Problem</span></code> generated, and the datagram
+is dropped.</p>
+<p>When the datagram does not contain error in the IP header, a routing
+decision is made. As a result of the routing the datagram is either
+delivered locally, or sent out one or more output interface. When it is
+sent out, the routing algorithm must compute the next hop of its route.
+The details are differ, depending on that the destination address is
+multicast address or not.</p>
+<p>When the datagram is decided to be sent up, it is processed as described
+in the previous subsection (Receiving packets). If it is decided to be
+sent out through some interface, it is actually sent to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code>
+module through the <code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. An <code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4RoutingDecision</span></code>
+control info is attached to the outgoing packet, containing the outgoing
+interface id, and the IP address of the next hop. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module
+resolve the IP address to a hardware address if needed, and forwards the
+datagram to next hop.</p>
+<div class="section" id="unicast-broadcast-routing">
+<h4>Unicast/broadcast routing<a class="headerlink" href="#unicast-broadcast-routing" title="Permalink to this headline">¶</a></h4>
+<p>When the higher layer generated the datagram, it will be processed in
+these steps:</p>
+<ol class="arabic simple">
+<li>If the destination is the address of a local interface, then the
+datagram is locally delivered.</li>
+<li>If the destination is the limited broadcast address, or a local
+broadcast address, then it will be broadcasted on one or more
+interface. If the higher layer specified am outgoing interface
+(<code class="code literal-cpp docutils literal notranslate"><span class="pre">interfaceId</span></code> in the control info), then it will be broadcasted
+on that interface only. Otherwise if the <code class="code literal-ini docutils literal notranslate"><span class="pre">forceBroadcast</span></code> module
+parameter is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then it will broadcasted on all interfaces
+including the loopback interface. The default value of the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">forceBroadcast</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+<li>If the higher layer provided the routing decision (Manet routing),
+then the datagram will be sent through the specified interface to the
+specified next hop.</li>
+<li>Otherwise IP finds the outgoing interface and the address of the next
+hop by consulting the routing table, and sends the datagram to the
+next hop. If no route found, then a <code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Unreachable</span></code>
+ICMP error is generated.</li>
+</ol>
+<p>Incoming datagrams having unicast or broadcast destination addresses are
+routed in the following steps:</p>
+<ol class="arabic simple">
+<li>Deliver datagram locally. If the destination address is a local
+address, the limited broadcast address (255.255.255.255), or a local
+broadcast address, then it will be sent to the transport layer.</li>
+<li>Drop packets received from the network when IP forwarding is
+disabled.</li>
+<li>Forward the datagram to the next hop. The next hop is determined by
+looking up the best route to the destination from the routing table.
+If the gateway is set in the route, then the datagram will be
+forwarded to the gateway, otherwise it is sent directly to the
+destination. If no route is found, then a <code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Unreachable</span></code>
+ICMP error is sent to the source of the datagram.</li>
+</ol>
+</div>
+<div class="section" id="multicast-routing">
+<h4>Multicast routing<a class="headerlink" href="#multicast-routing" title="Permalink to this headline">¶</a></h4>
+<p>Outgoing multicast datagrams are handled as follows:</p>
+<p>If the higher layer set the <code class="code literal-cpp docutils literal notranslate"><span class="pre">multicastLoop</span></code> variable to
+<code class="docutils literal notranslate"><span class="pre">true</span></code>, the IP will send up a copy of the datagram through the
+loopback interface.</p>
+<p>Determine the outgoing interface for the multicast datagram, and send
+out the datagram through that interface. The outgoing interface is
+determined by the following rules:</p>
+<p>if the HL specified the outgoing interface in the control info, the it
+will be used</p>
+<p>otherwise use the interface of the route configured in the routing table
+for the destination address</p>
+<p>if no route found, then use the interface whose address matches the
+source address of the datagram</p>
+<p>if the HL did not specify the source address, then use the first
+multicast capable interface</p>
+<p>if no such interface found, then the datagram is unroutable and droppped</p>
+<p>Incoming multicast datagrams are forwarded according to their source
+address (Reverse Path Forwarding), i.e. datagrams are sent away from
+their sources instead towards their destinations. The multicast routing
+table maintains a spanning tree for each source network and multicast
+group. The source network is the root of the tree, and there is a path
+to each LAN that has members of the multicast group. Each node expects
+the multicast datagram to arrive from their parent and forwards them
+towards their children. Multicast forwarding loops are avoided by
+dropping the datagrams not arrived on the parent interface.</p>
+<p>More specifically, the routing routine for multicast datagrams performs
+these steps:</p>
+<ol class="arabic simple">
+<li>Deliver a copy of the datagram locally. If the interface on which the
+datagram arrived belongs to the multicast group specified by the
+destination address, it is sent up to the transport layer.</li>
+<li>Discard incoming packets that can not be delivered locally and can
+not be forwarded. A non-local packet can not be forwarded if
+multicast forwarding is disabled, the destination is a link local
+multicast address (224.0.0.x), or the TTL field reached 0.</li>
+<li>Discard the packet if no multicast route found, or if it did not
+arrive on the parent interface of the route (to avoid multicast
+loops). If the parent is not set in the route, then the shortest path
+interface to the source is assumed.</li>
+<li>Forward the multicast datagram. A copy of the datagram is sent on
+each child interface described by multicast routes (except the
+incoming interface). Interfaces may have a <code class="code literal-cpp docutils literal notranslate"><span class="pre">ttlThreshold</span></code>
+parameter, that limits the scope of the multicast: only datagrams
+with higher TTL are forwarded.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="the-ipv4routingtable-module">
+<h2>The IPv4RoutingTable Module<a class="headerlink" href="#the-ipv4routingtable-module" title="Permalink to this headline">¶</a></h2>
+<p>Interfaces are dynamically registered: at the start of the simulation,
+every L2 module adds its own interface entry to the table.</p>
+<p>The route table is read from a file; the file can also fill in or
+overwrite interface settings. The route table can also be read and
+modified during simulation, typically by routing protocol
+implementations (e.g. OSPF).</p>
+<p>Entries in the route table are represented by <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Route</span></code> objects.
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Route</span></code> objects can be polymorphic: if a routing protocol needs
+to store additional data, it can simply subclass from <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Route</span></code>,
+and add the derived object to the table. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Route</span></code> object has
+the following fields:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">host</span></code> is the IP address of the target of the route (can be a
+host or network). When an entry searched for a given destination
+address, the destination address is compared with this <code class="docutils literal notranslate"><span class="pre">host</span></code>
+address using the <code class="docutils literal notranslate"><span class="pre">netmask</span></code> below, and the longest match wins.</li>
+<li><code class="docutils literal notranslate"><span class="pre">netmask</span></code> used when comparing <code class="docutils literal notranslate"><span class="pre">host</span></code> with the detination
+address. It is 0.0.0.0 for the default route, 255.255.255.255 for
+host routes (exact match), or the network or subnet mask for network
+routes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">gateway</span></code> is the IP address of the gateway for indirect routes,
+or 0.0.0.0 for direct routes. Note that 0.0.0.0 can be used even if
+the destination is not directly connected to this node, but can be
+found using proxy ARP.</li>
+<li><code class="docutils literal notranslate"><span class="pre">interface</span></code> the outgoing interface to be used with this route.</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> <code class="docutils literal notranslate"><span class="pre">DIRECT</span></code> or <code class="docutils literal notranslate"><span class="pre">REMOTE</span></code>. For direct routes, the
+next hop address is the destination address, for remote routes it is
+the gateway address.</li>
+<li><code class="docutils literal notranslate"><span class="pre">source</span></code> <code class="docutils literal notranslate"><span class="pre">MANUAL</span></code>, <code class="docutils literal notranslate"><span class="pre">IFACENETMASK</span></code>, <code class="docutils literal notranslate"><span class="pre">RIP</span></code>,
+<code class="docutils literal notranslate"><span class="pre">OSPF</span></code>, <code class="docutils literal notranslate"><span class="pre">BGP</span></code>, <code class="docutils literal notranslate"><span class="pre">ZEBRA</span></code>, <code class="docutils literal notranslate"><span class="pre">MANET</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">MANET2</span></code>. <code class="docutils literal notranslate"><span class="pre">MANUAL</span></code> means that the route was added by a
+routing file, or a network configurator. <code class="docutils literal notranslate"><span class="pre">IFACENETMASK</span></code> routes
+are added for each interface of the node. Other values means that the
+route is managed by the specific routing daemon.</li>
+<li><code class="docutils literal notranslate"><span class="pre">metric</span></code> the “cost” of the route. Currently not used when
+choosing the best route.</li>
+</ul>
+<p>In multicast routers the routing table contains multicast routes too. A
+multicast route is represented by an instance of the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4MulticastRoute</span></code> class. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4MulticastRoute</span></code> instance
+stores the following fields:</p>
+<ul class="simple">
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">origin</span></code> IP address of the network of the source of the datagram</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">originNetmask</span></code> netmask of the source network</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">group</span></code> the multicast group to be matched the destination of the
+datagram. If unspecified, then the route matches with</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">parent</span></code> interface towards the parent link in the multicast
+tree. Only those datagrams are forwarded that arrived on the parent
+interface.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">children</span></code> the interfaces on which the multicast datagram to be
+forwarded. Each entry contains a flag indicating if this interface is
+a leaf in the multicast tree. The datagram is forwarded to leaf
+interfaces only if there are known members of the group in the
+attached LAN.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">source</span></code> enumerated value identifying the creator of the entry.
+<code class="docutils literal notranslate"><span class="pre">MANUAL</span></code> for static routes, <code class="docutils literal notranslate"><span class="pre">DVRMP</span></code> for the DVMRP routers,
+<code class="docutils literal notranslate"><span class="pre">PIM_SM</span></code> for PIM SM routers.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">metric</span></code> the “cost“ of the route.</li>
+</ul>
+<p>When there are several multicast routes matching the source and
+destination of the datagram, then the forwarding algorithm chooses the
+one with the</p>
+<ol class="arabic simple">
+<li>the longest matching source</li>
+<li>the more specific group</li>
+<li>the smallest metric.</li>
+</ol>
+</div>
+<div class="section" id="the-icmp-module">
+<h2>The ICMP Module<a class="headerlink" href="#the-icmp-module" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module has two methods which can be used by other
+modules to send ICMP error messages:</p>
+<ul>
+<li><p class="first"><code class="code literal-cpp docutils literal notranslate"><span class="pre">sendErrorMessage(IPv4Datagram*,</span> <span class="pre">ICMPType,</span> <span class="pre">ICMPCode)</span></code></p>
+<p>used by the network layer to report erronous IPv4 datagrams. The ICMP
+header fields are set to the given type and code, and the ICMP
+message will encapsulate the given datagram.</p>
+</li>
+<li><p class="first"><code class="code literal-cpp docutils literal notranslate"><span class="pre">sendErrorMessage(cPacket*,</span> <span class="pre">IPv4ControlInfo*,</span> <span class="pre">ICMPType,</span> <span class="pre">ICMPCode)</span></code>
+used by the transport layer components to report erronous packets.
+The transport packet will be encapsulated into an IP datagram before
+wrapping it into the ICMP message.</p>
+</li>
+</ul>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be accessed from other modules of the node by
+calling <code class="code literal-cpp docutils literal notranslate"><span class="pre">ICMPAccess::get()</span></code>.</p>
+<p>When an incoming ICMP error message is received, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module
+sends it out on the <code class="docutils literal notranslate"><span class="pre">errorOut</span></code> gate unchanged. It is assumed that
+an external module is connected to <code class="docutils literal notranslate"><span class="pre">errOut</span></code> that can process the
+error packet. There is a simple module (<code class="code literal-ned docutils literal notranslate"><span class="pre">ErrorHandling</span></code>) that
+simply logs the error and drops the message. Note that the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>
+module does not send REDIRECT, DESTINATION_UNREACHABLE, TIME_EXCEEDED
+and PARAMETER_PROBLEM messages to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module, it will send
+them to the transport layer module that sent the bogus packet
+encapsulated in the ICMP message.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ICMP protocol encapsulates only the IP header + 8 byte following the IP header
+from the bogus IP packet. The ICMP packet length computed from this truncated
+packet, despite it encapsulates the whole IP message object.
+As a consequence, calling <code class="code literal-cpp docutils literal notranslate"><span class="pre">decapsulate()</span></code> on the ICMP message
+will cause an “packet length became negative” error. To avoid this,
+use <code class="code literal-cpp docutils literal notranslate"><span class="pre">getEncapsulatedMsg()</span></code> to access the IP packet that caused the ICMP
+error.</p>
+</div>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module receives ping commands on the <code class="docutils literal notranslate"><span class="pre">pingIn</span></code> gate
+from the application. The ping command can be any packet having an
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> control info. The packet will be encapsulated
+with an <code class="code literal-msg docutils literal notranslate"><span class="pre">ICMPMessage</span></code> and handed over to the IP.</p>
+<p>If <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> receives an echo request from IP, the original message
+object will be returned as the echo reply. Of course, before sending
+back the object to IP, the source and destination addresses are swapped
+and the message type changed to ICMP_ECHO_REPLY.</p>
+<p>When an ICMP echo reply received, the application message decapsulated
+from it and passed to the application through the <code class="docutils literal notranslate"><span class="pre">pingOut</span></code> gate.
+The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> also copied from the <code class="code literal-msg docutils literal notranslate"><span class="pre">ICMPMessage</span></code> to
+the application message.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Ipv4</a><ul>
+<li><a class="reference internal" href="#the-ipv4-module">The IPv4 Module</a><ul>
+<li><a class="reference internal" href="#processing-time">Processing time</a></li>
+<li><a class="reference internal" href="#interface-with-higher-layer">Interface with higher layer</a><ul>
+<li><a class="reference internal" href="#sending-packets">Sending packets</a></li>
+<li><a class="reference internal" href="#receiving-packets">Receiving packets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#routing-and-interfacing-with-lower-layers">Routing, and interfacing with lower layers</a><ul>
+<li><a class="reference internal" href="#unicast-broadcast-routing">Unicast/broadcast routing</a></li>
+<li><a class="reference internal" href="#multicast-routing">Multicast routing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-ipv4routingtable-module">The IPv4RoutingTable Module</a></li>
+<li><a class="reference internal" href="#the-icmp-module">The ICMP Module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

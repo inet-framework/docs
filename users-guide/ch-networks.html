@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Networks &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Network Nodes" href="ch-network-nodes.html" />
+    <link rel="prev" title="Using the INET Framework" href="ch-usage.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Networks</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-networks.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="networks">
+<span id="ug-cha-networks"></span><h1>Networks<a class="headerlink" href="#networks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-networks-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>INET heavily builds upon the modular architecture of OMNeT++. It
+provides numerous domain specific and highly parameterizable components
+which can be combined in many ways. The primary means of building large
+custom network simulations in INET is the composition of existing models
+with custom models, starting from small components and gradually forming
+ever larger ones up until the composition of the network. Users are not
+required to have programming experience to create simulations unless
+they also want to implement their own protocols, for example.</p>
+<p>Assembling an INET simulation starts with defining a module representing
+the network. Networks are compound modules which contain network nodes,
+automatic network configurators, and sometimes additionally transmission
+medium, physical environment, various visualizer, and other
+infrastructure related modules. Networks also contain connections
+between network nodes representing cables. Large hierarchical networks
+may be further organized into compound modules to directly express the
+hierarchy.</p>
+<p>There are no predefined networks in INET, because it is very easy to
+create one, and because of the vast possibilities. However, the OMNeT++
+IDE provides several topology generator wizards for advanced scenarios.</p>
+<p>As INET is an OMNeT++-based framework, users mainly use NED to describe
+the model topology, and ini files to provide configuration. <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+</div>
+<div class="section" id="built-in-network-nodes-and-other-top-level-modules">
+<span id="ug-sec-networks-built-in-network-nodes-and-other-top-level-modules"></span><h2>Built-in Network Nodes and Other Top-Level Modules<a class="headerlink" href="#built-in-network-nodes-and-other-top-level-modules" title="Permalink to this headline">¶</a></h2>
+<p>INET provides several pre-assembled network nodes with carefully
+selected components. They support customization via parameters and
+parametric submodule types, but they are not meant to be universal.
+Sometimes it may be necessary to create special network node models for
+particular simulation scenarios. In any case, the following list gives a
+taste of the built-in network nodes.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> contains the most common Internet protocols:
+<span class="protocol">UDP</span>, <span class="protocol">TCP</span>, <span class="protocol">IPv4</span>, <span class="protocol">IPv6</span>,
+<span class="protocol">Ethernet</span>, <span class="protocol">IEEE 802.11</span>. It also supports an
+optional mobility model, optional energy models, and any number of
+applications which are entirely configurable from INI files.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherSwitch</span></code> models an <span class="protocol">Ethernet</span> switch containing a
+relay unit and one MAC unit per port.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> provides the most common routing protocols:
+<span class="protocol">OSPF</span>, <span class="protocol">BGP</span>, <span class="protocol">RIP</span>, <span class="protocol">PIM</span>.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AccessPoint</span></code> models a Wifi access point with multiple
+<span class="protocol">IEEE 802.11</span> network interfaces and multiple
+<span class="protocol">Ethernet</span> ports.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">WirelessHost</span></code> provides a network node with one (default)
+<span class="protocol">IEEE 802.11</span> network interface in infrastructure mode,
+suitable for using with an <code class="code literal-ned docutils literal notranslate"><span class="pre">AccessPoint</span></code>.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AdhocHost</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">WirelessHost</span></code> with the network interface
+configured in ad-hoc mode and forwarding enabled.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AodvRouter</span></code> is similar to an <code class="code literal-ned docutils literal notranslate"><span class="pre">AdhocHost</span></code> with an
+additional <span class="protocol">AODV</span> protocol.</li>
+</ul>
+<p>Network nodes communicate at the network level by exchanging OMNeT++
+messages which are the abstract representations of physical signals on
+the transmission medium. Signals are either sent through OMNeT++
+connections in the wired case, or sent directly to the gate of the
+receiving network node in the wireless case. Signals encapsulate
+INET-specific packets that represent the transmitted digital data.
+Packets are further divided into chunks that provide alternative
+representations for smaller pieces of data (e.g. protocol headers,
+application data).</p>
+<p>Additionally, there are components that occur on network level, but they
+are not models of physical network nodes. They are necessary to model
+other aspects. Some of them are:</p>
+<ul class="simple">
+<li>A <em>radio medium</em> module such as <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211RadioMedium</span></code>,
+<code class="code literal-ned docutils literal notranslate"><span class="pre">ApskScalarRadioMedium</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">UnitDiskRadioMedium</span></code> (there
+are a few of them) are a required component of wireless networks.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">PhysicalEnvironment</span></code> models the effect of the physical
+environment (i.e. obstacles) on radio signal propagation. It is an
+optional component.</li>
+<li><em>Configurators</em> such as <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>,
+<code class="code literal-ned docutils literal notranslate"><span class="pre">L2NetworkConfigurator</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">GenericNetworkConfigurator</span></code>
+configure various aspects of the network. For example,
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> assigns IP addresses to hosts and
+routers, and sets up static routing. It is used when modeling dynamic
+IP address assignment (e.g. via DHCP) or dynamic routing is not of
+importance. <code class="code literal-ned docutils literal notranslate"><span class="pre">L2NetworkConfigurator</span></code> allows one to configure
+802.1 LANs and provide STP/RSTP-related parameters such as link cost,
+port priority and the “is-edge” flag.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">ScenarioManager</span></code> allows scripted scenarios, such as timed
+failure and recovery of network nodes.</li>
+<li><em>Group coordinators</em> are needed for the operation of some group
+mobility mdels. For example, <code class="code literal-ned docutils literal notranslate"><span class="pre">MoBanCoordinator</span></code> is the
+coordinator module for the MoBAN mobility model.</li>
+<li><em>Visualizers</em> like <code class="code literal-ned docutils literal notranslate"><span class="pre">PacketDropOsgVisualizer</span></code> provide graphical
+rendering of some aspect of the simulation either in 2D (canvas) or
+3D (using OSG or osgEarth). The usual choice is
+<code class="code literal-ned docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> which bundles together an instance of
+each specific visualizer type in a compound module.</li>
+</ul>
+</div>
+<div class="section" id="typical-networks">
+<span id="ug-sec-networks-typical-networks"></span><h2>Typical Networks<a class="headerlink" href="#typical-networks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wired-networks">
+<span id="ug-sec-networks-wired-networks"></span><h3>Wired Networks<a class="headerlink" href="#wired-networks" title="Permalink to this headline">¶</a></h3>
+<p>Wired network connections, for example <span class="protocol">Ethernet</span> cables, are
+represented with standard OMNeT++ connections using the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">DatarateChannel</span></code> NED type. The channel’s <code class="code literal-ned docutils literal notranslate"><span class="pre">datarate</span></code> and
+<code class="code literal-ned docutils literal notranslate"><span class="pre">delay</span></code> parameters must be provided for all wired connections.</p>
+<p>The following example shows how straightforward it is to create a model
+for a simple wired network. This network contains a server connected to
+a router using <span class="protocol">PPP</span>, which in turn is connected to a switch
+using <span class="protocol">Ethernet</span>. The network also contains a parameterizable
+number of clients, all connected to the switch forming a star topology.
+The utilized network nodes are all predefined modules in INET. To avoid
+the manual configuration of IP addresses and routing tables, an
+automatic network configurator is also included.</p>
+<div class="highlight-ned notranslate" id="wired-network-example"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WiredNetworkExample</span>
+<span class="p">{</span>
+    <span class="k">parameters</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">numClients</span><span class="p">;</span> <span class="c1">// number of clients in the network</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span><span class="p">;</span> <span class="c1">// network autoconfiguration</span>
+        <span class="n">server</span><span class="o">:</span> <span class="n">StandardHost</span><span class="p">;</span> <span class="c1">// predefined standard host</span>
+        <span class="n">router</span><span class="o">:</span> <span class="n">Router</span><span class="p">;</span> <span class="c1">// predefined router</span>
+        <span class="n">switch</span><span class="o">:</span> <span class="n">EtherSwitch</span><span class="p">;</span> <span class="c1">// predefined ethernet switch</span>
+        <span class="n">client</span><span class="p">[</span><span class="n">numClients</span><span class="p">]</span><span class="o">:</span> <span class="n">StandardHost</span><span class="p">;</span>
+    <span class="k">connections</span><span class="o">:</span> <span class="c1">// network level connections</span>
+        <span class="n">router</span><span class="p">.</span><span class="n">pppg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="p">{</span> <span class="n">datarate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">GBps</span><span class="p">;</span> <span class="p">}</span> <span class="k">&lt;--&gt;</span> <span class="n">server</span><span class="p">.</span><span class="n">pppg</span><span class="o">++</span><span class="p">;</span> <span class="c1">// PPP</span>
+        <span class="n">switch</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth1G</span> <span class="k">&lt;--&gt;</span> <span class="n">router</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span> <span class="c1">// bidirectional ethernet</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mf">0.</span><span class="p">.</span><span class="n">numClients</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="n">client</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth1G</span> <span class="k">&lt;--&gt;</span> <span class="n">switch</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span> <span class="c1">// ethernet</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In order to run a simulation using the above network, an OMNeT++ INI
+file must be created. The INI file selects the network, sets its number
+of clients parameter, and configures a simple <span class="protocol">TCP</span>
+application for each client. The server is configured to have a
+<span class="protocol">TCP</span> application which echos back all data received from the
+clients individually.</p>
+<div class="highlight-ini notranslate" id="wired-network-configuration-example"><div class="highlight"><pre><span></span><span class="na">network</span> <span class="o">=</span> <span class="s">WiredNetworkExample</span>
+<span class="na">*.numClients</span> <span class="o">=</span> <span class="s">10 </span><span class="c1"># number of clients in network</span>
+<span class="na">*.client[*].numApps</span> <span class="o">=</span> <span class="s">1 </span><span class="c1"># number of applications on clients</span>
+<span class="na">*.client[*].app[0].typename</span> <span class="o">=</span> <span class="s">&quot;TcpSessionApp&quot; </span><span class="c1"># client application type</span>
+<span class="na">*.client[*].app[0].connectAddress</span> <span class="o">=</span> <span class="s">&quot;server&quot; </span><span class="c1"># destination address</span>
+<span class="na">*.client[*].app[0].connectPort</span> <span class="o">=</span> <span class="s">1000 </span><span class="c1"># destination port</span>
+<span class="na">*.client[*].app[0].sendBytes</span> <span class="o">=</span> <span class="s">1MB </span><span class="c1"># amount of data to send</span>
+<span class="na">*.server.numApps</span> <span class="o">=</span> <span class="s">1 </span><span class="c1"># number of applications on server</span>
+<span class="na">*.server.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;TcpEchoApp&quot; </span><span class="c1"># server application type</span>
+<span class="na">*.server.app[0].localPort</span> <span class="o">=</span> <span class="s">1000 </span><span class="c1"># TCP server listen port</span>
+</pre></div>
+</div>
+<p>When the above simulation is run, each client application connects to
+the server using a <span class="protocol">TCP</span> socket. Then each one of them sends
+1MB of data, which in turn is echoed back by the server, and the
+simulation concludes. The default statistics are written to the
+<code class="file docutils literal notranslate"><span class="pre">results</span></code> folder of the simulation for later analysis.</p>
+</div>
+<div class="section" id="wireless-networks">
+<span id="ug-sec-networks-wireless-networks"></span><h3>Wireless Networks<a class="headerlink" href="#wireless-networks" title="Permalink to this headline">¶</a></h3>
+<p>Wireless network connections are not modeled with OMNeT++ connections
+due the dynamically changing nature of connectivity. For wireless
+networks, an additional module, one that represents the transmission
+medium, is required to maintain connectivity information.</p>
+<div class="highlight-ned notranslate" id="wireless-network-example"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WirelessNetworkExample</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span><span class="p">;</span>
+        <span class="n">radioMedium</span><span class="o">:</span> <span class="n">Ieee80211ScalarRadioMedium</span><span class="p">;</span>
+        <span class="n">host1</span><span class="o">:</span> <span class="n">WirelessHost</span> <span class="p">{</span> <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=200,100&quot;</span><span class="p">);</span> <span class="p">}</span>
+        <span class="n">host2</span><span class="o">:</span> <span class="n">WirelessHost</span> <span class="p">{</span> <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,100&quot;</span><span class="p">);</span> <span class="p">}</span>
+        <span class="n">accessPoint</span><span class="o">:</span> <span class="n">AccessPoint</span> <span class="p">{</span> <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=374,200&quot;</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above network, positions in the display strings provide positions
+for the transmission medium during the computation of signal propagation
+and path loss.</p>
+<p>In addition, <code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to periodically send
+<span class="protocol">UDP</span> packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code> over the AP.</p>
+<div class="highlight-ini notranslate" id="wireless-network-configuration-example"><div class="highlight"><pre><span></span><span class="na">network</span> <span class="o">=</span> <span class="s">WirelessNetworkExample</span>
+<span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.host1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;host2&quot;</span>
+<span class="na">*.host1.app[0].destPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">*.host1.app[0].messageLength</span> <span class="o">=</span> <span class="s">100Byte</span>
+<span class="na">*.host1.app[0].sendInterval</span> <span class="o">=</span> <span class="s">100ms</span>
+<span class="na">*.host2.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host2.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.host2.app[0].localPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">**.arp.typename</span> <span class="o">=</span> <span class="s">&quot;GlobalArp&quot;</span>
+<span class="na">**.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mobile-ad-hoc-networks">
+<span id="ug-sec-networks-mobile-ad-hoc-networks"></span><h3>Mobile Ad hoc Networks<a class="headerlink" href="#mobile-ad-hoc-networks" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ned notranslate" id="mobile-ad-hoc-network-example"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">MobileAdhocNetworkExample</span>
+<span class="p">{</span>
+    <span class="k">parameters</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">numHosts</span><span class="p">;</span> <span class="c1">// number of nodes in the network</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span><span class="p">;</span> <span class="c1">// network autoconfiguration</span>
+        <span class="n">radioMedium</span><span class="o">:</span> <span class="n">Ieee80211ScalarRadioMedium</span><span class="p">;</span> <span class="c1">// 802.11 physical medium</span>
+        <span class="n">host</span><span class="p">[</span><span class="n">numHosts</span><span class="p">]</span><span class="o">:</span> <span class="n">AdhocHost</span><span class="p">;</span> <span class="c1">// ad-hoc wifi nodes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-ini notranslate" id="mobile-ad-hoc-network-configuration-example"><div class="highlight"><pre><span></span><span class="na">network</span> <span class="o">=</span> <span class="s">MobileAdhocNetworkExample</span>
+<span class="na">*.numHosts</span> <span class="o">=</span> <span class="s">10 </span><span class="c1"># number of hosts in the MANET</span>
+<span class="na">*.host[*].mobility.typename</span> <span class="o">=</span> <span class="s">&quot;MassMobility&quot; </span><span class="c1"># stochastic mobility model</span>
+<span class="na">*.host[*].mobility.initFromDisplayString</span> <span class="o">=</span> <span class="s">false </span><span class="c1"># ignore display string</span>
+<span class="na">*.host[*].mobility.changeInterval</span> <span class="o">=</span> <span class="s">truncnormal(2s, 0.5s) </span><span class="c1"># between turns</span>
+<span class="na">*.host[*].mobility.changeAngleBy</span> <span class="o">=</span> <span class="s">normal(0deg, 30deg) </span><span class="c1"># random turn</span>
+<span class="na">*.host[*].mobility.speed</span> <span class="o">=</span> <span class="s">truncnormal(20mps, 8mps) </span><span class="c1"># random speed</span>
+<span class="na">*.host[*].numApps</span> <span class="o">=</span> <span class="s">1 </span><span class="c1"># number of applications on hosts</span>
+<span class="na">*.host[*].app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot; </span><span class="c1"># application type for all hosts</span>
+<span class="na">*.host[*].app[0].destAddr</span> <span class="o">=</span> <span class="s">&quot;host[0]&quot; </span><span class="c1"># ping destination</span>
+<span class="na">*.host[*].app[0].startTime</span> <span class="o">=</span> <span class="s">uniform(1s,5s) </span><span class="c1"># to avoid synchronization</span>
+<span class="na">*.host[*].app[0].printPing</span> <span class="o">=</span> <span class="s">true </span><span class="c1"># print usual ping results to stdout</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="frequent-tasks-how-to">
+<span id="ug-sec-networks-frequent-tasks"></span><h2>Frequent Tasks (How To…)<a class="headerlink" href="#frequent-tasks-how-to" title="Permalink to this headline">¶</a></h2>
+<p>Quick and somewhat superficial advice to many practical tasks.</p>
+<div class="section" id="automatic-wired-interfaces">
+<span id="ug-sec-networks-automatic-wired-interfaces"></span><h3>Automatic Wired Interfaces<a class="headerlink" href="#automatic-wired-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>In many wired network simulations, the number of wired interfaces need
+not be manually configured, because it can be automatically inferred
+from the actual number of connections between network nodes.</p>
+<div class="highlight-ned notranslate" id="automatic-wired-interfaces-example"><div class="highlight"><pre><span></span><span class="n">router1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth1G</span> <span class="k">&lt;--&gt;</span> <span class="n">router2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span> <span class="c1">// automatic interfaces</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-wireless-interfaces">
+<span id="ug-sec-networks-multiple-wireless-interfaces"></span><h3>Multiple Wireless Interfaces<a class="headerlink" href="#multiple-wireless-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>All built-in wireless network nodes support multiple wireless
+interfaces, but only one is enabled by default.</p>
+<div class="highlight-ini notranslate" id="multiple-wireless-interfaces-example"><div class="highlight"><pre><span></span><span class="na">*.host[*].numWlanInterfaces</span> <span class="o">=</span> <span class="s">2 </span><span class="c1"># number of wireless network interfaces</span>
+<span class="na">*.host[*].wlan[0].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;alpha&quot; </span><span class="c1"># connects to alpha network</span>
+<span class="na">*.host[*].wlan[1].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;bravo&quot; </span><span class="c1"># connects to bravo network</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-addresses">
+<span id="ug-sec-networks-specifying-addresses"></span><h3>Specifying Addresses<a class="headerlink" href="#specifying-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Nearly all application layer modules, but several other components as
+well, have parameters that specify network addresses. They typically
+accept addresses given with any of the following syntax variations:</p>
+<ul class="simple">
+<li>literal IPv4 address: <code class="docutils literal notranslate"><span class="pre">&quot;186.54.66.2&quot;</span></code></li>
+<li>literal IPv6 address:
+<code class="docutils literal notranslate"><span class="pre">&quot;3011:7cd6:750b:5fd6:aba3:c231:e9f9:6a43&quot;</span></code></li>
+<li>module name: <code class="docutils literal notranslate"><span class="pre">&quot;server&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;subnet.server[3]&quot;</span></code></li>
+<li>interface of a host or router: <code class="docutils literal notranslate"><span class="pre">&quot;server/eth0&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;subnet.server[3]/eth0&quot;</span></code></li>
+<li>IPv4 or IPv6 address of a host or router: <code class="docutils literal notranslate"><span class="pre">&quot;server(ipv4)&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;subnet.server[3](ipv6)&quot;</span></code></li>
+<li>IPv4 or IPv6 address of an interface of a host or router:
+<code class="docutils literal notranslate"><span class="pre">&quot;server/eth0(ipv4)&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;subnet.server[3]/eth0(ipv6)&quot;</span></code></li>
+</ul>
+</div>
+<div class="section" id="node-failure-and-recovery">
+<span id="ug-sec-networks-node-failure-and-recovery"></span><h3>Node Failure and Recovery<a class="headerlink" href="#node-failure-and-recovery" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="enabling-dual-ip-stack">
+<span id="ug-sec-networks-enabling-dual-ip-stack"></span><h3>Enabling Dual IP Stack<a class="headerlink" href="#enabling-dual-ip-stack" title="Permalink to this headline">¶</a></h3>
+<p>All built-in network nodes support dual Internet protocol stacks, that
+is both <span class="protocol">IPv4</span> and <span class="protocol">IPv6</span> are available. They are
+also supported by transport layer protocols, link layer protocols, and
+most applications. Only <span class="protocol">IPv4</span> is enabled by default, so in
+order to use <span class="protocol">IPv6</span>, it must be enabled first, and an
+application supporting <span class="protocol">IPv6</span> (e.g., <code class="code literal-ned docutils literal notranslate"><span class="pre">PingApp</span></code> must be
+used). The following example shows how to configure two ping
+applications in a single node where one is using an <span class="protocol">IPv4</span> and
+the other is using an <span class="protocol">IPv6</span> destination address.</p>
+<div class="highlight-ini notranslate" id="dual-stack-example"><div class="highlight"><pre><span></span><span class="na">*.host[*].hasIpv4</span> <span class="o">=</span> <span class="s">true </span><span class="c1"># enable IPv4 protocol</span>
+<span class="na">*.host[*].hasIpv6</span> <span class="o">=</span> <span class="s">true </span><span class="c1"># enable IPv6 protocol</span>
+<span class="na">*.host[*].numApps</span> <span class="o">=</span> <span class="s">2 </span><span class="c1"># number of applications on hosts</span>
+<span class="na">*.host[*].app[*].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot; </span><span class="c1"># type for both applications</span>
+<span class="na">*.host[*].app[0].destAddr</span> <span class="o">=</span> <span class="s">&quot;host[0](ipv4)&quot; </span><span class="c1"># uses IPv4 detination address</span>
+<span class="na">*.host[*].app[1].destAddr</span> <span class="o">=</span> <span class="s">&quot;host[0](ipv6)&quot; </span><span class="c1"># uses IPv6 detination address</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enabling-packet-forwarding">
+<span id="ug-sec-networks-enabling-packet-forwarding"></span><h3>Enabling Packet Forwarding<a class="headerlink" href="#enabling-packet-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>In general, network nodes don’t forward packets by default, only
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> and the like do. Nevertheless, it’s possible to enable
+packet forwarding as simply as flipping a switch.</p>
+<div class="highlight-ini notranslate" id="forwarding-example"><div class="highlight"><pre><span></span><span class="na">*.host[*].forwarding</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Some components require additional configuration to be provided as
+separate files, e.g. in XML.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Networks</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#built-in-network-nodes-and-other-top-level-modules">Built-in Network Nodes and Other Top-Level Modules</a></li>
+<li><a class="reference internal" href="#typical-networks">Typical Networks</a><ul>
+<li><a class="reference internal" href="#wired-networks">Wired Networks</a></li>
+<li><a class="reference internal" href="#wireless-networks">Wireless Networks</a></li>
+<li><a class="reference internal" href="#mobile-ad-hoc-networks">Mobile Ad hoc Networks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#frequent-tasks-how-to">Frequent Tasks (How To…)</a><ul>
+<li><a class="reference internal" href="#automatic-wired-interfaces">Automatic Wired Interfaces</a></li>
+<li><a class="reference internal" href="#multiple-wireless-interfaces">Multiple Wireless Interfaces</a></li>
+<li><a class="reference internal" href="#specifying-addresses">Specifying Addresses</a></li>
+<li><a class="reference internal" href="#node-failure-and-recovery">Node Failure and Recovery</a></li>
+<li><a class="reference internal" href="#enabling-dual-ip-stack">Enabling Dual IP Stack</a></li>
+<li><a class="reference internal" href="#enabling-packet-forwarding">Enabling Packet Forwarding</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-usage.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Using the INET Framework</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-network-nodes.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Network Nodes</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

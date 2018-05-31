@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Step 7. Configuring a hierarchical network &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Step 8. Configuring a mixed wired/wireless network" href="step8.html" />
+    <link rel="prev" title="Step 6. Setting different metric for automatic routing table configuration" href="step6.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../index.html">Tutorials</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="index.html">IPv4 Network Configurator Tutorial</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Step 7. Configuring a hierarchical network</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../_sources/tutorials/configurator/doc/step7.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">IPv4 Network Confgurator</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">IPv4 Network Confgurator</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="step-7-configuring-a-hierarchical-network">
+<h1>Step 7. Configuring a hierarchical network<a class="headerlink" href="#step-7-configuring-a-hierarchical-network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>In complex hierarchical networks, routing tables can grow very large.
+This step demonstrates ways the configurator can reduce the size of
+routing tables by optimization and the use of hierarchically assigned
+addresses. The step contains three parts:</p>
+<ul class="simple">
+<li><strong>Part A</strong>: Automatically assigned addresses, no optimization</li>
+<li><strong>Part B</strong>: Automatically assigned addresses, using optimization</li>
+<li><strong>Part C</strong>: Hierarchically assigned addresses, using optimization</li>
+</ul>
+</div>
+<div class="section" id="part-a-automatically-assigned-addresses">
+<h2>Part A - Automatically assigned addresses<a class="headerlink" href="#part-a-automatically-assigned-addresses" title="Permalink to this headline">¶</a></h2>
+<p>Assigning addresses hierarchically in a network with hierarchical
+topology can reduce the size of routing tables. However, the
+configurator’s automatic address assignment with its default settings
+doesn’t assign addresses hierarchically. This part uses automatic
+address assignment, and the configurator’s routing table optimization
+features are turned off. The size of routing tables in this part can
+serve as a baseline to compare with.</p>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>All three parts in this step use the <code class="docutils literal notranslate"><span class="pre">ConfiguratorB</span></code> network defined
+in <a class="reference download internal" href="../../../_downloads/ConfiguratorB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorB.ned</span></code></a>. The network
+looks like this:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/step7network.png"><img alt="../../../_images/step7network.png" src="../../../_images/step7network.png" style="width: 100%;" /></a>
+</div>
+<p>The network is comprised of three areas, each containing two local area
+networks (LANs). Each LAN contains three hosts. The hosts in the LAN
+connect to an area router through switches. The three area routers
+connect to a central backbone router. The network contains three
+hierarchical levels, which correspond to the hosts in the LANs, the area
+routers, and the backbone router.</p>
+<p>The configuration for this part in omnetpp.ini is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step7A</span><span class="p">]</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorB</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Configuring a hierarchical network - A: non optimized, fully automatic IP address assignment and static routes&quot;</span>
+
+<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">assignDisjunctSubnetAddresses</span> <span class="o">=</span> <span class="n">false</span>
+<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">addDefaultRoutes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">addSubnetRoutes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">optimizeRoutes</span> <span class="o">=</span> <span class="n">false</span>
+
+</pre></div>
+</div>
+<p>This configuration turns off every kind of optimization relating to
+address assignment and route generation. This means that nodes will have
+an individual routing table entry to every destination interface.</p>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>The assigned addresses are shown on the image below:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/step7a_addresses.png"><img alt="../../../_images/step7a_addresses.png" src="../../../_images/step7a_addresses.png" style="width: 100%;" /></a>
+</div>
+<p>The size of some of the routing tables are the following:</p>
+<div class="figure">
+<img alt="../../../_images/step7a_rt_2.png" src="../../../_images/step7a_rt_2.png" />
+</div>
+<p>The routing tables of a host (<code class="docutils literal notranslate"><span class="pre">area1lan2host2</span></code>) and a router
+(<code class="docutils literal notranslate"><span class="pre">area1router</span></code>) are shown below. The <code class="docutils literal notranslate"><span class="pre">backbonerouter</span></code>’s routing
+table is similar to <code class="docutils literal notranslate"><span class="pre">area1router</span></code>’s.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorB.area1lan2host2
+-- Routing table --
+Destination      Netmask          Gateway          Iface            Metric
+10.0.0.1         255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.2         255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.3         255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.4         255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.9         255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.10        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.11        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.12        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.17        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.18        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.19        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.20        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.25        255.255.255.255  *                eth0 (10.0.0.26)      0
+10.0.0.27        255.255.255.255  *                eth0 (10.0.0.26)      0
+10.0.0.28        255.255.255.255  *                eth0 (10.0.0.26)      0
+10.0.0.33        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.34        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.35        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.36        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.41        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.42        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.43        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.44        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.49        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.50        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.53        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.54        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.57        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+10.0.0.58        255.255.255.255  10.0.0.28        eth0 (10.0.0.26)      0
+
+Node ConfiguratorB.area1router
+-- Routing table --
+Destination      Netmask          Gateway          Iface            Metric
+10.0.0.1         255.255.255.255  *                eth0 (10.0.0.4)       0
+10.0.0.2         255.255.255.255  *                eth0 (10.0.0.4)       0
+10.0.0.3         255.255.255.255  *                eth0 (10.0.0.4)       0
+10.0.0.9         255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.10        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.11        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.12        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.17        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.18        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.19        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.20        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.25        255.255.255.255  *                eth1 (10.0.0.28)      0
+10.0.0.26        255.255.255.255  *                eth1 (10.0.0.28)      0
+10.0.0.27        255.255.255.255  *                eth1 (10.0.0.28)      0
+10.0.0.33        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.34        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.35        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.36        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.41        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.42        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.43        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.44        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.50        255.255.255.255  *                eth2 (10.0.0.49)      0
+10.0.0.53        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.54        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.57        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+10.0.0.58        255.255.255.255  10.0.0.50        eth2 (10.0.0.49)      0
+</pre></div>
+</div>
+<p>There are 30 interfaces in the network (18 hosts * 1 interface + 4
+routers * 3 interfaces). All routing table entries have
+<code class="docutils literal notranslate"><span class="pre">255.255.255.255</span></code> netmasks, i.e. separate routes to all destination
+interfaces. Thus, hosts have 29 entries in their routing tables, for the
+29 other interfaces. Similarly, routers have 27 entries.</p>
+</div>
+</div>
+<div class="section" id="part-b-automatically-assigned-addresses-using-optimization">
+<h2>Part B - Automatically assigned addresses, using optimization<a class="headerlink" href="#part-b-automatically-assigned-addresses-using-optimization" title="Permalink to this headline">¶</a></h2>
+<p>In this part, we turn on the optimization features of the configurator
+that were turned off in Part A. This should optimize routing tables and
+decrease table size.</p>
+<div class="section" id="id1">
+<h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The configuration for this part in omnetpp.ini is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step7B</span><span class="p">]</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorB</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Configuring a hierarchical network - B: optimized, fully automatic IP address assignment and static routes&quot;</span>
+
+</pre></div>
+</div>
+<p>The configuration is empty, the default NED parameter values take
+effect. That means that the following optimization features are turned
+on: <code class="docutils literal notranslate"><span class="pre">assignDisjunctSubnetAddresses</span></code>, <code class="docutils literal notranslate"><span class="pre">addDefaultRoutes</span></code>,
+<code class="docutils literal notranslate"><span class="pre">addSubnetRoutes</span></code>, <code class="docutils literal notranslate"><span class="pre">optimizeRoutes</span></code>.</p>
+</div>
+<div class="section" id="id2">
+<h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The addresses are the same, but the routing table sizes have gone down:</p>
+<div class="figure">
+<img alt="../../../_images/step7b_rt_2.png" src="../../../_images/step7b_rt_2.png" />
+</div>
+<p>The routing tables of a host, an area router and the backbone router are
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorB.area1lan1host0
+-- Routing table --
+Destination      Netmask          Gateway          Iface            Metric
+10.0.0.0         255.255.255.248  *                eth0 (10.0.0.1)       0
+*                *                10.0.0.4         eth0 (10.0.0.1)       0
+
+Node ConfiguratorB.area1router
+-- Routing table --
+Destination      Netmask          Gateway          Iface            Metric
+10.0.0.50        255.255.255.255  *                eth2 (10.0.0.49)      0
+10.0.0.0         255.255.255.248  *                eth0 (10.0.0.4)   0
+10.0.0.24        255.255.255.248  *                eth1 (10.0.0.28)      0
+10.0.0.0         255.255.255.192  10.0.0.50        eth2 (10.0.0.49)      0
+
+Node ConfiguratorB.backbonerouter
+-- Routing table --
+Destination      Netmask          Gateway          Iface            Metric
+10.0.0.49        255.255.255.255  *                eth0 (10.0.0.50)      0
+10.0.0.53        255.255.255.255  *                eth2 (10.0.0.54)      0
+10.0.0.57        255.255.255.255  *                eth1 (10.0.0.58)      0
+10.0.0.8         255.255.255.248  10.0.0.53        eth2 (10.0.0.54)      0
+10.0.0.16        255.255.255.248  10.0.0.57        eth1 (10.0.0.58)      0
+10.0.0.32        255.255.255.248  10.0.0.53        eth2 (10.0.0.54)      0
+10.0.0.40        255.255.255.248  10.0.0.57        eth1 (10.0.0.58)      0
+10.0.0.0         255.255.255.224  10.0.0.49        eth0 (10.0.0.50)      0
+10.0.0.0         255.255.255.192  10.0.0.53        eth2 (10.0.0.54)      0
+10.0.0.0         255.255.255.192  10.0.0.57        eth1 (10.0.0.58)      0
+</pre></div>
+</div>
+<p>We can make the following observations:</p>
+<ul class="simple">
+<li>Hosts have just two routing table entries. One for reaching other
+hosts in their LANs, and a default route.</li>
+<li>The area routers have a rule for reaching the backbone router, two
+rules for reaching the two LANs they’re connected to, and a default
+rule for reaching the rest of the network through the backbone
+router.</li>
+<li>Similarly, the backbone router has three rules for reaching the three
+area routers, and six rules for reaching the six LANs in the network.</li>
+<li>The backbone router has separate rules for the two LANs connected to
+an area router, because the addresses are not contiguously assigned
+to the two LANs (e.g. <code class="docutils literal notranslate"><span class="pre">area2lan1</span></code> has address 10.0.0.8/29,
+<code class="docutils literal notranslate"><span class="pre">area2lan2</span></code> has 10.0.0.32/29. But <code class="docutils literal notranslate"><span class="pre">area3lan1</span></code> has 10.0.0.16/29,
+which is between the two former address ranges). Thus, area 2 cannot
+be covered by a single rule.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="part-c-hierarchically-assigned-addresses-optimized-routing-tables">
+<h2>Part C - Hierarchically assigned addresses, optimized routing tables<a class="headerlink" href="#part-c-hierarchically-assigned-addresses-optimized-routing-tables" title="Permalink to this headline">¶</a></h2>
+<p>Having hierarchically assigned addresses in a network results in smaller
+routing table sizes, because a large distant network can be covered with
+just one rule in a core router’s routing table.</p>
+<div class="section" id="id3">
+<h3>Configuration<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The configuration for this part in omnetpp.ini is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step7C</span><span class="p">]</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorB</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Configuring a hierarchical network - C: optimized, hierarchically asssigned IP addresses and static routes&quot;</span>
+
+<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step7c.xml&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>As in the previous part, all of the configurator’s routing table
+optimization features are enabled. The XML configuration for this part
+in step7c.xml is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area3*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>This XML configuration assigns addresses hierarchically in the following
+way, when looking down the hierarchy from the backbone router towards
+the hosts: - The first octet of the address for all nodes is 10, i.e.
+<code class="docutils literal notranslate"><span class="pre">10.x.x.x</span></code> - The second octet denotes the area, e.g. <code class="docutils literal notranslate"><span class="pre">10.2.x.x</span></code>
+corresponds to area 2 - The third octet denotes the LAN within the area,
+e.g. <code class="docutils literal notranslate"><span class="pre">10.2.1.x</span></code> corresponds to <code class="docutils literal notranslate"><span class="pre">lan1</span></code> in area 2 - The forth octet is
+the host identifier within a LAN, e.g. <code class="docutils literal notranslate"><span class="pre">10.2.1.4</span></code> corresponds to
+<code class="docutils literal notranslate"><span class="pre">host4</span></code> in <code class="docutils literal notranslate"><span class="pre">lan1</span></code> in area 2</p>
+<p>With this setup, it is possible to cover an area with just one rule in
+the routing table of the backbone router. Similarly, the area routers
+need two rules for each LAN that they are connected to.</p>
+</div>
+<div class="section" id="id4">
+<h3>Results<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The image below shows the assigned addresses.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/step7c_addresses.png"><img alt="../../../_images/step7c_addresses.png" src="../../../_images/step7c_addresses.png" style="width: 100%;" /></a>
+</div>
+<p>The sizes of some of the routing tables are displayed on the following
+image.</p>
+<div class="figure">
+<img alt="../../../_images/step7c_rt_2.png" src="../../../_images/step7c_rt_2.png" />
+</div>
+<p>The routing tables are the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorB.area1lan1host0
+-- Routing table --
+Destination      Netmask          Gateway          Iface           Metric
+10.1.1.0         255.255.255.248  *                eth0 (10.1.1.1)      0
+*                *                10.1.1.4         eth0 (10.1.1.1)      0
+
+Node ConfiguratorB.area1router
+-- Routing table --
+Destination      Netmask          Gateway          Iface           Metric
+10.1.3.1         255.255.255.255  *                eth2 (10.1.3.2)      0
+10.1.1.0         255.255.255.248  *                eth0 (10.1.1.4)      0
+10.1.2.0         255.255.255.248  *                eth1 (10.1.2.4)      0
+10.2.0.0         255.254.0.0      10.1.3.1         eth2 (10.1.3.2)      0
+
+Node ConfiguratorB.backbonerouter
+-- Routing table --
+Destination      Netmask          Gateway          Iface           Metric
+10.1.3.2         255.255.255.255  *                eth0 (10.1.3.1)      0
+10.2.3.2         255.255.255.255  *                eth2 (10.2.3.1)      0
+10.3.3.2         255.255.255.255  *                eth1 (10.3.3.1)      0
+10.1.0.0         255.255.252.0    10.1.3.2         eth0 (10.1.3.1)      0
+10.2.0.0         255.255.252.0    10.2.3.2         eth2 (10.2.3.1)      0
+10.3.0.0         255.255.252.0    10.3.3.2         eth1 (10.3.3.1)      0
+</pre></div>
+</div>
+<p>Note the following:</p>
+<ul class="simple">
+<li>Hosts’ routing tables contain just two rules, as in the previous
+part. One is for reaching the other members of the host’s LAN, and a
+default rule for reaching everything else through the area’s router.</li>
+<li>The area routers’ routing tables contain a specific rule for reaching
+the backbone router, two rules for reaching the two LANs that belong
+to the router’s area, and a default rule for reaching everything else
+through the backbone router.</li>
+<li>The backbone router’s routing table contains three specific rules for
+reaching the three area routers, and three rules to reach the three
+areas.</li>
+</ul>
+<p>The difference between the configuration for this part and the previous
+one is that addresses are assigned hierarchically in this part. The
+routing table of the backbone router contains six entries instead of 10
+in the previous part. The other nodes’ routing tables remained the same.
+The difference is not drastic because the network is small. However,
+using hierarchical address assignment in a larger network would make a
+significant difference in routing table size.</p>
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" href="../../../_downloads/ConfiguratorB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorB.ned</span></code></a></p>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-tutorials/issues/2">this
+page</a> in
+the GitHub issue tracker for commenting on this tutorial.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Step 7. Configuring a hierarchical network</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#part-a-automatically-assigned-addresses">Part A - Automatically assigned addresses</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-b-automatically-assigned-addresses-using-optimization">Part B - Automatically assigned addresses, using optimization</a><ul>
+<li><a class="reference internal" href="#id1">Configuration</a></li>
+<li><a class="reference internal" href="#id2">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-c-hierarchically-assigned-addresses-optimized-routing-tables">Part C - Hierarchically assigned addresses, optimized routing tables</a><ul>
+<li><a class="reference internal" href="#id3">Configuration</a></li>
+<li><a class="reference internal" href="#id4">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="step6.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Step 6. Setting different metric for automatic routing table configuration</div>
+         </div>
+     </a>
+     <a id="button-next" href="step8.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Step 8. Configuring a mixed wired/wireless network</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

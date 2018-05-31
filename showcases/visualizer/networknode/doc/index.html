@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Visualizing Network Nodes &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Visualizing Network Nodes</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/visualizer/networknode/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="visualizing-network-nodes">
+<h1>Visualizing Network Nodes<a class="headerlink" href="#visualizing-network-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>In network simulations, it is essential to visualize the participants of
+the communication. Customizing the appearance of nodes may also be
+important, for example, to highlight nodes or to distinguish nodes based
+on location or function.</p>
+<p>This showcase demonstrates how network nodes are visualized how their
+appearance can be customized in INET simulations.</p>
+<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
+<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networknode">inet/showcases/visualizer/networknode</a></p>
+</div>
+<div class="section" id="about-the-visualizer">
+<h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
+<p>In INET simulations, <code class="docutils literal notranslate"><span class="pre">NetworkNodeVisualizer</span></code> module (included in the
+network as part of <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>) is responsible for
+visualizing network nodes. <code class="docutils literal notranslate"><span class="pre">NetworkNodeVisualizer</span></code> includes two
+submodules: <code class="docutils literal notranslate"><span class="pre">NetworkNodeCanvasVisualizer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">NetworkNodeOsgVisualizer</span></code>.</p>
+<p>All nodes can be visualized on a 2D canvas by the
+<code class="docutils literal notranslate"><span class="pre">NetworkNodeCanvasVisualizer</span></code> module and on a 3D scene by the
+<code class="docutils literal notranslate"><span class="pre">NetworkNodeOsgVisualizer</span></code> module. We can narrow the list of nodes to
+be displayed by using the <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter. The name of the node
+is displayed by default, but it can be hidden by setting the
+<code class="docutils literal notranslate"><span class="pre">displayModuleName</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="section" id="visualization-on-a-2d-canvas">
+<h3>Visualization on a 2D canvas<a class="headerlink" href="#visualization-on-a-2d-canvas" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">NetworkNodeCanvasVisualizer</span></code> is responsible for displaying nodes on a
+2D canvas. On the 2D canvas, each node is represented by an icon. The
+icon of the node can be customized by setting the display string of the
+node in the network description file (NED). The display string can be
+set by tags. The icon can be customized by specifying the <code class="docutils literal notranslate"><span class="pre">i</span></code> display
+string tag. It has three arguments:</p>
+<ul class="simple">
+<li>The first argument specifies the icon to be used. This argument is
+used to find the image, just like the OMNeT++ image path or the
+<code class="docutils literal notranslate"><span class="pre">cIconFigure</span></code> class.</li>
+<li>The second argument specifies the color of the icon. It accepts
+English color names (more precisely, SVG color names) and HTML-style
+RGB values.</li>
+<li>The third argument defines the amount of colorization in percent. If
+the parameter value is 100, it means full colorization.</li>
+</ul>
+<p>We can set the size of the icon by using the <code class="docutils literal notranslate"><span class="pre">is</span></code> display string tag.
+The size can be <code class="docutils literal notranslate"><span class="pre">vs</span></code> (very small), <code class="docutils literal notranslate"><span class="pre">s</span></code> (small), <code class="docutils literal notranslate"><span class="pre">n</span></code> (normal),
+<code class="docutils literal notranslate"><span class="pre">l</span></code> (large) and <code class="docutils literal notranslate"><span class="pre">vl</span></code> (very large).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All supported display string tags are listed in the <a class="reference external" href="https://omnetpp.org/doc/omnetpp/manual/#cha:display-strings">OMNeT++ Simulation
+Manual</a>.)</p>
+</div>
+</div>
+<div class="section" id="visualization-on-a-3d-scene">
+<h3>Visualization on a 3D scene<a class="headerlink" href="#visualization-on-a-3d-scene" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">NetworkNodeOsgVisualizer</span></code> is responsible for displaying nodes on a 3D
+scene. (In this version of INET,
+<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer.osgVisualizerType</span> <span class="pre">=</span> <span class="pre">&quot;IntegratedOsgVisualizer&quot;</span></code>
+must be set for visualizing nodes in 3D.) OMNeT++’s 3D visualization
+is based on the open-source <code class="docutils literal notranslate"><span class="pre">OpenSceneGraph</span></code> (osg) and <code class="docutils literal notranslate"><span class="pre">osgEarth</span></code>
+libraries. These libraries offer high-level functionality, such as the
+ability of using 3D model files directly, accessing and rendering online
+map and satellite imagery data sources, and so on. In this showcase, we
+deal only with 3D models and we do not deal with maps. You can learn
+about maps in the <a class="reference external" href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/">Visualizing Terrain and Urban
+Environment</a>
+showcase.</p>
+<p>By default, each node is represented by a 2D icon on the 3D osg scene
+which is set in the display string of the node. If we want to replace
+the 2D icon, we need to load external resources, for example, images or
+3D models. The resource we want to load is specified in the <code class="docutils literal notranslate"><span class="pre">osgModel</span></code>
+parameter. By default, the <code class="docutils literal notranslate"><span class="pre">OMNeT++</span></code> image path is used to find the
+image.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Here are some supported file formats: - geometric file
+formats: 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg, osgb, - image
+file formats: bmp, gif, jpeg, rgb, tga, tif.</p>
+</div>
+<p>There is support for so-called “pseudo loaders” in osg, which provide
+additional options for loading 3D models. Pseudo loaders are able to
+perform some basic operations on the 3D model, after it is loaded. To
+use pseudo loaders, append the parameters for the modifier followed by
+the name of it to the end of the file name upon loading the model. The
+pseudo loaders are able to use in any order and they are separated by
+dots.</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">scale</span></code> pseudo loader can multiply the size of the model by a
+certain value. If decimal fraction is used, it must be written in
+parentheses, e.g <code class="docutils literal notranslate"><span class="pre">(0.8).scale</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">trans</span></code> pseudo loader can translate the model by a certain
+value along the X, Y and Z axes. The values are separated by commas.
+The format of the <code class="docutils literal notranslate"><span class="pre">trans</span></code> pseudo loader is <code class="docutils literal notranslate"><span class="pre">X,Y,Z.trans</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">rot</span></code> pseudo loader can rotate the model by a certain degree
+around the X, Y and Z axes. The format of the <code class="docutils literal notranslate"><span class="pre">rot</span></code> pseudo loader
+is <code class="docutils literal notranslate"><span class="pre">X,Y,Z.rot</span></code>.</li>
+</ul>
+<p>Examine the following example.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.exampleNode.osgModel = &quot;example.osg.2.scale.0,0,10.trans.180,0,90.rot&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">example.osg</span></code> is the file name of the external 3D model that
+represents the <code class="docutils literal notranslate"><span class="pre">exampleNode</span></code> network node,</li>
+<li><code class="docutils literal notranslate"><span class="pre">2.scale</span></code> scales <code class="docutils literal notranslate"><span class="pre">example.osg</span></code> to 200%,</li>
+<li><code class="docutils literal notranslate"><span class="pre">0,0,10.trans</span></code> translates <code class="docutils literal notranslate"><span class="pre">example.osg</span></code> 10 units upwards,</li>
+<li><code class="docutils literal notranslate"><span class="pre">180,0,90.rot</span></code> rotates <code class="docutils literal notranslate"><span class="pre">example.osg</span></code> 180 degrees around the X
+axis and 90 degrees around the Z axis,</li>
+<li>The parts of the parameter string are separated by dots.</li>
+</ul>
+<p>The color of the model also can be changed by using the
+<code class="docutils literal notranslate"><span class="pre">osgModelColor</span></code> parameter. This parameter accepts English color names
+(more precisely, SVG color names) and HTML-style RGB values.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Further information about <code class="docutils literal notranslate"><span class="pre">OpenSceneGraph</span></code> can be found on
+the <a class="reference external" href="http://www.openscenegraph.org">OpenSceneGraph web site</a> and in
+dedicated <a class="reference external" href="http://www.openscenegraph.org/index.php/documentation/books">OpenSceneGraph
+books</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="customizing-appearance-of-network-nodes">
+<h2>Customizing Appearance of Network Nodes<a class="headerlink" href="#customizing-appearance-of-network-nodes" title="Permalink to this headline">¶</a></h2>
+<p>This example demonstrates how the nodes’ look can be customized. A
+simulation is created for this example, it can be run by selecting the
+<code class="docutils literal notranslate"><span class="pre">VisualizingNodes</span></code> configuration from the ini file.</p>
+<p>The network contains two <code class="docutils literal notranslate"><span class="pre">AdhocHost</span></code> nodes, <code class="docutils literal notranslate"><span class="pre">pedestrian</span></code> and
+<code class="docutils literal notranslate"><span class="pre">car</span></code>. The default icon of nodes is changed by modifying their display
+string in the <code class="docutils literal notranslate"><span class="pre">NetworkNodeVisualizerShowcase.ned</span></code> file. (The default
+icon also can be modified in the node’s <em>Properties</em> on the <em>Appearance</em>
+tab.)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>car: AdhocHost {
+  @display(&quot;p=168,117;i=misc/car2&quot;);
+}
+pedestrian: AdhocHost {
+  @display(&quot;p=113,156;i=misc/person3&quot;);
+}
+</pre></div>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/IconsOnCanvas_v0111.png"><img alt="../../../../_images/IconsOnCanvas_v0111.png" src="../../../../_images/IconsOnCanvas_v0111.png" style="width: 100%;" /></a>
+</div>
+<p>On the 2D canvas, a car and a man appears, representing the nodes. The
+<code class="docutils literal notranslate"><span class="pre">p</span></code> display string tag defines the position of the nodes. On the 2D
+canvas, the (0,0) position is in the upper left corner of the
+playground.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/IconsOnOsgscene_v0111.png"><img alt="../../../../_images/IconsOnOsgscene_v0111.png" src="../../../../_images/IconsOnOsgscene_v0111.png" style="width: 100%;" /></a>
+</div>
+<p>By default, the icons on the 3D scene are the same as on the 2D canvas.
+The icons are automatically rotating towards the camera. The playground
+axes are also displayed.</p>
+<p>In our next experiment, we replace the icon of the nodes with external
+3D models. The models will be scaled in order to be proportionate to
+each other.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.pedestrian.osgModel = &quot;boxman.osgb.(0.3).scale&quot; *.car.osgModel = &quot;car.osgb.50.scale&quot;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">boxman.osgb</span></code> and the <code class="docutils literal notranslate"><span class="pre">car.osgb</span></code> files are loaded and scaled.
+This configuration affects only 3D models. The following animation shows
+how the nodes look like after we have replaced their icon with 3D
+models.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="ModelsLoaded.mp4" width="698" height="-1" class="align-center"></video><p>The <code class="docutils literal notranslate"><span class="pre">pedestrian</span></code> node is represented by an animated walking boxman and
+the <code class="docutils literal notranslate"><span class="pre">car</span></code> node is represented by a car model instead of 2D icons.</p>
+<p>The orientation of network nodes is updated by their own mobility
+submodule. It is possible that orientation of the 3D model does not
+match with the orientation of the node, i.e. the <code class="docutils literal notranslate"><span class="pre">pedestrian</span></code> 3D model
+is moving sideways.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="PedestrianMovesSideways.mp4" width="698" height="-1" class="align-center"></video><p>The orientation of the 3D model can be initialized by the <code class="docutils literal notranslate"><span class="pre">rot</span></code> pseudo
+loader. If the node is a mobile node then the mobility submodule of the
+node will manage future rotations of the node during the simulation. To
+achieve the correct orientation, the <code class="docutils literal notranslate"><span class="pre">pedestrian</span></code> 3D model should be
+rotated 90 degrees counterclockwise around the Z axis.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.pedestrian.osgModel = &quot;boxman.osgb.(0.3).scale.0,0,90.rot&quot;
+</pre></div>
+</div>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="NodesOrientationIsRight.mp4" width="698" height="-1" class="align-center"></video><p>The above animation shows that both 3D model’s orientation is correct.
+They are initialized by pseudo loaders and updated by the mobility model
+of the network node.</p>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p>This example only demonstrates the key features of network node
+visualization. For more information, refer to the
+<code class="docutils literal notranslate"><span class="pre">NetworkNodeVisualizer</span></code>, <code class="docutils literal notranslate"><span class="pre">NetworkNodeCanvasVisualizer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">NetworkNodeOsgVisualizer</span></code> NED documentations.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Visualizing Network Nodes</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#about-the-visualizer">About the Visualizer</a><ul>
+<li><a class="reference internal" href="#visualization-on-a-2d-canvas">Visualization on a 2D canvas</a></li>
+<li><a class="reference internal" href="#visualization-on-a-3d-scene">Visualization on a 3D scene</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customizing-appearance-of-network-nodes">Customizing Appearance of Network Nodes</a></li>
+<li><a class="reference internal" href="#more-information">More Information</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

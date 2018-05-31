@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The Ethernet Model &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">The Ethernet Model</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-ethernet.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-ethernet-model">
+<span id="dg-cha-ethernet"></span><h1>The Ethernet Model<a class="headerlink" href="#the-ethernet-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sending-ethernet-frames">
+<h2>Sending Ethernet Frames<a class="headerlink" href="#sending-ethernet-frames" title="Permalink to this headline">¶</a></h2>
+<p>TODO tags etc</p>
+</div>
+<div class="section" id="receiving-ethernet-frames">
+<h2>Receiving Ethernet Frames<a class="headerlink" href="#receiving-ethernet-frames" title="Permalink to this headline">¶</a></h2>
+<p>TODO tags etc</p>
+</div>
+<div class="section" id="frames">
+<h2>Frames<a class="headerlink" href="#frames" title="Permalink to this headline">¶</a></h2>
+<p>The INET defines these frames in the <code class="file docutils literal notranslate"><span class="pre">EtherFrame.msg</span></code> file.
+The models supports Ethernet II, 803.2 with LLC header, and 803.3 with
+LLC and SNAP headers. The corresponding classes are:
+<code class="code literal-msg docutils literal notranslate"><span class="pre">EthernetIIFrame</span></code>, <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrameWithLlc</span></code> and
+<code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrameWithSNAP</span></code>. They all class from <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrame</span></code> which
+only represents the basic MAC frame with source and destination
+addresses. <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> only deals with <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrame</span></code>’s, and does
+not care about the specific subclass.</p>
+<p>Ethernet frames carry data packets as encapsulated cMessage objects.
+Data packets can be of any message type (cMessage or cMessage subclass).</p>
+<p>The model encapsulates data packets in Ethernet frames using the
+<code class="docutils literal notranslate"><span class="pre">encapsulate()</span></code> method of cMessage. Encapsulate() updates the
+length of the Ethernet frame too, so the model doesn’t have to take care
+of that.</p>
+<p>The fields of the Ethernet header are passed in a <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code>
+control structure to the LLC by the network layer.</p>
+<p>EtherJam, EtherPadding (interframe gap), EtherPauseFrame?</p>
+</div>
+<div class="section" id="etherllc">
+<h2>EtherLlc<a class="headerlink" href="#etherllc" title="Permalink to this headline">¶</a></h2>
+<p>EtherFrameWithLLC</p>
+<p>SAP registration</p>
+<div class="section" id="etherllc-and-higher-layers">
+<h3><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> and higher layers<a class="headerlink" href="#etherllc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> module can serve several applications (higher layer
+protocols), and dispatch data to them. Higher layers are identified by
+DSAP. See section “Application registration” for more info.</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherEncap</span></code> doesn’t have the functionality to dispatch to
+different higher layers because in practice it’ll always be used with
+IP.</p>
+</div>
+<div class="section" id="communication-between-llc-and-higher-layers">
+<h3>Communication between LLC and Higher Layers<a class="headerlink" href="#communication-between-llc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
+<p>Higher layers (applications or protocols) talk to the <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>
+module.</p>
+<p>When a higher layer wants to send a packet via Ethernet, it just passes
+the data packet (a cMessage or any subclass) to <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>. The
+message kind has to be set to IEEE802CTRL_DATA.</p>
+<p>In general, if <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> receives a packet from the higher layers,
+it interprets the message kind as a command. The commands include
+IEEE802CTRL_DATA (send a frame), IEEE802CTRL_REGISTER_DSAP (register
+highher layer) IEEE802CTRL_DEREGISTER_DSAP (deregister higher layer) and
+IEEE802CTRL_SENDPAUSE (send PAUSE frame) – see EtherLLC for a more
+complete list.</p>
+<p>The arguments to the command are NOT inside the data packet but in a
+“control info” data structure of class <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code>, attached to
+the packet. See controlInfo() method of cMessage (OMNeT++ 3.0).</p>
+<p>For example, to send a packet to a given MAC address and protocol
+identifier, the application sets the data packet’s message kind to
+ETH_DATA (“please send this data packet” command), fills in the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code> structure with the destination MAC address and the
+protocol identifier, adds the control info to the message, then sends
+the packet to <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>.</p>
+<p>When the command doesn’t involve a data packet (e.g.
+IEEE802CTRL_(DE)REGISTER_DSAP, IEEE802CTRL_SENDPAUSE), a dummy packet
+(empty cMessage) is used.</p>
+</div>
+<div class="section" id="rationale">
+<h3>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h3>
+<p>The alternative of the above communications would be:</p>
+<ul class="simple">
+<li>adding the parameters such as destination address into the data
+packet. This would be a poor solution since it would make the higher
+layers specific to the Ethernet model.</li>
+<li>encapsulating a data packet into an <em>interface packet</em> which contains
+the destination address and other parameters. The disadvantages of
+this approach is the overhead associated with creating and destroying
+the interface packets.</li>
+</ul>
+<p>Using a control structure is more efficient than the interface packet
+approach, because the control structure can be created once inside the
+higher layer and be reused for every packet.</p>
+<p>It may also appear to be more intuitive in Tkenv because one can observe
+data packets travelling between the higher layer and Ethernet modules –
+as opposed to “interface” packets.</p>
+</div>
+<div class="section" id="etherllc-sap-registration">
+<h3>EtherLLC: SAP Registration<a class="headerlink" href="#etherllc-sap-registration" title="Permalink to this headline">¶</a></h3>
+<p>The Ethernet model supports multiple applications or higher layer
+protocols.</p>
+<p>So that data arriving from the network can be dispatched to the correct
+applications (higher layer protocols), applications have to register
+themselves in <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>. The registration is done with the
+IEEE802CTRL_REGISTER_DSAP command (see section “Communication between
+LLC and higher layers”) which associates a SAP with the LLC port.
+Different applications have to connect to different ports of
+<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>.</p>
+<p>The ETHERCTRL_REGISTER_DSAP/IEEE802CTRL_DEREGISTER_DSAP commands use
+only the dsap field in the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code> structure.</p>
+</div>
+</div>
+<div class="section" id="ethermac">
+<h2>EtherMac<a class="headerlink" href="#ethermac" title="Permalink to this headline">¶</a></h2>
+<p>The operation of the MAC module can be schematized by the following
+state chart:</p>
+<div align="center" class="align-center"><object data="../_images/graphviz-bcf813eeabbab486673e498988e3e15a458c8115.svg" type="image/svg+xml">
+            <p class="warning">digraph g {
+  fontsize=10; size=&quot;4&quot;; rankdir=&quot;TB&quot;
+  node[ shape = &quot;ellipse&quot; ]
+  
+  TX_IDLE; WAIT_IFG; SEND_IFG; TRANSMITTING; JAMMING; BACKOFF;
+  
+  TX_IDLE -&gt; SEND_IFG [ label=&quot;msg from upper\nin burst&quot; ]
+  TX_IDLE -&gt; WAIT_IFG [ label=&quot;msg from upper\nno burst&quot; ]
+
+  WAIT_IFG -&gt; TRANSMITTING [ label=&quot;gap time elapsed&quot; ]
+  SEND_IFG -&gt; TRANSMITTING [ label=&quot;gap sent&quot; ]
+  SEND_IFG -&gt; JAMMING [ label=&quot;collision&quot; ]
+  
+  TRANSMITTING -&gt; TX_IDLE [ label=&quot;tx finished&quot; ]
+  TRANSMITTING -&gt; SEND_IFG [ label=&quot;tx finished\nnext in burst&quot; ]
+  TRANSMITTING -&gt; WAIT_IFG [ label=&quot;tx finished\nnext&quot; ]
+  TRANSMITTING -&gt; JAMMING [ label=&quot;collision&quot; ]
+  
+  JAMMING -&gt; BACKOFF [ label=&quot;jam sent&quot; ]
+  JAMMING -&gt; TX_IDLE [ label=&quot;too many attempts&quot; ]
+  
+  BACKOFF -&gt; WAIT_IFG [ label=&quot;no carrier&quot; ]
+  BACKOFF -&gt; TX_IDLE [ label=&quot;carrier detected&quot;]
+}</p></object>
+</div>
+<p>Unlike <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMacFullDuplex</span></code>, this MAC module processes the incoming
+packets when their first bit is received. The end of the reception is
+calculated by the MAC and detected by scheduling a self message.</p>
+<p>When frames collide the transmission is aborted – in this case the
+transmitting station transmits a jam signal. Jam signals are represented
+by a <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherJam</span></code> message. The jam message contains the tree
+identifier of the frame whose transmission is aborted. When the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> receives a jam signal, it knows that the corresponding
+transmission ended in jamming and have been aborted. Thus when it
+receives as many jams as collided frames, it can be sure that the
+channel is free again. (Receiving a jam message marks the beginning of
+the jam signal, so actually has to wait for the duration of the
+jamming.)</p>
+</div>
+<div class="section" id="ethermacfullduplex">
+<h2>EtherMacFullDuplex<a class="headerlink" href="#ethermacfullduplex" title="Permalink to this headline">¶</a></h2>
+<p>Outgoing packets are transmitted according to the following state
+diagram:</p>
+<div align="center" class="align-center"><object data="../_images/graphviz-c18fdb4187cc5c8fa05c6675ba9d8fd16b29e96d.svg" type="image/svg+xml">
+            <p class="warning">digraph g {
+  fontsize=10; size=&quot;4&quot;; rankdir=&quot;TB&quot;
+  node[ shape = &quot;ellipse&quot; ]
+  
+  TX_IDLE -&gt; PAUSE    [ label=&quot;PAUSE frame rcvd&quot; ]
+  TX_IDLE -&gt; WAIT_IFG [ label=&quot;frame rcvd from upper layer&quot; ]
+
+  PAUSE -&gt; TX_IDLE    [ label=&quot;pause time elapsed&quot; ]
+  PAUSE -&gt; PAUSE      [ label=&quot;PAUSE frame rcvd&quot; ]
+  PAUSE -&gt; WAIT_IFG   [ label=&quot;pause time elapsed\nqueued msgs&quot; ]
+  
+  WAIT_IFG -&gt; TRANSMITTING [ label=&quot;96 bittime elapsed&quot; ]
+  
+  TRANSMITTING -&gt; TX_IDLE  [ label=&quot;tx finished\nno queued msgs&quot; ]
+  TRANSMITTING -&gt; WAIT_IFG [ label=&quot;tx finished\nqueued msgs, no PAUSE&quot; ]
+  TRANSMITTING -&gt; PAUSE    [ label=&quot;tx finished\nPAUSE frame rcvd&quot; ]
+}</p></object>
+</div>
+</div>
+<div class="section" id="ethernetinterface">
+<h2>EthernetInterface<a class="headerlink" href="#ethernetinterface" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="queueing">
+<h3>Queueing<a class="headerlink" href="#queueing" title="Permalink to this headline">¶</a></h3>
+<p>When the transmission line is busy, messages received from the upper
+layer needs to be queued.</p>
+<p>In routers, MAC relies on an external queue module (see
+<code class="code literal-ned docutils literal notranslate"><span class="pre">OutputQueue</span></code>), and requests packets from this external queue
+one-by-one. The name of the external queue must be given as the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">queueModule</span></code> parameer. There are implementations of
+<code class="code literal-ned docutils literal notranslate"><span class="pre">OutputQueue</span></code> to model finite buffer, QoS and/or RED.</p>
+<p>In hosts, no such queue is used, so MAC contains an internal queue named
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">txQueue</span></code> to queue up packets waiting for transmission.
+Conceptually, <code class="code literal-cpp docutils literal notranslate"><span class="pre">txQueue</span></code> is of infinite size, but for better
+diagnostics one can specify a hard limit in the <code class="code literal-ini docutils literal notranslate"><span class="pre">txQueueLimit</span></code>
+parameter – if this is exceeded, the simulation stops with an error.</p>
+</div>
+<div class="section" id="pause-handling">
+<span id="subsec-pause-handling"></span><h3>PAUSE handling<a class="headerlink" href="#pause-handling" title="Permalink to this headline">¶</a></h3>
+<p>The 802.3x standard supports PAUSE frames as a means of flow control.
+The frame contains a timer value, expressed as a multiple of 512
+bit-times, that specifies how long the transmitter should remain quiet.
+If the receiver becomes uncongested before the transmitter’s pause timer
+expires, the receiver may elect to send another PAUSE frame to the
+transmitter with a timer value of zero, allowing the transmitter to
+resume immediately.</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> will properly respond to PAUSE frames it receives
+(<code class="code literal-msg docutils literal notranslate"><span class="pre">EtherPauseFrame</span></code> class), however it will never send a PAUSE frame
+by itself. (For one thing, it doesn’t have an input buffer that can
+overflow.)</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code>, however, transmits PAUSE frames received by higher
+layers, and <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> can be instructed by a command to send a
+PAUSE frame to MAC.</p>
+</div>
+<div class="section" id="error-handling">
+<h3>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+<p>If the MAC is not connected to the network (“cable unplugged”), it will
+start up in “disabled” mode. A disabled MAC simply discards any messages
+it receives. It is currently not supported to dynamically
+connect/disconnect a MAC.</p>
+<p>CRC checks are modeled by the <code class="code literal-cpp docutils literal notranslate"><span class="pre">bitError</span></code> flag of the packets.
+Erronous packets are dropped by the MAC.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">The Ethernet Model</a><ul>
+<li><a class="reference internal" href="#sending-ethernet-frames">Sending Ethernet Frames</a></li>
+<li><a class="reference internal" href="#receiving-ethernet-frames">Receiving Ethernet Frames</a></li>
+<li><a class="reference internal" href="#frames">Frames</a></li>
+<li><a class="reference internal" href="#etherllc">EtherLlc</a><ul>
+<li><a class="reference internal" href="#etherllc-and-higher-layers"><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> and higher layers</a></li>
+<li><a class="reference internal" href="#communication-between-llc-and-higher-layers">Communication between LLC and Higher Layers</a></li>
+<li><a class="reference internal" href="#rationale">Rationale</a></li>
+<li><a class="reference internal" href="#etherllc-sap-registration">EtherLLC: SAP Registration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ethermac">EtherMac</a></li>
+<li><a class="reference internal" href="#ethermacfullduplex">EtherMacFullDuplex</a></li>
+<li><a class="reference internal" href="#ethernetinterface">EthernetInterface</a><ul>
+<li><a class="reference internal" href="#queueing">Queueing</a></li>
+<li><a class="reference internal" href="#pause-handling">PAUSE handling</a></li>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

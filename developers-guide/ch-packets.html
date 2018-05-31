@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Working with Packets &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Sockets" href="ch-sockets.html" />
+    <link rel="prev" title="Introduction" href="ch-introduction.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Developer’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Working with Packets</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-packets.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="working-with-packets">
+<span id="dg-cha-packet-api"></span><h1>Working with Packets<a class="headerlink" href="#working-with-packets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="dg-sec-packets-overviews"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The INET Packet API is designed to ease the implementation of
+communication protocols and applications by providing many useful C++
+components. In the following sections, we introduce the Packet API in
+detail, and we shed light on many common API usages through examples.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Code fragments in this chapter have been somewhat simplified for brevity. For
+example, some <code class="docutils literal notranslate"><span class="pre">const</span></code> modifiers and <code class="docutils literal notranslate"><span class="pre">const</span></code> casts have been omitted,
+setting fields have been omitted, and some algorithms have been simplified to
+ease understanding.</p>
+</div>
+<p>The representation of packets is an essential modeling support for
+communication network simulation. Applications and communication
+protocols construct, deconstruct, encapsulate, fragment, aggregate, and
+manipulate packets in many ways. In order to ease the implementation of
+said behavioral patterns, the Packet API primarily provides a
+feature-rich and general purpose <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure.</p>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure is capable of representing application
+packets, <span class="protocol">TCP</span> segments, <span class="protocol">IP</span> datagrams,
+<span class="protocol">Ethernet</span> frames, <span class="protocol">IEEE 802.11</span> frames, and all
+kinds of digital data. It is designed to provide efficient storage,
+duplication, sharing, encapsulation, aggregation, fragmentation,
+serialization, and data representation selection. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data
+structure consists of two layers, built on one another. The upper layer
+deals with packets, and the lower layer deals with alternative data
+representations.</p>
+<p>The Packet API, despite its name, does not only provide the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure but several other functionality. For
+example, communication protocols often need to enqueue data for sending
+(e.g., <span class="protocol">TCP</span>), or buffer received data for reassembly (e.g.,
+<span class="protocol">IP</span>) or for reordering (e.g., <span class="protocol">IEEE 802.11</span>). These
+services are provided as separate C++ data structures on top of the
+lower layer mentioned above.</p>
+</div>
+<div class="section" id="representing-data">
+<span id="dg-sec-packets-representing-data"></span><h2>Representing Data<a class="headerlink" href="#representing-data" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure is a compound data structure that
+builds on top of another set of data structures called chunks. The
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Chunk</span></code> data structures provide several alternatives to represent a
+piece of data. Chunks can be simple or compound if they are built using
+other chunks.</p>
+<p>Communication protocols and applications may define their own chunks or
+use already existing ones. User defined chunks are most often genereted
+by the OMNeT++ MSG compiler as a subclass of <code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>. It’s
+also possible to write a user defined chunk from scratch.</p>
+<p>INET provides the following built-in chunks:</p>
+<ul class="simple">
+<li>repeated byte or bit chunk (<code class="code literal-cpp docutils literal notranslate"><span class="pre">ByteCountChunk</span></code>,
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">BitCountChunk</span></code>)</li>
+<li>raw bytes or bits chunk (<code class="code literal-cpp docutils literal notranslate"><span class="pre">BytesChunk</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">BitsChunk</span></code>)</li>
+<li>ordered sequence of chunks (<code class="code literal-cpp docutils literal notranslate"><span class="pre">SequenceChunk</span></code>)</li>
+<li>slice of another chunk designated by offset and length
+(<code class="code literal-cpp docutils literal notranslate"><span class="pre">SliceChunk</span></code>)</li>
+<li>many protocol specific field based chunks (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Header</span></code>
+subclass of <code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>)</li>
+</ul>
+<p>Applications and communication protocols most often construct simple
+chunks to represent application data and protocol headers. The following
+examples demonstrate the construction of various simple chunks.</p>
+<div class="highlight-cpp notranslate" id="chunk-construction-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">bitCountData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BitCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 3 zero bits</span>
+<span class="k">auto</span> <span class="n">byteCountData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="sc">&#39;?&#39;</span><span class="p">);</span> <span class="c1">// 10 &#39;?&#39; bytes</span>
+<span class="k">auto</span> <span class="n">rawBitsData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BitsChunk</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">rawBitsData</span><span class="o">-&gt;</span><span class="n">setBits</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span> <span class="c1">// 3 raw bits</span>
+<span class="k">auto</span> <span class="n">rawBytesData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BytesChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// 10 raw bytes</span>
+<span class="n">rawBytesData</span><span class="o">-&gt;</span><span class="n">setBytes</span><span class="p">({</span><span class="mi">243</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">134</span><span class="p">,</span> <span class="mi">216</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">});</span>
+<span class="k">auto</span> <span class="n">fieldBasedHeader</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new UDP header</span>
+<span class="n">fieldBasedHeader</span><span class="o">-&gt;</span><span class="n">setSrcPort</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// set some fields</span>
+</pre></div>
+</div>
+<p>In general, chunks must be constructed with a call to <code class="code literal-cpp docutils literal notranslate"><span class="pre">makeShared</span></code>
+instead of the standard C++ <code class="code literal-cpp docutils literal notranslate"><span class="pre">new</span></code> operator. The special
+construction mechanism is required for the efficient sharing of chunks
+among packets using C++ shared pointers.</p>
+<p>Packets most often contain several chunks inserted by different
+protocols as they are passed through the protocol layers. The most
+common way to represent packet contents, is forming a compound chunk by
+concatenation.</p>
+<div class="highlight-cpp notranslate" id="chunk-concatenation-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">sequence</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">SequenceChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create empty sequence</span>
+<span class="n">sequence</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">makeShared</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">());</span> <span class="c1">// append UDP header</span>
+<span class="n">sequence</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// 10 bytes</span>
+</pre></div>
+</div>
+<p>Protocols often need to slice data, for example to provide
+fragmentation, which is also directly supported by the chunk API.</p>
+<div class="highlight-cpp notranslate" id="chunk-slicing-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">udpHeader</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create 8 bytes UDP header</span>
+<span class="k">auto</span> <span class="n">firstHalf</span> <span class="o">=</span> <span class="n">udpHeader</span><span class="o">-&gt;</span><span class="n">peek</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// first 4 bytes of header</span>
+<span class="k">auto</span> <span class="n">secondHalf</span> <span class="o">=</span> <span class="n">udpHeader</span><span class="o">-&gt;</span><span class="n">peek</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// second 4 bytes of header</span>
+</pre></div>
+</div>
+<p>In order to avoid cluttered data representation due to slicing, the
+chunk API provides automatic merging for consecutive chunk slices.</p>
+<div class="highlight-cpp notranslate" id="chunk-merging-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">sequence</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">SequenceChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create empty sequence</span>
+<span class="n">sequence</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">firstHalf</span><span class="p">);</span> <span class="c1">// append first half</span>
+<span class="n">sequence</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">secondHalf</span><span class="p">);</span> <span class="c1">// append second half</span>
+<span class="k">auto</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">-&gt;</span><span class="n">peek</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span> <span class="c1">// automatically merge slices</span>
+</pre></div>
+</div>
+<p>Alternative representations can be easily converted into one another
+using automatic serialization as a common ground.</p>
+<div class="highlight-cpp notranslate" id="chunk-conversion-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">raw</span> <span class="o">=</span> <span class="n">merged</span><span class="o">-&gt;</span><span class="n">peek</span><span class="o">&lt;</span><span class="n">BytesChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span> <span class="c1">// auto serialization</span>
+<span class="k">auto</span> <span class="n">original</span> <span class="o">=</span> <span class="n">raw</span><span class="o">-&gt;</span><span class="n">peek</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span> <span class="c1">// auto deserialization</span>
+</pre></div>
+</div>
+<p>The following MSG fragment is a more complete example which shows how a
+UDP header could be defined:</p>
+<div class="highlight-msg notranslate" id="udp-header-definition-example"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">CrcMode</span>
+<span class="p">{</span>
+  <span class="n">CRC_DISABLED</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// CRC is not set, serializable</span>
+  <span class="n">CRC_DECLARED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// CRC is correct without the value, not serializable</span>
+  <span class="n">CRC_COMPUTED</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// CRC is potentially incorrect, serializable</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">UdpHeader</span> <span class="k">extends</span> <span class="n">FieldsChunk</span>
+<span class="p">{</span>
+  <span class="n">chunkLength</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span> <span class="c1">// UDP header length is always 8 bytes</span>
+  <span class="kt">int</span> <span class="n">sourcePort</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// source port field is undefined by default</span>
+  <span class="kt">int</span> <span class="n">destinationPort</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// destination port field is undefined by default</span>
+  <span class="n">B</span> <span class="n">lengthField</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// length field is undefined by default</span>
+  <span class="kt">uint16_t</span> <span class="n">crc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// checksum field is 0 by default</span>
+  <span class="n">CrcMode</span> <span class="n">crcMode</span> <span class="o">=</span> <span class="n">CRC_DISABLED</span><span class="p">;</span> <span class="c1">// checksum mode is disabled by default</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It’s important to distinguish the two length related fields in the
+<code class="code literal-msg docutils literal notranslate"><span class="pre">UdpHeader</span></code> chunk. One is the length of the chunk itself
+(<code class="code literal-cpp docutils literal notranslate"><span class="pre">chunkLength</span></code>), the other is the value in the length field of the
+header (<code class="code literal-cpp docutils literal notranslate"><span class="pre">lengthField</span></code>).</p>
+</div>
+<div class="section" id="representing-packets">
+<span id="dg-sec-packets-representing-packets"></span><h2>Representing Packets<a class="headerlink" href="#representing-packets" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure uses a single chunk data structure to
+represent its contents. The contents may be as simple as raw bytes
+(<code class="code literal-cpp docutils literal notranslate"><span class="pre">BytesChunk</span></code>), but most likely it will be the concatenation
+(<code class="code literal-cpp docutils literal notranslate"><span class="pre">SequenceChunk</span></code>) of various protocol specific headers (e.g.,
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code> subclasses) and application data (e.g.,
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">ByteCountChunk</span></code>).</p>
+<p>Packets can be created by both applications and communication protocols.
+As packets are passed down through the protocol layers at the sender
+node, new protocol specific headers and trailers are inserted during
+processing.</p>
+<div class="highlight-cpp notranslate" id="packet-construction-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">emptyPacket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;ACK&quot;</span><span class="p">);</span> <span class="c1">// create empty packet</span>
+<span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+<span class="k">auto</span> <span class="n">dataPacket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;DATA&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// create new packet with data</span>
+<span class="k">auto</span> <span class="n">moreData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+<span class="n">dataPacket</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">moreData</span><span class="p">);</span> <span class="c1">// insert more data at the end</span>
+<span class="k">auto</span> <span class="n">udpHeader</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new UDP header</span>
+<span class="n">dataPacket</span><span class="o">-&gt;</span><span class="n">insertAtFront</span><span class="p">(</span><span class="n">udpHeader</span><span class="p">);</span> <span class="c1">// insert header into packet</span>
+</pre></div>
+</div>
+<p>In order to facilitate packet processing by communication protocols at
+the receiver node, packets are split into three parts: front popped
+part, data part, and back popped part. During packet processing, as the
+packet is passed through the protocol layers, headers and trailers are
+popped from the beginning and from the end. This effectively reduces the
+remaining unprocessed part called the data part, but it doesn’t affect
+the data stored in the packet.</p>
+<div class="highlight-cpp notranslate" id="packet-processing-example"><div class="highlight"><pre><span></span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop specific header from packet</span>
+<span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtBack</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop specific trailer from packet</span>
+<span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">();</span> <span class="c1">// peek remaining data in packet</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="representing-signals">
+<span id="dg-sec-packets-representing-signals"></span><h2>Representing Signals<a class="headerlink" href="#representing-signals" title="Permalink to this headline">¶</a></h2>
+<p>Protocols and applications use the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure to
+represent digital data during the processing within the network node. In
+contrast, the wireless transmission medium uses a different data
+structure called <code class="code literal-cpp docutils literal notranslate"><span class="pre">Signal</span></code> to represent the physical phenomena used
+to transmit packets.</p>
+<div class="highlight-cpp notranslate" id="signal-construction-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">signal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Signal</span><span class="p">(</span><span class="n">transmission</span><span class="p">);</span>
+<span class="n">signal</span><span class="o">-&gt;</span><span class="n">setDuration</span><span class="p">(</span><span class="n">duration</span><span class="p">);</span>
+<span class="n">signal</span><span class="o">-&gt;</span><span class="n">encapsulate</span><span class="p">(</span><span class="n">packet</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Signals always encapsulate a packet and also contain a description of
+the analog domain representation. The most important physical properties
+of a signal are the signal duration and the signal power.</p>
+</div>
+<div class="section" id="representing-transmission-errors">
+<span id="dg-sec-packets-representing-transmission-errors"></span><h2>Representing Transmission Errors<a class="headerlink" href="#representing-transmission-errors" title="Permalink to this headline">¶</a></h2>
+<p>An essential part of communication network simulation is the
+understanding of protocol behavior in the presence of errors. The Packet
+API provides several alternatives for representing errors. The
+alternatives range from simple, but computationally cheap, to accurate,
+but computationally expensive solutions.</p>
+<ul class="simple">
+<li>mark erroneous packets (simple)</li>
+<li>mark erroneous chunks (good compromise)</li>
+<li>change bits in raw chunks (accurate)</li>
+</ul>
+<p>The first example shows how to represent transmission erros on the
+packet level. A packet is marked as erroneous based on its length and
+the associated bit error rate. This representation doesn’t give too much
+chance for a protocol to do anything else than discard an erroneous
+packet.</p>
+<div class="highlight-cpp notranslate" id="corrupting-packets-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">ErrorModel</span><span class="o">::</span><span class="n">corruptPacket</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="kt">double</span> <span class="n">ber</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">length</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">getTotalLength</span><span class="p">();</span>
+  <span class="k">auto</span> <span class="n">hasErrors</span> <span class="o">=</span> <span class="n">hasProbabilisticError</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">ber</span><span class="p">);</span> <span class="c1">// decide randomly</span>
+  <span class="k">auto</span> <span class="n">corruptedPacket</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">dup</span><span class="p">();</span> <span class="c1">// cheap operation</span>
+  <span class="n">corruptedPacket</span><span class="o">-&gt;</span><span class="n">setBitError</span><span class="p">(</span><span class="n">hasErrors</span><span class="p">);</span> <span class="c1">// set bit error flag</span>
+  <span class="k">return</span> <span class="n">corruptedPacket</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The second example shows how to represent transmission errors on the
+chunk level. Similarly to the previous example, a chunk is also marked
+as erroneous based on its length and the associated bit error rate. This
+representation allows a protocol to discard only certain parts of the
+packet. For example, an aggregated packet may be partially discarded and
+processed.</p>
+<div class="highlight-cpp notranslate" id="corrupting-chunks-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">ErrorModel</span><span class="o">::</span><span class="n">corruptChunks</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="kt">double</span> <span class="n">ber</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">b</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// start from the beginning</span>
+  <span class="k">auto</span> <span class="n">corruptedPacket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Corrupt&quot;</span><span class="p">);</span> <span class="c1">// create new packet</span>
+  <span class="k">while</span> <span class="p">(</span><span class="k">auto</span> <span class="n">chunk</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAt</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">dupShared</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// for each chunk</span>
+    <span class="k">auto</span> <span class="n">length</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">-&gt;</span><span class="n">getChunkLength</span><span class="p">();</span>
+    <span class="k">auto</span> <span class="n">hasErrors</span> <span class="o">=</span> <span class="n">hasProbabilisticError</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">ber</span><span class="p">);</span> <span class="c1">// decide randomly</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">hasErrors</span><span class="p">)</span> <span class="c1">// if erroneous</span>
+      <span class="n">chunk</span><span class="o">-&gt;</span><span class="n">markIncorrect</span><span class="p">();</span> <span class="c1">// set incorrect bit</span>
+    <span class="n">corruptedPacket</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">chunk</span><span class="p">);</span> <span class="c1">// append chunk to corrupt packet</span>
+    <span class="n">offset</span> <span class="o">+=</span> <span class="n">chunk</span><span class="o">-&gt;</span><span class="n">getChunkLength</span><span class="p">();</span> <span class="c1">// increment offset with chunk length</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">corruptedPacket</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The last example shows how to actually represent transmission errors on
+the byte level. In contrast with the previous examples, this time the
+actual data of the packet is modified. This allows a protocol to discard
+or correct any part based on checksums.</p>
+<div class="highlight-cpp notranslate" id="corrupting-bytes-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">ErrorModel</span><span class="o">::</span><span class="n">corruptBytes</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="kt">double</span> <span class="n">ber</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span> <span class="n">corruptedBytes</span><span class="p">;</span> <span class="c1">// bytes of corrupted packet</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAllAsBytes</span><span class="p">();</span> <span class="c1">// data of original packet</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">byte</span> <span class="p">:</span> <span class="n">data</span><span class="o">-&gt;</span><span class="n">getBytes</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// for each original byte do</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">hasProbabilisticError</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">ber</span><span class="p">))</span> <span class="c1">// if erroneous</span>
+      <span class="n">byte</span> <span class="o">=</span> <span class="o">~</span><span class="n">byte</span><span class="p">;</span> <span class="c1">// invert byte (simplified corruption)</span>
+    <span class="n">corruptedBytes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">byte</span><span class="p">);</span> <span class="c1">// store byte in corrupted data</span>
+  <span class="p">}</span>
+  <span class="k">auto</span> <span class="n">corruptedData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BytesChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new data</span>
+  <span class="n">corruptedData</span><span class="o">-&gt;</span><span class="n">setBytes</span><span class="p">(</span><span class="n">corruptedBytes</span><span class="p">);</span> <span class="c1">// store corrupted bits</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Packet</span><span class="p">(</span><span class="s">&quot;Corrupt&quot;</span><span class="p">,</span> <span class="n">corruptedData</span><span class="p">);</span> <span class="c1">// create new packet</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The physical layer models support the above mentioned different error
+representations via configurable parameters. Higher layer protocols
+detect errors by chechking the error bit on packets and chunks, and by
+standard CRC mechanisms.</p>
+</div>
+<div class="section" id="packet-tagging">
+<span id="dg-sec-packets-packet-tagging"></span><h2>Packet Tagging<a class="headerlink" href="#packet-tagging" title="Permalink to this headline">¶</a></h2>
+<p>Communication between protocols inside network nodes often require
+passing around meta information along with packets. To this end, packets
+are also capable of carrying various meta information called tags. Tags
+can either be attached to the whole packet or to a specific region. The
+former are called packet tags, the latter are called region tags.</p>
+<p>The most important packet tag example is the one specifying the
+outermost protocol of the packet, which cannot be unambigously
+identified just by looking at the raw data. Other notable examples are:
+MAC address request, outgoing interface request, transmission power
+request, receive strength indication, incoming interface indication.</p>
+<div class="highlight-cpp notranslate" id="packet-tagging-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Ipv4</span><span class="o">::</span><span class="n">sendDown</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="n">Ipv4Address</span> <span class="n">nextHopAddr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">interfaceId</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">macAddressReq</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">addTag</span><span class="o">&lt;</span><span class="n">MacAddressReq</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// add new tag for MAC</span>
+  <span class="n">macAddressReq</span><span class="o">-&gt;</span><span class="n">setSrcAddress</span><span class="p">(</span><span class="n">selfAddress</span><span class="p">);</span> <span class="c1">// source is our MAC address</span>
+  <span class="k">auto</span> <span class="n">nextHopMacAddress</span> <span class="o">=</span> <span class="n">resolveMacAddress</span><span class="p">(</span><span class="n">nextHopAddr</span><span class="p">);</span> <span class="c1">// simplified ARP</span>
+  <span class="n">macAddressReq</span><span class="o">-&gt;</span><span class="n">setDestAddress</span><span class="p">(</span><span class="n">nextHopMacAddress</span><span class="p">);</span> <span class="c1">// destination is next hop</span>
+  <span class="k">auto</span> <span class="n">interfaceReq</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">addTag</span><span class="o">&lt;</span><span class="n">InterfaceReq</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// add tag for dispatch</span>
+  <span class="n">interfaceReq</span><span class="o">-&gt;</span><span class="n">setInterfaceId</span><span class="p">(</span><span class="n">interfaceId</span><span class="p">);</span> <span class="c1">// set designated interface</span>
+  <span class="k">auto</span> <span class="n">packetProtocolTag</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">addTagIfAbsent</span><span class="o">&lt;</span><span class="n">PacketProtocolTag</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">packetProtocolTag</span><span class="o">-&gt;</span><span class="n">setProtocol</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">ipv4</span><span class="p">);</span> <span class="c1">// set protocol of packet</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="s">&quot;out&quot;</span><span class="p">);</span> <span class="c1">// send to MAC protocol module of designated interface</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tags are very simple C++ classes usually generated by the OMNeT++ MSG
+compiler. Tags come in three flavors:</p>
+<ul class="simple">
+<li><em>requests</em> carry information from higher layer to lower layer (e.g.
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">MacAddressReq</span></code>).</li>
+<li><em>indications</em> carry information from lower layer to higher layer
+(e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceInd</span></code>).</li>
+<li><em>plain tags</em> contain some meta information (e.g.
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code>).</li>
+<li><em>base classes</em> must not be attached to packets (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">TagBase</span></code>).</li>
+</ul>
+<div class="highlight-msg notranslate" id="tag-definition-example"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">MacAddressReq</span> <span class="k">extends</span> <span class="n">TagBase</span>
+<span class="p">{</span>
+    <span class="n">MacAddress</span> <span class="n">srcAddress</span><span class="p">;</span>  <span class="c1">// may be unspecified</span>
+    <span class="n">MacAddress</span> <span class="n">destAddress</span><span class="p">;</span> <span class="c1">// always specified</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="region-tagging">
+<span id="dg-sec-packets-region-tagging"></span><h2>Region Tagging<a class="headerlink" href="#region-tagging" title="Permalink to this headline">¶</a></h2>
+<p>In order to collect some statistics, it is required to attach meta
+information to arbitrary regions of packets. For example, computing the
+end-to-end delay in a TCP stream requires to tag regions at the sender
+with the timestamp when they were created. Then the receiver computes
+the end-to-end delay for every region as the data arrives.</p>
+<div class="highlight-cpp notranslate" id="region-tagging-send-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ClientApp</span><span class="o">::</span><span class="n">send</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new data chunk</span>
+  <span class="k">auto</span> <span class="n">creationTimeTag</span> <span class="o">=</span> <span class="n">data</span><span class="o">-&gt;</span><span class="n">addTag</span><span class="o">&lt;</span><span class="n">CreationTimeTag</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// add new tag</span>
+  <span class="n">creationTimeTag</span><span class="o">-&gt;</span><span class="n">setCreationTime</span><span class="p">(</span><span class="n">simTime</span><span class="p">());</span> <span class="c1">// store current time</span>
+  <span class="k">auto</span> <span class="n">packet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Data&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// create new packet</span>
+  <span class="n">socket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">);</span> <span class="c1">// send packet using TCP socket</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In a TCP stream, the data can be arbitrarily split, reordered, and
+merged in the underlying network. The packet data representation takes
+care of maintaining the attached region tags as if they were
+individually attached to bits. In order to avoid cluttered data
+representation due to the above, the tag API provides automatic merging
+for similar consecutive tag regions.</p>
+<div class="highlight-cpp notranslate" id="region-tagging-receive-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">ServerApp</span><span class="o">::</span><span class="n">receive</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">();</span> <span class="c1">// get all data from the packet</span>
+  <span class="k">auto</span> <span class="n">regions</span> <span class="o">=</span> <span class="n">data</span><span class="o">-&gt;</span><span class="n">getAllTags</span><span class="o">&lt;</span><span class="n">CreationTimeTag</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// get all tag regions</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">region</span> <span class="p">:</span> <span class="n">regions</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// for each region do</span>
+    <span class="k">auto</span> <span class="n">creationTime</span> <span class="o">=</span> <span class="n">region</span><span class="p">.</span><span class="n">getTag</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getCreationTime</span><span class="p">();</span> <span class="c1">// original time</span>
+    <span class="k">auto</span> <span class="n">delay</span> <span class="o">=</span> <span class="n">simTime</span><span class="p">()</span> <span class="o">-</span> <span class="n">creationTime</span><span class="p">;</span> <span class="c1">// compute delay</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">region</span><span class="p">.</span><span class="n">getOffset</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">region</span><span class="p">.</span><span class="n">getLength</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">delay</span><span class="p">;</span> <span class="c1">// use data</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above loop may run exactly once for the whole data, or it may run
+several times depending on how the data is provided at the sender and
+how the underlying network works.</p>
+</div>
+<div class="section" id="dissecting-packets">
+<span id="dg-sec-packets-dissecting-packets"></span><h2>Dissecting Packets<a class="headerlink" href="#dissecting-packets" title="Permalink to this headline">¶</a></h2>
+<p>Understanding what’s inside a packet is a very important and often used
+functionality. Simply using the representation may be insufficient,
+because the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> may be represented with a <code class="code literal-cpp docutils literal notranslate"><span class="pre">BytesChunk</span></code>,
+for exmple. The Packet API provides a <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code> class which
+analyzes a packet solely based on the assigned packet protocol and the
+actual data it contains.</p>
+<p>The analysis is done according to the protocol logic as opposed to the
+actual representation of the data. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code> works
+similarly to a parser. Basically, it walks through each part (such as
+protocol headers) of a packet in order. For each part, it determines the
+corresponding protocol and the most specific representation for that
+protocol.</p>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code> class relies on small registered
+protocol-specific dissector classes (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ProtocolDissector</span></code>)
+subclassing the required <code class="code literal-cpp docutils literal notranslate"><span class="pre">ProtocolDissector</span></code> base class.
+Implementors are expected to use the <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector::ICallback</span></code>
+interface to notify the parser about the packet structure.</p>
+<div class="highlight-cpp notranslate" id="packet-dissector-callback-interface"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">startProtocolDataUnit</span><span class="p">(</span><span class="n">Protocol</span> <span class="o">*</span><span class="n">protocol</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">endProtocolDataUnit</span><span class="p">(</span><span class="n">Protocol</span> <span class="o">*</span><span class="n">protocol</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">markIncorrect</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">visitChunk</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="o">&gt;&amp;</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">Protocol</span> <span class="o">*</span><span class="n">protocol</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">dissectPacket</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="n">Protocol</span> <span class="o">*</span><span class="n">protocol</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In order to use the <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code>, the user is expected to
+implement a <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector::ICallback</span></code> interface. The callback
+interface will be notified for each part of the packet as the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code> goes through it.</p>
+<div class="highlight-cpp notranslate" id="packet-dissection-example"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">ProtocolDissectorRegistry</span><span class="o">::</span><span class="n">globalRegistry</span><span class="p">;</span>
+<span class="n">PacketDissector</span> <span class="nf">dissector</span><span class="p">(</span><span class="n">registry</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+<span class="k">auto</span> <span class="n">packetProtocolTag</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">findTag</span><span class="o">&lt;</span><span class="n">PacketProtocolTag</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">auto</span> <span class="n">protocol</span> <span class="o">=</span> <span class="n">packetProtocolTag</span><span class="o">-&gt;</span><span class="n">getProtocol</span><span class="p">();</span>
+<span class="n">dissector</span><span class="p">.</span><span class="n">dissectPacket</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="n">protocol</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering-packets">
+<span id="dg-sec-packets-filtering-packets"></span><h2>Filtering Packets<a class="headerlink" href="#filtering-packets" title="Permalink to this headline">¶</a></h2>
+<p>Filtering packets based on the actual data they contain is another
+widely used and very important feature. With the help of the packet
+dissector, it is very simple to create arbitrary custom packet filters.
+Packet filters are generally used for recording packets and visualizing
+various packet related information.</p>
+<p>In order to simplify filtering, the Packet API provides a generic
+expression based packet filter which is implemented in the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketFilter</span></code> class. The expression syntax is the same as other
+OMNeT++ expressions, and the data filter is matched against individual
+chunks of the packet as found by the packet dissector.</p>
+<p>For example, the packet filter expression “ping*” matches all packets
+having the name prefix ’ping’, and the packet chunk filter expression
+“inet::Ipv4Header and srcAddress(10.0.0.*)” matches all packets that
+contain an <span class="protocol">IPv4</span> header with a ’10.0.0’ source address
+prefix.</p>
+<div class="highlight-cpp notranslate" id="packet-filtering-example"><div class="highlight"><pre><span></span><span class="n">PacketFilter</span> <span class="n">filter</span><span class="p">;</span> <span class="c1">// patterns for the whole packet and for the data</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setPattern</span><span class="p">(</span><span class="s">&quot;ping*&quot;</span><span class="p">,</span> <span class="s">&quot;Ipv4Header and sourceAddress(10.0.0.*)&quot;</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">matches</span><span class="p">(</span><span class="n">packet</span><span class="p">);</span> <span class="c1">// returns boolean value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="printing-packets">
+<span id="dg-sec-packets-printing-packets"></span><h2>Printing Packets<a class="headerlink" href="#printing-packets" title="Permalink to this headline">¶</a></h2>
+<p>During model development, packets often need to be displayed in a human
+readable form. The Packet API provides a <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketPrinter</span></code> class
+which is capable of forming a human readable string representation of
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code>’s. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketPrinter</span></code> class relies on small
+registered protocol-specific printer classes (e.g.
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ProtocolPrinter</span></code> subclassing the required
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">ProtocolPrinter</span></code> base class.</p>
+<p>The packet printer is automatically used by the OMNeT++ runtime user
+interface to display packets in the packet log window. The packet
+printer contributes several log window columns into the user interface:
+’Source’, ’Destination’, ’Protocol’, ’Length’, and ’Info’. These columns
+display packet data similarly to the well-known Wireshark protocol
+analyzer.</p>
+<div class="highlight-cpp notranslate" id="packet-printing-example"><div class="highlight"><pre><span></span><span class="n">PacketPrinter</span> <span class="n">printer</span><span class="p">;</span> <span class="c1">// turns packets into human readable strings</span>
+<span class="n">printer</span><span class="p">.</span><span class="n">printPacket</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">,</span> <span class="n">packet</span><span class="p">);</span> <span class="c1">// print to standard output</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketPrinter</span></code> provides a few other functions which have
+additional options to control the details of the resulting human
+readable form.</p>
+</div>
+<div class="section" id="recording-pcap">
+<span id="dg-sec-packets-recording-pcap"></span><h2>Recording PCAP<a class="headerlink" href="#recording-pcap" title="Permalink to this headline">¶</a></h2>
+<p>Exporting the packets from a simulation into a PCAP file allows further
+processing with 3rd party tools. The Packet API provides a
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">PcapDump</span></code> class for creating PCAP files. Packet filtering can be
+used to reduce the file size and increase performance.</p>
+<div class="highlight-cpp notranslate" id="pcap-recording-example"><div class="highlight"><pre><span></span><span class="n">PcapDump</span> <span class="n">dump</span><span class="p">;</span>
+<span class="n">dump</span><span class="p">.</span><span class="n">openPcap</span><span class="p">(</span><span class="s">&quot;out.pcap&quot;</span><span class="p">,</span> <span class="mi">65535</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// maximum length and PCAP type</span>
+<span class="n">dump</span><span class="p">.</span><span class="n">writePacket</span><span class="p">(</span><span class="n">simTime</span><span class="p">(),</span> <span class="n">packet</span><span class="p">);</span> <span class="c1">// record with current time</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encapsulating-packets">
+<span id="dg-sec-packets-encapsulating-packets"></span><h2>Encapsulating Packets<a class="headerlink" href="#encapsulating-packets" title="Permalink to this headline">¶</a></h2>
+<p>Many communication protocols work with simple packet encapsulation. They
+encapsulate packets with their own protocol specific headers and
+trailers at the sender node, and they decapsulate packets at the reciver
+node. The headers and trailers carry the information that is required to
+provide the protocol specific service.</p>
+<p>For example, when sending a packet, the Ethernet protocol encapsulates
+an IP datagram by prepending the packet with an Ethernet header, and
+also by appending the packet with an optional padding and an Ethernet
+FCS. The following example shows how a MAC protocol could encapsulate a
+packet:</p>
+<div class="highlight-cpp notranslate" id="packet-encapsulation-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Mac</span><span class="o">::</span><span class="n">encapsulate</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new header</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setChunkLength</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span> <span class="c1">// set chunk length to 8 bytes</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setLengthField</span><span class="p">(</span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">getDataLength</span><span class="p">());</span> <span class="c1">// set length field</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setTransmitterAddress</span><span class="p">(</span><span class="n">selfAddress</span><span class="p">);</span> <span class="c1">// set other header fields</span>
+  <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtFront</span><span class="p">(</span><span class="n">header</span><span class="p">);</span> <span class="c1">// insert header into packet</span>
+  <span class="k">auto</span> <span class="n">trailer</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new trailer</span>
+  <span class="n">trailer</span><span class="o">-&gt;</span><span class="n">setChunkLength</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// set chunk length to 4 bytes</span>
+  <span class="n">trailer</span><span class="o">-&gt;</span><span class="n">setFcsMode</span><span class="p">(</span><span class="n">FCS_MODE_DECLARED</span><span class="p">);</span> <span class="c1">// set trailer fields</span>
+  <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">trailer</span><span class="p">);</span> <span class="c1">// insert trailer into packet</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When receiving a packet, the Ethernet protocol removes an Ethernet
+header and an Ethernet FCS from the received Ethernet frame, and passes
+the resulting IP datagram along. The following example shows how a MAC
+protocol could decapsulate a packet:</p>
+<div class="highlight-cpp notranslate" id="packet-decapsulation-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Mac</span><span class="o">::</span><span class="n">decapsulate</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop header from packet</span>
+  <span class="k">auto</span> <span class="n">lengthField</span> <span class="o">=</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getLengthField</span><span class="p">();</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getChunkLength</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// print chunk length</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">lengthField</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// print header length field</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getReceiverAddress</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// print other header fields</span>
+  <span class="k">auto</span> <span class="n">trailer</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtBack</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop trailer from packet</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">trailer</span><span class="o">-&gt;</span><span class="n">getFcsMode</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// print trailer fields</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">getDataLength</span><span class="p">()</span> <span class="o">==</span> <span class="n">lengthField</span><span class="p">);</span> <span class="c1">// if the packet is correct</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Although the <code class="code literal-cpp docutils literal notranslate"><span class="pre">popAtFront</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">popAtBack</span></code> functions change
+the remaining unprocessed part of the packet, they don’t have effect on
+the actual packet data. That is when the packet reaches high level
+protocol, it still contains all the received data.</p>
+</div>
+<div class="section" id="fragmenting-packets">
+<span id="dg-sec-packets-fragmenting-packets"></span><h2>Fragmenting Packets<a class="headerlink" href="#fragmenting-packets" title="Permalink to this headline">¶</a></h2>
+<p>Communication protocols often provide fragmentation to overcome various
+physical limits (e.g. length limit, error rate). They split packets into
+smaller pieces at the sender node, which send them one-by-one. They form
+the original packet at the receiver node by combining the received
+fragments.</p>
+<p>For example, the IEEE 802.11 protocol fragments packets to overcome the
+increasing probability of packet loss of large packets. The following
+example shows how a MAC protocol could fragment a packet:</p>
+<div class="highlight-cpp notranslate" id="packet-fragmentation-example"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">Mac</span><span class="o">::</span><span class="n">fragment</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;&amp;</span> <span class="n">sizes</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// start from the packet&#39;s beginning</span>
+  <span class="k">auto</span> <span class="n">fragments</span> <span class="o">=</span> <span class="k">new</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;</span><span class="p">();</span> <span class="c1">// result collection</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">size</span> <span class="p">:</span> <span class="n">sizes</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// for each received size do</span>
+    <span class="k">auto</span> <span class="n">fragment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Fragment&quot;</span><span class="p">);</span> <span class="c1">// header + data part + trailer</span>
+    <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new header</span>
+    <span class="n">header</span><span class="o">-&gt;</span><span class="n">setFragmentOffset</span><span class="p">(</span><span class="n">offset</span><span class="p">);</span> <span class="c1">// set fragment offset for reassembly</span>
+    <span class="n">fragment</span><span class="o">-&gt;</span><span class="n">insertAtFront</span><span class="p">(</span><span class="n">header</span><span class="p">);</span> <span class="c1">// insert header into fragment</span>
+    <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAt</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="c1">// get data part from packet</span>
+    <span class="n">fragment</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">data</span><span class="p">);</span> <span class="c1">// insert data part into fragment</span>
+    <span class="k">auto</span> <span class="n">trailer</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new trailer</span>
+    <span class="n">fragment</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">trailer</span><span class="p">);</span> <span class="c1">// insert trailer into fragment</span>
+    <span class="n">fragments</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="n">fragment</span><span class="p">);</span> <span class="c1">// collect fragment into result</span>
+    <span class="n">offset</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span> <span class="c1">// increment offset with size of data part</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">fragments</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When receiving fragments, protocols need to collect the coherent
+fragments of the same packet until all fragments becomes available. The
+following example shows how a MAC protocol could form the original
+packet from a set of coherent fragments:</p>
+<div class="highlight-cpp notranslate" id="packet-defragmentation-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">Mac</span><span class="o">::</span><span class="n">defragment</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;&amp;</span> <span class="n">fragments</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">packet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Original&quot;</span><span class="p">);</span> <span class="c1">// create new concatenated packet</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">fragment</span> <span class="p">:</span> <span class="n">fragments</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">fragment</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop header from fragment</span>
+    <span class="n">fragment</span><span class="o">-&gt;</span><span class="n">popAtBack</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop trailer from fragment</span>
+    <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">fragment</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">());</span> <span class="c1">// concatenate fragment data</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">packet</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="aggregating-packets">
+<span id="dg-sec-packets-aggregating-packets"></span><h2>Aggregating Packets<a class="headerlink" href="#aggregating-packets" title="Permalink to this headline">¶</a></h2>
+<p>Communication protocols often provide aggregation to better utilize the
+communication channel by reducing protocol overhead. They wait for
+several packets to arrive at the sender node, then they form a large
+aggregated packet which is in turn sent at once. At the receiver node
+the aggregated packet is split into the original packets, and they are
+passed along.</p>
+<p>For example, the IEEE 802.11 protocol aggregates packets for better
+channel utilization at both MSDU and MPDU levels. The following example
+shows a version of how a MAC protocol could create an aggregate packet:</p>
+<div class="highlight-cpp notranslate" id="packet-aggregation-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">Mac</span><span class="o">::</span><span class="n">aggregate</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;&amp;</span> <span class="n">packets</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">aggregate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Aggregate&quot;</span><span class="p">);</span> <span class="c1">// create concatenated packet</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">packet</span> <span class="p">:</span> <span class="n">packets</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// for each received packet do</span>
+    <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">SubHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new subheader</span>
+    <span class="n">header</span><span class="o">-&gt;</span><span class="n">setLengthField</span><span class="p">(</span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">getDataLength</span><span class="p">());</span> <span class="c1">// set subframe length</span>
+    <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">header</span><span class="p">);</span> <span class="c1">// insert subheader into aggregate</span>
+    <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">();</span> <span class="c1">// get packet data</span>
+    <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">data</span><span class="p">);</span> <span class="c1">// insert data into aggregate</span>
+  <span class="p">}</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new header</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setAggregate</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span> <span class="c1">// set aggregate flag</span>
+  <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">insertAtFront</span><span class="p">(</span><span class="n">header</span><span class="p">);</span> <span class="c1">// insert header into aggregate</span>
+  <span class="k">auto</span> <span class="n">trailer</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new trailer</span>
+  <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">trailer</span><span class="p">);</span> <span class="c1">// insert trailer into aggregate</span>
+  <span class="k">return</span> <span class="n">aggregate</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following example shows a version of how a MAC protocol could
+disaggregate a packet:</p>
+<div class="highlight-cpp notranslate" id="packet-disaggregation-example"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">Mac</span><span class="o">::</span><span class="n">disaggregate</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">aggregate</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop header from packet</span>
+  <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">popAtBack</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop trailer from packet</span>
+  <span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">packets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Packet</span> <span class="o">*&gt;</span><span class="p">();</span> <span class="c1">// result collection</span>
+  <span class="n">b</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">getFrontOffset</span><span class="p">();</span> <span class="c1">// start after header</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">offset</span> <span class="o">!=</span> <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">getBackOffset</span><span class="p">())</span> <span class="p">{</span> <span class="c1">// up to trailer</span>
+    <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">peekAt</span><span class="o">&lt;</span><span class="n">SubHeader</span><span class="o">&gt;</span><span class="p">(</span><span class="n">offset</span><span class="p">);</span> <span class="c1">// peek sub header</span>
+    <span class="n">offset</span> <span class="o">+=</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getChunkLength</span><span class="p">();</span> <span class="c1">// increment with header length</span>
+    <span class="k">auto</span> <span class="n">size</span> <span class="o">=</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getLengthField</span><span class="p">();</span> <span class="c1">// get length field from header</span>
+    <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">aggregate</span><span class="o">-&gt;</span><span class="n">peekAt</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="c1">// peek following data part</span>
+    <span class="k">auto</span> <span class="n">packet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Original&quot;</span><span class="p">);</span> <span class="c1">// create new packet</span>
+    <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">data</span><span class="p">);</span> <span class="c1">// insert data into packet</span>
+    <span class="n">packets</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="n">packet</span><span class="p">);</span> <span class="c1">// collect packet into result</span>
+    <span class="n">offset</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span> <span class="c1">// increment offset with data size</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">packets</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serializing-packets">
+<span id="dg-sec-packets-serializing-packets"></span><h2>Serializing Packets<a class="headerlink" href="#serializing-packets" title="Permalink to this headline">¶</a></h2>
+<p>In real communication systems packets are usually stored as a sequence
+of bytes directly in network byte order. In contrast, INET usually
+stores packets in small field based C++ classes (generated by the
+OMNeT++ MSG compiler) to ease debugging. In order to calculate checksums
+or to communicate with real hardware, all protocol specific parts must
+be serializable to a sequence of bytes.</p>
+<p>The protocol header serializers are separate classes from the actual
+protocol headers. They must be registered in the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">ChunkSerializerRegistry</span></code> in order to be used. The following
+example shows how a MAC protocol header could be serialized to a
+sequence of bytes:</p>
+<div class="highlight-cpp notranslate" id="packet-serialization-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">MacHeaderSerializer</span><span class="o">::</span><span class="n">serialize</span>
+  <span class="p">(</span><span class="n">MemoryOutputStream</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="o">&gt;&amp;</span> <span class="n">chunk</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">staticPtrCast</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">(</span><span class="n">chunk</span><span class="p">);</span>
+  <span class="n">stream</span><span class="p">.</span><span class="n">writeUint16Be</span><span class="p">(</span><span class="n">header</span><span class="o">-&gt;</span><span class="n">getType</span><span class="p">());</span> <span class="c1">// unsigned 16 bits, big endian</span>
+  <span class="n">stream</span><span class="p">.</span><span class="n">writeMacAddress</span><span class="p">(</span><span class="n">header</span><span class="o">-&gt;</span><span class="n">getTransmitterAddress</span><span class="p">());</span>
+  <span class="n">stream</span><span class="p">.</span><span class="n">writeMacAddress</span><span class="p">(</span><span class="n">header</span><span class="o">-&gt;</span><span class="n">getReceiverAddress</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Deserialization is somewhat more complicated than serialization, because
+it must be prepared to handle incomplete or even incorrect data due to
+errors introduced by the network. The following example shows how a MAC
+protocol header could be deserialized from a sequence of bytes:</p>
+<div class="highlight-cpp notranslate" id="packet-deserialization-example"><div class="highlight"><pre><span></span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="o">&gt;</span> <span class="n">MacHeaderSerializer</span><span class="o">::</span><span class="n">deserialize</span><span class="p">(</span><span class="n">MemoryInputStream</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new header</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setType</span><span class="p">(</span><span class="n">stream</span><span class="p">.</span><span class="n">readUint16Be</span><span class="p">());</span> <span class="c1">// unsigned 16 bits, big endian</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setTransmitterAddress</span><span class="p">(</span><span class="n">stream</span><span class="p">.</span><span class="n">readMacAddress</span><span class="p">());</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setReceiverAddress</span><span class="p">(</span><span class="n">stream</span><span class="p">.</span><span class="n">readMacAddress</span><span class="p">());</span>
+  <span class="k">return</span> <span class="n">header</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emulation-support">
+<span id="dg-sec-packets-emulation-support"></span><h2>Emulation Support<a class="headerlink" href="#emulation-support" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to communicate with real hardware, packets must be
+converted to and from a sequence of bytes. The reason is that the
+programming interface of operating systems and external libraries work
+with sending and receiving raw data.</p>
+<p>All protocol headers and data chunks which are present in a packet must
+have a registered serializer to be able to create the raw sequence of
+bytes. Protocol modules must also be configured to either disable or
+compute checksums, because serializers cannot carry out the checksum
+calculation.</p>
+<p>The following example shows how a packet could be converted to a
+sequence of bytes to send through an external interface:</p>
+<div class="highlight-cpp notranslate" id="emulation-packet-sending-example"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">ExternalInterface</span><span class="o">::</span><span class="n">prepareToSend</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAllAsBytes</span><span class="p">();</span> <span class="c1">// convert to a sequence of bytes</span>
+  <span class="k">return</span> <span class="n">data</span><span class="o">-&gt;</span><span class="n">getBytes</span><span class="p">();</span> <span class="c1">// actual bytes to send</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following example shows how a packet could be converted from a
+sequence of bytes when receiving from an external interface:</p>
+<div class="highlight-cpp notranslate" id="emulation-packet-receiving-example"><div class="highlight"><pre><span></span><span class="n">Packet</span> <span class="o">*</span><span class="n">ExternalInterface</span><span class="o">::</span><span class="n">prepareToReceive</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span> <span class="n">bytes</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BytesChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span> <span class="c1">// create chunk with bytes</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Packet</span><span class="p">(</span><span class="s">&quot;Emulation&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// create packet with data</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In INET, all protocols automatically support hardware emulation due to
+the dual representation of packets. The above example creates a packet
+which contains a single chunk with a sequence of bytes. As the packet is
+passed through the protocols, they can interpret the data (e.g. by
+calling <code class="code literal-cpp docutils literal notranslate"><span class="pre">peekAtFront</span></code>) as they see fit. The Packet API always
+provides the requested representation, either because it’s already
+available in the packet, or because it gets automatically deserialized.</p>
+</div>
+<div class="section" id="queueing-packets">
+<span id="dg-sec-packets-queueing-packets"></span><h2>Queueing Packets<a class="headerlink" href="#queueing-packets" title="Permalink to this headline">¶</a></h2>
+<p>Some protocols store packet data temporarily at the sender node before
+actual processing can occur. For example, the TCP protocol must store
+the outgoing data received from the application in order to be able to
+provide transmission flow control.</p>
+<p>The following example shows how a transport protocol could store the
+received data temporarily until the data is actually used:</p>
+<div class="highlight-cpp notranslate" id="packet-queueing-example"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TransportSendQueue</span>
+<span class="p">{</span>
+  <span class="n">ChunkQueue</span> <span class="n">queue</span><span class="p">;</span> <span class="c1">// stores application data</span>
+  <span class="n">B</span> <span class="n">sequenceNumber</span><span class="p">;</span> <span class="c1">// position in stream</span>
+
+  <span class="kt">void</span> <span class="nf">enqueueApplicationData</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">);</span>
+  <span class="n">Packet</span> <span class="o">*</span><span class="nf">createSegment</span><span class="p">(</span><span class="n">b</span> <span class="n">length</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">TransportSendQueue</span><span class="o">::</span><span class="n">enqueueApplicationData</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">());</span> <span class="c1">// store received data</span>
+<span class="p">}</span>
+
+<span class="n">Packet</span> <span class="o">*</span><span class="n">TransportSendQueue</span><span class="o">::</span><span class="n">createSegment</span><span class="p">(</span><span class="n">b</span> <span class="n">maxLength</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">packet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Packet</span><span class="p">(</span><span class="s">&quot;Segment&quot;</span><span class="p">);</span> <span class="c1">// create new segment</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">TransportHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create new header</span>
+  <span class="n">header</span><span class="o">-&gt;</span><span class="n">setSequenceNumber</span><span class="p">(</span><span class="n">sequenceNumber</span><span class="p">);</span> <span class="c1">// store sequence number for reordering</span>
+  <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtFront</span><span class="p">(</span><span class="n">header</span><span class="p">);</span> <span class="c1">// insert header into segment</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">getLength</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">maxLength</span><span class="p">)</span>
+    <span class="n">maxLength</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">getLength</span><span class="p">();</span> <span class="c1">// reduce length if necessary</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">maxLength</span><span class="p">);</span> <span class="c1">// pop requested amount of data</span>
+  <span class="n">packet</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">data</span><span class="p">);</span> <span class="c1">// insert data into segment</span>
+  <span class="n">sequenceNumber</span> <span class="o">+=</span> <span class="n">data</span><span class="o">-&gt;</span><span class="n">getChunkLength</span><span class="p">();</span> <span class="c1">// increase sequence number</span>
+  <span class="k">return</span> <span class="n">packet</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">ChunkQueue</span></code> class acts similarly to a binary FIFO queue except
+it works with chunks. Similarly to the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> it also
+automatically merge consecutive data and selects the most appropriate
+representation.</p>
+</div>
+<div class="section" id="buffering-packets">
+<span id="dg-sec-packets-buffering-packets"></span><h2>Buffering Packets<a class="headerlink" href="#buffering-packets" title="Permalink to this headline">¶</a></h2>
+<p>Protocols at the receiver node often need to buffer incoming packet data
+until the actual processing can occur. For example, packets may arrive
+out of order, and the data they contain must be reassembled or reordered
+before it can be passed along.</p>
+<p>INET provides a few special purpose C++ classes to support data
+buffering:</p>
+<ul class="simple">
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">ChunkBuffer</span></code> provides automatic merging for large data chunks
+from out of order smaller data chunks.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">ReassemblyBuffer</span></code> provides reassembling for out of order data
+according to an expected length.</li>
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">ReorderBuffer</span></code> provides reordering for out of order data into a
+continuous data stream from an expected offset.</li>
+</ul>
+<p>All buffers deal with only the data, represented by chunks, instead of
+packets. They automatically merge consecutive data and select the most
+appropriate representation. Protocols using these buffers automatically
+support all data representation provided by INET, and any combination
+thereof. For example, <code class="code literal-cpp docutils literal notranslate"><span class="pre">ByteCountChunk</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">BytesChunk</span></code>,
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>, and <code class="code literal-cpp docutils literal notranslate"><span class="pre">SliceChunk</span></code> can be freely mixed in the
+same buffer.</p>
+</div>
+<div class="section" id="reassembling-packets">
+<span id="dg-sec-packets-reassembling-packets"></span><h2>Reassembling Packets<a class="headerlink" href="#reassembling-packets" title="Permalink to this headline">¶</a></h2>
+<p>Some protocols may use an unreliable service to transfer a large piece
+of data over the network. The unreliable service requires the receiver
+node to be prepared for receiving parts out of order and potentially
+duplicated.</p>
+<p>For example, the IP protocol must store incoming fragments at the
+receiver node, because it must wait until the datagram becomes complete,
+before it can be passed along. The IP protocol must also be prepared for
+receiving the individual fragments out of order and potentially
+duplicated.</p>
+<p>The following example shows how a network protocol could store and
+reassemble the data of the incoming packets into a whole packet:</p>
+<div class="highlight-cpp notranslate" id="packet-reassembling-example"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NetworkProtocolDefragmentation</span>
+<span class="p">{</span>
+  <span class="n">ReassemblyBuffer</span> <span class="n">buffer</span><span class="p">;</span> <span class="c1">// stores received data</span>
+
+  <span class="kt">void</span> <span class="nf">processDatagram</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">);</span> <span class="c1">// processes incoming packes</span>
+  <span class="n">Packet</span> <span class="o">*</span><span class="nf">getReassembledDatagram</span><span class="p">();</span> <span class="c1">// reassembles the original packet</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">NetworkProtocolDefragmentation</span><span class="o">::</span><span class="n">processDatagram</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">NetworkProtocolHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// remove header</span>
+  <span class="k">auto</span> <span class="n">fragmentOffset</span> <span class="o">=</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getFragmentOffset</span><span class="p">();</span> <span class="c1">// determine offset</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">();</span> <span class="c1">// get data from packet</span>
+  <span class="n">buffer</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">fragmentOffset</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// overwrite data in buffer</span>
+<span class="p">}</span>
+
+<span class="n">Packet</span> <span class="o">*</span><span class="n">NetworkProtocolDefragmentation</span><span class="o">::</span><span class="n">getReassembledDatagram</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">buffer</span><span class="p">.</span><span class="n">isComplete</span><span class="p">())</span> <span class="c1">// if reassembly isn&#39;t complete</span>
+    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span> <span class="c1">// there&#39;s nothing to return</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="n">getReassembledData</span><span class="p">();</span> <span class="c1">// complete reassembly</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Packet</span><span class="p">(</span><span class="s">&quot;Datagram&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// create new packet</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">ReassemblyBuffer</span></code> supports replacing the stored data at a
+given offset, and it also provides the complete reassembled data with
+the expected length if available.</p>
+</div>
+<div class="section" id="reordering-packets">
+<span id="dg-sec-packets-reordering-packets"></span><h2>Reordering Packets<a class="headerlink" href="#reordering-packets" title="Permalink to this headline">¶</a></h2>
+<p>Some protocols may use an unreliable service to transfer a long data
+stream over the network. The unreliable service requires the sender node
+to resend unacknowledged parts, and it also requires the receiver node
+to be prepared for receiving parts out of order and potentially
+duplicated.</p>
+<p>For example, the TCP protocol must buffer the incoming data at the
+receiver node, because the TCP segments may arrive out of order and
+potentially duplicated or overlapping, and TCP is required to provide
+the data to the application in the correct order and only once.</p>
+<p>The following example shows how a transport protocol could store and
+reorder the data of incoming packets, which may arrive out of order, and
+also how such a protocol could pass along only the available data in the
+correct order:</p>
+<div class="highlight-cpp notranslate" id="packet-reordering-example"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TransportReceiveQueue</span>
+<span class="p">{</span>
+  <span class="n">ReorderBuffer</span> <span class="n">buffer</span><span class="p">;</span> <span class="c1">// stores receive data</span>
+  <span class="n">B</span> <span class="n">sequenceNumber</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">processSegment</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">);</span>
+  <span class="n">Packet</span> <span class="o">*</span><span class="nf">getAvailableData</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">TransportReceiveQueue</span><span class="o">::</span><span class="n">processSegment</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">header</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">TransportHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop transport header</span>
+  <span class="k">auto</span> <span class="n">sequenceNumber</span> <span class="o">=</span> <span class="n">header</span><span class="o">-&gt;</span><span class="n">getSequenceNumber</span><span class="p">();</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekData</span><span class="p">();</span> <span class="c1">// get all packet data</span>
+  <span class="n">buffer</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">sequenceNumber</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="c1">// overwrite data in buffer</span>
+<span class="p">}</span>
+
+<span class="n">Packet</span> <span class="o">*</span><span class="n">TransportReceiveQueue</span><span class="o">::</span><span class="n">getAvailableData</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">getAvailableDataLength</span><span class="p">()</span> <span class="o">==</span> <span class="n">b</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="c1">// if no data available</span>
+    <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">.</span><span class="n">popAvailableData</span><span class="p">();</span> <span class="c1">// remove all available data</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Packet</span><span class="p">(</span><span class="s">&quot;Data&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">ReorderBuffer</span></code> supports replacing the stored data at a given
+offset, and it provides the available data from the expected offset if
+any.</p>
+</div>
+<div class="section" id="dispatching-packets">
+<span id="dg-sec-packets-dispatching-packets"></span><h2>Dispatching Packets<a class="headerlink" href="#dispatching-packets" title="Permalink to this headline">¶</a></h2>
+<p>Protocols also communicate with each other inside the network node by
+sending packets, requests, and confirmations. INET is very flexible in
+terms of how protocols can be connected to each other. Protocols can be
+connected directly, or they can be connected through one or more
+<code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> modules.</p>
+<p>This flexiblity allows creating very simple network nodes where the
+protocol stack is a chain. But it also allows creating more complicated
+network nodes where protocols are grouped into protocol layers to
+provide many-to-one and many-to-many relationships. It’s also possible
+to use dispatcher modules hierarchically inside compound modules, or to
+connect all protocols to a single central dispatcher module.</p>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolTag</span></code> must be attached to a packet, request or
+confirmation to allow the <code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> to direct the message
+to the inteded recipient. The following example shows how a MAC protocol
+could send up a packet to the designated protocol without actually
+knowing where that protocol is in the network node:</p>
+<div class="highlight-cpp notranslate" id="packet-dispatching-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Mac</span><span class="o">::</span><span class="n">sendUp</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">req</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">addTagIfAbsent</span><span class="o">&lt;</span><span class="n">DispatchProtocolReq</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">setProtocol</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">ipv4</span><span class="p">);</span> <span class="c1">// set destination protocol</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">setServicePrimitive</span><span class="p">(</span><span class="n">SP_INDICATION</span><span class="p">);</span> <span class="c1">// determine receiving gate</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="s">&quot;upperLayerOut&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> finds the designated protocol module and
+its gate based on the <code class="code literal-cpp docutils literal notranslate"><span class="pre">registerProtocol</span></code> calls it has received
+during the initialization of all connected protocol modules.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Working with Packets</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#representing-data">Representing Data</a></li>
+<li><a class="reference internal" href="#representing-packets">Representing Packets</a></li>
+<li><a class="reference internal" href="#representing-signals">Representing Signals</a></li>
+<li><a class="reference internal" href="#representing-transmission-errors">Representing Transmission Errors</a></li>
+<li><a class="reference internal" href="#packet-tagging">Packet Tagging</a></li>
+<li><a class="reference internal" href="#region-tagging">Region Tagging</a></li>
+<li><a class="reference internal" href="#dissecting-packets">Dissecting Packets</a></li>
+<li><a class="reference internal" href="#filtering-packets">Filtering Packets</a></li>
+<li><a class="reference internal" href="#printing-packets">Printing Packets</a></li>
+<li><a class="reference internal" href="#recording-pcap">Recording PCAP</a></li>
+<li><a class="reference internal" href="#encapsulating-packets">Encapsulating Packets</a></li>
+<li><a class="reference internal" href="#fragmenting-packets">Fragmenting Packets</a></li>
+<li><a class="reference internal" href="#aggregating-packets">Aggregating Packets</a></li>
+<li><a class="reference internal" href="#serializing-packets">Serializing Packets</a></li>
+<li><a class="reference internal" href="#emulation-support">Emulation Support</a></li>
+<li><a class="reference internal" href="#queueing-packets">Queueing Packets</a></li>
+<li><a class="reference internal" href="#buffering-packets">Buffering Packets</a></li>
+<li><a class="reference internal" href="#reassembling-packets">Reassembling Packets</a></li>
+<li><a class="reference internal" href="#reordering-packets">Reordering Packets</a></li>
+<li><a class="reference internal" href="#dispatching-packets">Dispatching Packets</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-introduction.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Introduction</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-sockets.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Using Sockets</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

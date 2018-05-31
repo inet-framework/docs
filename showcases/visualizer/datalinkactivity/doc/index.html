@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Visualizing Data Link Activity &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Visualizing Physical Link Activity" href="../../physicallinkactivity/doc/index.html" />
+    <link rel="prev" title="Visualizing Network Path Activity" href="../../networkpathactivity/doc/index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Visualization</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Visualizing Data Link Activity</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/visualizer/datalinkactivity/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Visualization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Visualization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="visualizing-data-link-activity">
+<h1>Visualizing Data Link Activity<a class="headerlink" href="#visualizing-data-link-activity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>With INET simulations, it is often useful to be able to visualize
+network traffic. INET offers several visualizers for this task,
+operating at various levels of the network stack. In this showcase, we
+examine <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> that can provide graphical feedback about
+data link level traffic.</p>
+<p>The showcase consists of five simulation models, each demonstrating
+different features of the data link activity visualizer.</p>
+<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
+<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity">inet/showcases/visualizer/datalinkactivity</a></p>
+</div>
+<div class="section" id="about-the-visualizer">
+<h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
+<p>In INET, data link activity can be visualized by including a
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> module in the simulation. Adding an
+<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> module is also an option, because it also
+contains a <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> module. Data link visualization is
+disabled by default, it can be enabled by setting the visualizer’s
+<code class="docutils literal notranslate"><span class="pre">displayLinks</span></code> parameter to true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> is able to observe packets at <em>service</em>, <em>peer</em>
+and <em>protocol</em> level. The level where packets are observed can be set by
+the <code class="docutils literal notranslate"><span class="pre">activityLevel</span></code> parameter.</p>
+<ul class="simple">
+<li>At <em>service</em> level, those packets are displayed which pass through
+the data link layer (i.e. carry data from/to higher layers).</li>
+<li>At <em>peer</em> level, the visualization is triggered by those packets
+which are processed inside the link layer in the source node and
+processed inside the link layer in the destination node.</li>
+<li>At <em>protocol</em> level, <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> displays those packets
+which are going out at the bottom of link layer in the source node
+and going in at the bottom of the link layer in the destination node.</li>
+</ul>
+<p>The activity between two nodes is represented visually by an arrow that
+points from the sender node to the receiver node. The arrow appears
+after the first packet has been received, then gradually fades out
+unless it is refreshed by further packets. The style, color, fading time
+and other graphical properties can be changed with parameters of the
+visualizer.</p>
+<p>By default, all packets, interfaces and nodes are considered for the
+visualization. This selection can be narrowed to certain packets and/or
+nodes with the visualizer’s <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code>, <code class="docutils literal notranslate"><span class="pre">interfaceFilter</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameters.</p>
+</div>
+<div class="section" id="enabling-visualization-of-data-link-activity">
+<h2>Enabling Visualization of Data Link Activity<a class="headerlink" href="#enabling-visualization-of-data-link-activity" title="Permalink to this headline">¶</a></h2>
+<p>The following example shows how to enable the visualization of data link
+activity, and what the visualization looks like. In the first example,
+we configure a simulation for a wired network. The simulation can be run
+by choosing the <code class="docutils literal notranslate"><span class="pre">EnablingVisualizationWired</span></code> configuration from the
+ini file.</p>
+<p>The wired network contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>, <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> and
+<code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. The <code class="docutils literal notranslate"><span class="pre">linkVisualizer</span></code> module’s type is
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerSimpleWired.png"><img alt="../../../../_images/DataLinkVisualizerSimpleWired.png" src="../../../../_images/DataLinkVisualizerSimpleWired.png" style="width: 100%;" /></a>
+</div>
+<p>In this configuration, <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> pings <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. Data
+link activity visualization is enabled by setting the <code class="docutils literal notranslate"><span class="pre">displayLinks</span></code>
+parameter to true.</p>
+<p>The following video shows what happens when the simulation is started.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWired_v0613.m4v" width="698" height="-1" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
+<code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> to <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. This strip is the standard
+OMNeT++ animation for packet transmissions, and has nothing to do with
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. When the packet is received in whole by
+<code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code> (the red strip disappears), a dark cyan arrow is
+added by <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> between the two hosts, indicating data
+link activity. The packet’s name is also displayed on the arrow. The
+arrow fades out quickly, because the <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameter of the
+visualizer is set to a small value.</p>
+<p>Visualization in a wireless network is very similar. Our next example is
+the wireless variant of the above simulation. In this network we use two
+<code class="docutils literal notranslate"><span class="pre">AdhocHosts</span></code>, <code class="docutils literal notranslate"><span class="pre">wirelessSource</span></code> and <code class="docutils literal notranslate"><span class="pre">wirelessDestination</span></code>. The
+traffic and the visualization settings are the same as the configuration
+of the wired example. The simulation can be run by choosing the
+<code class="docutils literal notranslate"><span class="pre">EnablingVisualizationWireless</span></code> configuration from the ini file.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerSimpleWireless.png"><img alt="../../../../_images/DataLinkVisualizerSimpleWireless.png" src="../../../../_images/DataLinkVisualizerSimpleWireless.png" style="width: 100%;" /></a>
+</div>
+<p>The following animation depicts what happens when the simulation is run.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWireless_v0613.m4v" width="698" height="-1" class="align-center"></video><p>This animation is similar to the video of the wired example (apart from
+an extra blue dotted line which can be ignored, as it is also part of
+the standard OMNeT++ packet animation.) Note, however, that the ACK
+frame does not activate the visualization, because ACK frames do not
+pass through data link layer.</p>
+</div>
+<div class="section" id="filtering-data-link-activity">
+<h2>Filtering Data Link Activity<a class="headerlink" href="#filtering-data-link-activity" title="Permalink to this headline">¶</a></h2>
+<p>In complex networks with many nodes and several protocols in use, it is
+often useful to be able to filter network traffic, and visualize only
+the part of the traffic we are interested in. The following example
+shows how to set packet filtering in <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. This
+simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Filtering</span></code> configuration from
+the ini file.</p>
+<p>We use the following network for this showcase.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerFiltering.png"><img alt="../../../../_images/DataLinkVisualizerFiltering.png" src="../../../../_images/DataLinkVisualizerFiltering.png" style="width: 100%;" /></a>
+</div>
+<p>This network consists of four switches (<code class="docutils literal notranslate"><span class="pre">etherSwitch1..etherSwitch4</span></code>)
+and six endpoints: two source hosts (<code class="docutils literal notranslate"><span class="pre">source1</span></code>, <code class="docutils literal notranslate"><span class="pre">source2</span></code>), two
+destination hosts (<code class="docutils literal notranslate"><span class="pre">destination1</span></code>, <code class="docutils literal notranslate"><span class="pre">destination2</span></code>) and two other
+hosts (<code class="docutils literal notranslate"><span class="pre">host1</span></code>, <code class="docutils literal notranslate"><span class="pre">host2</span></code>) which are inactive in this simulation.
+<code class="docutils literal notranslate"><span class="pre">Source1</span></code> pings <code class="docutils literal notranslate"><span class="pre">destination1</span></code>, and <code class="docutils literal notranslate"><span class="pre">source2</span></code> pings
+<code class="docutils literal notranslate"><span class="pre">destination2</span></code>.</p>
+<p>For this network, the visualizer’s type is <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>.
+Data link activity visualization is filtered to display only ping
+messages. The other packets, e.g. ARP packets, are not visualized by
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. We adjust the <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and the
+<code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameters so that the activity arrows do not fade out
+completely before the next ping messages are sent.</p>
+<p>We use the following configuration for the visualization.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.dataLinkVisualizer.displayLinks = true
+*.visualizer.*.dataLinkVisualizer.fadeOutMode = &quot;simulationTime&quot;
+*.visualizer.*.dataLinkVisualizer.fadeOutTime = 1.4s
+*.visualizer.*.dataLinkVisualizer.packetFilter = &quot;ping*&quot;
+</pre></div>
+</div>
+<p>The following animation shows what happens when we start the simulation.
+You can see that although there is both ARP and ping traffic in the
+network, <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> only takes the latter into account, due
+to the presence of the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering_v0613.m4v" width="698" height="-1" class="align-center"></video><p>It also is possible to filter for network nodes. For the following
+example, let’s assume we want to display traffic between the hosts
+<code class="docutils literal notranslate"><span class="pre">source1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination1</span></code> only, along the path <code class="docutils literal notranslate"><span class="pre">etherSwitch1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">etherSwitch4</span></code> and <code class="docutils literal notranslate"><span class="pre">etherSwitch2</span></code>. To this end, we set the
+visualizer’s <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter by using the following line (note
+the curly brace syntax used for specifying numeric substrings).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.dataLinkVisualizer.nodeFilter = &quot;source1 or etherSwitch{1,4,2} or destination1&quot;
+</pre></div>
+</div>
+<p>This is what it looks like when we run the simulation:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering2_v0613.m4v" width="698" height="-1" class="align-center"></video><p>As you can see, visualization allows us to follow the ping packets
+between <code class="docutils literal notranslate"><span class="pre">source1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination1</span></code>. Note, however, that ping
+traffic between the two other hosts, <code class="docutils literal notranslate"><span class="pre">source2</span></code> and <code class="docutils literal notranslate"><span class="pre">destination2</span></code>,
+also activates the visualization on the link between <code class="docutils literal notranslate"><span class="pre">etherSwitch1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">etherSwitch4</span></code>.</p>
+</div>
+<div class="section" id="displaying-data-link-activity-at-different-levels">
+<h2>Displaying Data Link Activity at Different Levels<a class="headerlink" href="#displaying-data-link-activity-at-different-levels" title="Permalink to this headline">¶</a></h2>
+<p>The following example demonstrates, how to visualize data link activity
+at <em>protocol</em>, <em>peer</em> and <em>service</em> level. This simulation can be run by
+selecting the <code class="docutils literal notranslate"><span class="pre">ActivityLevel</span></code> configuration from the ini file.</p>
+<p>We use the following wireless network for this example.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/ActivityLevel_v1206.png"><img alt="../../../../_images/ActivityLevel_v1206.png" src="../../../../_images/ActivityLevel_v1206.png" style="width: 100%;" /></a>
+</div>
+<p>The network consists three <code class="docutils literal notranslate"><span class="pre">AdhocHost</span></code> nodes, <code class="docutils literal notranslate"><span class="pre">person1</span></code>, <code class="docutils literal notranslate"><span class="pre">person2</span></code>
+and <code class="docutils literal notranslate"><span class="pre">videoServer</span></code>. <code class="docutils literal notranslate"><span class="pre">VideoServer</span></code> will be streaming a video to
+<code class="docutils literal notranslate"><span class="pre">person1</span></code>. <code class="docutils literal notranslate"><span class="pre">Person2</span></code> will be inactive in this example.</p>
+<p>The type of the visualizer module is <code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code>.
+Multi-visualizers are compound visualizer modules containing submodule
+vectors of visualizer simple modules. By default, the multi-visualizers
+contain one submodule of each visualizer simple module. The number of
+submodules can be specified with parameters for each visualizer
+submodule.</p>
+<p>In this example, data link activity will be displayed at three different
+levels. To achieve this, three <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> will be
+configured, observing packets at <em>service</em>, <em>peer</em> and <em>protocol</em> level.
+They are marked with different colors. The <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> module is
+configured as follows.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.numDataLinkVisualizers = 3
+*.visualizer.*.dataLinkVisualizer[*].displayLinks = true
+*.visualizer.*.dataLinkVisualizer[*].packetFilter = &quot;*Video*&quot;
+*.visualizer.*.dataLinkVisualizer[*].fadeOutMode = &quot;animationTime&quot;
+*.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
+*.visualizer.*.dataLinkVisualizer[0].activityLevel = &quot;protocol&quot;
+*.visualizer.*.dataLinkVisualizer[0].lineColor = &quot;purple&quot;
+*.visualizer.*.dataLinkVisualizer[0].labelColor = &quot;purple&quot;
+*.visualizer.*.dataLinkVisualizer[1].activityLevel = &quot;peer&quot;
+*.visualizer.*.dataLinkVisualizer[1].lineColor = &quot;blue&quot;
+*.visualizer.*.dataLinkVisualizer[1].labelColor = &quot;blue&quot;
+*.visualizer.*.dataLinkVisualizer[2].activityLevel = &quot;service&quot;
+*.visualizer.*.dataLinkVisualizer[2].lineColor = &quot;green&quot;
+*.visualizer.*.dataLinkVisualizer[2].labelColor = &quot;green&quot;
+</pre></div>
+</div>
+<p>By using the <code class="docutils literal notranslate"><span class="pre">numDataLinkVisualizers</span></code> parameter, we set three
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> modules. In this example, we are interested in
+<em>video</em> packets. To highlight them, we use the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code>
+parameter. The <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> parameter specifies that inactive links
+fade out in animation time. The <code class="docutils literal notranslate"><span class="pre">holdAnimationTime</span></code> parameter stops
+the animation for a while, delaying the fading of the data link activity
+arrows. The <code class="docutils literal notranslate"><span class="pre">activityLevel</span></code>, <code class="docutils literal notranslate"><span class="pre">lineColor</span></code> and <code class="docutils literal notranslate"><span class="pre">labelColor</span></code>
+parameters are different at each <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> to make data
+link activity levels easy to distinguish:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">dataLinkVisualizer[0]</span></code> is configured to display <em>protocol</em> level
+activity with purple arrows.</li>
+<li><code class="docutils literal notranslate"><span class="pre">dataLinkVisualizer[1]</span></code> is configured to display <em>peer</em> level
+activity with blue arrows,</li>
+<li><code class="docutils literal notranslate"><span class="pre">dataLinkVisualizer[2]</span></code> is configured to display <em>service</em> level
+activity with green arrows,</li>
+</ul>
+<p>The following video shows what happens when the simulation is running.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="ActivityLevel_v0104.mp4" width="698" height="-1" class="align-center"></video><p>At the beginning of the video, <code class="docutils literal notranslate"><span class="pre">person1</span></code> sends a <code class="docutils literal notranslate"><span class="pre">VideoStrmReq</span></code>
+packet, requesting the video stream. In response to this,
+<code class="docutils literal notranslate"><span class="pre">videoServer</span></code> starts to send video stream packet fragments to
+<code class="docutils literal notranslate"><span class="pre">person1</span></code>. The packets are fragmented because their size is greater
+than the Maximum Transmission Unit. The first packet fragment,
+<code class="docutils literal notranslate"><span class="pre">VideoStrmPk-frag0</span></code> causes data link activity only at <em>protocol</em> level
+and at <em>peer</em> level, because other packet fragments are required to
+allow the packet to be forwarded to higher layers. When
+<code class="docutils literal notranslate"><span class="pre">VideoStrmPk-frag1</span></code> is received by <code class="docutils literal notranslate"><span class="pre">person1</span></code>, the packet is
+reassembled in and is sent to the upper layers. As a result of this, a
+green arrow is displayed between <code class="docutils literal notranslate"><span class="pre">videoServer</span></code> and <code class="docutils literal notranslate"><span class="pre">person1</span></code>,
+representing data link activity at <em>service</em> level.</p>
+<p>An other phenomenon can also be observed in the video. There is
+<em>protocol</em> level data link activity between <code class="docutils literal notranslate"><span class="pre">person2</span></code> and the other
+nodes. This is, because frames are also received in the physical layer
+of <code class="docutils literal notranslate"><span class="pre">person2</span></code>, but they are dropped at data link layer level because
+they are not addressed to <code class="docutils literal notranslate"><span class="pre">person2</span></code>.</p>
+</div>
+<div class="section" id="visualizing-data-link-activity-in-a-mobile-ad-hoc-network">
+<h2>Visualizing Data Link Activity in a Mobile Ad-Hoc Network<a class="headerlink" href="#visualizing-data-link-activity-in-a-mobile-ad-hoc-network" title="Permalink to this headline">¶</a></h2>
+<p>The following simulation shows how visualization can help you to follow
+dynamically changing data link activity in a wireless environment. The
+simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> configuration from the
+ini file.</p>
+<p>We use the following network for this simulation:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerDynamic.png"><img alt="../../../../_images/DataLinkVisualizerDynamic.png" src="../../../../_images/DataLinkVisualizerDynamic.png" style="width: 100%;" /></a>
+</div>
+<p>Nodes are of the type <code class="docutils literal notranslate"><span class="pre">AodvRouter</span></code>, and are placed randomly on the
+playground. The communication range of the nodes is chosen so that the
+network is connected, but nodes can typically only communicate by using
+multi-hop paths. The nodes will also randomly roam within predefined
+borders. The routing protocol is AODV. During the simulation, the
+<code class="docutils literal notranslate"><span class="pre">source</span></code> node will be pinging the <code class="docutils literal notranslate"><span class="pre">destination</span></code> node.</p>
+<p>In our first experiment, the goal is to visualize the operation of the
+AODV protocol as it sets up a route from <code class="docutils literal notranslate"><span class="pre">source</span></code> to <code class="docutils literal notranslate"><span class="pre">destination</span></code>.
+We expect to see the following. As long as <code class="docutils literal notranslate"><span class="pre">source</span></code> has a valid route
+towards <code class="docutils literal notranslate"><span class="pre">destination</span></code>, AODV is inactive. When a new route is needed
+towards <code class="docutils literal notranslate"><span class="pre">destination</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code> starts to flood the network with
+AODV route request (RREQ) messages. RREQ messages propagate through the
+intermediate nodes until one of them reaches the <code class="docutils literal notranslate"><span class="pre">destination</span></code> node.
+The route is made available by unicasting AODV route reply (RREP)
+messages back to the originator of the RREQ messages. Reception of the
+RREP message in each host results in the node updating its routing table
+with the next hop address towards the destination node.</p>
+<p>As AODV operates with two message types, we’ll use two
+<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> modules configured to use two different colors.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.rreqVisualizer.*.displayLinks = true
+*.rreqVisualizer.*.packetFilter = &quot;AodvRreq&quot;
+*.rreqVisualizer.*.fadeOutMode = &quot;simulationTime&quot;
+*.rreqVisualizer.*.fadeOutTime = 0.002s
+*.rrepVisualizer.*.displayLinks = true
+*.rrepVisualizer.*.packetFilter = &quot;AodvRrep&quot;
+*.rrepVisualizer.*.fadeOutMode = &quot;simulationTime&quot;
+*.rrepVisualizer.*.fadeOutTime = 5s
+*.rrepVisualizer.*.lineColor = &quot;blue&quot;
+*.rrepVisualizer.*.labelColor = &quot;blue&quot;
+</pre></div>
+</div>
+<p>The following video has been captured from the simulation, and allows us
+to observe the AODV protocol in action. The dark cyan arrows indicate
+RREQ packets which flood the network. When an RREQ message reaches
+<code class="docutils literal notranslate"><span class="pre">destination</span></code>, <code class="docutils literal notranslate"><span class="pre">destination</span></code> sends an RREP message (blue arrow) back
+towards <code class="docutils literal notranslate"><span class="pre">source</span></code>. Note that nodes appear stationary because the whole
+process takes place in a very short time period.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="AODV_v0614.m4v" width="698" height="-1" class="align-center"></video><p>In the second experiment, we configure the visualizer to display only
+the ping traffic between <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>. (The AODV
+visualizers will be disabled.) We’ll simulate a longer time period so
+that nodes move around in the playground, forcing AODV to find new
+routes from time to time.</p>
+<p>We use the following configuration for the visualization.</p>
+<p>The following animation illustrates what happens when the simulation is
+run.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Dynamic_v0613.m4v" width="698" height="-1" class="align-center"></video><p>The communication ranges of <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code> are
+visualized as blue circles.</p>
+<p>The video clearly shows the route ping packets are taking between
+<code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>. Visualization is triggered by the ping
+packets being sent up from the data link layer (wireless interface) of
+the receiver node to the network layer (IPv4), where they are routed
+towards the next hop.</p>
+<p>When the existing route breaks due to two nodes drifting away (out of
+the communication range of each other), this manifests as link-level
+failure (ACK frames do not arrive). This condition is detected by AODV
+and it starts searching for a new route. When the new route is found,
+the ping traffic resumes.</p>
+<p>We can observe in the video that the route the ping packets take is not
+always optimal (in terms of hop count). The reason is that nodes use an
+existing route as long as possible, even when a shorter route becomes
+available as a result of node movement. AODV is only activated when the
+existing route breaks.</p>
+</div>
+<div class="section" id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p>This example only demonstrates the key features of data link activity
+visualization. For more information, refer to the <code class="docutils literal notranslate"><span class="pre">DatalinkVisualizer</span></code>
+NED documentation.</p>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use this page in the GitHub issue tracker for commenting on this
+showcase.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Visualizing Data Link Activity</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#about-the-visualizer">About the Visualizer</a></li>
+<li><a class="reference internal" href="#enabling-visualization-of-data-link-activity">Enabling Visualization of Data Link Activity</a></li>
+<li><a class="reference internal" href="#filtering-data-link-activity">Filtering Data Link Activity</a></li>
+<li><a class="reference internal" href="#displaying-data-link-activity-at-different-levels">Displaying Data Link Activity at Different Levels</a></li>
+<li><a class="reference internal" href="#visualizing-data-link-activity-in-a-mobile-ad-hoc-network">Visualizing Data Link Activity in a Mobile Ad-Hoc Network</a></li>
+<li><a class="reference internal" href="#more-information">More Information</a></li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../../networkpathactivity/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Visualizing Network Path Activity</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../physicallinkactivity/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Visualizing Physical Link Activity</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

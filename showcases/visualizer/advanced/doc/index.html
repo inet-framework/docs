@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Using Multiple Visualizer Modules &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Using Multiple Visualizer Modules</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/visualizer/advanced/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="using-multiple-visualizer-modules">
+<h1>Using Multiple Visualizer Modules<a class="headerlink" href="#using-multiple-visualizer-modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>V2</p>
+<p>It is possible to create more complex visualization by using multiple
+visualizer modules modules of the same type instead of just one. The
+modules can be configured independently, providing a flexible way to
+customize visualization of complex simulations. For example, it can be
+useful to configure different path visualizations for different parts of
+the network.</p>
+<p>V3</p>
+<p>The modules can be configured independently, providing a flexible way to
+customize visualization of complex simulations. The modules can be
+configured independently to suit visualization of complex simulations.</p>
+<p>V1</p>
+<p>Complex simulations can benefit from complex visualization to better
+understand what is happening in the network. Multiple visualizer modules
+of the same type can be included in the network if the desired
+visualization cannot be accomplished with a single visualizer module.
+The various visualizer modules can be configured independently,
+providing a flexible way to customize visualizations to one’s needs. For
+example, one can configure different path visualizations for different
+parts of the network.</p>
+<p>This showcase describes the various types of compound visualizer
+modules, such as <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>. It demonstrates the use of
+multiple visualizers with two example simulations, and shows how the
+visualization settings can be modified at runtime. Finally, it
+demonstrates how to add your own visualizer types to the existing
+compound visualizer modules.</p>
+<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
+<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/advanced">inet/showcases/visualizer/advanced</a></p>
+</div>
+<div class="section" id="about-visualizer-module-types">
+<h2>About visualizer module types<a class="headerlink" href="#about-visualizer-module-types" title="Permalink to this headline">¶</a></h2>
+<p>INET contains visualizer simple modules suitable for a single
+visualization task, such as <code class="docutils literal notranslate"><span class="pre">RoutingTableCanvasVisualizer</span></code> or
+<code class="docutils literal notranslate"><span class="pre">InterfaceTableOsgVisualizer</span></code>. However, there are visualizer compound
+modules, which contain multiple single-task visualizer simple modules.
+One has to include just one compound visualizer module in the network,
+and multiple visualizers can be configured from the ini file. The
+following section aims to clarify the various simple and compound
+visualizer module types available in INET.</p>
+<p><strong>Canvas and Osg simple modules</strong></p>
+<p>There are separate types of visualizer simple modules for 2D and 3D
+visualization. 2D visualization is implemented by
+<code class="docutils literal notranslate"><span class="pre">Canvas</span>&#160;&#160; <span class="pre">visualizer</span></code> modules, while 3D visualization is handled by
+<code class="docutils literal notranslate"><span class="pre">Osg</span> <span class="pre">visualizers</span></code>. The visualizer simple modules have the word
+<code class="docutils literal notranslate"><span class="pre">Canvas</span></code> or <code class="docutils literal notranslate"><span class="pre">Osg</span></code> in their type names, e.g.
+<code class="docutils literal notranslate"><span class="pre">RoutingTableCanvasVisualizer</span></code> or <code class="docutils literal notranslate"><span class="pre">StatisticOsgVisualizer</span></code>.</p>
+<p><strong>Compound modules of Canvas and Osg visualizers</strong></p>
+<p>There are compound modules containing the Canvas and Osg versions of
+single-task visualizers, e.g. the <code class="docutils literal notranslate"><span class="pre">RoutingTableVisualizer</span></code> compound
+module contains a <code class="docutils literal notranslate"><span class="pre">RoutingTableCanvasVisualizer</span></code> and a
+<code class="docutils literal notranslate"><span class="pre">RoutingTableOsgVisualizer</span></code> simple module. These single-task compound
+visualizers can provide both 2D and 3D visualizations (i.e. the
+RoutingTableVisualizer module can visualize routing tables in both 2D
+and 3D.) A rule of thumb is if the type name doesn’t contain either
+<code class="docutils literal notranslate"><span class="pre">Canvas</span></code> or <code class="docutils literal notranslate"><span class="pre">Osg</span></code>, the module contains both kinds of visualizers.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/compound.png"><img alt="../../../../_images/compound.png" src="../../../../_images/compound.png" style="width: 100%;" /></a>
+</div>
+<p><strong>Integrated Canvas and Osg visualizers</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code> and <code class="docutils literal notranslate"><span class="pre">IntegratedOsgVisualizer</span></code>
+compound modules each contain all available Canvas and Osg visualizer
+types, respectively.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/integratedcanvasosg.png"><img alt="../../../../_images/integratedcanvasosg.png" src="../../../../_images/integratedcanvasosg.png" style="width: 100%;" /></a>
+</div>
+<p><strong>Integrated visualizer</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> contains an <code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code>
+and a <code class="docutils literal notranslate"><span class="pre">IntegratedOsgVisualizer</span></code>. Thus it contains all available
+visualizers.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/integrated.png"><img alt="../../../../_images/integrated.png" src="../../../../_images/integrated.png" style="width: 100%;" /></a>
+</div>
+<p><strong>Multi-visualizers</strong></p>
+<p>Multi-visualizers are compound visualizer modules containing submodule
+vectors of visualizer simple modules. Such visualizers are useful if
+multiple visualizers of the same type are required for creating complex
+visualizations. The available multi visualizer modules are
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiCanvasVisualizer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiOsgVisualizer</span></code>, each containing submodule vectors of
+canvas and osg visualizer simple modules. The
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code> contains both an
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiCanvasVisualizer</span></code> and an
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiOsgVisualizer</span></code>, similarly to <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>.
+By default, the canvas and osg multi visualizers contain one submodule
+of each visualizer simple module. The number of submodules can be
+specified for each visualizer submodule with parameters, e.g.
+<code class="docutils literal notranslate"><span class="pre">numTransportConnectionVisualizers</span> <span class="pre">=</span> <span class="pre">2</span></code> or
+<code class="docutils literal notranslate"><span class="pre">numDataLinkVisualizers</span> <span class="pre">=</span> <span class="pre">3</span></code>.</p>
+<img alt="../../../../_images/multicanvas.png" src="../../../../_images/multicanvas.png" />
+<img alt="../../../../_images/multiintegrated2.png" src="../../../../_images/multiintegrated2.png" />
+<p>By including an <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> or
+<code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code> in the network, the features of all
+contained visualizers are available in the simulation using the network,
+both in 2D and 3D. The parameters of the visualizer simple modules can
+be configured from the ini file.</p>
+</div>
+<div class="section" id="including-multiple-visualizer-modules">
+<h2>Including multiple visualizer modules<a class="headerlink" href="#including-multiple-visualizer-modules" title="Permalink to this headline">¶</a></h2>
+<p>Visualizations from multiple visualizer modules of the same type can be
+combined to create more complex visualizations that would not be
+possible using a single visualizer module. In this section, we present
+two example simulations that demonstrates the use of two visualizer
+modules. The configurations for the simulations are defined in the
+omnetpp.ini file. TODO: rewrite for two configs The configuration uses
+the following network:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/network.png"><img alt="../../../../_images/network.png" src="../../../../_images/network.png" style="width: 100%;" /></a>
+</div>
+<p>The hosts and the server in the network are <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>. The
+network contains two <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> modules, named
+<code class="docutils literal notranslate"><span class="pre">visualizer1</span></code> and <code class="docutils literal notranslate"><span class="pre">visualizer2</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">server</span></code> runs an UDP video stream server
+(<code class="docutils literal notranslate"><span class="pre">UdpVideoStreamServer</span></code>), and two <code class="docutils literal notranslate"><span class="pre">TCPSessionApps</span></code>. These
+applications are configured to send UDP and TCP streams to certain
+hosts:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">host2</span></code> and <code class="docutils literal notranslate"><span class="pre">host4</span></code> are configured to send UDP video stream
+requests to the server, which in turn sends UDP streams to the hosts.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">server</span></code> is configured to send TCP streams to <code class="docutils literal notranslate"><span class="pre">host3</span></code> and
+<code class="docutils literal notranslate"><span class="pre">host5</span></code>.</li>
+</ul>
+<p>The goal is to visualize UDP and TCP streams with different colors, so
+it is easier to differentiate between them. We configure the
+<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> in <code class="docutils literal notranslate"><span class="pre">visualizer1</span></code> to display TCP packet
+paths with blue arrows, and the <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> in
+<code class="docutils literal notranslate"><span class="pre">visualizer2</span></code> to indicate UDP packet paths with red arrows.</p>
+<p>The TCP visualization is configured to display all TCP packets,
+including the ones that take part in establishing the connection, i.e.
+the ACK, SYN+ACK, and SYN. The other visualizer is configured to
+visualize all UDP packets (packets with ‘Video’ in their names, which
+covers all UDP packets in the network).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">StatisticVisualizer</span></code> in <code class="docutils literal notranslate"><span class="pre">visualizer1</span></code> is configured to display
+the number of received UDP packets in the affected nodes. The other
+<code class="docutils literal notranslate"><span class="pre">StatisticVisualizer</span></code> in <code class="docutils literal notranslate"><span class="pre">visualizer2</span></code> is configured to indicate the
+total size of the received TCP data.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer1.statisticVisualizer.displayStatistics = true
+*.visualizer1.statisticVisualizer.signalName = &quot;passedUpPk&quot;
+*.visualizer1.statisticVisualizer.sourceFilter = &quot;**.udp&quot;
+*.visualizer1.statisticVisualizer.format = &quot;UDP packets received: %v&quot;
+
+*.visualizer2.statisticVisualizer.displayStatistics = true
+*.visualizer2.statisticVisualizer.signalName = &quot;packetReceived&quot;
+*.visualizer2.statisticVisualizer.statisticName = &quot;rcvdBytes&quot;
+*.visualizer2.statisticVisualizer.unit = &quot;KiB&quot;
+*.visualizer2.statisticVisualizer.sourceFilter = &quot;**.tcpApp[*]&quot;
+*.visualizer2.statisticVisualizer.format = &quot;TCP data received: %v %u&quot;
+</pre></div>
+</div>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code> in <code class="docutils literal notranslate"><span class="pre">visualizer1</span></code>
+is enabled, and set to visualize transport connections in the network,
+i.e. the TCP connections. The set of colors for the icons to use is set
+to yellow and green.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer1.transportConnectionVisualizer.displayTransportConnections = true *.visualizer1.transportConnectionVisualizer.iconColor = &quot;green, yellow&quot;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">NetworkNodeVisualizer</span></code> module creates the visualization figures
+for all other visualizers. By default, the two visualizer modules in the
+network each use their own NetworkNodeVisualizer. The
+NetworkNodeVisualizer modules would create overlapping visualizations,
+so <code class="docutils literal notranslate"><span class="pre">visualizer2</span></code> has to be configured to display its visualizations
+using <code class="docutils literal notranslate"><span class="pre">visualizer1's</span> <span class="pre">networkNodeVisualizer</span></code> module. The following keys
+achieve this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer2.networkNodeVisualizerType = &quot;&quot; *.visualizer2.*.networkNodeVisualizerModule = &quot;visualizer1.networkNodeVisualizer&quot;
+</pre></div>
+</div>
+<p>When the simulation is run, this happens:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="advanced3.mp4" width="698" height="-1" class="align-center"></video><p>The server starts sending the UDP and TCP streams to the hosts. The
+paths of UDP packets are indicated with red arrows, and the paths of TCP
+packets with blue arrows. The statistics for the UDP and TCP packets are
+displayed above the affected nodes. The number of received UDP packets
+at the server is just two, which are the two video stream request
+packets from the hosts. The received UDP packets at <code class="docutils literal notranslate"><span class="pre">hosts</span> <span class="pre">2</span> <span class="pre">and</span> <span class="pre">4</span></code>
+keep increasing. The received TCP data is displayed above the TCP hosts.
+TCP connection visualization icons are differentiated based on the
+letters in the icons, as the <code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code> is using
+just one color.</p>
+<div class="section" id="visualizing-multiple-radio-mediums">
+<h3>Visualizing multiple radio mediums<a class="headerlink" href="#visualizing-multiple-radio-mediums" title="Permalink to this headline">¶</a></h3>
+<p>V1</p>
+<p>This example simulation features two wireless networks, which operate in
+different frequency bands (2.4 Ghz and 5 Ghz.) The two wireless networks
+are in independent frequency bands, and thus can operate concurrently
+without interfering with each other. The simulation can be optimized by
+configuring the two wireless networks to use two different radio medium
+modules. This way radio medium modules have to send transmissions only
+to those hosts that can receive them. The transmissions on the two radio
+mediums can only be visualized using two visualizer modules.</p>
+<p>V2</p>
+<p>This example simulation features two wireless networks operating in
+non-interfering frequency bands (2.4 and 5 GHz.)</p>
+<ul class="simple">
+<li>there is no interference</li>
+<li>the radioMedium still sends every transmission to every node,
+regardless of the node’s ability to receive it</li>
+<li>when it is certain that some nodes wont receive a transmission,
+because it is certain they are out of range</li>
+<li>or they operate in different frequency bands</li>
+<li>it can be useful to have two radio medium modules, and put the
+separate networks on their own radio medium</li>
+<li>this way transmission are only sent to nodes that can receive it.
+this can optimize performance.</li>
+</ul>
+<p>key things: the radio medium sends transmission to all nodes, even those
+that are out of range or on different channels or frequency bands. The
+simulation can be optimized by putting those hosts that are known not to
+interfere to different radio mediums.</p>
+<p>V3</p>
+<p>Radio medium modules send all transmissions in the network to all
+wireless nodes. The individual nodes calculate wether or not they can
+receive the transmissions correctly. When there are multiple wireless
+networks, and it is certain that they cannot receive each other’s
+transmissions (e.g. they are out of range or operate on different
+channels or frequency domainsa), the simulation can be optimized by
+putting each wireless network on a different radio medium.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MediumVisualizer</span></code> module can visualize transmissions from just
+one radio medium, so more visualizer modules are needed if there are
+multiple radio medium modules. This example simulation features two
+wireless networks, which operate in different frequency bands (2.4 and 5
+GHz.) The two networks are put on two different radio mediums, and two
+visualizer modules are used for visualizing transmissions.</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Wireless2.mp4" width="698" height="-1" class="align-center"></video><p>Note that even though the two signals overlap, the transmissions are
+received correctly at both wireless networks, because the signals are in
+different frequency bands and don’t interfere with each other.</p>
+<p>TODO: configure them to 2.4 and 5 GHz or just say it doesnt matter or
+just use different wifi channels</p>
+</div>
+</div>
+<div class="section" id="modifying-visualizer-parameters-at-runtime">
+<h2>Modifying visualizer parameters at runtime<a class="headerlink" href="#modifying-visualizer-parameters-at-runtime" title="Permalink to this headline">¶</a></h2>
+<p>Visualizer parameters are usually set from the ini file, but it is also
+possible to modify some of the parameters in the graphical runtime
+environment. The modified parameters take effect immediatelly. This is
+useful for tuning the visualizer parameters, as one doesn’t have to
+close and restart qtenv to see the effects of the parameter changes. The
+following parameters react to changes in qtenv:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">flag</span></code>: used to turn visualizations on and off</li>
+<li><code class="docutils literal notranslate"><span class="pre">filters</span></code>: various filters like node, packet, and interface filters</li>
+<li><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">string</span></code>: used to customize how information is displayed</li>
+</ul>
+<p>The parameters can be changed by clicking on the appropriate visualizer
+module in the network. The parameters are displayed in the inspector
+panel to the right (make sure children mode is selected at the top of
+the panel.)</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/modify_4.png"><img alt="../../../../_images/modify_4.png" src="../../../../_images/modify_4.png" style="width: 100%;" /></a>
+</div>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/modify_3.png"><img alt="../../../../_images/modify_3.png" src="../../../../_images/modify_3.png" style="width: 100%;" /></a>
+</div>
+<p>Double click a parameter to select it, then double click on the value
+field to change it:</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../_images/modify2.png"><img alt="../../../../_images/modify2.png" src="../../../../_images/modify2.png" style="width: 100%;" /></a>
+</div>
+<p>The changes will take effect immediatelly.</p>
+</div>
+<div class="section" id="including-your-own-visualizers-in-the-integrated-visualizer-modules">
+<h2>Including your own visualizers in the integrated visualizer modules<a class="headerlink" href="#including-your-own-visualizers-in-the-integrated-visualizer-modules" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to replace the specific visualizer types in the compound
+visualizer modules with your own for example you have a
+CustomRoutingTableCanvasVisualizer module, you can use that in
+IntegratedCanvasVisualizer instead of the default
+RoutingTableCanvasVisualizer module. How to do it, illustrated with
+screenshots</p>
+</div>
+<div class="section" id="further-information">
+<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference external" href="TODO">this page</a> in the GitHub issue tracker for commenting on
+this showcase.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Using Multiple Visualizer Modules</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#about-visualizer-module-types">About visualizer module types</a></li>
+<li><a class="reference internal" href="#including-multiple-visualizer-modules">Including multiple visualizer modules</a><ul>
+<li><a class="reference internal" href="#visualizing-multiple-radio-mediums">Visualizing multiple radio mediums</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modifying-visualizer-parameters-at-runtime">Modifying visualizer parameters at runtime</a></li>
+<li><a class="reference internal" href="#including-your-own-visualizers-in-the-integrated-visualizer-modules">Including your own visualizers in the integrated visualizer modules</a></li>
+<li><a class="reference internal" href="#further-information">Further information</a></li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

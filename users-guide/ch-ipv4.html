@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The IPv4 Protocol Family &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IPv6 and Mobile IPv6" href="ch-ipv6.html" />
+    <link rel="prev" title="Transport Protocols" href="ch-transport.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">The IPv4 Protocol Family</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-ipv4.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-ipv4-protocol-family">
+<span id="ug-cha-ipv4"></span><h1>The IPv4 Protocol Family<a class="headerlink" href="#the-ipv4-protocol-family" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-ipv4-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The IP protocol is the workhorse protocol of the TCP/IP protocol suite.
+All UDP, TCP, ICMP packets are encapsulated into IP datagrams and
+transported by the IP layer. While higher layer protocols transfer data
+among two communication end-point, the IP layer provides an hop-by-hop,
+unreliable and connectionless delivery service. IP does not maintain any
+state information about the individual datagrams, each datagram handled
+independently.</p>
+<p>The nodes that are connected to the Internet can be either a host or a
+router. The hosts can send and recieve IP datagrams, and their operating
+system implements the full TCP/IP stack including the transport layer.
+On the other hand, routers have more than one interface cards and
+perform packet routing between the connected networks. Routers does not
+need the transport layer, they work on the IP level only. The division
+between routers and hosts is not strict, because if a host have several
+interfaces, they can usually be configured to operate as a router too.</p>
+<p>Each node on the Internet has a unique IP address. IP datagrams contain
+the IP address of the destination. The task of the routers is to find
+out the IP address of the next hop on the local network, and forward the
+packet to it. Sometimes the datagram is larger, than the maximum
+datagram that can be sent on the link (e.g. Ethernet has an 1500 bytes
+limit.). In this case the datagram is split into fragments and each
+fragment is transmitted independently. The destination host must collect
+all fragments, and assemble the datagram, before sending up the data to
+the transport layer.</p>
+<p>The INET framework contains several modules to build the IPv4 network
+layer of hosts and routers:</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> is the main module that implements RFC791. This module
+performs IP encapsulation/decapsulation, fragmentation and assembly,
+and routing of IP datagrams.</li>
+<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> is a helper module that manages the
+routing table of the node. It is queried by the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module
+for best routes, and updated by the routing daemons implementing RIP,
+OSPF, Manet, etc. protocols.</li>
+<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be used to generate ICMP error packets. It
+also supports ICMP echo applications.</li>
+<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module performs the dynamic translation of IP
+addresses to MAC addresses.</li>
+<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmpv2</span></code> module to generate and process multicast group
+membership reports.</li>
+</ul>
+<p>These modules are assembled into a complete network layer module called
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code>. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code> module is present
+e.g. in <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code>.</p>
+<p>The subsequent sections describe the IPv4 modules in detail.</p>
+</div>
+<div class="section" id="ipv4">
+<span id="ug-sec-ipv4-ipv4"></span><h2>Ipv4<a class="headerlink" href="#ipv4" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module implements the IPv4 protocol.</p>
+<p>Its parameters include:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">crcMode</span></code> TODO: &#64;enum(“declared”, “computed”) =
+default(“declared”);</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">procDelay</span></code> processing time of each incoming datagram.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">timeToLive</span></code> default TTL of unicast datagrams.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">multicastTimeToLive</span></code> default TTL of multicast datagrams.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">fragmentTimeout</span></code> the maximum duration until fragments are kept
+in the fragment buffer.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">forceBroadcast</span></code> if <code class="docutils literal notranslate"><span class="pre">true</span></code>, then link-local broadcast
+datagrams are sent out through each interface, if the higher layer
+did not specify the outgoing interface.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">useProxyARP</span></code> TODO: default(true);</li>
+</ul>
+</div>
+<div class="section" id="ipv4routingtable">
+<span id="ug-sec-ipv4-ipv4routingtable"></span><h2>Ipv4RoutingTable<a class="headerlink" href="#ipv4routingtable" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module represents the IPv4 route table.
+Hosts and routers normally contain one instance of this module. The
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module does not send or receive messages.
+Instead, C++ methods are for querying and updating the table, as well as
+for unicast and multicast routing.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module has the following parameters:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">routerId</span></code>: for routers, the router id using IPv4 address dotted
+notation; specify “auto” to select the highest interface address;
+should be left empty for hosts.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">forwarding</span></code>: turns IP forwarding on/off. It is always
+<code class="docutils literal notranslate"><span class="pre">true</span></code> in a <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> and is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default in a
+<code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code>.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">multicastForwarding</span></code>: turns multicast IP forwarding on/off.
+Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>, should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in multicast
+routers.</li>
+</ul>
+<p>The preferred method for static initialization of routing tables is to
+use <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. While <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> can
+read the routes from a <em>routing file</em>, that is considered obsolete. Old
+routing files should be replaced with the XML configuration of
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. The <a class="reference internal" href="ch-network-autoconfig.html"><span class="doc">Network Autoconfiguration</span></a> chapter
+describes the format of the new configuration files.</p>
+</div>
+<div class="section" id="icmp">
+<span id="ug-sec-ipv4-icmp"></span><h2>Icmp<a class="headerlink" href="#icmp" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module implements the Internet Control Message Protocol
+(ICMP). ICMP is the error reporting and diagnostic mechanism of the
+Internet. It uses the services of IP, so it is a transport layer
+protocol, but unlike TCP or UDP it is not used to transfer user data. It
+cannot be separated from IP, because the routing errors are reported by
+ICMP.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be used to send error messages and ping
+request. It can also respond to incoming ICMP messages.</p>
+<p>Each ICMP message is encapsulated within an IP datagram, so its delivery
+is unreliable.</p>
+</div>
+<div class="section" id="arp">
+<span id="ug-sec-ipv4-arp"></span><h2>Arp<a class="headerlink" href="#arp" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module implements the Address Resolution Protocol (ARP).
+The ARP protocol is designed to translate a local protocol address to a
+hardware address. Although the ARP protocol can be used with several
+network protocol and hardware addressing schemes, in practice they are
+almost always IPv4 and 802.3 addresses. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module only
+supports IPv4-to-MAC address translation, but not the opposite
+direction, Reverse ARP (RARP).</p>
+<p>The address to be resolved can be either an IPv4 broadcast/multicast or
+a unicast address. The corresponding MAC addresses can be computed for
+broadcast and multicast addresses (RFC 1122, 6.4); unicast addresses are
+resolved using the ARP procotol.</p>
+<p>If the MAC address is found in the ARP cache, then the packet is
+transmitted to the addressed interface immediately. Otherwise the packet
+is queued and an address resolution takes place.</p>
+<p>For address resolution, ARP broadcasts a request frame on the network.
+In the request it publishes its own IP and MAC addresses, so each node
+in the local subnet can update their mapping. The node whose MAC address
+was requested will respond with an ARP frame containing its own MAC
+address directly to the node that sent the request. When the original
+node receives the ARP response, it updates its ARP cache and sends the
+delayed IP packet using the learned MAC address.</p>
+<p>ARP resolution is initiated with a C++ call.</p>
+<p>The module parameters of <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> are:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">retryTimeout</span></code>: number of seconds ARP waits between retries to
+resolve an IPv4 address (default is 1s)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">retryCount</span></code>: number of times ARP will attempt to resolve an
+IPv4 address (default is 3)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">cacheTimeout</span></code>: number of seconds unused entries in the cache
+will time out (default is 120s)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">proxyARP</span></code>: enables proxy ARP mode (default is <code class="docutils literal notranslate"><span class="pre">true</span></code>)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">globalARP</span></code>: use global ARP cache (default is <code class="docutils literal notranslate"><span class="pre">false</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="igmp">
+<span id="ug-sec-ipv4-igmp"></span><h2>Igmp<a class="headerlink" href="#igmp" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmp</span></code> module implements the Internet Group Management Protocol
+(IGMP). IGMP is a communications protocol used by hosts and adjacent
+routers on IPv4 networks to establish multicast group memberships. IGMP
+is an integral part of IP multicast.</p>
+<p>IGMP is responsible for distributing the information of multicast group
+memberships from hosts to routers. When an interface of a host joins to
+a multicast group, it will send an IGMP report on that interface to
+routers. It can also send reports when the interface leaves the
+multicast group, so it does not want to receive those multicast
+datagrams. The IGMP module of multicast routers processes these IGMP
+reports: it updates the list of groups, that has members on the link of
+the incoming message.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">IIgmp</span></code> module interface defines the connections of IGMP
+modules. IGMP reports are transmitted by IP, so the module contains
+gates to be connected to the IP module (<code class="code literal-ned docutils literal notranslate"><span class="pre">ipIn/ipOut</span></code>). The IP
+module delivers packets with protocol number 2 to the IGMP module.
+However some multicast routing protocols (like DVMRP) also exchange
+routing information by sending IGMP messages, so they should be
+connected to the <code class="code literal-ned docutils literal notranslate"><span class="pre">routerIn/routerOut</span></code> gates of the IGMP module. The
+IGMP module delivers the IGMP messages not processed by itself to the
+connected routing module.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmpv2</span></code> module implements version 2 of the IGMP protocol (RFC
+2236). Next we describe its behaviour in host and routers in details.
+Note that multicast routers behaves as hosts too, i.e. they are sending
+reports to other routers when joining or leaving a multicast group.</p>
+<div class="section" id="host-behaviour">
+<h3>Host behaviour<a class="headerlink" href="#host-behaviour" title="Permalink to this headline">¶</a></h3>
+<p>When an interface joins to a multicast group, the host will send a
+Membership Report immediately to the group address. This report is
+repeated after <code class="code literal-ini docutils literal notranslate"><span class="pre">unsolicitedReportInterval</span></code> to cover the possibility
+of the first report being lost.</p>
+<p>When a host’s interface leaves a multicast group, and it was the last
+host that sent a Membership Report for that group, it will send a Leave
+Group message to the all-routers multicast group (224.0.0.2).</p>
+<p>This module also responds to IGMP Queries. When the host receives a
+Group-Specific Query on an interface that belongs to that group, then it
+will set a timer to a random value between 0 and Max Response Time of
+the Query. If the timer expires before the host observe a Membership
+Report sent by other hosts, then the host sends an IGMPv2 Membership
+Report. When the host receives a General Query on an interface, a timer
+is initialized and a report is sent for each group membership of the
+interface.</p>
+</div>
+<div class="section" id="router-behaviour">
+<h3>Router behaviour<a class="headerlink" href="#router-behaviour" title="Permalink to this headline">¶</a></h3>
+<p>Multicast routers maintains a list for each interface containing the
+multicast groups that have listeners on that interface. This list is
+updated when IGMP Membership Reports and Leave Group messages arrive, or
+when a timer expires since the last Query.</p>
+<p>When multiple routers are connected to the same link, the one with the
+smallest IP address will be the Querier. When other routers observe that
+they are Non-Queriers (by receiving an IGMP Query with a lower source
+address), they stop sending IGMP Queries until
+<code class="code literal-ini docutils literal notranslate"><span class="pre">otherQuerierPresentInterval</span></code> elapsed since the last received
+query.</p>
+<p>Routers periodically (<code class="code literal-ini docutils literal notranslate"><span class="pre">queryInterval</span></code>) send a General Query on each
+attached network for which this router is a Querier. On startup the
+router sends <code class="code literal-ini docutils literal notranslate"><span class="pre">startupQueryCount</span></code> queries separated by
+<code class="code literal-ini docutils literal notranslate"><span class="pre">startupQueryInterval</span></code>. A General Query has unspecified Group
+Address field, a Max Response Time field set to
+<code class="code literal-ini docutils literal notranslate"><span class="pre">queryResponseInterval</span></code>, and is sent to the all-systems multicast
+address (224.0.0.1).</p>
+<p>When a router receives a Membership Report, it will add the reported
+group to the list of multicast group memberships. At the same time it
+will set a timer for the membership to <code class="code literal-ini docutils literal notranslate"><span class="pre">groupMembershipInterval</span></code>.
+Repeated reports restart the timer. If the timer expires, the router
+assumes that the group has no local members, and multicast traffic is no
+more forwarded to that interface.</p>
+<p>When a Querier receives a Leave Group message for a group, it sends a
+Group-Specific Query to the group being left. It repeats the Query
+<code class="code literal-ini docutils literal notranslate"><span class="pre">lastMemberQueryCount</span></code> times in separated by
+<code class="code literal-ini docutils literal notranslate"><span class="pre">lastMemberQueryInterval</span></code> until a Membership Report is received. If
+no Report received, then the router assumes that the group has no local
+members.</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>The following parameters have effects in both hosts and routers:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">enabled</span></code> if <code class="docutils literal notranslate"><span class="pre">false</span></code> then the IGMP module never sends any
+message and discards incoming messages. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
+</ul>
+<p>The following parameters are only used in hosts:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">unsolicitedReportInterval</span></code> the time between repetitions of a
+host’s initial report of membership in a group. Default is 10s.</li>
+</ul>
+<p>Router timeouts are configured by these parameters:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code> the IGMP is robust to
+<code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code>-1 packet losses. Default is 2.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">queryInterval</span></code> the interval between General Queries sent by a
+Querier. Default is 125s.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">queryResponseInterval</span></code> the Max Response Time inserted into
+General Queries</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">groupMembershipInterval</span></code> the amount of time that must pass
+before a multicast router decides there are no more members of a
+group on a network. Fixed to <code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code> *
+<code class="code literal-ini docutils literal notranslate"><span class="pre">queryInterval</span></code> + <code class="code literal-ini docutils literal notranslate"><span class="pre">queryResponseInterval</span></code>.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">otherQuerierPresentInterval</span></code> the length of time that must pass
+before a multicast router decides that there is no longer another
+multicast router which should be the querier. Fixed to
+<code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code> * <code class="code literal-ini docutils literal notranslate"><span class="pre">queryInterval</span></code> +
+<code class="code literal-ini docutils literal notranslate"><span class="pre">queryResponseInterval</span></code> / 2.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">startupQueryInterval</span></code> the interval between General Queries sent
+by a Querier on startup. Default is <code class="code literal-ini docutils literal notranslate"><span class="pre">queryInterval</span></code> / 4.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">startupQueryCount</span></code> the number of Queries sent out on startup,
+separated by the <code class="code literal-ini docutils literal notranslate"><span class="pre">startupQueryInterval</span></code>. Default is
+<code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code>.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">lastMemberQueryInterval</span></code> the Max Response Time inserted into
+Group-Specific Queries sent in response to Leave Group messages, and
+is also the amount of time between Group-Specific Query messages.
+Default is 1s.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">lastMemberQueryCount</span></code> the number of Group-Specific Queries sent
+before the router assumes there are no local members. Default is
+<code class="code literal-ini docutils literal notranslate"><span class="pre">robustnessVariable</span></code>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">The IPv4 Protocol Family</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#ipv4">Ipv4</a></li>
+<li><a class="reference internal" href="#ipv4routingtable">Ipv4RoutingTable</a></li>
+<li><a class="reference internal" href="#icmp">Icmp</a></li>
+<li><a class="reference internal" href="#arp">Arp</a></li>
+<li><a class="reference internal" href="#igmp">Igmp</a><ul>
+<li><a class="reference internal" href="#host-behaviour">Host behaviour</a></li>
+<li><a class="reference internal" href="#router-behaviour">Router behaviour</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-transport.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Transport Protocols</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-ipv6.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>IPv6 and Mobile IPv6</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

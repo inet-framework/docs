@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Node Mobility &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modeling Power Consumption" href="ch-power.html" />
+    <link rel="prev" title="The Physical Environment" href="ch-environment.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Node Mobility</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-mobility.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="node-mobility">
+<span id="ug-cha-mobility"></span><h1>Node Mobility<a class="headerlink" href="#node-mobility" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-mobility-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In order to simulate ad-hoc wireless networks, it is important to model
+the motion of mobile network nodes. Received signal strength, signal
+interference, and channel occupancy depend on the distances between
+nodes. The selected mobility models can significantly influence the
+results of the simulation (e.g. via packet loss rates).</p>
+<p>A mobility model describes position and orientation over time in a 3D
+Euclidean coordinate system. Its main purpose is to provide position,
+velocity and acceleration, and also angular position, angular velocity,
+and angular acceleration data as three-dimensional quantities at the
+current simulation time.</p>
+<p>In INET, a mobility model is most often an OMNeT++ simple module
+implementing the motion as a C++ algorithm. Although most models have a
+few common parameters (e.g. for initial positioning), they always come
+with their own set of parameters. Some models support geographic
+positioning to ease the configuration of map based scenarios.</p>
+<p>Mobility models be <em>single</em> or <em>group</em> mobility models. Single mobility
+models describe the motion of entities independent of each other. Group
+mobility models provide such a motion where group members are dependent
+on each other.</p>
+<p>Mobility models can also be categorized as <em>trace-based</em>,
+<em>deterministic</em>, <em>stochastic</em>, and <em>combining</em> models.</p>
+<div class="section" id="using-mobility-models">
+<h3>Using Mobility Models<a class="headerlink" href="#using-mobility-models" title="Permalink to this headline">¶</a></h3>
+<p>In order for a mobility model to actually have an effect on the motion
+of a network node, the mobility model needs to be included as a
+submodule in the compound module of the network node. By default, a
+transceiver antenna within a network node uses the same mobility model
+as the node itself, but that is completely optional. For example, it is
+possible to model a vehicle facing forward while moving on a road that
+contains multiple transceiver antennas at different relative locations
+with different orientations.</p>
+</div>
+<div class="section" id="the-playground">
+<h3>The Playground<a class="headerlink" href="#the-playground" title="Permalink to this headline">¶</a></h3>
+<p>Many mobility models allow the user to define a cubic volume that the
+node can not leave. The volume is configured by setting the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaX</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaY</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaZ</span></code>,
+<code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaWidth</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaHeight</span></code> and
+<code class="code literal-ini docutils literal notranslate"><span class="pre">constraintAreaDepth</span></code> parameters.</p>
+<p>If the <code class="code literal-ini docutils literal notranslate"><span class="pre">initFromDisplayString</span></code> parameter, the initial position is
+taken from the display string. Otherwise, the position can be given in
+the <code class="code literal-ini docutils literal notranslate"><span class="pre">initialX</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">initialY</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">initialZ</span></code> parameters. If
+neither of these parameters are given, a random initial position is
+choosen within the contraint area.</p>
+<p>When the node reaches the boundary of the constraint area, the mobility
+component has to prevent the node to exit. Many mobility models offer
+the following policies:</p>
+<ul class="simple">
+<li>reflect of the wall</li>
+<li>reappear at the opposite edge (torus area)</li>
+<li>placed at a randomly chosen position of the area</li>
+<li>stop the simulation with an error</li>
+</ul>
+</div>
+</div>
+<div class="section" id="built-in-mobility-models">
+<span id="ug-sec-mobility-built-in-mobility-models"></span><h2>Built-In Mobility Models<a class="headerlink" href="#built-in-mobility-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-of-mobility-models">
+<span id="ug-sec-mobility-list-of-mobility-models"></span><h3>List of Mobility Models<a class="headerlink" href="#list-of-mobility-models" title="Permalink to this headline">¶</a></h3>
+<p>The following, potentially list contains the mobility models available
+in INET. Nearly all of these models als single mobility models; group
+mobility can be implemented e.g. with combining other mobility models.</p>
+<div class="section" id="stationary">
+<h4>Stationary<a class="headerlink" href="#stationary" title="Permalink to this headline">¶</a></h4>
+<p>Stationary models only define position (and orientation), but no motion.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">StationaryMobility</span></code> provides deterministic and random
+positioning.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">StaticGridMobility</span></code> places several mobility models in a
+rectangular grid.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">StaticConcentricMobility</span></code> places several models in a set of
+concentric circles.</li>
+</ul>
+</div>
+<div class="section" id="deterministic">
+<h4>Deterministic<a class="headerlink" href="#deterministic" title="Permalink to this headline">¶</a></h4>
+<p>Deterministic mobility models use non-random mathematical models for
+describing motion.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">LinearMobility</span></code> moves linearly with a constant speed or
+constant acceleration.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">CircleMobility</span></code> moves around a circle parallel to the XY plane
+with constant speed.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">RectangleMobility</span></code> moves around a rectangular area parallel to
+the XY plane with constant speed.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">TractorMobility</span></code> moves similarly to a tractor on a field with a
+number of rows.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">VehicleMobility</span></code> moves similarly to a vehicle along a path
+especially turning around corners.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">TurtleMobility</span></code> moves according to an XML script written in a
+simple yet expressive LOGO-like programming language.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">FacingMobility</span></code> orients towards the position of another
+mobility model.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">RotatingMobility</span></code> rotates with a constant speed.</li>
+</ul>
+</div>
+<div class="section" id="trace-based">
+<h4>Trace-Based<a class="headerlink" href="#trace-based" title="Permalink to this headline">¶</a></h4>
+<p>Trace-based mobility models replay recorded motion as observed in real
+life.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">BonnMotionMobility</span></code> replays trace files of the BonnMotion
+scenario generator.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ns2MotionMobility</span></code> replays files of the CMU’s scenario
+generator used in ns2.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AnsimMobility</span></code> replays XML trace files of the ANSim (Ad-Hoc
+Network Simulation) tool.</li>
+</ul>
+</div>
+<div class="section" id="stochastic">
+<h4>Stochastic<a class="headerlink" href="#stochastic" title="Permalink to this headline">¶</a></h4>
+<p>Stochastic or random mobility models use mathematical models involving
+random numbers.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">RandomWaypointMobility</span></code> moves to random destination with random
+speed.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">GaussMarkovMobility</span></code> uses one parameter to vary the degree of
+randomness from linear to Brown motion.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">MassMobility</span></code> moves similarly to a mass with inertia and
+momentum.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">ChiangMobility</span></code> uses a probabilistic transition matrix to
+change the motion state.</li>
+</ul>
+</div>
+<div class="section" id="combining">
+<h4>Combining<a class="headerlink" href="#combining" title="Permalink to this headline">¶</a></h4>
+<p>Combining mobility models are not mobility models per se, but instead,
+they allow more complex motions to be formed from simpler ones via
+superposition and other ways.</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">SuperpositioningMobility</span></code> model combines several other mobility
+models by summing them up. It allows creating group mobility by
+sharing a mobility model in each group member, separating initial
+positioning from positioning during the simulation, and separating
+positioning from orientation.</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AttachedMobility</span></code> models a mobility that is attached to another
+one at a given offset. Position, velocity and acceleration are all
+affected by the respective quantites and also the orientation of the
+referenced mobility.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="more-information-on-some-mobility-models">
+<span id="ug-sec-mobility-more-information-on-some-mobility-models"></span><h3>More Information on Some Mobility Models<a class="headerlink" href="#more-information-on-some-mobility-models" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tractormobility">
+<h4>TractorMobility<a class="headerlink" href="#tractormobility" title="Permalink to this headline">¶</a></h4>
+<p>Moves a tractor through a field with a certain amount of rows. The
+following figure illustrates the movement of the tractor when the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">rowCount</span></code> parameter is 2. The trajectory follows the segments in
+<code class="docutils literal notranslate"><span class="pre">1,2,3,4,5,6,7,8,1,2,3...</span></code> order. The area is configured by the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">x1</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">y1</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">x2</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">y2</span></code> parameters.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/tractormobility.png"><img alt="../_images/tractormobility.png" src="../_images/tractormobility.png" style="width: 240px;" /></a>
+</div>
+</div>
+<div class="section" id="randomwaypointmobility">
+<h4>RandomWaypointMobility<a class="headerlink" href="#randomwaypointmobility" title="Permalink to this headline">¶</a></h4>
+<p>In the Random Waypoint mobility model the nodes move in line segments.
+For each line segment, a random destination position (distributed
+uniformly over the playground) and a random speed is chosen. You can
+define a speed as a variate from which a new value will be drawn for
+each line segment; it is customary to specify it as
+<code class="docutils literal notranslate"><span class="pre">uniform(minSpeed,</span> <span class="pre">maxSpeed)</span></code>. When the node reaches the target
+position, it waits for the time <code class="code literal-ini docutils literal notranslate"><span class="pre">waitTime</span></code> which can also be
+defined as a variate. After this time the the algorithm calculates a new
+random position, etc.</p>
+</div>
+<div class="section" id="gaussmarkovmobility">
+<h4>GaussMarkovMobility<a class="headerlink" href="#gaussmarkovmobility" title="Permalink to this headline">¶</a></h4>
+<p>The Gauss-Markov model contains a tuning parameter that control the
+randomness in the movement of the node. Let the magnitude and direction
+of speed of the node at the <span class="math notranslate nohighlight">\(n\)</span>th time step be <span class="math notranslate nohighlight">\(s_n\)</span> and
+<span class="math notranslate nohighlight">\(d_n\)</span>. The next speed and direction are computed as</p>
+<div class="math notranslate nohighlight">
+\[s_{n+1} = \alpha s_n + (1 - \alpha) \bar{s} + \sqrt{(1-\alpha^2)} s_{x_n}\]</div>
+<div class="math notranslate nohighlight">
+\[d_{n+1} = \alpha s_n + (1 - \alpha) \bar{d} + \sqrt{(1-\alpha^2)} d_{x_n}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{s}\)</span> and <span class="math notranslate nohighlight">\(\bar{d}\)</span> are constants representing the
+mean value of speed and direction as <span class="math notranslate nohighlight">\(n \to \infty\)</span>; and
+<span class="math notranslate nohighlight">\(s_{x_n}\)</span> and <span class="math notranslate nohighlight">\(d_{x_n}\)</span> are random variables with Gaussian
+distribution.</p>
+<p>Totally random walk (Brownian motion) is obtained by setting
+<span class="math notranslate nohighlight">\(\alpha=0\)</span>, while <span class="math notranslate nohighlight">\(\alpha=1\)</span> results a linear motion.</p>
+<p>To ensure that the node does not remain at the boundary of the
+constraint area for a long time, the mean value of the direction
+(<span class="math notranslate nohighlight">\(\bar{d}\)</span>) modified as the node enters the margin area. For
+example at the right edge of the area it is set to 180 degrees, so the
+new direction is away from the edge.</p>
+</div>
+<div class="section" id="massmobility">
+<h4>MassMobility<a class="headerlink" href="#massmobility" title="Permalink to this headline">¶</a></h4>
+<p>This is a random mobility model for a mobile host with a mass. It is the
+one used in .</p>
+<blockquote>
+<div>“An MH moves within the room according to the following pattern. It
+moves along a straight line for a certain period of time before it
+makes a turn. This moving period is a random number, normally
+distributed with average of 5 seconds and standard deviation of 0.1
+second. When it makes a turn, the new direction (angle) in which it
+will move is a normally distributed random number with average equal
+to the previous direction and standard deviation of 30 degrees. Its
+speed is also a normally distributed random number, with a controlled
+average, ranging from 0.1 to 0.45 (unit/sec), and standard deviation
+of 0.01 (unit/sec). A new such random number is picked as its speed
+when it makes a turn. This pattern of mobility is intended to model
+node movement during which the nodes have momentum, and thus do not
+start, stop, or turn abruptly. When it hits a wall, it reflects off
+the wall at the same angle; in our simulated world, there is little
+other choice.”</div></blockquote>
+<p>This implementation can be parameterized a bit more, via the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">changeInterval</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">changeAngleBy</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">changeSpeedBy</span></code>
+parameters. The parameters described above correspond to the following
+settings:</p>
+<ul class="simple">
+<li>changeInterval = normal(5, 0.1)</li>
+<li>changeAngleBy = normal(0, 30)</li>
+<li>speed = normal(avgSpeed, 0.01)</li>
+</ul>
+</div>
+<div class="section" id="chiangmobility">
+<h4>ChiangMobility<a class="headerlink" href="#chiangmobility" title="Permalink to this headline">¶</a></h4>
+<p>Implements Chiang’s random walk movement model
+(). In this model, the state
+of the mobile node in each direction (x and y) can be:</p>
+<ul class="simple">
+<li>0: the node stays in its current position</li>
+<li>1: the node moves forward</li>
+<li>2: the node moves backward</li>
+</ul>
+<p>The <span class="math notranslate nohighlight">\((i,j)\)</span> element of the state transition matrix determines the
+probability that the state changes from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left(
+\begin{array}{ccc}
+  0 &amp; 0.5 &amp; 0.5 \\
+  0.3 &amp; 0.7 &amp; 0 \\
+  0.3 &amp; 0 &amp; 0.7
+\end{array}
+\right)\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="replaying-trace-files">
+<span id="ug-sec-mobility-replaying-trace-files"></span><h3>Replaying trace files<a class="headerlink" href="#replaying-trace-files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bonnmotionmobility">
+<h4>BonnMotionMobility<a class="headerlink" href="#bonnmotionmobility" title="Permalink to this headline">¶</a></h4>
+<p>Uses the native file format of <a class="reference external" href="http://bonnmotion.net">BonnMotion</a>.</p>
+<p>The file is a plain text file, where every line describes the motion of
+one host. A line consists of one or more (t, x, y) triplets of real
+numbers, like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="n">x1</span> <span class="n">y1</span> <span class="n">t2</span> <span class="n">x2</span> <span class="n">y2</span> <span class="n">t3</span> <span class="n">x3</span> <span class="n">y3</span> <span class="n">t4</span> <span class="n">x4</span> <span class="n">y4</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The meaning is that the given node gets to <span class="math notranslate nohighlight">\((xk,yk)\)</span> at
+<span class="math notranslate nohighlight">\(tk\)</span>. There’s no separate notation for wait, so x and y
+coordinates will be repeated there.</p>
+</div>
+<div class="section" id="ns2motionmobility">
+<h4>Ns2MotionMobility<a class="headerlink" href="#ns2motionmobility" title="Permalink to this headline">¶</a></h4>
+<p>Nodes are moving according to the trace files used in NS2. The trace
+file has this format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># &#39;#&#39; starts a comment, ends at the end of line
+$node_(&lt;id&gt;) set X_ &lt;x&gt; # sets x coordinate of the node identified by &lt;id&gt;
+$node_(&lt;id&gt;) set Y_ &lt;y&gt; # sets y coordinate of the node identified by &lt;id&gt;
+$node_(&lt;id&gt;) set Z_ &lt;z&gt; # sets z coordinate (ignored)
+$ns at $time &quot;$node_(&lt;id&gt;) setdest &lt;x&gt; &lt;y&gt; &lt;speed&gt;&quot; # at $time start moving
+towards &lt;x&gt;,&lt;y&gt; with &lt;speed&gt;
+</pre></div>
+</div>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ns2MotionMobility</span></code> module has the following parameters:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">traceFile</span></code> the Ns2 trace file</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">nodeId</span></code> node identifier in the trace file; -1 gets substituted
+by parent module’s index</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">scrollX</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">scrollY</span></code> user specified translation of the
+coordinates</li>
+</ul>
+</div>
+<div class="section" id="ansimmobility">
+<h4>ANSimMobility<a class="headerlink" href="#ansimmobility" title="Permalink to this headline">¶</a></h4>
+<p>It reads trace files of the <a class="reference external" href="http://www.ansim.info">ANSim</a> Tool. The
+nodes are moving along linear segments described by an XML trace file
+conforming to this DTD:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!ELEMENT mobility (position_change*)&gt;</span>
+<span class="cp">&lt;!ELEMENT position_change (node_id, start_time, end_time, destination)&gt;</span>
+<span class="cp">&lt;!ELEMENT node_id (#PCDATA)&gt;</span>
+<span class="cp">&lt;!ELEMENT start_time (#PCDATA)&gt;</span>
+<span class="cp">&lt;!ELEMENT end_time (#PCDATA)&gt;</span>
+<span class="cp">&lt;!ELEMENT destination (xpos, ypos)&gt;</span>
+<span class="cp">&lt;!ELEMENT xpos (#PCDATA)&gt;</span>
+<span class="cp">&lt;!ELEMENT ypos (#PCDATA)&gt;</span>
+</pre></div>
+</div>
+<p>Parameters of the module:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">ansimTrace</span></code> the trace file</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">nodeId</span></code> the <code class="docutils literal notranslate"><span class="pre">node_id</span></code> of this node, -1 gets substituted to
+parent module’s index</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="code literal-ned docutils literal notranslate"><span class="pre">AnsimMobility</span></code> module processes only the <code class="docutils literal notranslate"><span class="pre">position_change</span></code>
+elements and it ignores the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> attribute. It starts the move
+on the next segment immediately.</p>
+</div>
+</div>
+</div>
+<div class="section" id="turtlemobility">
+<span id="ug-sec-mobility-turtlemobility"></span><h3>TurtleMobility<a class="headerlink" href="#turtlemobility" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TurtleMobility</span></code> module can be parametrized by a script file
+containing LOGO-style movement commands in XML format. The content of
+the XML file should conform to the DTD in the
+<code class="file docutils literal notranslate"><span class="pre">TurtleMobility.dtd</span></code> file in the source tree.</p>
+<p>The file contains <code class="docutils literal notranslate"><span class="pre">movement</span></code> elements, each describing a
+trajectory. The <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">movement</span></code> element can
+be used to refer the movement from the ini file using the syntax:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.mobility.turtleScript</span> <span class="o">=</span> <span class="s">xmldoc(&quot;turtle.xml&quot;, &quot;movements//movement[@id=&#39;1&#39;]&quot;)</span>
+</pre></div>
+</div>
+<p>The motion of the node is composed of uniform linear segments. The
+<code class="docutils literal notranslate"><span class="pre">movement</span></code> elements may contain the the following commands as
+elements (names in parens are recognized attribute names):</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">repeat(n)</span></code> repeats its content n times, or indefinitely if the
+<code class="docutils literal notranslate"><span class="pre">n</span></code> attribute is omitted.</li>
+<li><code class="docutils literal notranslate"><span class="pre">set(x,y,speed,angle,borderPolicy)</span></code> modifies the state of the
+node. <code class="docutils literal notranslate"><span class="pre">borderPolicy</span></code> can be <code class="docutils literal notranslate"><span class="pre">reflect</span></code>, <code class="docutils literal notranslate"><span class="pre">wrap</span></code>,
+<code class="docutils literal notranslate"><span class="pre">placerandomly</span></code> or <code class="docutils literal notranslate"><span class="pre">error</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">forward(d,t)</span></code> moves the node for <code class="docutils literal notranslate"><span class="pre">t</span></code> time or to the
+<code class="docutils literal notranslate"><span class="pre">d</span></code> distance with the current speed. If both <code class="docutils literal notranslate"><span class="pre">d</span></code> and
+<code class="docutils literal notranslate"><span class="pre">t</span></code> is given, then the current speed is ignored.</li>
+<li><code class="docutils literal notranslate"><span class="pre">turn(angle)</span></code> increase the angle of the node by <code class="docutils literal notranslate"><span class="pre">angle</span></code>
+degrees.</li>
+<li><code class="docutils literal notranslate"><span class="pre">moveto(x,y,t)</span></code> moves to point <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code> in the given time.
+If <span class="math notranslate nohighlight">\(t\)</span> is not specified, it is computed from the current speed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">moveby(x,y,t)</span></code> moves by offset <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code> in the given time.
+If <span class="math notranslate nohighlight">\(t\)</span> is not specified, it is computed from the current speed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">wait(t)</span></code> waits for the specified amount of time.</li>
+</ul>
+<p>Attribute values must be given without physical units, distances are
+assumed to be given as meters, time intervals in seconds and speeds in
+meter per seconds. Attibutes can contain expressions that are evaluated
+each time the command is executed. The limits of the constraint area can
+be referenced as <code class="docutils literal notranslate"><span class="pre">$MINX</span></code>, <code class="docutils literal notranslate"><span class="pre">$MAXX</span></code>, <code class="docutils literal notranslate"><span class="pre">$MINY</span></code>, and <code class="docutils literal notranslate"><span class="pre">$MAXY</span></code>. Random
+number distibutions generate a new random number when evaluated, so the
+script can describe random as well as deterministic scenarios.</p>
+<p>To illustrate the usage of the module, we show how some mobility models
+can be implemented as scripts.</p>
+<p>RectangleMobility:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;movement&gt;</span>
+    <span class="nt">&lt;set</span> <span class="na">x=</span><span class="s">&quot;$MINX&quot;</span> <span class="na">y=</span><span class="s">&quot;$MINY&quot;</span> <span class="na">angle=</span><span class="s">&quot;0&quot;</span> <span class="na">speed=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;repeat&gt;</span>
+        <span class="nt">&lt;repeat</span> <span class="na">n=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;forward</span> <span class="na">d=</span><span class="s">&quot;$MAXX-$MINX&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;turn</span> <span class="na">angle=</span><span class="s">&quot;90&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;forward</span> <span class="na">d=</span><span class="s">&quot;$MAXY-$MINY&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;turn</span> <span class="na">angle=</span><span class="s">&quot;90&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/repeat&gt;</span>
+    <span class="nt">&lt;/repeat&gt;</span>
+<span class="nt">&lt;/movement&gt;</span>
+</pre></div>
+</div>
+<p>Random Waypoint:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;movement&gt;</span>
+    <span class="nt">&lt;repeat&gt;</span>
+        <span class="nt">&lt;set</span> <span class="na">speed=</span><span class="s">&quot;uniform(20,60)&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;moveto</span> <span class="na">x=</span><span class="s">&quot;uniform($MINX,$MAXX)&quot;</span> <span class="na">y=</span><span class="s">&quot;uniform($MINY,$MAXY)&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;wait</span> <span class="na">t=</span><span class="s">&quot;uniform(5,10)&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/repeat&gt;</span>
+<span class="nt">&lt;/movement&gt;</span>
+</pre></div>
+</div>
+<p>MassMobility:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;movement&gt;</span>
+    <span class="nt">&lt;repeat&gt;</span>
+        <span class="nt">&lt;set</span> <span class="na">speed=</span><span class="s">&quot;uniform(10,20)&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;turn</span> <span class="na">angle=</span><span class="s">&quot;uniform(-30,30)&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;forward</span> <span class="na">t=</span><span class="s">&quot;uniform(0.1,1)&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/repeat&gt;</span>
+<span class="nt">&lt;/movement&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Node Mobility</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#using-mobility-models">Using Mobility Models</a></li>
+<li><a class="reference internal" href="#the-playground">The Playground</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#built-in-mobility-models">Built-In Mobility Models</a><ul>
+<li><a class="reference internal" href="#list-of-mobility-models">List of Mobility Models</a><ul>
+<li><a class="reference internal" href="#stationary">Stationary</a></li>
+<li><a class="reference internal" href="#deterministic">Deterministic</a></li>
+<li><a class="reference internal" href="#trace-based">Trace-Based</a></li>
+<li><a class="reference internal" href="#stochastic">Stochastic</a></li>
+<li><a class="reference internal" href="#combining">Combining</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more-information-on-some-mobility-models">More Information on Some Mobility Models</a><ul>
+<li><a class="reference internal" href="#tractormobility">TractorMobility</a></li>
+<li><a class="reference internal" href="#randomwaypointmobility">RandomWaypointMobility</a></li>
+<li><a class="reference internal" href="#gaussmarkovmobility">GaussMarkovMobility</a></li>
+<li><a class="reference internal" href="#massmobility">MassMobility</a></li>
+<li><a class="reference internal" href="#chiangmobility">ChiangMobility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#replaying-trace-files">Replaying trace files</a><ul>
+<li><a class="reference internal" href="#bonnmotionmobility">BonnMotionMobility</a></li>
+<li><a class="reference internal" href="#ns2motionmobility">Ns2MotionMobility</a></li>
+<li><a class="reference internal" href="#ansimmobility">ANSimMobility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#turtlemobility">TurtleMobility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-environment.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>The Physical Environment</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-power.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Modeling Power Consumption</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

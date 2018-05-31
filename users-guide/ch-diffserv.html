@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Differentiated Services &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The MPLS Models" href="ch-mpls.html" />
+    <link rel="prev" title="Ad Hoc Routing" href="ch-adhoc-routing.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Differentiated Services</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-diffserv.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="differentiated-services">
+<span id="ug-cha-diffserv"></span><h1>Differentiated Services<a class="headerlink" href="#differentiated-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-diffserv-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In the early days of the Internet, only best effort service was defined.
+The Internet delivers individually each packet, and delivery time is not
+guaranteed, moreover packets may even be dropped due to congestion at
+the routers of the network. It was assumed that transport protocols, and
+applications can overcome these deficiencies. This worked until FTP and
+email was the main applications of the Internet, but the newer
+applications such as Internet telephony and video conferencing cannot
+tolerate delay jitter and loss of data.</p>
+<p>The first attempt to add QoS capabilities to the IP routing was
+Integrated Services. Integrated services provide resource assurance
+through resource reservation for individual application flows. An
+application flow is identified by the source and destination addresses
+and ports and the protocol id. Before data packets are sent the
+necessary resources must be allocated along the path from the source to
+the destination. At the hops from the source to the destination each
+router must examine the packets, and decide if it belongs to a reserved
+application flow. This could cause a memory and processing demand in the
+routers. Other drawback is that the reservation must be periodically
+refreshed, so there is an overhead during the data transmission too.</p>
+<p>Differentiated Services is a more scalable approach to offer a better
+than best-effort service. Differentiated Services do not require
+resource reservation setup. Instead of making per-flow reservations,
+Differentiated Services divides the traffic into a small number of
+<em>forwarding classes</em>. The forwarding class is directly encoded into the
+packet header. After packets are marked with their forwarding classes at
+the edge of the network, the interior nodes of the network can use this
+information to differentiate the treatment of packets. The forwarding
+classes may indicate drop priority and resource priority. For example,
+when a link is congested, the network will drop packets with the highest
+drop priority first.</p>
+<p>In the Differentiated Service architecture, the network is partitioned
+into DiffServ domains. Within each domain the resources of the domain
+are allocated to forwarding classes, taking into account the available
+resources and the traffic flows. There are <em>service level agreements</em>
+(SLA) between the users and service providers, and between the domains
+that describe the mapping of packets to forwarding classes and the
+allowed traffic profile for each class. The routers at the edge of the
+network are responsible for marking the packets and protect the domain
+from misbehaving traffic sources. Nonconforming traffic may be dropped,
+delayed, or marked with a different forwarding class.</p>
+<div class="section" id="implemented-standards">
+<span id="ug-sec-diffserv-implemented-standards"></span><h3>Implemented Standards<a class="headerlink" href="#implemented-standards" title="Permalink to this headline">¶</a></h3>
+<p>The implementation follows these RFCs below:</p>
+<ul class="simple">
+<li>RFC 2474: Definition of the Differentiated Services Field (DS Field)
+in the IPv4 and IPv6 Headers</li>
+<li>RFC 2475: An Architecture for Differentiated Services</li>
+<li>RFC 2597: Assured Forwarding PHB Group</li>
+<li>RFC 2697: A Single Rate Three Color Marker</li>
+<li>RFC 2698: A Two Rate Three Color Marker</li>
+<li>RFC 3246: An Expedited Forwarding PHB (Per-Hop Behavior)</li>
+<li>RFC 3290: An Informal Management Model for Diffserv Routers</li>
+</ul>
+</div>
+</div>
+<div class="section" id="architecture-of-nics">
+<span id="ug-sec-diffserv-architecture-of-nics"></span><h2>Architecture of NICs<a class="headerlink" href="#architecture-of-nics" title="Permalink to this headline">¶</a></h2>
+<p>Network interface modules, such as <code class="code literal-ned docutils literal notranslate"><span class="pre">PppInterface</span></code> and
+<code class="code literal-ned docutils literal notranslate"><span class="pre">EthernetInterface</span></code>, may contain traffic conditioners in their
+input and output data path.</p>
+<p>Network interfaces may also contain an optional external queue
+component. In the absence of an external queue module, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ppp</span></code> and
+<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> use an internal drop-tail queue to buffer the packets
+while the line is busy.</p>
+<div class="section" id="traffic-conditioners">
+<span id="ug-sec-diffserv-traffic-conditioners"></span><h3>Traffic Conditioners<a class="headerlink" href="#traffic-conditioners" title="Permalink to this headline">¶</a></h3>
+<p>Traffic conditioners have one input and one output gate as defined in
+the <code class="code literal-ned docutils literal notranslate"><span class="pre">ITrafficConditioner</span></code> interface. They can transform the
+incoming traffic by dropping or delaying packets. They can also set the
+DSCP field of the packet, or mark them other way, for differentiated
+handling in the queues.</p>
+<p>Traffic conditioners perform the following actions:</p>
+<ul class="simple">
+<li>classify the incoming packets</li>
+<li>meter the traffic in each class</li>
+<li>marks/drops packets depending on the result of metering</li>
+<li>shape the traffic by delaying packets to conform to the desired
+traffic profile</li>
+</ul>
+<p>INET provides classifier, meter, and marker modules, that can be
+composed to build a traffic conditioner as a compound module.</p>
+</div>
+<div class="section" id="output-queues">
+<span id="ug-sec-diffserv-output-queues"></span><h3>Output Queues<a class="headerlink" href="#output-queues" title="Permalink to this headline">¶</a></h3>
+<p>Queue components must implement the <code class="code literal-ned docutils literal notranslate"><span class="pre">IOutputQueue</span></code> module
+interface. In addition to having one input and one output gate, these
+components must implement a passive queue behaviour: they only deliver a
+packet when the module connected to their output explicitly requests it.
+(In C++ terms, the module must implement the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code>
+interface. The next module requests a packet by calling the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">requestPacket()</span></code> method of that interface.)</p>
+</div>
+</div>
+<div class="section" id="simple-modules">
+<span id="ug-sec-diffserv-simple-modules"></span><h2>Simple modules<a class="headerlink" href="#simple-modules" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the primitive elements from which traffic
+conditioners and output queues can be built. The next sections shows
+some examples, how these queues, schedulers, droppers, classifiers,
+meters, markers can be combined.</p>
+<p>The type of the components are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">queue</span></code>: container of packets, accessed as FIFO</li>
+<li><code class="docutils literal notranslate"><span class="pre">dropper</span></code>: attached to one or more queue, it can limit the queue
+length below some threshold by selectively dropping packets</li>
+<li><code class="docutils literal notranslate"><span class="pre">scheduler</span></code>: decide which packet is transmitted first, when more
+packets are available on their inputs</li>
+<li><code class="docutils literal notranslate"><span class="pre">classifier</span></code>: classify the received packets according to their
+content (e.g. source/destination, address and port, protocol, dscp
+field of IP datagrams) and forward them to the corresponding output
+gate.</li>
+<li><code class="docutils literal notranslate"><span class="pre">meter</span></code>: classify the received packets according to the temporal
+characteristic of their traffic stream</li>
+<li><code class="docutils literal notranslate"><span class="pre">marker</span></code>: marks packets by setting their fields to control their
+further processing</li>
+</ul>
+<div class="section" id="queues">
+<span id="ug-sec-diffserv-queues"></span><h3>Queues<a class="headerlink" href="#queues" title="Permalink to this headline">¶</a></h3>
+<p>When packets arrive at higher rate, than the interface can trasmit, they
+are getting queued.</p>
+<p>Queue elements store packets until they can be transmitted. They have
+one input and one output gate. Queues may have one or more thresholds
+associated with them.</p>
+<p>Received packets are enqueued and stored until the module connected to
+their output asks a packet by calling the <code class="code literal-cpp docutils literal notranslate"><span class="pre">requestPacket()</span></code>
+method.</p>
+<p>They should be able to notify the module connected to its output about
+the arrival of new packets.</p>
+<div class="section" id="fifo-queue">
+<span id="ug-sec-diffserv-fifo-queue"></span><h4>FIFO Queue<a class="headerlink" href="#fifo-queue" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">FifoQueue</span></code> module implements a passive FIFO queue with
+unlimited buffer space. It can be combined with algorithmic droppers and
+schedulers to form an IOutputQueue compound module.</p>
+<p>The C++ class implements the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IQueueAccess</span></code> and
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code> interfaces.</p>
+</div>
+<div class="section" id="droptailqueue">
+<span id="ug-sec-diffserv-droptailqueue"></span><h4>DropTailQueue<a class="headerlink" href="#droptailqueue" title="Permalink to this headline">¶</a></h4>
+<p>The other primitive queue module is <code class="code literal-ned docutils literal notranslate"><span class="pre">DropTailQueue</span></code>. Its capacity
+can be specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">frameCapacity</span></code> parameter. When the number
+of stored packet reached the capacity of the queue, further packets are
+dropped. Because this module contains a built-in dropping strategy, it
+cannot be combined with algorithmic droppers as <code class="code literal-ned docutils literal notranslate"><span class="pre">FifoQueue</span></code> can be.
+However its output can be connected to schedulers.</p>
+<p>This module implements the <code class="code literal-ned docutils literal notranslate"><span class="pre">IOutputQueue</span></code> interface, so it can be
+used as the queue component of interface card per se.</p>
+</div>
+</div>
+<div class="section" id="droppers">
+<span id="ug-sec-diffserv-droppers"></span><h3>Droppers<a class="headerlink" href="#droppers" title="Permalink to this headline">¶</a></h3>
+<p>Algorithmic droppers selectively drop received packets based on some
+condition. The condition can be either deterministic (e.g. to bound the
+queue length), or probabilistic (e.g. RED queues).</p>
+<p>Other kind of droppers are absolute droppers; they drop each received
+packet. They can be used to discard excess traffic, i.e. packets whose
+arrival rate exceeds the allowed maximum. In INET the <code class="code literal-ned docutils literal notranslate"><span class="pre">Sink</span></code> module
+can be used as an absolute dropper.</p>
+<p>The algorithmic droppers in INET are <code class="code literal-ned docutils literal notranslate"><span class="pre">ThresholdDropper</span></code> and
+<code class="code literal-ned docutils literal notranslate"><span class="pre">RedDropper</span></code>. These modules has multiple input and multiple output
+gates. Packets that arrive on gate <code class="code literal-ned docutils literal notranslate"><span class="pre">in[i]</span></code> are forwarded to gate
+<code class="code literal-ned docutils literal notranslate"><span class="pre">out[i]</span></code> (unless they are dropped). However the queues attached to
+the output gates are viewed as a whole, i.e. the queue length parameter
+of the dropping algorithm is the sum of the individual queue lengths.
+This way we can emulate shared buffers of the queues. Note, that it is
+also possible to connect each output to the same queue module.</p>
+<div class="section" id="threshold-dropper">
+<span id="ug-sec-diffserv-threshold-dropper"></span><h4>Threshold Dropper<a class="headerlink" href="#threshold-dropper" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">ThresholdDropper</span></code> module selectively drops packets, based on
+the available buffer space of the queues attached to its output. The
+buffer space can be specified as the count of packets, or as the size in
+bytes.</p>
+<p>The module sums the buffer lengths of its outputs and if enqueuing a
+packet would exceed the configured capacities, then the packet will be
+dropped instead.</p>
+<p>By attaching a <code class="code literal-ned docutils literal notranslate"><span class="pre">ThresholdDropper</span></code> to the input of a FIFO queue, you
+can compose a drop tail queue. Shared buffer space can be modeled by
+attaching more FIFO queues to the output.</p>
+</div>
+<div class="section" id="red-dropper">
+<h4>RED Dropper<a class="headerlink" href="#red-dropper" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">RedDropper</span></code> module implements Random Early Detection
+().</p>
+<p>It has <span class="math notranslate nohighlight">\(n\)</span> input and <span class="math notranslate nohighlight">\(n\)</span> output gates (specified by the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">numGates</span></code> parameter). Packets that arrive at the <span class="math notranslate nohighlight">\(i^{th}\)</span>
+input gate are forwarded to the <span class="math notranslate nohighlight">\(i^{th}\)</span> output gate, or dropped.
+The output gates must be connected to simple modules implementing the
+<code class="code literal-ned docutils literal notranslate"><span class="pre">IQueueAccess</span></code> C++ interface (e.g. <code class="code literal-ned docutils literal notranslate"><span class="pre">FifoQueue</span></code>).</p>
+<p>The module sums the used buffer space of the queues attached to the
+output gates. If it is below a minimum threshold, the packet won’t be
+dropped, if above a maximum threshold, it will be dropped, if it is
+between the minimum and maximum threshold, it will be dropped by a given
+probability. This probability determined by a linear function which is 0
+at the minth and maxp at maxth.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/red-dropper.png"><img alt="../_images/red-dropper.png" src="../_images/red-dropper.png" style="width: 340px;" /></a>
+</div>
+<p>The queue length can be smoothed by specifying the <code class="code literal-ini docutils literal notranslate"><span class="pre">wq</span></code> parameter.
+The average queue length used in the tests are computed by the formula:</p>
+<div class="math notranslate nohighlight">
+\[avg = (1-wq)*avg + wq*qlen\]</div>
+<p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">minth</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">maxth</span></code>, and <code class="code literal-ini docutils literal notranslate"><span class="pre">maxp</span></code> parameters can be
+specified separately for each input gate, so this module can be used to
+implement different packet drop priorities.</p>
+</div>
+</div>
+<div class="section" id="schedulers">
+<span id="ug-sec-diffserv-schedulers"></span><h3>Schedulers<a class="headerlink" href="#schedulers" title="Permalink to this headline">¶</a></h3>
+<p>Scheduler modules decide which queue can send a packet, when the
+interface is ready to transmit one. They have several input gates and
+one output gate.</p>
+<p>Modules that are connected to the inputs of a scheduler must implement
+the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code> C++ interface. Schedulers also implement
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code>, so they can be cascaded to other schedulers, and
+can be used as the output module of <code class="code literal-ned docutils literal notranslate"><span class="pre">IOutputQueue</span></code>’s.</p>
+<p>There are several possible scheduling discipline (first come/first
+served, priority, weighted fair, weighted round-robin, deadline-based,
+rate-based). INET contains implementation of priority and weighted
+round-robin schedulers.</p>
+<div class="section" id="priority-scheduler">
+<span id="ug-sec-diffserv-priority-scheduler"></span><h4>Priority Scheduler<a class="headerlink" href="#priority-scheduler" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">PriorityScheduler</span></code> module implements a strict priority
+scheduler. Packets that arrived on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[0]</span></code> has the highest
+priority, then packets arrived on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[1]</span></code>, and so on. If more
+packets available when one is requested, then the one with highest
+priority is chosen. Packets with lower priority are transmitted only
+when there are no packets on the inputs with higher priorities.</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">PriorityScheduler</span></code> must be used with care, because a large volume
+of higher packets can starve lower priority packets. Therefore it is
+necessary to limit the rate of higher priority packets to a fraction of
+the output datarate.</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">PriorityScheduler</span></code> can be used to implement the <code class="docutils literal notranslate"><span class="pre">EF</span></code> PHB.</p>
+</div>
+<div class="section" id="weighted-round-robin-scheduler">
+<h4>Weighted Round Robin Scheduler<a class="headerlink" href="#weighted-round-robin-scheduler" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">WrrScheduler</span></code> module implements a weighted round-robin
+scheduler. The scheduler visits the input gates in turn and selects the
+number of packets for transmission based on their weight.</p>
+<p>For example if the module has three input gates, and the weights are 3,
+2, and 1, then packets are transmitted in this order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>where A packets arrived on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[0]</span></code>, B packets on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[1]</span></code>,
+and C packets on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[2]</span></code>. If there are no packets in the current
+one when a packet is requested, then the next one is chosen that has
+enough tokens.</p>
+<p>If the size of the packets are equal, then <code class="code literal-ned docutils literal notranslate"><span class="pre">WrrScheduler</span></code> divides
+the available bandwith according to the weights. In each case, it
+allocates the bandwith fairly. Each flow receives a guaranteed minimum
+bandwith, which is ensured even if other flows exceed their share (flow
+isolation). It is also efficiently uses the channel, because if some
+traffic is smaller than its share of bandwidth, then the rest is
+allocated to the other flows.</p>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">WrrScheduler</span></code> can be used to implement the <code class="docutils literal notranslate"><span class="pre">AFxy</span></code> PHBs.</p>
+</div>
+</div>
+<div class="section" id="classifiers">
+<span id="ug-sec-diffserv-classifiers"></span><h3>Classifiers<a class="headerlink" href="#classifiers" title="Permalink to this headline">¶</a></h3>
+<p>Classifier modules have one input and many output gates. They examine
+the received packets, and forward them to the appropriate output gate
+based on the content of some portion of the packet header. You can read
+more about classifiers in RFC 2475 and RFC 3290.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">inet.networklayer.diffserv</span></code> package contains two classifiers:
+<code class="code literal-ned docutils literal notranslate"><span class="pre">MultiFieldClassifier</span></code> to classify the packets at the edge routers
+of the DiffServ domain, and <code class="code literal-ned docutils literal notranslate"><span class="pre">BehaviorAggregateClassifier</span></code> to
+classify the packets at the core routers.</p>
+<div class="section" id="multi-field-classifier">
+<h4>Multi-field Classifier<a class="headerlink" href="#multi-field-classifier" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">MultiFieldClassifier</span></code> module can be used to identify
+micro-flows in the incoming traffic. The flow is identified by the
+source and destination addresses, the protocol id, and the source and
+destination ports of the IP packet.</p>
+<p>The classifier can be configured by specifying a list of filters. Each
+filter can specify a source/destination address mask, protocol,
+source/destination port range, and bits of TypeOfService/TrafficClass
+field to be matched. They also specify the index of the output gate
+matching packet should be forwarded to. The first matching filter
+determines the output gate, if there are no matching filters, then
+<code class="code literal-ned docutils literal notranslate"><span class="pre">defaultOut</span></code> is chosen.</p>
+<p>The configuration of the module is given as an XML document. The
+document element must contain a list of <code class="docutils literal notranslate"><span class="pre">&lt;filter&gt;</span></code> elements. The
+filter element has a mandatory <code class="docutils literal notranslate"><span class="pre">&#64;gate</span></code> attribute that gives the
+index of the gate for packets matching the filter. Other attributes are
+optional and specify the condition of matching:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&#64;srcAddress</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;srcPrefixLength</span></code>: to match the source
+address of the IP</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;destAddress</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;destPrefixLength</span></code>:</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;protocol</span></code>: matches the protocol field of the IP packet. Its
+value can be a name (e.g. “udp”, “tcp”), or the numeric code of the
+protocol.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;tos</span></code>,&#64;tosMask: matches bits of the TypeOfService/TrafficClass
+field of the IP packet.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;srcPort</span></code>: matches the source port of the TCP or UDP packet.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;srcPortMin</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;srcPortMax</span></code>: matches a range of source
+ports.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;destPort</span></code>: matches the destination port of the TCP or UDP
+packet.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;destPortMin</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;destPortMax</span></code>: matches a range of
+destination ports.</li>
+</ul>
+<p>The following example configuration specifies</p>
+<ul class="simple">
+<li>to transmit packets received from the 192.168.1.x subnet on gate 0,</li>
+<li>to transmit packets addressed to port 5060 on gate 1,</li>
+<li>to transmit packets having CS7 in their DSCP field on gate 2,</li>
+<li>to transmit other packets on <code class="code literal-ned docutils literal notranslate"><span class="pre">defaultGate</span></code>.</li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;filters&gt;</span>
+  <span class="nt">&lt;filter</span> <span class="na">srcAddress=</span><span class="s">&quot;192.168.1.0&quot;</span> <span class="na">srcPrefixLength=</span><span class="s">&quot;24&quot;</span> <span class="na">gate=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;filter</span> <span class="na">protocol=</span><span class="s">&quot;udp&quot;</span> <span class="na">destPort=</span><span class="s">&quot;5060&quot;</span> <span class="na">gate=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;filter</span> <span class="na">tos=</span><span class="s">&quot;0b00111000&quot;</span> <span class="na">tosMask=</span><span class="s">&quot;0x3f&quot;</span> <span class="na">gate=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/filters&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="behavior-aggregate-classifier">
+<h4>Behavior Aggregate Classifier<a class="headerlink" href="#behavior-aggregate-classifier" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">BehaviorAggregateClassifier</span></code> module can be used to read the
+DSCP field from the IP datagram, and direct the packet to the
+corresponding output gate. The DSCP value is the lower six bits of the
+TypeOfService/TrafficClass field. Core routers usually use this
+classifier to guide the packet to the appropriate queue.</p>
+<p>DSCP values are enumerated in the <code class="code literal-ini docutils literal notranslate"><span class="pre">dscps</span></code> parameter. The first
+value is for gate <code class="code literal-ned docutils literal notranslate"><span class="pre">out[0]</span></code>, the second for <code class="code literal-ned docutils literal notranslate"><span class="pre">out[1]</span></code>, so on.
+If the received packet has a DSCP value not enumerated in the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">dscps</span></code> parameter, it will be forwarded to the <code class="code literal-ned docutils literal notranslate"><span class="pre">defaultOut</span></code>
+gate.</p>
+</div>
+</div>
+<div class="section" id="meters">
+<span id="ug-sec-diffserv-meters"></span><h3>Meters<a class="headerlink" href="#meters" title="Permalink to this headline">¶</a></h3>
+<p>Meters classify the packets based on the temporal characteristics of
+their arrival. The arrival rate of packets is compared to an allowed
+traffic profile, and packets are decided to be green (in-profile) or red
+(out-of-profile). Some meters apply more than two conformance level,
+e.g. in three color meters the partially conforming packets are
+classified as yellow.</p>
+<p>The allowed traffic profile is usually specified by a token bucket. In
+this model, a bucket is filled in with tokens with a specified rate,
+until it reaches its maximum capacity. When a packet arrives, the bucket
+is examined. If it contains at least as many tokens as the length of the
+packet, then that tokens are removed, and the packet marked as
+conforming to the traffic profile. If the bucket contains less tokens
+than needed, it left unchanged, but the packet marked as non-conforming.</p>
+<p>Meters has two modes: color-blind and color-aware. In color-blind mode,
+the color assigned by a previous meter does not affect the
+classification of the packet in subsequent meters. In color-aware mode,
+the color of the packet can not be changed to a less conforming color:
+if a packet is classified as non-conforming by a meter, it also handled
+as non-conforming in later meters in the data path.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Meters take into account the length of the IP packet only, L2 headers are omitted
+from the length calculation. If they receive a packet which is not
+an IP datagram and does not encapsulate an IP datagram, an error occurs.</p>
+</div>
+<div class="section" id="tokenbucketmeter">
+<h4>TokenBucketMeter<a class="headerlink" href="#tokenbucketmeter" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TokenBucketMeter</span></code> module implements a simple token bucket
+meter. The module has two output, one for green packets, and one for red
+packets. When a packet arrives, the gained tokens are added to the
+bucket, and the number of tokens equal to the size of the packet are
+subtracted.</p>
+<p>Packets are classified according to two parameters, Committed
+Information Rate (<span class="math notranslate nohighlight">\(cir\)</span>), Committed Burst Size (<span class="math notranslate nohighlight">\(cbs\)</span>), to
+be either green, or red.</p>
+<p>Green traffic is guaranteed to be under <span class="math notranslate nohighlight">\(cir*(t_1-t_0)+8*cbs\)</span> in
+every <span class="math notranslate nohighlight">\([t_0,t_1]\)</span> interval.</p>
+</div>
+<div class="section" id="singleratethreecolormeter">
+<h4>SingleRateThreeColorMeter<a class="headerlink" href="#singleratethreecolormeter" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">SingleRateThreeColorMeter</span></code> module implements a Single Rate
+Three Color Meter (RFC 2697). The module has three output for green,
+yellow, and red packets.</p>
+<p>Packets are classified according to three parameters, Committed
+Information Rate (<span class="math notranslate nohighlight">\(cir\)</span>), Committed Burst Size (<span class="math notranslate nohighlight">\(cbs\)</span>), and
+Excess Burst Size (<span class="math notranslate nohighlight">\(ebs\)</span>), to be either green, yellow or red. The
+green traffic is guaranteed to be under <span class="math notranslate nohighlight">\(cir*(t_1-t_0)+8*cbs\)</span>,
+while the green+yellow traffic to be under
+<span class="math notranslate nohighlight">\(cir*(t_1-t_0)+8*(cbs+ebs)\)</span> in every <span class="math notranslate nohighlight">\([t_0,t_1]\)</span> interval.</p>
+</div>
+<div class="section" id="tworatethreecolormeter">
+<h4>TwoRateThreeColorMeter<a class="headerlink" href="#tworatethreecolormeter" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TwoRateThreeColorMeter</span></code> module implements a Two Rate Three
+Color Meter (RFC 2698). The module has three output gates for the green,
+yellow, and red packets.</p>
+<p>It classifies the packets based on two rates, Peak Information Rate
+(<span class="math notranslate nohighlight">\(pir\)</span>) and Committed Information Rate (<span class="math notranslate nohighlight">\(cir\)</span>), and their
+associated burst sizes (<span class="math notranslate nohighlight">\(pbs\)</span> and <span class="math notranslate nohighlight">\(cbs\)</span>) to be either green,
+yellow or red. The green traffic is under <span class="math notranslate nohighlight">\(pir*(t_1-t_0)+8*pbs\)</span>
+and <span class="math notranslate nohighlight">\(cir*(t_1-t_0)+8*cbs\)</span>, the yellow traffic is under
+<span class="math notranslate nohighlight">\(pir*(t_1-t_0)+8*pbs\)</span> in every <span class="math notranslate nohighlight">\([t_0,t_1]\)</span> interval.</p>
+</div>
+</div>
+<div class="section" id="markers">
+<span id="ug-sec-diffserv-markers"></span><h3>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h3>
+<p>DSCP markers sets the codepoint of the crossing packets. The codepoint
+determines the further processing of the packet in the router or in the
+core of the DiffServ domain.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">DscpMarker</span></code> module sets the DSCP field (lower six bit of
+TypeOfService/TrafficClass) of IP datagrams to the value specified by
+the <code class="code literal-ini docutils literal notranslate"><span class="pre">dscps</span></code> parameter. The <code class="code literal-ini docutils literal notranslate"><span class="pre">dscps</span></code> parameter is a space
+separated list of codepoints. You can specify a different value for each
+input gate; packets arrived at the <span class="math notranslate nohighlight">\(i^{th}\)</span> input gate are marked
+with the <span class="math notranslate nohighlight">\(i^{th}\)</span> value. If there are fewer values, than gates,
+then the last one is used for extra gates.</p>
+<p>The DSCP values are enumerated in the <code class="file docutils literal notranslate"><span class="pre">DSCP.msg</span></code> file. You can
+use both names and integer values in the <code class="code literal-ini docutils literal notranslate"><span class="pre">dscps</span></code> parameter.</p>
+<p>For example the following lines are equivalent:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.dscps</span> <span class="o">=</span> <span class="s">&quot;EF 0x0a 0b00001000&quot;</span>
+<span class="na">**.dscps</span> <span class="o">=</span> <span class="s">&quot;46 AF11 8&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compound-modules">
+<span id="ug-sec-diffserv-compound-modules"></span><h2>Compound modules<a class="headerlink" href="#compound-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="afxyqueue">
+<span id="ug-sec-diffserv-afxyqueue"></span><h3>AFxyQueue<a class="headerlink" href="#afxyqueue" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">AFxyQueue</span></code> module is an example queue, that implements one
+class of the Assured Forwarding PHB group (RFC 2597).</p>
+<p>Packets with the same AFx class, but different drop priorities arrive at
+the <code class="code literal-ned docutils literal notranslate"><span class="pre">afx1In</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">afx2In</span></code>, and <code class="code literal-ned docutils literal notranslate"><span class="pre">afx3In</span></code> gates. The
+received packets are stored in the same queue. Before the packet is
+enqueued, a RED dropping algorithm may decide to selectively drop them,
+based on the average length of the queue and the RED parameters of the
+drop priority of the packet.</p>
+<p>The afxyMinth, afxyMaxth, and afxyMaxp parameters must have values that
+ensure that packets with lower drop priorities are dropped with lower or
+equal probability than packets with higher drop priorities.</p>
+</div>
+<div class="section" id="diffservqeueue">
+<span id="ug-sec-diffserv-diffservqeueue"></span><h3>DiffservQeueue<a class="headerlink" href="#diffservqeueue" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">DiffservQueue</span></code> is an example queue, that can be used in
+interfaces of DS core and edge nodes to support the AFxy (RFC 2597) and
+EF (RFC 3246) PHB’s.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/DiffservQueue.png"><img alt="../_images/DiffservQueue.png" src="../_images/DiffservQueue.png" style="width: 319.2px; height: 371.0px;" /></a>
+</div>
+<p>The incoming packets are first classified according to their DSCP field.
+DSCP’s other than AFxy and EF are handled as BE (best effort).</p>
+<p>EF packets are stored in a dedicated queue, and served first when a
+packet is requested. Because they can preempt the other queues, the rate
+of the EF packets should be limited to a fraction of the bandwith of the
+link. This is achieved by metering the EF traffic with a token bucket
+meter and dropping packets that does not conform to the traffic profile.</p>
+<p>There are other queues for AFx classes and BE. The AFx queues use RED to
+implement 3 different drop priorities within the class. BE packets are
+stored in a drop tail queue. Packets from AFxy and BE queues are
+sheduled by a WRR scheduler, which ensures that the remaining bandwith
+is allocated among the classes according to the specified weights.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Differentiated Services</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#implemented-standards">Implemented Standards</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#architecture-of-nics">Architecture of NICs</a><ul>
+<li><a class="reference internal" href="#traffic-conditioners">Traffic Conditioners</a></li>
+<li><a class="reference internal" href="#output-queues">Output Queues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simple-modules">Simple modules</a><ul>
+<li><a class="reference internal" href="#queues">Queues</a><ul>
+<li><a class="reference internal" href="#fifo-queue">FIFO Queue</a></li>
+<li><a class="reference internal" href="#droptailqueue">DropTailQueue</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#droppers">Droppers</a><ul>
+<li><a class="reference internal" href="#threshold-dropper">Threshold Dropper</a></li>
+<li><a class="reference internal" href="#red-dropper">RED Dropper</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#schedulers">Schedulers</a><ul>
+<li><a class="reference internal" href="#priority-scheduler">Priority Scheduler</a></li>
+<li><a class="reference internal" href="#weighted-round-robin-scheduler">Weighted Round Robin Scheduler</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classifiers">Classifiers</a><ul>
+<li><a class="reference internal" href="#multi-field-classifier">Multi-field Classifier</a></li>
+<li><a class="reference internal" href="#behavior-aggregate-classifier">Behavior Aggregate Classifier</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#meters">Meters</a><ul>
+<li><a class="reference internal" href="#tokenbucketmeter">TokenBucketMeter</a></li>
+<li><a class="reference internal" href="#singleratethreecolormeter">SingleRateThreeColorMeter</a></li>
+<li><a class="reference internal" href="#tworatethreecolormeter">TwoRateThreeColorMeter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#markers">Markers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compound-modules">Compound modules</a><ul>
+<li><a class="reference internal" href="#afxyqueue">AFxyQueue</a></li>
+<li><a class="reference internal" href="#diffservqeueue">DiffservQeueue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-adhoc-routing.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Ad Hoc Routing</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-mpls.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>The MPLS Models</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

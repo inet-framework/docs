@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The MPLS Models &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Point-to-Point Links" href="ch-ppp.html" />
+    <link rel="prev" title="Differentiated Services" href="ch-diffserv.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">The MPLS Models</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-mpls.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-mpls-models">
+<span id="ug-cha-mpls"></span><h1>The MPLS Models<a class="headerlink" href="#the-mpls-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-mpls-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Multi-Protocol Label Switching (MPLS) is a “layer 2.5” protocol for
+high-performance telecommunications networks. MPLS directs data from one
+network node to the next based on numeric labels instead of network
+addresses, avoiding complex lookups in a routing table and allowing
+traffic engineering. The labels identify virtual links (label-switched
+paths or LSPs, also called MPLS tunnels) between distant nodes rather
+than endpoints. The routers that make up a label-switched network are
+called label-switching routers (LSRs) inside the network (“transit
+nodes”), and label edge routers (LER) on the edges of the network
+(“ingress” or “egress” nodes).</p>
+<p>A fundamental MPLS concept is that two LSRs must agree on the meaning of
+the labels used to forward traffic between and through them. This common
+understanding is achieved by using signaling protocols by which one LSR
+informs another of label bindings it has made. Such signaling protocols
+are also called label distribution protocols. The two main label
+distribution protocols used with MPLS are LDP and RSVP-TE.</p>
+<p>INET provides basic support for building MPLS simulations. It provides
+models for the MPLS, LDP and RSVP-TE protocols and their associated data
+structures, and preassembled MPLS-capable router models.</p>
+</div>
+<div class="section" id="core-modules">
+<span id="ug-sec-mpls-core-modules"></span><h2>Core Modules<a class="headerlink" href="#core-modules" title="Permalink to this headline">¶</a></h2>
+<p>The core modules are:</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Mpls</span></code> implements the MPLS protocol</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">LibTable</span></code> holds the LIB (Label Information Base)</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ldp</span></code> implements the LDP signaling protocol for MPLS</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> implements the RSVP-TE signaling protocol for MPLS</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code> contains the Traffic Engineering Database</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">LinkStateRouting</span></code> is a simple link-state routing protocol</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">SimpleClassifier</span></code> is a configurable ingress classifier for MPLS</li>
+</ul>
+<div class="section" id="mpls">
+<span id="ug-sec-mpls-mpls"></span><h3>Mpls<a class="headerlink" href="#mpls" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Mpls</span></code> module implements the MPLS protocol. MPLS is situated
+between layer 2 and 3, and its main function is to switch packets based
+on their labels. For that, it relies on the data structure called LIB
+(Label Information Base). LIB is fundamentally a table with the
+following columns: <em>input-interface</em>, <em>input-label</em>, <em>output-interface</em>,
+<em>label-operation(s)</em>.</p>
+<p>Upon receiving a labelled packet from another LSR, MPLS first extracts
+the incoming interface and incoming label pair, and then looks it up in
+local LIB. If a matching entry is found, it applies the prescribed label
+operations, and forwards the packet to the output interface.</p>
+<p>Label operations can be the following:</p>
+<ul class="simple">
+<li><em>Push</em> adds a new MPLS label to a packet. (A packet may contain
+multiple labels, acting as a stack.) When a normal IP packet enters
+an LSP, the new label will be the first label on the packet.</li>
+<li><em>Pop</em> removes the topmost MPLS label from a packet. This is typically
+done at either the penultimate or the egress router.</li>
+<li><em>Swap</em>: Replaces the topmost label with a new label.</li>
+</ul>
+<p>In INET, the local LIB is stored in a <code class="code literal-ned docutils literal notranslate"><span class="pre">LibTable</span></code> module in the
+router.</p>
+<p>Upon receiving an unlabelled (e.g. plain IPv4) packet, MPLS first
+determines the forwarding equivalence class (FEC) for the packet using
+an ingress classifier, and then inserts one or more labels in the
+packet’s newly created MPLS header. The packet is then passed on to the
+next hop router for the LSP.</p>
+<p>The ingress classifier is also a separate module; it is selected
+depending on the choice of the signaling protocol.</p>
+</div>
+<div class="section" id="libtable">
+<span id="ug-sec-mpls-libtable"></span><h3>LibTable<a class="headerlink" href="#libtable" title="Permalink to this headline">¶</a></h3>
+<p><code class="code literal-ned docutils literal notranslate"><span class="pre">LibTable</span></code> stores the LIB (Label Information Base), as described in
+the previous section. <code class="code literal-ned docutils literal notranslate"><span class="pre">LibTable</span></code> is expected to have one instance
+in the router.</p>
+<p>LIB is normally filled and maintained by label distribution protocols
+(RSVP-TE, LDP), but in INET it is possible to preload it with initial
+contents.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">LibTable</span></code> module accepts an XML config file whose structure
+follows the contents of the LIB table. An example configuration:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;libtable&gt;</span>
+    <span class="nt">&lt;libentry&gt;</span>
+        <span class="nt">&lt;inLabel&gt;</span>203<span class="nt">&lt;/inLabel&gt;</span>
+        <span class="nt">&lt;inInterface&gt;</span>ppp1<span class="nt">&lt;/inInterface&gt;</span>
+        <span class="nt">&lt;outInterface&gt;</span>ppp2<span class="nt">&lt;/outInterface&gt;</span>
+        <span class="nt">&lt;outLabel&gt;</span>
+            <span class="nt">&lt;op</span> <span class="na">code=</span><span class="s">&quot;pop&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;op</span> <span class="na">code=</span><span class="s">&quot;swap&quot;</span> <span class="na">value=</span><span class="s">&quot;200&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;op</span> <span class="na">code=</span><span class="s">&quot;push&quot;</span> <span class="na">value=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/outLabel&gt;</span>
+        <span class="nt">&lt;color&gt;</span>200<span class="nt">&lt;/color&gt;</span>
+    <span class="nt">&lt;/libentry&gt;</span>
+<span class="nt">&lt;/libtable&gt;</span>
+</pre></div>
+</div>
+<p>There can be multiple <code class="docutils literal notranslate"><span class="pre">&lt;libentry&gt;</span></code> elements, each describing a row
+in the table. Colums are given as child elements: <code class="docutils literal notranslate"><span class="pre">&lt;inLabel&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;inInterface&gt;</span></code>, etc. The <code class="docutils literal notranslate"><span class="pre">&lt;color&gt;</span></code> element is optional, and
+it only exists to be able to color LSPs on the GUI. It is not used by
+the protocols.</p>
+</div>
+<div class="section" id="ldp">
+<span id="ug-sec-mpls-ldp"></span><h3>Ldp<a class="headerlink" href="#ldp" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ldp</span></code> module implements the Label Distribution Protocol (LDP).
+LDP is used to establish LSPs in an MPLS network when traffic
+engineering is not required. It establishes LSPs that follow the
+existing IP routing table, and is particularly well suited for
+establishing a full mesh of LSPs between all of the routers on the
+network.</p>
+<p>LDP relies on the underlying routing information provided by a routing
+protocol in order to forward label packets. The router’s forwarding
+information base, or FIB, is responsible for determining the hop-by-hop
+path through the network.</p>
+<p>In INET, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ldp</span></code> module takes routing information from <code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code>
+module. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code> instance in the network is filled and maintained
+by a <code class="code literal-ned docutils literal notranslate"><span class="pre">LinkStateRouting</span></code> module. Unfortunately, it is currently not
+possible to use other routing protocol implementations such as
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ospf</span></code> in conjunction with <code class="code literal-ned docutils literal notranslate"><span class="pre">Ldp</span></code>.</p>
+<p>When <code class="code literal-ned docutils literal notranslate"><span class="pre">Ldp</span></code> is used as signaling protocol, it also serves as ingress
+classifier for <code class="code literal-ned docutils literal notranslate"><span class="pre">Mpls</span></code>.</p>
+</div>
+<div class="section" id="ted">
+<span id="ug-sec-mpls-ted"></span><h3>Ted<a class="headerlink" href="#ted" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code> module contains the Traffic Engineering Database (TED).
+In INET, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code> contains a link state database, including
+reservations for each link by RSVP-TE.</p>
+</div>
+<div class="section" id="linkstaterouting">
+<span id="ug-sec-mpls-linkstaterouting"></span><h3>LinkStateRouting<a class="headerlink" href="#linkstaterouting" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">LinkStateRouting</span></code> module provides a simple link state routing
+protocol. It uses <code class="code literal-ned docutils literal notranslate"><span class="pre">Ted</span></code> as its link state database. Unfortunately,
+the <code class="code literal-ned docutils literal notranslate"><span class="pre">LinkStateRouting</span></code> module cannot operate independently, it can
+only be used inside an MPLS router.</p>
+</div>
+<div class="section" id="rsvpte">
+<span id="ug-sec-mpls-rsvpte"></span><h3>RsvpTe<a class="headerlink" href="#rsvpte" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> module implements RSVP-TE (Resource Reservation
+Protocol – Traffic Engineering), as signaling protocol for MPLS. RSVP-TE
+handles bandwidth allocation and allows traffic engineering across an
+MPLS network. Like LDP, RSVP uses discovery messages and advertisements
+to exchange LSP path information between all hosts. However, whereas LDP
+is restricted to using the configured IGP’s shortest path as the transit
+path through the network, RSVP can take taking into consideration
+network constraint parameters such as available bandwidth and explicit
+hops. RSVP uses a combination of the Constrained Shortest Path First
+(CSPF) algorithm and Explicit Route Objects (EROs) to determine how
+traffic is routed through the network.</p>
+<p>When <code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> is used as signaling protocol, <code class="code literal-ned docutils literal notranslate"><span class="pre">Mpls</span></code> needs a
+separate ingress classifier module, which is usually a
+<code class="code literal-ned docutils literal notranslate"><span class="pre">SimpleClassifier</span></code>.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> module allows LSPs to be specified statically in an
+XML config file. An example <code class="docutils literal notranslate"><span class="pre">traffic.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sessions&gt;</span>
+    <span class="nt">&lt;session&gt;</span>
+        <span class="nt">&lt;endpoint&gt;</span>host3<span class="nt">&lt;/endpoint&gt;</span>
+        <span class="nt">&lt;tunnel_id&gt;</span>1<span class="nt">&lt;/tunnel_id&gt;</span>
+        <span class="nt">&lt;paths&gt;</span>
+            <span class="nt">&lt;path&gt;</span>
+                <span class="nt">&lt;lspid&gt;</span>100<span class="nt">&lt;/lspid&gt;</span>
+                <span class="nt">&lt;bandwidth&gt;</span>100000<span class="nt">&lt;/bandwidth&gt;</span>
+                <span class="nt">&lt;route&gt;</span>
+                    <span class="nt">&lt;node&gt;</span>10.1.1.1<span class="nt">&lt;/node&gt;</span>
+                    <span class="nt">&lt;lnode&gt;</span>10.1.2.1<span class="nt">&lt;/lnode&gt;</span>
+                    <span class="nt">&lt;node&gt;</span>10.1.4.1<span class="nt">&lt;/node&gt;</span>
+                    <span class="nt">&lt;node&gt;</span>10.1.5.1<span class="nt">&lt;/node&gt;</span>
+                <span class="nt">&lt;/route&gt;</span>
+                <span class="nt">&lt;permanent&gt;</span>true<span class="nt">&lt;/permanent&gt;</span>
+                <span class="nt">&lt;color&gt;</span>100<span class="nt">&lt;/color&gt;</span>
+            <span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;/paths&gt;</span>
+    <span class="nt">&lt;/session&gt;</span>
+<span class="nt">&lt;/sessions&gt;</span>
+</pre></div>
+</div>
+<p>In the route, <code class="docutils literal notranslate"><span class="pre">&lt;node&gt;</span></code> stands for strict hop, and <code class="docutils literal notranslate"><span class="pre">&lt;lnode&gt;</span></code>
+for loose hop.</p>
+<p>Paths can also be set up and torn down dynamically with
+<code class="code literal-ned docutils literal notranslate"><span class="pre">ScenarioManager</span></code> commands (see chapter <a class="reference internal" href="ch-scenario-scripting.html"><span class="doc">Scenario Scripting</span></a>).
+<code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> understands the <code class="docutils literal notranslate"><span class="pre">&lt;add-session&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;del-session&gt;</span></code>
+<code class="code literal-ned docutils literal notranslate"><span class="pre">ScenarioManager</span></code> commands. The contents of the
+<code class="docutils literal notranslate"><span class="pre">&lt;add-session&gt;</span></code> element can be the same as the <code class="docutils literal notranslate"><span class="pre">&lt;session&gt;</span></code>
+element for the <code class="docutils literal notranslate"><span class="pre">traffic.xml</span></code> above. The <code class="docutils literal notranslate"><span class="pre">&lt;del-command&gt;</span></code>
+element syntax is also similar, but only <code class="docutils literal notranslate"><span class="pre">&lt;endpoint&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;tunnel_id&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;lspid&gt;</span></code> need to be specified.</p>
+<p>The following is an example <code class="docutils literal notranslate"><span class="pre">scenario.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;scenario&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;add-session</span> <span class="na">module=</span><span class="s">&quot;LSR1.rsvp&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;endpoint&gt;</span>10.2.1.1<span class="nt">&lt;/endpoint&gt;</span>
+            <span class="nt">&lt;tunnel_id&gt;</span>1<span class="nt">&lt;/tunnel_id&gt;</span>
+            <span class="nt">&lt;paths&gt;</span>
+                ...
+            <span class="nt">&lt;/paths&gt;</span>
+        <span class="nt">&lt;/add-session&gt;</span>
+    <span class="nt">&lt;/at&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;2.4&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;del-session</span> <span class="na">module=</span><span class="s">&quot;LSR1.rsvp&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;endpoint&gt;</span>10.2.1.1<span class="nt">&lt;/endpoint&gt;</span>
+            <span class="nt">&lt;tunnel_id&gt;</span>1<span class="nt">&lt;/tunnel_id&gt;</span>
+            <span class="nt">&lt;paths&gt;</span>
+                <span class="nt">&lt;path&gt;</span>
+                    <span class="nt">&lt;lspid&gt;</span>100<span class="nt">&lt;/lspid&gt;</span>
+                <span class="nt">&lt;/path&gt;</span>
+            <span class="nt">&lt;/paths&gt;</span>
+        <span class="nt">&lt;/del-session&gt;</span>
+    <span class="nt">&lt;/at&gt;</span>
+<span class="nt">&lt;/scenario&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="classifier">
+<span id="ug-sec-mpls-classifier"></span><h2>Classifier<a class="headerlink" href="#classifier" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpClassifier</span></code> module implements an ingress classifier for
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Mpls</span></code> when using <code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpTe</span></code> for signaling. The classifier can
+be configured with an XML config file.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.classifier.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;fectable.xml&quot;);</span>
+</pre></div>
+</div>
+<p>An example <code class="docutils literal notranslate"><span class="pre">fectable.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fectable&gt;</span>
+    <span class="nt">&lt;fecentry&gt;</span>
+        <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;destination&gt;</span>host5<span class="nt">&lt;/destination&gt;</span>
+        <span class="nt">&lt;source&gt;</span>host1<span class="nt">&lt;/source&gt;</span>
+        <span class="nt">&lt;tunnel_id&gt;</span>1<span class="nt">&lt;/tunnel_id&gt;</span>
+        <span class="nt">&lt;lspid&gt;</span>100<span class="nt">&lt;/lspid&gt;</span>
+    <span class="nt">&lt;/fecentry&gt;</span>
+<span class="nt">&lt;/fectable&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mpls-enabled-router-models">
+<span id="ug-sec-mpls-mpls-enabled-router-models"></span><h2>MPLS-Enabled Router Models<a class="headerlink" href="#mpls-enabled-router-models" title="Permalink to this headline">¶</a></h2>
+<p>INET provides the following pre-assembled MPLS routers:</p>
+<ul class="simple">
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">LdpMplsRouter</span></code> is an MPLS router with the LDP signaling
+protocol</li>
+<li><code class="code literal-ned docutils literal notranslate"><span class="pre">RsvpMplsRouter</span></code> is an MPLS router with the RSVP-TE signaling
+protocol</li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">The MPLS Models</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#core-modules">Core Modules</a><ul>
+<li><a class="reference internal" href="#mpls">Mpls</a></li>
+<li><a class="reference internal" href="#libtable">LibTable</a></li>
+<li><a class="reference internal" href="#ldp">Ldp</a></li>
+<li><a class="reference internal" href="#ted">Ted</a></li>
+<li><a class="reference internal" href="#linkstaterouting">LinkStateRouting</a></li>
+<li><a class="reference internal" href="#rsvpte">RsvpTe</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classifier">Classifier</a></li>
+<li><a class="reference internal" href="#mpls-enabled-router-models">MPLS-Enabled Router Models</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-diffserv.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Differentiated Services</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-ppp.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Point-to-Point Links</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

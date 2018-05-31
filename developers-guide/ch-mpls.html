@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>The MPLS Models &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">The MPLS Models</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-mpls.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="the-mpls-models">
+<span id="dg-cha-mpls"></span><h1>The MPLS Models<a class="headerlink" href="#the-mpls-models" title="Permalink to this headline">¶</a></h1>
+<p>TODO how to set up/tear down label switched paths; etc.</p>
+<div class="section" id="mpls-operation">
+<h2>MPLS Operation<a class="headerlink" href="#mpls-operation" title="Permalink to this headline">¶</a></h2>
+<p>The following algorithm is carried out by the MPLS module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="o">-</span> <span class="n">Check</span> <span class="n">which</span> <span class="n">layer</span> <span class="n">the</span> <span class="n">packet</span> <span class="ow">is</span> <span class="n">coming</span> <span class="kn">from</span>
+<span class="nn">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">From</span> <span class="n">layer</span> <span class="mi">3</span>
+    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Find</span> <span class="ow">and</span> <span class="n">check</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">hop</span> <span class="n">of</span> <span class="n">this</span> <span class="n">packet</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Next</span> <span class="n">hop</span> <span class="n">belongs</span> <span class="n">to</span> <span class="n">this</span> <span class="n">MPLS</span> <span class="n">cloud</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Encapsulate</span> <span class="n">the</span> <span class="n">packet</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">MPLS</span> <span class="n">packet</span> <span class="k">with</span>
+        <span class="n">IP_NATIVE_LABEL</span> <span class="n">label</span>
+        <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Send</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">hop</span>
+        <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Next</span> <span class="n">hop</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">belong</span> <span class="n">to</span> <span class="n">this</span> <span class="n">MPLS</span> <span class="n">cloud</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Send</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">hop</span>
+<span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">From</span> <span class="n">layer</span> <span class="mi">2</span>
+    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Record</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">incoming</span> <span class="n">interface</span>
+    <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="o">-</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">packet</span> <span class="ow">is</span> <span class="k">for</span> <span class="n">this</span> <span class="n">LSR</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Yes</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">has</span> <span class="n">label</span>
+        <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Yes</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Strip</span> <span class="n">off</span> <span class="nb">all</span> <span class="n">labels</span> <span class="ow">and</span> <span class="n">send</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">L3</span>
+            <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Return</span>
+        <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">No</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Send</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">L3</span>
+            <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Return</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">No</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Continue</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">step</span>
+    <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Check</span> <span class="n">the</span> <span class="n">packet</span> <span class="nb">type</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">The</span> <span class="n">packet</span> <span class="ow">is</span> <span class="n">native</span> <span class="n">IP</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Check</span> <span class="n">the</span> <span class="n">LSR</span> <span class="nb">type</span>
+        <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">The</span> <span class="n">LSR</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">Ingress</span> <span class="n">Router</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Look</span> <span class="n">up</span> <span class="n">LIB</span> <span class="k">for</span> <span class="n">outgoing</span> <span class="n">label</span>
+            <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Label</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">label</span> <span class="k">for</span> <span class="n">this</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">requested</span>
+                <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Yes</span>
+                    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Return</span>
+                <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">No</span>
+                    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Store</span> <span class="n">the</span> <span class="n">packet</span> <span class="k">with</span> <span class="n">FEC</span> <span class="nb">id</span>
+                    <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Do</span> <span class="n">request</span> <span class="n">the</span> <span class="n">signalling</span> <span class="n">component</span>
+                    <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+            <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Label</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Carry</span> <span class="n">out</span> <span class="n">the</span> <span class="n">label</span> <span class="n">operation</span> <span class="n">on</span> <span class="n">the</span> <span class="n">packet</span>
+                <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Forward</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">the</span> <span class="n">outgoing</span> <span class="n">interface</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+        <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">The</span> <span class="n">LSR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">Ingress</span> <span class="n">Router</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Print</span> <span class="n">out</span> <span class="n">the</span> <span class="n">error</span>
+            <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Delete</span> <span class="n">the</span> <span class="n">packet</span> <span class="ow">and</span> <span class="k">return</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">The</span> <span class="n">packet</span> <span class="ow">is</span> <span class="n">MPLS</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Check</span> <span class="n">the</span> <span class="n">LSR</span> <span class="nb">type</span>
+        <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">The</span> <span class="n">LSR</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">Egress</span> <span class="n">Router</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">POP</span> <span class="n">the</span> <span class="n">top</span> <span class="n">label</span>
+            <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Forward</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">the</span> <span class="n">outgoing</span> <span class="n">interface</span> <span class="n">found</span>
+            <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+        <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">The</span> <span class="n">LSR</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">Egress</span> <span class="n">Router</span>
+            <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Look</span> <span class="n">up</span> <span class="n">LIB</span> <span class="k">for</span> <span class="n">outgoing</span> <span class="n">label</span>
+            <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Label</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">label</span> <span class="k">for</span> <span class="n">this</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">requested</span>
+                <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Yes</span>
+                    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Return</span>
+                <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">No</span>
+                    <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Store</span> <span class="n">the</span> <span class="n">packet</span> <span class="k">with</span> <span class="n">FEC</span> <span class="nb">id</span>
+                    <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Do</span> <span class="n">request</span> <span class="n">the</span> <span class="n">signalling</span> <span class="n">component</span>
+                    <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+            <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Label</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Carry</span> <span class="n">out</span> <span class="n">the</span> <span class="n">label</span> <span class="n">operation</span> <span class="n">on</span> <span class="n">the</span> <span class="n">packet</span>
+                <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Forward</span> <span class="n">the</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">the</span> <span class="n">outgoing</span> <span class="n">interface</span> <span class="n">found</span>
+                <span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Return</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ldp-message-processing">
+<h2>LDP Message Processing<a class="headerlink" href="#ldp-message-processing" title="Permalink to this headline">¶</a></h2>
+<p>The simulation follows message processing rules specified in RFC 3036
+(LDP Specification). A summary of the algorithm used in the RFC is
+presented below.</p>
+<div class="section" id="label-request-message-processing">
+<h3>Label Request Message processing<a class="headerlink" href="#label-request-message-processing" title="Permalink to this headline">¶</a></h3>
+<p>An LSR may transmit a Request message under any of the conditions below:</p>
+<ul class="simple">
+<li>The LSR recognizes a new FEC via the forwarding tale, and the next
+hop is its LDP peer. The LIB of this LSR does not have a mapping from
+the next hop for the given FEC.</li>
+<li>Network topology changes, the next hop to the FEC is no longer valid
+and new mapping is not available.</li>
+<li>The LSR receives a Label Request for a FEC from an upstream LDP and
+it does not have label binding information for this FEC. The FEC next
+hop is an LDP peer.</li>
+</ul>
+<p>Upon receiving a Label Request message, the following procedures will be
+performed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Extract</span> <span class="n">the</span> <span class="n">FEC</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">locate</span> <span class="n">the</span> <span class="n">incoming</span> <span class="n">interface</span>
+        <span class="n">of</span> <span class="n">the</span> <span class="n">message</span><span class="o">.</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Check</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">outstanding</span> <span class="n">FEC</span><span class="o">.</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">This</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="n">outstanding</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Return</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">This</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">outstanding</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Continue</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">exact</span> <span class="n">match</span> <span class="n">of</span> <span class="n">the</span> <span class="n">FEC</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">routing</span> <span class="n">table</span><span class="o">.</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">exact</span> <span class="n">match</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Continue</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">match</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Construct</span> <span class="n">a</span> <span class="n">Notification</span> <span class="n">message</span> <span class="n">of</span> <span class="n">No</span> <span class="n">route</span> <span class="ow">and</span>
+                <span class="n">send</span> <span class="n">this</span> <span class="n">message</span> <span class="n">back</span> <span class="n">to</span> <span class="n">the</span> <span class="n">sender</span><span class="o">.</span>
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Make</span> <span class="n">query</span> <span class="n">to</span> <span class="n">local</span> <span class="n">LIB</span> <span class="n">to</span> <span class="n">find</span> <span class="n">out</span> <span class="n">the</span> <span class="n">corresponding</span> <span class="n">label</span><span class="o">.</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">The</span> <span class="n">label</span> <span class="n">found</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Construct</span> <span class="n">a</span> <span class="n">Label</span> <span class="n">Mapping</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">send</span> <span class="n">over</span>
+                <span class="n">the</span> <span class="n">incoming</span> <span class="n">interface</span><span class="o">.</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">The</span> <span class="n">label</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span> <span class="k">for</span> <span class="n">this</span> <span class="n">FEC</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Construct</span> <span class="n">a</span> <span class="n">new</span> <span class="n">Label</span> <span class="n">Request</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">send</span>
+                <span class="n">the</span> <span class="n">message</span> <span class="n">out</span> <span class="n">using</span> <span class="n">L3</span> <span class="n">routing</span><span class="o">.</span>
+        <span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Construct</span> <span class="n">a</span> <span class="n">Notification</span> <span class="n">message</span> <span class="n">indicating</span> <span class="n">that</span> <span class="n">the</span>
+                <span class="n">label</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-mapping-message-processing">
+<h3>Label Mapping Message processing<a class="headerlink" href="#label-mapping-message-processing" title="Permalink to this headline">¶</a></h3>
+<p>Upon receiving a Label Mapping message, the following procedures will be
+performed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Extract</span> <span class="n">the</span> <span class="n">FEC</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">label</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">message</span><span class="o">.</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Check</span> <span class="n">whether</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">outstanding</span> <span class="n">FEC</span>
+    <span class="n">Alternative</span> <span class="mi">1</span><span class="p">:</span> <span class="n">This</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="n">outstanding</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Continue</span>
+    <span class="n">Alternative</span> <span class="mi">2</span><span class="p">:</span> <span class="n">This</span> <span class="n">FEC</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">outstanding</span>
+        <span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Send</span> <span class="n">back</span> <span class="n">the</span> <span class="n">server</span> <span class="n">an</span> <span class="n">Notification</span> <span class="n">of</span> <span class="n">Error</span> <span class="n">message</span><span class="o">.</span>
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Install</span> <span class="n">the</span> <span class="n">new</span> <span class="n">label</span> <span class="n">to</span> <span class="n">the</span> <span class="n">local</span> <span class="n">LIB</span> <span class="n">using</span> <span class="n">the</span> <span class="n">extracted</span> <span class="n">label</span><span class="p">,</span>
+        <span class="n">FEC</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">message</span> <span class="n">incoming</span> <span class="n">interface</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-cspf-algorithm">
+<h2>The CSPF Algorithm<a class="headerlink" href="#the-cspf-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>CSPF stands for Constraint Shortest Path First. This constraint-based
+routing is executed online by Ingress Router. The CSPF calculates an
+optimum explicit route (ER), based on specific constraints. CSPF relies
+on a Traffic Engineering Database (TED) to do those calculations. The
+resulting route is then used by RSVP-TE.</p>
+<p>The CSPF in particular and any constraint based routing process requires
+following inputs:</p>
+<ul class="simple">
+<li>Attributes of the traffic trunks, e.g., bandwidth, link affinities</li>
+<li>Attributes of the links of the network, e.g. bandwidth, delay</li>
+<li>Attributes of the LSRs, e.g. types of signaling protocols supported</li>
+<li>Other topology state information.</li>
+</ul>
+<p>There has been no standard for CSPF so far. The implementation of CSPF
+in the simulation is based on the concept of “induced graph” introduced
+in RFC 2702. An induced graph is analogous to a virtual topology in an
+overlay model. It is logically mapped onto the physical network through
+the selection of LSPs for traffic trunks. CSPF is similar to a normal
+SPF, except during link examination, it rejects links without capacity
+or links that do not match color constraints or configured policy. The
+CSPF algorithm used in the simulation has two phases. In the first
+phase, all the links that do not satisfy the constraints of bandwidth
+are excluded from the network topology. The link affinity is also
+examined in this phase. In the second phase, Dijkstra algorithm is
+performed.</p>
+<p>Dijkstra Algorithm:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dijkstra</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+   <span class="n">Initialize</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">source</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+   <span class="n">S</span> <span class="o">=</span> <span class="n">empty</span> <span class="nb">set</span><span class="p">;</span>
+   <span class="n">Q</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">G</span><span class="p">];</span>
+   <span class="n">While</span> <span class="n">Q</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span> <span class="p">{</span>
+       <span class="n">u</span> <span class="o">=</span> <span class="n">Extract</span><span class="o">-</span><span class="n">Min</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
+       <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="n">union</span> <span class="p">{</span><span class="n">u</span><span class="p">};</span>
+       <span class="k">for</span> <span class="n">each</span> <span class="n">vertex</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Adj</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="p">{</span>
+           <span class="n">relax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>In which:</p>
+<ul class="simple">
+<li>G: the graph, represented in some way (e.g. adjacency list)</li>
+<li>w: the distance (weight) for each edge (u,v)</li>
+<li>s (small s): the starting vertex (source)</li>
+<li>S (big S): a set of vertices whose final shortest path from s have
+already been determined</li>
+<li>Q: set of remaining vertices, Q union S = V</li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">The MPLS Models</a><ul>
+<li><a class="reference internal" href="#mpls-operation">MPLS Operation</a></li>
+<li><a class="reference internal" href="#ldp-message-processing">LDP Message Processing</a><ul>
+<li><a class="reference internal" href="#label-request-message-processing">Label Request Message processing</a></li>
+<li><a class="reference internal" href="#label-mapping-message-processing">Label Mapping Message processing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-cspf-algorithm">The CSPF Algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

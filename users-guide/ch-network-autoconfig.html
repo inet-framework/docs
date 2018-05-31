@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Network Autoconfiguration &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scenario Scripting" href="ch-scenario-scripting.html" />
+    <link rel="prev" title="Network Emulation" href="ch-emulation.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">User’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Network Autoconfiguration</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/users-guide/ch-network-autoconfig.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate pathloss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="network-autoconfiguration">
+<span id="ug-cha-network-autoconfiguration"></span><h1>Network Autoconfiguration<a class="headerlink" href="#network-autoconfiguration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="ug-sec-autoconfig-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This chapter describes static autoconfiguration of networks.</p>
+</div>
+<div class="section" id="configuring-ipv4-networks">
+<span id="ug-sec-autoconfig-configuring-ipv4-networks"></span><h2>Configuring IPv4 Networks<a class="headerlink" href="#configuring-ipv4-networks" title="Permalink to this headline">¶</a></h2>
+<p>An IPv4 network is composed of several nodes like hosts, routers,
+switches, hubs, Ethernet buses, or wireless access points. The nodes
+having a IPv4 network layer (hosts and routers) should be configured at
+the beginning of the simulation. The configuration assigns IP addresses
+to the nodes, and fills their routing tables. If multicast forwarding is
+simulated, then the multicast routing tables also must be filled in.</p>
+<p>The configuration can be manual (each address and route is fully
+specified by the user), or automatic (addresses and routes are generated
+by a configurator module at startup).</p>
+<p>Before version 1.99.4 INET offered <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code>
+for automatic and routing files for manual configuration. Both had
+serious limitations, so a new configurator has been added in version
+1.99.4: <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. This configurator supports both
+fully manual and fully automatic configuration. It can also be used with
+partially specified manual configurations, the configurator fills in the
+gaps automatically.</p>
+<p>The next section describes the usage of <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>.
+The legacy solutions <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> and routing
+files are described in subsequent sections.</p>
+<div class="section" id="ipv4networkconfigurator">
+<span id="ug-sec-autoconfig-ipv4networkconfigurator"></span><h3>Ipv4NetworkConfigurator<a class="headerlink" href="#ipv4networkconfigurator" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> assigns IP addresses and sets up
+static routing for an IPv4 network.</p>
+<p>It assigns per-interface IP addresses, strives to take subnets into
+account, and can also optimize the generated routing tables by merging
+routing entries.</p>
+<p>Hierarchical routing can be set up by using only a fraction of
+configuration entries compared to the number of nodes. The configurator
+also does routing table optimization that significantly decreases the
+size of routing tables in large networks.</p>
+<p>The configuration is performed in stage 2 of the initialization. At this
+point interface modules (e.g. PPP) has already registered their
+interface in the interface table. If an interface is named
+<code class="docutils literal notranslate"><span class="pre">ppp[0]</span></code>, then the corresponding interface entry is named
+<code class="docutils literal notranslate"><span class="pre">ppp0</span></code>. This name can be used in the config file to refer to the
+interface.</p>
+<p>The configurator goes through the following steps:</p>
+<ol class="arabic simple">
+<li>Builds a graph representing the network topology. The graph will have
+a vertex for every module that has a <code class="docutils literal notranslate"><span class="pre">&#64;node</span></code> property (this
+includes hosts, routers, and L2 devices like switches, access points,
+Ethernet hubs, etc.) It also assigns weights to vertices and edges
+that will be used by the shortest path algorithm when setting up
+routes. Weights will be infinite for IP nodes that have IP forwarding
+disabled (to prevent routes from transiting them), and zero for all
+other nodes (routers and and L2 devices). Edge weights are chosen to
+be inversely proportional to the bitrate of the link, so that the
+configurator prefers connections with higher bandwidth. For internal
+purposes, the configurator also builds a table of all “links” (the
+link data structure consists of the set of network interfaces that
+are on the same point-to-point link or LAN)</li>
+<li>Assigns IP addresses to all interfaces of all nodes. The assignment
+process takes into consideration the addresses and netmasks already
+present on the interfaces (possibly set in earlier initialize
+stages), and the configuration provided in the XML format (described
+below). The configuration can specify “templates” for the address and
+netmask, with parts that are fixed and parts that can be chosen by
+the configurator (e.g. “10.0.x.x”). In the most general case, the
+configurator is allowed to choose any address and netmask for all
+interfaces (which results in automatic address assignment). In the
+most constrained case, the configurator is forced to use the
+requested addresses and netmasks for all interfaces (which translates
+to manual address assignment). There are many possible configuration
+options between these two extremums. The configurator assigns
+addresses in a way that maximizes the number of nodes per subnet.
+Once it figures out the nodes that belong to a single subnet it, will
+optimize for allocating the longest possible netmask. The
+configurator might fail to assign netmasks and addresses according to
+the given configuration parameters; if that happens, the assignment
+process stops and an error is signalled.</li>
+<li>Adds the manual routes that are specified in the configuration.</li>
+<li>Adds static routes to all routing tables in the network. The
+configurator uses Dijkstra’s weighted shortest path algorithm to find
+the desired routes between all possible node pairs. The resulting
+routing tables will have one entry for all destination interfaces in
+the network. The configurator can be safely instructed to add default
+routes where applicable, significantly reducing the size of the host
+routing tables. It can also add subnet routes instead of interface
+routes further reducing the size of routing tables. Turning on this
+option requires careful design to avoid having IP addresses from the
+same subnet on different links. CAVEAT: Using manual routes and
+static route generation together may have unwanted side effects,
+because route generation ignores manual routes.</li>
+<li>Then it optimizes the routing tables for size. This optimization
+allows configuring larger networks with smaller memory footprint and
+makes the routing table lookup faster. The resulting routing table
+might be different in that it will route packets that the original
+routing table did not. Nevertheless the following invariant holds:
+any packet routed by the original routing table (has matching route)
+will still be routed the same way by the optimized routing table.</li>
+<li>Finally it dumps the requested results of the configuration. It can
+dump network topology, assigned IP addresses, routing tables and its
+own configuration format.</li>
+</ol>
+<p>The module can dump the result of the configuration in the XML format
+which it can read. This is useful to save the result of a time consuming
+configuration (large network with optimized routes), and use it as the
+config file of subsequent runs.</p>
+<div class="section" id="network-topology-graph">
+<h4>Network topology graph<a class="headerlink" href="#network-topology-graph" title="Permalink to this headline">¶</a></h4>
+<p>The network topology graph is constructed from the nodes of the network.
+The node is a module having a <code class="docutils literal notranslate"><span class="pre">&#64;node</span></code> property (this includes
+hosts, routers, and L2 devices like switches, access points, Ethernet
+hubs, etc.). An IP node is a node that contains an <code class="code literal-ned docutils literal notranslate"><span class="pre">InterfaceTable</span></code>
+and a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code>. A router is an IP node that has multiple
+network interfaces, and IP forwarding is enabled in its routing table
+module. In multicast routers the <code class="code literal-ini docutils literal notranslate"><span class="pre">forwardMulticast</span></code> parameter is
+also set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>A link is a set of interfaces that can send datagrams to each other
+without intervening routers. Each interface belongs to exactly one link.
+For example two interface connected by a point-to-point connection forms
+a link. Ethernet interfaces connected via buses, hubs or switches. The
+configurator identifies links by discovering the connections between the
+IP nodes, buses, hubs, and switches.</p>
+<p>Wireless links are identified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">ssid</span></code> or
+<code class="code literal-ini docutils literal notranslate"><span class="pre">accessPointAddress</span></code> parameter of the 802.11 management module.
+Wireless interfaces whose node does not contain a management module are
+supposed to be on the same wireless link. Wireless links can also be
+configured in the configuration file of <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+  <span class="nt">&lt;wireless</span> <span class="na">hosts=</span><span class="s">&quot;area1.*&quot;</span> <span class="na">interfaces=</span><span class="s">&quot;wlan*&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</div>
+<p>puts wlan interfaces of the specified hosts into the same wireless link.</p>
+<p>If a link contains only one router, it is marked as the gateway of the
+link. Each datagram whose destination is outside the link must go
+through the gateway.</p>
+</div>
+<div class="section" id="address-assignment">
+<h4>Address assignment<a class="headerlink" href="#address-assignment" title="Permalink to this headline">¶</a></h4>
+<p>Addresses can be set up manually by giving the address and netmask for
+each IP node. If some part of the address or netmask is unspecified,
+then the configurator can fill them automatically. Unspecified fields
+are given as an “x” character in the dotted notation of the address. For
+example, if the address is specified as 192.168.1.1 and the netmask is
+255.255.255.0, then the node address will be 192.168.1.1 and its subnet
+is 192.168.1.0. If it is given as 192.168.x.x and 255.255.x.x, then the
+configurator chooses a subnet address in the range of 192.168.0.0 -
+192.168.255.252, and an IP address within the chosen subnet. (The
+maximum subnet mask is 255.255.255.252 allows 2 nodes in the subnet.)</p>
+<p>The following configuration generates network addresses below the
+10.0.0.0 address for each link, and assign unique IP addresses to each
+host:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.x&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</div>
+<p>The configurator tries to put nodes on the same link into the same
+subnet, so its enough to configure the address of only one node on each
+link.</p>
+<p>The following example configures a hierarchical network in a way that
+keeps routing tables small.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area11.lan1.*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.11.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area11.lan2.*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.11.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area12.lan1.*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.12.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area12.lan2.*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.12.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area*.router*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;x.x.x.x&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</div>
+<p>The XML configuration must contain exactly one <code class="docutils literal notranslate"><span class="pre">&lt;config&gt;</span></code> element.
+Under the root element there can be multiple of the following elements:</p>
+<p>The interface element provides configuration parameters for one or more
+interfaces in the network. The selector attributes limit the scope where
+the interface element has effects. The parameter attributes limit the
+range of assignable addresses and netmasks. The <code class="docutils literal notranslate"><span class="pre">&lt;interface&gt;</span></code> element
+may contain the following attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces in the specified hosts are
+affected. The pattern might be a full path starting from the network,
+or a module name anywhere in the hierarchy, and other patterns
+similar to ini file keys. The default value is “*” that matches all
+hosts. e.g. “subnet.client*” or “host* router[0..3]” or
+“area*.*.host[0]”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;names</span></code> Optional selector attribute that specifies a list of
+interface name patterns. Only interfaces with the specified names are
+affected. The default value is “*” that matches all interfaces. e.g.
+“eth* ppp0” or “*”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;towards</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces connected towards the specified
+hosts are affected. The specified name will be matched against the
+names of hosts that are on the same LAN with the one that is being
+configured. This works even if there’s a switch between the
+configured host and the one specified here. For wired networks it
+might be easier to specify this parameter instead of specifying the
+interface names. The default value is “*”. e.g. “ap” or “server” or
+“client*”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;among</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces in the specified hosts connected
+towards the specified hosts are affected. The ’among=”X Y Z”’ is same
+as ’hosts=”X Y Z” towards=”X Y Z”’.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;address</span></code> Optional parameter attribute that limits the range of
+assignable addresses. Wildcards are allowed with using ’x’ as part of
+the address in place of a byte. Unspecified parts will be filled
+automatically by the configurator. The default value “” means that
+the address will not be configured. Unconfigured interfaces still
+have allocated addresses in their subnets allowing them to become
+configured later very easily. e.g. “192.168.1.1” or “10.0.x.x”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;netmask</span></code> Optional parameter attribute that limits the range of
+assignable netmasks. Wildcards are allowed with using ’x’ as part of
+the netmask in place of a byte. Unspecified parts will be filled
+automatically be the configurator. The default value “” means that
+any netmask can be configured. e.g. “255.255.255.0” or “255.255.x.x”
+or “255.255.x.0”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;mtu</span></code> number Optional parameter attribute to set the MTU
+parameter in the interface. When unspecified the interface parameter
+is left unchanged.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;metric</span></code> number Optional parameter attribute to set the Metric
+parameter in the interface. When unspecified the interface parameter
+is left unchanged.</li>
+</ul>
+<p>Wireless interfaces can similarly be configured by adding <code class="docutils literal notranslate"><span class="pre">&lt;wireless&gt;</span></code>
+elements to the configuration. Each <code class="docutils literal notranslate"><span class="pre">&lt;wireless&gt;</span></code> element with a
+different id defines a separate subnet.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> (optional) identifies wireless network, unique value used
+if missed</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces in the specified hosts are
+affected. The default value is “*” that matches all hosts.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;interfaces</span></code> Optional selector attribute that specifies a list
+of interface name patterns. Only interfaces with the specified names
+are affected. The default value is “*” that matches all interfaces.</li>
+</ul>
+</div>
+<div class="section" id="multicast-groups">
+<span id="ug-sec-autoconfig-multicast-groups"></span><h4>Multicast groups<a class="headerlink" href="#multicast-groups" title="Permalink to this headline">¶</a></h4>
+<p>Multicast groups can be configured by adding <code class="docutils literal notranslate"><span class="pre">&lt;multicast-group&gt;</span></code>
+elements to the configuration file. Interfaces belongs to a multicast
+group will join to the group automatically.</p>
+<p>For example,</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+  <span class="nt">&lt;multicast-group</span> <span class="na">hosts=</span><span class="s">&quot;router*&quot;</span> <span class="na">interfaces=</span><span class="s">&quot;eth*&quot;</span> <span class="na">address=</span><span class="s">&quot;224.0.0.5&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</div>
+<p>adds all Ethernet interfaces of nodes whose name starts with “router” to
+the 224.0.0.5 multicast group.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;multicast-group&gt;</span></code> element has the following attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces in the specified hosts are
+affected. The default value is “*” that matches all hosts.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;interfaces</span></code> Optional selector attribute that specifies a list
+of interface name patterns. Only interfaces with the specified names
+are affected. The default value is “*” that matches all interfaces.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;towards</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces connected towards the specified
+hosts are affected. The default value is “*”.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;among</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only interfaces in the specified hosts connected
+towards the specified hosts are affected. The ’among=”X Y Z”’ is same
+as ’hosts=”X Y Z” towards=”X Y Z”’.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;address</span></code> Mandatory parameter attribute that specifies a list
+of multicast group addresses to be assigned. Values must be selected
+from the valid range of multicast addresses. e.g. “224.0.0.1
+224.0.1.33”</li>
+</ul>
+</div>
+<div class="section" id="manual-route-configuration">
+<h4>Manual route configuration<a class="headerlink" href="#manual-route-configuration" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> module allows the user to fully
+specify the routing tables of IP nodes at the beginning of the
+simulation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;route&gt;</span></code> elements of the configuration add a route to the routing
+tables of selected nodes. The element has the following attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only routing tables in the specified hosts are
+affected. The default value “” means all hosts will be affected. e.g.
+“host* router[0..3]”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;destination</span></code> Optional parameter attribute that specifies the
+destination address in the route (L3AddressResolver syntax). The
+default value is “*”. e.g. “192.168.1.1” or “subnet.client[3]” or
+“subnet.server(ipv4)” or “*”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;netmask</span></code> Optional parameter attribute that specifies the
+netmask in the route. The default value is “*”. e.g. “255.255.255.0”
+or “/29” or “*”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;gateway</span></code> Optional parameter attribute that specifies the
+gateway (next-hop) address in the route (L3AddressResolver syntax).
+When unspecified the interface parameter must be specified. The
+default value is “*”. e.g. “192.168.1.254” or “subnet.router” or “*”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;interface</span></code> Optional parameter attribute that specifies the
+output interface name in the route. When unspecified the gateway
+parameter must be specified. This parameter has no default value.
+e.g. “eth0”</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;metric</span></code> Optional parameter attribute that specifies the metric
+in the route. The default value is 0.</li>
+</ul>
+<p>Multicast routing tables can similarly be configured by adding
+<code class="docutils literal notranslate"><span class="pre">&lt;multicast-route&gt;</span></code> elements to the configuration.</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code> Optional selector attribute that specifies a list of
+host name patterns. Only routing tables in the specified hosts are
+affected. e.g. “host* router[0..3]”</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;source</span></code> Optional parameter attribute that specifies the
+address of the source network. The default value is “*” that matches
+all sources.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;netmask</span></code> Optional parameter attribute that specifies the
+netmask of the source network. The default value is “*” that matches
+all sources.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;groups</span></code> Optional List of IPv4 multicast addresses specifying
+the groups this entry applies to. The default value is “*” that
+matches all multicast groups. e.g. “225.0.0.1 225.0.1.2”.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;metric</span></code> Optional parameter attribute that specifies the metric
+in the route.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;parent</span></code> Optional parameter attribute that specifies the name
+of the interface the multicast datagrams are expected to arrive. When
+a datagram arrives on the parent interface, it will be forwarded
+towards the child interfaces; otherwise it will be dropped. The
+default value is the interface on the shortest path towards the
+source of the datagram.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&#64;children</span></code> Mandatory parameter attribute that specifies a list
+of interface name patterns:</p>
+<ul class="simple">
+<li>a name pattern (e.g. “ppp*”) matches the name of the interface</li>
+<li>a ’towards’ pattern (starting with “&gt;”, e.g. “&gt;router*”) matches
+the interface by naming one of the neighbour nodes on its link.</li>
+</ul>
+<p>Incoming multicast datagrams are forwarded to each child interface
+except the one they arrived in.</p>
+</li>
+</ul>
+<p>The following example adds an entry to the multicast routing table of
+<code class="docutils literal notranslate"><span class="pre">router1</span></code>, that intsructs the routing algorithm to forward
+multicast datagrams whose source is in the 10.0.1.0 network and whose
+destinatation address is 225.0.0.1 to send on the <code class="docutils literal notranslate"><span class="pre">eth1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">eth2</span></code> interfaces assuming it arrived on the <code class="docutils literal notranslate"><span class="pre">eth0</span></code> interface:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;multicast-route</span> <span class="na">hosts=</span><span class="s">&quot;router1&quot;</span> <span class="na">source=</span><span class="s">&quot;10.0.1.0&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.0&quot;</span>
+                 <span class="na">groups=</span><span class="s">&quot;225.0.0.1&quot;</span> <span class="na">metric=</span><span class="s">&quot;10&quot;</span>
+                 <span class="na">parent=</span><span class="s">&quot;eth0&quot;</span> <span class="na">children=</span><span class="s">&quot;eth1 eth2&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="automatic-route-configuration">
+<h4>Automatic route configuration<a class="headerlink" href="#automatic-route-configuration" title="Permalink to this headline">¶</a></h4>
+<p>If the <code class="code literal-ini docutils literal notranslate"><span class="pre">addStaticRoutes</span></code> parameter is true, then the configurator
+add static routes to all routing tables.</p>
+<p>The configurator uses Dijkstra’s weighted shortest path algorithm to
+find the desired routes between all possible node pairs. The resulting
+routing tables will have one entry for all destination interfaces in the
+network.</p>
+<p>The configurator can be safely instructed to add default routes where
+applicable, significantly reducing the size of the host routing tables.
+It can also add subnet routes instead of interface routes further
+reducing the size of routing tables. Turning on this option requires
+careful design to avoid having IP addresses from the same subnet on
+different links.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Using manual routes and static route generation
+together may have unwanted side effects, because route generation ignores
+manual routes. Therefore if the configuration file contains
+manual routes, then the <code class="code literal-ini docutils literal notranslate"><span class="pre">addStaticRoutes</span></code> parameter should be set
+to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+</div>
+<div class="section" id="route-optimization">
+<h4>Route optimization<a class="headerlink" href="#route-optimization" title="Permalink to this headline">¶</a></h4>
+<p>If the <code class="code literal-ini docutils literal notranslate"><span class="pre">optimizeRoutes</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">true</span></code> then the
+configurator tries to optimize the routing table for size. This
+optimization allows configuring larger networks with smaller memory
+footprint and makes the routing table lookup faster.</p>
+<p>The optimization is performed by merging routes whose gateway and
+outgoing interface is the same by finding a common prefix that matches
+only those routes. The resulting routing table might be different in
+that it will route packets that the original routing table did not.
+Nevertheless the following invariant holds: any packet routed by the
+original routing table (has matching route) will still be routed the
+same way by the optimized routing table.</p>
+</div>
+<div class="section" id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h4>
+<p>This list summarize the parameters of the <code class="code literal-ned docutils literal notranslate"><span class="pre">IPv4NetorkConfigurator</span></code>:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">config</span></code>: XML configuration parameters for IP address assignment
+and adding manual routes.</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">assignAddresses</span></code>: assign IP addresses to all interfaces in the
+network</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">assignDisjunctSubnetAddresses</span></code>: avoid using the same address
+prefix and netmask on different links when assigning IP addresses to
+interfaces</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">addStaticRoutes</span></code>: add static routes to the routing tables of
+all nodes to route to all destination interfaces (only where
+applicable; turn off when config file contains manual routes)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">addDefaultRoutes</span></code>: add default routes if all routes from a
+source node go through the same gateway (used only if addStaticRoutes
+is true)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">addSubnetRoutes</span></code>: add subnet routes instead of destination
+interface routes (only where applicable; used only if addStaticRoutes
+is true)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">optimizeRoutes</span></code>: optimize routing tables by merging routes, the
+resulting routing table might route more packets than the original
+(used only if addStaticRoutes is true)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">dumpTopology</span></code>: if true, then the module prints extracted
+network topology</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">dumpAddresses</span></code>: if true, then the module prints assigned IP
+addresses for all interfaces</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">dumpRoutes</span></code>: if true, then the module prints configured and
+optimized routing tables for all nodes to the module output</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">dumpConfig</span></code>: name of the file, write configuration into the
+given config file that can be fed back to speed up subsequent runs
+(network configurations)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ipv4flatnetworkconfigurator-legacy">
+<span id="ug-sec-autoconfig-ipv4flatnetworkconfigurator"></span><h3>Ipv4FlatNetworkConfigurator (Legacy)<a class="headerlink" href="#ipv4flatnetworkconfigurator-legacy" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module configures IP addresses
+and routes of IP nodes of a network. All assigned addresses share a
+common subnet prefix, the network topology will be ignored. Shortest
+path routes are also generated from any node to any other node of the
+network. The Gateway (next hop) field of the routes is not filled in by
+these configurator, so it relies on proxy ARP if the network spans
+several LANs. It does not perform routing table optimization (i.e.
+merging similar routes into a single, more general route.)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> is considered
+legacy, do not use it for new projects.</p>
+</div>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module configures the network
+when it is initialized. The configuration is performed in stage 2, after
+interface tables are filled in. Do not use a
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module together with static routing
+files, because they can iterfere with the configurator.</p>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> searches each IP nodes of the
+network. (IP nodes are those modules that have the &#64;node NED property
+and has a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> submodule named “routingTable”). The
+configurator then assigns IP addresses to the IP nodes, controlled by
+the following module parameters:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">netmask</span></code> common netmask of the addresses (default is
+255.255.0.0)</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">networkAddress</span></code> higher bits are the network part of the
+addresses, lower bits should be 0. (default is 192.168.0.0)</li>
+</ul>
+<p>With the default parameters the assigned addresses are in the range
+192.168.0.1 - 192.168.255.254, so there can be maximum 65534 nodes in
+the network. The same IP address will be assigned to each interface of
+the node, except the loopback interface which always has address
+127.0.0.1 (with 255.0.0.0 mask).</p>
+<p>After assigning the IP addresses, the configurator fills in the routing
+tables. There are two kind of routes:</p>
+<ul class="simple">
+<li>default routes: for nodes that has only one non-loopback interface a
+route is added that matches with any destination address (the entry
+has 0.0.0.0 <code class="docutils literal notranslate"><span class="pre">host</span></code> and <code class="docutils literal notranslate"><span class="pre">netmask</span></code> fields). These are remote
+routes, but the gateway address is left unspecified. The delivery of
+the datagrams rely on the proxy ARP feature of the routers.</li>
+<li>direct routes following the shortest paths: for nodes that has more
+than one non-loopback interface a separate route is added to each IP
+node of the network. The outgoing interface is chosen by the shortest
+path to the target node. These routes are added as direct routes,
+even if there is no direct link with the destination. In this case
+proxy ARP is needed to deliver the datagrams.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This configurator does not try to optimize the routing tables.
+If the network contains $n$ nodes, the size of all routing tables
+will be proportional to $n^2$, and the time of the lookup of the
+best matching route will be proportional to $n$.</p>
+</div>
+</div>
+<div class="section" id="routing-files-legacy">
+<span id="ug-sec-autoconfig-routing-files"></span><h3>Routing Files (Legacy)<a class="headerlink" href="#routing-files-legacy" title="Permalink to this headline">¶</a></h3>
+<p>Routing files are files with <code class="docutils literal notranslate"><span class="pre">.irt</span></code> or <code class="docutils literal notranslate"><span class="pre">.mrt</span></code> extension, and
+their names are passed in the <code class="code literal-ini docutils literal notranslate"><span class="pre">routingFile</span></code> parameter to
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> modules.</p>
+<p>Routing files may contain network interface configuration and static
+routes. Both are optional. Network interface entries in the file
+configure existing interfaces; static routes are added to the route
+table.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><code class="code literal-ned docutils literal notranslate"><span class="pre">Routing</span> <span class="pre">files</span></code> are considered legacy, use do not use them for new
+projects. Their contents can be expressed in <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>
+config files.</p>
+</div>
+<p>Interfaces themselves are represented in the simulation by modules (such
+as the PPP module). Modules automatically register themselves with
+appropriate defaults in the IPv4RoutingTable, and entries in the routing
+file refine (overwrite) these settings. Interfaces are identified by
+names (e.g. ppp0, ppp1, eth0) which are normally derived from the
+module’s name: a module called <code class="docutils literal notranslate"><span class="pre">&quot;ppp[2]&quot;</span></code> in the NED file registers
+itself as interface ppp2.</p>
+<p>An example routing file (copied here from one of the example
+simulations):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ifconfig</span><span class="p">:</span>
+
+<span class="c1"># ethernet card 0 to router</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">eth0</span>   <span class="n">inet_addr</span><span class="p">:</span> <span class="mf">172.0</span><span class="o">.</span><span class="mf">0.3</span>   <span class="n">MTU</span><span class="p">:</span> <span class="mi">1500</span>   <span class="n">Metric</span><span class="p">:</span> <span class="mi">1</span>  <span class="n">BROADCAST</span> <span class="n">MULTICAST</span>
+<span class="n">Groups</span><span class="p">:</span> <span class="mf">225.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">225.0</span><span class="o">.</span><span class="mf">1.2</span><span class="p">:</span><span class="mf">225.0</span><span class="o">.</span><span class="mf">2.1</span>
+
+<span class="c1"># Point to Point link 1 to Host 1</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">ppp0</span>   <span class="n">inet_addr</span><span class="p">:</span> <span class="mf">172.0</span><span class="o">.</span><span class="mf">0.4</span>   <span class="n">MTU</span><span class="p">:</span> <span class="mi">576</span>   <span class="n">Metric</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="n">ifconfigend</span><span class="o">.</span>
+
+<span class="n">route</span><span class="p">:</span>
+<span class="mf">172.0</span><span class="o">.</span><span class="mf">0.2</span>   <span class="o">*</span>           <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span>  <span class="n">H</span>  <span class="mi">0</span>   <span class="n">ppp0</span>
+<span class="mf">172.0</span><span class="o">.</span><span class="mf">0.4</span>   <span class="o">*</span>           <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span>  <span class="n">H</span>  <span class="mi">0</span>   <span class="n">ppp0</span>
+<span class="n">default</span><span class="p">:</span>    <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.13</span>   <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span>          <span class="n">G</span>  <span class="mi">0</span>   <span class="n">eth0</span>
+
+<span class="mf">225.0</span><span class="o">.</span><span class="mf">0.1</span>   <span class="o">*</span>           <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span>  <span class="n">H</span>  <span class="mi">0</span>   <span class="n">ppp0</span>
+<span class="mf">225.0</span><span class="o">.</span><span class="mf">1.2</span>   <span class="o">*</span>           <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span>  <span class="n">H</span>  <span class="mi">0</span>   <span class="n">ppp0</span>
+<span class="mf">225.0</span><span class="o">.</span><span class="mf">2.1</span>   <span class="o">*</span>           <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span>  <span class="n">H</span>  <span class="mi">0</span>   <span class="n">ppp0</span>
+
+<span class="mf">225.0</span><span class="o">.</span><span class="mf">0.0</span>   <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.13</span>   <span class="mf">255.0</span><span class="o">.</span><span class="mf">0.0</span>        <span class="n">G</span>  <span class="mi">0</span>   <span class="n">eth0</span>
+
+<span class="n">routeend</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ifconfig...ifconfigend.</span></code> part configures interfaces, and
+<code class="docutils literal notranslate"><span class="pre">route..routeend.</span></code> part contains static routes. The format of these
+sections roughly corresponds to the output of the <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> and
+<code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-rn</span></code> Unix commands.</p>
+<p>An interface entry begins with a <code class="docutils literal notranslate"><span class="pre">name:</span></code> field, and lasts until the
+next <code class="docutils literal notranslate"><span class="pre">name:</span></code> (or until <code class="docutils literal notranslate"><span class="pre">ifconfigend.</span></code>). It may be broken into
+several lines.</p>
+<p>Accepted interface fields are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">name:</span></code> - arbitrary interface name (e.g. eth0, ppp0)</li>
+<li><code class="docutils literal notranslate"><span class="pre">inet_addr:</span></code> - IP address</li>
+<li><code class="docutils literal notranslate"><span class="pre">Mask:</span></code> - netmask</li>
+<li><code class="docutils literal notranslate"><span class="pre">Groups:</span></code> Multicast groups. 224.0.0.1 is added automatically,
+and 224.0.0.2 also if the node is a router (IPForward==true).</li>
+<li><code class="docutils literal notranslate"><span class="pre">MTU:</span></code> - MTU on the link (e.g. Ethernet: 1500)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Metric:</span></code> - integer route metric</li>
+<li>flags: <code class="docutils literal notranslate"><span class="pre">BROADCAST</span></code>, <code class="docutils literal notranslate"><span class="pre">MULTICAST</span></code>, <code class="docutils literal notranslate"><span class="pre">POINTTOPOINT</span></code></li>
+</ul>
+<p>The following fields are parsed but ignored: <code class="docutils literal notranslate"><span class="pre">Bcast</span></code>, <code class="docutils literal notranslate"><span class="pre">encap</span></code>,
+<code class="docutils literal notranslate"><span class="pre">HWaddr</span></code>.</p>
+<p>Interface modules set a good default for MTU, Metric (as
+<span class="math notranslate nohighlight">\(2*10^9\)</span>/bitrate) and flags, but leave <code class="code literal-cpp docutils literal notranslate"><span class="pre">inet_addr</span></code> and
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Mask</span></code> empty. <code class="code literal-cpp docutils literal notranslate"><span class="pre">inet_addr</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">mask</span></code> should be set either
+from the routing file or by a dynamic network configuration module.</p>
+<p>The route fields are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Destination</span>  <span class="n">Gateway</span>  <span class="n">Netmask</span>  <span class="n">Flags</span>  <span class="n">Metric</span> <span class="n">Interface</span>
+</pre></div>
+</div>
+<p><code class="code literal-cpp docutils literal notranslate"><span class="pre">Destination</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">Gateway</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">Netmask</span></code> have the usual
+meaning. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Destination</span></code> field should either be an IP address or
+“default” (to designate the default route). For <code class="code literal-cpp docutils literal notranslate"><span class="pre">Gateway</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>
+is also accepted with the meaning <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p>
+<p><code class="code literal-cpp docutils literal notranslate"><span class="pre">Flags</span></code> denotes route type:</p>
+<ul class="simple">
+<li><em>H</em> “host”: direct route (directly attached to the router), and</li>
+<li><em>G</em> “gateway”: remote route (reached through another router)</li>
+</ul>
+<p><code class="code literal-cpp docutils literal notranslate"><span class="pre">Interface</span></code> is the interface name, e.g. <code class="docutils literal notranslate"><span class="pre">eth0</span></code>.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>The meaning of the routes where the destination is a multicast address
+has been changed in version 1.99.4. Earlier these entries was used
+both to select the outgoing interfaces of multicast datagrams
+sent by the higher layer (if multicast interface was otherwise unspecified)
+and to select the outgoing interfaces of datagrams that are received from
+the network and forwarded by the node.</p>
+<p>From version 1.99.4 multicast routing applies reverse path forwarding.
+This requires a separate routing table, that can not be populated from
+the old routing table entries. Therefore simulations that use multicast
+forwarding can not use the old configuration files, they should be
+migrated to use an <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> instead.</p>
+<p class="last">Some change is needed in models that use link-local multicast too.
+Earlier if the IP module received a datagram from the higher layer
+and multiple routes was given for the multicast group,
+then IP sent a copy of the datagram on each interface of that routes.
+From version 1.99.4, only the first matching interface is used (considering
+longest match). If the application wants to send the multicast datagram
+on each interface, then it must explicitly loop and specify the multicast
+interface.</p>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-layer-2">
+<span id="ug-sec-autoconfig-configuring-layer-2"></span><h2>Configuring Layer 2<a class="headerlink" href="#configuring-layer-2" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">L2Configurator</span></code> module allows configuring network scenarios at
+layer 2. The STP/RTP-related parameters such as link cost, port priority
+and the “is-edge” flag can be configured with XML files.</p>
+<p>This module is similar to <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. It supports
+the selector attributes <code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;names</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;towards</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&#64;among</span></code>, and they behave similarly to its
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> equivalent. The <code class="docutils literal notranslate"><span class="pre">&#64;ports</span></code> selector is
+also supported, for configuring per-port parameters.</p>
+<p>The following example configures port 5 (if it exists) on all switches,
+and sets cost=19 and priority=32768:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+  <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&#39;**&#39;</span> <span class="na">ports=</span><span class="s">&#39;5&#39;</span> <span class="na">cost=</span><span class="s">&#39;19&#39;</span> <span class="na">priority=</span><span class="s">&#39;32768&#39;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
+</pre></div>
+</div>
+<p>For more information about the usage of the selector attributes see
+<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Network Autoconfiguration</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#configuring-ipv4-networks">Configuring IPv4 Networks</a><ul>
+<li><a class="reference internal" href="#ipv4networkconfigurator">Ipv4NetworkConfigurator</a><ul>
+<li><a class="reference internal" href="#network-topology-graph">Network topology graph</a></li>
+<li><a class="reference internal" href="#address-assignment">Address assignment</a></li>
+<li><a class="reference internal" href="#multicast-groups">Multicast groups</a></li>
+<li><a class="reference internal" href="#manual-route-configuration">Manual route configuration</a></li>
+<li><a class="reference internal" href="#automatic-route-configuration">Automatic route configuration</a></li>
+<li><a class="reference internal" href="#route-optimization">Route optimization</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ipv4flatnetworkconfigurator-legacy">Ipv4FlatNetworkConfigurator (Legacy)</a></li>
+<li><a class="reference internal" href="#routing-files-legacy">Routing Files (Legacy)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuring-layer-2">Configuring Layer 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-emulation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Network Emulation</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-scenario-scripting.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Scenario Scripting</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
