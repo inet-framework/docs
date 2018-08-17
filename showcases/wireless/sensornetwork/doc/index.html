@@ -79,6 +79,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -216,6 +217,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -463,14 +465,14 @@ server over IP. Thus the node would act as a gateway between the WSN and
 the outside IP network. In the example simulations, the gateway just
 forwards the data packets over IP.</p>
 <p>To run the example simulations, choose the <code class="docutils literal notranslate"><span class="pre">BMac</span></code>, <code class="docutils literal notranslate"><span class="pre">LMac</span></code> and
-<code class="docutils literal notranslate"><span class="pre">XMac</span></code> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
+<code class="docutils literal notranslate"><span class="pre">XMac</span></code> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
 Most of the configuration keys in the ini file are shared between the
 three simulations (they are defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration),
 except for the MAC protocol specific settings. All three simulations
 will use the same network, <code class="docutils literal notranslate"><span class="pre">SensorNetworkShowcaseA</span></code>, defined in
 <a class="reference download internal" href="../../../../_downloads/SensorNetworkShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">SensorNetworkShowcase.ned</span></code></a>:</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../../../_images/network9.png"><img alt="../../../../_images/network9.png" src="../../../../_images/network9.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/network3.png"><img alt="../../../../_images/network3.png" src="../../../../_images/network3.png" style="width: 100%;" /></a>
 </div>
 <p>In the network, the wireless sensor nodes are of the type
 <code class="docutils literal notranslate"><span class="pre">SensorNode</span></code>, named <code class="docutils literal notranslate"><span class="pre">sensor1</span></code> up to <code class="docutils literal notranslate"><span class="pre">sensor4</span></code>, and <code class="docutils literal notranslate"><span class="pre">gateway</span></code>.
@@ -482,7 +484,7 @@ meters. The warehouse is just a background image providing context.
 Obstacle loss is not modelled, so the background image doesn’t affect
 the simulation in any way.</p>
 <p>The wireless interface in the sensor nodes and the gateway is specified
-in <a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
+in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
 <code class="docutils literal notranslate"><span class="pre">WirelessInterface</span></code> (instead of the Ieee802154 specific
 <code class="docutils literal notranslate"><span class="pre">Ieee802154NarrowbandInterface</span></code>, which is the default wlan interface
 in <code class="docutils literal notranslate"><span class="pre">SensorNode</span></code>). The radio type is set to <code class="docutils literal notranslate"><span class="pre">ApskScalarRadio</span></code>:</p>
@@ -498,7 +500,7 @@ simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
 spreading. We set the bitrate in
-<a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
+<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
 default for the MAC bitrates (we’ll use the default bitrate in the MACs,
 which is 19200 bps for all three MAC types.) The <code class="docutils literal notranslate"><span class="pre">preambleDuration</span></code> is
 set to be very short for better compatibility with the MACs. We also set
@@ -523,14 +525,14 @@ default settings), and then modifying it. The modified configuration is
 in the <a class="reference download internal" href="../../../../_downloads/config.xml" download=""><code class="xref download docutils literal notranslate"><span class="pre">config.xml</span></code></a> file. The following
 image shows the routes:</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../../../_images/routes3.png"><img alt="../../../../_images/routes3.png" src="../../../../_images/routes3.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/routes1.png"><img alt="../../../../_images/routes1.png" src="../../../../_images/routes1.png" style="width: 100%;" /></a>
 </div>
 <p>Each sensor node will send an UDP packet with a 10-byte payload
 (“temperature data”) every second to the server, with a random start
 time around 1s. The packets will have an 8-byte UDP header and a 20-byte
 Ipv4 header, so they will be 38 bytes at the MAC level. The packets will
 be routed via the gateway. Here are the application settings in
-<a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpBasicApp&quot;</span>
 <span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destAddresses</span> <span class="o">=</span> <span class="s2">&quot;server&quot;</span>
@@ -550,7 +552,7 @@ individual MACs.</p>
 <code class="docutils literal notranslate"><span class="pre">BMac</span></code>. Also, the <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter is set to 0.025s (an
 arbitrary value.) This parameter is essentially the nodes’ sleep
 duration. Here is the configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">BMac</span><span class="p">]</span>
 <span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
 
@@ -568,7 +570,7 @@ intervals for different nodes, as long as the sender node’s sleep
 interval is greater than the receiver’s. (?). We set the slot duration
 of the gateway to a shorter value, because it has to receive and relay
 data from all sensors, thus it has more traffic. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">XMac</span><span class="p">]</span>
 <span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
 
@@ -587,7 +589,7 @@ setup. The parameter’s default value is 2, but it is set to 0. The
 50ms to decrease the network setup time. The duration of a timeframe
 will be 400ms (number of slots * slot duration.) The network is set up
 in the first five frames, i.e. in the first 2 seconds. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">LMac</span><span class="p">]</span>
 <span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
 
@@ -602,7 +604,7 @@ configuration in <a class="reference download internal" href="../../../../_downl
 <div class="section" id="id1">
 <h3>B-MAC<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The following video shows sensor nodes sending data to the server:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="BMac2.mp4" width="698" height="-1" class="align-center"></video><p><code class="docutils literal notranslate"><span class="pre">BMac</span></code> actually sends multiple shorter preambles instead of a long
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="BMac2.mp4" width="698" height="" class="align-center"></video><p><code class="docutils literal notranslate"><span class="pre">BMac</span></code> actually sends multiple shorter preambles instead of a long
 one, so that waking nodes can receive the one that starts after they
 woke up. <code class="docutils literal notranslate"><span class="pre">sensor3</span></code> starts sending preambles, while the other nodes are
 asleep. All of them wake up before the end of the preamble transmission.
@@ -614,7 +616,7 @@ nodes receive the preables and the data packet as well.</p>
 <div class="section" id="id2">
 <h3>X-MAC<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>In the following video, the sensors send data to the server:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="XMac2.mp4" width="698" height="-1" class="align-center"></video><p><code class="docutils literal notranslate"><span class="pre">sensor3</span></code> start sending preambles. <code class="docutils literal notranslate"><span class="pre">sensor4</span></code> wakes up and receives
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="XMac2.mp4" width="698" height="" class="align-center"></video><p><code class="docutils literal notranslate"><span class="pre">sensor3</span></code> start sending preambles. <code class="docutils literal notranslate"><span class="pre">sensor4</span></code> wakes up and receives
 one of the preambles (hence the dotted arrow representing a successful
 physical layer transmission), and goes back to sleep, as the
 transmission is addressed to the gateway. Then the gateway wakes up, and
@@ -625,7 +627,7 @@ server.</p>
 <div class="section" id="id3">
 <h3>LMAC<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>In following video, sensor nodes send data to the server:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="LMac5.mp4" width="698" height="-1" class="align-center"></video><p>Each node transmits in its own time slot, there are no collisions. Note
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="LMac5.mp4" width="698" height="" class="align-center"></video><p>Each node transmits in its own time slot, there are no collisions. Note
 that all nodes receive the control message (indicated by the physical
 link visualizer arrows), but only the destination node receives the data
 unit.</p>
@@ -675,7 +677,7 @@ studies for the individual MACs are detailed in the following sections.</p>
 <h3>Optimizing B-MAC<a class="headerlink" href="#optimizing-b-mac" title="Permalink to this headline">¶</a></h3>
 <p>The goal is to optimize <code class="docutils literal notranslate"><span class="pre">BMac</span></code>’s <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number
 of packets received by the server. The configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticBMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticBMac]
 extends = StatisticBase
@@ -702,7 +704,7 @@ smooth curve. We choose 0.19s as the best performing value for
 <p>Again, we optimize the <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number of packets
 received by the server. As in the <code class="docutils literal notranslate"><span class="pre">XMac</span></code> configuration, the
 <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> for the gateway will be shorter than for the sensors. The
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticXMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticXMac]
 extends = StatisticBase
@@ -726,7 +728,7 @@ is 0.14s (0.35s for the sensors), so we choose that.</p>
 <h3>Optimizing LMAC<a class="headerlink" href="#optimizing-lmac" title="Permalink to this headline">¶</a></h3>
 <p>We’ll optimize the <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter for the number of packets
 received by the server. The configuration for this study in
-<a class="reference download internal" href="../../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
+<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
 contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticLMac]
 extends = StatisticBase

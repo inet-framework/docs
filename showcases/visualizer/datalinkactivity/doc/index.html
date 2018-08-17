@@ -79,6 +79,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -216,6 +217,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -406,7 +408,7 @@ ini file.</p>
 link activity visualization is enabled by setting the <code class="docutils literal notranslate"><span class="pre">displayLinks</span></code>
 parameter to true.</p>
 <p>The following video shows what happens when the simulation is started.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWired_v0613.m4v" width="698" height="-1" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWired_v0613.m4v" width="698" height="" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
 <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> to <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. This strip is the standard
 OMNeT++ animation for packet transmissions, and has nothing to do with
 <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. When the packet is received in whole by
@@ -425,7 +427,7 @@ of the wired example. The simulation can be run by choosing the
 <a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerSimpleWireless.png"><img alt="../../../../_images/DataLinkVisualizerSimpleWireless.png" src="../../../../_images/DataLinkVisualizerSimpleWireless.png" style="width: 100%;" /></a>
 </div>
 <p>The following animation depicts what happens when the simulation is run.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWireless_v0613.m4v" width="698" height="-1" class="align-center"></video><p>This animation is similar to the video of the wired example (apart from
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWireless_v0613.m4v" width="698" height="" class="align-center"></video><p>This animation is similar to the video of the wired example (apart from
 an extra blue dotted line which can be ignored, as it is also part of
 the standard OMNeT++ packet animation.) Note, however, that the ACK
 frame does not activate the visualization, because ACK frames do not
@@ -466,7 +468,7 @@ completely before the next ping messages are sent.</p>
 You can see that although there is both ARP and ping traffic in the
 network, <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> only takes the latter into account, due
 to the presence of the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering_v0613.m4v" width="698" height="-1" class="align-center"></video><p>It also is possible to filter for network nodes. For the following
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering_v0613.m4v" width="698" height="" class="align-center"></video><p>It also is possible to filter for network nodes. For the following
 example, let’s assume we want to display traffic between the hosts
 <code class="docutils literal notranslate"><span class="pre">source1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination1</span></code> only, along the path <code class="docutils literal notranslate"><span class="pre">etherSwitch1</span></code>,
 <code class="docutils literal notranslate"><span class="pre">etherSwitch4</span></code> and <code class="docutils literal notranslate"><span class="pre">etherSwitch2</span></code>. To this end, we set the
@@ -476,7 +478,7 @@ the curly brace syntax used for specifying numeric substrings).</p>
 </pre></div>
 </div>
 <p>This is what it looks like when we run the simulation:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering2_v0613.m4v" width="698" height="-1" class="align-center"></video><p>As you can see, visualization allows us to follow the ping packets
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering2_v0613.m4v" width="698" height="" class="align-center"></video><p>As you can see, visualization allows us to follow the ping packets
 between <code class="docutils literal notranslate"><span class="pre">source1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination1</span></code>. Note, however, that ping
 traffic between the two other hosts, <code class="docutils literal notranslate"><span class="pre">source2</span></code> and <code class="docutils literal notranslate"><span class="pre">destination2</span></code>,
 also activates the visualization on the link between <code class="docutils literal notranslate"><span class="pre">etherSwitch1</span></code>
@@ -539,7 +541,7 @@ activity with blue arrows,</li>
 activity with green arrows,</li>
 </ul>
 <p>The following video shows what happens when the simulation is running.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="ActivityLevel_v0104.mp4" width="698" height="-1" class="align-center"></video><p>At the beginning of the video, <code class="docutils literal notranslate"><span class="pre">person1</span></code> sends a <code class="docutils literal notranslate"><span class="pre">VideoStrmReq</span></code>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="ActivityLevel_v0104.mp4" width="698" height="" class="align-center"></video><p>At the beginning of the video, <code class="docutils literal notranslate"><span class="pre">person1</span></code> sends a <code class="docutils literal notranslate"><span class="pre">VideoStrmReq</span></code>
 packet, requesting the video stream. In response to this,
 <code class="docutils literal notranslate"><span class="pre">videoServer</span></code> starts to send video stream packet fragments to
 <code class="docutils literal notranslate"><span class="pre">person1</span></code>. The packets are fragmented because their size is greater
@@ -604,7 +606,7 @@ RREQ packets which flood the network. When an RREQ message reaches
 <code class="docutils literal notranslate"><span class="pre">destination</span></code>, <code class="docutils literal notranslate"><span class="pre">destination</span></code> sends an RREP message (blue arrow) back
 towards <code class="docutils literal notranslate"><span class="pre">source</span></code>. Note that nodes appear stationary because the whole
 process takes place in a very short time period.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="AODV_v0614.m4v" width="698" height="-1" class="align-center"></video><p>In the second experiment, we configure the visualizer to display only
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="AODV_v0614.m4v" width="698" height="" class="align-center"></video><p>In the second experiment, we configure the visualizer to display only
 the ping traffic between <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>. (The AODV
 visualizers will be disabled.) We’ll simulate a longer time period so
 that nodes move around in the playground, forcing AODV to find new
@@ -612,7 +614,7 @@ routes from time to time.</p>
 <p>We use the following configuration for the visualization.</p>
 <p>The following animation illustrates what happens when the simulation is
 run.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Dynamic_v0613.m4v" width="698" height="-1" class="align-center"></video><p>The communication ranges of <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code> are
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Dynamic_v0613.m4v" width="698" height="" class="align-center"></video><p>The communication ranges of <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code> are
 visualized as blue circles.</p>
 <p>The video clearly shows the route ping packets are taking between
 <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>. Visualization is triggered by the ping
