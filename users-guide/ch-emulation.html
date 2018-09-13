@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -374,12 +386,12 @@ interoperability solution.</li>
 must be able to communicate with the real world.</p>
 <p>This is achieved with two components in INET:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code> is an INET network interface that represents a
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a> is an INET network interface that represents a
 real interface (an interface of the host OS) in the simulation.
-Packets sent to an <code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code> will be sent out on the host
+Packets sent to an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a> will be sent out on the host
 OS interface, and packets received by the host OS interface (or
 rather, the appropriate subset of them) will appear in the simulation
-as if received on an <code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code>. The code uses the pcap
+as if received on an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a>. The code uses the pcap
 library for capturing packets, and raw sockets for sending.</li>
 <li><code class="code literal-cpp docutils literal notranslate"><span class="pre">RealTimeScheduler</span></code>, a socket-aware real-time scheduler class.</li>
 </ul>
@@ -412,8 +424,8 @@ many systems, is only allowed for processes that have root
 </div>
 <div class="section" id="configuring">
 <span id="ug-sec-emulation-configuring"></span><h2>Configuring<a class="headerlink" href="#configuring" title="Permalink to this headline">¶</a></h2>
-<p>INET nodes such as <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> can be
-configured to have <code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code>’s. The simulation may contain
+<p>INET nodes such as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> can be
+configured to have <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a>’s. The simulation may contain
 several nodes with external interfaces, and one node may also have
 several external interfaces.</p>
 <p>A network node can be configured to have an external interface in the
@@ -426,12 +438,12 @@ appropriate real-time scheduler class:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">scheduler-class</span> <span class="o">=</span> <span class="s">&quot;inet::RealTimeScheduler&quot;</span>
 </pre></div>
 </div>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code> has two important parameters which need to be
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a> has two important parameters which need to be
 configured. The <code class="code literal-ini docutils literal notranslate"><span class="pre">device</span></code> parameter should be set to the name of the
 real interface on the host OS, and <code class="code literal-ini docutils literal notranslate"><span class="pre">filterString</span></code> should contain a
 packet filter expression that selects which packets captured on the real
 interface should be relayed into the simulation via this
-<code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code>. (<code class="code literal-ini docutils literal notranslate"><span class="pre">filterString</span></code> is simply passed to the pcap
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a>. (<code class="code literal-ini docutils literal notranslate"><span class="pre">filterString</span></code> is simply passed to the pcap
 library, so it should follow the <em>tcpdump</em> filter expressions syntax
 that pcap understands.)</p>
 <p>An example configuration:</p>
@@ -447,7 +459,7 @@ that the protocol must be SCTP or ICMP, and the destination host must be
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Why is filtering of incoming packets done at packet capture (in pcap),
-and not in <code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code>? The reason is performance: it costs
+and not in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a>? The reason is performance: it costs
 much fewer CPU cycles to discard unnecessary packets right where
 they come in, and not send them up into the simulation for the
 same decision. And, given that the simulation needs to keep up with
@@ -465,7 +477,7 @@ other protocols. We assume the external interface is named
 <p>For that to happen, the routing table needs to contain an entry where
 the interface is set to <code class="docutils literal notranslate"><span class="pre">ext[0]</span></code>. Such entries are not created
 automatically, one needs to add them to the routing table explicitly,
-e.g. by using an <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> and an appropriate XML
+e.g. by using an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> and an appropriate XML
 file.</p>
 <p>Another point is that if the packet comes from a local app (and from
 another simulated node), it needs to have a source IP address assigned.
@@ -503,7 +515,7 @@ packet.</p>
 map to the same real interface, care must be taken so that filter
 expressions are disjunct. Otherwise, a packet may be matched by more
 than one filter, and then it will be inserted into the simulation in
-multiple copies (once for each matching <code class="code literal-ned docutils literal notranslate"><span class="pre">ExtInterface</span></code>.) This is
+multiple copies (once for each matching <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ext.ExtInterface.html">ExtInterface</a>.) This is
 usually not what is wanted.</p>
 </div>
 </div>

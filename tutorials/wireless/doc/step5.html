@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -369,26 +381,25 @@ channel, so we expect the number of packets that go through to drop.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>To turn on interference modeling, we set the <code class="docutils literal notranslate"><span class="pre">ignoreInterference</span></code>
-parameter in the receiver part of <code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+parameter in the receiver part of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.
 Interference range is the <code class="docutils literal notranslate"><span class="pre">interferenceRange</span></code> parameter of
-<code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code>’s transmitter part, so we set that to 500m.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>’s transmitter part, so we set that to 500m.</p>
 <p>We expect that although host B will not be able to receive host A’s
 transmissions, those transmission will still cause interference with
 other (e.g. R1’s) transmissions at host B.</p>
 <p>Regarding visualization, we turn off the arrows indicating successful
 data link layer receptions, because in our case it does not add much
 value above displaying the network routes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless05</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Taking</span> <span class="n">interference</span> <span class="n">into</span> <span class="n">account</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless04</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless05]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Taking interference into account</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless04</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">receiver</span><span class="o">.</span><span class="n">ignoreInterference</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">interferenceRange</span> <span class="o">=</span> <span class="mi">500</span><span class="n">m</span>
+<span class="na">*.host*.wlan[0].radio.receiver.ignoreInterference</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.host*.wlan[0].radio.transmitter.interferenceRange</span> <span class="o">=</span> <span class="s">500m</span>
 
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">displayInterferenceRange</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.hostA.wlan[0].radio.displayInterferenceRange</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">dataLinkVisualizer</span><span class="o">.</span><span class="n">packetFilter</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
+<span class="na">*.visualizer.dataLinkVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -443,7 +454,7 @@ discernible on the chart.</p>
 <p>To minimize interference, some kind of media access protocol is needed
 to govern which host can transmit and when.</p>
 <p><strong>Number of packets received by host B: 183</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

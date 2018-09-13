@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -352,7 +364,7 @@ Show Source
 <p>With INET simulations, it is often useful to be able to visualize
 network traffic. For this task, there are several visualizers in INET,
 operating at various levels of the network stack. In this showcase, we
-demonstrate working of <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> that can provide
+demonstrate working of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> that can provide
 graphical feedback about physical layer traffic.</p>
 <p>The showcase consists of three simulation models, each demonstrating
 different features of the physical link visualizer.</p>
@@ -362,12 +374,12 @@ different features of the physical link visualizer.</p>
 <div class="section" id="about-the-visualizer">
 <h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
 <p>In INET, physical link activity can be visualized by including a
-<code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> module in the simulation. Adding an
-<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> module is also an option, because it also
-contains a <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> module. Physical link activity
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> module in the simulation. Adding an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module is also an option, because it also
+contains a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> module. Physical link activity
 visualization is disabled by default, it can be enabled by setting the
 visualizer’s <code class="docutils literal notranslate"><span class="pre">displayLinks</span></code> parameter to true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> observes frames that pass through the
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> observes frames that pass through the
 physical layer, i.e. are received correctly.</p>
 <p>The activity between two nodes is represented visually by a dotted arrow
 which points from the sender node to the receiver node. The arrow
@@ -386,7 +398,7 @@ link activity with its default settings. In this example, we configure a
 simulation for an ad-hoc wireless network. The simulation can be run by
 choosing the <code class="docutils literal notranslate"><span class="pre">EnablingVisualization</span></code> configuration from the ini file.</p>
 <p>The network contains two <code class="docutils literal notranslate"><span class="pre">AdhocHosts</span></code>, <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">linkVisualizer's</span></code> type is <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code>. In this
+The <code class="docutils literal notranslate"><span class="pre">linkVisualizer's</span></code> type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a>. In this
 simulation, <code class="docutils literal notranslate"><span class="pre">source</span></code> will be pinging <code class="docutils literal notranslate"><span class="pre">destination</span></code>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/PhysicalLinkVisualizerSimple.png"><img alt="../../../../_images/PhysicalLinkVisualizerSimple.png" src="../../../../_images/PhysicalLinkVisualizerSimple.png" style="width: 100%;" /></a>
@@ -400,11 +412,11 @@ simulation, <code class="docutils literal notranslate"><span class="pre">source<
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualization_v0614.m4v" width="698" height="" class="align-center"></video><p>At the beginning of the animation, a red strip appears and moves from
 <code class="docutils literal notranslate"><span class="pre">source</span></code> to <code class="docutils literal notranslate"><span class="pre">destination</span></code>. This strip is the standard OMNeT++
 animation for packet transmissions, and has nothing to do with
-<code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code>. A blue dotted line also appears at the same
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a>. A blue dotted line also appears at the same
 time. It can be ignored, as it is also part of the standard OMNeT++
 animation for packet transmission. When the frame is received in whole
 by <code class="docutils literal notranslate"><span class="pre">destination</span></code> (the red strip disappears), a dotted arrow is added
-by <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> between the two hosts, indicating physical
+by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> between the two hosts, indicating physical
 link activity. The frame’s name is also displayed on the arrow. In this
 simulation, the arrow fades out quickly, because the <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code>
 parameter of the visualizer is set to a small value.</p>
@@ -430,9 +442,9 @@ frames correctly from each other.</p>
 <a class="reference internal image-reference" href="../../../../_images/Filtering_sh_all_comm_ranges.png"><img alt="../../../../_images/Filtering_sh_all_comm_ranges.png" src="../../../../_images/Filtering_sh_all_comm_ranges.png" style="width: 100%;" /></a>
 </div>
 <p>For this network, the type of <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> module is
-<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>. Physical link activity visualization is
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>. Physical link activity visualization is
 filtered to display only ping traffic. Other frames, e.g. Beacon frames
-and ACK frames, are not displayed by <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code>.</p>
+and ACK frames, are not displayed by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a>.</p>
 <p>We use the following configuration for the visualization.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.physicalLinkVisualizer.displayLinks = true
 *.visualizer.*.physicalLinkVisualizer.packetFilter = &quot;ping*&quot;
@@ -443,7 +455,7 @@ and ACK frames, are not displayed by <code class="docutils literal notranslate">
 video was captured from the point when the hosts had already associated
 with <code class="docutils literal notranslate"><span class="pre">accessPoint</span></code>.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering_v0614.m4v" width="698" height="" class="align-center"></video><p>You can see that although there are also ACK frames, Beacon frames and
-ping traffic in the network, <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> displays only
+ping traffic in the network, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> displays only
 ping, due to the presence of <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code>. The ping frames travel
 between <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code> through <code class="docutils literal notranslate"><span class="pre">accessPoint</span></code>, but
 <code class="docutils literal notranslate"><span class="pre">host1</span></code> also receives ping frames from <code class="docutils literal notranslate"><span class="pre">accessPoint</span></code> and <code class="docutils literal notranslate"><span class="pre">source</span></code>.
@@ -456,16 +468,16 @@ That is because <code class="docutils literal notranslate"><span class="pre">hos
 physical link activity in a mobile wireless environment. This simulation
 can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Mobile</span></code> configuration from the ini file.</p>
 <p>The network consists of seven nodes (<code class="docutils literal notranslate"><span class="pre">host1..host7</span></code>) are type of
-<code class="docutils literal notranslate"><span class="pre">AdhocHost</span></code>. The nodes are placed randomly on the playground and will
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>. The nodes are placed randomly on the playground and will
 also randomly roam within predefined borders. The communication range of
 nodes is reduced so that nodes can typically communicate only with some
 closer nodes.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/PhysicalLinkVisualizerDynamic.png"><img alt="../../../../_images/PhysicalLinkVisualizerDynamic.png" src="../../../../_images/PhysicalLinkVisualizerDynamic.png" style="width: 100%;" /></a>
 </div>
-<p>The nodes send UDP packets in every second by using an <code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code>
+<p>The nodes send UDP packets in every second by using an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a>
 application. The packets’ names are set to <code class="docutils literal notranslate"><span class="pre">Broadcast-nnn</span></code>. The nodes
-manage the received <code class="docutils literal notranslate"><span class="pre">Broadcast</span></code> packets using an <code class="docutils literal notranslate"><span class="pre">UdpSink</span></code>
+manage the received <code class="docutils literal notranslate"><span class="pre">Broadcast</span></code> packets using an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpSink.html">UdpSink</a>
 application.</p>
 <p>The visualizer’s <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter is set to display only
 <code class="docutils literal notranslate"><span class="pre">Broadcast</span></code> traffic.</p>
@@ -490,7 +502,7 @@ link activity between them again.</p>
 <h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
 <p>This example only demonstrates the key features of physical link
 visualization. For more information, refer to the
-<code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code> NED documentation.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a> NED documentation.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>

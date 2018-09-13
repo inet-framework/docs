@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -362,11 +374,11 @@ physical layer protocols like ethernet and 802.11.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>In order to record PCAP traces in a node, a <code class="docutils literal notranslate"><span class="pre">PcapRecorder</span></code> module
+<p>In order to record PCAP traces in a node, a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a> module
 needs to be included in it. Pcap recorder modules can be easily included
 in hosts and routers by specifying their <code class="docutils literal notranslate"><span class="pre">numPcapRecorders</span></code> parameter
-(available in modules that extend <code class="docutils literal notranslate"><span class="pre">LinkLayerNodeBase</span></code>, such as
-<code class="docutils literal notranslate"><span class="pre">StandardHost</span></code> and derivatives, and router modules.)</p>
+(available in modules that extend <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a>, such as
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and derivatives, and router modules.)</p>
 <p>The PCAP recorder module records packets sent to and from modules that
 are in the same host as the PCAP recorder module. By default, it records
 L2 (link layer) frames (frames going in and out of the L2 layer.) It can
@@ -449,12 +461,12 @@ network:</p>
 <a class="reference internal image-reference" href="../../../../_images/network2.png"><img alt="../../../../_images/network2.png" src="../../../../_images/network2.png" style="width: 100%;" /></a>
 </div>
 <p>The network contains two <code class="docutils literal notranslate"><span class="pre">adhocHost</span></code>s named <code class="docutils literal notranslate"><span class="pre">host1</span></code> and <code class="docutils literal notranslate"><span class="pre">host2</span></code>,
-and two <code class="docutils literal notranslate"><span class="pre">StandardHost</span></code>s named <code class="docutils literal notranslate"><span class="pre">ethHost1</span></code> and <code class="docutils literal notranslate"><span class="pre">ethHost2</span></code>. There
-are two <code class="docutils literal notranslate"><span class="pre">Router</span></code> modules (<code class="docutils literal notranslate"><span class="pre">router1</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code>), which are
+and two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>s named <code class="docutils literal notranslate"><span class="pre">ethHost1</span></code> and <code class="docutils literal notranslate"><span class="pre">ethHost2</span></code>. There
+are two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> modules (<code class="docutils literal notranslate"><span class="pre">router1</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code>), which are
 connected to each other by ppp. Each wired host is connected to one of
 the routers via ethernet. The network also contains an
-<code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>, an <code class="docutils literal notranslate"><span class="pre">Ieee80211ScalarRadioMedium</span></code>, and an
-<code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code> module.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>, and an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedMultiVisualizer.html">IntegratedMultiVisualizer</a> module.</p>
 <p>Traffic generation is set up the following way: <code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured
 to send a UDP stream to <code class="docutils literal notranslate"><span class="pre">host2</span></code> (via 802.11), <code class="docutils literal notranslate"><span class="pre">ethHost1</span></code> is
 configured to open a TCP connection to <code class="docutils literal notranslate"><span class="pre">ethHost2</span></code>, and send a 1Mbyte
@@ -465,19 +477,19 @@ network:</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">host1</span></code>, we’ll record 802.11 traffic on the <code class="docutils literal notranslate"><span class="pre">wlan0</span></code> interface. We
 configure <code class="docutils literal notranslate"><span class="pre">host1</span></code>’s PCAP recorder to use the 802.11 link layer
 headers:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">105</span>		<span class="c1"># 802.11</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/host1.pcap&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host1.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">105		</span><span class="c1"># 802.11</span>
+<span class="na">*.host1.pcapRecorder[*].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/host1.pcap&quot;</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">host2</span></code>, we’ll record only the ARP packets from the 802.11 traffic
 on <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>. The link layer header type is set to 802.11, and the
 <code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code> is set to record only to packets of <code class="docutils literal notranslate"><span class="pre">ArpPacket</span></code>
 class:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">host2</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">105</span>		<span class="c1"># 802.11</span>
-<span class="o">*.</span><span class="n">host2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/host2.arp.pcap&quot;</span>
-<span class="o">*.</span><span class="n">host2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">packetDataFilter</span> <span class="o">=</span> <span class="s2">&quot;*ArpPacket&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host2.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host2.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">105		</span><span class="c1"># 802.11</span>
+<span class="na">*.host2.pcapRecorder[*].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/host2.arp.pcap&quot;</span>
+<span class="na">*.host2.pcapRecorder[*].packetDataFilter</span> <span class="o">=</span> <span class="s">&quot;*ArpPacket&quot;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code> parameter’s value <code class="docutils literal notranslate"><span class="pre">*ArpPacket</span></code> matches the
@@ -488,23 +500,22 @@ packet inspector on the following image:</p>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">ethHost1</span></code>, we’ll record ethernet traffic on the <code class="docutils literal notranslate"><span class="pre">eth0</span></code>
 interface. We set the link layer header type to ethernet:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">ethHost1</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">ethHost1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">1</span>		<span class="c1"># ethernet</span>
-<span class="o">*.</span><span class="n">ethHost1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/ethHost1.pcap&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.ethHost1.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.ethHost1.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">1		</span><span class="c1"># ethernet</span>
+<span class="na">*.ethHost1.pcapRecorder[*].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/ethHost1.pcap&quot;</span>
 </pre></div>
 </div>
 <p>There are two PCAP recorder modules in <code class="docutils literal notranslate"><span class="pre">router1</span></code>, with one of them
 recording ethernet traffic on <code class="docutils literal notranslate"><span class="pre">eth0</span></code> and the other ppp traffic on
 <code class="docutils literal notranslate"><span class="pre">ppp0</span></code>. The <code class="docutils literal notranslate"><span class="pre">moduleNamePatters</span></code> parameter needs to be set for both
 PCAP recorder modules, because <code class="docutils literal notranslate"><span class="pre">router1</span></code> has two interfaces.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">204</span>		<span class="c1"># ppp</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">moduleNamePatterns</span> <span class="o">=</span> <span class="s2">&quot;ppp[*]&quot;</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/router1.ppp.pcap&quot;</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">1</span>		<span class="c1"># ethernet</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/router1.eth.pcap&quot;</span>
-<span class="o">*.</span><span class="n">router1</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">moduleNamePatterns</span> <span class="o">=</span> <span class="s2">&quot;eth[*]&quot;</span>
-
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.router1.numPcapRecorders</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.router1.pcapRecorder[0].pcapNetwork</span> <span class="o">=</span> <span class="s">204		</span><span class="c1"># ppp</span>
+<span class="na">*.router1.pcapRecorder[0].moduleNamePatterns</span> <span class="o">=</span> <span class="s">&quot;ppp[*]&quot;</span>
+<span class="na">*.router1.pcapRecorder[0].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/router1.ppp.pcap&quot;</span>
+<span class="na">*.router1.pcapRecorder[1].pcapNetwork</span> <span class="o">=</span> <span class="s">1		</span><span class="c1"># ethernet</span>
+<span class="na">*.router1.pcapRecorder[1].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/router1.eth.pcap&quot;</span>
+<span class="na">*.router1.pcapRecorder[1].moduleNamePatterns</span> <span class="o">=</span> <span class="s">&quot;eth[*]&quot;</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">router2</span></code>, we’ll record only packets carrying TCP data on the
@@ -514,29 +525,29 @@ type is set to ethernet, and the packet data filter is set to match
 packets containing an <code class="docutils literal notranslate"><span class="pre">Ipv4Header</span></code>, and where the <code class="docutils literal notranslate"><span class="pre">totalLengthField</span></code>
 field’s value is 576 (the size of TCP data packets with IP
 encapsulation):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">router2</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">router2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">1</span>		<span class="c1"># ethernet</span>
-<span class="o">*.</span><span class="n">router2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">moduleNamePatterns</span> <span class="o">=</span> <span class="s2">&quot;eth[*]&quot;</span>
-<span class="o">*.</span><span class="n">router2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/router2.tcpdata.pcap&quot;</span>
-<span class="o">*.</span><span class="n">router2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">packetDataFilter</span> <span class="o">=</span> <span class="s2">&quot;*Ipv4Header and totalLengthField(576*)&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.router2.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.router2.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">1		</span><span class="c1"># ethernet</span>
+<span class="na">*.router2.pcapRecorder[*].moduleNamePatterns</span> <span class="o">=</span> <span class="s">&quot;eth[*]&quot;</span>
+<span class="na">*.router2.pcapRecorder[*].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/router2.tcpdata.pcap&quot;</span>
+<span class="na">*.router2.pcapRecorder[*].packetDataFilter</span> <span class="o">=</span> <span class="s">&quot;*Ipv4Header and totalLengthField(576*)&quot;</span>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">ethHost2</span></code>, we’ll record traffic of the <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> module. The
 <code class="docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter’s default is
 <code class="docutils literal notranslate"><span class="pre">ethernetmac</span> <span class="pre">ppp</span> <span class="pre">ieee80211mac</span></code>, so it has to be set to <code class="docutils literal notranslate"><span class="pre">ipv4</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">ethHost2</span><span class="o">.</span><span class="n">numPcapRecorders</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">ethHost2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapNetwork</span> <span class="o">=</span> <span class="mi">101</span>	<span class="c1"># raw IP</span>
-<span class="o">*.</span><span class="n">ethHost2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">pcapFile</span> <span class="o">=</span> <span class="s2">&quot;results/ethHost2.ip.pcap&quot;</span>
-<span class="o">*.</span><span class="n">ethHost2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">moduleNamePatterns</span> <span class="o">=</span> <span class="s2">&quot;ipv4&quot;</span>
-<span class="o">*.</span><span class="n">ethHost2</span><span class="o">.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">dumpProtocols</span> <span class="o">=</span> <span class="s2">&quot;ipv4&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.ethHost2.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.ethHost2.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">101	</span><span class="c1"># raw IP</span>
+<span class="na">*.ethHost2.pcapRecorder[*].pcapFile</span> <span class="o">=</span> <span class="s">&quot;results/ethHost2.ip.pcap&quot;</span>
+<span class="na">*.ethHost2.pcapRecorder[*].moduleNamePatterns</span> <span class="o">=</span> <span class="s">&quot;ipv4&quot;</span>
+<span class="na">*.ethHost2.pcapRecorder[*].dumpProtocols</span> <span class="o">=</span> <span class="s">&quot;ipv4&quot;</span>
 </pre></div>
 </div>
-<p>By default, modules like <code class="docutils literal notranslate"><span class="pre">Ipv4</span></code> and <code class="docutils literal notranslate"><span class="pre">EthernetInterface</span></code> don’t
+<p>By default, modules like <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a> don’t
 compute CRC and FCS frames, but assumes they are correct (“declared
 correct” mode.) In order to include the CRC and FCS values in the
 capture file, L2 and L3 modules need to be set to compute CRC and FCS:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**.</span><span class="n">crcMode</span> <span class="o">=</span> <span class="s2">&quot;computed&quot;</span>
-<span class="o">**.</span><span class="n">fcsMode</span> <span class="o">=</span> <span class="s2">&quot;computed&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.crcMode</span> <span class="o">=</span> <span class="s">&quot;computed&quot;</span>
+<span class="na">**.fcsMode</span> <span class="o">=</span> <span class="s">&quot;computed&quot;</span>
 </pre></div>
 </div>
 <p>Note that these settings are required, otherwise an error is returned.</p>
@@ -545,7 +556,7 @@ pcap file as they are recorded, or after the simulation has concluded.
 It is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default, but it’s set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in all PCAP
 recorders to make sure there are recorded packets even if the simulation
 crashes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**.</span><span class="n">pcapRecorder</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">alwaysFlush</span> <span class="o">=</span> <span class="n">true</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.pcapRecorder[*].alwaysFlush</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 </div>

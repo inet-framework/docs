@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -388,23 +400,22 @@ networks because the error rate of wired connections is usually negligible.</li>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>The configuration for this step extends Step 4, thus, it uses the
-<code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code> network. The configuration in omnetpp.ini is the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a> network. The configuration in omnetpp.ini is the
 following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step6A</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step4</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Setting different metric for automatic routing table configuration - using dataRate metric&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step6A]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Setting different metric for automatic routing table configuration - using dataRate metric&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step6a.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step6a.xml&quot;)</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;host1&quot;</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;host1&quot;</span>
 </pre></div>
 </div>
 <p>Below is the XML configuration in step6a.xml:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s1">&#39;**&#39;</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.x.x.x&#39;</span> <span class="n">netmask</span><span class="o">=</span><span class="s1">&#39;255.x.x.x&#39;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">autoroute</span> <span class="n">sourceHosts</span><span class="o">=</span><span class="s1">&#39;**&#39;</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;dataRate&#39;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&#39;**&#39;</span> <span class="na">address=</span><span class="s">&#39;10.x.x.x&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.x.x.x&#39;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;autoroute</span> <span class="na">sourceHosts=</span><span class="s">&#39;**&#39;</span> <span class="na">metric=</span><span class="s">&#39;dataRate&#39;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The XML configuration contains the default rule for IP address
@@ -489,23 +500,22 @@ link to be infinite.</p>
 <div class="section" id="id1">
 <h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The configuration for this step in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step6B</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step4</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Setting different metric for automatic routing table configuration - manually specifying link cost&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step6B]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Setting different metric for automatic routing table configuration - manually specifying link cost&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step6b.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step6b.xml&quot;)</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;host1&quot;</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;host1&quot;</span>
 </pre></div>
 </div>
 <p>The XML configuration in step6b.xml is as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s1">&#39;**&#39;</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.x.x.x&#39;</span> <span class="n">netmask</span><span class="o">=</span><span class="s1">&#39;255.x.x.x&#39;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">autoroute</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;hopCount&#39;</span><span class="o">&gt;</span>
-		<span class="o">&lt;</span><span class="n">link</span> <span class="n">interfaces</span><span class="o">=</span><span class="s1">&#39;*.router0.eth2&#39;</span> <span class="n">cost</span><span class="o">=</span><span class="s1">&#39;infinite&#39;</span><span class="o">/&gt;</span>
- 	<span class="o">&lt;/</span><span class="n">autoroute</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&#39;**&#39;</span> <span class="na">address=</span><span class="s">&#39;10.x.x.x&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.x.x.x&#39;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;autoroute</span> <span class="na">metric=</span><span class="s">&#39;hopCount&#39;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">interfaces=</span><span class="s">&#39;*.router0.eth2&#39;</span> <span class="na">cost=</span><span class="s">&#39;infinite&#39;</span><span class="nt">/&gt;</span>
+ 	<span class="nt">&lt;/autoroute&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;autoroute&gt;</span></code> elements can also contain the following optional
@@ -534,7 +544,7 @@ used, and routes didn’t use the 10Mbps link between <code class="docutils lite
 is “turned off” by specifying an infinite cost for it. The following
 video shows <code class="docutils literal notranslate"><span class="pre">host1</span></code> pinging <code class="docutils literal notranslate"><span class="pre">host7</span></code>. Routes towards <code class="docutils literal notranslate"><span class="pre">host1</span></code> are
 visualized. The ping packets take the diverted route in both directions:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step6A_1_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step6A_1_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 </div>

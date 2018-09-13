@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -357,33 +369,32 @@ that calculates with one reflection from the ground.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>It has been mentioned that <code class="docutils literal notranslate"><span class="pre">ApskScalarRadioMedium</span></code> relies on various
+<p>It has been mentioned that <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> relies on various
 subcomponents for computing path loss, obstacle loss, and background
 noise, among others. Installing the two-ray ground reflection model is
 just a matter of changing its <code class="docutils literal notranslate"><span class="pre">pathLossType</span></code> parameter from the
-default <code class="docutils literal notranslate"><span class="pre">FreeSpacePathLoss</span></code> to <code class="docutils literal notranslate"><span class="pre">TwoRayGroundReflection</span></code>. (Further
-options include <code class="docutils literal notranslate"><span class="pre">RayleighFading</span></code>, <code class="docutils literal notranslate"><span class="pre">RicianFading</span></code>,
-<code class="docutils literal notranslate"><span class="pre">LogNormalShadowing</span></code> and some others.)</p>
+default <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>. (Further
+options include <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.pathloss.RayleighFading.html">RayleighFading</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.pathloss.RicianFading.html">RicianFading</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> and some others.)</p>
 <p>The two-ray ground reflection model uses the altitudes of the
 transmitter and the receiver antennas above the ground as input. To
 compute the altitude, we need the hosts’ (x,y,z) positions, and the
 ground’s elevation at those points. The z coordinates of hosts have been
 set to 1.7m in an earlier step. The ground’s elevation is defined by the
 ground model. which is part of the physical environment model.</p>
-<p>In this model, we’ll use <code class="docutils literal notranslate"><span class="pre">FlatGround</span></code> for ground model, and specify it
+<p>In this model, we’ll use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.environment.ground.FlatGround.html">FlatGround</a> for ground model, and specify it
 to the <code class="docutils literal notranslate"><span class="pre">physicalEnvironment</span></code> module. (Note that we added
 <code class="docutils literal notranslate"><span class="pre">physicalEnvironment</span></code> to the network when we introduced obstacles.)
-The ground’s elevation is the <code class="docutils literal notranslate"><span class="pre">elevation</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">FlatGround</span></code>.
+The ground’s elevation is the <code class="docutils literal notranslate"><span class="pre">elevation</span></code> parameter of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.environment.ground.FlatGround.html">FlatGround</a>.
 We set this parameter to 0m.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless13</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Configuring</span> <span class="n">a</span> <span class="n">more</span> <span class="n">accurate</span> <span class="n">pathloss</span> <span class="n">model</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless12</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless13]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Configuring a more accurate pathloss model</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless12</span>
 
-<span class="o">*.</span><span class="n">physicalEnvironment</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;FlatGround&quot;</span>
-<span class="o">*.</span><span class="n">physicalEnvironment</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">elevation</span> <span class="o">=</span> <span class="mi">0</span><span class="n">m</span>
+<span class="na">*.physicalEnvironment.ground.typename</span> <span class="o">=</span> <span class="s">&quot;FlatGround&quot;</span>
+<span class="na">*.physicalEnvironment.ground.elevation</span> <span class="o">=</span> <span class="s">0m</span>
 
-<span class="o">*.</span><span class="n">radioMedium</span><span class="o">.</span><span class="n">pathLoss</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;TwoRayGroundReflection&quot;</span>
-
+<span class="na">*.radioMedium.pathLoss.typename</span> <span class="o">=</span> <span class="s">&quot;TwoRayGroundReflection&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -406,7 +417,7 @@ model, the bit error rate is greater.</p>
 <a class="reference internal image-reference" href="../../../_images/wireless-step13.png"><img alt="../../../_images/wireless-step13.png" src="../../../_images/wireless-step13.png" style="width: 100%;" /></a>
 </div>
 <p><strong>Number of packets received by host B: 679</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessC.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

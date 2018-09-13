@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -361,19 +373,19 @@ simulated, then the multicast routing tables also must be filled in.</p>
 <p>The configuration can be manual (each address and route is fully
 specified by the user), or automatic (addresses and routes are generated
 by a configurator module at startup).</p>
-<p>Before version 1.99.4 INET offered <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code>
+<p>Before version 1.99.4 INET offered <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a>
 for automatic and routing files for manual configuration. Both had
 serious limitations, so a new configurator has been added in version
-1.99.4: <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. This configurator supports both
+1.99.4: <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. This configurator supports both
 fully manual and fully automatic configuration. It can also be used with
 partially specified manual configurations, the configurator fills in the
 gaps automatically.</p>
-<p>The next section describes the usage of <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>.
-The legacy solutions <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> and routing
+<p>The next section describes the usage of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>.
+The legacy solutions <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> and routing
 files are described in subsequent sections.</p>
 <div class="section" id="ipv4networkconfigurator">
 <span id="ug-sec-autoconfig-ipv4networkconfigurator"></span><h3>Ipv4NetworkConfigurator<a class="headerlink" href="#ipv4networkconfigurator" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> assigns IP addresses and sets up
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> assigns IP addresses and sets up
 static routing for an IPv4 network.</p>
 <p>It assigns per-interface IP addresses, strives to take subnets into
 account, and can also optimize the generated routing tables by merging
@@ -455,8 +467,8 @@ config file of subsequent runs.</p>
 <p>The network topology graph is constructed from the nodes of the network.
 The node is a module having a <code class="docutils literal notranslate"><span class="pre">&#64;node</span></code> property (this includes
 hosts, routers, and L2 devices like switches, access points, Ethernet
-hubs, etc.). An IP node is a node that contains an <code class="code literal-ned docutils literal notranslate"><span class="pre">InterfaceTable</span></code>
-and a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code>. A router is an IP node that has multiple
+hubs, etc.). An IP node is a node that contains an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.common.InterfaceTable.html">InterfaceTable</a>
+and a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a>. A router is an IP node that has multiple
 network interfaces, and IP forwarding is enabled in its routing table
 module. In multicast routers the <code class="code literal-ini docutils literal notranslate"><span class="pre">forwardMulticast</span></code> parameter is
 also set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
@@ -470,7 +482,7 @@ IP nodes, buses, hubs, and switches.</p>
 <code class="code literal-ini docutils literal notranslate"><span class="pre">accessPointAddress</span></code> parameter of the 802.11 management module.
 Wireless interfaces whose node does not contain a management module are
 supposed to be on the same wireless link. Wireless links can also be
-configured in the configuration file of <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>:</p>
+configured in the configuration file of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
   <span class="nt">&lt;wireless</span> <span class="na">hosts=</span><span class="s">&quot;area1.*&quot;</span> <span class="na">interfaces=</span><span class="s">&quot;wlan*&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/config&gt;</span>
@@ -618,7 +630,7 @@ from the valid range of multicast addresses. e.g. “224.0.0.1
 </div>
 <div class="section" id="manual-route-configuration">
 <h4>Manual route configuration<a class="headerlink" href="#manual-route-configuration" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> module allows the user to fully
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module allows the user to fully
 specify the routing tables of IP nodes at the beginning of the
 simulation.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;route&gt;</span></code> elements of the configuration add a route to the routing
@@ -736,7 +748,7 @@ same way by the optimized routing table.</p>
 </div>
 <div class="section" id="parameters">
 <h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h4>
-<p>This list summarize the parameters of the <code class="code literal-ned docutils literal notranslate"><span class="pre">IPv4NetorkConfigurator</span></code>:</p>
+<p>This list summarize the parameters of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>:</p>
 <ul class="simple">
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">config</span></code>: XML configuration parameters for IP address assignment
 and adding manual routes.</li>
@@ -771,7 +783,7 @@ given config file that can be fed back to speed up subsequent runs
 </div>
 <div class="section" id="ipv4flatnetworkconfigurator-legacy">
 <span id="ug-sec-autoconfig-ipv4flatnetworkconfigurator"></span><h3>Ipv4FlatNetworkConfigurator (Legacy)<a class="headerlink" href="#ipv4flatnetworkconfigurator-legacy" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module configures IP addresses
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> module configures IP addresses
 and routes of IP nodes of a network. All assigned addresses share a
 common subnet prefix, the network topology will be ignored. Shortest
 path routes are also generated from any node to any other node of the
@@ -781,17 +793,17 @@ several LANs. It does not perform routing table optimization (i.e.
 merging similar routes into a single, more general route.)</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> is considered
+<p class="last"><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> is considered
 legacy, do not use it for new projects.</p>
 </div>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module configures the network
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> module configures the network
 when it is initialized. The configuration is performed in stage 2, after
 interface tables are filled in. Do not use a
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> module together with static routing
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> module together with static routing
 files, because they can iterfere with the configurator.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4FlatNetworkConfigurator</span></code> searches each IP nodes of the
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a> searches each IP nodes of the
 network. (IP nodes are those modules that have the &#64;node NED property
-and has a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> submodule named “routingTable”). The
+and has a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> submodule named “routingTable”). The
 configurator then assigns IP addresses to the IP nodes, controlled by
 the following module parameters:</p>
 <ul class="simple">
@@ -832,15 +844,15 @@ best matching route will be proportional to $n$.</p>
 <span id="ug-sec-autoconfig-routing-files"></span><h3>Routing Files (Legacy)<a class="headerlink" href="#routing-files-legacy" title="Permalink to this headline">¶</a></h3>
 <p>Routing files are files with <code class="docutils literal notranslate"><span class="pre">.irt</span></code> or <code class="docutils literal notranslate"><span class="pre">.mrt</span></code> extension, and
 their names are passed in the <code class="code literal-ini docutils literal notranslate"><span class="pre">routingFile</span></code> parameter to
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> modules.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> modules.</p>
 <p>Routing files may contain network interface configuration and static
 routes. Both are optional. Network interface entries in the file
 configure existing interfaces; static routes are added to the route
 table.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last"><code class="code literal-ned docutils literal notranslate"><span class="pre">Routing</span> <span class="pre">files</span></code> are considered legacy, use do not use them for new
-projects. Their contents can be expressed in <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>
+<p class="last"><em>Routing files</em> are considered legacy, use do not use them for new
+projects. Their contents can be expressed in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>
 config files.</p>
 </div>
 <p>Interfaces themselves are represented in the simulation by modules (such
@@ -927,7 +939,7 @@ the network and forwarded by the node.</p>
 This requires a separate routing table, that can not be populated from
 the old routing table entries. Therefore simulations that use multicast
 forwarding can not use the old configuration files, they should be
-migrated to use an <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> instead.</p>
+migrated to use an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> instead.</p>
 <p class="last">Some change is needed in models that use link-local multicast too.
 Earlier if the IP module received a datagram from the higher layer
 and multiple routes was given for the multicast group,
@@ -941,13 +953,13 @@ interface.</p>
 </div>
 <div class="section" id="configuring-layer-2">
 <span id="ug-sec-autoconfig-configuring-layer-2"></span><h2>Configuring Layer 2<a class="headerlink" href="#configuring-layer-2" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">L2Configurator</span></code> module allows configuring network scenarios at
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.configurator.L2NetworkConfigurator.html">L2NetworkConfigurator</a> module allows configuring network scenarios at
 layer 2. The STP/RTP-related parameters such as link cost, port priority
 and the “is-edge” flag can be configured with XML files.</p>
-<p>This module is similar to <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. It supports
+<p>This module is similar to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. It supports
 the selector attributes <code class="docutils literal notranslate"><span class="pre">&#64;hosts</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;names</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;towards</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&#64;among</span></code>, and they behave similarly to its
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> equivalent. The <code class="docutils literal notranslate"><span class="pre">&#64;ports</span></code> selector is
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> equivalent. The <code class="docutils literal notranslate"><span class="pre">&#64;ports</span></code> selector is
 also supported, for configuring per-port parameters.</p>
 <p>The following example configures port 5 (if it exists) on all switches,
 and sets cost=19 and priority=32768:</p>
@@ -957,7 +969,7 @@ and sets cost=19 and priority=32768:</p>
 </pre></div>
 </div>
 <p>For more information about the usage of the selector attributes see
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>.</p>
 </div>
 </div>
 

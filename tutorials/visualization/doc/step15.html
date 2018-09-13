@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,44 +367,43 @@ visualization of routing table entries.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="network-topology">
 <h3>Network topology<a class="headerlink" href="#network-topology" title="Permalink to this headline">¶</a></h3>
-<p>The configuration for this step uses the <code class="docutils literal notranslate"><span class="pre">VisualizationE</span></code> network,
+<p>The configuration for this step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.visualization.VisualizationE.html">VisualizationE</a> network,
 defined in <a class="reference download internal" href="../../../_downloads/VisualizationE.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationE.ned</span></code></a>.</p>
 <p>We add the following nodes to the network:</p>
 <ul class="simple">
-<li>one <code class="docutils literal notranslate"><span class="pre">Router</span></code> (<code class="docutils literal notranslate"><span class="pre">router0</span></code>),</li>
-<li>one <code class="docutils literal notranslate"><span class="pre">EtherSwitch</span></code> (<code class="docutils literal notranslate"><span class="pre">switch0</span></code>),</li>
-<li>one <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code> (<code class="docutils literal notranslate"><span class="pre">pedestrianVideo</span></code>)</li>
+<li>one <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> (<code class="docutils literal notranslate"><span class="pre">router0</span></code>),</li>
+<li>one <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ethernet.EtherSwitch.html">EtherSwitch</a> (<code class="docutils literal notranslate"><span class="pre">switch0</span></code>),</li>
+<li>one <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> (<code class="docutils literal notranslate"><span class="pre">pedestrianVideo</span></code>)</li>
 <li>and two <code class="docutils literal notranslate"><span class="pre">Standardhost</span></code> s (<code class="docutils literal notranslate"><span class="pre">videoStreamServer</span></code> and <code class="docutils literal notranslate"><span class="pre">server1</span></code>).</li>
 </ul>
 <p>Wireless hosts connect to <code class="docutils literal notranslate"><span class="pre">router0</span></code> via <code class="docutils literal notranslate"><span class="pre">accessPoint0</span></code>,
 <code class="docutils literal notranslate"><span class="pre">videoStreamServer</span></code> and <code class="docutils literal notranslate"><span class="pre">server1</span></code> connect to <code class="docutils literal notranslate"><span class="pre">router0</span></code> via
 <code class="docutils literal notranslate"><span class="pre">switch0</span></code>. The nodes are placed on the playground as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initializing pedestrianVideo position</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StationaryMobility&quot;</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialX</span> <span class="o">=</span> <span class="mi">510</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialY</span> <span class="o">=</span> <span class="mi">50</span><span class="n">m</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># initializing pedestrianVideo position</span>
+<span class="na">*.pedestrianVideo.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.pedestrianVideo.mobility.initialX</span> <span class="o">=</span> <span class="s">510m</span>
+<span class="na">*.pedestrianVideo.mobility.initialY</span> <span class="o">=</span> <span class="s">50m</span>
 
 <span class="c1"># router0 mobility settings</span>
-<span class="o">*.</span><span class="n">router</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StationaryMobility&quot;</span>
-<span class="o">*.</span><span class="n">router</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">coordinateSystemModule</span> <span class="o">=</span> <span class="s2">&quot;coordinateSystem&quot;</span>
-<span class="o">*.</span><span class="n">router0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLatitude</span> <span class="o">=</span> <span class="mf">42.35433</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">router0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLongitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.06550</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">router</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialAltitude</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
+<span class="na">*.router*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.router*.mobility.coordinateSystemModule</span> <span class="o">=</span> <span class="s">&quot;coordinateSystem&quot;</span>
+<span class="na">*.router0.mobility.initialLatitude</span> <span class="o">=</span> <span class="s">42.35433deg</span>
+<span class="na">*.router0.mobility.initialLongitude</span> <span class="o">=</span> <span class="s">-71.06550deg</span>
+<span class="na">*.router*.mobility.initialAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 
 <span class="c1"># videoStreamServer mobility settings</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StationaryMobility&quot;</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">coordinateSystemModule</span> <span class="o">=</span> <span class="s2">&quot;coordinateSystem&quot;</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLatitude</span> <span class="o">=</span> <span class="mf">42.3554005</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLongitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.0637636</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialAltitude</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
+<span class="na">*.videoStreamServer.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.videoStreamServer.mobility.coordinateSystemModule</span> <span class="o">=</span> <span class="s">&quot;coordinateSystem&quot;</span>
+<span class="na">*.videoStreamServer.mobility.initialLatitude</span> <span class="o">=</span> <span class="s">42.3554005deg</span>
+<span class="na">*.videoStreamServer.mobility.initialLongitude</span> <span class="o">=</span> <span class="s">-71.0637636deg</span>
+<span class="na">*.videoStreamServer.mobility.initialAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 
 <span class="c1"># server1 mobility settings</span>
-<span class="o">*.</span><span class="n">server1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StationaryMobility&quot;</span>
-<span class="o">*.</span><span class="n">server1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">coordinateSystemModule</span> <span class="o">=</span> <span class="s2">&quot;coordinateSystem&quot;</span>
-<span class="o">*.</span><span class="n">server1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLatitude</span> <span class="o">=</span> <span class="mf">42.35485</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">server1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLongitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.06390</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">server1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialAltitude</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
-
+<span class="na">*.server1.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.server1.mobility.coordinateSystemModule</span> <span class="o">=</span> <span class="s">&quot;coordinateSystem&quot;</span>
+<span class="na">*.server1.mobility.initialLatitude</span> <span class="o">=</span> <span class="s">42.35485deg</span>
+<span class="na">*.server1.mobility.initialLongitude</span> <span class="o">=</span> <span class="s">-71.06390deg</span>
+<span class="na">*.server1.mobility.initialAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 </pre></div>
 </div>
 <p>The following image shows how the network looks like.</p>
@@ -406,28 +417,27 @@ defined in <a class="reference download internal" href="../../../_downloads/Visu
 <code class="docutils literal notranslate"><span class="pre">pedestrianVideo</span></code>, the server is <code class="docutils literal notranslate"><span class="pre">videoStreamServer</span></code>. They
 communicate at UDP port 4000. In addition, sending interval, packet
 length and the video size are also defined in the <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># videoStreamServer application settings</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpVideoStreamServer&quot;</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">localPort</span> <span class="o">=</span> <span class="mi">4000</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sendInterval</span> <span class="o">=</span> <span class="n">exponential</span><span class="p">(</span><span class="mi">5</span><span class="n">ms</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">packetLen</span> <span class="o">=</span> <span class="mi">1000</span><span class="n">B</span>
-<span class="o">*.</span><span class="n">videoStreamServer</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">videoSize</span> <span class="o">=</span> <span class="mi">50000000</span><span class="n">B</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># videoStreamServer application settings</span>
+<span class="na">*.videoStreamServer.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.videoStreamServer.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpVideoStreamServer&quot;</span>
+<span class="na">*.videoStreamServer.app[0].localPort</span> <span class="o">=</span> <span class="s">4000</span>
+<span class="na">*.videoStreamServer.app[0].sendInterval</span> <span class="o">=</span> <span class="s">exponential(5ms)</span>
+<span class="na">*.videoStreamServer.app[0].packetLen</span> <span class="o">=</span> <span class="s">1000B</span>
+<span class="na">*.videoStreamServer.app[0].videoSize</span> <span class="o">=</span> <span class="s">50000000B</span>
 
 <span class="c1"># client (pedestrianVideo) video application settings</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpVideoStreamClient&quot;</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">localPort</span> <span class="o">=</span> <span class="mi">4000</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">serverAddress</span> <span class="o">=</span> <span class="s2">&quot;videoStreamServer&quot;</span>
-<span class="o">*.</span><span class="n">pedestrianVideo</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">serverPort</span> <span class="o">=</span> <span class="mi">4000</span>
-
+<span class="na">*.pedestrianVideo.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.pedestrianVideo.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpVideoStreamClient&quot;</span>
+<span class="na">*.pedestrianVideo.app[0].localPort</span> <span class="o">=</span> <span class="s">4000</span>
+<span class="na">*.pedestrianVideo.app[0].serverAddress</span> <span class="o">=</span> <span class="s">&quot;videoStreamServer&quot;</span>
+<span class="na">*.pedestrianVideo.app[0].serverPort</span> <span class="o">=</span> <span class="s">4000</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="visualizer">
 <h3>Visualizer<a class="headerlink" href="#visualizer" title="Permalink to this headline">¶</a></h3>
-<p>Routing entries are visualized by <code class="docutils literal notranslate"><span class="pre">RoutingTableVisualizer</span></code> (included
-in the network as part of <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>). The visualizer can
+<p>Routing entries are visualized by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.RoutingTableVisualizer.html">RoutingTableVisualizer</a> (included
+in the network as part of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>). The visualizer can
 be enabled by setting <code class="docutils literal notranslate"><span class="pre">displayRoutingTables</span></code> to <em>true</em>. The
 <code class="docutils literal notranslate"><span class="pre">videoStreamServer</span></code> node is selected as destination by setting
 <code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> to <em>*videoStreamServer*</em>. We want to display the
@@ -440,7 +450,7 @@ so they need to be added to <code class="docutils literal notranslate"><span cla
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationE.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationE.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationE.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationE.ned</span></code></a></p>
 </div>
 </div>
 

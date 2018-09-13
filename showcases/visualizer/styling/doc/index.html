@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -387,8 +399,8 @@ and the customized visualization.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">lineColor</span></code> parameter specifices the color of the arrow, and it
 accepts English color names (more precisely, SVG color names) and
-HTML-style RGB values. For the <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code>,
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> and <code class="docutils literal notranslate"><span class="pre">MobilityVisualizer</span></code> modules,
+HTML-style RGB values. For the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.mobility.MobilityVisualizer.html">MobilityVisualizer</a> modules,
 <code class="docutils literal notranslate"><span class="pre">lineColor</span></code> may be set to a list of colors separated by commas, or to
 the <code class="docutils literal notranslate"><span class="pre">dark</span></code> and <code class="docutils literal notranslate"><span class="pre">light</span></code> keywords which will be interpreted as a list
 of good dark (light) colors. The <code class="docutils literal notranslate"><span class="pre">lineStyle</span></code> parameter can be set to
@@ -409,7 +421,7 @@ from the ini file. The network is the same as in the previous example:
 two hosts communicating wirelessly. We customize the font used in labels
 on data link activity arrows.</p>
 <p>To customize the fonts used in labels, we configure
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> in the following way:</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> in the following way:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.dataLinkVisualizer.labelFont = &quot;Courier New, 12px, bold&quot;
 *.visualizer.*.dataLinkVisualizer.labelColor = &quot;red&quot;
 </pre></div>
@@ -427,20 +439,20 @@ to <code class="docutils literal notranslate"><span class="pre">&quot;bold&quot;
 name or a HTML-style RGB value.</p>
 <p>Labels are enabled by default. (Labels can be disabled by setting the
 <code class="docutils literal notranslate"><span class="pre">displayLabels</span></code> parameter to false.)</p>
-<p>For <code class="docutils literal notranslate"><span class="pre">InterfaceTableVisualizer</span></code> and <code class="docutils literal notranslate"><span class="pre">StatisticVisualizer</span></code>, the
+<p>For <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.InterfaceTableVisualizer.html">InterfaceTableVisualizer</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.common.StatisticVisualizer.html">StatisticVisualizer</a>, the
 <code class="docutils literal notranslate"><span class="pre">font</span></code> parameter is used instead of <code class="docutils literal notranslate"><span class="pre">labelFont</span></code>, and <code class="docutils literal notranslate"><span class="pre">textColor</span></code>
 is used instead of <code class="docutils literal notranslate"><span class="pre">labelColor</span></code>.</p>
 </div>
 <div class="section" id="customizing-icons">
 <h2>Customizing Icons<a class="headerlink" href="#customizing-icons" title="Permalink to this headline">¶</a></h2>
-<p>Some visualizers, such as <code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code>, display
+<p>Some visualizers, such as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a>, display
 icons. The following example shows how to customize icon appearance in
 INET.</p>
 <p>The simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Icon</span></code> configuration from
 the ini file. The network is the same as in the previous examples: two
 hosts communicating wirelessly. This time, however, we add TCP traffic
 between them, so that we can show how the icons displayed by
-<code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code> can be customized.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a> can be customized.</p>
 <p>We use the following configuration to customize the transport connection
 icons:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.transportConnectionVisualizer.icon = &quot;misc/marker2&quot;
@@ -460,12 +472,12 @@ resolves to the <code class="docutils literal notranslate"><span class="pre">ine
 <a class="reference internal image-reference" href="../../../../_images/marker2.png"><img alt="../../../../_images/marker2.png" src="../../../../_images/marker2.png" style="width: 24px;" /></a>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">iconColor</span></code> parameter allows you to colorize (tint) the icon. As
-<code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code> potentially displays several icons per
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a> potentially displays several icons per
 network node, the parameter accepts a (space-separated) list of colors,
 and the module will cycle through them as it assigns colors to icons. It
 also accepts the <code class="docutils literal notranslate"><span class="pre">dark</span></code> and <code class="docutils literal notranslate"><span class="pre">light</span></code> keywords, which will be
 interpreted as a list of good dark (light) colors.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">LinkBreakVisualizer</span></code> and <code class="docutils literal notranslate"><span class="pre">PacketDropVisualizer</span></code> modules have an
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.LinkBreakVisualizer.html">LinkBreakVisualizer</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.common.PacketDropVisualizer.html">PacketDropVisualizer</a> modules have an
 <code class="docutils literal notranslate"><span class="pre">iconTintColor</span></code> parameter instead of <code class="docutils literal notranslate"><span class="pre">iconColor</span></code>. However, note,
 that <code class="docutils literal notranslate"><span class="pre">iconTintColor</span></code> can be set only to a single color. These
 visualizers also have an <code class="docutils literal notranslate"><span class="pre">iconTintAmount</span></code> parameter. By adjusting
@@ -483,7 +495,7 @@ comprehensible.</p>
 The simulation can be run by selecting the <code class="docutils literal notranslate"><span class="pre">Annotation</span></code> configuration
 from the ini file. The network is the same as in the previous example.
 The simulation will set up several TCP connections between the two
-hosts, and <code class="docutils literal notranslate"><span class="pre">TransportConnectionVisualizer</span></code> will be used to visualize
+hosts, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a> will be used to visualize
 them as marker icons.</p>
 <p>We use the following configuration to place the annotation icons.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.transportConnectionVisualizer.placementHint = &quot;bottom&quot;

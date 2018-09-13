@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -375,15 +387,15 @@ specify members.</li>
 same wireless network.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>This step uses the <code class="docutils literal notranslate"><span class="pre">ConfiguratorC</span></code> network defined in
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a>. The network is
 displayed on the following image.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step8network.png"><img alt="../../../_images/step8network.png" src="../../../_images/step8network.png" style="width: 100%;" /></a>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">ConfiguratorC</span></code> network extends <code class="docutils literal notranslate"><span class="pre">ConfiguratorB</span></code> by adding two
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network extends <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorB.html">ConfiguratorB</a> by adding two
 wireless LANs, <code class="docutils literal notranslate"><span class="pre">area1lan3</span></code> and <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code>. The additional LANs
-consist of an <code class="docutils literal notranslate"><span class="pre">AccessPoint</span></code> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</p>
+consist of an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</p>
 <p>The default SSID settings of all wireless nodes is <code class="docutils literal notranslate"><span class="pre">&quot;SSID&quot;</span></code>. By
 default, the configurator would put them in the same wireless network,
 and assume that they can all reach each other directly. This would be
@@ -392,22 +404,21 @@ reflected in the routes, hosts in <code class="docutils literal notranslate"><sp
 range of each other. The two LANs need to be in two different wireless
 networks.</p>
 <p>Here is the configuration for this step in omnetpp.ini:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step8A</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorC</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Mixed wired/wireless network configuration - using &lt;wireless&gt; attribute&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step8A]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorC</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixed wired/wireless network configuration - using &lt;wireless&gt; attribute&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step8a.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step8a.xml&quot;)</span>
 
-<span class="o">*.</span><span class="n">area1lan3host2</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">area1lan3host2</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">area1lan3host2</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;area3lan3host2&quot;</span>
+<span class="na">*.area1lan3host2.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.area1lan3host2.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.area1lan3host2.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;area3lan3host2&quot;</span>
 
 <span class="c1"># visualizer settings</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;area3lan3*&quot;</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;area3lan3*&quot;</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
 </pre></div>
 </div>
 <p>A wireless host in area 1 is configured to ping a wireless host in area
@@ -415,43 +426,42 @@ networks.</p>
 <p>There is a setting in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration pertaining to
 wireless networks: the control bit rate of all wireless nodes is set to
 54 Mbps for faster ACK transmissions.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">General</span><span class="p">]</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
 <span class="c1"># Configurator settings</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpAddresses</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpTopology</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpRoutes</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.configurator.dumpAddresses</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpTopology</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpRoutes</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># Routing settings</span>
-<span class="o">*.*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">arp</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;GlobalArp&quot;</span>
-<span class="o">*.*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">routingTable</span><span class="o">.</span><span class="n">netmaskRoutes</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="na">*.*.ipv4.arp.typename</span> <span class="o">=</span> <span class="s">&quot;GlobalArp&quot;</span>
+<span class="na">*.*.ipv4.routingTable.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
 <span class="c1"># Wireless settings</span>
-<span class="o">*.*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">bitrate</span> <span class="o">=</span> <span class="mi">54</span><span class="n">Mbps</span>
+<span class="na">*.*.wlan[*].bitrate</span> <span class="o">=</span> <span class="s">54Mbps</span>
 
 <span class="c1"># Visualizer settings</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">interfaceTableVisualizer</span><span class="o">.</span><span class="n">displayInterfaceTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">interfaceTableVisualizer</span><span class="o">.</span><span class="n">nodeFilter</span> <span class="o">=</span> <span class="s2">&quot;not (*switch* or *Switch* or *AP*)&quot;</span>
-
+<span class="na">*.visualizer.interfaceTableVisualizer.displayInterfaceTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.interfaceTableVisualizer.nodeFilter</span> <span class="o">=</span> <span class="s">&quot;not (*switch* or *Switch* or *AP*)&quot;</span>
 </pre></div>
 </div>
 <p>The XML configuration in step8a.xml is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan3*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan3*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area1router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area2router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area3router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">wireless</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan3* area1AP&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">wireless</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan3* area3AP&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan3*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area2lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area2lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan3*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area1router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area2router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area3router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;wireless</span> <span class="na">hosts=</span><span class="s">&quot;area1lan3* area1AP&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;wireless</span> <span class="na">hosts=</span><span class="s">&quot;area3lan3* area3AP&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The XML configuration uses the same hierarchical addressing scheme as in
@@ -503,38 +513,37 @@ different wireless networks.</p>
 <h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The configuration for this part extends Part A. The configuration in
 omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step8B</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step8A</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Mixed wired/wireless network configuration - using SSID&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step8B]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step8A</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixed wired/wireless network configuration - using SSID&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step8b.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step8b.xml&quot;)</span>
 
-<span class="o">*.</span><span class="n">area1AP</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mgmt</span><span class="o">.</span><span class="n">ssid</span> <span class="o">=</span> <span class="s2">&quot;area1&quot;</span>
-<span class="o">*.</span><span class="n">area3AP</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mgmt</span><span class="o">.</span><span class="n">ssid</span> <span class="o">=</span> <span class="s2">&quot;area3&quot;</span>
+<span class="na">*.area1AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area1&quot;</span>
+<span class="na">*.area3AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area3&quot;</span>
 
-<span class="o">*.</span><span class="n">area1lan3</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">default_ssid</span> <span class="o">=</span> <span class="s2">&quot;area1&quot;</span>
-<span class="o">*.</span><span class="n">area3lan3</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">default_ssid</span> <span class="o">=</span> <span class="s2">&quot;area3&quot;</span>
-
+<span class="na">*.area1lan3*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area1&quot;</span>
+<span class="na">*.area3lan3*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area3&quot;</span>
 </pre></div>
 </div>
 <p>The XML configuration in step8b.xml (displayed below) is the same as the
 XML configuration for Part A, except there are no <code class="docutils literal notranslate"><span class="pre">&lt;wireless&gt;</span></code>
 elements that defined wireless networks. They are not needed because
 different SSIDs are configured for the members of the two wireless LANs.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1lan3*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area2lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.1.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan2*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.2.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area3lan3*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area1router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area2router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.2.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;backbonerouter&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;area3router&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.3.3.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.x&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1lan3*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area2lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area2lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.1.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan2*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.2.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area3lan3*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area1router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area2router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.2.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;backbonerouter&quot;</span> <span class="na">towards=</span><span class="s">&quot;area3router&quot;</span> <span class="na">address=</span><span class="s">&quot;10.3.3.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.x&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -542,7 +551,7 @@ different SSIDs are configured for the members of the two wireless LANs.</p>
 <h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The results are the same as in the previous part. The two wireless LANs
 are considered to be different wireless networks.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a></p>
 </div>
 </div>

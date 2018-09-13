@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -436,8 +448,8 @@ unclaimed time slot.</p>
 </div>
 <div class="section" id="the-inet-implementations">
 <h3>The INET implementations<a class="headerlink" href="#the-inet-implementations" title="Permalink to this headline">¶</a></h3>
-<p>The three MACs are implemented in INET as the <code class="docutils literal notranslate"><span class="pre">BMac</span></code>, <code class="docutils literal notranslate"><span class="pre">XMac</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">LMac</span></code> modules. They have parameters to adapt the MAC protocol to the
+<p>The three MACs are implemented in INET as the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a>, and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> modules. They have parameters to adapt the MAC protocol to the
 size of the network and the traffic intensity, such as slot time, clear
 channel assessment duration, bitrate, etc. The parameters have default
 values, thus the MAC modules can be used without setting any of their
@@ -445,8 +457,8 @@ parameters. Check the NED files of the MAC modules (<code class="docutils litera
 <code class="docutils literal notranslate"><span class="pre">XMac.ned</span></code>, and <code class="docutils literal notranslate"><span class="pre">LMac.ned</span></code>) to see all parameters.</p>
 <p>The MACs don’t have corresponding physical layer models. They can be
 used with existing generic radio models in INET, such as
-<code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code> or <code class="docutils literal notranslate"><span class="pre">ApskRadio</span></code>. We’re using <code class="docutils literal notranslate"><span class="pre">ApskRadio</span></code> in this
-showcase, because it is more realistic than <code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> or <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskRadio.html">ApskRadio</a>. We’re using <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskRadio.html">ApskRadio</a> in this
+showcase, because it is more realistic than <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>.</p>
 <p>INET doesn’t have WSN routing protocol models (such as Collection Tree
 Protocol), so we’re using Ipv4 and static routing.</p>
 </div>
@@ -464,63 +476,63 @@ there should be a specific application in the gateway node called
 server over IP. Thus the node would act as a gateway between the WSN and
 the outside IP network. In the example simulations, the gateway just
 forwards the data packets over IP.</p>
-<p>To run the example simulations, choose the <code class="docutils literal notranslate"><span class="pre">BMac</span></code>, <code class="docutils literal notranslate"><span class="pre">LMac</span></code> and
-<code class="docutils literal notranslate"><span class="pre">XMac</span></code> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
+<p>To run the example simulations, choose the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
 Most of the configuration keys in the ini file are shared between the
 three simulations (they are defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration),
 except for the MAC protocol specific settings. All three simulations
-will use the same network, <code class="docutils literal notranslate"><span class="pre">SensorNetworkShowcaseA</span></code>, defined in
+will use the same network, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseA.html">SensorNetworkShowcaseA</a>, defined in
 <a class="reference download internal" href="../../../../_downloads/SensorNetworkShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">SensorNetworkShowcase.ned</span></code></a>:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/network3.png"><img alt="../../../../_images/network3.png" src="../../../../_images/network3.png" style="width: 100%;" /></a>
 </div>
 <p>In the network, the wireless sensor nodes are of the type
-<code class="docutils literal notranslate"><span class="pre">SensorNode</span></code>, named <code class="docutils literal notranslate"><span class="pre">sensor1</span></code> up to <code class="docutils literal notranslate"><span class="pre">sensor4</span></code>, and <code class="docutils literal notranslate"><span class="pre">gateway</span></code>.
-The node named <code class="docutils literal notranslate"><span class="pre">server</span></code> is a <code class="docutils literal notranslate"><span class="pre">StandardHost</span></code>. The network also
-contains an <code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>, an <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>,
-and an <code class="docutils literal notranslate"><span class="pre">ApskScalarRadioMedium</span></code> module. The nodes are placed against
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>, named <code class="docutils literal notranslate"><span class="pre">sensor1</span></code> up to <code class="docutils literal notranslate"><span class="pre">sensor4</span></code>, and <code class="docutils literal notranslate"><span class="pre">gateway</span></code>.
+The node named <code class="docutils literal notranslate"><span class="pre">server</span></code> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>. The network also
+contains an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>,
+and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> module. The nodes are placed against
 the backdrop of a warehouse floorplan. The playground size is 60x30
 meters. The warehouse is just a background image providing context.
 Obstacle loss is not modelled, so the background image doesn’t affect
 the simulation in any way.</p>
 <p>The wireless interface in the sensor nodes and the gateway is specified
-in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
-<code class="docutils literal notranslate"><span class="pre">WirelessInterface</span></code> (instead of the Ieee802154 specific
-<code class="docutils literal notranslate"><span class="pre">Ieee802154NarrowbandInterface</span></code>, which is the default wlan interface
-in <code class="docutils literal notranslate"><span class="pre">SensorNode</span></code>). The radio type is set to <code class="docutils literal notranslate"><span class="pre">ApskScalarRadio</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;WirelessInterface&quot;</span>
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;ApskScalarRadio&quot;</span>
+in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.common.WirelessInterface.html">WirelessInterface</a> (instead of the Ieee802154 specific
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a>, which is the default wlan interface
+in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>). The radio type is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.wlan[*].typename</span> <span class="o">=</span> <span class="s">&quot;WirelessInterface&quot;</span>
+<span class="na">**.wlan[*].radio.typename</span> <span class="o">=</span> <span class="s">&quot;ApskScalarRadio&quot;</span>
 </pre></div>
 </div>
 <p>Note that the wireless interface module’s name is <code class="docutils literal notranslate"><span class="pre">wlan</span></code> in all host
 types that have a wireless interface. The term doesn’t imply that it’s
 Wifi, but stands for wireless LAN.</p>
-<p>We are using <code class="docutils literal notranslate"><span class="pre">ApskScalarRadio</span></code> here, because it is a relatively
+<p>We are using <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> here, because it is a relatively
 simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
 spreading. We set the bitrate in
-<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
+<a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
 default for the MAC bitrates (we’ll use the default bitrate in the MACs,
 which is 19200 bps for all three MAC types.) The <code class="docutils literal notranslate"><span class="pre">preambleDuration</span></code> is
 set to be very short for better compatibility with the MACs. We also set
 some other parameters of the radio to arbitrary values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">carrierFrequency</span> <span class="o">=</span> <span class="mf">2.45</span><span class="n">GHz</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">bandwidth</span> <span class="o">=</span> <span class="mf">2.8</span><span class="n">MHz</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.radio.carrierFrequency</span> <span class="o">=</span> <span class="s">2.45GHz</span>
+<span class="na">**.radio.bandwidth</span> <span class="o">=</span> <span class="s">2.8MHz</span>
 
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">bitrate</span> <span class="o">=</span> <span class="mi">19200</span> <span class="n">bps</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">headerLength</span> <span class="o">=</span> <span class="mi">8</span><span class="n">b</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">preambleDuration</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="n">s</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="mf">2.24</span><span class="n">mW</span>
+<span class="na">**.radio.transmitter.bitrate</span> <span class="o">=</span> <span class="s">19200 bps</span>
+<span class="na">**.radio.transmitter.headerLength</span> <span class="o">=</span> <span class="s">8b</span>
+<span class="na">**.radio.transmitter.preambleDuration</span> <span class="o">=</span> <span class="s">0.0001s</span>
+<span class="na">**.radio.transmitter.power</span> <span class="o">=</span> <span class="s">2.24mW</span>
 
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">receiver</span><span class="o">.</span><span class="n">energyDetection</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span><span class="n">dBm</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">receiver</span><span class="o">.</span><span class="n">sensitivity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="n">dBm</span>
-<span class="o">**.</span><span class="n">radio</span><span class="o">.</span><span class="n">receiver</span><span class="o">.</span><span class="n">snirThreshold</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="n">dB</span>
+<span class="na">**.radio.receiver.energyDetection</span> <span class="o">=</span> <span class="s">-90dBm</span>
+<span class="na">**.radio.receiver.sensitivity</span> <span class="o">=</span> <span class="s">-100dBm</span>
+<span class="na">**.radio.receiver.snirThreshold</span> <span class="o">=</span> <span class="s">-8dB</span>
 </pre></div>
 </div>
 <p>Routes are set up according to a star topology, with the gateway at the
 center. This is achieved by dumping the full configuration of
-<code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> (which was generated with the configurator’s
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> (which was generated with the configurator’s
 default settings), and then modifying it. The modified configuration is
 in the <a class="reference download internal" href="../../../../_downloads/config.xml" download=""><code class="xref download docutils literal notranslate"><span class="pre">config.xml</span></code></a> file. The following
 image shows the routes:</p>
@@ -532,36 +544,36 @@ image shows the routes:</p>
 time around 1s. The packets will have an 8-byte UDP header and a 20-byte
 Ipv4 header, so they will be 38 bytes at the MAC level. The packets will
 be routed via the gateway. Here are the application settings in
-<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpBasicApp&quot;</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destAddresses</span> <span class="o">=</span> <span class="s2">&quot;server&quot;</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destPort</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sendInterval</span> <span class="o">=</span> <span class="mi">1</span><span class="n">s</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startTime</span> <span class="o">=</span> <span class="n">exponential</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">messageLength</span> <span class="o">=</span> <span class="mi">10</span><span class="n">Byte</span>
+<a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.sensor*.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.sensor*.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.sensor*.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;server&quot;</span>
+<span class="na">*.sensor*.app[0].destPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">*.sensor*.app[0].sendInterval</span> <span class="o">=</span> <span class="s">1s</span>
+<span class="na">*.sensor*.app[0].startTime</span> <span class="o">=</span> <span class="s">exponential(1s)</span>
+<span class="na">*.sensor*.app[0].messageLength</span> <span class="o">=</span> <span class="s">10Byte</span>
 
-<span class="o">*.</span><span class="n">server</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">server</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpSink&quot;</span>
-<span class="o">*.</span><span class="n">server</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">localPort</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="na">*.server.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.server.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.server.app[0].localPort</span> <span class="o">=</span> <span class="s">1000</span>
 </pre></div>
 </div>
 <p>The MAC-specific parameters are set in the configurations for the
 individual MACs.</p>
 <p>For B-MAC, the wireless interface’s <code class="docutils literal notranslate"><span class="pre">macType</span></code> parameter is set to
-<code class="docutils literal notranslate"><span class="pre">BMac</span></code>. Also, the <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter is set to 0.025s (an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>. Also, the <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter is set to 0.025s (an
 arbitrary value.) This parameter is essentially the nodes’ sleep
 duration. Here is the configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">BMac</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
+<a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config BMac]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;BMac&quot;</span>
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">slotDuration</span> <span class="o">=</span> <span class="mf">0.025</span><span class="n">s</span>
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;BMac&quot;</span>
+<span class="na">**.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">0.025s</span>
 </pre></div>
 </div>
 <p>For X-MAC, the wireless interface’s <code class="docutils literal notranslate"><span class="pre">macType</span></code> parameter is set to
-<code class="docutils literal notranslate"><span class="pre">XMac</span></code>. The MAC’s <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter determines the duration
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a>. The MAC’s <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter determines the duration
 of the nodes’ sleep periods. It is set to 0.25s for the sensor nodes,
 and 0.1s for the gateway. Nodes transmit preambles for the duration of
 their own sleep periods, unless interrupted by an acknowledgement from
@@ -570,17 +582,17 @@ intervals for different nodes, as long as the sender node’s sleep
 interval is greater than the receiver’s. (?). We set the slot duration
 of the gateway to a shorter value, because it has to receive and relay
 data from all sensors, thus it has more traffic. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">XMac</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config XMac]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;XMac&quot;</span>
-<span class="o">*.</span><span class="n">gateway</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">slotDuration</span> <span class="o">=</span> <span class="mf">0.1</span><span class="n">s</span>
-<span class="o">*.</span><span class="n">sensor</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">slotDuration</span> <span class="o">=</span> <span class="mf">0.25</span><span class="n">s</span>
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;XMac&quot;</span>
+<span class="na">*.gateway.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">0.1s</span>
+<span class="na">*.sensor*.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">0.25s</span>
 </pre></div>
 </div>
 <p>For LMAC, the wireless interface’s <code class="docutils literal notranslate"><span class="pre">macType</span></code> parameter is set to
-<code class="docutils literal notranslate"><span class="pre">LMac</span></code>. The <code class="docutils literal notranslate"><span class="pre">numSlots</span></code> parameter is set to 8, as it is sufficient
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a>. The <code class="docutils literal notranslate"><span class="pre">numSlots</span></code> parameter is set to 8, as it is sufficient
 (there are only five nodes in the wireless sensor network.) The
 <code class="docutils literal notranslate"><span class="pre">reservedMobileSlots</span></code> parameter reserves some of the slots for mobile
 nodes, these slots are not chosen by any of the nodes during network
@@ -589,14 +601,14 @@ setup. The parameter’s default value is 2, but it is set to 0. The
 50ms to decrease the network setup time. The duration of a timeframe
 will be 400ms (number of slots * slot duration.) The network is set up
 in the first five frames, i.e. in the first 2 seconds. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">LMac</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseA</span>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config LMac]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;LMac&quot;</span>
-<span class="o">**.</span><span class="n">mac</span><span class="o">.</span><span class="n">slotDuration</span> <span class="o">=</span> <span class="mi">50</span><span class="n">ms</span>
-<span class="o">**.</span><span class="n">mac</span><span class="o">.</span><span class="n">numSlots</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="o">**.</span><span class="n">mac</span><span class="o">.</span><span class="n">reservedMobileSlots</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;LMac&quot;</span>
+<span class="na">**.mac.slotDuration</span> <span class="o">=</span> <span class="s">50ms</span>
+<span class="na">**.mac.numSlots</span> <span class="o">=</span> <span class="s">8</span>
+<span class="na">**.mac.reservedMobileSlots</span> <span class="o">=</span> <span class="s">0</span>
 </pre></div>
 </div>
 <p>The next sections demonstrate the three simulations.</p>
@@ -604,7 +616,7 @@ configuration in <a class="reference download internal" href="../../../../_downl
 <div class="section" id="id1">
 <h3>B-MAC<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The following video shows sensor nodes sending data to the server:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="BMac2.mp4" width="698" height="" class="align-center"></video><p><code class="docutils literal notranslate"><span class="pre">BMac</span></code> actually sends multiple shorter preambles instead of a long
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="BMac2.mp4" width="698" height="" class="align-center"></video><p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> actually sends multiple shorter preambles instead of a long
 one, so that waking nodes can receive the one that starts after they
 woke up. <code class="docutils literal notranslate"><span class="pre">sensor3</span></code> starts sending preambles, while the other nodes are
 asleep. All of them wake up before the end of the preamble transmission.
@@ -642,7 +654,7 @@ to find the parameter values for each MAC, which lead to the best
 performance of the network in a particular scenario. We’ll optimize for
 the number of packets received by the server, i.e. we want to minimize
 packet loss.</p>
-<p>The scenario will be the same as in the <code class="docutils literal notranslate"><span class="pre">BMac</span></code>, <code class="docutils literal notranslate"><span class="pre">XMac</span></code> and <code class="docutils literal notranslate"><span class="pre">LMac</span></code>
+<p>The scenario will be the same as in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a>
 configurations (each sensor sending data every second to the server),
 except that it will use a similar, but more generic network layout
 instead of the warehouse network:</p>
@@ -661,11 +673,11 @@ server.</p>
 <p>The parameter study configurations for the three MAC protocols will
 extend the <code class="docutils literal notranslate"><span class="pre">StatisticBase</span></code> config (as well as the <code class="docutils literal notranslate"><span class="pre">General</span></code>
 configuration):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">StatisticBase</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">SensorNetworkShowcaseB</span>
-<span class="o">**.</span><span class="n">vector</span><span class="o">-</span><span class="n">recording</span> <span class="o">=</span> <span class="n">false</span>
-<span class="n">sim</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">100</span><span class="n">s</span>
-<span class="n">repeat</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticBase]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseB</span>
+<span class="na">**.vector-recording</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">100s</span>
+<span class="na">repeat</span> <span class="o">=</span> <span class="s">10</span>
 </pre></div>
 </div>
 <p>In this base configuration, we set the simulation time limit, the number
@@ -675,15 +687,15 @@ of repetitions, and turn vector recording off to speed up the runs.</p>
 studies for the individual MACs are detailed in the following sections.</p>
 <div class="section" id="optimizing-b-mac">
 <h3>Optimizing B-MAC<a class="headerlink" href="#optimizing-b-mac" title="Permalink to this headline">¶</a></h3>
-<p>The goal is to optimize <code class="docutils literal notranslate"><span class="pre">BMac</span></code>’s <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number
+<p>The goal is to optimize <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>’s <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number
 of packets received by the server. The configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+<a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticBMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticBMac]
-extends = StatisticBase
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticBMac]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
-**.wlan[*].mac.typename = &quot;BMac&quot;
-**.wlan[*].mac.slotDuration = ${slotDuration=0.01..1 step 0.01}s
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;BMac&quot;</span>
+<span class="na">**.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">${slotDuration=0.01..1 step 0.01}s</span>
 </pre></div>
 </div>
 <p>In the study, <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> will run from 10ms to 1s in 10ms
@@ -702,18 +714,18 @@ smooth curve. We choose 0.19s as the best performing value for
 <div class="section" id="optimizing-x-mac">
 <h3>Optimizing X-MAC<a class="headerlink" href="#optimizing-x-mac" title="Permalink to this headline">¶</a></h3>
 <p>Again, we optimize the <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number of packets
-received by the server. As in the <code class="docutils literal notranslate"><span class="pre">XMac</span></code> configuration, the
+received by the server. As in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configuration, the
 <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> for the gateway will be shorter than for the sensors. The
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticXMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticXMac]
-extends = StatisticBase
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticXMac]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
-**.wlan[*].mac.typename = &quot;XMac&quot;
-*.gateway.wlan[*].mac.slotDuration = ${gwSlotDuration=0.01..1 step 0.01}s
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;XMac&quot;</span>
+<span class="na">*.gateway.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">${gwSlotDuration=0.01..1 step 0.01}s</span>
 </pre></div>
 </div>
-<p>The default of <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> for <code class="docutils literal notranslate"><span class="pre">XMac</span></code> is 100ms. In the study, the
+<p>The default of <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> for <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> is 100ms. In the study, the
 gateway’s <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> will run from 10ms to 1s in 10ms increments,
 similarly to the parameter study for B-MAC. The <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> for the
 sensors will be 2.5 times that of the gateway (an arbitrary value.) Here
@@ -728,15 +740,15 @@ is 0.14s (0.35s for the sensors), so we choose that.</p>
 <h3>Optimizing LMAC<a class="headerlink" href="#optimizing-lmac" title="Permalink to this headline">¶</a></h3>
 <p>We’ll optimize the <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter for the number of packets
 received by the server. The configuration for this study in
-<a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
+<a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
 contains 1000 runs. Here is the configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Config StatisticLMac]
-extends = StatisticBase
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticLMac]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
-**.wlan[*].mac.typename = &quot;LMac&quot;
-**.mac.slotDuration = ${slotDuration=0.01..1 step 0.01}s
-**.mac.numSlots = 8
-**.mac.reservedMobileSlots = 0
+<span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;LMac&quot;</span>
+<span class="na">**.mac.slotDuration</span> <span class="o">=</span> <span class="s">${slotDuration=0.01..1 step 0.01}s</span>
+<span class="na">**.mac.numSlots</span> <span class="o">=</span> <span class="s">8</span>
+<span class="na">**.mac.reservedMobileSlots</span> <span class="o">=</span> <span class="s">0</span>
 </pre></div>
 </div>
 <p>We set <code class="docutils literal notranslate"><span class="pre">reservedMobileSlots</span></code> to 0, and <code class="docutils literal notranslate"><span class="pre">numSlots</span></code> to 8. The
@@ -747,7 +759,7 @@ seconds):</p>
 <a class="reference internal image-reference" href="../../../../_images/statisticlmac4.png"><img alt="../../../../_images/statisticlmac4.png" src="../../../../_images/statisticlmac4.png" style="width: 100%;" /></a>
 </div>
 <p>It is apparent from the results that the network can carry almost all
-the traffic in this scenario (as opposed to the <code class="docutils literal notranslate"><span class="pre">XMac</span></code> and <code class="docutils literal notranslate"><span class="pre">LMac</span></code>
+the traffic in this scenario (as opposed to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a>
 results.) The best performing value for <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> is 50ms. Note
 that the lowest <code class="docutils literal notranslate"><span class="pre">slotDuration</span></code> values up until 120ms yield
 approximatelly the same results (around 400 packets), with the 50ms
@@ -760,17 +772,17 @@ consumption, but we are optimizing for the number of packets here.</p>
 <p>We will examine the three simulations with the chosen parameters in
 terms of power consumption.</p>
 <p>We want to record the power consumption of the radios in the wireless
-nodes. The <code class="docutils literal notranslate"><span class="pre">SensorNode</span></code> host type has an energy consumer submodule in
-its radio by default, <code class="docutils literal notranslate"><span class="pre">SensorStateBasedEpEnergyConsumer</span></code>. This module
+nodes. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> host type has an energy consumer submodule in
+its radio by default, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a>. This module
 assigns a constant power consumption value to each radio mode and
 transmitter/receiver state. Note that the values for each state are
 parameters of the energy consumer module, and don’t come from other
 modules (such as the radio), so they need to be set correctly in order
 to obtain accurate power consumption results.
-<code class="docutils literal notranslate"><span class="pre">SensorStateBasedEpEnergyConsumer</span></code> has default power consumption
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a> has default power consumption
 values typical for wireless sensor nodes, thus we leave module’s
-parameters on default. <code class="docutils literal notranslate"><span class="pre">SensorNode</span></code> has an energy storage submodule by
-default, <code class="docutils literal notranslate"><span class="pre">IdealEpEnergyStorage</span></code>. This module keeps track of the node’s
+parameters on default. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> has an energy storage submodule by
+default, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.IdealEpEnergyStorage.html">IdealEpEnergyStorage</a>. This module keeps track of the node’s
 energy consumption. It stores an infinite amount of energy, and cannot
 get fully charged or depleted, and it is useful if we only want to model
 and measure power consumption, but not energy capacity, charging, etc.</p>
@@ -799,12 +811,12 @@ negative, so it is inverted in the anf file. Here are the results:</p>
 <a class="reference internal image-reference" href="../../../../_images/power.png"><img alt="../../../../_images/power.png" src="../../../../_images/power.png" style="width: 100%;" /></a>
 </div>
 <p>From this, it is apparent that LMac carried the most packets, and
-<code class="docutils literal notranslate"><span class="pre">BMac</span></code> the least. <code class="docutils literal notranslate"><span class="pre">BMac</span></code> consumed significantly more power than the
-others. All three carried around 90-100% of the traffic (<code class="docutils literal notranslate"><span class="pre">BMac</span></code> 90%,
-<code class="docutils literal notranslate"><span class="pre">XMac</span></code> 99.25%, <code class="docutils literal notranslate"><span class="pre">LMac</span></code> 97%), thus BMac has significantly more power
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> the least. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> consumed significantly more power than the
+others. All three carried around 90-100% of the traffic (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> 90%,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> 99.25%, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> 97%), thus BMac has significantly more power
 consumption per packet. The conclusion is that in this scenario, with
-the selected parameter values, <code class="docutils literal notranslate"><span class="pre">XMac</span></code> turned out to be the most energy
-efficient MAC protocol, although <code class="docutils literal notranslate"><span class="pre">LMac</span></code> carried a bit more traffic.</p>
+the selected parameter values, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> turned out to be the most energy
+efficient MAC protocol, although <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> carried a bit more traffic.</p>
 </div>
 </div>
 <div class="section" id="further-information">

@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -356,19 +368,18 @@ default configuration for routing.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>This step uses the same network as the previous steps,
-<code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code>. The configuration for this step in omnetpp.ini is the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a>. The configuration for this step in omnetpp.ini is the
 following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step4</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorA</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Fully automatic static routing table configuration&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorA</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Fully automatic static routing table configuration&quot;</span>
 
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host7&quot;</span>
+<span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host1.app[0].destAddr</span> <span class="o">=</span> <span class="s">&quot;host7&quot;</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;host7&quot;</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;host7&quot;</span>
 </pre></div>
 </div>
 <p>The configuration leaves the configurator’s parameters at their
@@ -398,13 +409,13 @@ the route between the two hosts.</p>
 </div>
 <div class="section" id="logging-and-visualization-settings">
 <h3>Logging and visualization settings<a class="headerlink" href="#logging-and-visualization-settings" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">RoutingTableCanvasVisualizer</span></code> module (present in the network as a
-submodule of <code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code>) can be used to visualize IP
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.RoutingTableCanvasVisualizer.html">RoutingTableCanvasVisualizer</a> module (present in the network as a
+submodule of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a>) can be used to visualize IP
 routes in the network. Routes are visualized with arrows. In general, an
 arrow indicates an entry in the source host’s routing table. It points
 to the host that is the next hop or gateway for that routing table
 entry. The visualization is activated by setting the
-<code class="docutils literal notranslate"><span class="pre">RoutingTableVisualizer</span></code>’s <code class="docutils literal notranslate"><span class="pre">displayRoutingTables</span></code> parameter to
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.RoutingTableVisualizer.html">RoutingTableVisualizer</a>’s <code class="docutils literal notranslate"><span class="pre">displayRoutingTables</span></code> parameter to
 <code class="docutils literal notranslate"><span class="pre">true</span></code>. The set of routes to be visualized are selected with the
 visualizer’s <code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameters. All
 routes leading towards the selected set of destinations from the
@@ -419,17 +430,16 @@ visualized route by default. This feature can be customized and toggled
 on and off with the visualizer’s parameters (discussed in later steps.)</p>
 <p>Additional settings pertaining to routing are specified in the
 <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in omnetpp.ini:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">General</span><span class="p">]</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
 <span class="c1"># Configurator settings</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpAddresses</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpTopology</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpRoutes</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.configurator.dumpAddresses</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpTopology</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.configurator.dumpRoutes</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># Routing settings</span>
-<span class="o">*.*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">arp</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;GlobalArp&quot;</span>
-<span class="o">*.*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">routingTable</span><span class="o">.</span><span class="n">netmaskRoutes</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-
+<span class="na">*.*.ipv4.arp.typename</span> <span class="o">=</span> <span class="s">&quot;GlobalArp&quot;</span>
+<span class="na">*.*.ipv4.routingTable.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">dumpTopology</span></code>, <code class="docutils literal notranslate"><span class="pre">dumpLinks</span></code> and <code class="docutils literal notranslate"><span class="pre">dumpRoutes</span></code> parameters are
@@ -442,8 +452,8 @@ are considered to be on the same link.</p>
 </div>
 <div class="section" id="additional-configuration">
 <h3>Additional configuration<a class="headerlink" href="#additional-configuration" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration also sets up <code class="docutils literal notranslate"><span class="pre">GlobalArp</span></code> to keep the
-packet exchanges simpler. <code class="docutils literal notranslate"><span class="pre">GlobalArp</span></code> fills the ARP tables of all
+<p>The <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration also sets up <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a> to keep the
+packet exchanges simpler. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a> fills the ARP tables of all
 nodes in advance, so when the simulation begins no ARP exchanges are
 necessary.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">**.routingTable.netmaskRoutes</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code> line keeps the routing table
@@ -522,7 +532,7 @@ have three rules in their routing tables for reaching the other routers,
 specifically, those interfaces of the other routers that are not facing
 the hosts.</p>
 <p>Below is a video of <code class="docutils literal notranslate"><span class="pre">host1</span></code> pinging <code class="docutils literal notranslate"><span class="pre">host7</span></code>.</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step4_2_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step4_2_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -364,7 +376,7 @@ solar cells) units built into them.</p>
 <div class="section" id="the-network">
 <h3>The network<a class="headerlink" href="#the-network" title="Permalink to this headline">¶</a></h3>
 <p>The network consists of a configurable number of stationary wireless
-nodes of the type <code class="docutils literal notranslate"><span class="pre">AdhocHost</span></code>. The hosts are placed on the playground
+nodes of the type <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>. The hosts are placed on the playground
 randomly at the start of the simulation. The radios are configured so
 that hosts can reach each other in one hop, so no routing is needed.
 We’ll use the ping application in each host to generate network traffic.
@@ -389,13 +401,13 @@ collisions will be very low.</p>
 </div>
 <div class="section" id="energy-storage-generation-and-management">
 <h3>Energy Storage, Generation and Management<a class="headerlink" href="#energy-storage-generation-and-management" title="Permalink to this headline">¶</a></h3>
-<p>Hosts are configured to contain a <code class="docutils literal notranslate"><span class="pre">SimpleEpEnergyStorage</span></code> module.
-<code class="docutils literal notranslate"><span class="pre">SimpleEpEnergyStorage</span></code> keeps a record of stored energy in Joules, and
+<p>Hosts are configured to contain a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.SimpleEpEnergyStorage.html">SimpleEpEnergyStorage</a> module.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.SimpleEpEnergyStorage.html">SimpleEpEnergyStorage</a> keeps a record of stored energy in Joules, and
 power input/output in Watts. The letters <code class="docutils literal notranslate"><span class="pre">Ep</span></code> stand for energy and
 power, denoting how the module represents energy storage and power
 input/output. There are other energy storage models in INET that,
 similarly to real batteries, use charge and current (denoted by <code class="docutils literal notranslate"><span class="pre">Cc</span></code>),
-such as <code class="docutils literal notranslate"><span class="pre">SimpleCcBattery</span></code>. <code class="docutils literal notranslate"><span class="pre">SimpleEpEnergyStorage</span></code> models energy
+such as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.SimpleCcBattery.html">SimpleCcBattery</a>. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.SimpleEpEnergyStorage.html">SimpleEpEnergyStorage</a> models energy
 storage by integrating the difference of absorbed and provided power
 over time. It does not simulate other effects of real batteries, such as
 temperature dependency and hysteresis. It is used in this model because
@@ -414,7 +426,7 @@ parameters. These are set to a random value with a mean of 25s for each
 host.</p>
 <p>Energy storage and generator modules are controlled by energy management
 modules. In this showcase, hosts are configured to contain a
-<code class="docutils literal notranslate"><span class="pre">SimpleEpEnergyManagement</span></code> module. We configure energy management
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.management.SimpleEpEnergyManagement.html">SimpleEpEnergyManagement</a> module. We configure energy management
 modules to shut down hosts when their energy levels reach 10% of the
 nominal capacity (0.005 Joules), and restart them when their energy
 storage charges to half of their nominal energy capacity, i.e. 0.025
@@ -423,7 +435,7 @@ module’s <code class="docutils literal notranslate"><span class="pre">nodeShut
 </div>
 <div class="section" id="radio-modes-and-states">
 <h3>Radio modes and states<a class="headerlink" href="#radio-modes-and-states" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">Ieee80211ScalarRadio</span></code> model used in this simulation (and in
+<p>In the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadio.html">Ieee80211ScalarRadio</a> model used in this simulation (and in
 other radio models), there are different modes in which radios operate,
 such as off, sleep, receiver, transmitter. The mode is set by the model,
 and does not depend on external effects. In addition to mode, radios
@@ -445,9 +457,9 @@ are receiving a transmission, and even more when they are transmitting.</p>
 <div class="section" id="energy-storage-visualization">
 <h3>Energy storage visualization<a class="headerlink" href="#energy-storage-visualization" title="Permalink to this headline">¶</a></h3>
 <p>The energy storage capacity of nodes can be visualized by the
-<code class="docutils literal notranslate"><span class="pre">EnergyStorageVisualizer</span></code> module, which displays a battery icon next
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.power.EnergyStorageVisualizer.html">EnergyStorageVisualizer</a> module, which displays a battery icon next
 to the nodes, indicating their charge levels. This visualizer is
-included in the network as part of the <code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code>
+included in the network as part of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a>
 module.</p>
 </div>
 </div>

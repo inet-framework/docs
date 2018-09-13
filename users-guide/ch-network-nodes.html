@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -351,7 +363,7 @@ Show Source
 <p>Hosts, routers, switches, access points, mobile phones, and other
 network nodes are represented in INET with compound modules. The
 previous chapter has introduced a few node types like
-<code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code>, and showed how to put together
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>, and showed how to put together
 networks from them. In this chapter, we look at the internals of such
 node models, in order to provide a deeper understanding of their
 customization possibilities and to give some guidance on how custom
@@ -374,20 +386,20 @@ protocols (e.g., <span class="protocol">IP</span> or <span class="protocol">Ethe
 <span class="protocol">OSPF</span>, <span class="protocol">BGP</span>, or <span class="protocol">AODV</span> for MANET
 routing. These modules use <span class="protocol">TCP</span>, <span class="protocol">UDP</span>, and
 <span class="protocol">IPv4</span>, and manipulate routes in the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module.</li>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> module.</li>
 <li><em>Transport layer protocols</em> are connected to applications and network
 layer protocols. They are most often represented by simple modules,
 currently <span class="protocol">TCP</span>, <span class="protocol">UDP</span>, and <span class="protocol">SCTP</span> are
-supported. <span class="protocol">TCP</span> has several implementations: <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> is
-the OMNeT++ native implementation; <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpLwip</span></code> module wraps the
-lwIP <span class="protocol">TCP</span> stack; and <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code> module wraps the
+supported. <span class="protocol">TCP</span> has several implementations: <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> is
+the OMNeT++ native implementation; <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_lwip.TcpLwip.html">TcpLwip</a> module wraps the
+lwIP <span class="protocol">TCP</span> stack; and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a> module wraps the
 Network Simulation Cradle library.</li>
 <li><em>Network layer protocols</em> are connected to transport layer protocols
 and network interfaces. They are usually modeled as compound modules:
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code> for <span class="protocol">IPv4</span>, and
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv6NetworkLayer</span></code> for <span class="protocol">IPv6</span>. The
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code> module contains several protocol modules:
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code>, and <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmpv4</span></code>.</li>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a> for <span class="protocol">IPv4</span>, and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv6.Ipv6NetworkLayer.html">Ipv6NetworkLayer</a> for <span class="protocol">IPv6</span>. The
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a> module contains several protocol modules:
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.icmpv6.Icmpv6.html">Icmpv6</a>.</li>
 <li><em>Network interfaces</em> are represented by compound modules which are
 connected to the network layer protocols and other network interfaces
 in the wired case. They are often modeled as compound modules
@@ -403,7 +415,7 @@ network interface modules.</li>
 <code class="docutils literal notranslate"><span class="pre">eth0</span></code>, <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>) in the network node. Interfaces are registered
 dynamically during initialization of network interfaces.</li>
 <li><em>Routing tables</em> maintain the list of routes for the corresponding
-network protocol (e.g., <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> for <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>).
+network protocol (e.g., <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> for <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>).
 Routes are added by automatic network configurators or routing
 protocols. Network protocols use the routing tables to find out the
 best matching route for datagrams.</li>
@@ -418,10 +430,10 @@ mobility model can be changed in the configuration.</li>
 <li><em>Energy modules</em> model energy storage mechanisms, energy consumption
 of devices and software processes, energy generation of devices, and
 energy management processes which shutdown and startup network nodes.</li>
-<li><em>Status</em> (<code class="code literal-ned docutils literal notranslate"><span class="pre">NodeStatus</span></code>) keeps track of the status of the network
+<li><em>Status</em> (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.lifecycle.NodeStatus.html">NodeStatus</a>) keeps track of the status of the network
 node (up, down, etc.)</li>
 <li><em>Other modules</em> with particular functionality such as
-<code class="code literal-ned docutils literal notranslate"><span class="pre">PcapRecorder</span></code> are also available.</li>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a> are also available.</li>
 </ul>
 </div>
 <div class="section" id="node-architecture">
@@ -431,7 +443,7 @@ communication opportunities between protocols. Packets and messages sent
 on these connections represent software or hardware activity.</p>
 <p>Although protocols may also be connected to each other directly, in most
 cases they are connected via <em>dispatcher modules</em>. Dispatchers
-(<code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code>) are small, low-overhead modules that allow
+(<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a>) are small, low-overhead modules that allow
 protocol components to be connected in one-to-many and many-to-many
 fashion, and ensure that messages and packets sent from one component
 end up being delivered to the correct component. Dispatchers need no
@@ -457,8 +469,8 @@ as many <span class="protocol">Ethernet</span> interfaces as the number of
 </pre></div>
 </div>
 <p>Where :ini:<code class="docutils literal notranslate"><span class="pre">numWlanInterfaces</span></code> is a module parameter that defaults to
-either 0 or 1 (this is different for e.g. <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> and
-<code class="code literal-ned docutils literal notranslate"><span class="pre">WirelessHost</span></code>.) To configure a host to have two interfaces, add
+either 0 or 1 (this is different for e.g. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>.) To configure a host to have two interfaces, add
 the following line to the ini file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.hostA.numWlanInterfaces</span> <span class="o">=</span> <span class="s">2</span>
 </pre></div>
@@ -485,7 +497,7 @@ defined like this:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">tcpType</span></code> parameter defaults to the default implementation,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code>. To use another implementation instead, add the following
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a>. To use another implementation instead, add the following
 line to the ini file:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.host*.tcpType</span> <span class="o">=</span> <span class="s">&quot;TcpLwip&quot;  </span><span class="c1"># use lwIP&#39;s TCP implementation</span>
 </pre></div>
@@ -509,7 +521,7 @@ how applications are defined in hosts:</p>
 existing ones. A derived NED type may add new parameters, gates,
 submodules or connections, and may set inherited unassigned parameters
 to specific values.</p>
-<p>For example, <code class="code literal-ned docutils literal notranslate"><span class="pre">WirelessHost</span></code> is derived from <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> in
+<p>For example, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> is derived from <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> in
 the following way:</p>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">WirelessHost</span> <span class="k">extends</span> <span class="n">StandardHost</span>
 <span class="p">{</span>

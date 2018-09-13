@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Routing</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Routing</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -532,35 +544,35 @@ simulations, which demonstrate the MANET routing protocols <code class="docutils
 The GPSR simulation use the <code class="docutils literal notranslate"><span class="pre">ManetRoutingProtocolsShowcaseB</span></code> network,
 featuring stationary hosts. The networks are defined in
 <a class="reference download internal" href="../../../../_downloads/ManetProtocolsShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ManetProtocolsShowcase.ned</span></code></a>.
-Both networks contain hosts of the type <code class="docutils literal notranslate"><span class="pre">ManetRouter</span></code> (an extension of
-<code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code>), whose routing module type is configurable. Just as
-<code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code>, it uses <code class="docutils literal notranslate"><span class="pre">Ieee80211ScalarRadio</span></code> by default. It also
+Both networks contain hosts of the type <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> (an extension of
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>), whose routing module type is configurable. Just as
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>, it uses <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadio.html">Ieee80211ScalarRadio</a> by default. It also
 has IP forwarding enabled, and its management module is set to
-<code class="docutils literal notranslate"><span class="pre">Ieee80211MgmtAdhoc</span></code>. In the network, there is a source host named
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc.html">Ieee80211MgmtAdhoc</a>. In the network, there is a source host named
 <code class="docutils literal notranslate"><span class="pre">source</span></code>, a destination host named <code class="docutils literal notranslate"><span class="pre">destination</span></code>, and a number of
 other hosts, which are named <code class="docutils literal notranslate"><span class="pre">node1</span></code> up to <code class="docutils literal notranslate"><span class="pre">node10</span></code> (their numbers
 vary in the different networks). In addition to mobile nodes, both
-networks contain an <code class="docutils literal notranslate"><span class="pre">Ieee80211ScalarRadioMedium</span></code>, an
-<code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>, and an <code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code>
+networks contain an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>, an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedMultiVisualizer.html">IntegratedMultiVisualizer</a>
 module. The nodes’ default PHY model (IEEE 802.11) will suffice, because
 we’re focusing on the routing protocols.</p>
 <p>In all three simulations, the source node pings the destination node.
 The two nodes are out of communication range of each other, and the
 other nodes are responsible for forwarding packets between the two.
 Since routes are managed dynamically by the MANET routing algorithms,
-the <code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> module is instructed not to add any
+the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module is instructed not to add any
 routes (it will only assign IP addresses). The netmask routes added by
 network interfaces are disabled as well. The following keys in the
-<code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>
+<code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>
 achieve this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">addStaticRoutes</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">**.</span><span class="n">netmaskRoutes</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.configurator.addStaticRoutes</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">**.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="aodv">
 <h3>AODV<a class="headerlink" href="#aodv" title="Permalink to this headline">¶</a></h3>
-<p>The example simulation featuring AODV is defined in the <code class="docutils literal notranslate"><span class="pre">Aodv</span></code>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. This
+<p>The example simulation featuring AODV is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. This
 configuration uses the <code class="docutils literal notranslate"><span class="pre">ManetProtocolShowcaseA</span></code> network. The network
 looks like the following:</p>
 <div class="figure align-center">
@@ -573,38 +585,38 @@ cannot reach <code class="docutils literal notranslate"><span class="pre">destin
 nodes. The routing protocols will adapt the routes to the changing
 network topology.</p>
 <p>The mobility settings are defined in the <code class="docutils literal notranslate"><span class="pre">MobileNodesBase</span></code>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The
 simulations for AODV and DSDV, which feature moving nodes, are based on
 this configuration. The nodes will be moving on linear paths in random
 directions with a speed of 25 meters per second, bouncing back from the
 edge of the playground. The mobility settings are the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.</span><span class="n">node</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;LinearMobility&quot;</span>
-<span class="o">*.</span><span class="n">node</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="n">deg</span><span class="p">,</span><span class="mi">360</span><span class="n">deg</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">node</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">25</span><span class="n">mps</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.node*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;LinearMobility&quot;</span>
+<span class="na">*.node*.mobility.angle</span> <span class="o">=</span> <span class="s">uniform(0deg,360deg)</span>
+<span class="na">*.node*.mobility.speed</span> <span class="o">=</span> <span class="s">25mps</span>
 
-<span class="o">**.</span><span class="n">constraintAreaMaxX</span> <span class="o">=</span> <span class="mi">400</span><span class="n">m</span>
-<span class="o">**.</span><span class="n">constraintAreaMaxY</span> <span class="o">=</span> <span class="mi">400</span><span class="n">m</span>
-<span class="o">**.</span><span class="n">constraintAreaMinX</span> <span class="o">=</span> <span class="mi">0</span><span class="n">m</span>
-<span class="o">**.</span><span class="n">constraintAreaMinY</span> <span class="o">=</span> <span class="mi">0</span><span class="n">m</span>
+<span class="na">**.constraintAreaMaxX</span> <span class="o">=</span> <span class="s">400m</span>
+<span class="na">**.constraintAreaMaxY</span> <span class="o">=</span> <span class="s">400m</span>
+<span class="na">**.constraintAreaMinX</span> <span class="o">=</span> <span class="s">0m</span>
+<span class="na">**.constraintAreaMinY</span> <span class="o">=</span> <span class="s">0m</span>
 </pre></div>
 </div>
 <p>The ping app in <code class="docutils literal notranslate"><span class="pre">source</span></code> will send one ping request every second to
 <code class="docutils literal notranslate"><span class="pre">destination</span></code>.</p>
-<p>In INET, AODV is implemented by the <code class="docutils literal notranslate"><span class="pre">Aodv</span></code> module. This is configured
-in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> as the routing protocol
-type in <code class="docutils literal notranslate"><span class="pre">ManetRouter</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;Aodv&quot;</span>
+<p>In INET, AODV is implemented by the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> module. This is configured
+in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> as the routing protocol
+type in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routing.typename</span> <span class="o">=</span> <span class="s">&quot;Aodv&quot;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Aodv</span></code> module has many parameters for contolling the operation of
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> module has many parameters for contolling the operation of
 the protocol. The parameters should be set according to the number of
 nodes in a network, the nodes’ mobility levels, traffic, and radio
 transmission power levels/communication ranges. All of the parameters
-have default values, and <code class="docutils literal notranslate"><span class="pre">Aodv</span></code> should work out of the box, without
+have default values, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> should work out of the box, without
 setting any of the parameters. We will fine tune the protocol’s behavior
 to our scenario by setting two of the parameters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">activeRouteTimeout</span> <span class="o">=</span> <span class="mi">1</span><span class="n">s</span>
-<span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">deletePeriod</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">s</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routing.activeRouteTimeout</span> <span class="o">=</span> <span class="s">1s</span>
+<span class="na">*.*.routing.deletePeriod</span> <span class="o">=</span> <span class="s">0.5s</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">activeRouteTimeout</span></code> parameter sets the timeout for the active
@@ -630,7 +642,7 @@ RREQ message arrived on
 (<code class="docutils literal notranslate"><span class="pre">destination</span></code>-&gt;``node6``-&gt;``node1``-&gt;``source``). As the intermediate
 nodes receive the RREP message, the routes to <code class="docutils literal notranslate"><span class="pre">destination</span></code> are
 created. The routes are visualized with black arrows, the
-<code class="docutils literal notranslate"><span class="pre">RoutingTableVisualizer</span></code> is configured to only visualize routes
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.RoutingTableVisualizer.html">RoutingTableVisualizer</a> is configured to only visualize routes
 leading to <code class="docutils literal notranslate"><span class="pre">destination</span></code>. When the route is established in <code class="docutils literal notranslate"><span class="pre">source</span></code>,
 it sends the ping request packet, which gets to the destination. The
 ping reply packet gets back to <code class="docutils literal notranslate"><span class="pre">source</span></code> on the reverse path.</p>
@@ -650,26 +662,26 @@ RREP messages:</p>
 </div>
 <div class="section" id="dsdv">
 <h3>DSDV<a class="headerlink" href="#dsdv" title="Permalink to this headline">¶</a></h3>
-<p>The example simulation featuring DSDV is defined in the <code class="docutils literal notranslate"><span class="pre">Dsdv</span></code>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. Just like
+<p>The example simulation featuring DSDV is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. Just like
 the AODV configuration, this one uses the
 <code class="docutils literal notranslate"><span class="pre">ManetRoutingProtocolsShowcaseB</span></code> network. The mobility settings are
 also the same as in the AODV simulation. The ping app in <code class="docutils literal notranslate"><span class="pre">source</span></code> will
 send a ping request every second.</p>
-<p>The DSDV protocol is implemented in the <code class="docutils literal notranslate"><span class="pre">Dsdv</span></code> module. The routing
-protocol type in all hosts is set to <code class="docutils literal notranslate"><span class="pre">Dsdv</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;Dsdv&quot;</span>
+<p>The DSDV protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a> module. The routing
+protocol type in all hosts is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routing.typename</span> <span class="o">=</span> <span class="s">&quot;Dsdv&quot;</span>
 </pre></div>
 </div>
 <p>Currently, complete routing table broadcasts are not implemented, only
 the broadcasting of changes in the routing table using periodic hello
 messages.</p>
-<p>Like <code class="docutils literal notranslate"><span class="pre">Aodv</span></code> (and most routing protocol modules), <code class="docutils literal notranslate"><span class="pre">Dsdv</span></code> has many
+<p>Like <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> (and most routing protocol modules), <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a> has many
 parameters with default values that yield a working simulation without
 any configuration. In this simulation, similarly to the previous one, we
 set two parameters of the protocol:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">helloInterval</span> <span class="o">=</span> <span class="mi">1</span><span class="n">s</span>
-<span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">routeLifetime</span> <span class="o">=</span> <span class="mi">2</span><span class="n">s</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routing.helloInterval</span> <span class="o">=</span> <span class="s">1s</span>
+<span class="na">*.*.routing.routeLifetime</span> <span class="o">=</span> <span class="s">2s</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">helloInterval</span></code> parameter controls the frequency of the periodic
@@ -688,15 +700,15 @@ are visualized here.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="DsdvPing1.mp4" width="420" height="" class="align-center"></video></div>
 <div class="section" id="gpsr">
 <h3>GPSR<a class="headerlink" href="#gpsr" title="Permalink to this headline">¶</a></h3>
-<p>The example simulation featuring GPSR is defined in the <code class="docutils literal notranslate"><span class="pre">Gpsr</span></code>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. It uses the
+<p>The example simulation featuring GPSR is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. It uses the
 <code class="docutils literal notranslate"><span class="pre">ManetRoutingProtocolsShowcaseB</span></code> network. The network looks like the
 following:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/networkB.png"><img alt="../../../../_images/networkB.png" src="../../../../_images/networkB.png" style="width: 100%;" /></a>
 </div>
 <p>Just as with the previous two configurations, the nodes are
-<code class="docutils literal notranslate"><span class="pre">ManetRouter</span></code>s. The nodes are laid out along a chain. The
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a>s. The nodes are laid out along a chain. The
 transmitter power of the radios is configured so that nodes can only
 reach their neighbors in the chain (except for node9, which can reach
 nodes 11, 5, and 8). There is forest, which represents a void that GPSR
@@ -705,8 +717,8 @@ can route around. In this example simulation, the nodes will be static
 node will ping the destination node, which is on the other side of the
 void. (The ping app in <code class="docutils literal notranslate"><span class="pre">source</span></code> will send one ping request every
 second.)</p>
-<p>The hosts’ routing protocol type is set to <code class="docutils literal notranslate"><span class="pre">Gpsr</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*.*.</span><span class="n">routing</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;Gpsr&quot;</span>
+<p>The hosts’ routing protocol type is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routing.typename</span> <span class="o">=</span> <span class="s">&quot;Gpsr&quot;</span>
 </pre></div>
 </div>
 <p>The following video shows running the simulation from the beginning:</p>
@@ -732,7 +744,7 @@ request packet. Also, it might happen that a packet is not routed to a
 closer neighbor, because the sender doesn’t yet know about it (and its
 position).</p>
 <p>Also note that there are no IP routes, the <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> module routing
-tables are empty. Instead, <code class="docutils literal notranslate"><span class="pre">Gpsr</span></code> maintains the positions of the nodes
+tables are empty. Instead, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a> maintains the positions of the nodes
 in communication range (those that a beacon was received from), and uses
 that for routing decisions. Here is <code class="docutils literal notranslate"><span class="pre">node12</span></code>’s neightbor position
 table:</p>

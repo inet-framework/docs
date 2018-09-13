@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,21 +367,20 @@ taking antenna gain into account.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>For simplicity, we configure the hosts to use <code class="docutils literal notranslate"><span class="pre">ConstantGainAntenna</span></code>.
-<code class="docutils literal notranslate"><span class="pre">ConstantGainAntenna</span></code> is an abstraction: it models an antenna that has
+<p>For simplicity, we configure the hosts to use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.antenna.ConstantGainAntenna.html">ConstantGainAntenna</a>.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.antenna.ConstantGainAntenna.html">ConstantGainAntenna</a> is an abstraction: it models an antenna that has
 a constant gain in the directions relevant for the simulation,
 regardless of how such antenna could be implemented in real life. For
 example, if all nodes of a simulated wireless network are on the same
-plane, <code class="docutils literal notranslate"><span class="pre">ConstantGainAntenna</span></code> could correspond to an omnidirectional
+plane, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.antenna.ConstantGainAntenna.html">ConstantGainAntenna</a> could correspond to an omnidirectional
 antenna such as a vertical dipole. (INET contains support for
 directional antennas as well.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless14</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Introducing</span> <span class="n">antenna</span> <span class="n">gain</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless13</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless14]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Introducing antenna gain</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless13</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">antenna</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;ConstantGainAntenna&quot;</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">antenna</span><span class="o">.</span><span class="n">gain</span> <span class="o">=</span> <span class="mi">3</span><span class="n">dB</span>
-
+<span class="na">*.host*.wlan[0].radio.antenna.typename</span> <span class="o">=</span> <span class="s">&quot;ConstantGainAntenna&quot;</span>
+<span class="na">*.host*.wlan[0].radio.antenna.gain</span> <span class="o">=</span> <span class="s">3dB</span>
 </pre></div>
 </div>
 </div>
@@ -383,7 +394,7 @@ host R1 goes out of host A’s communication range only at the very end of
 the simulation. When this happens, host A’s transmission is routed
 through host R2, which is again just two hops.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="wireless-step14-1.mp4" width="655" height="575" class="align-center"></video><p><strong>Number of packets received by host B: 1045</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessC.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

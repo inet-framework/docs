@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,27 +367,26 @@ range of the nodes.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>Here is the configuration of this step.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization07</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Visualization06</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Displaying</span> <span class="n">Communication</span> <span class="o">&amp;</span> <span class="n">Interference</span> <span class="n">Range</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization07]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization06</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Displaying Communication &amp; Interference Range</span>
 
-<span class="o">**.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="mi">1</span><span class="n">mW</span>
+<span class="na">**.wlan[*].radio.transmitter.power</span> <span class="o">=</span> <span class="s">1mW</span>
 
 <span class="c1"># displaying communication and interference ranges</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayCommunicationRanges</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayInterferenceRanges</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.visualizer.*.mediumVisualizer.displayCommunicationRanges</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.mediumVisualizer.displayInterferenceRanges</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># turning off visualizing velocity and orientation</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mobilityVisualizer</span><span class="o">.</span><span class="n">displayVelocities</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mobilityVisualizer</span><span class="o">.</span><span class="n">displayOrientations</span> <span class="o">=</span> <span class="n">false</span>
-
+<span class="na">*.visualizer.*.mobilityVisualizer.displayVelocities</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.*.mobilityVisualizer.displayOrientations</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
 </div>
 <p>The size of the communication and interference range is mainly depends
 on the transmitter power of the device. We set the transmitter power of
 each device to <em>1mW</em>, because the default transmitter power is too big
 for this simulation. Communication and interference range are visualized
-by <code class="docutils literal notranslate"><span class="pre">MediumVisualizer</span></code>. We enable the <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> by setting
+by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.MediumVisualizer.html">MediumVisualizer</a>. We enable the <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> by setting
 <code class="docutils literal notranslate"><span class="pre">displayCommunicationRanges</span></code> and <code class="docutils literal notranslate"><span class="pre">displayInterferenceRanges</span></code> to
 true.</p>
 </div>
@@ -384,7 +395,7 @@ true.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step7_result_2d.png"><img alt="../../../_images/step7_result_2d.png" src="../../../_images/step7_result_2d.png" style="width: 100%;" /></a>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
 </div>
 </div>

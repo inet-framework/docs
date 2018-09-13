@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -356,9 +368,9 @@ visualize nodes’ transmission and reception states.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="voip-application">
 <h3>VoIP application<a class="headerlink" href="#voip-application" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization10</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Visualization09</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Displaying</span> <span class="n">Transmissions</span> <span class="o">&amp;</span> <span class="n">Receptions</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization10]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization09</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Displaying Transmissions &amp; Receptions</span>
 
 <span class="c1"># ping test app</span>
 <span class="c1">#*.pedestrian0.numApps = 2</span>
@@ -366,40 +378,38 @@ visualize nodes’ transmission and reception states.</p>
 <span class="c1">#*.pedestrian0.app[1].destAddr = &quot;pedestrian1&quot;</span>
 
 <span class="c1"># VoIP application</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;SimpleVoipSender&quot;</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destAddress</span> <span class="o">=</span> <span class="s2">&quot;pedestrian1&quot;</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destPort</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;SimpleVoipReceiver&quot;</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">localPort</span> <span class="o">=</span> <span class="mi">5000</span>
-
+<span class="na">*.pedestrian0.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.pedestrian1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.pedestrian0.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;SimpleVoipSender&quot;</span>
+<span class="na">*.pedestrian0.app[0].destAddress</span> <span class="o">=</span> <span class="s">&quot;pedestrian1&quot;</span>
+<span class="na">*.pedestrian0.app[0].destPort</span> <span class="o">=</span> <span class="s">5000</span>
+<span class="na">*.pedestrian1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;SimpleVoipReceiver&quot;</span>
+<span class="na">*.pedestrian1.app[0].localPort</span> <span class="o">=</span> <span class="s">5000</span>
 </pre></div>
 </div>
 <p>First, we set up communication between <code class="docutils literal notranslate"><span class="pre">pedestrian0</span></code> and
 <code class="docutils literal notranslate"><span class="pre">pedestrian1</span></code> to generate network traffic. In INET, VoIP communication
-is implemented in two applications. <code class="docutils literal notranslate"><span class="pre">SimpleVoipSender</span></code> is a constant
-bitrate source, with talkspurt support added. <code class="docutils literal notranslate"><span class="pre">SimpleVoipReceiver</span></code>
+is implemented in two applications. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voip.SimpleVoipSender.html">SimpleVoipSender</a> is a constant
+bitrate source, with talkspurt support added. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voip.SimpleVoipReceiver.html">SimpleVoipReceiver</a>
 receives a VoIP stream generated by a SimpleVoipSender, and records
 statistics. Details of configuring VoIP communication is out of scope in
 this tutorial, you can read more in the NED documentation of
-<code class="docutils literal notranslate"><span class="pre">SimpleVoipSender</span></code> and <code class="docutils literal notranslate"><span class="pre">SimpleVoipReceiver</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voip.SimpleVoipSender.html">SimpleVoipSender</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voip.SimpleVoipReceiver.html">SimpleVoipReceiver</a>.</p>
 </div>
 <div class="section" id="visualization">
 <h3>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h3>
 <p>We configure <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># displaying transmissions &amp; receptions</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayTransmissions</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">transmissionPlacementPriority</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayReceptions</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">receptionPlacementPriority</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># displaying transmissions &amp; receptions</span>
+<span class="na">*.visualizer.*.mediumVisualizer.displayTransmissions</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.mediumVisualizer.transmissionPlacementPriority</span> <span class="o">=</span> <span class="s">10</span>
+<span class="na">*.visualizer.*.mediumVisualizer.displayReceptions</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.mediumVisualizer.receptionPlacementPriority</span> <span class="o">=</span> <span class="s">10</span>
 <span class="c1"># 3D view: animated icons added</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">transmissionImage</span> <span class="o">=</span> <span class="s2">&quot;misc/transmission_anim.gif&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">receptionImage</span> <span class="o">=</span> <span class="s2">&quot;misc/reception_anim.gif&quot;</span>
-
+<span class="na">*.visualizer.osgVisualizer.mediumVisualizer.transmissionImage</span> <span class="o">=</span> <span class="s">&quot;misc/transmission_anim.gif&quot;</span>
+<span class="na">*.visualizer.osgVisualizer.mediumVisualizer.receptionImage</span> <span class="o">=</span> <span class="s">&quot;misc/reception_anim.gif&quot;</span>
 </pre></div>
 </div>
-<p>Transmission and reception states are displayed by <code class="docutils literal notranslate"><span class="pre">MediumVisualizer</span></code>.
+<p>Transmission and reception states are displayed by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.MediumVisualizer.html">MediumVisualizer</a>.
 They can be enabled separately by setting <code class="docutils literal notranslate"><span class="pre">displayTransmissions</span></code> and
 <code class="docutils literal notranslate"><span class="pre">displayReceptions</span></code> to <em>true</em>. Transmission and reception state is
 displayed as an icon around the node. The displacement priority of these
@@ -413,7 +423,7 @@ relative path to the <em>inet/images</em> folder.</p>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step10_result_2d_trans_rec.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step10_result_2d_trans_rec.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
 </div>
 </div>
 

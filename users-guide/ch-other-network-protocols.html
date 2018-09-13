@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -349,7 +361,7 @@ Show Source
 <div class="section" id="overview">
 <span id="ug-sec-networkprotocols-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Network layer protocols in INET are not restricted to IPv4 and IPv6.
-INET nodes such as <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> can be
+INET nodes such as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> can be
 configured to use an alternative network layer protocols instead of, or
 in addition to, IPv4 and IPv6.</p>
 <p>Node models contain three optional network layers that can be
@@ -370,28 +382,28 @@ configuration will look something like this:</p>
 </div>
 <p>The list of alternative network layers includes:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">SimpleNetworkLayer</span></code> is a generic network layer where the
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.common.SimpleNetworkLayer.html">SimpleNetworkLayer</a> is a generic network layer where the
 concrete protocol type is a parameter</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">NextHopNetworkLayer</span></code> is a network layer specialized for the
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.nexthop.NextHopNetworkLayer.html">NextHopNetworkLayer</a> is a network layer specialized for the
 “Next-Hop Forwarding Protocol”, an abstract implementation of the
 next-hop routing concept</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">WiseRouteNetworkLayer</span></code> is specialized for the Wise Route
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.wiseroute.WiseRouteNetworkLayer.html">WiseRouteNetworkLayer</a> is specialized for the Wise Route
 protocol</li>
 </ul>
 <p>The list of network layer protocols that can be plugged into
-<code class="code literal-ned docutils literal notranslate"><span class="pre">SimpleNetworkLayer</span></code> includes:</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.common.SimpleNetworkLayer.html">SimpleNetworkLayer</a> includes:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Flooding</span></code> implements controlled flooding</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">WiseRoute</span></code> implements Wise Route, a convergecasting protocol
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.flooding.Flooding.html">Flooding</a> implements controlled flooding</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.wiseroute.WiseRoute.html">WiseRoute</a> implements Wise Route, a convergecasting protocol
 for wireless sensor networks</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">ProbabilisticBroadcast</span></code> implements a multi-hop ad-hoc data
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.ProbabilisticBroadcast.html">ProbabilisticBroadcast</a> implements a multi-hop ad-hoc data
 dissemination protocol</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">AdaptiveProbabilisticBroadcast</span></code> is a variant of the previous
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.AdaptiveProbabilisticBroadcast.html">AdaptiveProbabilisticBroadcast</a> is a variant of the previous
 one</li>
 </ul>
-<p>In addition to the network layer protocol, <code class="code literal-ned docutils literal notranslate"><span class="pre">SimpleNetworkLayer</span></code>
-includes an instance of <code class="docutils literal notranslate"><span class="pre">GlobalArp</span></code> for address resolution, and an
-instance of <code class="code literal-ned docutils literal notranslate"><span class="pre">EchoProtocol</span></code>, a module type that implements a simple
+<p>In addition to the network layer protocol, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.common.SimpleNetworkLayer.html">SimpleNetworkLayer</a>
+includes an instance of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a> for address resolution, and an
+instance of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.common.EchoProtocol.html">EchoProtocol</a>, a module type that implements a simple
 <em>ping</em>-like protocol.</p>
 <p>All the above network protocols can work with IPv4 addresses, IPv6
 addresses, use MAC address as network address (this is sometimes useful
@@ -407,13 +419,13 @@ use. For example:</p>
 <span id="ug-sec-networkprotocols-protocols"></span><h2>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="flooding">
 <span id="ug-sec-networkprotocols-flooding"></span><h3>Flooding<a class="headerlink" href="#flooding" title="Permalink to this headline">¶</a></h3>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">Flooding</span></code> is a simple flooding protocol for network-level
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.flooding.Flooding.html">Flooding</a> is a simple flooding protocol for network-level
 broadcast. It remembers already broadcast messages, and does not
 rebroadcast them if it gets another copy of that message.</p>
 </div>
 <div class="section" id="probabilisticbroadcast">
 <span id="ug-sec-networkprotocols-probabilisticbroadcast"></span><h3>ProbabilisticBroadcast<a class="headerlink" href="#probabilisticbroadcast" title="Permalink to this headline">¶</a></h3>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">ProbabilisticBroadcast</span></code> is a multi-hop ad-hoc data dissemination
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.ProbabilisticBroadcast.html">ProbabilisticBroadcast</a> is a multi-hop ad-hoc data dissemination
 protocol based on probabilistic broadcast.</p>
 <p>This method reduces the number of packets sent on the channel (reducing
 the broadcast storm problem) at the risk of some nodes not receiving the
@@ -424,13 +436,13 @@ a packet, and some other settings are parameters.</p>
 </div>
 <div class="section" id="adaptiveprobabilisticbroadcast">
 <span id="ug-sec-networkprotocols-adaptiveprobabilisticbroadcast"></span><h3>AdaptiveProbabilisticBroadcast<a class="headerlink" href="#adaptiveprobabilisticbroadcast" title="Permalink to this headline">¶</a></h3>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">AdaptiveProbabilisticBroadcast</span></code> is a variant of
-<code class="code literal-ned docutils literal notranslate"><span class="pre">ProbabilisticBroadcast</span></code> that automatically adjusts transmission
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.AdaptiveProbabilisticBroadcast.html">AdaptiveProbabilisticBroadcast</a> is a variant of
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.ProbabilisticBroadcast.html">ProbabilisticBroadcast</a> that automatically adjusts transmission
 probabilities depending on the estimated number of neighbours.</p>
 </div>
 <div class="section" id="wiseroute">
 <span id="ug-sec-networkprotocols-wiseroute"></span><h3>WiseRoute<a class="headerlink" href="#wiseroute" title="Permalink to this headline">¶</a></h3>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">WiseRoute</span></code> implements Wise Route, a simple loop-free routing
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.wiseroute.WiseRoute.html">WiseRoute</a> implements Wise Route, a simple loop-free routing
 algorithm that builds a routing tree from a central network point,
 designed for sensor networks and convergecast traffic (WIreless SEnsor
 routing).</p>
@@ -449,12 +461,12 @@ rebuilt.</p>
 </div>
 <div class="section" id="nexthopforwarding">
 <span id="ug-sec-networkprotocols-nexthopforwarding"></span><h3>NextHopForwarding<a class="headerlink" href="#nexthopforwarding" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">NextHopForwarding</span></code> module is an implementation of the next-hop
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.nexthop.NextHopForwarding.html">NextHopForwarding</a> module is an implementation of the next-hop
 forwarding concept. (It can be thought of as an abstracted version of
 IP.)</p>
-<p>The protocol needs an additional module, a <code class="code literal-ned docutils literal notranslate"><span class="pre">NextHopRoutingTable</span></code>
+<p>The protocol needs an additional module, a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.nexthop.NextHopRoutingTable.html">NextHopRoutingTable</a>
 for its operation. The routing table module is included in the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">NextHopNetworkLayer</span></code> compound module.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.nexthop.NextHopNetworkLayer.html">NextHopNetworkLayer</a> compound module.</p>
 </div>
 </div>
 <div class="section" id="address-types">
@@ -469,15 +481,15 @@ for its operation. The routing table module is included in the
 </ul>
 <p>Protocols described in this chapter work with “generic” L3 addresses,
 they can use any address type.</p>
-<p>When choosing IPv4 addresses, an <code class="code literal-ned docutils literal notranslate"><span class="pre">IPv4NetworkConfigurator</span></code> global
+<p>When choosing IPv4 addresses, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> global
 instance can be used to assign addresses to network interfaces. (Note
-that <code class="code literal-ned docutils literal notranslate"><span class="pre">IPv4NetworkConfigurator</span></code> also needs a per-node instance of
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NodeConfigurator</span></code> for it to work.)</p>
+that <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> also needs a per-node instance of
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator.html">Ipv4NodeConfigurator</a> for it to work.)</p>
 </div>
 <div class="section" id="address-resolution">
 <span id="ug-sec-networkprotocols-address-resolution"></span><h2>Address Resolution<a class="headerlink" href="#address-resolution" title="Permalink to this headline">¶</a></h2>
-<p>Address resolution is done by <code class="code literal-ned docutils literal notranslate"><span class="pre">GlobalArp</span></code>. If the address type is
-IPv4, <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> can be used instead of <code class="code literal-ned docutils literal notranslate"><span class="pre">GlobalArp</span></code>.</p>
+<p>Address resolution is done by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a>. If the address type is
+IPv4, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> can be used instead of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a>.</p>
 <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">

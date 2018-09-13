@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -352,7 +364,7 @@ Show Source
 <p>With INET simulations, it is often useful to be able to visualize
 network traffic. INET provides several visualizers for this task,
 operating at various levels of the network stack. In this showcase, we
-examine <code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> that can provide graphical feedback
+examine <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> that can provide graphical feedback
 about transport traffic, i.e. traffic that passes through the transport
 layers of two endpoints.</p>
 <p>The showcase consists of two simulation models, both demonstrating
@@ -363,16 +375,16 @@ different features of the transport path activity visualizer.</p>
 <div class="section" id="about-the-visualizer">
 <h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
 <p>In INET, transport path activity can be visualized by including a
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> module in the simulation. Adding an
-<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> is also an option, because it also contains a
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code>. Transport path activity visualization is
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> module in the simulation. Adding an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> is also an option, because it also contains a
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a>. Transport path activity visualization is
 disabled by default, it can be enabled by setting the visualizer’s
 <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter to true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> observes packets that pass through the
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> observes packets that pass through the
 transport layer, i.e. carry data from/to higher layers.</p>
 <p>The activity between two nodes is represented visually by a polyline
 arrow which points from the source node to the destination node.
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> follows packets throughout their path so
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> follows packets throughout their path so
 that the polyline goes through all nodes which are the part of the path
 of packets. The arrow appears after the first packet has been received,
 then gradually fades out unless it is reinforced by further packets.
@@ -389,15 +401,15 @@ visualization with its default settings. In the first example, we
 configure a simulation for a wired network. This simulation can be run
 by choosing the <code class="docutils literal notranslate"><span class="pre">EnablingPathVisualizationWired</span></code> configuration from
 the ini file.</p>
-<p>The wired network contains two connected <code class="docutils literal notranslate"><span class="pre">StandardHost</span></code> type nodes:
+<p>The wired network contains two connected <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> type nodes:
 <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/TransportPathVisualizerSimpleWired_v0615.png"><img alt="../../../../_images/TransportPathVisualizerSimpleWired_v0615.png" src="../../../../_images/TransportPathVisualizerSimpleWired_v0615.png" style="width: 60%;" /></a>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">source</span></code> node will be continuously sending UDP packets to the
-<code class="docutils literal notranslate"><span class="pre">destination</span></code> node by using a <code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> application.</p>
+<code class="docutils literal notranslate"><span class="pre">destination</span></code> node by using a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> application.</p>
 <p>In this simulation, <code class="docutils literal notranslate"><span class="pre">pathVisualizer's</span></code> type is
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code>. It is enabled by setting the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a>. It is enabled by setting the
 <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter to true.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.pathVisualizer.*.displayRoutes = true
 </pre></div>
@@ -406,9 +418,9 @@ the ini file.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingPathVisualizationWired_v0615.m4v" width="420" height="" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
 <code class="docutils literal notranslate"><span class="pre">source</span></code> to <code class="docutils literal notranslate"><span class="pre">destination</span></code>. This strip is the standard OMNeT++
 animation for packet transmissions, and has nothing to do with
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code>. When the packet is received in whole by
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a>. When the packet is received in whole by
 <code class="docutils literal notranslate"><span class="pre">destination</span></code> (the red strip disappears), an arrow is added by
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> between the two hosts, indicating transport
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> between the two hosts, indicating transport
 path activity. The packet’s name is also displayed above the arrow.</p>
 <p>Note, however, that the ARP packets do not activate the visualization,
 because ARP packets do not pass through the transport layer. The
@@ -441,8 +453,8 @@ configuration from the ini file.</p>
 <p>We set up a complex network with five <code class="docutils literal notranslate"><span class="pre">routers</span></code>
 (<code class="docutils literal notranslate"><span class="pre">router0..router4</span></code>), four <code class="docutils literal notranslate"><span class="pre">etherSwitches</span></code> (<code class="docutils literal notranslate"><span class="pre">switch0..switch4</span></code>)
 and eight endpoints. The source nodes (<code class="docutils literal notranslate"><span class="pre">source1</span></code> and <code class="docutils literal notranslate"><span class="pre">source2</span></code>) are
-continuously generating traffic by a <code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> application, which
-is handled by a <code class="docutils literal notranslate"><span class="pre">UdpSink</span></code> application in the destination nodes
+continuously generating traffic by a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> application, which
+is handled by a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpSink.html">UdpSink</a> application in the destination nodes
 (<code class="docutils literal notranslate"><span class="pre">destination1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination2</span></code>). <code class="docutils literal notranslate"><span class="pre">VideoStreamServer</span></code> streams
 video (sends <code class="docutils literal notranslate"><span class="pre">VideoStrmPK-frag</span></code> packets) to <code class="docutils literal notranslate"><span class="pre">videoStreamClient</span></code>. The
 remaining two endpoints (<code class="docutils literal notranslate"><span class="pre">host1</span></code> and <code class="docutils literal notranslate"><span class="pre">host2</span></code>) are inactive in this
@@ -451,7 +463,7 @@ simulation.</p>
 <a class="reference internal image-reference" href="../../../../_images/TransportPathVisualizerFiltering_v0615.png"><img alt="../../../../_images/TransportPathVisualizerFiltering_v0615.png" src="../../../../_images/TransportPathVisualizerFiltering_v0615.png" style="width: 100%;" /></a>
 </div>
 <p>In our first experiment, we want observe the traffic generated by
-<code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code>. For this reason, we configure the visualizer’s
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a>. For this reason, we configure the visualizer’s
 <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter to display only the <code class="docutils literal notranslate"><span class="pre">UDPBasicAppData</span></code>
 packets. Video stream traffic will not be visualized by transport path
 activity visualizer. We adjust the visualizer’s <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and the
@@ -494,7 +506,7 @@ parameter setting.</p>
 <h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
 <p>This example only demonstrates the key features of transport path
 visualization. For more information, refer to the
-<code class="docutils literal notranslate"><span class="pre">TransportRouteVisualizer</span></code> NED documentation.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportRouteVisualizer.html">TransportRouteVisualizer</a> NED documentation.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>

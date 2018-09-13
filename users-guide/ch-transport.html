@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -354,7 +366,7 @@ services such as connection-oriented communication, reliability, flow
 control, and multiplexing.</p>
 <p>INET currently provides support for the <span class="protocol">TCP</span>, <span class="protocol">UDP</span>,
 <span class="protocol">SCTP</span> and <span class="protocol">RTP</span> transport layer protocols.
-INET nodes like <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> contain optional and replaceable
+INET nodes like <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> contain optional and replaceable
 instances of these protocols, like this:</p>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="n">tcp</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">tcpType</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">ITcp</span> <span class="k">if</span> <span class="n">hasTcp</span><span class="p">;</span>
 <span class="n">udp</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">udpType</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IUdp</span> <span class="k">if</span> <span class="n">hasUdp</span><span class="p">;</span>
@@ -362,7 +374,7 @@ instances of these protocols, like this:</p>
 </pre></div>
 </div>
 <p>As RTP is more specialized that the other ones (multimedia streaming),
-INET provides a separate node type, <code class="code literal-ned docutils literal notranslate"><span class="pre">RtpHost</span></code>, for modeling RTP
+INET provides a separate node type, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.rtp.RtpHost.html">RtpHost</a>, for modeling RTP
 traffic.</p>
 </div>
 <div class="section" id="tcp">
@@ -378,23 +390,23 @@ complex protocol and sometimes it is hard to see how the different
 requirements interact with each other.</p>
 <p>INET contains three implementations of the TCP protocol:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> is the primary implementation, designed for readability,
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> is the primary implementation, designed for readability,
 extensibility, and experimentation.</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">TcpLwip</span></code> is a wrapper around the lwIP (Lightweight IP) library,
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_lwip.TcpLwip.html">TcpLwip</a> is a wrapper around the lwIP (Lightweight IP) library,
 a widely used open source TCP/IP stack designed for embedded systems.</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code> wraps Network Simulation Cradle (NSC), a library that
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a> wraps Network Simulation Cradle (NSC), a library that
 allows real world TCP/IP network stacks to be used inside a network
 simulator.</li>
 </ul>
-<p>All three module types implement the <code class="code literal-ned docutils literal notranslate"><span class="pre">ITcp</span></code> interface and
+<p>All three module types implement the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.contract.ITcp.html">ITcp</a> interface and
 communicate with other layers through the same interface, so they can be
 interchanged and also mixed in the same network.</p>
 </div>
 <div class="section" id="ug-sec-transport-tcpcore">
 <span id="id2"></span><h3>Tcp<a class="headerlink" href="#ug-sec-transport-tcpcore" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> simple module is the main implementation of the TCP
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> simple module is the main implementation of the TCP
 protocol in the INET framework.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> implements the following:</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> implements the following:</p>
 <ul class="simple">
 <li>TCP state machine</li>
 <li>initial sequence number selection according to the system clock.</li>
@@ -427,7 +439,7 @@ fragment selects TCP Vegas:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.tcp.tcpAlgorithmClass</span> <span class="o">=</span> <span class="s">&quot;TcpVegas&quot;</span>
 </pre></div>
 </div>
-<p>Values like <code class="docutils literal notranslate"><span class="pre">&quot;TcpVegas&quot;</span></code> name C++ classes. Indeed, <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> can
+<p>Values like <code class="docutils literal notranslate"><span class="pre">&quot;TcpVegas&quot;</span></code> name C++ classes. Indeed, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> can
 be extended with new congestion control schemes by implementing and
 registering them in C++.</p>
 </div>
@@ -440,7 +452,7 @@ Computer Science. The current development homepage is
 <p>The implementation targets embedded devices: it has very limited
 resource usage (it works “with tens of kilobytes of RAM and around 40
 kilobytes of ROM”), and does not require an underlying OS.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpLwip</span></code> simple module is based on the 1.3.2 version of the
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_lwip.TcpLwip.html">TcpLwip</a> simple module is based on the 1.3.2 version of the
 lwIP sources.</p>
 <p>Features:</p>
 <ul class="simple">
@@ -476,14 +488,14 @@ created by Sam Jansen and available on
 <a class="reference external" href="http://research.wand.net.nz/software/nsc.php">http://research.wand.net.nz/software/nsc.php</a>. NSC currently contains
 Linux, FreeBSD, OpenBSD and lwIP network stacks, although on 64-bit
 systems only Linux implementations can be built.</p>
-<p>To use the <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code> module you should download the
+<p>To use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a> module you should download the
 <code class="file docutils literal notranslate"><span class="pre">nsc-0.5.2.tar.bz2</span></code> package and follow the instructions in the
 <code class="file docutils literal notranslate"><span class="pre">&lt;inet_root&gt;/3rdparty/README</span></code> file to build it.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Before generating the INET module, check that the <code class="docutils literal notranslate"><span class="pre">opp_makemake</span></code> call
 in the make file (<code class="file docutils literal notranslate"><span class="pre">&lt;inet_root&gt;/Makefile</span></code>) includes the
-<code class="docutils literal notranslate"><span class="pre">-DWITH_TCP_NSC</span></code> argument. Without this option the <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code>
+<code class="docutils literal notranslate"><span class="pre">-DWITH_TCP_NSC</span></code> argument. Without this option the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a>
 module is not built. If you build the INET library from the IDE, it is enough
 to enable the <em>TCP (NSC)</em> project feature.</p>
 </div>
@@ -511,10 +523,10 @@ you can see the NSC documentation.</li>
 <li>Because the kernel code is not reentrant, NSC creates a record
 containing the global variables of the stack implementation. By
 default there is room for 50 instance in this table, so you can not
-create more then 50 instance of <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code>. You can increase the
+create more then 50 instance of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a>. You can increase the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">NUM_STACKS</span></code> constant in <code class="file docutils literal notranslate"><span class="pre">num_stacks.h</span></code> and recompile
 NSC to overcome this limitation.</li>
-<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code> module does not supprt TCP_TRANSFER_OBJECT data
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a> module does not supprt TCP_TRANSFER_OBJECT data
 transfer mode.</li>
 <li>The MTU of the network stack fixed to 1500, therefore MSS is 1460.</li>
 <li>TCP_C_STATUS command reports only local/remote addresses/ports and
@@ -529,14 +541,14 @@ current window of the connection.</li>
 basically makes the services of the network layer available to the
 applications. It performs packet multiplexing and demultiplexing to
 ports and some basic error detection only.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> simple module implements the UDP protocol. There is a
-module interface (<code class="code literal-ned docutils literal notranslate"><span class="pre">IUdp</span></code>) that defines the gates of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code>
-component. In the <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> node, the UDP component can be any
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> simple module implements the UDP protocol. There is a
+module interface (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.contract.IUdp.html">IUdp</a>) that defines the gates of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a>
+component. In the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> node, the UDP component can be any
 module implementing that interface.</p>
 </div>
 <div class="section" id="sctp">
 <span id="ug-sec-transport-sctp"></span><h2>SCTP<a class="headerlink" href="#sctp" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code> module implements the Stream Control Transmission
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a> module implements the Stream Control Transmission
 Protocol (SCTP). Like TCP, SCTP provides reliable ordered data delivery
 over an ureliable network. The most prominent feature of SCTP is the
 capability of transmitting multiple streams of data at the same time
@@ -554,8 +566,8 @@ Transport Protocol (RTP). RTCP provides out-of-band statistics and
 control information for an RTP session.</p>
 <p>INET provides the following modules:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Rtp</span></code> implements the RTP protocol</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Rtcp</span></code> implements the RTCP protocol</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.rtp.Rtp.html">Rtp</a> implements the RTP protocol</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.rtp.Rtcp.html">Rtcp</a> implements the RTCP protocol</li>
 </ul>
 </div>
 </div>

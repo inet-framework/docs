@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -354,26 +366,25 @@ model.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>So far, we only deal with the environment of the simulation. In this
 step, we add network nodes to the simulation model. We add two
-<code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code>, <code class="docutils literal notranslate"><span class="pre">pedestrian0</span></code> and <code class="docutils literal notranslate"><span class="pre">pedestrian1</span></code> and one
-<code class="docutils literal notranslate"><span class="pre">AccessPoint</span></code>, <code class="docutils literal notranslate"><span class="pre">accessPoint0</span></code>. The pedestrians will communicate with
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>, <code class="docutils literal notranslate"><span class="pre">pedestrian0</span></code> and <code class="docutils literal notranslate"><span class="pre">pedestrian1</span></code> and one
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>, <code class="docutils literal notranslate"><span class="pre">accessPoint0</span></code>. The pedestrians will communicate with
 each other via <code class="docutils literal notranslate"><span class="pre">accessPoint0</span></code> using a VoIP application. Communication
 will be configured in later steps.</p>
 <p>The following picture shows what the network looks like and what the
-default appearance of the <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code> nodes looks like.</p>
+default appearance of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> nodes looks like.</p>
 <div class="figure">
 <img alt="../../../_images/step5_model_default_appearance_2d.png" src="../../../_images/step5_model_default_appearance_2d.png" />
 </div>
 <p>To use a 3D model instead of a 2D icon, set the <code class="docutils literal notranslate"><span class="pre">osgModel</span></code> parameter
 of the network node. Examine the following code snippet.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization05</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Visualization04</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Using</span> <span class="mi">3</span><span class="n">D</span> <span class="n">Models</span> <span class="k">for</span> <span class="n">Network</span> <span class="n">Nodes</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">VisualizationD</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization05]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization04</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Using 3D Models for Network Nodes</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">VisualizationD</span>
 
 <span class="c1"># replacing cellphone icons with boxman models</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">osgModel</span> <span class="o">=</span> <span class="s2">&quot;boxman.osgb.(0.05).scale&quot;</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">osgModel</span> <span class="o">=</span> <span class="s2">&quot;boxman.osgb.(0.05).scale&quot;</span>
-
+<span class="na">*.pedestrian0.osgModel</span> <span class="o">=</span> <span class="s">&quot;boxman.osgb.(0.05).scale&quot;</span>
+<span class="na">*.pedestrian1.osgModel</span> <span class="o">=</span> <span class="s">&quot;boxman.osgb.(0.05).scale&quot;</span>
 </pre></div>
 </div>
 <p>The above <code class="docutils literal notranslate"><span class="pre">osgModel</span></code> parameter value will be explained below.</p>
@@ -382,41 +393,41 @@ of the network node. Examine the following code snippet.</p>
 <li><em>(0.05).scale</em> means that size of the external 3D model is decreased to 5%.</li>
 </ul>
 <p>By default, appearance of the nodes is the same in 2D and 3D
-visualization. The default icon of <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code> is a laptop. In this
-tutorial, the <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code>s represent pedestrians. In 2D
+visualization. The default icon of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> is a laptop. In this
+tutorial, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>s represent pedestrians. In 2D
 visualization, we have cellphone icon that represents pedestrians
 better, than a laptop icon. Icon can be replaced in the display string
 of the network node.</p>
-<p>The following code snippet shows <code class="docutils literal notranslate"><span class="pre">VisualizationD</span></code> network which is
+<p>The following code snippet shows <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.visualization.VisualizationD.html">VisualizationD</a> network which is
 used for this step.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="n">VisualizationD</span> <span class="n">extends</span> <span class="n">VisualizationC</span>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">VisualizationD</span> <span class="k">extends</span> <span class="n">VisualizationC</span>
 <span class="p">{</span>
-    <span class="n">submodules</span><span class="p">:</span>
-        <span class="n">pedestrian0</span><span class="p">:</span> <span class="n">WirelessHost</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=398,89;i=device/cellphone&quot;</span><span class="p">);</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">pedestrian0</span><span class="o">:</span> <span class="n">WirelessHost</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=398,89;i=device/cellphone&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">pedestrian1</span><span class="p">:</span> <span class="n">WirelessHost</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=548,89;i=device/cellphone&quot;</span><span class="p">);</span>
+        <span class="n">pedestrian1</span><span class="o">:</span> <span class="n">WirelessHost</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=548,89;i=device/cellphone&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">accessPoint0</span><span class="p">:</span> <span class="n">AccessPoint</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=487,163&quot;</span><span class="p">);</span>
+        <span class="n">accessPoint0</span><span class="o">:</span> <span class="n">AccessPoint</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=487,163&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">configurator</span><span class="p">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=100,250&quot;</span><span class="p">);</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,250&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">radioMedium</span><span class="p">:</span> <span class="n">Ieee80211ScalarRadioMedium</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=100,350&quot;</span><span class="p">);</span>
+        <span class="n">radioMedium</span><span class="o">:</span> <span class="n">Ieee80211ScalarRadioMedium</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,350&quot;</span><span class="p">);</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>An <code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> module instance and an
-<code class="docutils literal notranslate"><span class="pre">Ieee80211ScalarRadioMedium</span></code> module instance are also added to the
+<p>An <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module instance and an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> module instance are also added to the
 model. We will use them as <code class="docutils literal notranslate"><span class="pre">configurator</span></code> and <code class="docutils literal notranslate"><span class="pre">radioMedium</span></code>. The
 <code class="docutils literal notranslate"><span class="pre">configurator</span></code> module assigns IP addresses and sets up static routing
 for an IPv4 network, <code class="docutils literal notranslate"><span class="pre">radioMedium</span></code> is a radio medium model, uses
@@ -427,7 +438,7 @@ scalar transmission power in the analog representation.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step5_result_3d_enc.mp4" width="" height="" class="align-center"></video><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step5_result_3d_v2_enc.mp4" width="698" height="" class="align-center"></video><div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step5_result_2d.png"><img alt="../../../_images/step5_result_2d.png" src="../../../_images/step5_result_2d.png" style="width: 100%;" /></a>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
 </div>
 </div>

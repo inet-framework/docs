@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,7 +367,7 @@ error rate metrics in a mixed wired/wireless network.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>This step uses the <code class="docutils literal notranslate"><span class="pre">ConfiguratorE</span></code> network, defined in
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorE.html">ConfiguratorE</a> network, defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorE.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorE.ned</span></code></a>. The network
 looks like this:</p>
 <div class="figure">
@@ -367,7 +379,7 @@ a number of hosts, connected to the area router.</p>
 <ul class="simple">
 <li>Area1 is composed of three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>, one of which is
 connected to the router with a wired connection.</li>
-<li>Area2 has an <code class="docutils literal notranslate"><span class="pre">AccessPoint</span></code> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</li>
+<li>Area2 has an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</li>
 <li>Area3 has three <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> connected to the router via a
 switch.</li>
 </ul>
@@ -384,33 +396,32 @@ the hop count metric.</p>
 <img alt="../../../_images/step12ranges.png" src="../../../_images/step12ranges.png" />
 </div>
 <p>The configuration for this step in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step12</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorE</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Mixing different kinds of autorouting&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step12]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorE</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixing different kinds of autorouting&quot;</span>
 
 <span class="c1"># Configurator settings</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step12.xml&quot;</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">optimizeRoutes</span> <span class="o">=</span> <span class="n">false</span>             <span class="c1">#! TODO! különben nem működik -&gt; ezért kell</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step12.xml&quot;)</span>
+<span class="na">*.configurator.optimizeRoutes</span> <span class="o">=</span> <span class="s">false             </span><span class="c1">#! TODO! különben nem működik -&gt; ezért kell</span>
 
 <span class="c1"># Wireless node settings</span>
-<span class="o">*.*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="mi">1</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">area1host</span><span class="o">*.</span><span class="n">forwarding</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">area1</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">mgmt</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;Ieee80211MgmtAdhoc&quot;</span>
-<span class="o">*.</span><span class="n">area1</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="na">*.*.wlan[*].radio.transmitter.power</span> <span class="o">=</span> <span class="s">1mW</span>
+<span class="na">*.area1host*.forwarding</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.area1*.wlan[*].mgmt.typename</span> <span class="o">=</span> <span class="s">&quot;Ieee80211MgmtAdhoc&quot;</span>
+<span class="na">*.area1*.wlan[*].agent.typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
 <span class="c1"># pingApp settings</span>
-<span class="o">*.</span><span class="n">area1host1</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">area1host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">area1host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;area2host1&quot;</span>
+<span class="na">*.area1host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.area1host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.area1host1.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;area2host1&quot;</span>
 
 <span class="c1"># Visualizer settings</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayCommunicationRanges</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutesIndividually</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayLabels</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-
+<span class="na">*.visualizer.mediumVisualizer.displayCommunicationRanges</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutesIndividually</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayLabels</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span>
 </pre></div>
 </div>
 <p>Explanation:</p>
@@ -422,12 +433,12 @@ other side of the network.</li>
 <li>Routes to all hosts and communication ranges are visualized.</li>
 </ul>
 <p>The XML configuration in step12.xml is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;area1*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.x.x.x&quot;</span> <span class="n">add</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">route</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;**&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.x.x.x&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="n">autoroute</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;hopCount&quot;</span> <span class="n">sourceHosts</span><span class="o">=</span><span class="s2">&quot;*.area2host* *router area3host*&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="n">autoroute</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;errorRate&quot;</span> <span class="n">sourceHosts</span><span class="o">=</span><span class="s2">&quot;*.area1host*&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+    <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;area1*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.x&quot;</span> <span class="na">add-default-route=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;**&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.x&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;autoroute</span> <span class="na">metric=</span><span class="s">&quot;hopCount&quot;</span> <span class="na">sourceHosts=</span><span class="s">&quot;*.area2host* *router area3host*&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;autoroute</span> <span class="na">metric=</span><span class="s">&quot;errorRate&quot;</span> <span class="na">sourceHosts=</span><span class="s">&quot;*.area1host*&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>To have routes from every node to every other node, all nodes must be
@@ -481,7 +492,7 @@ metric, but the <code class="docutils literal notranslate"><span class="pre">*</
 only. Since 10.0.0.18 is covered by a previous rule, this one is
 actually for reaching 10.0.0.19 directly.</p>
 <p>The following video shows <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> pinging <code class="docutils literal notranslate"><span class="pre">area2host1</span></code>:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step12_2_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step12_2_cropped.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorE.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorE.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

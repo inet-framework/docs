@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -359,18 +371,18 @@ set up routing and use the extra nodes as relays.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>We need to add three more hosts. This could be done by copying and
 editing the network used in the previous steps, but instead we extend
-<code class="docutils literal notranslate"><span class="pre">WirelessA</span></code> into <code class="docutils literal notranslate"><span class="pre">WirelessB</span></code> using the inheritance feature of NED:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="n">WirelessB</span> <span class="n">extends</span> <span class="n">WirelessA</span>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.wireless.WirelessA.html">WirelessA</a> into <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.wireless.WirelessB.html">WirelessB</a> using the inheritance feature of NED:</p>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WirelessB</span> <span class="k">extends</span> <span class="n">WirelessA</span>
 <span class="p">{</span>
-    <span class="n">submodules</span><span class="p">:</span>
-        <span class="n">hostR1</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=250,300&quot;</span><span class="p">);</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">hostR1</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=250,300&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">hostR2</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=150,450&quot;</span><span class="p">);</span>
+        <span class="n">hostR2</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=150,450&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">hostR3</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=350,450&quot;</span><span class="p">);</span>
+        <span class="n">hostR3</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=350,450&quot;</span><span class="p">);</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -382,15 +394,14 @@ hosts are in the correct positions to relay data between hosts A and B,
 but routing is not yet configured. The result is that hosts A and B will
 not be able to communicate at all.</p>
 <p>The configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless03</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Adding</span> <span class="n">more</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">decreasing</span> <span class="n">the</span> <span class="n">communication</span> <span class="nb">range</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless02</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">WirelessB</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless03]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Adding more nodes and decreasing the communication range</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless02</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">WirelessB</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">communicationRange</span> <span class="o">=</span> <span class="mi">250</span><span class="n">m</span>
+<span class="na">*.host*.wlan[0].radio.transmitter.communicationRange</span> <span class="o">=</span> <span class="s">250m</span>
 
-<span class="o">*.</span><span class="n">hostR1</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">displayCommunicationRange</span> <span class="o">=</span> <span class="n">true</span>
-
+<span class="na">*.hostR1.wlan[0].radio.displayCommunicationRange</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 </div>
@@ -414,7 +425,7 @@ packets, as they are not addressed to it:</p>
 <a class="reference internal image-reference" href="../../../_images/wireless-step3-log.png"><img alt="../../../_images/wireless-step3-log.png" src="../../../_images/wireless-step3-log.png" style="width: 100%;" /></a>
 </div>
 <p><strong>Number of packets received by host B: 0</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

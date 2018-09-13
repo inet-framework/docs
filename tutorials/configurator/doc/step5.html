@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -359,7 +371,7 @@ This step consists of two parts:</p>
 </div>
 <div class="section" id="part-a-overriding-routes-to-a-specific-host">
 <h2>Part A - Overriding routes to a specific host<a class="headerlink" href="#part-a-overriding-routes-to-a-specific-host" title="Permalink to this headline">¶</a></h2>
-<p>Both parts in this step use the <code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code> network (displayed
+<p>Both parts in this step use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a> network (displayed
 below), just as in the previous steps. In this part we will override the
 routes going from the subnet of <code class="docutils literal notranslate"><span class="pre">router0</span></code> to <code class="docutils literal notranslate"><span class="pre">host7</span></code>. With the
 automatic configuration, packets from <code class="docutils literal notranslate"><span class="pre">router0</span></code>’s subnet would go
@@ -371,17 +383,16 @@ want them to go through <code class="docutils literal notranslate"><span class="
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>The configuration in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step5A</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step4</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Manually overriding individual routes - route to a specific host&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step5A]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Manually overriding individual routes - route to a specific host&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step5a.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step5a.xml&quot;)</span>
 
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host6&quot;</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">startTime</span> <span class="o">=</span> <span class="mf">0.6</span><span class="n">s</span>
-
+<span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host0.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host0.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host6&quot;</span>
+<span class="na">*.host0.app[*].startTime</span> <span class="o">=</span> <span class="s">0.6s</span>
 </pre></div>
 </div>
 <p>A ping application is added to <code class="docutils literal notranslate"><span class="pre">host0</span></code>, in addition to the one in
@@ -392,10 +403,10 @@ route override.</p>
 <code class="docutils literal notranslate"><span class="pre">router0</span></code> has to be altered. The new rules should dictate that packets
 with the destination of <code class="docutils literal notranslate"><span class="pre">host7</span></code> (10.0.0.35) should be routed towards
 <code class="docutils literal notranslate"><span class="pre">router2</span></code>. The XML configuration in step5a.xml is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;**&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.x.x.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">route</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router0&quot;</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;10.0.0.35&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.255&quot;</span> <span class="n">gateway</span><span class="o">=</span><span class="s2">&quot;10.0.0.18&quot;</span> <span class="n">interface</span><span class="o">=</span><span class="s2">&quot;eth1&quot;</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;**&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;route</span> <span class="na">hosts=</span><span class="s">&quot;router0&quot;</span> <span class="na">destination=</span><span class="s">&quot;10.0.0.35&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.255&quot;</span> <span class="na">gateway=</span><span class="s">&quot;10.0.0.18&quot;</span> <span class="na">interface=</span><span class="s">&quot;eth1&quot;</span> <span class="na">metric=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;route&gt;</span></code> element describes a routing table entry for one or more
@@ -478,27 +489,26 @@ route.</p>
 <div class="section" id="id1">
 <h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The configuration in omnetpp.ini:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step5B</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step4</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Manually overriding individual routes - route to a set of hosts&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step5B]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Manually overriding individual routes - route to a set of hosts&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step5b.xml&quot;</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">optimizeRoutes</span> <span class="o">=</span> <span class="n">false</span>           <span class="c1">#! TODO: this shouldn&#39;t be here, it&#39;s here because of an error in the optimizer</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step5b.xml&quot;)</span>
+<span class="na">*.configurator.optimizeRoutes</span> <span class="o">=</span> <span class="s">false           </span><span class="c1">#! TODO: this shouldn&#39;t be here, it&#39;s here because of an error in the optimizer</span>
 
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host6&quot;</span>
-<span class="o">*.</span><span class="n">host0</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">startTime</span> <span class="o">=</span> <span class="mf">0.6</span><span class="n">s</span>
-
+<span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host0.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host0.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host6&quot;</span>
+<span class="na">*.host0.app[*].startTime</span> <span class="o">=</span> <span class="s">0.6s</span>
 </pre></div>
 </div>
 <p>As in Part A, the routing table of <code class="docutils literal notranslate"><span class="pre">router0</span></code> has to be altered, so
 that packets to hosts 6–8 go towards <code class="docutils literal notranslate"><span class="pre">router1</span></code>. The XML configuration
 in step5b.xml is as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;**&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.x.x.x&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.x.x.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">route</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router0&quot;</span> <span class="n">destination</span><span class="o">=</span><span class="s2">&quot;10.0.0.32&quot;</span> <span class="n">netmask</span><span class="o">=</span><span class="s2">&quot;255.255.255.248&quot;</span> <span class="n">gateway</span><span class="o">=</span><span class="s2">&quot;10.0.0.18&quot;</span> <span class="n">interface</span><span class="o">=</span><span class="s2">&quot;eth1&quot;</span><span class="o">/&gt;</span>	
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;**&quot;</span> <span class="na">address=</span><span class="s">&quot;10.x.x.x&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.x.x.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;route</span> <span class="na">hosts=</span><span class="s">&quot;router0&quot;</span> <span class="na">destination=</span><span class="s">&quot;10.0.0.32&quot;</span> <span class="na">netmask=</span><span class="s">&quot;255.255.255.248&quot;</span> <span class="na">gateway=</span><span class="s">&quot;10.0.0.18&quot;</span> <span class="na">interface=</span><span class="s">&quot;eth1&quot;</span><span class="nt">/&gt;</span>	
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;route&gt;</span></code> element specifies a routing table entry for <code class="docutils literal notranslate"><span class="pre">router0</span></code>.
@@ -536,7 +546,7 @@ Destination      Netmask          Gateway          Iface            Metric
 are visualized.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step5B_1_cropped.mp4" width="698" height="" class="align-center"></video><p>This time both packets destined to hosts 6 and 7 take the diverted
 route, and the replies come back on the original route.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 </div>

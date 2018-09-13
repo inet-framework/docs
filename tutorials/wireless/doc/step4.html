@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -362,11 +374,11 @@ take when traveling from host A to B.</p>
 <h3>Setting up routing<a class="headerlink" href="#setting-up-routing" title="Permalink to this headline">¶</a></h3>
 <p>For the recently added hosts to act as routers, IPv4 forwarding needs to
 be enabled. This can be done by setting the <code class="docutils literal notranslate"><span class="pre">forwarding</span></code> parameter of
-<code class="docutils literal notranslate"><span class="pre">StandardHost</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>.</p>
 <p>We also need to set up static routing. Static configuration in the INET
 Framework is often done by configurator modules. Static IPv4
 configuration, including address assignment and adding routes, is
-usually done using the <code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code> module. The model
+usually done using the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module. The model
 already has an instance of this module, the <code class="docutils literal notranslate"><span class="pre">configurator</span></code> submodule.
 The configurator can be configured using an XML specification and some
 additional parameters. Here, the XML specification is provided as a
@@ -378,14 +390,14 @@ the estimated packet error rate of links between the nodes. (The
 configurator looks at the wireless network as a full graph. Links with
 high error rates will have high costs, and links with low error rates
 will have low costs. Routes are formed such as to minimize their costs.
-In the case of the <code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code> model, the error rate is 1 for
+In the case of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> model, the error rate is 1 for
 nodes that are out of range, and a very small value for ones in range.
 The result will be that nodes that are out of range of each other will
 send packets to intermediate nodes that can forward them.)</p>
 </div>
 <div class="section" id="visualization">
 <h3>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code> we use as the <code class="docutils literal notranslate"><span class="pre">visualizer</span></code>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a> we use as the <code class="docutils literal notranslate"><span class="pre">visualizer</span></code>
 submodule in this network contains a <code class="docutils literal notranslate"><span class="pre">networkRouteVisualizer</span></code> module
 which is able to render packet paths. This module displays paths where a
 packet has been recently sent between the network layers of the two end
@@ -400,23 +412,22 @@ packets with the name <code class="docutils literal notranslate"><span class="pr
 packet filter to <code class="docutils literal notranslate"><span class="pre">UDPData*</span></code> in order to filter out other types of
 packets that will appear in later steps.</p>
 <p>Configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless04</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Setting</span> <span class="n">up</span> <span class="n">static</span> <span class="n">routing</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless03</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless04]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Setting up static routing</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless03</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">forwarding</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.host*.forwarding</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xml</span><span class="p">(</span><span class="s2">&quot;&lt;config&gt;&lt;interface hosts=&#39;**&#39; address=&#39;10.0.0.x&#39; netmask=&#39;255.255.255.0&#39;/&gt;&lt;autoroute metric=&#39;errorRate&#39;/&gt;&lt;/config&gt;&quot;</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">optimizeRoutes</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">routingTable</span><span class="o">.</span><span class="n">netmaskRoutes</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt;&lt;interface hosts=&#39;**&#39; address=&#39;10.0.0.x&#39; netmask=&#39;255.255.255.0&#39;/&gt;&lt;autoroute metric=&#39;errorRate&#39;/&gt;&lt;/config&gt;&quot;)</span>
+<span class="na">*.configurator.optimizeRoutes</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.host*.ipv4.routingTable.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">displayLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">dataLinkVisualizer</span><span class="o">.</span><span class="n">displayLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">networkRouteVisualizer</span><span class="o">.</span><span class="n">displayRoutes</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*</span><span class="n">LinkVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">networkRouteVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">networkRouteVisualizer</span><span class="o">.</span><span class="n">packetFilter</span> <span class="o">=</span> <span class="s2">&quot;UDPData*&quot;</span>
-
+<span class="na">*.visualizer.physicalLinkVisualizer.displayLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.dataLinkVisualizer.displayLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.networkRouteVisualizer.displayRoutes</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*LinkVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
+<span class="na">*.visualizer.networkRouteVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
+<span class="na">*.visualizer.networkRouteVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;UDPData*&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +469,7 @@ half of what we saw in step 2. This is so because R1’s NIC operates in
 half-duplex mode (it can only transmit or receive at any time, but not
 both), so it can only relay packets at half the rate that host A emits.</p>
 <p><strong>Number of packets received by host B: 1125</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

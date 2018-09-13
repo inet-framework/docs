@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -372,16 +384,16 @@ so on.</p>
 to be explicitly programmed into each affected component. Here are some
 examples how INET components react to a <em>crash</em> lifecycle event:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> forgets all open connections and sockets</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> clears the fragmentation reassembly buffers and pending
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> forgets all open connections and sockets</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> clears the fragmentation reassembly buffers and pending
 packets</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> clears the route table</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> and other MAC protocols clear their queues and reset
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> clears the route table</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a> and other MAC protocols clear their queues and reset
 their state associated with the current transmission(s)</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ospf</span></code> clears its full state</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicApp</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpSessionApp</span></code> and other applications reset
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.ospfv2.Ospf.html">Ospf</a> clears its full state</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.tcpapp.TcpSessionApp.html">TcpSessionApp</a> and other applications reset
 their state and stop/restart their timers</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherSwitch</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">AccessPoint</span></code>, and other L2 bridging devices
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ethernet.EtherSwitch.html">EtherSwitch</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>, and other L2 bridging devices
 clear their MAC address tables</li>
 </ul>
 <p>While down, network interfaces, and components in general, ignore
@@ -402,10 +414,10 @@ participate in lifecycle modeling, and show a usage example.</p>
 </div>
 <div class="section" id="nodestatus">
 <span id="ug-sec-lifecycle-nodestatus"></span><h2>NodeStatus<a class="headerlink" href="#nodestatus" title="Permalink to this headline">¶</a></h2>
-<p>Node models contain a <code class="code literal-ned docutils literal notranslate"><span class="pre">NodeStatus</span></code> module that keeps track of the
+<p>Node models contain a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.lifecycle.NodeStatus.html">NodeStatus</a> module that keeps track of the
 status of the node (up, down, etc.) for other modules, and also displays
 it in the GUI as a small overlay icon.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">NodeStatus</span></code> module is declared conditionally (so that it is
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.lifecycle.NodeStatus.html">NodeStatus</a> module is declared conditionally (so that it is
 only created in simulations that need it), like this:</p>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="n">status</span><span class="o">:</span> <span class="n">NodeStatus</span> <span class="k">if</span> <span class="n">hasStatus</span><span class="p">;</span>
 </pre></div>
@@ -419,7 +431,7 @@ the ini file to ensure that nodes have status modules:</p>
 <div class="section" id="scripting">
 <span id="ug-sec-lifecycle-scripting"></span><h2>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h2>
 <p>Lifecycle operations can be triggered from C++ code, or from scripts.
-INET supports scripting via the <code class="code literal-ned docutils literal notranslate"><span class="pre">ScenarioManager</span></code> NED type,
+INET supports scripting via the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.scenario.ScenarioManager.html">ScenarioManager</a> NED type,
 described in chapter <a class="reference internal" href="ch-scenario-scripting.html"><span class="doc">Scenario Scripting</span></a>. Here is an
 example script that shuts down a router at simulation time 2s, and
 starts it up a again at time 8s:</p>

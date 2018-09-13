@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -367,7 +379,7 @@ talk to each other. When they can’t, the error rate metric can be used
 for automatic route configuration instead of the default hop count.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>This step uses the <code class="docutils literal notranslate"><span class="pre">ConfiguratorD</span></code> network, defined in
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorD.html">ConfiguratorD</a> network, defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorD.ned</span></code></a>. The network
 looks like this:</p>
 <div class="figure">
@@ -375,25 +387,24 @@ looks like this:</p>
 </div>
 <p>It contains seven <code class="docutils literal notranslate"><span class="pre">AODVRouters</span></code> laid out in a chain.</p>
 <p>The configuration for this part in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step10A</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorD</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Completely wireless network, static routing based on error rate metric&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step10A]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorD</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Completely wireless network, static routing based on error rate metric&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step10a.xml&quot;</span><span class="p">)</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step10a.xml&quot;)</span>
 
-<span class="o">*.*.</span><span class="n">wlan</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="mi">1</span><span class="n">mW</span>
+<span class="na">*.*.wlan[*].radio.transmitter.power</span> <span class="o">=</span> <span class="s">1mW</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">labelFormat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">lineShiftMode</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displayCommunicationRanges</span> <span class="o">=</span> <span class="n">true</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.labelFormat</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="na">*.visualizer.routingTableVisualizer.lineShiftMode</span> <span class="o">=</span> <span class="s">&quot;none&quot;</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+<span class="na">*.visualizer.mediumVisualizer.displayCommunicationRanges</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 <p>The transmitter power of radios determine their communication range. The
 range is set up so hosts are only in range of the adjacent hosts in the
-chain. <code class="docutils literal notranslate"><span class="pre">RoutingTableCanvasVisualizer</span></code> is set to visualize routes to
+chain. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.RoutingTableCanvasVisualizer.html">RoutingTableCanvasVisualizer</a> is set to visualize routes to
 all destinations. The routing table visualization is simplified by
 turning off arrow labels, and setting the arrow line shift to 0. The
 latter setting causes the visualizer to draw only one arrow between any
@@ -406,10 +417,10 @@ However, the fact that the receiving host is within the communication
 range circle doesn’t mean that it can receive the transmission
 correctly.</p>
 <p>The XML configuration in step10a.xml is as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s1">&#39;**&#39;</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.x.x.x&#39;</span> <span class="n">netmask</span><span class="o">=</span><span class="s1">&#39;255.x.x.x&#39;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">autoroute</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;errorRate&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&#39;**&#39;</span> <span class="na">address=</span><span class="s">&#39;10.x.x.x&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.x.x.x&#39;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;autoroute</span> <span class="na">metric=</span><span class="s">&quot;errorRate&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>It contains a copy of the default address configurations, and an
@@ -437,12 +448,11 @@ react to these changes. When using dynamic protocols, the configurator
 is only used to configure the addresses. It leaves the routing table
 configuration to the dynamic protocol.</p>
 <p>The configuration for this part in omnetpp.ini extends the one for Part A:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step10B</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step10A</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Completely wireless network, routing tables unconfigured, prepared for MANET routing&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step10B]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step10A</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Completely wireless network, routing tables unconfigured, prepared for MANET routing&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">addStaticRoutes</span> <span class="o">=</span> <span class="n">false</span>
-
+<span class="na">*.configurator.addStaticRoutes</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
 </div>
 <p>The configurator is instructed to leave the routing tables empty, by
@@ -467,14 +477,13 @@ the lack of arrows. The routing tables are empty.</p>
 <p>In this part, routing tables are set up by the Ad-hoc On-demand Distance
 Vector (AODV) dynamic routing protocol. The configuration for this part
 extends Part B. The configuration in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step10C</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Step10B</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Completely wireless network, routing tables unconfigured, using AODV routing&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step10C]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step10B</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Completely wireless network, routing tables unconfigured, using AODV routing&quot;</span>
 
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host7&quot;</span>
-
+<span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host1.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host7&quot;</span>
 </pre></div>
 </div>
 <p>As specified in the previous part, the configurator is still instructed
@@ -492,7 +501,7 @@ happens to the routes to <code class="docutils literal notranslate"><span class=
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step10C_4.mp4" width="706" height="650" class="align-center"></video><p>To record the video, the simulation was run in fast mode, thus, routes
 appear instantly. It takes a few seconds simulation time for the unused
 routes to expire.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorD.ned</span></code></a></p>
 </div>
 </div>

@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -472,7 +484,7 @@ UDP header could be defined:</p>
 </pre></div>
 </div>
 <p>It’s important to distinguish the two length related fields in the
-<code class="code literal-msg docutils literal notranslate"><span class="pre">UdpHeader</span></code> chunk. One is the length of the chunk itself
+<a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-transportlayer-udp-UdpHeader.html">UdpHeader</a> chunk. One is the length of the chunk itself
 (<code class="code literal-cpp docutils literal notranslate"><span class="pre">chunkLength</span></code>), the other is the value in the length field of the
 header (<code class="code literal-cpp docutils literal notranslate"><span class="pre">lengthField</span></code>).</p>
 </div>
@@ -1161,7 +1173,7 @@ any.</p>
 sending packets, requests, and confirmations. INET is very flexible in
 terms of how protocols can be connected to each other. Protocols can be
 connected directly, or they can be connected through one or more
-<code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> modules.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> modules.</p>
 <p>This flexiblity allows creating very simple network nodes where the
 protocol stack is a chain. But it also allows creating more complicated
 network nodes where protocols are grouped into protocol layers to
@@ -1169,7 +1181,7 @@ provide many-to-one and many-to-many relationships. It’s also possible
 to use dispatcher modules hierarchically inside compound modules, or to
 connect all protocols to a single central dispatcher module.</p>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolTag</span></code> must be attached to a packet, request or
-confirmation to allow the <code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> to direct the message
+confirmation to allow the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> to direct the message
 to the inteded recipient. The following example shows how a MAC protocol
 could send up a packet to the designated protocol without actually
 knowing where that protocol is in the network node:</p>
@@ -1182,7 +1194,7 @@ knowing where that protocol is in the network node:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">MessageDispatcher</span></code> finds the designated protocol module and
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> finds the designated protocol module and
 its gate based on the <code class="code literal-cpp docutils literal notranslate"><span class="pre">registerProtocol</span></code> calls it has received
 during the initialization of all connected protocol modules.</p>
 </div>

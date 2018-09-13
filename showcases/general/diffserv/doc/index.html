@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Routing" href="../../../routing/index.html" />
+    <link rel="next" title="Mobility" href="../../../mobility/index.html" />
     <link rel="prev" title="PCAP Recording" href="../../pcaprecording/doc/index.html" /> 
   </head>
 <body>
@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -429,13 +441,19 @@ configuration, except the router’s queue is configured so that EF
 packets are prioritized over other packets, so lower delays are
 expected.</li>
 </ul>
+<p>The router’s PPP interface contains the key elements of Differentiated
+Services in this network: a queue (<code class="docutils literal notranslate"><span class="pre">queue</span></code>) and a traffic conditioner (<code class="docutils literal notranslate"><span class="pre">egressTC</span></code>).
+If both of them are used, the layout of the interface looks like the following:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/RouterPPP.png"><img alt="../../../../_images/RouterPPP.png" src="../../../../_images/RouterPPP.png" style="width: 240.0px; height: 359.0px;" /></a>
+</div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">VoIP_WithPolicing</span></code> and <code class="docutils literal notranslate"><span class="pre">VoIP_WithPolicingAndQueuing</span></code>
-configurations, INET’s <code class="docutils literal notranslate"><span class="pre">TrafficConditioner</span></code> module is used in the
+configurations, INET’s <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.examples.diffserv.simple_.TrafficConditioner.html">TrafficConditioner</a> module is used in the
 router’s PPP interface in order to achieve the required policing.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/TrafficConditioner.png"><img alt="../../../../_images/TrafficConditioner.png" src="../../../../_images/TrafficConditioner.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/TrafficConditioner.png"><img alt="../../../../_images/TrafficConditioner.png" src="../../../../_images/TrafficConditioner.png" style="width: 734.0px; height: 427.0px;" /></a>
 </div>
-<p>In <code class="docutils literal notranslate"><span class="pre">TrafficConditioner</span></code>, the <code class="docutils literal notranslate"><span class="pre">mfClassifier</span></code> submodule is used for
+<p>In <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.examples.diffserv.simple_.TrafficConditioner.html">TrafficConditioner</a>, the <code class="docutils literal notranslate"><span class="pre">mfClassifier</span></code> submodule is used for
 separating packets of different flows for marking with different DSCP values.
 It contains a list of filters that identifies the flow and determines their classes.
 Each filter can match the source and destination address, IP protocol
@@ -473,12 +491,12 @@ the <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</sp
 </pre></div>
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">VoIP_WithPolicingAndQueuing</span></code> configuration, a
-<code class="docutils literal notranslate"><span class="pre">DiffServQueue</span></code> module is used instead of <code class="docutils literal notranslate"><span class="pre">DropTailQueue</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">DiffServQueue</span></code> module is used instead of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a> in the
 router’s PPP interface in order to achieve priority queuing.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/DiffServQueue.png"><img alt="../../../../_images/DiffServQueue.png" src="../../../../_images/DiffServQueue.png" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/DiffServQueue.png"><img alt="../../../../_images/DiffServQueue.png" src="../../../../_images/DiffServQueue.png" style="width: 504.0px; height: 550.0px;" /></a>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">DiffservQueue</span></code>, offered by INET, is an example queue that can be used
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a>, offered by INET, is an example queue that can be used
 in interfaces of Differentiated Services core and edge nodes to support
 AFxy and EF per-hop behaviors. The incoming packets are first classified
 by the <code class="docutils literal notranslate"><span class="pre">classifier</span></code> module according to their DSCP field previously
@@ -512,7 +530,7 @@ the play button below:</p>
 <p>As expected, the quality of the received sound using the
 <code class="docutils literal notranslate"><span class="pre">VoIP_WithoutQoS</span></code> configuration is very low:</p>
 <audio controls class="align-center" src="VoIP_WithoutQoS_results.wav">Audio -- </audio><p>The jaggedness in the received audio is due to the fact that approximately half
-of the VoIP packets sent by <code class="docutils literal notranslate"><span class="pre">voipPhone1</span></code> are dropped by <code class="docutils literal notranslate"><span class="pre">DropTailQueue</span></code>
+of the VoIP packets sent by <code class="docutils literal notranslate"><span class="pre">voipPhone1</span></code> are dropped by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a>
 in the output interface of the router.</p>
 <p>The delay of the VoIP packets also is very high, approximately 2.5 seconds,
 which is way too much compared to a real phone call. The following plot
@@ -618,11 +636,11 @@ the GitHub issue tracker for commenting on this showcase.</p>
             <div>PCAP Recording</div>
          </div>
      </a>
-     <a id="button-next" href="../../../routing/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../../mobility/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Routing</div>
+            <div>Mobility</div>
         </div>
      </a>
   </div>

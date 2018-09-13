@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -362,30 +374,30 @@ simple as possible.</p>
 <a class="reference internal image-reference" href="../../../_images/wireless-step1.png"><img alt="../../../_images/wireless-step1.png" src="../../../_images/wireless-step1.png" style="width: 100%;" /></a>
 </div>
 <p>Here is the NED source of the network:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="n">WirelessA</span>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WirelessA</span>
 <span class="p">{</span>
-    <span class="n">parameters</span><span class="p">:</span>
-        <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;bgb=650,500;bgg=100,1,grey95&quot;</span><span class="p">);</span>
-        <span class="nd">@figure</span><span class="p">[</span><span class="n">title</span><span class="p">](</span><span class="nb">type</span><span class="o">=</span><span class="n">label</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">anchor</span><span class="o">=</span><span class="n">sw</span><span class="p">;</span> <span class="n">color</span><span class="o">=</span><span class="n">darkblue</span><span class="p">);</span>
+    <span class="k">parameters</span><span class="o">:</span>
+        <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=650,500;bgg=100,1,grey95&quot;</span><span class="p">);</span>
+        <span class="nb">@figure</span><span class="p">[</span><span class="n">title</span><span class="p">](</span><span class="n">type</span><span class="o">=</span><span class="n">label</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">anchor</span><span class="o">=</span><span class="n">sw</span><span class="p">;</span> <span class="n">color</span><span class="o">=</span><span class="n">darkblue</span><span class="p">);</span>
 
-        <span class="nd">@figure</span><span class="p">[</span><span class="n">rcvdPkText</span><span class="p">](</span><span class="nb">type</span><span class="o">=</span><span class="n">indicatorText</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="mi">20</span><span class="p">;</span> <span class="n">anchor</span><span class="o">=</span><span class="n">w</span><span class="p">;</span> <span class="n">font</span><span class="o">=</span><span class="p">,</span><span class="mi">18</span><span class="p">;</span> <span class="n">textFormat</span><span class="o">=</span><span class="s2">&quot;packets received: </span><span class="si">%g</span><span class="s2">&quot;</span><span class="p">;</span> <span class="n">initialValue</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
-        <span class="nd">@statistic</span><span class="p">[</span><span class="n">packetReceived</span><span class="p">](</span><span class="n">source</span><span class="o">=</span><span class="n">hostB</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">packetReceived</span><span class="p">;</span> <span class="n">record</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">count</span><span class="p">);</span> <span class="n">targetFigure</span><span class="o">=</span><span class="n">rcvdPkText</span><span class="p">);</span>
+        <span class="nb">@figure</span><span class="p">[</span><span class="n">rcvdPkText</span><span class="p">](</span><span class="n">type</span><span class="o">=</span><span class="n">indicatorText</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="mi">20</span><span class="p">;</span> <span class="n">anchor</span><span class="o">=</span><span class="n">w</span><span class="p">;</span> <span class="n">font</span><span class="o">=</span><span class="p">,</span><span class="mi">18</span><span class="p">;</span> <span class="n">textFormat</span><span class="o">=</span><span class="s">&quot;packets received: %g&quot;</span><span class="p">;</span> <span class="n">initialValue</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+        <span class="nb">@statistic</span><span class="p">[</span><span class="n">packetReceived</span><span class="p">](</span><span class="n">source</span><span class="o">=</span><span class="n">hostB</span><span class="p">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">packetReceived</span><span class="p">;</span> <span class="n">record</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">count</span><span class="p">);</span> <span class="n">targetFigure</span><span class="o">=</span><span class="n">rcvdPkText</span><span class="p">);</span>
 
-    <span class="n">submodules</span><span class="p">:</span>
-        <span class="n">visualizer</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;IntegratedCanvasVisualizer&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">IIntegratedVisualizer</span> <span class="k">if</span> <span class="n">hasVisualizer</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=580,125&quot;</span><span class="p">);</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">visualizer</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;IntegratedCanvasVisualizer&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IIntegratedVisualizer</span> <span class="k">if</span> <span class="n">hasVisualizer</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=580,125&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">configurator</span><span class="p">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=580,200&quot;</span><span class="p">);</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=580,200&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">radioMedium</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;UnitDiskRadioMedium&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">IRadioMedium</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=580,275&quot;</span><span class="p">);</span>
+        <span class="n">radioMedium</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;UnitDiskRadioMedium&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IRadioMedium</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=580,275&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">hostA</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=50,325&quot;</span><span class="p">);</span>
+        <span class="n">hostA</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=50,325&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        <span class="n">hostB</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">default</span><span class="p">(</span><span class="s2">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
-            <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=450,325&quot;</span><span class="p">);</span>
+        <span class="n">hostB</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;WirelessHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">INetworkNode</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=450,325&quot;</span><span class="p">);</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -402,35 +414,35 @@ modeling the physical radio channel. We’ll return to them later.</p>
 </div>
 <div class="section" id="the-hosts">
 <h3>The hosts<a class="headerlink" href="#the-hosts" title="Permalink to this headline">¶</a></h3>
-<p>In INET, hosts are usually represented with the <code class="docutils literal notranslate"><span class="pre">StandardHost</span></code> NED
+<p>In INET, hosts are usually represented with the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> NED
 type, which is a generic template for TCP/IP hosts. It contains protocol
 components like TCP, UDP and IP, slots for plugging in application
-models, and various network interfaces (NICs). <code class="docutils literal notranslate"><span class="pre">StandardHost</span></code> has some
-variations in INET, for example <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code>, which is basically a
-<code class="docutils literal notranslate"><span class="pre">StandardHost</span></code> preconfigured for wireless scenarios.</p>
+models, and various network interfaces (NICs). <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> has some
+variations in INET, for example <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>, which is basically a
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> preconfigured for wireless scenarios.</p>
 <p>As you can see, the hosts’ type is parametric in this NED file (defined
-via a <code class="docutils literal notranslate"><span class="pre">hostType</span></code> parameter and the <code class="docutils literal notranslate"><span class="pre">INetworkNode</span></code> module interface).
+via a <code class="docutils literal notranslate"><span class="pre">hostType</span></code> parameter and the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.INetworkNode.html">INetworkNode</a> module interface).
 This is done so that in later steps we can replace hosts with a
-different NED type. The actual NED type here is <code class="docutils literal notranslate"><span class="pre">WirelessHost</span></code> (given
+different NED type. The actual NED type here is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> (given
 near the top of the NED file), and later steps will override this
 setting using <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code>.</p>
 </div>
 <div class="section" id="address-assignment">
 <h3>Address assignment<a class="headerlink" href="#address-assignment" title="Permalink to this headline">¶</a></h3>
-<p>IP addresses are assigned to hosts by an <code class="docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>
+<p>IP addresses are assigned to hosts by an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>
 module, which appears as the <code class="docutils literal notranslate"><span class="pre">configurator</span></code> submodule in the network.
 The hosts also need to know each others’ MAC addresses to communicate,
-which in this model is taken care of by using per-host <code class="docutils literal notranslate"><span class="pre">GlobalArp</span></code>
+which in this model is taken care of by using per-host <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a>
 modules instead of real ARP.</p>
 </div>
 <div class="section" id="traffic-model">
 <h3>Traffic model<a class="headerlink" href="#traffic-model" title="Permalink to this headline">¶</a></h3>
 <p>In the model, host A generates UDP packets which are received by host B.
-To this end, host A is configured to contain a <code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> module,
+To this end, host A is configured to contain a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> module,
 which generates 1000-byte UDP messages at random intervals with
 exponential distribution, the mean of which is 12ms. Therefore the app
 is going to generate 100 kbyte/s (800 kbps) UDP traffic, not counting
-protocol overhead. Host B contains a <code class="docutils literal notranslate"><span class="pre">UdpSink</span></code> application that just
+protocol overhead. Host B contains a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpSink.html">UdpSink</a> application that just
 discards received packets.</p>
 <p>The model also displays the number of packets received by host B. The
 text is added by the <code class="docutils literal notranslate"><span class="pre">&#64;figure[rcvdPkText]</span></code> line, and the subsequent
@@ -445,7 +457,7 @@ responsible for taking signal propagation, attenuation, interference,
 and other physical phenomena into account.</p>
 <p>INET can model the wireless physical layer at various levels of detail,
 realized with different radio medium modules. In this step, we use
-<code class="docutils literal notranslate"><span class="pre">UnitDiskRadioMedium</span></code>, which is the simplest model. It implements a
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>, which is the simplest model. It implements a
 variation of unit disc radio, meaning that physical phenomena like
 signal attenuation are ignored, and the communication range is simply
 specified in meters. Transmissions within range are always correctly
@@ -458,15 +470,15 @@ correspondence to reality. However, it has its uses in the simulation.
 Its simplicity and consequent predictability are an advantage in
 scenarios where realistic modeling of the physical layer is not a
 primary concern, for example in the modeling of ad-hoc routing
-protocols. Simulations using <code class="docutils literal notranslate"><span class="pre">UnitDiskRadioMedium</span></code> also run faster
+protocols. Simulations using <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a> also run faster
 than more realistic ones, due to the low computational cost.</p>
 <p>In hosts, network interface cards are represented by NIC modules. Radio
 is part of wireless NIC modules. There are various radio modules, and
 one must always use one that is compatible with the medium module. In
-this step, hosts contain <code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code> as part of
+this step, hosts contain <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> as part of
 <code class="docutils literal notranslate"><span class="pre">AckingWirelessNic</span></code>.</p>
 <p>In this model, we configure the chosen physical layer model
-(<code class="docutils literal notranslate"><span class="pre">UnitDiskRadioMedium</span></code> and <code class="docutils literal notranslate"><span class="pre">UnitDiskRadio</span></code>) as follows. The
+(<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>) as follows. The
 communication range is set to 500m. Modeling packet losses due to
 collision (termed “interference” in this model) is turned off, resulting
 in pairwise independent duplex communication channels. The radio data
@@ -485,33 +497,32 @@ packets are transmitted as soon as the previous packet has completed
 transmission. <code class="docutils literal notranslate"><span class="pre">MultipleAccessMac</span></code> also contains an optional
 out-of-band acknowledgement mechanism which we turn off here.</p>
 <p>The configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless01</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Two</span> <span class="n">hosts</span> <span class="n">communicating</span> <span class="n">wirelessly</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">WirelessA</span>
-<span class="n">sim</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">20</span><span class="n">s</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless01]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Two hosts communicating wirelessly</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">WirelessA</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">20s</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">ipv4</span><span class="o">.</span><span class="n">arp</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;GlobalArp&quot;</span>
+<span class="na">*.host*.ipv4.arp.typename</span> <span class="o">=</span> <span class="s">&quot;GlobalArp&quot;</span>
 
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpBasicApp&quot;</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destAddresses</span> <span class="o">=</span> <span class="s2">&quot;hostB&quot;</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">destPort</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">messageLength</span> <span class="o">=</span> <span class="mi">1000</span><span class="n">B</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sendInterval</span> <span class="o">=</span> <span class="n">exponential</span><span class="p">(</span><span class="mi">12</span><span class="n">ms</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">packetName</span> <span class="o">=</span> <span class="s2">&quot;UDPData&quot;</span>
+<span class="na">*.hostA.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.hostA.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.hostA.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;hostB&quot;</span>
+<span class="na">*.hostA.app[0].destPort</span> <span class="o">=</span> <span class="s">5000</span>
+<span class="na">*.hostA.app[0].messageLength</span> <span class="o">=</span> <span class="s">1000B</span>
+<span class="na">*.hostA.app[0].sendInterval</span> <span class="o">=</span> <span class="s">exponential(12ms)</span>
+<span class="na">*.hostA.app[0].packetName</span> <span class="o">=</span> <span class="s">&quot;UDPData&quot;</span>
 
-<span class="o">*.</span><span class="n">hostB</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">hostB</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;UdpSink&quot;</span>
-<span class="o">*.</span><span class="n">hostB</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">localPort</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="na">*.hostB.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.hostB.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.hostB.app[0].localPort</span> <span class="o">=</span> <span class="s">5000</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;AckingWirelessInterface&quot;</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">useAck</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">fullDuplex</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">transmitter</span><span class="o">.</span><span class="n">communicationRange</span> <span class="o">=</span> <span class="mi">500</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">receiver</span><span class="o">.</span><span class="n">ignoreInterference</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.host*.wlan[0].typename</span> <span class="o">=</span> <span class="s">&quot;AckingWirelessInterface&quot;</span>
+<span class="na">*.host*.wlan[0].mac.useAck</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.host*.wlan[0].mac.fullDuplex</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.host*.wlan[0].radio.transmitter.communicationRange</span> <span class="o">=</span> <span class="s">500m</span>
+<span class="na">*.host*.wlan[0].radio.receiver.ignoreInterference</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.**.</span><span class="n">bitrate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">Mbps</span>
-
+<span class="na">*.host*.**.bitrate</span> <span class="o">=</span> <span class="s">1Mbps</span>
 </pre></div>
 </div>
 </div>
@@ -519,7 +530,7 @@ out-of-band acknowledgement mechanism which we turn off here.</p>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>When we run the simulation, here’s what happens. Host A’s
-<code class="docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> generates UDP packets at random intervals. These packets
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> generates UDP packets at random intervals. These packets
 are sent down via UDP and IPv4 to the network interface for
 transmission. The network interface queues packets, and transmits them
 as soon as it can. As long as there are packets in the network
@@ -536,7 +547,7 @@ OMNeT++’s default “message sending” animation.</p>
 that around 2000 packets were sent. A packet with overhead is 1028
 bytes, which means the transmission rate was around 660 kbps.</p>
 <p><strong>Number of packets received by host B: 2017</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

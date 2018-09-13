@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -352,7 +364,7 @@ Show Source
 <p>With INET simulations, it is often useful to be able to visualize
 network traffic. INET offers several visualizers for this task,
 operating at various levels of the network stack. In this showcase, we
-examine <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> that can provide graphical feedback
+examine <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> that can provide graphical feedback
 about network layer level traffic.</p>
 <p>The showcase consists of four simulation models, each demonstrating
 different features of the network path activity visualizer.</p>
@@ -362,12 +374,12 @@ different features of the network path activity visualizer.</p>
 <div class="section" id="about-the-visualizer">
 <h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
 <p>In INET, network path activity can be visualized by including a
-<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> module in the simulation. Adding an
-<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> module is also an option, because it also
-contains a <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> module. Network path activity
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> module in the simulation. Adding an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module is also an option, because it also
+contains a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> module. Network path activity
 visualization is disabled by default, it can be enabled by setting the
 visualizer’s <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter to true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> currently observes packets that pass through
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> currently observes packets that pass through
 the network layer (i.e. carry data from/to higher layers), but not those
 that are internal to the operation of the network layer protocol. That
 is, packets such as ARP, although potentially useful, will not trigger
@@ -375,7 +387,7 @@ the visualization. Visualizing such packets may be implemented in future
 INET revisions.</p>
 <p>The activity between two nodes is represented visually by a polyline
 arrow which points from the source node to the destination node.
-<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> follows packet throughout its path so the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> follows packet throughout its path so the
 polyline goes through all nodes that are part of the packet’s path. The
 arrow appears after the first packet has been received, then gradually
 fades out unless it is reinforced by further packets. Color, fading time
@@ -397,7 +409,7 @@ pinging the <code class="docutils literal notranslate"><span class="pre">destina
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/NetworkPathSimple.png"><img alt="../../../../_images/NetworkPathSimple.png" src="../../../../_images/NetworkPathSimple.png" style="width: 80%;" /></a>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">pathVisualizer's</span></code> type is <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code>. We enable
+<p>The <code class="docutils literal notranslate"><span class="pre">pathVisualizer's</span></code> type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a>. We enable
 network path activity visualization by setting the <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code>
 parameter to true.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.pathVisualizer.*.displayRoutes = true
@@ -407,9 +419,9 @@ parameter to true.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualization_v0614.m4v" width="560" height="" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
 <code class="docutils literal notranslate"><span class="pre">source</span></code> to <code class="docutils literal notranslate"><span class="pre">destination</span></code>. This strip is the standard OMNeT++
 animation for packet transmissions, and has nothing to do with
-<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code>. When the packet is received in whole by
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a>. When the packet is received in whole by
 <code class="docutils literal notranslate"><span class="pre">destination</span></code> (the red strip disappears), an arrow is added by
-<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> between the two hosts, indicating network
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> between the two hosts, indicating network
 path activity. The packet’s name is also displayed on the arrow. The
 arrow fades out quickly, because the <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameter of the
 visualizer is set to a small value.</p>
@@ -435,7 +447,7 @@ ini file.</p>
 <code class="docutils literal notranslate"><span class="pre">destination1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination2</span></code>. The <code class="docutils literal notranslate"><span class="pre">videoServer</span></code> node streams
 a video to the <code class="docutils literal notranslate"><span class="pre">videoClient</span></code> node. The remaining two endpoints
 (<code class="docutils literal notranslate"><span class="pre">host1</span></code> and <code class="docutils literal notranslate"><span class="pre">host2</span></code>) are inactive in this simulation.</p>
-<p>For this network, the visualizer’s type is <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>.
+<p>For this network, the visualizer’s type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>.
 Network path visualization is filtered to display only ping traffic. The
 video stream packets are not visualized by network path activity
 visualizer. The <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameters have been
@@ -450,7 +462,7 @@ completely before the next ping packet arrives.</p>
 <p>The following video shows what happens when the simulation is run.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="StaticNetworkPaths_v0703.m4v" width="698" height="" class="align-center"></video><p>Each arrow has a different color indicating different paths. You can see
 that although there is both video stream and ping traffic in the
-network, <code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> displays only the latter, due to the
+network, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> displays only the latter, due to the
 presence of the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
 </div>
 <div class="section" id="visualizing-network-path-activity-in-a-mobile-ad-hoc-network">
@@ -459,7 +471,7 @@ presence of the <code class="docutils literal notranslate"><span class="pre">pac
 dynamically changing network path activity in a wireless environment.
 The simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Mobile</span></code> configuration from
 the ini file.</p>
-<p>Nodes are of the type <code class="docutils literal notranslate"><span class="pre">AodvRouter</span></code>, and are placed randomly on the
+<p>Nodes are of the type <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>, and are placed randomly on the
 playground. One of the nodes is the <code class="docutils literal notranslate"><span class="pre">source</span></code> node which will be
 pinging the <code class="docutils literal notranslate"><span class="pre">destination</span></code> node. The communication ranges of the nodes
 have been chosen so that the network is connected but nodes can
@@ -552,7 +564,7 @@ network traffic.</p>
 <h2>More Information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
 <p>This example only demonstrated the key features of network path
 visualization. For more information, refer to the
-<code class="docutils literal notranslate"><span class="pre">NetworkRouteVisualizer</span></code> NED documentation.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> NED documentation.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>

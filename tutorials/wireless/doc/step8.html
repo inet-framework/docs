@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -372,9 +384,9 @@ consumption, they only expose their state variables. This allows one to
 switch to arbitrarily complex (or simple) power consumption models,
 without affecting the operation of the radio. The energy consumption
 model can be specified in the <code class="docutils literal notranslate"><span class="pre">energyConsumerType</span></code> parameter of the
-<code class="docutils literal notranslate"><span class="pre">Radio</span></code> module.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.Radio.html">Radio</a> module.</p>
 <p>Here, we set the energy consumption model in the node radios to
-<code class="docutils literal notranslate"><span class="pre">StateBasedEpEnergyConsumer</span></code>. <code class="docutils literal notranslate"><span class="pre">StateBasedEpEnergyConsumer</span></code> models
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a>. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> models
 radio power consumption based on states like radio mode, transmitter and
 receiver state. Each state has a constant power consumption that can be
 set by a parameter. Energy use depends on how much time the radio spends
@@ -390,7 +402,7 @@ receiving: the <em>preamble</em>, the (physical layer) <em>header</em>, the <em>
 <em>any</em> (we don’t know/care). Similarly, the transmit state may be <em>idle</em>
 or <em>transmitting</em>, and a sub-state stores which part of the signal is
 being transmitted (if any).</p>
-<p><code class="docutils literal notranslate"><span class="pre">StateBasedEpEnergyConsumer</span></code> expects the consumption in various states
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> expects the consumption in various states
 to be specified in watts in parameters like <code class="docutils literal notranslate"><span class="pre">sleepPowerConsumption</span></code>,
 <code class="docutils literal notranslate"><span class="pre">receiverBusyPowerConsumption</span></code>,
 <code class="docutils literal notranslate"><span class="pre">transmitterTransmittingPreamblePowerConsumption</span></code> and so on.</p>
@@ -404,8 +416,8 @@ storage models, and the desired one can be selected in the
 consumption model is preconfigured to draw energy from the host’s energy
 storage. (Hosts with more than one energy storage component are also
 possible.)</p>
-<p>In this model, we use <code class="docutils literal notranslate"><span class="pre">IdealEpEnergyStorage</span></code> in hosts.
-<code class="docutils literal notranslate"><span class="pre">IdealEpEnergyStorage</span></code> provides an infinite amount of energy, can’t be
+<p>In this model, we use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.IdealEpEnergyStorage.html">IdealEpEnergyStorage</a> in hosts.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.storage.IdealEpEnergyStorage.html">IdealEpEnergyStorage</a> provides an infinite amount of energy, can’t be
 fully charged or depleted. We use this because we want to concentrate on
 the power consumption, not the storage.</p>
 <p>The energy storage module contains an <code class="docutils literal notranslate"><span class="pre">energyBalance</span></code> watched variable
@@ -418,27 +430,26 @@ statistic.</p>
 <p>The visualization of radio signals as expanding bubbles is no longer
 needed, so we turn it off.</p>
 <p>Configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless08</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Modeling</span> <span class="n">energy</span> <span class="n">consumption</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless07</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless08]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Modeling energy consumption</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless07</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StateBasedEpEnergyConsumer&quot;</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">offPowerConsumption</span> <span class="o">=</span> <span class="mi">0</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">sleepPowerConsumption</span> <span class="o">=</span> <span class="mi">1</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">switchingPowerConsumption</span> <span class="o">=</span> <span class="mi">1</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">receiverIdlePowerConsumption</span> <span class="o">=</span> <span class="mi">2</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">receiverBusyPowerConsumption</span> <span class="o">=</span> <span class="mi">5</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">receiverReceivingPowerConsumption</span> <span class="o">=</span> <span class="mi">10</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">transmitterIdlePowerConsumption</span> <span class="o">=</span> <span class="mi">2</span><span class="n">mW</span>
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">energyConsumer</span><span class="o">.</span><span class="n">transmitterTransmittingPowerConsumption</span> <span class="o">=</span> <span class="mi">100</span><span class="n">mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.typename</span> <span class="o">=</span> <span class="s">&quot;StateBasedEpEnergyConsumer&quot;</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.offPowerConsumption</span> <span class="o">=</span> <span class="s">0mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.sleepPowerConsumption</span> <span class="o">=</span> <span class="s">1mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.switchingPowerConsumption</span> <span class="o">=</span> <span class="s">1mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.receiverIdlePowerConsumption</span> <span class="o">=</span> <span class="s">2mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.receiverBusyPowerConsumption</span> <span class="o">=</span> <span class="s">5mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.receiverReceivingPowerConsumption</span> <span class="o">=</span> <span class="s">10mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.transmitterIdlePowerConsumption</span> <span class="o">=</span> <span class="s">2mW</span>
+<span class="na">*.host*.wlan[0].radio.energyConsumer.transmitterTransmittingPowerConsumption</span> <span class="o">=</span> <span class="s">100mW</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">energyStorage</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;IdealEpEnergyStorage&quot;</span>
+<span class="na">*.host*.energyStorage.typename</span> <span class="o">=</span> <span class="s">&quot;IdealEpEnergyStorage&quot;</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">displayInterferenceRange</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">hostR1</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">displayCommunicationRange</span> <span class="o">=</span> <span class="n">false</span>
+<span class="na">*.host*.wlan[0].radio.displayInterferenceRange</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.hostR1.wlan[0].radio.displayCommunicationRange</span> <span class="o">=</span> <span class="s">false</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displaySignals</span> <span class="o">=</span> <span class="n">false</span>
-
+<span class="na">*.visualizer.mediumVisualizer.displaySignals</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +469,7 @@ power because it transmitted more than the other nodes.</p>
 <img alt="../../../_images/wireless-step8.png" src="../../../_images/wireless-step8.png" />
 </div>
 <p><strong>Number of packets received by host B: 1393</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

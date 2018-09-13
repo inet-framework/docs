@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -356,24 +368,23 @@ assignment for the rest of the network.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>This step uses the <code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code> network from the previous step. We
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a> network from the previous step. We
 will assign the 10.0.0.50 address to <code class="docutils literal notranslate"><span class="pre">host1</span></code>, and 10.0.0.100 to
 <code class="docutils literal notranslate"><span class="pre">host3</span></code>. The configurator will automatically assign addresses to the
 rest of the nodes.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>The configuration in omnetpp.ini for this step is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step2</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorA</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Manually overriding individual IP addresses&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step2]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorA</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Manually overriding individual IP addresses&quot;</span>
 
 <span class="c1"># Using inline XML configuration</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xml</span><span class="p">(</span><span class="s2">&quot;&lt;config&gt; </span><span class="se">\</span>
-<span class="s2">                                &lt;interface hosts=&#39;host3&#39; names=&#39;eth0&#39; address=&#39;10.0.0.100&#39;/&gt; </span><span class="se">\</span>
-<span class="s2">                                &lt;interface hosts=&#39;host1&#39; names=&#39;eth0&#39; address=&#39;10.0.0.50&#39;/&gt; </span><span class="se">\</span>
-<span class="s2">                                &lt;interface hosts=&#39;**&#39; address=&#39;10.x.x.x&#39; netmask=&#39;255.x.x.x&#39;/&gt; </span><span class="se">\</span>
-<span class="s2">                             &lt;/config&gt;&quot;</span><span class="p">)</span>
-
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; \</span>
+<span class="s">                                &lt;interface hosts=&#39;host3&#39; names=&#39;eth0&#39; address=&#39;10.0.0.100&#39;/&gt; \</span>
+<span class="s">                                &lt;interface hosts=&#39;host1&#39; names=&#39;eth0&#39; address=&#39;10.0.0.50&#39;/&gt; \</span>
+<span class="s">                                &lt;interface hosts=&#39;**&#39; address=&#39;10.x.x.x&#39; netmask=&#39;255.x.x.x&#39;/&gt; \</span>
+<span class="s">                             &lt;/config&gt;&quot;)</span>
 </pre></div>
 </div>
 <p>The value for the <code class="docutils literal notranslate"><span class="pre">config</span></code> parameter can be supplied either inline
@@ -448,7 +459,7 @@ addresses. Note that the configurator still assigned addresses
 sequentially, i.e. after setting the 10.0.0.100 address to <code class="docutils literal notranslate"><span class="pre">host3</span></code>, it
 didn’t go back to the beginning of the address pool when assigning the
 remaining addresses.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

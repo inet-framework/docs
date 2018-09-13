@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,7 +367,7 @@ adding acknowledgements to the MAC protocol.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>We turn on acknowledgements by setting the <code class="docutils literal notranslate"><span class="pre">useAcks</span></code> parameter of
-<code class="docutils literal notranslate"><span class="pre">CsmaCaMac</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This change will make the operation of the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.csmaca.CsmaCaMac.html">CsmaCaMac</a> to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This change will make the operation of the
 MAC module both more interesting and more complicated.</p>
 <p>On the receiver side, the change is quite simple: when the MAC correctly
 receives a data frame addressed to it, it responds with an ACK frame
@@ -374,19 +386,18 @@ mode operation.</p>
 retransmissions will introduce duplicates in the packet stream the MAC
 sends up to to the higher layer protocols in the receiver host. This
 could be eliminated by adding sequence numbers to frames and maintaining
-per-sender sequence numbers in each receiver, but the <code class="docutils literal notranslate"><span class="pre">CsmaCaMac</span></code>
+per-sender sequence numbers in each receiver, but the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.csmaca.CsmaCaMac.html">CsmaCaMac</a>
 module does not contain such a duplicate detection algorithm in order to
 keep its code simple and accessible.</p>
 <p>Another detail worth mentioning is that when a frame exceeds the maximum
 number of retries and is discarded, the MAC emits a link break signal.
 This signal may be interpreted by routing protocols such as AODV as a
 sign that a route has become broken, and a new one needs to be found.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless07</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Turning</span> <span class="n">on</span> <span class="n">ACKs</span> <span class="ow">in</span> <span class="n">CSMA</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless06</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless07]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Turning on ACKs in CSMA</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless06</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">useAck</span> <span class="o">=</span> <span class="n">true</span>
-
+<span class="na">*.host*.wlan[0].mac.useAck</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 </div>
@@ -424,7 +435,7 @@ packets.</p>
 <a class="reference internal image-reference" href="../../../_images/wireless-step7-seqdiff6.png"><img alt="../../../_images/wireless-step7-seqdiff6.png" src="../../../_images/wireless-step7-seqdiff6.png" style="width: 100%;" /></a>
 <a class="reference internal image-reference" href="../../../_images/wireless-step7-seqdiff7.png"><img alt="../../../_images/wireless-step7-seqdiff7.png" src="../../../_images/wireless-step7-seqdiff7.png" style="width: 100%;" /></a>
 <p><strong>Number of packets received by host B: 1393</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

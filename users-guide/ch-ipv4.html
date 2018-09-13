@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -375,28 +387,28 @@ the transport layer.</p>
 <p>The INET framework contains several modules to build the IPv4 network
 layer of hosts and routers:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> is the main module that implements RFC791. This module
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> is the main module that implements RFC791. This module
 performs IP encapsulation/decapsulation, fragmentation and assembly,
 and routing of IP datagrams.</li>
-<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> is a helper module that manages the
-routing table of the node. It is queried by the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> is a helper module that manages the
+routing table of the node. It is queried by the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module
 for best routes, and updated by the routing daemons implementing RIP,
 OSPF, Manet, etc. protocols.</li>
-<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be used to generate ICMP error packets. It
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module can be used to generate ICMP error packets. It
 also supports ICMP echo applications.</li>
-<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module performs the dynamic translation of IP
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module performs the dynamic translation of IP
 addresses to MAC addresses.</li>
-<li>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmpv2</span></code> module to generate and process multicast group
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Igmpv2.html">Igmpv2</a> module to generate and process multicast group
 membership reports.</li>
 </ul>
 <p>These modules are assembled into a complete network layer module called
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code>. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkLayer</span></code> module is present
-e.g. in <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a>. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a> module is present
+e.g. in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>.</p>
 <p>The subsequent sections describe the IPv4 modules in detail.</p>
 </div>
 <div class="section" id="ipv4">
 <span id="ug-sec-ipv4-ipv4"></span><h2>Ipv4<a class="headerlink" href="#ipv4" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module implements the IPv4 protocol.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module implements the IPv4 protocol.</p>
 <p>Its parameters include:</p>
 <ul class="simple">
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">crcMode</span></code> TODO: &#64;enum(“declared”, “computed”) =
@@ -414,50 +426,50 @@ did not specify the outgoing interface.</li>
 </div>
 <div class="section" id="ipv4routingtable">
 <span id="ug-sec-ipv4-ipv4routingtable"></span><h2>Ipv4RoutingTable<a class="headerlink" href="#ipv4routingtable" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module represents the IPv4 route table.
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> module represents the IPv4 route table.
 Hosts and routers normally contain one instance of this module. The
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module does not send or receive messages.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> module does not send or receive messages.
 Instead, C++ methods are for querying and updating the table, as well as
 for unicast and multicast routing.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> module has the following parameters:</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> module has the following parameters:</p>
 <ul class="simple">
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">routerId</span></code>: for routers, the router id using IPv4 address dotted
 notation; specify “auto” to select the highest interface address;
 should be left empty for hosts.</li>
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">forwarding</span></code>: turns IP forwarding on/off. It is always
-<code class="docutils literal notranslate"><span class="pre">true</span></code> in a <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> and is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default in a
-<code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code>.</li>
+<code class="docutils literal notranslate"><span class="pre">true</span></code> in a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> and is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default in a
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>.</li>
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">multicastForwarding</span></code>: turns multicast IP forwarding on/off.
 Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>, should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in multicast
 routers.</li>
 </ul>
 <p>The preferred method for static initialization of routing tables is to
-use <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. While <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4RoutingTable</span></code> can
+use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. While <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> can
 read the routes from a <em>routing file</em>, that is considered obsolete. Old
 routing files should be replaced with the XML configuration of
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>. The <a class="reference internal" href="ch-network-autoconfig.html"><span class="doc">Network Autoconfiguration</span></a> chapter
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. The <a class="reference internal" href="ch-network-autoconfig.html"><span class="doc">Network Autoconfiguration</span></a> chapter
 describes the format of the new configuration files.</p>
 </div>
 <div class="section" id="icmp">
 <span id="ug-sec-ipv4-icmp"></span><h2>Icmp<a class="headerlink" href="#icmp" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module implements the Internet Control Message Protocol
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module implements the Internet Control Message Protocol
 (ICMP). ICMP is the error reporting and diagnostic mechanism of the
 Internet. It uses the services of IP, so it is a transport layer
 protocol, but unlike TCP or UDP it is not used to transfer user data. It
 cannot be separated from IP, because the routing errors are reported by
 ICMP.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be used to send error messages and ping
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module can be used to send error messages and ping
 request. It can also respond to incoming ICMP messages.</p>
 <p>Each ICMP message is encapsulated within an IP datagram, so its delivery
 is unreliable.</p>
 </div>
 <div class="section" id="arp">
 <span id="ug-sec-ipv4-arp"></span><h2>Arp<a class="headerlink" href="#arp" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module implements the Address Resolution Protocol (ARP).
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module implements the Address Resolution Protocol (ARP).
 The ARP protocol is designed to translate a local protocol address to a
 hardware address. Although the ARP protocol can be used with several
 network protocol and hardware addressing schemes, in practice they are
-almost always IPv4 and 802.3 addresses. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module only
+almost always IPv4 and 802.3 addresses. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module only
 supports IPv4-to-MAC address translation, but not the opposite
 direction, Reverse ARP (RARP).</p>
 <p>The address to be resolved can be either an IPv4 broadcast/multicast or
@@ -475,7 +487,7 @@ address directly to the node that sent the request. When the original
 node receives the ARP response, it updates its ARP cache and sends the
 delayed IP packet using the learned MAC address.</p>
 <p>ARP resolution is initiated with a C++ call.</p>
-<p>The module parameters of <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> are:</p>
+<p>The module parameters of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> are:</p>
 <ul class="simple">
 <li><code class="code literal-ini docutils literal notranslate"><span class="pre">retryTimeout</span></code>: number of seconds ARP waits between retries to
 resolve an IPv4 address (default is 1s)</li>
@@ -489,7 +501,7 @@ will time out (default is 120s)</li>
 </div>
 <div class="section" id="igmp">
 <span id="ug-sec-ipv4-igmp"></span><h2>Igmp<a class="headerlink" href="#igmp" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmp</span></code> module implements the Internet Group Management Protocol
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Igmpv3.html">Igmpv3</a> module implements the Internet Group Management Protocol
 (IGMP). IGMP is a communications protocol used by hosts and adjacent
 routers on IPv4 networks to establish multicast group memberships. IGMP
 is an integral part of IP multicast.</p>
@@ -501,7 +513,7 @@ multicast group, so it does not want to receive those multicast
 datagrams. The IGMP module of multicast routers processes these IGMP
 reports: it updates the list of groups, that has members on the link of
 the incoming message.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">IIgmp</span></code> module interface defines the connections of IGMP
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.IIgmp.html">IIgmp</a> module interface defines the connections of IGMP
 modules. IGMP reports are transmitted by IP, so the module contains
 gates to be connected to the IP module (<code class="code literal-ned docutils literal notranslate"><span class="pre">ipIn/ipOut</span></code>). The IP
 module delivers packets with protocol number 2 to the IGMP module.
@@ -510,7 +522,7 @@ routing information by sending IGMP messages, so they should be
 connected to the <code class="code literal-ned docutils literal notranslate"><span class="pre">routerIn/routerOut</span></code> gates of the IGMP module. The
 IGMP module delivers the IGMP messages not processed by itself to the
 connected routing module.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Igmpv2</span></code> module implements version 2 of the IGMP protocol (RFC
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Igmpv2.html">Igmpv2</a> module implements version 2 of the IGMP protocol (RFC
 2236). Next we describe its behaviour in host and routers in details.
 Note that multicast routers behaves as hosts too, i.e. they are sending
 reports to other routers when joining or leaving a multicast group.</p>

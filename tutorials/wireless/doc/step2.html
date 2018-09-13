@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -361,7 +373,7 @@ visualizers responsible for showing various aspects of the simulation.
 Visualizers are parameterizable, and some visualizers are themselves
 composed of several optional components.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> submodule in this network is an
-<code class="docutils literal notranslate"><span class="pre">IntegratedCanvasVisualizer</span></code>, which is a compound module that contains
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a>, which is a compound module that contains
 all typically useful visualizers as submodules. It can display physical
 objects in the physical environment, movement trail, discovered network
 connectivity, discovered network routes, ongoing transmissions, ongoing
@@ -374,7 +386,7 @@ It displays a circle around the host which represents the maximum
 distance where successful transmission is still possible with some hosts
 in the network.</p>
 <p>The visualization of signal propagation is enabled with the
-<code class="docutils literal notranslate"><span class="pre">displaySignals</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">MediumCanvasVisualizer</span></code>. It displays
+<code class="docutils literal notranslate"><span class="pre">displaySignals</span></code> parameter of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.MediumCanvasVisualizer.html">MediumCanvasVisualizer</a>. It displays
 transmissions as colored rings emanating from hosts. Since this is
 sufficient to represent radio signals visually, it is advisable to turn
 off message animations in the Tkenv/Qtenv preferences dialog.</p>
@@ -388,19 +400,18 @@ received by the physical layer, the arrow between the transmitter and
 receiver hosts is created or reinforced. The arrows visible at any given
 time indicate recent successful communication patterns.</p>
 <p>Configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless02</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Setting</span> <span class="n">up</span> <span class="n">some</span> <span class="n">animations</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless01</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless02]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Setting up some animations</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless01</span>
 
-<span class="o">*.</span><span class="n">hostA</span><span class="o">.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">radio</span><span class="o">.</span><span class="n">displayCommunicationRange</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.hostA.wlan[0].radio.displayCommunicationRange</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">descriptionFigure</span> <span class="o">=</span> <span class="s2">&quot;title&quot;</span>
+<span class="na">*.visualizer.sceneVisualizer.descriptionFigure</span> <span class="o">=</span> <span class="s">&quot;title&quot;</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mediumVisualizer</span><span class="o">.</span><span class="n">displaySignals</span> <span class="o">=</span> <span class="n">true</span>
+<span class="na">*.visualizer.mediumVisualizer.displaySignals</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">displayLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">packetFilter</span> <span class="o">=</span> <span class="s2">&quot;UDPData*&quot;</span>
-
+<span class="na">*.visualizer.physicalLinkVisualizer.displayLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.physicalLinkVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;UDPData*&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -450,7 +461,7 @@ back-to-back.</p>
 <a class="reference internal image-reference" href="../../../_images/wireless-step2-seq3.png"><img alt="../../../_images/wireless-step2-seq3.png" src="../../../_images/wireless-step2-seq3.png" style="width: 100%;" /></a>
 </div>
 <p><strong>Number of packets received by host B: 2017</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

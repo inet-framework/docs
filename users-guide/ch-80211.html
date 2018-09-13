@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -345,20 +357,20 @@ Show Source
         <div class="page-content">
         
   <div class="section" id="the-802-11-model">
-<span id="cha-80211"></span><h1>The 802.11 Model<a class="headerlink" href="#the-802-11-model" title="Permalink to this headline">¶</a></h1>
+<span id="ug-cha-80211"></span><h1>The 802.11 Model<a class="headerlink" href="#the-802-11-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <span id="ug-sec-80211-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>IEEE 802.11 a.k.a. WiFi is the most widely used and universal wireless
 networking standard. Specifications are updated every few years, adding
 more features and ever increasing bit rates.</p>
-<p>In INET, nodes become WiFi-enabled by adding a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Interface</span></code>
-to them. (As mentioned earlier, <code class="code literal-ned docutils literal notranslate"><span class="pre">WirelessHost</span></code> and <code class="code literal-ned docutils literal notranslate"><span class="pre">AdhocHost</span></code>
+<p>In INET, nodes become WiFi-enabled by adding a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.Ieee80211Interface.html">Ieee80211Interface</a>
+to them. (As mentioned earlier, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>
 already contain one in their default configuration.) APs are represented
-with the <code class="code literal-ned docutils literal notranslate"><span class="pre">AccessPoint</span></code> node type. WiFi networks require a matching
+with the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> node type. WiFi networks require a matching
 transmission medium module to be present in the network, which is
-usually a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211ScalarRadioMedium</span></code>.</p>
+usually a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>.</p>
 <p>Operation mode (infrastructure vs ad hoc) is determined by the
-ingredients of the wireless interface. <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Interface</span></code> has the
+ingredients of the wireless interface. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.Ieee80211Interface.html">Ieee80211Interface</a> has the
 following submodules (incomplete list):</p>
 <ol class="arabic simple">
 <li><em>management</em>: performs association/disassociation with access points,
@@ -372,31 +384,31 @@ medium access procedure</li>
 <p>The management component has several implementations which differ in
 their role and level of detail:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtAdhoc</span></code>: for ad hoc mode stations</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtSta</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtStaSimplified</span></code>: for
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc.html">Ieee80211MgmtAdhoc</a>: for ad hoc mode stations</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtStaSimplified.html">Ieee80211MgmtStaSimplified</a>: for
 infrastructure mode stations</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtAp</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtApSimplified</span></code>: for access
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html">Ieee80211MgmtAp</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtApSimplified.html">Ieee80211MgmtApSimplified</a>: for access
 points</li>
 </ul>
 <p>The “simplified” ones assume that stations are statically associated to
 an access point for the entire duration of the simulation (the
 scan-authenticate-associate process is not simulated), so they cannot be
 used e.g. in experiments involving handover.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtSta</span></code> is does not take any action by itself, it
-requires an agent (<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211AgentSta</span></code> or a custom one) to initiate
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a> is does not take any action by itself, it
+requires an agent (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211AgentSta.html">Ieee80211AgentSta</a> or a custom one) to initiate
 actions.</p>
 <p>The following sections examine the above components.</p>
 </div>
 <div class="section" id="mac">
 <span id="ug-sec-80211-mac"></span><h2>MAC<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Mac</span></code> module type represents the IEEE 802.11 MAC. The
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> module type represents the IEEE 802.11 MAC. The
 implementation is entirely based on the standard IEEE 802.11-2012 Part
 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY)
 Specifications.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Mac</span></code> performs transmission of frames according to the
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> performs transmission of frames according to the
 CSMA/CA protocol. It receives data and management frames from the upper
 layers, and transmits them.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Mac</span></code> was designed to be modular to facilitate
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> was designed to be modular to facilitate
 experimenting with new policies, features and algorithms within the MAC
 layer. Users can easily replace individual components with their own
 implementations. Policies, which most likely to be experimented with,
@@ -430,7 +442,7 @@ are extracted into their own modules.</p>
 </div>
 <div class="section" id="physical-layer">
 <span id="ug-sec-80211-physical-layer"></span><h2>Physical Layer<a class="headerlink" href="#physical-layer" title="Permalink to this headline">¶</a></h2>
-<p><em>The physical layer</em> modules (<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211Radio</span></code>) deal with modelling
+<p><em>The physical layer</em> modules (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211Radio.html">Ieee80211Radio</a>) deal with modelling
 transmission and reception of frames. They model the characteristics of
 the radio channel, and determine if a frame was received correctly (that
 is, it did not suffer bit errors due to low signal power or interference
@@ -440,10 +452,10 @@ MAC.</p>
 levels of detail. The various radio types (with the matching
 transmission medium types in parentheses) are:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211ScalarRadio</span></code> (<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211ScalarRadioMedium</span></code>)</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211DimensionalRadio</span></code>
-(<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211DimensionalRadioMedium</span></code>)</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211UnitDiskRadio</span></code> (<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211UnitDiskMedium</span></code>)</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadio.html">Ieee80211ScalarRadio</a> (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>)</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadio.html">Ieee80211DimensionalRadio</a>
+(<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium.html">Ieee80211DimensionalRadioMedium</a>)</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211UnitDiskRadio.html">Ieee80211UnitDiskRadio</a> (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>)</li>
 </ul>
 </div>
 <div class="section" id="management">
@@ -456,9 +468,9 @@ transmitted/received via the MAC layer. During scanning, it is the
 management entity that periodically switches channels, and collects
 information from received beacons and probe responses.</p>
 <p>The management layer has several implementations which differ in their
-role (STA/AP/ad-hoc) and level of detail: <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtAdhoc</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtAp</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtApSimplified</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtSta</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtStaSimplified</span></code>. The
+role (STA/AP/ad-hoc) and level of detail: <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc.html">Ieee80211MgmtAdhoc</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html">Ieee80211MgmtAp</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtApSimplified.html">Ieee80211MgmtApSimplified</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtStaSimplified.html">Ieee80211MgmtStaSimplified</a>. The
 ..Simplified ones differ from the others in that they do not model the
 scan-authenticate-associate process, so they cannot be used in
 experiments involving handover.</p>
@@ -470,10 +482,10 @@ authentication and association. The management layer itself just carries
 out these commands by performing the scanning, authentication and
 association procedures, and reports back the results to the agent.</p>
 <p>The agent component is currently only needed with the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtSta</span></code> module. The managament entities in other NIC
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a> module. The managament entities in other NIC
 variants do not have as much freedom as to need an agent to control
 them.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211MgmtSta</span></code> requires a <code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee80211AgentSta</span></code> or a custom
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a> requires a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mgmt.Ieee80211AgentSta.html">Ieee80211AgentSta</a> or a custom
 agent. By modifying or replacing the agent, one can alter the dynamic
 behaviour of STAs in the network, for example implement different
 handover strategies.</p>

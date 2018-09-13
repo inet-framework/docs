@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -364,17 +376,17 @@ a route on demand by flooding the network with Route Request packets.</p>
 protocols including <span class="protocol">AODV</span>, <span class="protocol">DSDV</span>, <span class="protocol">DYMO</span>
 and <span class="protocol">GPSR</span>.</p>
 <p>The easiest way to add routing to an ad hoc network is to use the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> NED type for nodes. <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> contains a
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> NED type for nodes. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> contains a
 submodule named <code class="docutils literal notranslate"><span class="pre">routing</span></code> whose type is a parameter, so it can be
 configured to be an AODV router, a DYMO router, or a router of any other
 supported routing protocol. For example, you can configure
-<code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> nodes in the network to use AODV with the following
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> nodes in the network to use AODV with the following
 ini file line:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.routingProtocolType</span> <span class="o">=</span> <span class="s">&quot;Aodv&quot;</span>
 </pre></div>
 </div>
-<p>There are also NED types called <code class="code literal-ned docutils literal notranslate"><span class="pre">AodvRouter</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">DymoRouter</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">DsvRouter</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">GpsrRouter</span></code>, which are all <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code>’s
+<p>There are also NED types called <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.dymo.DymoRouter.html">DymoRouter</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.dsdv.DsdvRouter.html">DsdvRouter</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.gpsr.GpsrRouter.html">GpsrRouter</a>, which are all <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a>’s
 with the routing protocol submodule type set appropriately.</p>
 </div>
 <div class="section" id="aodv">
@@ -384,19 +396,19 @@ for mobile ad hoc networks and other wireless ad hoc networks. It offers
 quick adaptation to dynamic link conditions, low processing and memory
 overhead, low network utilization, and determines unicast routes to
 destinations within the ad hoc network.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Aodv</span></code> module type implements AODV, based on RFC 3561.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">AodvRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> with the routing module type
-set to <code class="code literal-ned docutils literal notranslate"><span class="pre">Aodv</span></code>.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> module type implements AODV, based on RFC 3561.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> with the routing module type
+set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a>.</p>
 </div>
 <div class="section" id="dsdv">
 <span id="ug-sec-adhocrouting-dsdv"></span><h2>DSDV<a class="headerlink" href="#dsdv" title="Permalink to this headline">¶</a></h2>
 <p>DSDV (Destination-Sequenced Distance-Vector Routing) is a table-driven
 routing scheme for ad hoc mobile networks based on the Bellman-Ford
 algorithm.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Dsdv</span></code> module type implements DSDV. It is currently a partial
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a> module type implements DSDV. It is currently a partial
 implementation.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">DsdvRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> with the routing module type
-set to <code class="code literal-ned docutils literal notranslate"><span class="pre">Dsdv</span></code>.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.dsdv.DsdvRouter.html">DsdvRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> with the routing module type
+set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a>.</p>
 </div>
 <div class="section" id="dymo">
 <span id="ug-sec-adhocrouting-dymo"></span><h2>DYMO<a class="headerlink" href="#dymo" title="Permalink to this headline">¶</a></h2>
@@ -404,22 +416,22 @@ set to <code class="code literal-ned docutils literal notranslate"><span class="
 AODV routing protocol. DYMO can work as both a pro-active and as a
 reactive routing protocol, i.e. routes can be discovered just when they
 are needed.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Dymo</span></code> module type implements DYMO, based on the IETF draft
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dymo.Dymo.html">Dymo</a> module type implements DYMO, based on the IETF draft
 <em>draft-ietf-manet-dymo-24</em>.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">DymoRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> with the routing module type
-set to <code class="code literal-ned docutils literal notranslate"><span class="pre">Dymo</span></code>.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.dymo.DymoRouter.html">DymoRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> with the routing module type
+set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dymo.Dymo.html">Dymo</a>.</p>
 </div>
 <div class="section" id="gpsr">
 <span id="ug-sec-adhocrouting-gpsr"></span><h2>GPSR<a class="headerlink" href="#gpsr" title="Permalink to this headline">¶</a></h2>
 <p>GPSR (Greedy Perimeter Stateless Routing) is a routing protocol for
 mobile wireless networks that uses the geographic positions of nodes to
 make packet forwarding decisions.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Gpsr</span></code> module type implements GPSR, based on the paper “GPSR:
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a> module type implements GPSR, based on the paper “GPSR:
 Greedy Perimeter Stateless Routing for Wireless Networks” by Brad Karp
 and H. T. Kung, 2000. The implementation supports both GG and RNG
 planarization algorithms.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">GpsrRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">ManetRouter</span></code> with the routing module type
-set to <code class="code literal-ned docutils literal notranslate"><span class="pre">Gpsr</span></code>.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.gpsr.GpsrRouter.html">GpsrRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a> with the routing module type
+set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a>.</p>
 </div>
 </div>
 

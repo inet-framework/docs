@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -349,13 +361,13 @@ Show Source
 <div class="section" id="overview">
 <span id="ug-sec-apps-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This chapter describes application models and traffic generators. All
-applications implement the <code class="code literal-ned docutils literal notranslate"><span class="pre">IApp</span></code> module interface to ease
-configuring the <code class="code literal-ned docutils literal notranslate"><span class="pre">StandardHost</span></code> module.</p>
+applications implement the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.contract.IApp.html">IApp</a> module interface to ease
+configuring the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> module.</p>
 </div>
 <div class="section" id="tcp-applications">
 <span id="ug-sec-apps-tcp-applications"></span><h2>TCP applications<a class="headerlink" href="#tcp-applications" title="Permalink to this headline">¶</a></h2>
 <p>This sections describes the applications using the TCP protocol. These
-applications use <code class="code literal-msg docutils literal notranslate"><span class="pre">GenericAppMsg</span></code> objects to represent the data sent
+applications use <a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-applications-tcpapp-GenericAppMsg.html">GenericAppMsg</a> objects to represent the data sent
 between the client and server. The client message contains the expected
 reply length, the processing delay, and a flag indicating that the
 connection should be closed after sending the reply. This way
@@ -370,8 +382,8 @@ used as a rough model of HTTP or FTP users.</p>
 the client opens a single TCP connection to the server, sends several
 requests (always waiting for the complete reply to arrive before sending
 a new request), and closes the connection.</p>
-<p>The server app should be <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpGenericServerApp</span></code>; the model sends
-<code class="code literal-msg docutils literal notranslate"><span class="pre">GenericAppMsg</span></code> messages.</p>
+<p>The server app should be <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.tcpapp.TcpGenericServerApp.html">TcpGenericServerApp</a>; the model sends
+<a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-applications-tcpapp-GenericAppMsg.html">GenericAppMsg</a> messages.</p>
 <p>Example settings:</p>
 <p>FTP:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">numRequestsPerSession</span> <span class="o">=</span> <span class="s">exponential(3)</span>
@@ -403,15 +415,15 @@ arrives on them.</p>
 <p>Generic server application for modelling TCP-based request-reply style
 protocols or applications.</p>
 <p>The module accepts any number of incoming TCP connections, and expects
-to receive messages of class <code class="code literal-msg docutils literal notranslate"><span class="pre">GenericAppMsg</span></code> on them. A message
+to receive messages of class <a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-applications-tcpapp-GenericAppMsg.html">GenericAppMsg</a> on them. A message
 should contain how large the reply should be (number of bytes).
-<code class="code literal-ned docutils literal notranslate"><span class="pre">TcpGenericServerApp</span></code> will just change the length of the received
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.tcpapp.TcpGenericServerApp.html">TcpGenericServerApp</a> will just change the length of the received
 message accordingly, and send back the same message object. The reply
 can be delayed by a constant time (<code class="code literal-ini docutils literal notranslate"><span class="pre">replyDelay</span></code> parameter).</p>
 </div>
 <div class="section" id="tcpechoapp">
 <span id="ug-sec-apps-tcpechoapp"></span><h3>TcpEchoApp<a class="headerlink" href="#tcpechoapp" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpEchoApp</span></code> application accepts any number of incoming TCP
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.tcpapp.TcpEchoApp.html">TcpEchoApp</a> application accepts any number of incoming TCP
 connections, and sends back the data that arrives on them, The byte
 counts are multiplied by <code class="code literal-ini docutils literal notranslate"><span class="pre">echoFactor</span></code> before echoing. The reply can
 also be delayed by a constant time (<code class="code literal-ini docutils literal notranslate"><span class="pre">echoDelay</span></code> parameter).</p>
@@ -456,7 +468,7 @@ using <code class="code literal-ini docutils literal notranslate"><span class="p
 <div class="section" id="telnetapp">
 <span id="ug-sec-apps-telnetapp"></span><h3>TelnetApp<a class="headerlink" href="#telnetapp" title="Permalink to this headline">¶</a></h3>
 <p>Models Telnet sessions with a specific user behaviour. The server app
-should be <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpGenericServerApp</span></code>.</p>
+should be <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.tcpapp.TcpGenericServerApp.html">TcpGenericServerApp</a>.</p>
 <p>In this model the client repeats the following activity between
 <code class="code literal-ini docutils literal notranslate"><span class="pre">startTime</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">stopTime</span></code>:</p>
 <ol class="arabic simple">
@@ -496,21 +508,21 @@ is <code class="code literal-cpp docutils literal notranslate"><span class="pre"
 <span id="ug-sec-apps-udp-applications"></span><h2>UDP applications<a class="headerlink" href="#udp-applications" title="Permalink to this headline">¶</a></h2>
 <p>The following UDP-based applications are implemented in INET:</p>
 <ul class="simple">
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> sends UDP packets to a given IP address at a given
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> sends UDP packets to a given IP address at a given
 interval</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicBurst</span></code> sends UDP packets to the given IP address(es) in
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicBurst.html">UdpBasicBurst</a> sends UDP packets to the given IP address(es) in
 bursts, or acts as a packet sink.</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpEchoApp</span></code> is similar to <code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicApp</span></code>, but it sends back
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpEchoApp.html">UdpEchoApp</a> is similar to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a>, but it sends back
 the packet after reception</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpSink</span></code> consumes and prints packets received from the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> module</li>
-<li><code class="code literal-ned docutils literal notranslate"><span class="pre">UdpVideoStreamClient</span></code>,:ned:<cite>UdpVideoStreamServer</cite> simulates
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpSink.html">UdpSink</a> consumes and prints packets received from the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module</li>
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpVideoStreamClient.html">UdpVideoStreamClient</a>,:ned:<cite>UdpVideoStreamServer</cite> simulates
 video streaming over UDP</li>
 </ul>
 <p>The next sections describe these applications in details.</p>
 <div class="section" id="udpbasicapp">
 <span id="ug-sec-apps-udpbasicapp"></span><h3>UdpBasicApp<a class="headerlink" href="#udpbasicapp" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicApp</span></code> sends UDP packets to a the IP addresses given in
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a> sends UDP packets to a the IP addresses given in
 the <code class="code literal-ini docutils literal notranslate"><span class="pre">destAddresses</span></code> parameter. The application sends a message to
 one of the targets in each <code class="code literal-ini docutils literal notranslate"><span class="pre">sendInterval</span></code> interval. The interval
 between message and the message length can be given as a random
@@ -525,22 +537,22 @@ source and destination and the length of each received packet.</p>
 </div>
 <div class="section" id="udpechoapp">
 <span id="ug-sec-apps-udpechoapp"></span><h3>UdpEchoApp<a class="headerlink" href="#udpechoapp" title="Permalink to this headline">¶</a></h3>
-<p>Similar to <code class="code literal-ned docutils literal notranslate"><span class="pre">UdpBasicApp</span></code>, but it sends back the packet after
-reception. It accepts only packets with <code class="code literal-msg docutils literal notranslate"><span class="pre">UDPEchoAppMsg</span></code> type, i.e.
-packets that are generated by another <code class="code literal-ned docutils literal notranslate"><span class="pre">UdpEchoApp</span></code>.</p>
+<p>Similar to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpBasicApp.html">UdpBasicApp</a>, but it sends back the packet after
+reception. It accepts only packets with <a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-transportlayer-udp-UdpHeader.html">UdpHeader</a>, i.e.
+packets that are generated by another <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpEchoApp.html">UdpEchoApp</a>.</p>
 <p>When an echo response received, it emits an signal.</p>
 </div>
 <div class="section" id="udpvideostreamclient">
 <span id="ug-sec-apps-udpvideostreamclient"></span><h3>UdpVideoStreamClient<a class="headerlink" href="#udpvideostreamclient" title="Permalink to this headline">¶</a></h3>
 <p>This module is a video streaming client. It send one “video streaming
 request” to the server at time <code class="code literal-ini docutils literal notranslate"><span class="pre">startTime</span></code> and receives stream from
-<code class="code literal-ned docutils literal notranslate"><span class="pre">UdpVideoStreamServer</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpVideoStreamServer.html">UdpVideoStreamServer</a>.</p>
 <p>The received packets are emitted by the signal.</p>
 </div>
 <div class="section" id="udpvideostreamserver">
 <span id="ug-sec-apps-udpvideostreamserver"></span><h3>UdpVideoStreamServer<a class="headerlink" href="#udpvideostreamserver" title="Permalink to this headline">¶</a></h3>
 <p>This is the video stream server to be used with
-<code class="code literal-ned docutils literal notranslate"><span class="pre">UdpVideoStreamClient</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.udpapp.UdpVideoStreamClient.html">UdpVideoStreamClient</a>.</p>
 <p>The server will wait for incoming “video streaming requests”. When a
 request arrives, it draws a random video stream size using the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">videoSize</span></code> parameter, and starts streaming to the client. During
@@ -621,7 +633,7 @@ packets and makes statistics only.</p>
 <p>The applications described in this section use the services of the
 network layer only, they do not need transport layer protocols. They can
 be used with both IPv4 and IPv6.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">IIPvXTraffixGenerator</span></code> (prototype) sends IP or IPv6 datagrams to
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.generic.IIpvxTrafficGenerator.html">IIpvxTrafficGenerator</a> (prototype) sends IP or IPv6 datagrams to
 the given address at the given <code class="code literal-ini docutils literal notranslate"><span class="pre">sendInterval</span></code>. The
 <code class="code literal-ini docutils literal notranslate"><span class="pre">sendInterval</span></code> parameter can be a constant or a random value (e.g.
 <code class="docutils literal notranslate"><span class="pre">exponential(1)</span></code>). If the <code class="code literal-ini docutils literal notranslate"><span class="pre">destAddresses</span></code> parameter contains
@@ -630,19 +642,19 @@ address may be given in the dotted decimal notation (or, for IPv6, in
 the usual notation with colons), or with the module name. (The
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">L3AddressResolver</span></code> class is used to resolve the address.) To
 disable the model, set <code class="code literal-ini docutils literal notranslate"><span class="pre">destAddresses</span></code> to “”.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">IpvxTrafGen</span></code> sends messages with length <code class="code literal-ini docutils literal notranslate"><span class="pre">packetLength</span></code>.
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.generic.IpvxTrafGen.html">IpvxTrafGen</a> sends messages with length <code class="code literal-ini docutils literal notranslate"><span class="pre">packetLength</span></code>.
 The sent packet is emitted in the signal. The length of the sent packets
 can be recorded as scalars and vectors.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">IpvxTrafSink</span></code> can be used as a receiver of the packets
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.generic.IpvxTrafSink.html">IpvxTrafSink</a> can be used as a receiver of the packets
 generated by the traffic generator. This module emits the packet in the
 signal and drops it. The <code class="docutils literal notranslate"><span class="pre">rcvdPkBytes</span></code> and <code class="docutils literal notranslate"><span class="pre">endToEndDelay</span></code>
 statistics are generated from this signal.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">IpvxTrafGen</span></code> can also be the peer of the traffic generators;
-it handles the received packets exactly like <code class="code literal-ned docutils literal notranslate"><span class="pre">IpvxTrafSink</span></code>.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.generic.IpvxTrafGen.html">IpvxTrafGen</a> can also be the peer of the traffic generators;
+it handles the received packets exactly like <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.generic.IpvxTrafSink.html">IpvxTrafSink</a>.</p>
 </div>
 <div class="section" id="the-pingapp-application">
 <span id="ug-sec-apps-the-pingapp-application"></span><h2>The PingApp application<a class="headerlink" href="#the-pingapp-application" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">PingApp</span></code> application generates ping requests and calculates
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.pingapp.PingApp.html">PingApp</a> application generates ping requests and calculates
 the packet loss and round trip parameters of the replies.</p>
 <p>Start/stop time, sendInterval etc. can be specified via parameters. An
 address may be given in the dotted decimal notation (or, for IPv6, in
@@ -658,32 +670,30 @@ than the largest one received so far) it will be counted as
 out-of-sequence arrival, and at the same time the number of losses is
 decremented. (It is assumed that the packet arrived was counted earlier
 as a loss, which is true if there are no duplicate packets.)</p>
-<p>Uses <code class="code literal-msg docutils literal notranslate"><span class="pre">PingPayload</span></code> as payload for the ICMP(v6) Echo Request/Reply
-packets.</p>
 </div>
 <div class="section" id="ethernet-applications">
 <span id="ug-sec-apps-ethernet-applications"></span><h2>Ethernet applications<a class="headerlink" href="#ethernet-applications" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">inet.applications.ethernet</span></code> package contains modules for a
-simple client-server application. The <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherAppClient</span></code> is a simple
-traffic generator that peridically sends <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherAppReq</span></code> messages
+<p>The <code class="docutils literal notranslate"><span class="pre">inet.applications.ethernet</span></code> package contains modules for a
+simple client-server application. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.ethernet.EtherAppClient.html">EtherAppClient</a> is a simple
+traffic generator that peridically sends <a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-applications-ethernet-EtherAppReq.html">EtherAppReq</a> messages
 whose length can be configured. destAddress, startTime,waitType,
 reqLength, respLength</p>
-<p>The server component of the model (<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherAppServer</span></code>) responds with
-a <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherAppResp</span></code> message of the requested length. If the response
+<p>The server component of the model (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.ethernet.EtherAppServer.html">EtherAppServer</a>) responds with
+a <a class="reference-msg reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/src-inet-applications-ethernet-EtherAppResp.html">EtherAppResp</a> message of the requested length. If the response
 does not fit into one ethernet frame, the client receives the data in
 multiple chunks.</p>
 <p>Both applications have a <code class="code literal-ini docutils literal notranslate"><span class="pre">registerSAP</span></code> boolean parameter. This
 parameter should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the application is connected
-to the <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> module which requires registration of the SAP
+to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> module which requires registration of the SAP
 before sending frames.</p>
 <p>Both applications collects the following statistics: sentPkBytes,
 rcvdPkBytes, endToEndDelay.</p>
 <p>The client and server application works with any model that accepts
 Ieee802Ctrl control info on the packets (e.g. the 802.11 model). The
-applications should be connected directly to the <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> or an
+applications should be connected directly to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> or an
 EthernetInterface NIC module.</p>
 <p>The model also contains a host component that groups the applications
-and the LLC and MAC components together (<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherHost</span></code>). This node
+and the LLC and MAC components together (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ethernet.EtherHost.html">EtherHost</a>). This node
 does not contain higher layer protocols, it generates Ethernet traffic
 directly. By default it is configured to use half duplex MAC (CSMA/CD).</p>
 </div>

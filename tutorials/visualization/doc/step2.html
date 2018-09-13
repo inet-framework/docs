@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -353,9 +365,9 @@ display a street map of downtown Boston.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">SceneVisualizer</span></code> module is responsible for displaying the map.
-(Note that, <code class="docutils literal notranslate"><span class="pre">SceneVisualizer</span></code> can be used via <code class="docutils literal notranslate"><span class="pre">visualizer</span></code>.) The
-<code class="docutils literal notranslate"><span class="pre">sceneVisualizerType</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">SceneOsgEarthVisualizer</span></code>.
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.scene.SceneVisualizer.html">SceneVisualizer</a> module is responsible for displaying the map.
+(Note that, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.scene.SceneVisualizer.html">SceneVisualizer</a> can be used via <code class="docutils literal notranslate"><span class="pre">visualizer</span></code>.) The
+<code class="docutils literal notranslate"><span class="pre">sceneVisualizerType</span></code> parameter is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.scene.SceneOsgEarthVisualizer.html">SceneOsgEarthVisualizer</a>.
 It displays a map of some part of the earth as an integrated part of the
 3D visualization of the simulation. The map is loaded from an external
 file, specified in the <code class="docutils literal notranslate"><span class="pre">mapFile</span></code> parameter. The visualizer’s name
@@ -365,36 +377,35 @@ visualization.</p>
 module to the model, because the map geographical coordinates are
 assigned to the coordinate system module. (In the next step we will
 explain the reason in detail.) We add an
-<code class="docutils literal notranslate"><span class="pre">OsgGeographicCoordinateSystem</span></code> module to the model and set the origin
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.geometry.common.OsgGeographicCoordinateSystem.html">OsgGeographicCoordinateSystem</a> module to the model and set the origin
 of the coordinate system in the ini file.</p>
 <p>We add the coordinate system to our model as follows. This snippet is
 copied from <a class="reference download internal" href="../../../_downloads/VisualizationB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationB.ned</span></code></a>
 that is used in this step.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="n">VisualizationB</span> <span class="n">extends</span> <span class="n">VisualizationA</span>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">VisualizationB</span> <span class="k">extends</span> <span class="n">VisualizationA</span>
 <span class="p">{</span>
-    <span class="n">submodules</span><span class="p">:</span>
-        <span class="n">coordinateSystem</span><span class="p">:</span> <span class="n">OsgGeographicCoordinateSystem</span> <span class="p">{</span>
-            <span class="n">parameters</span><span class="p">:</span>
-                <span class="nd">@display</span><span class="p">(</span><span class="s2">&quot;p=100,150&quot;</span><span class="p">);</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">coordinateSystem</span><span class="o">:</span> <span class="n">OsgGeographicCoordinateSystem</span> <span class="p">{</span>
+            <span class="k">parameters</span><span class="o">:</span>
+                <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,150&quot;</span><span class="p">);</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The following lines show how <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> and <code class="docutils literal notranslate"><span class="pre">coordinateSystem</span></code> are
 configured in the ini file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization02</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Showing</span> <span class="n">Boston</span> <span class="n">Downtown</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">VisualizationB</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization02]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Showing Boston Downtown</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">VisualizationB</span>
 
 <span class="c1"># coordinate system origin</span>
-<span class="o">*.</span><span class="n">coordinateSystem</span><span class="o">.</span><span class="n">playgroundLongitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.070421</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">coordinateSystem</span><span class="o">.</span><span class="n">playgroundLatitude</span> <span class="o">=</span> <span class="mf">42.357824</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">coordinateSystem</span><span class="o">.</span><span class="n">playgroundHeading</span> <span class="o">=</span> <span class="mf">68.3</span><span class="n">deg</span>
+<span class="na">*.coordinateSystem.playgroundLongitude</span> <span class="o">=</span> <span class="s">-71.070421deg</span>
+<span class="na">*.coordinateSystem.playgroundLatitude</span> <span class="o">=</span> <span class="s">42.357824deg</span>
+<span class="na">*.coordinateSystem.playgroundHeading</span> <span class="o">=</span> <span class="s">68.3deg</span>
 
 <span class="c1"># showing the map</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;SceneOsgEarthVisualizer&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">mapFile</span> <span class="o">=</span> <span class="s2">&quot;boston.earth&quot;</span>
-
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.typename</span> <span class="o">=</span> <span class="s">&quot;SceneOsgEarthVisualizer&quot;</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.mapFile</span> <span class="o">=</span> <span class="s">&quot;boston.earth&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -403,7 +414,7 @@ configured in the ini file.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step2_result_boston3d.png"><img alt="../../../_images/step2_result_boston3d.png" src="../../../_images/step2_result_boston3d.png" style="width: 100%;" /></a>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/VisualizationB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationB.ned</span></code></a></p>
 </div>
 </div>

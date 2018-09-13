@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -367,24 +379,23 @@ so they can be easily modified. The modified config file can be used as
 the XML configuration for subsequent simulation runs.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>Both parts in this step use the <code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code> network defined in
+<p>Both parts in this step use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a> network defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a>:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step4network.png"><img alt="../../../_images/step4network.png" src="../../../_images/step4network.png" style="width: 100%;" /></a>
 </div>
 <p>The configuration for this part in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step11A</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorA</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Manually modifying an automatically created configuration - dumping the full configuration&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step11A]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorA</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Manually modifying an automatically created configuration - dumping the full configuration&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">dumpConfig</span> <span class="o">=</span> <span class="s2">&quot;step11a_dump.xml&quot;</span>
+<span class="na">*.configurator.dumpConfig</span> <span class="o">=</span> <span class="s">&quot;step11a_dump.xml&quot;</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutesIndividually</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayLabels</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutesIndividually</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayLabels</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
 </pre></div>
 </div>
 <p>The configurator’s <code class="docutils literal notranslate"><span class="pre">dumpConfig</span></code> parameter can be used to dump the
@@ -411,34 +422,33 @@ packets in the triangle through its interface on the right.</p>
 <div class="section" id="id1">
 <h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The configuration for this part in omnetpp.ini is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step11B</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorA</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Manually modifying an automatically created configuration - using the modified configuration&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step11B]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorA</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Manually modifying an automatically created configuration - using the modified configuration&quot;</span>
 
 <span class="c1"># Configurator settings</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step11b.xml&quot;</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">addStaticRoutes</span> <span class="o">=</span> <span class="n">false</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step11b.xml&quot;)</span>
+<span class="na">*.configurator.addStaticRoutes</span> <span class="o">=</span> <span class="s">false</span>
 
 <span class="c1"># Ping settings</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host1</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host4&quot;</span>
+<span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host1.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host4&quot;</span>
 
-<span class="o">*.</span><span class="n">host4</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host4</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host4</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host7&quot;</span>
+<span class="na">*.host4.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host4.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host4.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host7&quot;</span>
 
-<span class="o">*.</span><span class="n">host7</span><span class="o">.</span><span class="n">numApps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="o">*.</span><span class="n">host7</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;PingApp&quot;</span>
-<span class="o">*.</span><span class="n">host7</span><span class="o">.</span><span class="n">app</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="o">.</span><span class="n">destAddr</span> <span class="o">=</span> <span class="s2">&quot;host1&quot;</span>
+<span class="na">*.host7.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host7.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host7.app[*].destAddr</span> <span class="o">=</span> <span class="s">&quot;host1&quot;</span>
 
 <span class="c1"># Visualizer settings</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutingTables</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">destinationFilter</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayRoutesIndividually</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">displayLabels</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">routingTableVisualizer</span><span class="o">.</span><span class="n">lineShift</span> <span class="o">=</span> <span class="mi">0</span>
-
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutingTables</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.routingTableVisualizer.destinationFilter</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayRoutesIndividually</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.displayLabels</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.routingTableVisualizer.lineShift</span> <span class="o">=</span> <span class="s">0</span>
 </pre></div>
 </div>
 <p>The modified config is used as the XML configuration. Since the
@@ -470,7 +480,7 @@ arrows point only counter-clockwise in the triangle.</p>
 <p>The ping exchanges highlight the modified routes on the following video:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Step11B_2_cropped.mp4" width="698" height="" class="align-center"></video><p>The packets travel only counter-clockwise in the triangle of the three
 routers.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 </div>

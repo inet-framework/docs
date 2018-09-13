@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -347,7 +359,7 @@ Show Source
 <h2>The IPv4 Module<a class="headerlink" href="#the-ipv4-module" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="processing-time">
 <h3>Processing time<a class="headerlink" href="#processing-time" title="Permalink to this headline">¶</a></h3>
-<p>The C++ class of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module is derived from
+<p>The C++ class of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module is derived from
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">QueueBase</span></code>. There is a processing time associated with each
 incoming packet. This processing time is specified by the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">procDelay</span></code> module parameter. If a packet arrives, when the
@@ -366,12 +378,12 @@ processing time for a packet, or</li>
 <div class="section" id="interface-with-higher-layer">
 <h3>Interface with higher layer<a class="headerlink" href="#interface-with-higher-layer" title="Permalink to this headline">¶</a></h3>
 <p>Higher layer protocols should be connected to the
-<code class="docutils literal notranslate"><span class="pre">transportIn</span></code>/<code class="docutils literal notranslate"><span class="pre">transportOut</span></code> gates of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module.</p>
+<code class="docutils literal notranslate"><span class="pre">transportIn</span></code>/<code class="docutils literal notranslate"><span class="pre">transportOut</span></code> gates of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module.</p>
 <div class="section" id="sending-packets">
 <h4>Sending packets<a class="headerlink" href="#sending-packets" title="Permalink to this headline">¶</a></h4>
 <p>Higher layer protocols can send a packet by attaching a
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> object to their packet and sending it to the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module.</p>
 <p>The following fields must be set in the control info:</p>
 <ul class="simple">
 <li><code class="code literal-cpp docutils literal notranslate"><span class="pre">procotol</span></code>: the <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> field of the IP datagram. Valid
@@ -397,7 +409,7 @@ destination address is a multicast address or not.</li>
 datagram (default is <code class="docutils literal notranslate"><span class="pre">false</span></code>)</li>
 <li><code class="code literal-cpp docutils literal notranslate"><span class="pre">diffServCodePoint</span></code>: the <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">of</span> <span class="pre">Service</span></code> field of the
 outgoing datagram. (ToS is called <code class="docutils literal notranslate"><span class="pre">diffServCodePoint</span></code> in
-<code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4Datagram</span></code> too.)</li>
+<span>IPv4Datagram</span> too.)</li>
 <li><code class="code literal-cpp docutils literal notranslate"><span class="pre">multicastLoop</span></code>: if <code class="docutils literal notranslate"><span class="pre">true</span></code>, then a copy of the multicast
 datagrams are sent to the loopback interface, so applications on the
 same host can receive it.</li>
@@ -408,7 +420,7 @@ If specified, then <code class="docutils literal notranslate"><span class="pre">
 in Manet routing is disabled.</li>
 </ul>
 <p>The IP module encapsulates the transport layer datagram into an
-<code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4Datagram</span></code> and fills in the header fields according to the
+<span>IPv4Datagram</span> and fills in the header fields according to the
 control info. The <code class="docutils literal notranslate"><span class="pre">Identification</span></code> field is generated by
 incrementing a counter.</p>
 <p>The generated IP datagram is passed to the routing algorithm. The
@@ -417,7 +429,7 @@ to one of the network interfaces with a specified next hop address, or
 broadcasted on one or all of the network interfaces. The details of the
 routing is described in the next subsection
 (<a class="reference external" href="#subsec:ip_routing">1.1.3</a>) in detail.</p>
-<p>Before sending the datagram on a specific interface, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>
+<p>Before sending the datagram on a specific interface, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>
 module checks if the packet length is smaller than the <code class="docutils literal notranslate"><span class="pre">MTU</span></code> of the
 interface. If not, then the datagram is fragmented. When the <code class="docutils literal notranslate"><span class="pre">Don’t</span>
 <span class="pre">Fragment</span></code> flag forbids fragmentation, an <code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Unreachable</span></code>
@@ -428,15 +440,15 @@ code.</p>
 <p class="last">Each fragment will encapsulate the whole higher layer datagram, although the
 length of the IP datagram corresponds to the fragment length.</p>
 </div>
-<p>The fragments are sent to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module through the
-<code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module forwards the datagram
+<p>The fragments are sent to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module through the
+<code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module forwards the datagram
 immediately to point-to-point interface cards. If the outgoing interface
 is a 802.x card, then before forwarding the datagram it performs address
 resolution to obtain the MAC address of the destination.</p>
 </div>
 <div class="section" id="receiving-packets">
 <h4>Receiving packets<a class="headerlink" href="#receiving-packets" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module of hosts processes the datagrams received from
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module of hosts processes the datagrams received from
 the network in three steps:</p>
 <ol class="arabic simple">
 <li>Reassemble fragments</li>
@@ -450,7 +462,7 @@ reception time of each fragment. Fragments older than
 <code class="code literal-ini docutils literal notranslate"><span class="pre">fragmentTimeout</span></code> are purged from the buffer. The default value of
 the timeout is 60s. The timeout is only checked when a fragment is
 received, and at least 10s elapsed since the last check.</p>
-<p>An <code class="code literal-msg docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> attached to the decapsulated transport layer
+<p>An <span>Ipv4ControlInfo</span> attached to the decapsulated transport layer
 packet. The control info contains fields copied from the IP header
 (source and destination address, protocol, TTL, ToS) as well as the
 interface id through it was received. The control info also stores the
@@ -463,7 +475,7 @@ datagram is passed to the DSR module instead.</p>
 </div>
 <p>After decapsulation, the transport layer packet will be passed to the
 appropriate transport protocol. It must be connected to one of the
-<code class="docutils literal notranslate"><span class="pre">transportOut[]</span></code> gate. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module finds the gate using
+<code class="docutils literal notranslate"><span class="pre">transportOut[]</span></code> gate. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module finds the gate using
 the <code class="docutils literal notranslate"><span class="pre">protocol</span> <span class="pre">id</span></code><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">gate</span> <span class="pre">index</span></code> mapping
 given in the <code class="code literal-ini docutils literal notranslate"><span class="pre">protocolMapping</span></code> string parameter. The value must be
 a comma separated list of ”&lt;protocol_id&gt;:&lt;gate_index&gt;” items. For
@@ -477,9 +489,9 @@ gate 4.</p>
 is not connected, the datagram will be silently dropped.</p>
 <p>Some protocols are handled differently:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Icmp</span></code>: ICMP errors are delivered to the protocol whose packet
+<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a>: ICMP errors are delivered to the protocol whose packet
 triggered the error. Only ICMP query requests and responses are sent
-to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module.</li>
+to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module.</li>
 <li><code class="docutils literal notranslate"><span class="pre">IP</span></code>: sent through <code class="docutils literal notranslate"><span class="pre">preRoutingOut</span></code> gate. (bug!)</li>
 <li><code class="docutils literal notranslate"><span class="pre">DSR</span></code>: ??? (subsection about Manet routing?)</li>
 </ul>
@@ -488,10 +500,10 @@ to the <code class="code literal-ned docutils literal notranslate"><span class="
 <div class="section" id="routing-and-interfacing-with-lower-layers">
 <span id="subsec-ip-routing"></span><h3>Routing, and interfacing with lower layers<a class="headerlink" href="#routing-and-interfacing-with-lower-layers" title="Permalink to this headline">¶</a></h3>
 <p>The output of the network interfaces are connected to the <code class="docutils literal notranslate"><span class="pre">queueIn</span></code>
-gates of the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module. The incoming packets are either IP
+gates of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module. The incoming packets are either IP
 datagrams or ARP responses. The IP datagrams are processed by the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module, the ARP responses are forwarded to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code>.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module first checks the error bit of the incoming IP
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module, the ARP responses are forwarded to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a>.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module first checks the error bit of the incoming IP
 datagrams. There is a <span class="math notranslate nohighlight">\(header length/packet length\)</span> probability
 that the IP header contains the error (assuming 1&nbsp;bit error). With this
 probability an ICMP <code class="docutils literal notranslate"><span class="pre">Parameter</span> <span class="pre">Problem</span></code> generated, and the datagram
@@ -504,10 +516,10 @@ The details are differ, depending on that the destination address is
 multicast address or not.</p>
 <p>When the datagram is decided to be sent up, it is processed as described
 in the previous subsection (Receiving packets). If it is decided to be
-sent out through some interface, it is actually sent to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code>
-module through the <code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. An <code class="code literal-msg docutils literal notranslate"><span class="pre">IPv4RoutingDecision</span></code>
+sent out through some interface, it is actually sent to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a>
+module through the <code class="docutils literal notranslate"><span class="pre">queueOut</span></code> gate. An <span>IPv4RoutingDecision</span>
 control info is attached to the outgoing packet, containing the outgoing
-interface id, and the IP address of the next hop. The <code class="code literal-ned docutils literal notranslate"><span class="pre">Arp</span></code> module
+interface id, and the IP address of the next hop. The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.arp.ipv4.Arp.html">Arp</a> module
 resolve the IP address to a hardware address if needed, and forwards the
 datagram to next hop.</p>
 <div class="section" id="unicast-broadcast-routing">
@@ -671,7 +683,7 @@ one with the</p>
 </div>
 <div class="section" id="the-icmp-module">
 <h2>The ICMP Module<a class="headerlink" href="#the-icmp-module" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module has two methods which can be used by other
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module has two methods which can be used by other
 modules to send ICMP error messages:</p>
 <ul>
 <li><p class="first"><code class="code literal-cpp docutils literal notranslate"><span class="pre">sendErrorMessage(IPv4Datagram*,</span> <span class="pre">ICMPType,</span> <span class="pre">ICMPCode)</span></code></p>
@@ -685,15 +697,15 @@ The transport packet will be encapsulated into an IP datagram before
 wrapping it into the ICMP message.</p>
 </li>
 </ul>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module can be accessed from other modules of the node by
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module can be accessed from other modules of the node by
 calling <code class="code literal-cpp docutils literal notranslate"><span class="pre">ICMPAccess::get()</span></code>.</p>
-<p>When an incoming ICMP error message is received, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module
+<p>When an incoming ICMP error message is received, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module
 sends it out on the <code class="docutils literal notranslate"><span class="pre">errorOut</span></code> gate unchanged. It is assumed that
 an external module is connected to <code class="docutils literal notranslate"><span class="pre">errOut</span></code> that can process the
-error packet. There is a simple module (<code class="code literal-ned docutils literal notranslate"><span class="pre">ErrorHandling</span></code>) that
-simply logs the error and drops the message. Note that the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code>
+error packet. There is a simple module (<span>ErrorHandling</span>) that
+simply logs the error and drops the message. Note that the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>
 module does not send REDIRECT, DESTINATION_UNREACHABLE, TIME_EXCEEDED
-and PARAMETER_PROBLEM messages to the <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module, it will send
+and PARAMETER_PROBLEM messages to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module, it will send
 them to the transport layer module that sent the bogus packet
 encapsulated in the ICMP message.</p>
 <div class="admonition note">
@@ -706,17 +718,17 @@ will cause an “packet length became negative” error. To avoid this,
 use <code class="code literal-cpp docutils literal notranslate"><span class="pre">getEncapsulatedMsg()</span></code> to access the IP packet that caused the ICMP
 error.</p>
 </div>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> module receives ping commands on the <code class="docutils literal notranslate"><span class="pre">pingIn</span></code> gate
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> module receives ping commands on the <code class="docutils literal notranslate"><span class="pre">pingIn</span></code> gate
 from the application. The ping command can be any packet having an
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> control info. The packet will be encapsulated
-with an <code class="code literal-msg docutils literal notranslate"><span class="pre">ICMPMessage</span></code> and handed over to the IP.</p>
-<p>If <code class="code literal-ned docutils literal notranslate"><span class="pre">Icmp</span></code> receives an echo request from IP, the original message
+with an <span>ICMPMessage</span> and handed over to the IP.</p>
+<p>If <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Icmp.html">Icmp</a> receives an echo request from IP, the original message
 object will be returned as the echo reply. Of course, before sending
 back the object to IP, the source and destination addresses are swapped
 and the message type changed to ICMP_ECHO_REPLY.</p>
 <p>When an ICMP echo reply received, the application message decapsulated
 from it and passed to the application through the <code class="docutils literal notranslate"><span class="pre">pingOut</span></code> gate.
-The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> also copied from the <code class="code literal-msg docutils literal notranslate"><span class="pre">ICMPMessage</span></code> to
+The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4ControlInfo</span></code> also copied from the <span>ICMPMessage</span> to
 the application message.</p>
 </div>
 </div>

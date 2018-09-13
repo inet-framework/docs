@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -354,20 +366,19 @@ nodes have received correctly the sent frame.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is configured as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization12</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Visualization11</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Showing</span> <span class="n">Physical</span> <span class="n">Link</span> <span class="n">Activity</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization12]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization11</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Showing Physical Link Activity</span>
 
 <span class="c1"># displaying physical links</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">displayLinks</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">packetFilter</span> <span class="o">=</span> <span class="s2">&quot;*VoIP*&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">fadeOutTime</span> <span class="o">=</span> <span class="mi">20</span><span class="n">s</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">lineColor</span> <span class="o">=</span> <span class="s2">&quot;purple&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">physicalLinkVisualizer</span><span class="o">.</span><span class="n">labelColor</span> <span class="o">=</span> <span class="s2">&quot;purple&quot;</span>
-
+<span class="na">*.visualizer.*.physicalLinkVisualizer.displayLinks</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.physicalLinkVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;*VoIP*&quot;</span>
+<span class="na">*.visualizer.*.physicalLinkVisualizer.fadeOutTime</span> <span class="o">=</span> <span class="s">20s</span>
+<span class="na">*.visualizer.*.physicalLinkVisualizer.lineColor</span> <span class="o">=</span> <span class="s">&quot;purple&quot;</span>
+<span class="na">*.visualizer.*.physicalLinkVisualizer.labelColor</span> <span class="o">=</span> <span class="s">&quot;purple&quot;</span>
 </pre></div>
 </div>
-<p>Physical link activity is displayed by <code class="docutils literal notranslate"><span class="pre">PhysicalLinkVisualizer</span></code>. By
+<p>Physical link activity is displayed by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.physicallayer.PhysicalLinkVisualizer.html">PhysicalLinkVisualizer</a>. By
 setting <code class="docutils literal notranslate"><span class="pre">displayLinks</span></code> to <em>true</em>, we enable displaying physical link
 activity. By default, all packets and all nodes are considered for the
 visualization. In this step, we want to display physical link activity
@@ -380,7 +391,7 @@ recognize just by looking at the simulation.</p>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
 </div>
 </div>
 

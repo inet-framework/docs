@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -364,8 +376,8 @@ plugged into a host. The movement trail may be deterministic (such as
 line, rectangle or circle), probabilistic (e.g. random waypoint),
 scripted (e.g. a “turtle” script) or trace-driven. There are also
 individual and group mobility models.</p>
-<p>Here we install <code class="docutils literal notranslate"><span class="pre">LinearMobility</span></code> into the intermediate nodes.
-<code class="docutils literal notranslate"><span class="pre">LinearMobility</span></code> implements movement along a line, where the heading
+<p>Here we install <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.LinearMobility.html">LinearMobility</a> into the intermediate nodes.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.LinearMobility.html">LinearMobility</a> implements movement along a line, where the heading
 and speed are parameters. We configure the nodes to move north at the
 speed of 12 m/s.</p>
 </div>
@@ -386,19 +398,18 @@ will cause mobile nodes to leave a trail as they move. We also enable a
 visualizer option that will display the velocity vector of the moving
 nodes.</p>
 <p>The configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Wireless09</span><span class="p">]</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Configuring</span> <span class="n">node</span> <span class="n">movements</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Wireless08</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Wireless09]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Configuring node movements</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless08</span>
 
-<span class="o">*.</span><span class="n">hostR</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;LinearMobility&quot;</span>
-<span class="o">*.</span><span class="n">hostR</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">12</span><span class="n">mps</span>
-<span class="o">*.</span><span class="n">hostR</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">270</span><span class="n">deg</span>
+<span class="na">*.hostR*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;LinearMobility&quot;</span>
+<span class="na">*.hostR*.mobility.speed</span> <span class="o">=</span> <span class="s">12mps</span>
+<span class="na">*.hostR*.mobility.angle</span> <span class="o">=</span> <span class="s">270deg</span>
 
-<span class="o">*.</span><span class="n">host</span><span class="o">*.</span><span class="n">wlan</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mac</span><span class="o">.</span><span class="n">maxQueueSize</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="na">*.host*.wlan[0].mac.maxQueueSize</span> <span class="o">=</span> <span class="s">10</span>
 
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mobilityVisualizer</span><span class="o">.</span><span class="n">displayVelocities</span> <span class="o">=</span> <span class="n">true</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">mobilityVisualizer</span><span class="o">.</span><span class="n">displayMovementTrails</span> <span class="o">=</span> <span class="n">true</span>
-
+<span class="na">*.visualizer.mobilityVisualizer.displayVelocities</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.mobilityVisualizer.displayMovementTrails</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 </div>
@@ -420,7 +431,7 @@ host A and B by routing traffic through hosts R2 and R3. To reconfigure
 routes according to the changing topology of the network, an ad-hoc
 routing protocol is required.</p>
 <p><strong>Number of packets received by host B: 547</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp5.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

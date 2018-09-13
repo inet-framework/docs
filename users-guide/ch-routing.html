@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -350,8 +362,8 @@ Show Source
 <span id="ug-sec-routing-overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>INET Framework has models for several internet routing protocols,
 including RIP, OSPF and BGP.</p>
-<p>The easiest way to add routing to a network is to use the <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code>
-NED type for routers. <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> contains a conditional instance for
+<p>The easiest way to add routing to a network is to use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>
+NED type for routers. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> contains a conditional instance for
 each of the above protocols. These submodules can be enabled by setting
 the <code class="code literal-ini docutils literal notranslate"><span class="pre">hasRip</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">hasOspf</span></code> and/or <code class="code literal-ini docutils literal notranslate"><span class="pre">hasBgp</span></code> parameters to
 <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
@@ -359,8 +371,8 @@ the <code class="code literal-ini docutils literal notranslate"><span class="pre
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.hasRip</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
-<p>There are also NED types called <code class="code literal-ned docutils literal notranslate"><span class="pre">RipRouter</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">OspfRouter</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">BgpRouter</span></code>, which are all <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code>’s with appropriate routing
+<p>There are also NED types called <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.rip.RipRouter.html">RipRouter</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ospfv2.OspfRouter.html">OspfRouter</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.bgp.BgpRouter.html">BgpRouter</a>, which are all <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>’s with appropriate routing
 protocol enabled.</p>
 </div>
 <div class="section" id="rip">
@@ -370,14 +382,14 @@ which employs the hop count as a routing metric. RIP prevents routing
 loops by implementing a limit on the number of hops allowed in a path
 from source to destination. RIP uses the <em>split horizon with poison
 reverse</em> technique to work around the “count-to-infinity” problem.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Rip</span></code> module implements distance vector routing as specified in
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.rip.Rip.html">Rip</a> module implements distance vector routing as specified in
 RFC 2453 (RIPv2) and RFC 2080 (RIPng). The behavior can be selected by
 setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">mode</span></code> parameter to either <code class="docutils literal notranslate"><span class="pre">&quot;RIPv2&quot;</span></code> or
 <code class="docutils literal notranslate"><span class="pre">&quot;RIPng&quot;</span></code>. Protocol configuration such as link metrics and
 per-interface operation mode (such as whether RIP is enabled on the
 interface, and whether to use split horizon) can be specified in XML
 using the <code class="code literal-ini docutils literal notranslate"><span class="pre">ripConfig</span></code> parameter.</p>
-<p>The following example configures a <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> module to use RIPv2:</p>
+<p>The following example configures a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> module to use RIPv2:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.hasRip</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">**.mode</span> <span class="o">=</span> <span class="s">&quot;RIPv2&quot;</span>
 <span class="na">**.ripConfig</span> <span class="o">=</span> <span class="s">xmldoc(&quot;RIPConfig.xml&quot;)</span>
@@ -387,7 +399,7 @@ using the <code class="code literal-ini docutils literal notranslate"><span clas
 <code class="docutils literal notranslate"><span class="pre">&lt;interface&gt;</span></code> element configures one or more interfaces; the
 <code class="docutils literal notranslate"><span class="pre">hosts</span></code>, <code class="docutils literal notranslate"><span class="pre">names</span></code>, <code class="docutils literal notranslate"><span class="pre">towards</span></code>, <code class="docutils literal notranslate"><span class="pre">among</span></code> attributes
 select the configured interfaces (in a similar way as with
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4NetworkConfigurator</span></code>). See the <a class="reference internal" href="ch-network-autoconfig.html"><span class="doc">Network Autoconfiguration</span></a> chapter
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>). See the <a class="reference internal" href="ch-network-autoconfig.html"><span class="doc">Network Autoconfiguration</span></a> chapter
 for further information.</p>
 <p>Additional attributes:</p>
 <ul class="simple">
@@ -422,12 +434,12 @@ the neighbor, then set the metric of the route to infinity.</li>
 It uses a link state routing (LSR) algorithm and falls into the group of
 interior gateway protocols (IGPs), operating within a single autonomous
 system (AS).</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">OspfRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> with the OSPF protocol enabled.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Ospf</span></code> module implements OSPF protocol version 2. Areas and
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ospfv2.OspfRouter.html">OspfRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> with the OSPF protocol enabled.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.ospfv2.Ospf.html">Ospf</a> module implements OSPF protocol version 2. Areas and
 routers can be configured using an XML file specified by the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">ospfConfig</span></code> parameter. Various parameters for the network
 interfaces can be specified also in the XML file or as a parameter of
-the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ospf</span></code> module.</p>
+the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.ospfv2.Ospf.html">Ospf</a> module.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.ospf.ospfConfig</span> <span class="o">=</span> <span class="s">xmldoc(&quot;ASConfig.xml&quot;)</span>
 <span class="na">**.ospf.helloInterval</span> <span class="o">=</span> <span class="s">12s</span>
 <span class="na">**.ospf.retransmissionInterval</span> <span class="o">=</span> <span class="s">6s</span>
@@ -467,8 +479,8 @@ pont-to-point or broadcast interfaces.</p>
 <p>BGP (Border Gateway Protocol) is a standardized exterior gateway
 protocol designed to exchange routing and reachability information among
 autonomous systems (AS) on the Internet.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">BgpRouter</span></code> is a <code class="code literal-ned docutils literal notranslate"><span class="pre">Router</span></code> with the BGP protocol enabled.</p>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Bgp</span></code> module implements BGP Version 4. The model implements RFC
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.bgp.BgpRouter.html">BgpRouter</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> with the BGP protocol enabled.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.bgpv4.Bgp.html">Bgp</a> module implements BGP Version 4. The model implements RFC
 4271, with some limitations. Autonomous Systems and rules can be
 configured in an XML file that can be specified in the <code class="code literal-ini docutils literal notranslate"><span class="pre">bgpConfig</span></code>
 parameter.</p>

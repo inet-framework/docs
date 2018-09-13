@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -356,10 +368,10 @@ Show Source
 <p>The INET defines these frames in the <code class="file docutils literal notranslate"><span class="pre">EtherFrame.msg</span></code> file.
 The models supports Ethernet II, 803.2 with LLC header, and 803.3 with
 LLC and SNAP headers. The corresponding classes are:
-<code class="code literal-msg docutils literal notranslate"><span class="pre">EthernetIIFrame</span></code>, <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrameWithLlc</span></code> and
-<code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrameWithSNAP</span></code>. They all class from <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrame</span></code> which
+<span>EthernetIIFrame</span>, <span>EtherFrameWithLlc</span> and
+<span>EtherFrameWithSNAP</span>. They all class from <span>EtherFrame</span> which
 only represents the basic MAC frame with source and destination
-addresses. <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> only deals with <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherFrame</span></code>’s, and does
+addresses. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a> only deals with <span>EtherFrame</span>’s, and does
 not care about the specific subclass.</p>
 <p>Ethernet frames carry data packets as encapsulated cMessage objects.
 Data packets can be of any message type (cMessage or cMessage subclass).</p>
@@ -376,22 +388,22 @@ control structure to the LLC by the network layer.</p>
 <p>EtherFrameWithLLC</p>
 <p>SAP registration</p>
 <div class="section" id="etherllc-and-higher-layers">
-<h3><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> and higher layers<a class="headerlink" href="#etherllc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> module can serve several applications (higher layer
+<h3><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> and higher layers<a class="headerlink" href="#etherllc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> module can serve several applications (higher layer
 protocols), and dispatch data to them. Higher layers are identified by
 DSAP. See section “Application registration” for more info.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherEncap</span></code> doesn’t have the functionality to dispatch to
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherEncap.html">EtherEncap</a> doesn’t have the functionality to dispatch to
 different higher layers because in practice it’ll always be used with
 IP.</p>
 </div>
 <div class="section" id="communication-between-llc-and-higher-layers">
 <h3>Communication between LLC and Higher Layers<a class="headerlink" href="#communication-between-llc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
-<p>Higher layers (applications or protocols) talk to the <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>
+<p>Higher layers (applications or protocols) talk to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>
 module.</p>
 <p>When a higher layer wants to send a packet via Ethernet, it just passes
-the data packet (a cMessage or any subclass) to <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>. The
+the data packet (a cMessage or any subclass) to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>. The
 message kind has to be set to IEEE802CTRL_DATA.</p>
-<p>In general, if <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> receives a packet from the higher layers,
+<p>In general, if <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> receives a packet from the higher layers,
 it interprets the message kind as a command. The commands include
 IEEE802CTRL_DATA (send a frame), IEEE802CTRL_REGISTER_DSAP (register
 highher layer) IEEE802CTRL_DEREGISTER_DSAP (deregister higher layer) and
@@ -403,9 +415,9 @@ the packet. See controlInfo() method of cMessage (OMNeT++ 3.0).</p>
 <p>For example, to send a packet to a given MAC address and protocol
 identifier, the application sets the data packet’s message kind to
 ETH_DATA (“please send this data packet” command), fills in the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code> structure with the destination MAC address and the
+<span>Ieee802Ctrl</span> structure with the destination MAC address and the
 protocol identifier, adds the control info to the message, then sends
-the packet to <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>.</p>
+the packet to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>.</p>
 <p>When the command doesn’t involve a data packet (e.g.
 IEEE802CTRL_(DE)REGISTER_DSAP, IEEE802CTRL_SENDPAUSE), a dummy packet
 (empty cMessage) is used.</p>
@@ -435,11 +447,11 @@ as opposed to “interface” packets.</p>
 protocols.</p>
 <p>So that data arriving from the network can be dispatched to the correct
 applications (higher layer protocols), applications have to register
-themselves in <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>. The registration is done with the
+themselves in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>. The registration is done with the
 IEEE802CTRL_REGISTER_DSAP command (see section “Communication between
 LLC and higher layers”) which associates a SAP with the LLC port.
 Different applications have to connect to different ports of
-<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>.</p>
 <p>The ETHERCTRL_REGISTER_DSAP/IEEE802CTRL_DEREGISTER_DSAP commands use
 only the dsap field in the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code> structure.</p>
 </div>
@@ -474,14 +486,14 @@ state chart:</p>
   BACKOFF -&gt; TX_IDLE [ label=&quot;carrier detected&quot;]
 }</p></object>
 </div>
-<p>Unlike <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMacFullDuplex</span></code>, this MAC module processes the incoming
+<p>Unlike <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMacFullDuplex.html">EtherMacFullDuplex</a>, this MAC module processes the incoming
 packets when their first bit is received. The end of the reception is
 calculated by the MAC and detected by scheduling a self message.</p>
 <p>When frames collide the transmission is aborted – in this case the
 transmitting station transmits a jam signal. Jam signals are represented
-by a <code class="code literal-msg docutils literal notranslate"><span class="pre">EtherJam</span></code> message. The jam message contains the tree
+by a <span>EtherJam</span> message. The jam message contains the tree
 identifier of the frame whose transmission is aborted. When the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> receives a jam signal, it knows that the corresponding
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a> receives a jam signal, it knows that the corresponding
 transmission ended in jamming and have been aborted. Thus when it
 receives as many jams as collided frames, it can be sure that the
 channel is free again. (Receiving a jam message marks the beginning of
@@ -519,10 +531,10 @@ diagram:</p>
 <p>When the transmission line is busy, messages received from the upper
 layer needs to be queued.</p>
 <p>In routers, MAC relies on an external queue module (see
-<code class="code literal-ned docutils literal notranslate"><span class="pre">OutputQueue</span></code>), and requests packets from this external queue
+<span>OutputQueue</span>), and requests packets from this external queue
 one-by-one. The name of the external queue must be given as the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">queueModule</span></code> parameer. There are implementations of
-<code class="code literal-ned docutils literal notranslate"><span class="pre">OutputQueue</span></code> to model finite buffer, QoS and/or RED.</p>
+<span>OutputQueue</span> to model finite buffer, QoS and/or RED.</p>
 <p>In hosts, no such queue is used, so MAC contains an internal queue named
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">txQueue</span></code> to queue up packets waiting for transmission.
 Conceptually, <code class="code literal-cpp docutils literal notranslate"><span class="pre">txQueue</span></code> is of infinite size, but for better
@@ -538,12 +550,12 @@ If the receiver becomes uncongested before the transmitter’s pause timer
 expires, the receiver may elect to send another PAUSE frame to the
 transmitter with a timer value of zero, allowing the transmitter to
 resume immediately.</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code> will properly respond to PAUSE frames it receives
-(<code class="code literal-msg docutils literal notranslate"><span class="pre">EtherPauseFrame</span></code> class), however it will never send a PAUSE frame
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a> will properly respond to PAUSE frames it receives
+(<span>EtherPauseFrame</span> class), however it will never send a PAUSE frame
 by itself. (For one thing, it doesn’t have an input buffer that can
 overflow.)</p>
-<p><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherMac</span></code>, however, transmits PAUSE frames received by higher
-layers, and <code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> can be instructed by a command to send a
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a>, however, transmits PAUSE frames received by higher
+layers, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> can be instructed by a command to send a
 PAUSE frame to MAC.</p>
 </div>
 <div class="section" id="error-handling">
@@ -572,7 +584,7 @@ Erronous packets are dropped by the MAC.</p>
 <li><a class="reference internal" href="#receiving-ethernet-frames">Receiving Ethernet Frames</a></li>
 <li><a class="reference internal" href="#frames">Frames</a></li>
 <li><a class="reference internal" href="#etherllc">EtherLlc</a><ul>
-<li><a class="reference internal" href="#etherllc-and-higher-layers"><code class="code literal-ned docutils literal notranslate"><span class="pre">EtherLlc</span></code> and higher layers</a></li>
+<li><a class="reference internal" href="#etherllc-and-higher-layers">EtherLlc and higher layers</a></li>
 <li><a class="reference internal" href="#communication-between-llc-and-higher-layers">Communication between LLC and Higher Layers</a></li>
 <li><a class="reference internal" href="#rationale">Rationale</a></li>
 <li><a class="reference internal" href="#etherllc-sap-registration">EtherLLC: SAP Registration</a></li>

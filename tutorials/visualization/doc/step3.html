@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -367,19 +379,18 @@ the axes are not visible because default axis length is 0m. We can
 display them by setting their length to a positive number. In this step,
 axis length is set to 100m.</p>
 <p>This step is configured as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Visualization03</span><span class="p">]</span>
-<span class="n">extends</span> <span class="o">=</span> <span class="n">Visualization02</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">Showing</span> <span class="n">the</span> <span class="n">Playground</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization03]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization02</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Showing the Playground</span>
 
 <span class="c1"># showing axis</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">axisLength</span> <span class="o">=</span> <span class="mi">100</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">coordinateSystem</span><span class="o">.</span><span class="n">playgroundAltitude</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.axisLength</span> <span class="o">=</span> <span class="s">100m</span>
+<span class="na">*.coordinateSystem.playgroundAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 
 <span class="c1"># customizing the playground on the map</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">playgroundShading</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">playgroundColor</span> <span class="o">=</span> <span class="s2">&quot;#000000&quot;</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.</span><span class="n">osgVisualizer</span><span class="o">.</span><span class="n">sceneVisualizer</span><span class="o">.</span><span class="n">playgroundOpacity</span> <span class="o">=</span> <span class="mf">0.2</span>
-
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundShading</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundColor</span> <span class="o">=</span> <span class="s">&quot;</span><span class="c1">#000000&quot;</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundOpacity</span> <span class="o">=</span> <span class="s">0.2</span>
 </pre></div>
 </div>
 </div>
@@ -388,7 +399,7 @@ axis length is set to 100m.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step3_result_playground.png"><img alt="../../../_images/step3_result_playground.png" src="../../../_images/step3_result_playground.png" style="width: 100%;" /></a>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/VisualizationB.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationB.ned</span></code></a></p>
 </div>
 </div>

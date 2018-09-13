@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -355,29 +367,28 @@ demonstrates how to assign a range of IP addresses to subnets.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>This step uses the <code class="docutils literal notranslate"><span class="pre">ConfiguratorA</span></code> network, as in the previous two
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a> network, as in the previous two
 steps. One switch and the connected hosts as a group will be on the same
 subnet, and there are three such groups in the network.</p>
 <p>The configuration is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Config</span> <span class="n">Step3</span><span class="p">]</span>
-<span class="n">network</span> <span class="o">=</span> <span class="n">ConfiguratorA</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Automatically assigning IP addresses to a subnet from a given range&quot;</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step3]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorA</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Automatically assigning IP addresses to a subnet from a given range&quot;</span>
 
-<span class="o">*.</span><span class="n">configurator</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">xmldoc</span><span class="p">(</span><span class="s2">&quot;step3.xml&quot;</span><span class="p">)</span>
-
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xmldoc(&quot;step3.xml&quot;)</span>
 </pre></div>
 </div>
 <p>This time the XML configuration is supplied in an external file
 (step3.xml), using the <code class="docutils literal notranslate"><span class="pre">xmldoc()</span></code> function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host{0-2}&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.0.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host{3-5}&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.1.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host{6-8}&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.2.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router0&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;host0&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.0.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router1&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;host3&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.1.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router2&quot;</span> <span class="n">towards</span><span class="o">=</span><span class="s2">&quot;host6&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.2.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.x.x&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host{0-2}&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.0.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host{3-5}&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.1.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host{6-8}&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.2.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;router0&quot;</span> <span class="na">towards=</span><span class="s">&quot;host0&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.0.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;router1&quot;</span> <span class="na">towards=</span><span class="s">&quot;host3&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.1.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;router2&quot;</span> <span class="na">towards=</span><span class="s">&quot;host6&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.2.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;router*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.x.x&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>A brief explanation:</p>
@@ -400,25 +411,25 @@ thus, a default rule is not required.</p>
 <p>The same effect can be achieved in more than one way. Here is an
 alternative XML configuration (step3alt1.xml) that results in the same
 address assignment:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">among</span><span class="o">=</span><span class="s2">&quot;host{0-2} router0&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.0.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">among</span><span class="o">=</span><span class="s2">&quot;host{3-5} router1&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.1.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">among</span><span class="o">=</span><span class="s2">&quot;host{6-8} router2&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.2.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;router*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.x.x&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">among=</span><span class="s">&quot;host{0-2} router0&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.0.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">among=</span><span class="s">&quot;host{3-5} router1&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.1.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">among=</span><span class="s">&quot;host{6-8} router2&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.2.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;router*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.x.x&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">among</span></code> selector selects the interfaces of the specified hosts
 towards the specified hosts (the statement <code class="docutils literal notranslate"><span class="pre">among=&quot;X</span> <span class="pre">Y</span> <span class="pre">Z&quot;</span></code> is the same
 as <code class="docutils literal notranslate"><span class="pre">hosts=&quot;X</span> <span class="pre">Y</span> <span class="pre">Z&quot;</span> <span class="pre">towards=&quot;X</span> <span class="pre">Y</span> <span class="pre">Z&quot;</span></code>).</p>
 <p>Another alternative XML configuration is the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">config</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host0&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.0.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host3&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.1.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s2">&quot;host6&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.0.2.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">among</span><span class="o">=</span><span class="s2">&quot;router*&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;10.1.x.x&quot;</span><span class="o">/&gt;</span>
-	<span class="o">&lt;</span><span class="n">interface</span> <span class="n">hosts</span><span class="o">=</span><span class="s1">&#39;**&#39;</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.x.x.x&#39;</span> <span class="n">netmask</span><span class="o">=</span><span class="s1">&#39;255.x.x.x&#39;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">config</span><span class="o">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;config&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host0&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.0.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host3&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.1.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&quot;host6&quot;</span> <span class="na">address=</span><span class="s">&quot;10.0.2.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">among=</span><span class="s">&quot;router*&quot;</span> <span class="na">address=</span><span class="s">&quot;10.1.x.x&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;interface</span> <span class="na">hosts=</span><span class="s">&#39;**&#39;</span> <span class="na">address=</span><span class="s">&#39;10.x.x.x&#39;</span> <span class="na">netmask=</span><span class="s">&#39;255.x.x.x&#39;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/config&gt;</span>
 </pre></div>
 </div>
 <p>This one assigns an address to one host in each of the three subnets. It
@@ -438,7 +449,7 @@ subnet as the specified host.</p>
 <p>The addresses are assigned as intended. This is useful because it is
 easy to recognize which group a node belongs to just by looking at its
 address (e.g. in the logs.)</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

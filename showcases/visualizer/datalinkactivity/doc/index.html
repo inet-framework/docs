@@ -82,6 +82,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -191,6 +196,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -220,6 +226,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -329,6 +340,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -352,7 +364,7 @@ Show Source
 <p>With INET simulations, it is often useful to be able to visualize
 network traffic. INET offers several visualizers for this task,
 operating at various levels of the network stack. In this showcase, we
-examine <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> that can provide graphical feedback about
+examine <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> that can provide graphical feedback about
 data link level traffic.</p>
 <p>The showcase consists of five simulation models, each demonstrating
 different features of the data link activity visualizer.</p>
@@ -362,12 +374,12 @@ different features of the data link activity visualizer.</p>
 <div class="section" id="about-the-visualizer">
 <h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
 <p>In INET, data link activity can be visualized by including a
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> module in the simulation. Adding an
-<code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code> module is also an option, because it also
-contains a <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> module. Data link visualization is
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> module in the simulation. Adding an
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module is also an option, because it also
+contains a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> module. Data link visualization is
 disabled by default, it can be enabled by setting the visualizer’s
 <code class="docutils literal notranslate"><span class="pre">displayLinks</span></code> parameter to true.</p>
-<p><code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> is able to observe packets at <em>service</em>, <em>peer</em>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> is able to observe packets at <em>service</em>, <em>peer</em>
 and <em>protocol</em> level. The level where packets are observed can be set by
 the <code class="docutils literal notranslate"><span class="pre">activityLevel</span></code> parameter.</p>
 <ul class="simple">
@@ -376,7 +388,7 @@ the data link layer (i.e. carry data from/to higher layers).</li>
 <li>At <em>peer</em> level, the visualization is triggered by those packets
 which are processed inside the link layer in the source node and
 processed inside the link layer in the destination node.</li>
-<li>At <em>protocol</em> level, <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> displays those packets
+<li>At <em>protocol</em> level, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> displays those packets
 which are going out at the bottom of link layer in the source node
 and going in at the bottom of the link layer in the destination node.</li>
 </ul>
@@ -400,7 +412,7 @@ by choosing the <code class="docutils literal notranslate"><span class="pre">Ena
 ini file.</p>
 <p>The wired network contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>, <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> and
 <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. The <code class="docutils literal notranslate"><span class="pre">linkVisualizer</span></code> module’s type is
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerSimpleWired.png"><img alt="../../../../_images/DataLinkVisualizerSimpleWired.png" src="../../../../_images/DataLinkVisualizerSimpleWired.png" style="width: 100%;" /></a>
 </div>
@@ -411,9 +423,9 @@ parameter to true.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="EnablingVisualizationWired_v0613.m4v" width="698" height="" class="align-center"></video><p>At the beginning of the video, a red strip appears and moves from
 <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> to <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code>. This strip is the standard
 OMNeT++ animation for packet transmissions, and has nothing to do with
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. When the packet is received in whole by
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a>. When the packet is received in whole by
 <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code> (the red strip disappears), a dark cyan arrow is
-added by <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> between the two hosts, indicating data
+added by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> between the two hosts, indicating data
 link activity. The packet’s name is also displayed on the arrow. The
 arrow fades out quickly, because the <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameter of the
 visualizer is set to a small value.</p>
@@ -438,7 +450,7 @@ pass through data link layer.</p>
 <p>In complex networks with many nodes and several protocols in use, it is
 often useful to be able to filter network traffic, and visualize only
 the part of the traffic we are interested in. The following example
-shows how to set packet filtering in <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. This
+shows how to set packet filtering in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a>. This
 simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Filtering</span></code> configuration from
 the ini file.</p>
 <p>We use the following network for this showcase.</p>
@@ -451,10 +463,10 @@ destination hosts (<code class="docutils literal notranslate"><span class="pre">
 hosts (<code class="docutils literal notranslate"><span class="pre">host1</span></code>, <code class="docutils literal notranslate"><span class="pre">host2</span></code>) which are inactive in this simulation.
 <code class="docutils literal notranslate"><span class="pre">Source1</span></code> pings <code class="docutils literal notranslate"><span class="pre">destination1</span></code>, and <code class="docutils literal notranslate"><span class="pre">source2</span></code> pings
 <code class="docutils literal notranslate"><span class="pre">destination2</span></code>.</p>
-<p>For this network, the visualizer’s type is <code class="docutils literal notranslate"><span class="pre">IntegratedVisualizer</span></code>.
+<p>For this network, the visualizer’s type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>.
 Data link activity visualization is filtered to display only ping
 messages. The other packets, e.g. ARP packets, are not visualized by
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code>. We adjust the <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a>. We adjust the <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and the
 <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameters so that the activity arrows do not fade out
 completely before the next ping messages are sent.</p>
 <p>We use the following configuration for the visualization.</p>
@@ -466,7 +478,7 @@ completely before the next ping messages are sent.</p>
 </div>
 <p>The following animation shows what happens when we start the simulation.
 You can see that although there is both ARP and ping traffic in the
-network, <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> only takes the latter into account, due
+network, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> only takes the latter into account, due
 to the presence of the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Filtering_v0613.m4v" width="698" height="" class="align-center"></video><p>It also is possible to filter for network nodes. For the following
 example, let’s assume we want to display traffic between the hosts
@@ -493,17 +505,17 @@ selecting the <code class="docutils literal notranslate"><span class="pre">Activ
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/ActivityLevel_v1206.png"><img alt="../../../../_images/ActivityLevel_v1206.png" src="../../../../_images/ActivityLevel_v1206.png" style="width: 100%;" /></a>
 </div>
-<p>The network consists three <code class="docutils literal notranslate"><span class="pre">AdhocHost</span></code> nodes, <code class="docutils literal notranslate"><span class="pre">person1</span></code>, <code class="docutils literal notranslate"><span class="pre">person2</span></code>
+<p>The network consists three <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> nodes, <code class="docutils literal notranslate"><span class="pre">person1</span></code>, <code class="docutils literal notranslate"><span class="pre">person2</span></code>
 and <code class="docutils literal notranslate"><span class="pre">videoServer</span></code>. <code class="docutils literal notranslate"><span class="pre">VideoServer</span></code> will be streaming a video to
 <code class="docutils literal notranslate"><span class="pre">person1</span></code>. <code class="docutils literal notranslate"><span class="pre">Person2</span></code> will be inactive in this example.</p>
-<p>The type of the visualizer module is <code class="docutils literal notranslate"><span class="pre">IntegratedMultiVisualizer</span></code>.
+<p>The type of the visualizer module is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedMultiVisualizer.html">IntegratedMultiVisualizer</a>.
 Multi-visualizers are compound visualizer modules containing submodule
 vectors of visualizer simple modules. By default, the multi-visualizers
 contain one submodule of each visualizer simple module. The number of
 submodules can be specified with parameters for each visualizer
 submodule.</p>
 <p>In this example, data link activity will be displayed at three different
-levels. To achieve this, three <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> will be
+levels. To achieve this, three <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> will be
 configured, observing packets at <em>service</em>, <em>peer</em> and <em>protocol</em> level.
 They are marked with different colors. The <code class="docutils literal notranslate"><span class="pre">visualizer</span></code> module is
 configured as follows.</p>
@@ -524,13 +536,13 @@ configured as follows.</p>
 </pre></div>
 </div>
 <p>By using the <code class="docutils literal notranslate"><span class="pre">numDataLinkVisualizers</span></code> parameter, we set three
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> modules. In this example, we are interested in
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> modules. In this example, we are interested in
 <em>video</em> packets. To highlight them, we use the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code>
 parameter. The <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> parameter specifies that inactive links
 fade out in animation time. The <code class="docutils literal notranslate"><span class="pre">holdAnimationTime</span></code> parameter stops
 the animation for a while, delaying the fading of the data link activity
 arrows. The <code class="docutils literal notranslate"><span class="pre">activityLevel</span></code>, <code class="docutils literal notranslate"><span class="pre">lineColor</span></code> and <code class="docutils literal notranslate"><span class="pre">labelColor</span></code>
-parameters are different at each <code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> to make data
+parameters are different at each <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> to make data
 link activity levels easy to distinguish:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">dataLinkVisualizer[0]</span></code> is configured to display <em>protocol</em> level
@@ -569,7 +581,7 @@ ini file.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/DataLinkVisualizerDynamic.png"><img alt="../../../../_images/DataLinkVisualizerDynamic.png" src="../../../../_images/DataLinkVisualizerDynamic.png" style="width: 100%;" /></a>
 </div>
-<p>Nodes are of the type <code class="docutils literal notranslate"><span class="pre">AodvRouter</span></code>, and are placed randomly on the
+<p>Nodes are of the type <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>, and are placed randomly on the
 playground. The communication range of the nodes is chosen so that the
 network is connected, but nodes can typically only communicate by using
 multi-hop paths. The nodes will also randomly roam within predefined
@@ -587,7 +599,7 @@ messages back to the originator of the RREQ messages. Reception of the
 RREP message in each host results in the node updating its routing table
 with the next hop address towards the destination node.</p>
 <p>As AODV operates with two message types, we’ll use two
-<code class="docutils literal notranslate"><span class="pre">DataLinkVisualizer</span></code> modules configured to use two different colors.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> modules configured to use two different colors.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.rreqVisualizer.*.displayLinks = true
 *.rreqVisualizer.*.packetFilter = &quot;AodvRreq&quot;
 *.rreqVisualizer.*.fadeOutMode = &quot;simulationTime&quot;

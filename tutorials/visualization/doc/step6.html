@@ -78,6 +78,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -187,6 +192,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -216,6 +222,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -325,6 +336,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -360,38 +372,38 @@ details about the recent and the upcoming movements.</p>
 <div class="section" id="mobility-settings">
 <h3>Mobility settings<a class="headerlink" href="#mobility-settings" title="Permalink to this headline">¶</a></h3>
 <p>At first, we have to set mobility of network nodes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mobility settings</span>
-<span class="o">*.**.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initFromDisplayString</span> <span class="o">=</span> <span class="n">false</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;MassMobility&quot;</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialZ</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMinZ</span> <span class="o">=</span> <span class="mi">0</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMaxZ</span> <span class="o">=</span> <span class="mi">1</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">changeInterval</span> <span class="o">=</span> <span class="mi">2</span><span class="n">s</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">changeAngleBy</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="n">deg</span><span class="p">,</span> <span class="mi">10</span><span class="n">deg</span><span class="p">)</span>
-<span class="o">*.</span><span class="n">pedestrian</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mf">1.3</span><span class="n">mps</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># mobility settings</span>
+<span class="na">*.**.mobility.initFromDisplayString</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.pedestrian*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;MassMobility&quot;</span>
+<span class="na">*.pedestrian*.mobility.initialZ</span> <span class="o">=</span> <span class="s">0.5m</span>
+<span class="na">*.pedestrian*.mobility.constraintAreaMinZ</span> <span class="o">=</span> <span class="s">0m</span>
+<span class="na">*.pedestrian*.mobility.constraintAreaMaxZ</span> <span class="o">=</span> <span class="s">1m</span>
+<span class="na">*.pedestrian*.mobility.changeInterval</span> <span class="o">=</span> <span class="s">2s</span>
+<span class="na">*.pedestrian*.mobility.changeAngleBy</span> <span class="o">=</span> <span class="s">uniform(-10deg, 10deg)</span>
+<span class="na">*.pedestrian*.mobility.speed</span> <span class="o">=</span> <span class="s">1.3mps</span>
 
 <span class="c1"># pedestrian0 mobility</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialX</span> <span class="o">=</span> <span class="mi">395</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialY</span> <span class="o">=</span> <span class="mi">65</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMinX</span> <span class="o">=</span> <span class="mi">390</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMinY</span> <span class="o">=</span> <span class="mi">63</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMaxX</span> <span class="o">=</span> <span class="mi">440</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMaxY</span> <span class="o">=</span> <span class="mi">230</span><span class="n">m</span>
+<span class="na">*.pedestrian0.mobility.initialX</span> <span class="o">=</span> <span class="s">395m</span>
+<span class="na">*.pedestrian0.mobility.initialY</span> <span class="o">=</span> <span class="s">65m</span>
+<span class="na">*.pedestrian0.mobility.constraintAreaMinX</span> <span class="o">=</span> <span class="s">390m</span>
+<span class="na">*.pedestrian0.mobility.constraintAreaMinY</span> <span class="o">=</span> <span class="s">63m</span>
+<span class="na">*.pedestrian0.mobility.constraintAreaMaxX</span> <span class="o">=</span> <span class="s">440m</span>
+<span class="na">*.pedestrian0.mobility.constraintAreaMaxY</span> <span class="o">=</span> <span class="s">230m</span>
 
 <span class="c1"># pedestrian1 mobility</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialX</span> <span class="o">=</span> <span class="mi">600</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialY</span> <span class="o">=</span> <span class="mi">90</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMinX</span> <span class="o">=</span> <span class="mi">555</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMinY</span> <span class="o">=</span> <span class="mi">90</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMaxX</span> <span class="o">=</span> <span class="mi">605</span><span class="n">m</span>
-<span class="o">*.</span><span class="n">pedestrian1</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">constraintAreaMaxY</span> <span class="o">=</span> <span class="mi">230</span><span class="n">m</span>
+<span class="na">*.pedestrian1.mobility.initialX</span> <span class="o">=</span> <span class="s">600m</span>
+<span class="na">*.pedestrian1.mobility.initialY</span> <span class="o">=</span> <span class="s">90m</span>
+<span class="na">*.pedestrian1.mobility.constraintAreaMinX</span> <span class="o">=</span> <span class="s">555m</span>
+<span class="na">*.pedestrian1.mobility.constraintAreaMinY</span> <span class="o">=</span> <span class="s">90m</span>
+<span class="na">*.pedestrian1.mobility.constraintAreaMaxX</span> <span class="o">=</span> <span class="s">605m</span>
+<span class="na">*.pedestrian1.mobility.constraintAreaMaxY</span> <span class="o">=</span> <span class="s">230m</span>
 
 <span class="c1"># accessPoint0 mobility</span>
-<span class="o">*.</span><span class="n">accessPoint</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">typename</span> <span class="o">=</span> <span class="s2">&quot;StationaryMobility&quot;</span>
-<span class="o">*.</span><span class="n">accessPoint</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">coordinateSystemModule</span> <span class="o">=</span> <span class="s2">&quot;coordinateSystem&quot;</span>
-<span class="o">*.</span><span class="n">accessPoint0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLatitude</span> <span class="o">=</span> <span class="mf">42.3542933</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">accessPoint0</span><span class="o">.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialLongitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">71.0663985</span><span class="n">deg</span>
-<span class="o">*.</span><span class="n">accessPoint</span><span class="o">*.</span><span class="n">mobility</span><span class="o">.</span><span class="n">initialAltitude</span> <span class="o">=</span> <span class="mf">0.5</span><span class="n">m</span>
+<span class="na">*.accessPoint*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.accessPoint*.mobility.coordinateSystemModule</span> <span class="o">=</span> <span class="s">&quot;coordinateSystem&quot;</span>
+<span class="na">*.accessPoint0.mobility.initialLatitude</span> <span class="o">=</span> <span class="s">42.3542933deg</span>
+<span class="na">*.accessPoint0.mobility.initialLongitude</span> <span class="o">=</span> <span class="s">-71.0663985deg</span>
+<span class="na">*.accessPoint*.mobility.initialAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 </pre></div>
 </div>
 <p>The above code snippet shows how the mobility of the nodes is
@@ -421,8 +433,8 @@ movement trail. We enable these features by setting
 the length of velocity vector is too small. For this reason, we multiply
 the length of velocity vector by the value of <code class="docutils literal notranslate"><span class="pre">velocityArrowScale</span></code>.</p>
 <p>The following code snippet shows how these features are configured.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># displaying movements</span>
-<span class="o">*.</span><span class="n">visualizer</span><span class="o">.*.</span><span class="n">mobilityVisualizer</span><span class="o">.</span><span class="n">displayMovementTrails</span> <span class="o">=</span> <span class="n">true</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># displaying movements</span>
+<span class="na">*.visualizer.*.mobilityVisualizer.displayMovementTrails</span> <span class="o">=</span> <span class="s">true</span>
 <span class="c1">#*.visualizer.*.mobilityVisualizer.movementTrailLineWidth = 3</span>
 
 <span class="c1">#*.visualizer.*.mobilityVisualizer.displayVelocities = true</span>
@@ -433,14 +445,13 @@ the length of velocity vector by the value of <code class="docutils literal notr
 <span class="c1">#*.visualizer.*.mobilityVisualizer.orientationArcSize = 0.25</span>
 <span class="c1">#*.visualizer.*.mobilityVisualizer.orientationLineColor = &quot;black&quot;</span>
 <span class="c1">#*.visualizer.*.mobilityVisualizer.orientationLineWidth = 3</span>
-
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step6_result_2d.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp4.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="step6_result_2d.mp4" width="698" height="" class="align-center"></video><p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp3.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../_downloads/VisualizationD.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">VisualizationD.ned</span></code></a></p>
 </div>
 </div>
 

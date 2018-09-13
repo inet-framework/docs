@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Appendix: Author’s Guide" href="ch-authors-guide.html" />
+    <link rel="next" title="Testing" href="ch-testing.html" />
     <link rel="prev" title="Working with Packets" href="ch-packets.html" /> 
   </head>
 <body>
@@ -81,6 +81,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -190,6 +195,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -219,6 +225,11 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">MANET Routing Protocols</a></li>
 </ul>
@@ -328,6 +339,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
@@ -509,11 +521,11 @@ added to and removed from it using the <code class="code literal-cpp docutils li
 <span id="dg-sec-sockets-udp-socket"></span><h2>UDP Socket<a class="headerlink" href="#udp-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">UdpSocket</span></code> class provides an easy to use C++ interface to send
 and receive <span class="protocol">UDP</span> datagrams. The underlying <span class="protocol">UDP</span>
-protocol is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> module.</p>
+protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module.</p>
 <div class="section" id="callback-interface">
 <h3>Callback Interface<a class="headerlink" href="#callback-interface" title="Permalink to this headline">¶</a></h3>
 <p>Processing packets and indications which are received from the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> module is pretty simple. The incoming message must be
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module is pretty simple. The incoming message must be
 processed by the socket where it belongs as shown in the general
 section.</p>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">UdpSocket</span></code> deconstructs the message and uses the
@@ -533,7 +545,7 @@ received data and error indications:</p>
 an address and a port. Both the address and port is optional. If the
 address is unspecified, than all <span class="protocol">UDP</span> datagrams with any
 destination address are received. If the port is -1, then an unused port
-is selected automatically by the <code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> module. The address and port
+is selected automatically by the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module. The address and port
 pair must be unique within the same network node.</p>
 <p>Here is how to bind to a specific local address and port to receive
 <span class="protocol">UDP</span> datagrams:</p>
@@ -565,7 +577,7 @@ a remote address and port via a simple function call:</p>
 <p>If the application wants to send several datagrams, it can optionally
 connect to the destination.</p>
 <p>The <span class="protocol">UDP</span> protocol is in fact connectionless, so when the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Udp</span></code> module receives the connect request, it simply remembers the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module receives the connect request, it simply remembers the
 remote address and port, and use it as default destination for later
 sends.</p>
 <div class="highlight-cpp notranslate" id="udp-socket-send-example"><div class="highlight"><pre><span></span><span class="n">socket</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">Ipv4Address</span><span class="p">(</span><span class="s">&quot;10.0.0.42&quot;</span><span class="p">),</span> <span class="mi">42</span><span class="p">);</span> <span class="c1">// remote address/port</span>
@@ -598,11 +610,11 @@ follows:</p>
 <span id="dg-sec-sockets-tcp-socket"></span><h2>TCP Socket<a class="headerlink" href="#tcp-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code> class provides an easy to use C++ interface to
 manage <span class="protocol">TCP</span> connections, and to send and receive data. The
-underlying <span class="protocol">TCP</span> protocol is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">TcpLwip</span></code>, and <code class="code literal-ned docutils literal notranslate"><span class="pre">TcpNsc</span></code> modules.</p>
+underlying <span class="protocol">TCP</span> protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_lwip.TcpLwip.html">TcpLwip</a>, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp_nsc.TcpNsc.html">TcpNsc</a> modules.</p>
 <div class="section" id="callback-interface-1">
 <span id="id4"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-1" title="Permalink to this headline">¶</a></h3>
-<p>Messages received from the various <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> modules can be processed
+<p>Messages received from the various <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> modules can be processed
 by the <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code> where they belong to. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code>
 deconstructs the message and uses the <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket::ICallback</span></code>
 interface to notify the application about the received data or service
@@ -621,14 +633,14 @@ indication:</p>
 </div>
 <div class="section" id="configuring-connections">
 <h3>Configuring Connections<a class="headerlink" href="#configuring-connections" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> module supports several <span class="protocol">TCP</span> different
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module supports several <span class="protocol">TCP</span> different
 congestion algorithms, which can also be configured using the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code>:</p>
 <div class="highlight-cpp notranslate" id="tcp-socket-configure-example"><div class="highlight"><pre><span></span><span class="n">socket</span><span class="p">.</span><span class="n">setTCPAlgorithmClass</span><span class="p">(</span><span class="s">&quot;TcpReno&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Upon setting the individual parameters, the socket immediately sends
-sevice requests to the underlying <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> protocol module.</p>
+sevice requests to the underlying <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> protocol module.</p>
 </div>
 <div class="section" id="setting-up-connections">
 <h3>Setting up Connections<a class="headerlink" href="#setting-up-connections" title="Permalink to this headline">¶</a></h3>
@@ -648,7 +660,7 @@ to establish a new connection:</p>
 </div>
 <div class="section" id="accepting-connections">
 <h3>Accepting Connections<a class="headerlink" href="#accepting-connections" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> module automatically notifies the <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code> about
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module automatically notifies the <code class="code literal-cpp docutils literal notranslate"><span class="pre">TcpSocket</span></code> about
 incoming connections. The socket in turn notifies the application using
 the <code class="code literal-cpp docutils literal notranslate"><span class="pre">ICallback::socketAvailable</span></code> method of the callback interface.
 Finally, incoming <span class="protocol">TCP</span> connections must be accepted by the
@@ -670,7 +682,7 @@ application before they can be used:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>After the connection is accepted, the <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> module notifies the
+<p>After the connection is accepted, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module notifies the
 application about the socket being established and ready to be used.</p>
 </div>
 <div class="section" id="sending-data-2">
@@ -682,7 +694,7 @@ the remote application via a simple function call:</p>
 <span class="n">socket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">packet42</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Packet data is enqueued by the local <code class="code literal-ned docutils literal notranslate"><span class="pre">Tcp</span></code> module and transmitted
+<p>Packet data is enqueued by the local <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module and transmitted
 over time according to the protocol logic.</p>
 </div>
 <div class="section" id="receiving-data-2">
@@ -711,11 +723,11 @@ follows:</p>
 <span id="dg-sec-sockets-sctp-socket"></span><h2>SCTP Socket<a class="headerlink" href="#sctp-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket</span></code> class provides an easy to use C++ interface to
 manage <span class="protocol">SCTP</span> connections, and to send and receive data. The
-underlying <span class="protocol">SCTP</span> protocol is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code>
+underlying <span class="protocol">SCTP</span> protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a>
 module.</p>
 <div class="section" id="callback-interface-2">
 <span id="id7"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-2" title="Permalink to this headline">¶</a></h3>
-<p>Messages received from the <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code> module can be processed by the
+<p>Messages received from the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a> module can be processed by the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket</span></code> where they belong to. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket</span></code>
 deconstructs the message and uses the <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket::ICallback</span></code>
 interface to notify the application about the received data or service
@@ -742,7 +754,7 @@ specific connection parameters directly:</p>
 </pre></div>
 </div>
 <p>Upon setting the individual parameters, the socket immediately sends
-sevice requests to the underlying <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code> protocol module.</p>
+sevice requests to the underlying <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a> protocol module.</p>
 </div>
 <div class="section" id="setting-up-connections-1">
 <span id="id9"></span><h3>Setting up Connections<a class="headerlink" href="#setting-up-connections-1" title="Permalink to this headline">¶</a></h3>
@@ -762,7 +774,7 @@ to establish a new connection:</p>
 </div>
 <div class="section" id="accepting-connections-1">
 <span id="id10"></span><h3>Accepting Connections<a class="headerlink" href="#accepting-connections-1" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code> module automatically notifies the <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket</span></code>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a> module automatically notifies the <code class="code literal-cpp docutils literal notranslate"><span class="pre">SctpSocket</span></code>
 about incoming connections. The socket in turn notifies the application
 using the <code class="code literal-cpp docutils literal notranslate"><span class="pre">ICallback::socketAvailable</span></code> method of the callback
 interface. Finally, incoming <span class="protocol">SCTP</span> connections must be
@@ -794,7 +806,7 @@ the remote applica- tion via a simple function call:</p>
 <span class="n">socket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">packet42</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Packet data is enqueued by the local <code class="code literal-ned docutils literal notranslate"><span class="pre">Sctp</span></code> module and transmitted
+<p>Packet data is enqueued by the local <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.sctp.Sctp.html">Sctp</a> module and transmitted
 over time according to the protocol logic.</p>
 </div>
 <div class="section" id="receiving-data-3">
@@ -823,10 +835,10 @@ follows:</p>
 <span id="dg-sec-sockets-ipv4-socket"></span><h2>IPv4 Socket<a class="headerlink" href="#ipv4-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Socket</span></code> class provides an easy to use C++ interface to
 send and receive <span class="protocol">IPv4</span> datagrams. The underlying
-<span class="protocol">IPv4</span> protocol is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module.</p>
+<span class="protocol">IPv4</span> protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module.</p>
 <div class="section" id="callback-interface-3">
 <span id="id13"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-3" title="Permalink to this headline">¶</a></h3>
-<p>Messages received from the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module must be processed by the
+<p>Messages received from the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module must be processed by the
 socket where they belong as shown in the general section. The
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Socket</span></code> deconstructs the message and uses the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Socket::ICallback</span></code> interface to notify the application about
@@ -844,7 +856,7 @@ the received data:</p>
 specific local address or contain a specific protocol, the socket can be
 bound to the desired local address or protocol.</p>
 <p>For example, the following code fragment shows how the INET
-<code class="code literal-ned docutils literal notranslate"><span class="pre">PingApp</span></code> binds to the <span class="protocol">ICMPv4</span> protocol to receive all
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.pingapp.PingApp.html">PingApp</a> binds to the <span class="protocol">ICMPv4</span> protocol to receive all
 incoming <span class="protocol">ICMPv4</span> Echo Reply messages:</p>
 <div class="highlight-cpp notranslate" id="ipv4-socket-bind-example"><div class="highlight"><pre><span></span><span class="n">socket</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">icmpv4</span><span class="p">,</span> <span class="n">Ipv4Address</span><span class="p">());</span> <span class="c1">// filter for ICMPv4 messages</span>
 </pre></div>
@@ -873,7 +885,7 @@ destination:</p>
 </pre></div>
 </div>
 <p>The <span class="protocol">IPv4</span> protocol is in fact connectionless, so when the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv4</span></code> module receives the connect request, it simply remembers the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module receives the connect request, it simply remembers the
 remote address, and uses it as the default destination address for later
 sends.</p>
 <p>The application can call <code class="code literal-cpp docutils literal notranslate"><span class="pre">connect()</span></code> several times on the same
@@ -901,10 +913,10 @@ follows:</p>
 <span id="dg-sec-sockets-ipv6-socket"></span><h2>IPv6 Socket<a class="headerlink" href="#ipv6-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv6Socket</span></code> class provides an easy to use C++ interface to
 send and receive <span class="protocol">IPv6</span> datagrams. The underlying
-<span class="protocol">IPv6</span> protocol is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv6</span></code> module.</p>
+<span class="protocol">IPv6</span> protocol is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv6.Ipv6.html">Ipv6</a> module.</p>
 <div class="section" id="callback-interface-4">
 <span id="id17"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-4" title="Permalink to this headline">¶</a></h3>
-<p>Messages received from the <code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv6</span></code> module must be processed by the
+<p>Messages received from the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv6.Ipv6.html">Ipv6</a> module must be processed by the
 socket where they belong as shown in the general section. The
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv6Socket</span></code> deconstructs the message and uses the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv6Socket::ICallback</span></code> interface to notify the application about
@@ -922,7 +934,7 @@ the received data:</p>
 specific local address or contain a specific protocol, the socket can be
 bound to the desired local address or protocol.</p>
 <p>For example, the following code fragment shows how the INET
-<code class="code literal-ned docutils literal notranslate"><span class="pre">PingApp</span></code> binds to the <span class="protocol">ICMPv6</span> protocol to receive all
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.pingapp.PingApp.html">PingApp</a> binds to the <span class="protocol">ICMPv6</span> protocol to receive all
 incoming <span class="protocol">ICMPv6</span> Echo Reply messages:</p>
 <div class="highlight-cpp notranslate" id="ipv6-socket-bind-example"><div class="highlight"><pre><span></span><span class="n">socket</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">icmpv6</span><span class="p">,</span> <span class="n">Ipv6Address</span><span class="p">());</span> <span class="c1">// filter for ICMPv6 messages</span>
 </pre></div>
@@ -951,7 +963,7 @@ destination:</p>
 </pre></div>
 </div>
 <p>The <span class="protocol">IPv6</span> protocol is in fact connectionless, so when the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">Ipv6</span></code> module receives the connect request, it simply remembers the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.ipv6.Ipv6.html">Ipv6</a> module receives the connect request, it simply remembers the
 remote address, and uses it as the default destination address for later
 sends.</p>
 <p>The application can call <code class="code literal-cpp docutils literal notranslate"><span class="pre">connect()</span></code> several times on the same
@@ -980,8 +992,8 @@ follows:</p>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">L3Socket</span></code> class provides an easy to use C++ interface to send
 and receive datagrams using the conceptual network protocols. The
 underlying network protocols are implemented in the
-<code class="code literal-ned docutils literal notranslate"><span class="pre">NextHopForwarding</span></code>, <code class="code literal-ned docutils literal notranslate"><span class="pre">Flooding</span></code>,
-<code class="code literal-ned docutils literal notranslate"><span class="pre">ProbabilisticBroadcast</span></code>, and <code class="code literal-ned docutils literal notranslate"><span class="pre">AdaptiveProbabilisticBroadcast</span></code>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.nexthop.NextHopForwarding.html">NextHopForwarding</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.flooding.Flooding.html">Flooding</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.ProbabilisticBroadcast.html">ProbabilisticBroadcast</a>, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.probabilistic.AdaptiveProbabilisticBroadcast.html">AdaptiveProbabilisticBroadcast</a>
 modules.</p>
 <div class="section" id="callback-interface-5">
 <span id="id21"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-5" title="Permalink to this headline">¶</a></h3>
@@ -1010,7 +1022,7 @@ desired local address or protocol. The conceptual network protocols can
 work with the <code class="code literal-cpp docutils literal notranslate"><span class="pre">ModuleIdAddress</span></code> class which contains a
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">moduleId</span></code> of the desired network interface.</p>
 <p>For example, the following code fragment shows how the INET
-<code class="code literal-ned docutils literal notranslate"><span class="pre">PingApp</span></code> binds to the <span class="protocol">Echo</span> protocol to receive all
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.pingapp.PingApp.html">PingApp</a> binds to the <span class="protocol">Echo</span> protocol to receive all
 incoming <span class="protocol">Echo</span> Reply messages:</p>
 <div class="highlight-cpp notranslate" id="l3-socket-bind-example"><div class="highlight"><pre><span></span><span class="n">socket</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">echo</span><span class="p">,</span> <span class="n">ModuleIdAddress</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
 </pre></div>
@@ -1064,14 +1076,14 @@ follows:</p>
 <span id="dg-sec-sockets-tun-socket"></span><h2>TUN Socket<a class="headerlink" href="#tun-socket" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">TunSocket</span></code> class provides an easy to use C++ interface to send
 and receive datagrams using a <span class="protocol">TUN</span> interface. The underlying
-<span class="protocol">TUN</span> interface is implemented in the <code class="code literal-ned docutils literal notranslate"><span class="pre">Tun</span></code> module.</p>
+<span class="protocol">TUN</span> interface is implemented in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.tun.Tun.html">Tun</a> module.</p>
 <p>A <span class="protocol">TUN</span> interface is basically a virtual network interface
 which is usually connected to an application (from the outside) instead
 of other network devices. It can be used for many networking tasks such
 as tunneling, or virtual private networking.</p>
 <div class="section" id="callback-interface-6">
 <span id="id25"></span><h3>Callback Interface<a class="headerlink" href="#callback-interface-6" title="Permalink to this headline">¶</a></h3>
-<p>Messages received from the <code class="code literal-ned docutils literal notranslate"><span class="pre">Tunq</span></code> module must be processed by the
+<p>Messages received from the <span>Tunq</span> module must be processed by the
 socket where they belong as shown in the general section. The
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">TunSocket</span></code> deconstructs the message and uses the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">TunSocket::ICallback</span></code> interface to notify the application about
@@ -1123,17 +1135,7 @@ the application about the received data:</p>
 <p>When the protocol stack within the network node sends a datagram to a
 <span class="protocol">TUN</span> interface, the packet appears for the application which
 uses a <code class="code literal-cpp docutils literal notranslate"><span class="pre">TunSocket</span></code> as if the packet were sent to the network.</p>
-<p>TODO</p>
 </div>
-</div>
-<div class="section" id="ieee-802-2-socket">
-<h2>IEEE 802.2 Socket<a class="headerlink" href="#ieee-802-2-socket" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="ethernet-socket">
-<h2>Ethernet Socket<a class="headerlink" href="#ethernet-socket" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="ieee-802-11-socket">
-<h2>IEEE 802.11 Socket<a class="headerlink" href="#ieee-802-11-socket" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1212,9 +1214,6 @@ uses a <code class="code literal-cpp docutils literal notranslate"><span class="
 <li><a class="reference internal" href="#receiving-packets">Receiving Packets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ieee-802-2-socket">IEEE 802.2 Socket</a></li>
-<li><a class="reference internal" href="#ethernet-socket">Ethernet Socket</a></li>
-<li><a class="reference internal" href="#ieee-802-11-socket">IEEE 802.11 Socket</a></li>
 </ul>
 </li>
 </ul>
@@ -1232,11 +1231,11 @@ uses a <code class="code literal-cpp docutils literal notranslate"><span class="
             <div>Working with Packets</div>
          </div>
      </a>
-     <a id="button-next" href="ch-authors-guide.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="ch-testing.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Appendix: Author’s Guide</div>
+            <div>Testing</div>
         </div>
      </a>
   </div>
