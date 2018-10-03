@@ -81,6 +81,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
@@ -184,6 +185,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -225,6 +227,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
@@ -328,6 +331,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -370,8 +374,8 @@ we show the playground along with its coordinate axes.</p>
 string. In 2D visualization, the playground is visualized as a grey
 square. In 3D visualization the playground color is <em>light green</em>, but
 it is opaque by default so we can not see it. By decrease
-<code class="docutils literal notranslate"><span class="pre">playgroundOpacity</span></code> we make the playground visible. In addition, we
-change <code class="docutils literal notranslate"><span class="pre">playgroundColor</span></code> to <em>black</em> because it fits better with the
+<code class="docutils literal notranslate"><span class="pre">sceneOpacity</span></code> we make the playground visible. In addition, we
+change <code class="docutils literal notranslate"><span class="pre">sceneColor</span></code> to <em>black</em> because it fits better with the
 map.</p>
 <p>The playground is placed on the map according to the coordinate system
 module. The origin’s position is set in the previous step. By default,
@@ -381,16 +385,16 @@ axis length is set to 100m.</p>
 <p>This step is configured as follows:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Visualization03]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">Visualization02</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">Showing the Playground</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">Showing the Scene</span>
 
 <span class="c1"># showing axis</span>
 <span class="na">*.visualizer.osgVisualizer.sceneVisualizer.axisLength</span> <span class="o">=</span> <span class="s">100m</span>
-<span class="na">*.coordinateSystem.playgroundAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
+<span class="na">*.coordinateSystem.sceneAltitude</span> <span class="o">=</span> <span class="s">0.5m</span>
 
-<span class="c1"># customizing the playground on the map</span>
-<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundShading</span> <span class="o">=</span> <span class="s">false</span>
-<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundColor</span> <span class="o">=</span> <span class="s">&quot;</span><span class="c1">#000000&quot;</span>
-<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.playgroundOpacity</span> <span class="o">=</span> <span class="s">0.2</span>
+<span class="c1"># customizing the scene on the map</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.sceneShading</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.sceneColor</span> <span class="o">=</span> <span class="s">&quot;</span><span class="c1">#000000&quot;</span>
+<span class="na">*.visualizer.osgVisualizer.sceneVisualizer.sceneOpacity</span> <span class="o">=</span> <span class="s">0.2</span>
 </pre></div>
 </div>
 </div>

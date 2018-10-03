@@ -85,6 +85,7 @@ Show Source
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Mobility</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Mobility Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -188,6 +189,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -229,6 +231,7 @@ Show Source
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Mobility</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Mobility Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -332,6 +335,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -371,7 +375,7 @@ to achieve more complex motion.</p>
 Combining mobility models is covered in another showcase,
 <a class="reference internal" href="../../combining/doc/index.html"><span class="doc">Combining Mobility Models</span></a>.</p>
 <p>INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic">inet/showcases/general/mobility</a></p>
+<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/mobility/basic">inet/showcases/mobility/basic</a></p>
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
@@ -394,11 +398,11 @@ contains a more in-depth treatment of mobility models.</p>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>All simulations use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.showcases.general.simpleMobility.MobilityShowcase.html">MobilityShowcase</a> network.
-The size of the playground is 400x400x0 meters. It contains a configurable
+The size of the scene is 400x400x0 meters. It contains a configurable
 number of hosts and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module to
 visualize some aspects of mobility. The following image shows the layout of the network:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/playground.png"><img alt="../../../../_images/playground.png" src="../../../../_images/playground.png" style="width: 404.0px; height: 404.0px;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/scene.png"><img alt="../../../../_images/scene.png" src="../../../../_images/scene.png" style="width: 404.0px; height: 404.0px;" /></a>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in the <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> contains some configuration
 keys common to all example simulations:</p>
@@ -420,7 +424,7 @@ keys common to all example simulations:</p>
 </div>
 <p>All visualization features of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.mobility.MobilityVisualizer.html">MobilityVisualizer</a> are turned on, and
 the constraint areas of all mobility modules are set to match the size
-of the playground. All nodes will move in the XY plane, so the Z
+of the scene. All nodes will move in the XY plane, so the Z
 coordinate is always set to 0.</p>
 <p>The model does not need a network configurator module because there is
 no communication between the hosts, so we set the configurator module path in
@@ -433,7 +437,6 @@ the hosts to the empty string.</p>
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.BonnMotionMobility.html">BonnMotionMobility</a>,
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.ChiangMobility.html">ChiangMobility</a>,
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a>,
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.ConstSpeedMobility.html">ConstSpeedMobility</a>,
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.FacingMobility.html">FacingMobility</a>,
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.GaussMarkovMobility.html">GaussMarkovMobility</a>,
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.LinearMobility.html">LinearMobility</a>,
@@ -460,14 +463,14 @@ values inside the constraint area.</p>
 <p>We leave both acceleration and angle on their default values, which is
 zero for acceleration and a random value for the angle.</p>
 <p>The following video shows the motion of the nodes:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="LinearMobility.mp4" width="50%" height="" class="align-center"></video><p>The video shows that the seven hosts are placed randomly on the playground with a
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="LinearMobility.mp4" width="50%" height="" class="align-center"></video><p>The video shows that the seven hosts are placed randomly on the scene with a
 random starting angle. They all move along a straight line with a constant speed.
 They also bounce back from the boundaries of the constraint area when they reach it.</p>
 </div>
 <div class="section" id="circlemobility">
 <h3>CircleMobility<a class="headerlink" href="#circlemobility" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a> module describes circular motion around a center.
-This example uses two hosts orbiting the same center (the center of the playground)
+This example uses two hosts orbiting the same center (the center of the scene)
 with different radii, directions and speeds:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host[*].mobility.typename</span> <span class="o">=</span> <span class="s">&quot;CircleMobility&quot;</span>
 

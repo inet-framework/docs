@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Routing" href="../../../routing/index.html" />
+    <link rel="next" title="3D Mobility" href="../../spatial/doc/index.html" />
     <link rel="prev" title="Mobility Models" href="../../basic/doc/index.html" /> 
   </head>
 <body>
@@ -85,6 +85,7 @@ Show Source
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Mobility</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../basic/doc/index.html">Mobility Models</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -188,6 +189,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -229,6 +231,7 @@ Show Source
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Mobility</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../basic/doc/index.html">Mobility Models</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
@@ -332,6 +335,7 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
 </ul>
@@ -371,7 +375,7 @@ models (those that describe motion, position and orientation on their own)
 can be combined to create more complex motion patterns. (Elementary mobility
 models themselves are demonstrated in  <a class="reference internal" href="../../basic/doc/index.html"><span class="doc">Mobility Models</span></a>.)</p>
 <p>INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining">inet/showcases/general/mobility</a></p>
+<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/mobility/combining">inet/showcases/mobility/combining</a></p>
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
@@ -383,8 +387,8 @@ examples simulations for both.</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>Example simulations in this showcase, except for the last one, use the following network:</p>
-<a class="reference internal image-reference" href="../../../../_images/playground1.png"><img alt="../../../../_images/playground1.png" class="align-center" src="../../../../_images/playground1.png" style="width: 50%;" /></a>
-<p>The size of the playground is 400x400x0 meters. It contains a configurable
+<a class="reference internal image-reference" href="../../../../_images/scene1.png"><img alt="../../../../_images/scene1.png" class="align-center" src="../../../../_images/scene1.png" style="width: 50%;" /></a>
+<p>The size of the scene is 400x400x0 meters. It contains a configurable
 number of hosts and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module to visualize
 some aspects of mobility.</p>
 </div>
@@ -431,7 +435,7 @@ is defined in the omnetpp.ini file:</p>
 <span class="na">*.host[3].mobility.offsetHeading</span> <span class="o">=</span> <span class="s">45deg</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">host[0]</span></code> starts at the center of the playground, and moves along a straight line using
+<p><code class="docutils literal notranslate"><span class="pre">host[0]</span></code> starts at the center of the scene, and moves along a straight line using
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.LinearMobility.html">LinearMobility</a>. The other three hosts have <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a>, and
 are attached to <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>’s mobility module. Their offset is interpreted
 in the coordinate system of <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>’s mobility module. The
@@ -466,17 +470,16 @@ defined in the <code class="docutils literal notranslate"><span class="pre">Atta
 <span class="na">*.host[1].mobility.offsetHeading</span> <span class="o">=</span> <span class="s">90deg</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">host[0]</span></code> moves along a circle, orbiting around the center of the
-playground. The other hosts use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a>, and are
+<p><code class="docutils literal notranslate"><span class="pre">host[0]</span></code> moves along a circle, orbiting the center of the
+scene. The other hosts use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a>, and are
 attached to <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> with various offsets, summarized on the
 following image:</p>
 <a class="reference internal image-reference" href="../../../../_images/circular.png"><img alt="../../../../_images/circular.png" class="align-center" src="../../../../_images/circular.png" style="width: 50%;" /></a>
 <p>The attached hosts keep the offset from <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>, and they
 move circularly as the coordinate system of <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> moves and rotates:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Attached3.mp4" width="50%" height="" class="align-center"></video><p>The positions of the hosts relative to each other are constant. For example, it appears as if
-<code class="docutils literal notranslate"><span class="pre">host[4]</span></code> is orbiting on the same circle as <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> using <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a>.
-However, only its position inside <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>’s coordinate system relative to its
-center remains constant (twice the radius of the circle).</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Attached3.mp4" width="50%" height="" class="align-center"></video><p>The relative positions of the hosts are constant. For example, it appears as if
+<code class="docutils literal notranslate"><span class="pre">host[4]</span></code> was using  a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a> similar to <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>,
+while actually its position in <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>’s coordinate system stays constant.</p>
 </div>
 </div>
 <div class="section" id="superpositioningmobility">
@@ -536,12 +539,11 @@ and velocity of the contained submodules (visible in the previous image):</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Superpositioning1.mp4" width="50%" height="" class="align-center"></video></div>
 <div class="section" id="example-orbiting-a-node">
 <h3>Example: Orbiting a Node<a class="headerlink" href="#example-orbiting-a-node" title="Permalink to this headline">¶</a></h3>
-<p>This simulation contains host, that moves in a hexagonal
-pattern, and another host, that orbits around the first host as it
+<p>This simulation contains a host that moves in a hexagonal
+pattern, and another host that orbits the first host as it
 moves. The first host, <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>, uses <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.TurtleMobility.html">TurtleMobility</a>, which can
-be useful for describing random as well as deterministic scenarios with
-the script coming from XML. The hexagonal pattern is achieved as
-following in the config.xml file:</p>
+be useful for describing random as well as deterministic scenarios.
+The hexagonal pattern is achieved with the following config.xml file:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;movement&gt;</span>
     <span class="c">&lt;!-- draw a hexagon --&gt;</span>
     <span class="nt">&lt;set</span> <span class="na">speed=</span><span class="s">&quot;20&quot;</span> <span class="na">x=</span><span class="s">&quot;143&quot;</span> <span class="na">y=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
@@ -582,28 +584,27 @@ to circle around 0,0 with a radius of 50m. The constraint area of the
 mobility module it is attached to. By default, it is limited between 0
 and 400m as defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration. Position 0,0 in
 this coordinate system is at the position of <code class="docutils literal notranslate"><span class="pre">host[0]</span></code>’s mobility. So
-when <code class="docutils literal notranslate"><span class="pre">host[1]</span></code> starts to orbit around 0,0 (<code class="docutils literal notranslate"><span class="pre">host[0]</span></code>), the
+when <code class="docutils literal notranslate"><span class="pre">host[1]</span></code> starts to orbit point 0,0 (<code class="docutils literal notranslate"><span class="pre">host[0]</span></code>), the
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a>’s coordinates would become negative, and the host
-would bounce back. Thus the constraint area of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a>
-module needs to be set to allow negative values for the X and Y
-coordinates.</p>
+would bounce back. Thus, the constraint area of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a>
+module needs to include negative values for the X and Y coordinates.</p>
 <p>The following video shows the resulting movement of the hosts:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="Superpositioning2.mp4" width="50%" height="" class="align-center"></video></div>
 </div>
 <div class="section" id="example-mars-rover">
 <h2>Example: Mars Rover<a class="headerlink" href="#example-mars-rover" title="Permalink to this headline">¶</a></h2>
-<p>The following simulation shows how <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a> and the
+<p>The following simulation shows how the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a> and
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.SuperpositioningMobility.html">SuperpositioningMobility</a> models can be used to orient antennas
 independently from the orientation of their containing network node.
 The simulation contains the following nodes:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">rover:</span></code> A Mars rover moving along a straight line.</li>
-<li><code class="docutils literal notranslate"><span class="pre">drone:</span></code> A drone orbiting around the center of the playground.</li>
+<li><code class="docutils literal notranslate"><span class="pre">drone:</span></code> A drone orbiting around the center of the scene.</li>
 <li><code class="docutils literal notranslate"><span class="pre">base:</span></code> A base station with a fixed position.</li>
 </ul>
-<p>The following image shows the initial layout of the playground:</p>
+<p>The following image shows the initial layout of the scene:</p>
 <a class="reference internal image-reference" href="../../../../_images/AntennaOrientation_layout.png"><img alt="../../../../_images/AntennaOrientation_layout.png" class="align-center" src="../../../../_images/AntennaOrientation_layout.png" style="width: 75%;" /></a>
-<p>By default, radio modules contain antenna submodules, whose position is
+<p>By default, radio modules contain antenna submodules, whose positions are
 taken into account when simulating wireless signal transmission and
 reception. In network nodes (more specifically, in those that extend
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a>), the antenna module uses the containing network
@@ -615,12 +616,12 @@ However, antenna modules have optional mobility submodules. The
 antenna’s mobility submodule allows the network node to have antennas
 whose position and orientation is different from those of the network
 node.</p>
-<p>Thus antennas can be oriented independently of the network node’s
-orientation. The antennas’ position can also be independent of the
+<p>Such antennas can be oriented independently of the network node’s
+orientation. The antenna’s position can also be independent of the
 containing network node’s position. However, in many cases, it makes more
-sense to attach the antenna position to the network nodes’ at some
-offset. This allows for creating nodes that are extended objects (as
-opposed to being point objects).</p>
+sense to attach the antenna position to the network node’s position,
+with some offset. This allows for creating nodes that are extended objects
+(as opposed to being point objects).</p>
 <p>Note that antenna orientation is only relevant with directional
 antennas. This example uses isotropic antennas (and there is no
 communication), because the goal is to just demonstrate how antennas can
@@ -631,9 +632,9 @@ line, and has two antennas. It uses them to communicate with a base, and
 a nearby circling drone. Each antenna is oriented independently. One of
 the antennas tracks the drone, the other one is directed at the base.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">rover</span></code> is configured to use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.LinearMobility.html">LinearMobility</a> to move on the
-playground. The <code class="docutils literal notranslate"><span class="pre">drone</span></code> uses <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a> to circle around the
-center of the playground. The <code class="docutils literal notranslate"><span class="pre">rover</span></code> has two wireless interfaces, and
-thus two antennas, which have a mobility submodule. The configuration in
+scene. The <code class="docutils literal notranslate"><span class="pre">drone</span></code> uses <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.CircleMobility.html">CircleMobility</a> to circle around the
+center of the scene. The <code class="docutils literal notranslate"><span class="pre">rover</span></code> has two wireless interfaces, and
+thus, two antennas, which each have a mobility submodule. The configuration in
 omnetpp.ini related to antenna mobility is the following:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.rover.wlan[*].radio.antenna.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;SuperpositioningMobility&quot;</span>
 <span class="na">*.rover.wlan[*].radio.antenna.mobility.numElements</span> <span class="o">=</span> <span class="s">2</span>
@@ -661,8 +662,8 @@ towards its target. Thus each antenna has a <a class="reference-ned reference ex
 submodule. <code class="code literal-ini docutils literal notranslate"><span class="pre">element[0]</span></code> of the array is an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.AttachedMobility.html">AttachedMobility</a>, and the
 antenna’s position is attached to and offset from the position of the
 host. <code class="docutils literal notranslate"><span class="pre">element[1]</span></code> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.mobility.single.FacingMobility.html">FacingMobility</a>, the antenna tracks its target.</p>
-<p>The offsets of the antennas are unrealistically large. This is only
-set that way for the sake of visibility.</p>
+<p>For demonstration purposes, we chose the offsets of the antennas to be
+unrealistically large.</p>
 <p>The following video shows the results:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="AntennaOrientation.mp4" width="75%" height="" class="align-center"></video></div>
 <div class="section" id="discussion">
@@ -714,11 +715,11 @@ the GitHub issue tracker for commenting on this showcase.</p>
             <div>Mobility Models</div>
          </div>
      </a>
-     <a id="button-next" href="../../../routing/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../spatial/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Routing</div>
+            <div>3D Mobility</div>
         </div>
      </a>
   </div>
