@@ -13,9 +13,8 @@ graphical feedback about physical layer traffic.
 The showcase consists of three simulation models, each demonstrating
 different features of the physical link visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/physicallinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicallinkactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/physicallinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/physicallinkactivity>`__
 
 About the Visualizer
 --------------------
@@ -25,7 +24,7 @@ In INET, physical link activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`PhysicalLinkVisualizer` module. Physical link activity
 visualization is disabled by default, it can be enabled by setting the
-visualizer's ``displayLinks`` parameter to true.
+visualizer's :par:`displayLinks` parameter to true.
 
 :ned:`PhysicalLinkVisualizer` observes frames that pass through the
 physical layer, i.e. are received correctly.
@@ -39,7 +38,7 @@ visualizer.
 
 By default, all packets, interfaces and nodes are considered for the
 visualization. This selection can be narrowed with the visualizer's
-``packetFilter``, ``interfaceFilter``, and ``nodeFilter`` parameters.
+:par:`packetFilter`, :par:`interfaceFilter`, and :par:`nodeFilter` parameters.
 
 Enabling Visualization of Physical Link Activity
 ------------------------------------------------
@@ -49,7 +48,7 @@ link activity with its default settings. In this example, we configure a
 simulation for an ad-hoc wireless network. The simulation can be run by
 choosing the ``EnablingVisualization`` configuration from the ini file.
 
-The network contains two ``AdhocHosts``, ``source`` and ``destination``.
+The network contains two :ned:`AdhocHost`'s, ``source`` and ``destination``.
 The ``linkVisualizer's`` type is :ned:`PhysicalLinkVisualizer`. In this
 simulation, ``source`` will be pinging ``destination``.
 
@@ -57,11 +56,12 @@ simulation, ``source`` will be pinging ``destination``.
    :width: 100%
 
 Physical link activity visualization is enabled by setting the
-``displayLinks`` parameter to true.
+:par:`displayLinks` parameter to true.
 
-.. code-block:: none
-
-   *.linkVisualizer.*.displayLinks = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayLinks
+   :end-at: displayLinks
+   :language: ini
 
 The following animation shows what happens when we start the simulation.
 
@@ -112,11 +112,10 @@ and ACK frames, are not displayed by :ned:`PhysicalLinkVisualizer`.
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.physicalLinkVisualizer.displayLinks = true
-   *.visualizer.*.physicalLinkVisualizer.packetFilter = "ping*"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-at: physicalLinkVisualizer.displayLinks
+   :end-at: fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run. The
 video was captured from the point when the hosts had already associated
@@ -127,7 +126,7 @@ with ``accessPoint``.
 
 You can see that although there are also ACK frames, Beacon frames and
 ping traffic in the network, :ned:`PhysicalLinkVisualizer` displays only
-ping, due to the presence of ``packetFilter``. The ping frames travel
+ping, due to the presence of :par:`packetFilter`. The ping frames travel
 between ``source`` and ``destination`` through ``accessPoint``, but
 ``host1`` also receives ping frames from ``accessPoint`` and ``source``.
 That is because ``host1`` is within the communication range of
@@ -154,17 +153,15 @@ application. The packets' names are set to ``Broadcast-nnn``. The nodes
 manage the received ``Broadcast`` packets using an :ned:`UdpSink`
 application.
 
-The visualizer's ``packetFilter`` parameter is set to display only
+The visualizer's :par:`packetFilter` parameter is set to display only
 ``Broadcast`` traffic.
 
 Here is the configuration of the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.physicalLinkVisualizer.displayLinks = true
-   *.visualizer.*.physicalLinkVisualizer.packetFilter = "*Broadcast*"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.physicalLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer settings
+   :end-at: fadeOutTime
+   :language: ini
 
 The following video shows what happens when we run the simulation. (If
 the video does not show up, try refreshing the page with Ctrl+Shift+R.)

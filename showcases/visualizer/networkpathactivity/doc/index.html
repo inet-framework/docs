@@ -29,7 +29,7 @@
     <link rel="prev" title="Visualizing Transport Path Activity" href="../../transportpathactivity/doc/index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -374,8 +382,10 @@ examine <a class="reference-ned reference external" href="https://omnetpp.org/do
 about network layer level traffic.</p>
 <p>The showcase consists of four simulation models, each demonstrating
 different features of the network path activity visualizer.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity">inet/showcases/visualizer/networkpathactivity</a></p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity">inet/showcases/visualizer/networkpathactivity</a></div>
+</div>
 </div>
 <div class="section" id="about-the-visualizer">
 <h2>About the Visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
@@ -384,7 +394,7 @@ different features of the network path activity visualizer.</p>
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module is also an option, because it also
 contains a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> module. Network path activity
 visualization is disabled by default, it can be enabled by setting the
-visualizer’s <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter to true.</p>
+visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter to true.</p>
 <p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> currently observes packets that pass through
 the network layer (i.e. carry data from/to higher layers), but not those
 that are internal to the operation of the network layer protocol. That
@@ -400,8 +410,8 @@ fades out unless it is reinforced by further packets. Color, fading time
 and other graphical properties can be changed with parameters of the
 visualizer.</p>
 <p>By default, all packets and nodes are considered for the visualization.
-This selection can be narrowed with the visualizer’s <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code>
-and <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameters.</p>
+This selection can be narrowed with the visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code>
+and <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameters.</p>
 </div>
 <div class="section" id="enabling-visualization-of-network-path-activity">
 <h2>Enabling Visualization of Network Path Activity<a class="headerlink" href="#enabling-visualization-of-network-path-activity" title="Permalink to this headline">¶</a></h2>
@@ -409,7 +419,7 @@ and <code class="docutils literal notranslate"><span class="pre">nodeFilter</spa
 visualization with its default settings. For the first example, we
 configured a wired network. The simulation can be run by choosing the
 <code class="docutils literal notranslate"><span class="pre">EnablingVisualization</span></code> configuration from the ini file.</p>
-<p>The network contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>, a <code class="docutils literal notranslate"><span class="pre">source</span></code> host and a
+<p>The network contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s, a <code class="docutils literal notranslate"><span class="pre">source</span></code> host and a
 <code class="docutils literal notranslate"><span class="pre">destination</span></code> host. In this configuration, the <code class="docutils literal notranslate"><span class="pre">source</span></code> host will be
 pinging the <code class="docutils literal notranslate"><span class="pre">destination</span></code> host.</p>
 <div class="figure align-center">
@@ -418,7 +428,7 @@ pinging the <code class="docutils literal notranslate"><span class="pre">destina
 <p>The <code class="docutils literal notranslate"><span class="pre">pathVisualizer's</span></code> type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a>. We enable
 network path activity visualization by setting the <code class="docutils literal notranslate"><span class="pre">displayRoutes</span></code>
 parameter to true.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.pathVisualizer.*.displayRoutes = true
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.pathVisualizer.*.displayRoutes</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 <p>The following video shows what happens when we start the simulation.</p>
@@ -429,7 +439,7 @@ animation for packet transmissions, and has nothing to do with
 <code class="docutils literal notranslate"><span class="pre">destination</span></code> (the red strip disappears), an arrow is added by
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> between the two hosts, indicating network
 path activity. The packet’s name is also displayed on the arrow. The
-arrow fades out quickly, because the <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameter of the
+arrow fades out quickly, because the <code class="code literal-ini docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameter of the
 visualizer is set to a small value.</p>
 <p>Note, however, that ARP traffic does not activate the visualization,
 because ARP packets do not pass through the network layer.</p>
@@ -448,7 +458,7 @@ ini file.</p>
 </div>
 <p>The network consists of five <code class="docutils literal notranslate"><span class="pre">routers</span></code> (<code class="docutils literal notranslate"><span class="pre">router0..router4</span></code>), four
 <code class="docutils literal notranslate"><span class="pre">etherSwitches</span></code> (<code class="docutils literal notranslate"><span class="pre">etherSwitch0..etherSwitch3</span></code>) and eight
-<code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>. There are two source hosts, <code class="docutils literal notranslate"><span class="pre">source1</span></code> and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s. There are two source hosts, <code class="docutils literal notranslate"><span class="pre">source1</span></code> and
 <code class="docutils literal notranslate"><span class="pre">source2</span></code>, which will be pinging the two destination hosts,
 <code class="docutils literal notranslate"><span class="pre">destination1</span></code> and <code class="docutils literal notranslate"><span class="pre">destination2</span></code>. The <code class="docutils literal notranslate"><span class="pre">videoServer</span></code> node streams
 a video to the <code class="docutils literal notranslate"><span class="pre">videoClient</span></code> node. The remaining two endpoints
@@ -456,20 +466,20 @@ a video to the <code class="docutils literal notranslate"><span class="pre">vide
 <p>For this network, the visualizer’s type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>.
 Network path visualization is filtered to display only ping traffic. The
 video stream packets are not visualized by network path activity
-visualizer. The <code class="docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and <code class="docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameters have been
+visualizer. The <code class="code literal-ini docutils literal notranslate"><span class="pre">fadeOutMode</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">fadeOutTime</span></code> parameters have been
 adjusted so that the network path activity arrow does not fade out
 completely before the next ping packet arrives.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.networkRouteVisualizer.displayRoutes = true
-*.visualizer.*.networkRouteVisualizer.packetFilter = &quot;ping*&quot;
-*.visualizer.*.networkRouteVisualizer.fadeOutMode = &quot;simulationTime&quot;
-*.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.networkRouteVisualizer.displayRoutes</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;ping*&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutMode</span> <span class="o">=</span> <span class="s">&quot;simulationTime&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutTime</span> <span class="o">=</span> <span class="s">1.4s</span>
 </pre></div>
 </div>
 <p>The following video shows what happens when the simulation is run.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="StaticNetworkPaths_v0703.m4v" width="698" height="" class="align-center"></video><p>Each arrow has a different color indicating different paths. You can see
 that although there is both video stream and ping traffic in the
 network, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.networklayer.NetworkRouteVisualizer.html">NetworkRouteVisualizer</a> displays only the latter, due to the
-presence of the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
+presence of the <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter.</p>
 </div>
 <div class="section" id="visualizing-network-path-activity-in-a-mobile-ad-hoc-network">
 <h2>Visualizing Network Path Activity in a Mobile Ad-Hoc Network<a class="headerlink" href="#visualizing-network-path-activity-in-a-mobile-ad-hoc-network" title="Permalink to this headline">¶</a></h2>
@@ -494,10 +504,10 @@ process in the <code class="docutils literal notranslate"><span class="pre">Data
 <code class="docutils literal notranslate"><span class="pre">Visualizing</span> <span class="pre">Data</span> <span class="pre">Link</span> <span class="pre">Activity</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">Mobile</span> <span class="pre">Ad-Hoc</span> <span class="pre">Network</span></code>
 configuration.)</p>
 <p>We use the following configuration for the visualization.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.networkRouteVisualizer.displayRoutes = true
-*.visualizer.*.networkRouteVisualizer.packetFilter = &quot;ping*&quot;
-*.visualizer.*.networkRouteVisualizer.fadeOutMode = &quot;simulationTime&quot;
-*.visualizer.*.networkRouteVisualizer.fadeOutTime = 5s
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.networkRouteVisualizer.displayRoutes</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;ping*&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutMode</span> <span class="o">=</span> <span class="s">&quot;simulationTime&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutTime</span> <span class="o">=</span> <span class="s">5s</span>
 </pre></div>
 </div>
 <p>The following video shows what happens when the simulation is run.</p>
@@ -543,10 +553,13 @@ that routing tables will be dynamically updated as a reaction to network
 topology changes. During the simulation, <code class="docutils literal notranslate"><span class="pre">wiredSource</span></code> will be pinging
 <code class="docutils literal notranslate"><span class="pre">wiredDestination</span></code> and <code class="docutils literal notranslate"><span class="pre">wirelessSource</span></code> will be pinging
 <code class="docutils literal notranslate"><span class="pre">wirelessDestination</span></code>.</p>
-<p>In this showcase, we set the <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter to display only
+<p>In this showcase, we set the <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter to display only
 ICMP echo traffic. We use the following configuration for the
 visualization.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.networkRouteVisualizer.displayRoutes = true *.visualizer.*.networkRouteVisualizer.packetFilter = &quot;ping* and not *reply&quot; *.visualizer.*.networkRouteVisualizer.fadeOutMode = &quot;simulationTime&quot; *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.networkRouteVisualizer.displayRoutes</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.packetFilter</span> <span class="o">=</span> <span class="s">&quot;ping* and not *reply&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutMode</span> <span class="o">=</span> <span class="s">&quot;simulationTime&quot;</span>
+<span class="na">*.visualizer.*.networkRouteVisualizer.fadeOutTime</span> <span class="o">=</span> <span class="s">1.4s</span>
 </pre></div>
 </div>
 <p>In the following video we can examine that how network path activity

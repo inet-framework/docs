@@ -29,7 +29,7 @@
     <link rel="prev" title="Visualizing Radio Medium Activity" href="../../radiomediumactivity/doc/index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -400,9 +408,9 @@ the visualized routing table entry. By default, the routing entry is
 displayed on the arrows in following format: <code class="docutils literal notranslate"><span class="pre">destination/mask</span> <span class="pre">-&gt;</span> <span class="pre">gateway</span> <span class="pre">(interface)</span></code></p>
 <p>The format can be changed by setting the visualizer’s <code class="docutils literal notranslate"><span class="pre">labelFormat</span></code>
 parameter.</p>
-<p>Filtering is also possible. The <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter controls which
+<p>Filtering is also possible. The <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter controls which
 nodes’ routing tables should be visualized (by default, all nodes), and
-the <code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter selects the set of destination nodes
+the <code class="code literal-ini docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter selects the set of destination nodes
 to consider (again, by default all nodes.)</p>
 <p>The visualizer reacts to changes. For example, when a routing protocol
 changes a routing entry, or an IP address gets assigned to an interface
@@ -415,13 +423,13 @@ simulation of mobile ad-hoc networks.</p>
 <p>The following example demonstrates how to enable the visualization of
 routing tables, and how the visualization looks like. The simulation can
 be run by choosing the <code class="docutils literal notranslate"><span class="pre">DisplayingAll</span></code> configuration from the ini
-file. The network for the simulation contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>,
+file. The network for the simulation contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s,
 each connected to a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>. IP addresses are assigned by the
-<code class="docutils literal notranslate"><span class="pre">IPv4Configurator</span></code> module, which also fills in the routing tables
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module, which also fills in the routing tables
 automatically. The visualizer module is an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>
 which contains all available visualizers as submodules.</p>
 <p>The configuration contains one line, which enables the visualization of
-routing tables with the <code class="docutils literal notranslate"><span class="pre">displayRoutingTables</span></code> parameter:</p>
+routing tables with the <code class="code literal-ini docutils literal notranslate"><span class="pre">displayRoutingTables</span></code> parameter:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.displayRoutingTables = true
 </pre></div>
 </div>
@@ -465,8 +473,8 @@ corresponding routing table entry will be shown in the inspector window.</p>
 tables towards all destinations are visualized. This can leave the
 network cluttered with arrows. It is possible to narrow the selection of
 visualized routing tables with filter parameters. The goal of this
-section is to demonstrate the use of the <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> and
-<code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameters.</p>
+section is to demonstrate the use of the <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> and
+<code class="code literal-ini docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameters.</p>
 <p>The section contains two example simulations, which use a more complex
 network compared to the simulation in the previous section. The
 simulations demonstrate the visualization when it is unfiltered and when
@@ -474,14 +482,14 @@ it is filtered. The network looks like the following:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/filtersnetwork.png"><img alt="../../../../_images/filtersnetwork.png" src="../../../../_images/filtersnetwork.png" style="width: 80%;" /></a>
 </div>
-<p>It consists of a router connected to a switch. Two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> are
-connected to the switch, and two additional <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> are
+<p>It consists of a router connected to a switch. Two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s are
+connected to the switch, and two additional <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s are
 connected to the router.</p>
 <div class="section" id="unfiltered-routing-table-visualization">
 <h3>Unfiltered routing table visualization<a class="headerlink" href="#unfiltered-routing-table-visualization" title="Permalink to this headline">¶</a></h3>
 <p>The example simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Unfiltered</span></code>
-configuration from the ini file. The defaults of the <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> and
-<code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameters are <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>, which means the best
+configuration from the ini file. The defaults of the <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> and
+<code class="code literal-ini docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameters are <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>, which means the best
 matching routing entries towards all destinations from all routing
 tables are visualized. With the default settings, the network looks like
 the following:</p>
@@ -502,9 +510,9 @@ complicated issue.</p>
 <p>The example simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Filtered</span></code>
 configuration from the ini file. This example simulation only visualizes
 the routes going from <code class="docutils literal notranslate"><span class="pre">host2</span></code> to <code class="docutils literal notranslate"><span class="pre">host3</span></code>. First, the
-<code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">host3</span></code>. To narrow down the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">host3</span></code>. To narrow down the
 visualized routes to the ones that lead from <code class="docutils literal notranslate"><span class="pre">host2</span></code>, the
-<code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter is specified as <code class="docutils literal notranslate"><span class="pre">&quot;host2</span> <span class="pre">or</span> <span class="pre">host3</span> <span class="pre">or</span> <span class="pre">router&quot;</span></code>.
+<code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter is specified as <code class="docutils literal notranslate"><span class="pre">&quot;host2</span> <span class="pre">or</span> <span class="pre">host3</span> <span class="pre">or</span> <span class="pre">router&quot;</span></code>.
 (One could also write <code class="docutils literal notranslate"><span class="pre">&quot;not(host1</span> <span class="pre">or</span> <span class="pre">host4)&quot;</span></code> for the same effect.)
 Note that <code class="docutils literal notranslate"><span class="pre">router</span></code> needs to be included because the route from
 <code class="docutils literal notranslate"><span class="pre">host2</span></code> to <code class="docutils literal notranslate"><span class="pre">host3</span></code> leads through it.</p>
@@ -528,7 +536,7 @@ routing tables change dynamically. In the following example simulation,
 the routing tables are changed by AODV (Advanced On-Demand Vector
 Routing Protocol). The simulation can be run by choosing the <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code>
 configuration from the ini file.</p>
-<p>The network contains a series of <code class="docutils literal notranslate"><span class="pre">AODVRouters</span></code>. These are mobile hosts
+<p>The network contains a series of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>’s. These are mobile hosts
 that have AODV and IP forwarding enabled. Six of the hosts are laid out
 in a chain, and are stationary. Their communication ranges are specified
 so that each host can only reach the adjacent hosts. <code class="docutils literal notranslate"><span class="pre">destinationHost</span></code>
@@ -541,7 +549,7 @@ host is capable of reaching the adjacent hosts only, the ping packets
 are relayed to <code class="docutils literal notranslate"><span class="pre">destinationHost</span></code> through the chain. As the network
 topology changes because of node mobility, the AODV protocol dynamically
 configures the routing tables. To reduce clutter, we set the
-<code class="docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter of the visualizer to
+<code class="code literal-ini docutils literal notranslate"><span class="pre">destinationFilter</span></code> parameter of the visualizer to
 <code class="docutils literal notranslate"><span class="pre">&quot;destinationHost&quot;</span></code>.</p>
 <p>The following animation depicts what happens when the simulation is run.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="routingtablevisualizer2.mp4" width="698" height="" class="align-center"></video><p>When <code class="docutils literal notranslate"><span class="pre">destinationHost</span></code> starts to move downwards, packets get routed

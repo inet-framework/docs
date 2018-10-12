@@ -29,7 +29,7 @@
     <link rel="prev" title="Visualization" href="../../index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -374,9 +382,9 @@ thereby reducing time spent on debugging and analysis. Poor connectivity
 in a wireless network can cause senders to drop unacknowledged packets
 after the retry limit is exceeded. Congestion can cause queues to
 overflow in a bottleneck router, again resulting in packet drops.</p>
-<p>This example contains several simulation models demonstrating typical
+<p>This showcase contains several simulation models demonstrating typical
 causes of packet drops.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
+<p>INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></p>
 <p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/packetdrop">inet/showcases/visualizer/packetdrop</a></p>
 </div>
 <div class="section" id="about-the-visualizer">
@@ -387,12 +395,20 @@ packet drops by displaying an animation effect at the node where the
 packet drop occurs. In the animation, a packet icon gets thrown out from
 the node icon, and fades away.</p>
 <p>The visualization of packet drops can be enabled with the visualizer’s
-<code class="docutils literal notranslate"><span class="pre">displayPacketDrops</span></code> parameter. By default, packet drops at all nodes
-are visualized. This selection can be narrowed with the <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code>,
-<code class="docutils literal notranslate"><span class="pre">interfaceFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameters.</p>
-<p>One can click on the packet drop icon to display information about the
-packet drop in the inspector panel.</p>
-<p>Packets are dropped for the following reasons:</p>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">displayPacketDrops</span></code> parameter. By default, all packet drops at all nodes
+are visualized. This selection can be narrowed with the <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code>,
+<code class="code literal-ini docutils literal notranslate"><span class="pre">interfaceFilter</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> parameters, which match for node, interface and packet names.
+Additionally, the <code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code> parameter can be used to filter for packet data contents,
+and the <code class="code literal-ini docutils literal notranslate"><span class="pre">detailsFilter</span></code> parameter to filter for packet drop reason.</p>
+<p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFormat</span></code> parameter is a format string, and specifies the text displayed with the packet drop animation.
+By default, the dropped packet’s name is displayed.
+The format string can contain the following directives:</p>
+<ul class="simple">
+<li><cite>%n</cite>: packet name</li>
+<li><cite>%c</cite>: packet class</li>
+<li><cite>%r</cite>: drop reason</li>
+</ul>
+<p>Packets can be dropped for the following reasons, for example:</p>
 <ul class="simple">
 <li>queue overflow</li>
 <li>retry limit exceeded</li>
@@ -400,6 +416,14 @@ packet drop in the inspector panel.</p>
 <li>network address resolution failed</li>
 <li>interface down</li>
 </ul>
+<p>One can click on the packet drop icon to display information about the
+packet drop in the inspector panel, such as the packet drop reason,
+or the module where the packet was dropped:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/inspector2.png"><img alt="../../../../_images/inspector2.png" src="../../../../_images/inspector2.png" style="width: 70%;" /></a>
+</div>
+<p>The following sections demonstrate some reasons for dropped packets, with example simulations.
+In the simulations, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.common.PacketDropVisualizer.html">PacketDropVisualizer</a> is configured to indicate the packet name and the drop reason.</p>
 </div>
 <div class="section" id="queue-overflow">
 <h2>Queue overflow<a class="headerlink" href="#queue-overflow" title="Permalink to this headline">¶</a></h2>
@@ -428,17 +452,20 @@ carry. The cause of packet drops in this case is that the queue in
 queues have infinite lengths). The packets are dropped at the ethernet
 queue of the switch.</p>
 <p>The visualization is activated with the <code class="docutils literal notranslate"><span class="pre">displayPacketDrops</span></code>
-parameter. The fade out time is set to three seconds, so that the packet
-drop animation is more visible:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.packetDropVisualizer.displayPacketDrops = true
-*.visualizer.*.packetDropVisualizer.fadeOutTime = 3s
+parameter. The visualizer is configured to display the packet name
+and the drop reason, by setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">labelFormat</span></code> parameter.
+Alos, the fade out time is set to three seconds, so that the packet
+drop animation is more visible.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.packetDropVisualizer.displayPacketDrops</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.*.packetDropVisualizer.labelFormat</span> <span class="o">=</span> <span class="s">&quot;%n/reason: %r&quot;</span>
+<span class="na">*.visualizer.*.packetDropVisualizer.fadeOutTime</span> <span class="o">=</span> <span class="s">3s</span>
 </pre></div>
 </div>
 <p>When the simulation is run, the UDP stream starts at around two seconds,
 and packets start accumulating in the queue of the switch. When the
 queue fills up, the switch starts dropping packets. This is illustrated
 in this animation:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="packetdrop4.mp4" width="628" height="260" class="align-center"></video><p>Here is the queue in the switch’s eth1 interface, showing the number of
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="queueoverflow1.mp4" width="628" height="" class="align-center"></video><p>Here is the queue in the switch’s eth1 interface, showing the number of
 packet drops:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/ethqueue.png" src="../../../../_images/ethqueue.png" />
@@ -463,7 +490,7 @@ resolve the destination’s MAC address with ARP. Since there are no other
 hosts, the ARP resolution will fail, and the ping packets will be
 dropped.</p>
 <p>The following animation illustrates this:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="packetdrop18.mp4" width="366" height="386" class="align-center"></video><p>This excerpt shows this in the log:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="arp1.mp4" width="366" height="" class="align-center"></video><p>This excerpt shows this in the log:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/log_arpfailed_2.png"><img alt="../../../../_images/log_arpfailed_2.png" src="../../../../_images/log_arpfailed_2.png" style="width: 100%;" /></a>
 </div>
@@ -477,7 +504,7 @@ file. The configuration uses the following network:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/maclimitnetwork.png" src="../../../../_images/maclimitnetwork.png" />
 </div>
-<p>It contains two <code class="docutils literal notranslate"><span class="pre">AdhocHosts</span></code>, named <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>.
+<p>It contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>’s, named <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>.
 The hosts’ communication ranges are set up so they are out of range of
 each other. The source host is configured to ping the destination host.
 The reason for packet drops in this case is that the hosts are not in
@@ -485,7 +512,7 @@ range, thus they can’t reach each other. The <code class="docutils literal not
 ping packets, but it doesn’t receive any ACK in reply. The <code class="docutils literal notranslate"><span class="pre">source's</span></code>
 MAC module drops the packets after the retry limit has been reached.</p>
 <p>This is illustrated in the following animation:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="packetdrop14.mp4" width="512" height="385" class="align-center"></video><p>This looks like the following in the logs:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="retry.mp4" width="512" height="" class="align-center"></video><p>This looks like the following in the logs:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/log_macretrylimit_2.png"><img alt="../../../../_images/log_macretrylimit_2.png" src="../../../../_images/log_macretrylimit_2.png" style="width: 100%;" /></a>
 </div>
@@ -498,12 +525,12 @@ The network is the following:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/noroutenetwork.png"><img alt="../../../../_images/noroutenetwork.png" src="../../../../_images/noroutenetwork.png" style="width: 60%;" /></a>
 </div>
-<p>It contains two connected <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>. The
+<p>It contains two connected <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s. The
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> is instructed not to add any static routes,
 and <code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to ping <code class="docutils literal notranslate"><span class="pre">host2</span></code>.</p>
 <p>The ping packets can’t be routed, thus the IP module drops them. This is
 illustrated on the following video:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="packetdrop21.mp4" width="416" height="482" class="align-center"></video><p>Here is also a log excerpt illustrating this:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="noroute.mp4" width="416" height="" class="align-center"></video><p>Here is also a log excerpt illustrating this:</p>
 <div class="figure">
 <img alt="../../../../_images/log_noroute_2.png" src="../../../../_images/log_noroute_2.png" />
 </div>
@@ -516,13 +543,13 @@ hosts:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/unroutablenetwork.png" src="../../../../_images/unroutablenetwork.png" />
 </div>
-<p>It contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>, connected with an ethernet cable. The
+<p>It contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s, connected with an ethernet cable. The
 ethernet cable is configured in the NED file to be disabled.
 Additionally, <code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to ping <code class="docutils literal notranslate"><span class="pre">host2</span></code>.</p>
 <p>Since the cable between the hosts is configured to be disabled, the MAC
 module is unable to send the packets, and drops them. This is
 illustrated on the following animation:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="packetdrop22.mp4" width="414" height="477" class="align-center"></video><p>Note the packet drop animation at <code class="docutils literal notranslate"><span class="pre">host1</span></code>. The packet drops are also
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="notconnected.mp4" width="414" height="" class="align-center"></video><p>Note the packet drop animation at <code class="docutils literal notranslate"><span class="pre">host1</span></code>. The packet drops are also
 evidenced in the log:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/log_notconnected_2.png"><img alt="../../../../_images/log_notconnected_2.png" src="../../../../_images/log_notconnected_2.png" style="width: 100%;" /></a>

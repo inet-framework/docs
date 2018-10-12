@@ -25,11 +25,11 @@
     <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Visualizing the Physical Environment" href="../../environment/doc/index.html" />
+    <link rel="next" title="Visualizing Network Nodes" href="../../networknode/doc/index.html" />
     <link rel="prev" title="Visualizing IEEE 802.11 Network Membership" href="../../ieee80211/doc/index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -396,12 +404,12 @@ are interested in that, take a look at <a class="reference-ned reference externa
 covered in the <a class="reference external" href="../transportpathactivity">Visualizing Transport Path
 Activity</a> showcase.</p>
 <p>The visualization is turned off by default, it can be turned on by
-setting the <code class="docutils literal notranslate"><span class="pre">displayTransportConnections</span></code> parameter of the visualizer
+setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">displayTransportConnections</span></code> parameter of the visualizer
 to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>It is possible to filter the connections being visualized. By default,
 all connections are included. Filtering by hosts and port numbers can be
-achieved by setting the <code class="docutils literal notranslate"><span class="pre">sourcePortFilter</span></code>, <code class="docutils literal notranslate"><span class="pre">destinationPortFilter</span></code>,
-<code class="docutils literal notranslate"><span class="pre">sourceNodeFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">destinationNodeFilter</span></code> parameters.</p>
+achieved by setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">sourcePortFilter</span></code>, <code class="code literal-ini docutils literal notranslate"><span class="pre">destinationPortFilter</span></code>,
+<code class="code literal-ini docutils literal notranslate"><span class="pre">sourceNodeFilter</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">destinationNodeFilter</span></code> parameters.</p>
 <p>The icon, colors and other visual properties can be configured by
 setting the visualizer’s parameters.</p>
 </div>
@@ -414,13 +422,13 @@ following network:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/simplenetwork3.png"><img alt="../../../../_images/simplenetwork3.png" src="../../../../_images/simplenetwork3.png" style="width: 60%;" /></a>
 </div>
-<p>The network contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> connected to each other, each
+<p>The network contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s connected to each other, each
 containing a TCP application. IP addresses and routing tables are
 configured by a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module. The visualizer
 module is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a>. The application in
 <code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to open a TCP connection to <code class="docutils literal notranslate"><span class="pre">host2</span></code>, and send
 data to it. The visualization of transport connections is enabled with
-the visualizer’s <code class="docutils literal notranslate"><span class="pre">displayTransportConnections</span></code> parameter:</p>
+the visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">displayTransportConnections</span></code> parameter:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.displayTransportConnections = true
 </pre></div>
 </div>
@@ -440,7 +448,7 @@ configuration from the ini file. It uses the following network:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/complexnetwork.png"><img alt="../../../../_images/complexnetwork.png" src="../../../../_images/complexnetwork.png" style="width: 60%;" /></a>
 </div>
-<p>There are two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> connected to a switch, which is
+<p>There are two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s connected to a switch, which is
 connected via a router to the server, another <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>. IP
 addresses and routing tables are configured by a
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module. The visualizer module is an
@@ -465,13 +473,13 @@ Endpoints can be matched by color.</p>
 <a class="reference internal image-reference" href="../../../../_images/port80.png"><img alt="../../../../_images/port80.png" src="../../../../_images/port80.png" style="width: 80%;" /></a>
 </div>
 <p>To visualize the connections that use port 22 at the server, the
-<code class="docutils literal notranslate"><span class="pre">destinationPortFilter</span></code> should be set to 22. The network will look
+<code class="code literal-ini docutils literal notranslate"><span class="pre">destinationPortFilter</span></code> should be set to 22. The network will look
 like this:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/port22.png"><img alt="../../../../_images/port22.png" src="../../../../_images/port22.png" style="width: 80%;" /></a>
 </div>
 <p>Additionally, to visualize port 22 connections at <code class="docutils literal notranslate"><span class="pre">host2</span></code> only, the
-<code class="docutils literal notranslate"><span class="pre">sourceNodeFilter</span></code> parameter should be set to <code class="docutils literal notranslate"><span class="pre">host2</span></code>. The result
+<code class="code literal-ini docutils literal notranslate"><span class="pre">sourceNodeFilter</span></code> parameter should be set to <code class="docutils literal notranslate"><span class="pre">host2</span></code>. The result
 looks like this:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/port22host2.png"><img alt="../../../../_images/port22host2.png" src="../../../../_images/port22host2.png" style="width: 80%;" /></a>
@@ -523,11 +531,11 @@ showcase.</p>
             <div>Visualizing IEEE 802.11 Network Membership</div>
          </div>
      </a>
-     <a id="button-next" href="../../environment/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../networknode/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Visualizing the Physical Environment</div>
+            <div>Visualizing Network Nodes</div>
         </div>
      </a>
   </div>

@@ -29,7 +29,7 @@
     <link rel="prev" title="Displaying IP Addresses and Other Interface Information" href="../../interfacetable/doc/index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -372,8 +380,10 @@ see which node is a member of which network. The membership may even
 change over time. It would be useful to be able to display e.g. the SSID
 above node icons. INET provides such a visualizer that we demonstrate in
 this showcase.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211">inet/showcases/visualizer/ieee80211</a></p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/ieee80211">inet/showcases/visualizer/ieee80211</a></div>
+</div>
 </div>
 <div class="section" id="about-the-visualizer">
 <h2>About the visualizer<a class="headerlink" href="#about-the-visualizer" title="Permalink to this headline">¶</a></h2>
@@ -382,13 +392,13 @@ this showcase.</p>
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> is also an option, because it also contains a
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.Ieee80211Visualizer.html">Ieee80211Visualizer</a>. Displaying network membership is disabled by
 default, it can be enabled by setting the visualizer’s
-<code class="docutils literal notranslate"><span class="pre">displayAssociations</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">displayAssociations</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.Ieee80211Visualizer.html">Ieee80211Visualizer</a> displays an icon and the SSID above network
 nodes which are part of a wifi network. The icons are color-coded
 according to the SSID. The icon, colors, and other visual properties can
 be configured via parameters of the visualizer.</p>
-<p>The visualizer’s <code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter selects which nodes’
-memberships are visualized. The <code class="docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameter selects
+<p>The visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> parameter selects which nodes’
+memberships are visualized. The <code class="code literal-ini docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameter selects
 which interfaces are considered in the visualization. By default, all
 interfaces of all nodes are considered.</p>
 </div>
@@ -408,8 +418,8 @@ access point. When the association process goes through, the node
 becomes part of the wireless network, and this should be indicated by
 the icon.</p>
 <p>The visualization is activated with the visualizer’s
-<code class="docutils literal notranslate"><span class="pre">displayAssociations</span></code> parameter:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.ieee80211Visualizer.displayAssociations = true
+<code class="code literal-ini docutils literal notranslate"><span class="pre">displayAssociations</span></code> parameter:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.ieee80211Visualizer.displayAssociations</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 <p>When the simulation is run for a while, the network will look like the
@@ -423,8 +433,8 @@ following. Note the icons above the host and the access point.</p>
 <p>The following example simulation demonstrates the visualization when
 multiple networks are present. The simulation can be run by choosing the
 <code class="docutils literal notranslate"><span class="pre">MultipleNetworks</span></code> configuration from the ini file.</p>
-<p>The network contains two <code class="docutils literal notranslate"><span class="pre">AccessPoints</span></code> with different SSIDs, and
-three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code> configured to associate with each. We will see
+<p>The network contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>’s with different SSIDs, and
+three <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a>’s configured to associate with each. We will see
 the icons being color-coded. When the association processes take place,
 the network will look like the following. Note the different SSIDs
 (<code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">bravo</span></code>) and the colors.</p>
@@ -437,7 +447,7 @@ the network will look like the following. Note the different SSIDs
 <p>The following example simulation shows how visualization can help you
 follow handovers in the network. The simulation can be run by choosing
 the <code class="docutils literal notranslate"><span class="pre">VisualizingHandover</span></code> configuration from the ini file. The network
-contains two <code class="docutils literal notranslate"><span class="pre">AccessPoints</span></code> with different SSIDs, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and
+contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>’s with different SSIDs, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and
 <code class="docutils literal notranslate"><span class="pre">bravo</span></code>. There is also a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> which is configured to move
 horizontally back and forth between the two access points. Transmission
 powers are configured so that when a host gets near one access point, it
@@ -451,7 +461,7 @@ handover.</p>
 <div class="section" id="further-information">
 <h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
 <p>For more information on IEEE 802.11 visualization, see the
-<code class="docutils literal notranslate"><span class="pre">Ieee80211visualizer</span></code> NED documentation.</p>
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.Ieee80211Visualizer.html">Ieee80211Visualizer</a> NED documentation.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>

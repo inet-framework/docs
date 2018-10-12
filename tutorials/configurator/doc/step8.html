@@ -29,7 +29,7 @@
     <link rel="prev" title="Step 7. Configuring a hierarchical network" href="step7.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
@@ -393,13 +401,13 @@ specify members.</li>
 same wireless network.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network defined in
+<p>This step uses the <span>ConfiguratorC</span> network defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a>. The network is
 displayed on the following image.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step8network.png"><img alt="../../../_images/step8network.png" src="../../../_images/step8network.png" style="width: 100%;" /></a>
 </div>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network extends <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorB.html">ConfiguratorB</a> by adding two
+<p>The <span>ConfiguratorC</span> network extends <span>ConfiguratorB</span> by adding two
 wireless LANs, <code class="docutils literal notranslate"><span class="pre">area1lan3</span></code> and <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code>. The additional LANs
 consist of an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</p>
 <p>The default SSID settings of all wireless nodes is <code class="docutils literal notranslate"><span class="pre">&quot;SSID&quot;</span></code>. By
@@ -557,7 +565,7 @@ different SSIDs are configured for the members of the two wireless LANs.</p>
 <h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The results are the same as in the previous part. The two wireless LANs
 are considered to be different wireless networks.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a></p>
 </div>
 </div>

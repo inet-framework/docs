@@ -29,7 +29,7 @@
     <link rel="prev" title="Wireless" href="../../index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
@@ -422,10 +430,10 @@ batteries store the energy. Each host is configured to have a nominal
 energy storage capacity of 0.05 Joules. The charge they contain at the
 beginning of the simulation is randomly selected between zero and the
 nominal capacity for each host.</p>
-<p>Each host contains an <code class="docutils literal notranslate"><span class="pre">AlternatingEnergyGenerator</span></code> module. This module
+<p>Each host contains an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.power.generator.AlternatingEpEnergyGenerator.html">AlternatingEpEnergyGenerator</a> module. This module
 alternates between generation (active) and sleep states. It starts in
 the generation state, and while there, it generates the power that is
-specified in its <code class="docutils literal notranslate"><span class="pre">powerGeneration</span></code> parameter (now set to 4mW). In the
+specified in its <code class="code literal-ini docutils literal notranslate"><span class="pre">powerGeneration</span></code> parameter (now set to 4mW). In the
 sleep state, it generates no power. It stays in each mode for the
 durations specified in the <code class="docutils literal notranslate"><span class="pre">generationInterval</span></code> and <code class="docutils literal notranslate"><span class="pre">sleepInterval</span></code>
 parameters. These are set to a random value with a mean of 25s for each
@@ -437,7 +445,7 @@ modules to shut down hosts when their energy levels reach 10% of the
 nominal capacity (0.005 Joules), and restart them when their energy
 storage charges to half of their nominal energy capacity, i.e. 0.025
 Joules. These settings can be specified in the energy management
-module’s <code class="docutils literal notranslate"><span class="pre">nodeShutdownCapacity</span></code> and <code class="docutils literal notranslate"><span class="pre">nodeStartCapacity</span></code> parameters.</p>
+module’s <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeShutdownCapacity</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">nodeStartCapacity</span></code> parameters.</p>
 </div>
 <div class="section" id="radio-modes-and-states">
 <h3>Radio modes and states<a class="headerlink" href="#radio-modes-and-states" title="Permalink to this headline">¶</a></h3>
@@ -453,7 +461,7 @@ medium.</p>
 <div class="section" id="energy-consumption-of-radios">
 <h3>Energy consumption of radios<a class="headerlink" href="#energy-consumption-of-radios" title="Permalink to this headline">¶</a></h3>
 <p>Radios in the simulation are configured to contain a
-<code class="docutils literal notranslate"><span class="pre">StateBasedEnergyConsumer</span></code> module. In this model, energy consumption
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> module. In this model, energy consumption
 is based on power consumption values for various radio modes and states,
 and the time the radio spends in these states. For example, radios
 consume a small amount of power when they are idle in receive mode, i.e.

@@ -29,7 +29,7 @@
     <link rel="prev" title="Visualizing Routing Tables" href="../../routingtable/doc/index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -375,10 +383,10 @@ inspection can help to verify that the result matches the expectations.
 While it is true that addresses and other interface data can also be
 accessed in the GUI by diving into the interface tables of each node,
 that is tedious, and unsuitable for getting an overview.</p>
-<p>This example contains two configurations. The first one demonstrates the
+<p>This showcase contains two example simulations. The first one demonstrates the
 visualization with the visualizer’s default settings, the second one is
 about the advanced features.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
+<p>INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></p>
 <p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/interfacetable">inet/showcases/visualizer/interfacetable</a></p>
 </div>
 <div class="section" id="about-the-visualizer">
@@ -387,35 +395,34 @@ about the advanced features.</p>
 of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>) displays data about network nodes’
 interfaces. (Interfaces are contained in interface tables, hence the
 name.) By default, the visualization is turned off. When it is enabled
-using the <code class="docutils literal notranslate"><span class="pre">displayInterfaceTables</span></code> parameter, the default is that
+using the <code class="code literal-ini docutils literal notranslate"><span class="pre">displayInterfaceTables</span></code> parameter, the default is that
 interface names, IP addresses and netmask length are displayed, above
 the nodes (for wireless interfaces) and on the links (for wired
 interfaces). By clicking on an interface label, details are displayed in
 the inspector panel.</p>
-<p>The visualizer has several configuration parameters. The <code class="docutils literal notranslate"><span class="pre">format</span></code>
+<p>The visualizer has several configuration parameters. The <code class="code literal-ini docutils literal notranslate"><span class="pre">format</span></code>
 parameter specifies what information is displayed about interfaces. It
 takes a format string, which can contain the following directives:</p>
 <ul class="simple">
-<li>%N: interface name</li>
-<li>%4: IPv4 address</li>
-<li>%6: IPv6 address</li>
-<li>%n: network address. This is either the IPv4 or the IPv6 address</li>
-<li>%l: netmask length</li>
-<li>%M: MAC address</li>
-<li>%\: conditional newline for wired interfaces. The ‘' needs to be
-escaped with another ‘', i.e. ‘%\’</li>
-<li>%i and %s: the info() and str() functions for the interfaceEntry
-class, respectively</li>
+<li><code class="docutils literal notranslate"><span class="pre">%N</span></code>: interface name</li>
+<li><code class="docutils literal notranslate"><span class="pre">%4</span></code>: IPv4 address</li>
+<li><code class="docutils literal notranslate"><span class="pre">%6</span></code>: IPv6 address</li>
+<li><code class="docutils literal notranslate"><span class="pre">%n</span></code>: network address. This is either the IPv4 or the IPv6 address</li>
+<li><code class="docutils literal notranslate"><span class="pre">%l</span></code>: netmask length</li>
+<li><code class="docutils literal notranslate"><span class="pre">%M</span></code>: MAC address</li>
+<li><code class="docutils literal notranslate"><span class="pre">%\\</span></code>: conditional newline for wired interfaces. (Note that the backslash
+needs to be doubled, due to escaping.)</li>
+<li><code class="docutils literal notranslate"><span class="pre">%s</span></code>: the <code class="docutils literal notranslate"><span class="pre">str()</span></code> functions for the interface entry class</li>
 </ul>
 <p>The default format string is <code class="docutils literal notranslate"><span class="pre">&quot;%N</span> <span class="pre">%\\%n/%l&quot;</span></code>, i.e. interface name, IP
 address and netmask length.</p>
 <p>The set of visualized interfaces can be selected with the configurator’s
-<code class="docutils literal notranslate"><span class="pre">nodeFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameters. By default, all
+<code class="code literal-ini docutils literal notranslate"><span class="pre">nodeFilter</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameters. By default, all
 interfaces of all nodes are visualized, except for loopback addresses
-(the default for the <code class="docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">&quot;not</span> <span class="pre">lo\*&quot;</span></code>.)</p>
+(the default for the <code class="code literal-ini docutils literal notranslate"><span class="pre">interfaceFilter</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">&quot;not</span> <span class="pre">lo\*&quot;</span></code>.)</p>
 <p>It is possible to display the labels for wired interfaces above the node
 icons, instead of on the links. This can be done by setting the
-<code class="docutils literal notranslate"><span class="pre">displayWiredInterfacesAtConnections</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">displayWiredInterfacesAtConnections</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>There are also several parameters for styling, such as color and font
 selection.</p>
 </div>
@@ -426,10 +433,10 @@ The simulation uses the following network:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/simplenetwork1.png"><img alt="../../../../_images/simplenetwork1.png" src="../../../../_images/simplenetwork1.png" style="width: 60%;" /></a>
 </div>
-<p>The network contains two connected <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>. IP addresses are
+<p>The network contains two connected <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s. IP addresses are
 auto-assigned by an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module.</p>
 <p>We enable visualization by the following configuration line:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.interfaceTableVisualizer.displayInterfaceTables = true
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.interfaceTableVisualizer.displayInterfaceTables</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
 <p>The interface names and the assigned IP addresses are displayed at the
@@ -448,7 +455,7 @@ from the ini file. It uses the following network:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/advancednetwork.png"><img alt="../../../../_images/advancednetwork.png" src="../../../../_images/advancednetwork.png" style="width: 80%;" /></a>
 </div>
-<p>It contains two <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code> connected to an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ethernet.EtherSwitch.html">EtherSwitch</a>. The
+<p>It contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>’s connected to an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.ethernet.EtherSwitch.html">EtherSwitch</a>. The
 switch is connected to a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a>, which is connected to an
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>. There is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> near
 the access point. They will obtain their addresses from the router via
@@ -456,7 +463,7 @@ DHCP. We would like to see IP addresses appear above the hosts when they
 get their addresses.</p>
 <p>We would like to hide the display of loopback addresses and of the
 unspecified address, so we set the following filter for the visualizer:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.interfaceTableVisualizer.interfaceFilter=&quot;not lo*  and not ipv4Address(&lt; unspec &gt;)&quot;
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.interfaceTableVisualizer.interfaceFilter</span> <span class="o">=</span> <span class="s">&quot;not lo* and not ipv4Address(&lt;unspec&gt;)&quot;</span>
 </pre></div>
 </div>
 <p>Initially, the addresses of the wired interfaces of <code class="docutils literal notranslate"><span class="pre">host1</span></code>, <code class="docutils literal notranslate"><span class="pre">host2</span></code>

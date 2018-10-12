@@ -13,9 +13,8 @@ data link level traffic.
 The showcase consists of five simulation models, each demonstrating
 different features of the data link activity visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/datalinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/datalinkactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/datalinkactivity>`__
 
 About the Visualizer
 --------------------
@@ -25,11 +24,11 @@ In INET, data link activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`DataLinkVisualizer` module. Data link visualization is
 disabled by default, it can be enabled by setting the visualizer's
-``displayLinks`` parameter to true.
+:par:`displayLinks` parameter to true.
 
 :ned:`DataLinkVisualizer` is able to observe packets at *service*, *peer*
 and *protocol* level. The level where packets are observed can be set by
-the ``activityLevel`` parameter.
+the :par:`activityLevel` parameter.
 
 -  At *service* level, those packets are displayed which pass through
    the data link layer (i.e. carry data from/to higher layers).
@@ -49,8 +48,8 @@ visualizer.
 
 By default, all packets, interfaces and nodes are considered for the
 visualization. This selection can be narrowed to certain packets and/or
-nodes with the visualizer's ``packetFilter``, ``interfaceFilter``, and
-``nodeFilter`` parameters.
+nodes with the visualizer's :par:`packetFilter`, :par:`interfaceFilter`, and
+:par:`nodeFilter` parameters.
 
 Enabling Visualization of Data Link Activity
 --------------------------------------------
@@ -61,7 +60,7 @@ we configure a simulation for a wired network. The simulation can be run
 by choosing the ``EnablingVisualizationWired`` configuration from the
 ini file.
 
-The wired network contains two ``StandardHosts``, ``wiredSource`` and
+The wired network contains two :ned:`StandardHost`'s, ``wiredSource`` and
 ``wiredDestination``. The ``linkVisualizer`` module's type is
 :ned:`DataLinkVisualizer`.
 
@@ -72,9 +71,10 @@ In this configuration, ``wiredSource`` pings ``wiredDestination``. Data
 link activity visualization is enabled by setting the ``displayLinks``
 parameter to true.
 
-.. code-block: none
-
-   *.linkVisualizer.*.displayLinks = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: displayLinks
+   :end-at: displayLinks
+   :language: ini
 
 The following video shows what happens when the simulation is started.
 
@@ -88,12 +88,12 @@ OMNeT++ animation for packet transmissions, and has nothing to do with
 ``wiredDestination`` (the red strip disappears), a dark cyan arrow is
 added by :ned:`DataLinkVisualizer` between the two hosts, indicating data
 link activity. The packet's name is also displayed on the arrow. The
-arrow fades out quickly, because the ``fadeOutTime`` parameter of the
+arrow fades out quickly, because the :par:`fadeOutTime` parameter of the
 visualizer is set to a small value.
 
 Visualization in a wireless network is very similar. Our next example is
 the wireless variant of the above simulation. In this network we use two
-``AdhocHosts``, ``wirelessSource`` and ``wirelessDestination``. The
+:ned:`AdhocHost`'s, ``wirelessSource`` and ``wirelessDestination``. The
 traffic and the visualization settings are the same as the configuration
 of the wired example. The simulation can be run by choosing the
 ``EnablingVisualizationWireless`` configuration from the ini file.
@@ -138,22 +138,20 @@ For this network, the visualizer's type is :ned:`IntegratedVisualizer`.
 Data link activity visualization is filtered to display only ping
 messages. The other packets, e.g. ARP packets, are not visualized by
 :ned:`DataLinkVisualizer`. We adjust the ``fadeOutMode`` and the
-``fadeOutTime`` parameters so that the activity arrows do not fade out
+:par:`fadeOutTime` parameters so that the activity arrows do not fade out
 completely before the next ping messages are sent.
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.displayLinks = true
-   *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.dataLinkVisualizer.fadeOutTime = 1.4s
-   *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: dataLinkVisualizer.displayLinks
+   :end-at: dataLinkVisualizer.packetFilter
+   :language: ini
 
 The following animation shows what happens when we start the simulation.
 You can see that although there is both ARP and ping traffic in the
 network, :ned:`DataLinkVisualizer` only takes the latter into account, due
-to the presence of the ``packetFilter`` parameter.
+to the presence of the :par:`packetFilter` parameter.
 
 .. video:: Filtering_v0613.m4v
    :width: 698
@@ -162,12 +160,13 @@ It also is possible to filter for network nodes. For the following
 example, let's assume we want to display traffic between the hosts
 ``source1`` and ``destination1`` only, along the path ``etherSwitch1``,
 ``etherSwitch4`` and ``etherSwitch2``. To this end, we set the
-visualizer's ``nodeFilter`` parameter by using the following line (note
+visualizer's :par:`nodeFilter` parameter by using the following line (note
 the curly brace syntax used for specifying numeric substrings).
 
-.. code-block:: none
-
-   *.visualizer.*.dataLinkVisualizer.nodeFilter = "source1 or etherSwitch{1,4,2} or destination1"
+.. literalinclude:: ../omnetpp.ini
+   :start-at: dataLinkVisualizer.nodeFilter
+   :end-at: dataLinkVisualizer.nodeFilter
+   :language: ini
 
 This is what it looks like when we run the simulation:
 
@@ -209,28 +208,16 @@ configured, observing packets at *service*, *peer* and *protocol* level.
 They are marked with different colors. The ``visualizer`` module is
 configured as follows.
 
-.. code-block:: none
+.. literalinclude:: ../omnetpp.ini
+   :start-at: numDataLinkVisualizers
+   :end-at: dataLinkVisualizer[2].labelColor
+   :language: ini
 
-   *.visualizer.*.numDataLinkVisualizers = 3
-   *.visualizer.*.dataLinkVisualizer[*].displayLinks = true
-   *.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
-   *.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
-   *.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
-   *.visualizer.*.dataLinkVisualizer[0].activityLevel = "protocol"
-   *.visualizer.*.dataLinkVisualizer[0].lineColor = "purple"
-   *.visualizer.*.dataLinkVisualizer[0].labelColor = "purple"
-   *.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
-   *.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
-   *.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
-   *.visualizer.*.dataLinkVisualizer[2].activityLevel = "service"
-   *.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
-   *.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
-
-By using the ``numDataLinkVisualizers`` parameter, we set three
+By using the :par:`numDataLinkVisualizers` parameter, we set three
 :ned:`DataLinkVisualizer` modules. In this example, we are interested in
-*video* packets. To highlight them, we use the ``packetFilter``
-parameter. The ``fadeOutMode`` parameter specifies that inactive links
-fade out in animation time. The ``holdAnimationTime`` parameter stops
+*video* packets. To highlight them, we use the :par:`packetFilter`
+parameter. The :par:`fadeOutMode` parameter specifies that inactive links
+fade out in animation time. The :par:`holdAnimationTime` parameter stops
 the animation for a while, delaying the fading of the data link activity
 arrows. The ``activityLevel``, ``lineColor`` and ``labelColor``
 parameters are different at each :ned:`DataLinkVisualizer` to make data
@@ -302,7 +289,7 @@ with the next hop address towards the destination node.
 As AODV operates with two message types, we'll use two
 :ned:`DataLinkVisualizer` modules configured to use two different colors.
 
-.. code-block:: none
+.. code-block:: ini
 
    *.rreqVisualizer.*.displayLinks = true
    *.rreqVisualizer.*.packetFilter = "AodvRreq"
@@ -333,12 +320,10 @@ routes from time to time.
 
 We use the following configuration for the visualization.
 
-.. code-block: none
-
-   *.visualizer.*.dataLinkVisualizer.displayLinks = true
-   *.visualizer.*.dataLinkVisualizer.packetFilter = "ping*"
-   *.visualizer.*.dataLinkVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.dataLinkVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Filtering ping packets
+   :end-at: fadeOutTime
+   :language: ini
 
 The following animation illustrates what happens when the simulation is
 run.

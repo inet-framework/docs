@@ -13,9 +13,8 @@ about network layer level traffic.
 The showcase consists of four simulation models, each demonstrating
 different features of the network path activity visualizer.
 
-INET version: ``3.6``
-
-Source files location: `inet/showcases/visualizer/networkpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity>`__
+| INET version: ``4.0``
+| Source files location: `inet/showcases/visualizer/networkpathactivity <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networkpathactivity>`__
 
 About the Visualizer
 --------------------
@@ -25,7 +24,7 @@ In INET, network path activity can be visualized by including a
 :ned:`IntegratedVisualizer` module is also an option, because it also
 contains a :ned:`NetworkRouteVisualizer` module. Network path activity
 visualization is disabled by default, it can be enabled by setting the
-visualizer's ``displayRoutes`` parameter to true.
+visualizer's :par:`displayRoutes` parameter to true.
 
 :ned:`NetworkRouteVisualizer` currently observes packets that pass through
 the network layer (i.e. carry data from/to higher layers), but not those
@@ -44,8 +43,8 @@ and other graphical properties can be changed with parameters of the
 visualizer.
 
 By default, all packets and nodes are considered for the visualization.
-This selection can be narrowed with the visualizer's ``packetFilter``
-and ``nodeFilter`` parameters.
+This selection can be narrowed with the visualizer's :par:`packetFilter`
+and :par:`nodeFilter` parameters.
 
 Enabling Visualization of Network Path Activity
 -----------------------------------------------
@@ -55,7 +54,7 @@ visualization with its default settings. For the first example, we
 configured a wired network. The simulation can be run by choosing the
 ``EnablingVisualization`` configuration from the ini file.
 
-The network contains two ``StandardHosts``, a ``source`` host and a
+The network contains two :ned:`StandardHost`'s, a ``source`` host and a
 ``destination`` host. In this configuration, the ``source`` host will be
 pinging the ``destination`` host.
 
@@ -67,9 +66,10 @@ The ``pathVisualizer's`` type is :ned:`NetworkRouteVisualizer`. We enable
 network path activity visualization by setting the ``displayRoutes``
 parameter to true.
 
-.. code-block:: none
-
-   *.pathVisualizer.*.displayRoutes = true
+.. literalinclude:: ../omnetpp.ini
+   :start-at: pathVisualizer.*.displayRoutes
+   :end-at: pathVisualizer.*.displayRoutes
+   :language: ini
 
 The following video shows what happens when we start the simulation.
 
@@ -84,7 +84,7 @@ animation for packet transmissions, and has nothing to do with
 ``destination`` (the red strip disappears), an arrow is added by
 :ned:`NetworkRouteVisualizer` between the two hosts, indicating network
 path activity. The packet's name is also displayed on the arrow. The
-arrow fades out quickly, because the ``fadeOutTime`` parameter of the
+arrow fades out quickly, because the :par:`fadeOutTime` parameter of the
 visualizer is set to a small value.
 
 Note, however, that ARP traffic does not activate the visualization,
@@ -108,7 +108,7 @@ We use the following network for this showcase:
 
 The network consists of five ``routers`` (``router0..router4``), four
 ``etherSwitches`` (``etherSwitch0..etherSwitch3``) and eight
-``StandardHosts``. There are two source hosts, ``source1`` and
+:ned:`StandardHost`'s. There are two source hosts, ``source1`` and
 ``source2``, which will be pinging the two destination hosts,
 ``destination1`` and ``destination2``. The ``videoServer`` node streams
 a video to the ``videoClient`` node. The remaining two endpoints
@@ -117,16 +117,14 @@ a video to the ``videoClient`` node. The remaining two endpoints
 For this network, the visualizer's type is :ned:`IntegratedVisualizer`.
 Network path visualization is filtered to display only ping traffic. The
 video stream packets are not visualized by network path activity
-visualizer. The ``fadeOutMode`` and ``fadeOutTime`` parameters have been
+visualizer. The :par:`fadeOutMode` and :par:`fadeOutTime` parameters have been
 adjusted so that the network path activity arrow does not fade out
 completely before the next ping packet arrives.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true
-   *.visualizer.*.networkRouteVisualizer.packetFilter = "ping*"
-   *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer settings
+   :end-at: networkRouteVisualizer.fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run.
 
@@ -136,7 +134,7 @@ The following video shows what happens when the simulation is run.
 Each arrow has a different color indicating different paths. You can see
 that although there is both video stream and ping traffic in the
 network, :ned:`NetworkRouteVisualizer` displays only the latter, due to the
-presence of the ``packetFilter`` parameter.
+presence of the :par:`packetFilter` parameter.
 
 Visualizing Network Path Activity in a Mobile Ad-Hoc Network
 ------------------------------------------------------------
@@ -166,12 +164,10 @@ configuration.)
 
 We use the following configuration for the visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true
-   *.visualizer.*.networkRouteVisualizer.packetFilter = "ping*"
-   *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
-   *.visualizer.*.networkRouteVisualizer.fadeOutTime = 5s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Displaying network path activity
+   :end-at: networkRouteVisualizer.fadeOutTime
+   :language: ini
 
 The following video shows what happens when the simulation is run.
 
@@ -228,13 +224,14 @@ topology changes. During the simulation, ``wiredSource`` will be pinging
 ``wiredDestination`` and ``wirelessSource`` will be pinging
 ``wirelessDestination``.
 
-In this showcase, we set the ``packetFilter`` parameter to display only
+In this showcase, we set the :par:`packetFilter` parameter to display only
 ICMP echo traffic. We use the following configuration for the
 visualization.
 
-.. code-block:: none
-
-   *.visualizer.*.networkRouteVisualizer.displayRoutes = true *.visualizer.*.networkRouteVisualizer.packetFilter = "ping* and not *reply" *.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime" *.visualizer.*.networkRouteVisualizer.fadeOutTime = 1.4s
+.. literalinclude:: ../omnetpp.ini
+   :start-after: Visualizer's parameters
+   :end-at: fadeOutTime
+   :language: ini
 
 In the following video we can examine that how network path activity
 visualization follows the routing changes in a complex network.

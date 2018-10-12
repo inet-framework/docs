@@ -29,7 +29,7 @@
     <link rel="prev" title="Generic" href="../../index.html" /> 
   </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
@@ -103,10 +103,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -250,10 +254,14 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
@@ -382,20 +390,20 @@ physical layer protocols like ethernet and 802.11.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>In order to record PCAP traces in a node, a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a> module
 needs to be included in it. Pcap recorder modules can be easily included
-in hosts and routers by specifying their <code class="docutils literal notranslate"><span class="pre">numPcapRecorders</span></code> parameter
+in hosts and routers by specifying their <code class="code literal-ini docutils literal notranslate"><span class="pre">numPcapRecorders</span></code> parameter
 (available in modules that extend <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a>, such as
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and derivatives, and router modules.)</p>
 <p>The PCAP recorder module records packets sent to and from modules that
 are in the same host as the PCAP recorder module. By default, it records
 L2 (link layer) frames (frames going in and out of the L2 layer.) It can
 also be set to record L3 frames. It writes traces in a PCAP file, which
-has to be specified by the <code class="docutils literal notranslate"><span class="pre">pcapFile</span></code> parameter. This parameter acts
+has to be specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">pcapFile</span></code> parameter. This parameter acts
 as the main switch for recording, thus specifying this parameter enables
 packet capture. The PCAP recorder writes traces in the original PCAP
 format, not the next generation one (PcapNg.) There can be packets with
 only one link layer header type in the PCAP file (this is a limitation
 of the original PCAP file format.) The PCAP file’s link layer header
-type needs to be set with the <code class="docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter, so PCAP
+type needs to be set with the <code class="code literal-ini docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter, so PCAP
 programs interpret the traces correctly. Some widely used type codes are
 the following:</p>
 <ul class="simple">
@@ -405,13 +413,13 @@ the following:</p>
 </ul>
 <p>The complete list of link layer header type codes can be found
 <a class="reference external" href="http://www.tcpdump.org/linktypes.html">here</a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter specifies which modules’ traffic
+<p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter specifies which modules’ traffic
 should be recorded. It takes a space separated list of module names. For
 selecting a module vector, <code class="docutils literal notranslate"><span class="pre">[*]</span></code> can be used. The recorded modules are
 on the same level in the hierarchy as the PCAP recorder module. The
-default value for the <code class="docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter is
+default value for the <code class="code literal-ini docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter is
 <code class="docutils literal notranslate"><span class="pre">wlan[*]</span> <span class="pre">eth[*]</span> <span class="pre">ppp[*]</span> <span class="pre">ext[*]</span></code>, so it records the most commonly
-present L2 interfaces. The <code class="docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter is a filter, and
+present L2 interfaces. The <code class="code literal-ini docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter is a filter, and
 selects which protocols to include in the capture. It matches packets
 which are of the specified protocol type at the level of capture, but
 not the protocol type of encapsulated packets. The parameter takes
@@ -422,24 +430,24 @@ The parameter’s default value is <code class="docutils literal notranslate"><s
 <code class="docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> to <code class="docutils literal notranslate"><span class="pre">ipv4</span></code>, for example, lets one record L3
 frames (note that the parameter’s value is lowercase, because it refers
 to the actual <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> module in the host, not the module type.) In
-order to record IP frames, the <code class="docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter also needs to
+order to record IP frames, the <code class="code literal-ini docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter also needs to
 be set to the proper link layer header type (101 - raw IP), and the
-<code class="docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> (see the configuration section
+<code class="code literal-ini docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> (see the configuration section
 below.)</p>
 <p>When a node connects to the network via just one kind of interface,
 specifying the link layer header type is sufficient for capturing a
 proper trace. However, if there are multiple kinds of interfaces the
 node connects with, the set of captured interfaces or physical layer
 protocols should be narrowed to the ones with the link layer header type
-specified by the <code class="docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter. It is needed because traffic
+specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter. It is needed because traffic
 for all interfaces are included in the trace by default. Multiple PCAP
 recorder modules need to be included in the network to record packets
 with different link layer headers. One PCAP recorder module should only
 record traces with one link layer header type, because the packets with
 the other header types would not be recognized by PCAP programs.</p>
 <p>Additionally, there are two packet filtering parameters. The
-<code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter can filter for the packet class and its
-properties, most commonly the packet’s name. The <code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter can filter for the packet class and its
+properties, most commonly the packet’s name. The <code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code>
 parameter can filter for the packet’s contents, i.e. the contained
 chunks. Specifically, it can filter for class names of protocol headers,
 and their fields. The expression given as the parameter’s value is
@@ -447,12 +455,12 @@ evaluated for all chuncks, and the set of recorded packets are narrowed
 to the ones that match the expression. The default value of both
 parameters is <code class="docutils literal notranslate"><span class="pre">*</span></code>, thus no packets are filtered. See the following
 sections for examples.</p>
-<p>To summerize: the <code class="docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter specifies which
-modules’ outputs should be captured. The <code class="docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter sets
+<p>To summerize: the <code class="code literal-ini docutils literal notranslate"><span class="pre">moduleNamePatterns</span></code> parameter specifies which
+modules’ outputs should be captured. The <code class="code literal-ini docutils literal notranslate"><span class="pre">pcapNetwork</span></code> parameter sets
 the link layer header type according to the captured module outputs, so
 PCAP programs can interpret the PCAP file correctly. The
-<code class="docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter can narrow the set of recorded protocols at
-the level of capture. The <code class="docutils literal notranslate"><span class="pre">packetFilter</span></code> and <code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter can narrow the set of recorded protocols at
+the level of capture. The <code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code>
 parameters can further narrow the set of captured packets.</p>
 <div class="section" id="the-configuration">
 <h3>The configuration<a class="headerlink" href="#the-configuration" title="Permalink to this headline">¶</a></h3>
@@ -490,7 +498,7 @@ headers:</p>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">host2</span></code>, we’ll record only the ARP packets from the 802.11 traffic
 on <code class="docutils literal notranslate"><span class="pre">wlan0</span></code>. The link layer header type is set to 802.11, and the
-<code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code> is set to record only to packets of <code class="docutils literal notranslate"><span class="pre">ArpPacket</span></code>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code> is set to record only to packets of <code class="docutils literal notranslate"><span class="pre">ArpPacket</span></code>
 class:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host2.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.host2.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">105		</span><span class="c1"># 802.11</span>
@@ -498,7 +506,7 @@ class:</p>
 <span class="na">*.host2.pcapRecorder[*].packetDataFilter</span> <span class="o">=</span> <span class="s">&quot;*ArpPacket&quot;</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code> parameter’s value <code class="docutils literal notranslate"><span class="pre">*ArpPacket</span></code> matches the
+<p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code> parameter’s value <code class="docutils literal notranslate"><span class="pre">*ArpPacket</span></code> matches the
 <code class="docutils literal notranslate"><span class="pre">inet::ArpPacket</span></code> class. There is an ARP request packet open in the
 packet inspector on the following image:</p>
 <div class="figure align-center">
@@ -513,7 +521,7 @@ interface. We set the link layer header type to ethernet:</p>
 </div>
 <p>There are two PCAP recorder modules in <code class="docutils literal notranslate"><span class="pre">router1</span></code>, with one of them
 recording ethernet traffic on <code class="docutils literal notranslate"><span class="pre">eth0</span></code> and the other ppp traffic on
-<code class="docutils literal notranslate"><span class="pre">ppp0</span></code>. The <code class="docutils literal notranslate"><span class="pre">moduleNamePatters</span></code> parameter needs to be set for both
+<code class="docutils literal notranslate"><span class="pre">ppp0</span></code>. The <code class="code literal-ini docutils literal notranslate"><span class="pre">moduleNamePatters</span></code> parameter needs to be set for both
 PCAP recorder modules, because <code class="docutils literal notranslate"><span class="pre">router1</span></code> has two interfaces.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.router1.numPcapRecorders</span> <span class="o">=</span> <span class="s">2</span>
 <span class="na">*.router1.pcapRecorder[0].pcapNetwork</span> <span class="o">=</span> <span class="s">204		</span><span class="c1"># ppp</span>
@@ -526,7 +534,7 @@ PCAP recorder modules, because <code class="docutils literal notranslate"><span 
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">router2</span></code>, we’ll record only packets carrying TCP data on the
 <code class="docutils literal notranslate"><span class="pre">eth0</span></code> interface. <code class="docutils literal notranslate"><span class="pre">router2</span></code> has two interfaces, so the
-<code class="docutils literal notranslate"><span class="pre">moduleNamePatters</span></code> parameter needs to be set. The link layer header
+<code class="code literal-ini docutils literal notranslate"><span class="pre">moduleNamePatters</span></code> parameter needs to be set. The link layer header
 type is set to ethernet, and the packet data filter is set to match
 packets containing an <code class="docutils literal notranslate"><span class="pre">Ipv4Header</span></code>, and where the <code class="docutils literal notranslate"><span class="pre">totalLengthField</span></code>
 field’s value is 576 (the size of TCP data packets with IP
@@ -539,7 +547,7 @@ encapsulation):</p>
 </pre></div>
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">ethHost2</span></code>, we’ll record traffic of the <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> module. The
-<code class="docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter’s default is
+<code class="code literal-ini docutils literal notranslate"><span class="pre">dumpProtocols</span></code> parameter’s default is
 <code class="docutils literal notranslate"><span class="pre">ethernetmac</span> <span class="pre">ppp</span> <span class="pre">ieee80211mac</span></code>, so it has to be set to <code class="docutils literal notranslate"><span class="pre">ipv4</span></code>.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.ethHost2.numPcapRecorders</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.ethHost2.pcapRecorder[*].pcapNetwork</span> <span class="o">=</span> <span class="s">101	</span><span class="c1"># raw IP</span>
@@ -557,7 +565,7 @@ capture file, L2 and L3 modules need to be set to compute CRC and FCS:</p>
 </pre></div>
 </div>
 <p>Note that these settings are required, otherwise an error is returned.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">alwaysFlush</span></code> parameter controls whether to write packets to the
+<p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">alwaysFlush</span></code> parameter controls whether to write packets to the
 pcap file as they are recorded, or after the simulation has concluded.
 It is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default, but it’s set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in all PCAP
 recorders to make sure there are recorded packets even if the simulation
@@ -604,7 +612,7 @@ sequence number, crc, etc. Click to zoom.)</p>
 </div>
 <p>The following images are the PCAP traces from <code class="docutils literal notranslate"><span class="pre">host2</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code>,
 where the set of recorded packets were narrowed with
-<code class="docutils literal notranslate"><span class="pre">packetDataFilter</span></code>.</p>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">packetDataFilter</span></code>.</p>
 <p>The ARP packets from <code class="docutils literal notranslate"><span class="pre">host2</span></code>:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/arp.png"><img alt="../../../../_images/arp.png" src="../../../../_images/arp.png" style="width: 100%;" /></a>
