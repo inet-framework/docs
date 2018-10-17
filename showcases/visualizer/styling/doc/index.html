@@ -383,8 +383,10 @@ visualizers have many customization options. These customization options
 are named consistently across all visualizers.</p>
 <p>This showcase consists of four examples which demonstrate how to
 customize lines, arrows, icons, fonts and annotations.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/styling">inet/showcases/visualizer/styling</a></p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/styling">inet/showcases/visualizer/styling</a></div>
+</div>
 </div>
 <div class="section" id="customizing-lines-and-arrows">
 <h2>Customizing Lines and Arrows<a class="headerlink" href="#customizing-lines-and-arrows" title="Permalink to this headline">¶</a></h2>
@@ -399,17 +401,20 @@ configuration from the ini file.</p>
 <p>The network consists of two nodes, <code class="docutils literal notranslate"><span class="pre">host1</span></code> and <code class="docutils literal notranslate"><span class="pre">host2</span></code>, which
 communicate wirelessly, and we customize data link activity arrows. The
 following configuration is used for the visualizer:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.dataLinkVisualizer.lineColor = &quot;blue&quot;
-*.visualizer.*.dataLinkVisualizer.lineStyle = &quot;dashed&quot;
-*.visualizer.*.dataLinkVisualizer.lineWidth = 6
-*.visualizer.*.dataLinkVisualizer.lineContactSpacing = 15
-*.visualizer.*.dataLinkVisualizer.lineShift = 32
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.dataLinkVisualizer.lineColor</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span>
+<span class="na">*.visualizer.*.dataLinkVisualizer.lineStyle</span> <span class="o">=</span> <span class="s">&quot;dashed&quot;</span>
+<span class="na">*.visualizer.*.dataLinkVisualizer.lineWidth</span> <span class="o">=</span> <span class="s">6</span>
+<span class="na">*.visualizer.*.dataLinkVisualizer.lineContactSpacing</span> <span class="o">=</span> <span class="s">15</span>
+<span class="na">*.visualizer.*.dataLinkVisualizer.lineShift</span> <span class="o">=</span> <span class="s">32</span>
 </pre></div>
 </div>
 <p>Move the mouse over the image to see the differences between the default
 and the customized visualization.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/Line_default_v0727.png"><img alt="../../../../_images/Line_default_v0727.png" src="../../../../_images/Line_default_v0727.png" style="width: 80%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/Line_custom_v0727.png"><img alt="../../../../_images/Line_custom_v0727.png" src="../../../../_images/Line_custom_v0727.png" style="width: 80%;" /></a>
 </div>
 <p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">lineColor</span></code> parameter specifices the color of the arrow, and it
 accepts English color names (more precisely, SVG color names) and
@@ -436,14 +441,17 @@ two hosts communicating wirelessly. We customize the font used in labels
 on data link activity arrows.</p>
 <p>To customize the fonts used in labels, we configure
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.linklayer.DataLinkVisualizer.html">DataLinkVisualizer</a> in the following way:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.dataLinkVisualizer.labelFont = &quot;Courier New, 12px, bold&quot;
-*.visualizer.*.dataLinkVisualizer.labelColor = &quot;red&quot;
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.dataLinkVisualizer.labelFont</span> <span class="o">=</span> <span class="s">&quot;Courier New, 12px, bold&quot;</span>
+<span class="na">*.visualizer.*.dataLinkVisualizer.labelColor</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span>
 </pre></div>
 </div>
 <p>Move the mouse over the image to see the differences between the default
 and the customized visualization.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/Font_default_v0727.png"><img alt="../../../../_images/Font_default_v0727.png" src="../../../../_images/Font_default_v0727.png" style="width: 80%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/Font_custom_v0727.png"><img alt="../../../../_images/Font_custom_v0727.png" src="../../../../_images/Font_custom_v0727.png" style="width: 80%;" /></a>
 </div>
 <p>Font family, font size and font style can be set by using the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">labelFont</span></code> parameter. You can omit any value from the parameter if
@@ -469,14 +477,17 @@ between them, so that we can show how the icons displayed by
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a> can be customized.</p>
 <p>We use the following configuration to customize the transport connection
 icons:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.transportConnectionVisualizer.icon = &quot;misc/marker2&quot;
-*.visualizer.*.transportConnectionVisualizer.iconColor = &quot;light&quot;
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.transportConnectionVisualizer.icon</span> <span class="o">=</span> <span class="s">&quot;misc/marker2&quot;</span>
+<span class="na">*.visualizer.*.transportConnectionVisualizer.iconColor</span> <span class="o">=</span> <span class="s">&quot;light&quot;</span>
 </pre></div>
 </div>
 <p>Move the mouse over the image to see the differences between the default
 and the customized visualization.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/Icon_default_v0727.png"><img alt="../../../../_images/Icon_default_v0727.png" src="../../../../_images/Icon_default_v0727.png" style="width: 80%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/Icon_custom_v0727.png"><img alt="../../../../_images/Icon_custom_v0727.png" src="../../../../_images/Icon_custom_v0727.png" style="width: 80%;" /></a>
 </div>
 <p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">icon</span></code> parameter specifies the icon to be used. The OMNeT++ image
 path is used to find the image, just like with the <code class="docutils literal notranslate"><span class="pre">i</span></code> display string
@@ -512,13 +523,16 @@ The simulation will set up several TCP connections between the two
 hosts, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.transportlayer.TransportConnectionVisualizer.html">TransportConnectionVisualizer</a> will be used to visualize
 them as marker icons.</p>
 <p>We use the following configuration to place the annotation icons.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*.visualizer.*.transportConnectionVisualizer.placementHint = &quot;bottom&quot;
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.visualizer.*.transportConnectionVisualizer.placementHint</span> <span class="o">=</span> <span class="s">&quot;bottom&quot;</span>
 </pre></div>
 </div>
 <p>Move the mouse over the image to see the differences between the default
 and the customized visualization.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/Annotation_default_v0802.png"><img alt="../../../../_images/Annotation_default_v0802.png" src="../../../../_images/Annotation_default_v0802.png" style="width: 80%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/Annotation_custom_v0802.png"><img alt="../../../../_images/Annotation_custom_v0802.png" src="../../../../_images/Annotation_custom_v0802.png" style="width: 80%;" /></a>
 </div>
 <p>The <code class="code literal-ini docutils literal notranslate"><span class="pre">placementHint</span></code> parameter determines where the annotations will be
 placed. The annotations can be placed in eight directions around the

@@ -381,8 +381,10 @@ like Rician and Rayleigh fading. This showcase demonstrates some of the
 available path loss models and how to use them in simulations.</p>
 <p>The showcase contains an example simulation, which computes received
 power vs. distance using several path loss model types.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">3.6</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss">inet/showcases/wireless/pathloss</a></p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/pathloss">inet/showcases/wireless/pathloss</a></div>
+</div>
 </div>
 <div class="section" id="about-path-loss-models">
 <h2>About path loss models<a class="headerlink" href="#about-path-loss-models" title="Permalink to this headline">¶</a></h2>
@@ -460,14 +462,13 @@ It changes with smaller steps near 0, where the change in power will be
 more rapid.</p>
 <p>Here are the keys from the configuration relevant for positioning the
 hosts:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mobility settings
-*.*.mobility.initFromDisplayString = false
-*.*.mobilityType = &quot;StationaryMobility&quot;
-*.*.mobility.initialY = 200m
-*.*.mobility.initialZ = 2m
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.mobility.initFromDisplayString</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">*.*.mobility.typename</span> <span class="o">=</span> <span class="s">&quot;StationaryMobility&quot;</span>
+<span class="na">*.*.mobility.initialY</span> <span class="o">=</span> <span class="s">200m</span>
+<span class="na">*.*.mobility.initialZ</span> <span class="o">=</span> <span class="s">2m</span>
 
-*.source.mobility.initialX = 0m
-*.destination.mobility.initialX = ${distance=0..50 step 0.25, 51..100 step 1, 105..200 step 5, 220..1000 step 20}m
+<span class="na">*.source.mobility.initialX</span> <span class="o">=</span> <span class="s">0m</span>
+<span class="na">*.destination.mobility.initialX</span> <span class="o">=</span> <span class="s">${distance=0..50 step 0.25, 51..100 step 1, 105..200 step 5, 220..1000 step 20}m</span>
 </pre></div>
 </div>
 <p>The other variable in the parameter study is the path loss type, which
