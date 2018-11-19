@@ -121,6 +121,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -272,6 +273,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -422,8 +424,6 @@ relay unit and one MAC unit per port.</li>
 suitable for using with an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a>.</li>
 <li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.WirelessHost.html">WirelessHost</a> with the network interface
 configured in ad-hoc mode and forwarding enabled.</li>
-<li><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a> is similar to an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> with an
-additional <span class="protocol">AODV</span> protocol.</li>
 </ul>
 <p>Network nodes communicate at the network level by exchanging OMNeT++
 messages which are the abstract representations of physical signals on
@@ -472,7 +472,10 @@ each specific visualizer type in a compound module.</li>
 <p>Wired network connections, for example <span class="protocol">Ethernet</span> cables, are
 represented with standard OMNeT++ connections using the
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/ned.DatarateChannel.html">DatarateChannel</a> NED type. The channel’s <code class="code literal-ini docutils literal notranslate"><span class="pre">datarate</span></code> and
-<code class="code literal-ini docutils literal notranslate"><span class="pre">delay</span></code> parameters must be provided for all wired connections.</p>
+<code class="code literal-ini docutils literal notranslate"><span class="pre">delay</span></code> parameters must be provided for all wired connections.
+The number of wired interfaces in a host (or router) usually does
+not need to be manually configured, because it can be automatically
+inferred from the actual number of links to neighbor nodes.</p>
 <p>The following example shows how straightforward it is to create a model
 for a simple wired network. This network contains a server connected to
 a router using <span class="protocol">PPP</span>, which in turn is connected to a switch
@@ -591,7 +594,7 @@ and path loss.</p>
 </div>
 <div class="section" id="frequent-tasks-how-to">
 <span id="ug-sec-networks-frequent-tasks"></span><h2>Frequent Tasks (How To…)<a class="headerlink" href="#frequent-tasks-how-to" title="Permalink to this headline">¶</a></h2>
-<p>Quick and somewhat superficial advice to many practical tasks.</p>
+<p>This section contains quick and somewhat superficial advice to many practical tasks.</p>
 <div class="section" id="automatic-wired-interfaces">
 <span id="ug-sec-networks-automatic-wired-interfaces"></span><h3>Automatic Wired Interfaces<a class="headerlink" href="#automatic-wired-interfaces" title="Permalink to this headline">¶</a></h3>
 <p>In many wired network simulations, the number of wired interfaces need
@@ -606,8 +609,8 @@ from the actual number of connections between network nodes.</p>
 <p>All built-in wireless network nodes support multiple wireless
 interfaces, but only one is enabled by default.</p>
 <div class="highlight-ini notranslate" id="multiple-wireless-interfaces-example"><div class="highlight"><pre><span></span><span class="na">*.host[*].numWlanInterfaces</span> <span class="o">=</span> <span class="s">2 </span><span class="c1"># number of wireless network interfaces</span>
-<span class="na">*.host[*].wlan[0].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;alpha&quot; </span><span class="c1"># connects to alpha network</span>
-<span class="na">*.host[*].wlan[1].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;bravo&quot; </span><span class="c1"># connects to bravo network</span>
+<span class="na">*.host[*].wlan[0].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;alpha&quot; </span><span class="c1"># connects to alpha network</span>
+<span class="na">*.host[*].wlan[1].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;bravo&quot; </span><span class="c1"># connects to bravo network</span>
 </pre></div>
 </div>
 </div>

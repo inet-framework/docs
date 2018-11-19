@@ -122,6 +122,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -273,6 +274,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -389,7 +391,7 @@ wired/wireless network. This step consists of two parts:</p>
 wireless network can reach each other directly. It can determine which
 nodes belong to a wireless network in two ways:</p>
 <ul class="simple">
-<li>It looks at the <code class="docutils literal notranslate"><span class="pre">default_ssid</span></code> parameter in nodes’ agent submodule.
+<li>It looks at the <code class="docutils literal notranslate"><span class="pre">defaultSsid</span></code> parameter in nodes’ agent submodule.
 Nodes with the same SSID are assumed to be in the same wireless
 network.</li>
 <li>Members of wireless networks can be specified by the <code class="docutils literal notranslate"><span class="pre">&lt;wireless&gt;</span></code>
@@ -401,13 +403,13 @@ specify members.</li>
 same wireless network.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>This step uses the <span>ConfiguratorC</span> network defined in
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a>. The network is
 displayed on the following image.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step8network.png"><img alt="../../../_images/step8network.png" src="../../../_images/step8network.png" style="width: 100%;" /></a>
 </div>
-<p>The <span>ConfiguratorC</span> network extends <span>ConfiguratorB</span> by adding two
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network extends <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorB.html">ConfiguratorB</a> by adding two
 wireless LANs, <code class="docutils literal notranslate"><span class="pre">area1lan3</span></code> and <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code>. The additional LANs
 consist of an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</p>
 <p>The default SSID settings of all wireless nodes is <code class="docutils literal notranslate"><span class="pre">&quot;SSID&quot;</span></code>. By
@@ -536,8 +538,8 @@ omnetpp.ini is the following:</p>
 <span class="na">*.area1AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area1&quot;</span>
 <span class="na">*.area3AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area3&quot;</span>
 
-<span class="na">*.area1lan3*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area1&quot;</span>
-<span class="na">*.area3lan3*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area3&quot;</span>
+<span class="na">*.area1lan3*.wlan[*].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;area1&quot;</span>
+<span class="na">*.area3lan3*.wlan[*].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;area3&quot;</span>
 </pre></div>
 </div>
 <p>The XML configuration in step8b.xml (displayed below) is the same as the
@@ -565,7 +567,7 @@ different SSIDs are configured for the members of the two wireless LANs.</p>
 <h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The results are the same as in the previous part. The two wireless LANs
 are considered to be different wireless networks.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a></p>
 </div>
 </div>

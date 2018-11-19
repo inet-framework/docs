@@ -122,6 +122,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -273,6 +274,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -382,7 +384,7 @@ configurator, and they get addresses with DHCP.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>This step uses the <span>ConfiguratorC</span> network, defined in
+<p>This step uses the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a> network, defined in
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/step8network.png"><img alt="../../../_images/step8network.png" src="../../../_images/step8network.png" style="width: 100%;" /></a>
@@ -399,8 +401,8 @@ configurator, and they get addresses with DHCP.</p>
 <span class="na">*.area1AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area1lan3&quot;</span>
 <span class="na">*.area3AP.wlan[*].mgmt.ssid</span> <span class="o">=</span> <span class="s">&quot;area3lan3&quot;</span>
 
-<span class="na">*.area1lan3host*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area1lan3&quot;</span>
-<span class="na">*.area3lan3host*.wlan[*].agent.default_ssid</span> <span class="o">=</span> <span class="s">&quot;area3lan3&quot;</span>
+<span class="na">*.area1lan3host*.wlan[*].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;area1lan3&quot;</span>
+<span class="na">*.area3lan3host*.wlan[*].agent.defaultSsid</span> <span class="o">=</span> <span class="s">&quot;area3lan3&quot;</span>
 
 <span class="c1"># DHCP server in routers</span>
 <span class="na">*.area1router.hasDhcp</span> <span class="o">=</span> <span class="s">true</span>
@@ -558,7 +560,7 @@ a default route for reaching area 2 and area 3.</li>
 destination of route visualization) has an unspecified IP address. When
 it gets an address from the DHCP server, the routes leading towards
 <code class="docutils literal notranslate"><span class="pre">area3lan3host2</span></code> appear.</p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/ConfiguratorC.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

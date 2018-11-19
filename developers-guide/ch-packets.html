@@ -121,6 +121,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -272,6 +273,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
 </ul>
 </li>
 </ul>
@@ -385,42 +387,30 @@ example, some <code class="docutils literal notranslate"><span class="pre">const
 setting fields have been omitted, and some algorithms have been simplified to
 ease understanding.</p>
 </div>
-<p>The representation of packets is an essential modeling support for
+<p>The representation of packets is essential for
 communication network simulation. Applications and communication
 protocols construct, deconstruct, encapsulate, fragment, aggregate, and
 manipulate packets in many ways. In order to ease the implementation of
-said behavioral patterns, the Packet API primarily provides a
-feature-rich and general purpose <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure.</p>
+these behavioral patterns, INET provides a feature-rich general data structure,
+the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> class.</p>
 <p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure is capable of representing application
 packets, <span class="protocol">TCP</span> segments, <span class="protocol">IP</span> datagrams,
 <span class="protocol">Ethernet</span> frames, <span class="protocol">IEEE 802.11</span> frames, and all
 kinds of digital data. It is designed to provide efficient storage,
 duplication, sharing, encapsulation, aggregation, fragmentation,
-serialization, and data representation selection. The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data
-structure consists of two layers, built on one another. The upper layer
-deals with packets, and the lower layer deals with alternative data
-representations.</p>
-<p>The Packet API, despite its name, does not only provide the
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure but several other functionality. For
-example, communication protocols often need to enqueue data for sending
-(e.g., <span class="protocol">TCP</span>), or buffer received data for reassembly (e.g.,
-<span class="protocol">IP</span>) or for reordering (e.g., <span class="protocol">IEEE 802.11</span>). These
-services are provided as separate C++ data structures on top of the
-lower layer mentioned above.</p>
+serialization, and data representation selection. Additional functionality,
+such as support for enqueueing data for transmisson and buffering received
+data for reassembly and/or for reordering, is provided as separate C++
+data structures on top of <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code>.</p>
 </div>
 <div class="section" id="representing-data">
 <span id="dg-sec-packets-representing-data"></span><h2>Representing Data<a class="headerlink" href="#representing-data" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure is a compound data structure that
-builds on top of another set of data structures called chunks. The
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">Chunk</span></code> data structures provide several alternatives to represent a
-piece of data. Chunks can be simple or compound if they are built using
-other chunks.</p>
-<p>Communication protocols and applications may define their own chunks or
-use already existing ones. User defined chunks are most often genereted
-by the OMNeT++ MSG compiler as a subclass of <code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>. It’s
-also possible to write a user defined chunk from scratch.</p>
-<p>INET provides the following built-in chunks:</p>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> data structure builds on top of another set of data
+structures called chunks. Chunks provide several alternatives to represent
+a piece of data.</p>
+<p>INET provides the following built-in chunk C++ classes:</p>
 <ul class="simple">
+<li><code class="code literal-cpp docutils literal notranslate"><span class="pre">Chunk</span></code>, the base class for all chunk classes</li>
 <li>repeated byte or bit chunk (<code class="code literal-cpp docutils literal notranslate"><span class="pre">ByteCountChunk</span></code>,
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">BitCountChunk</span></code>)</li>
 <li>raw bytes or bits chunk (<code class="code literal-cpp docutils literal notranslate"><span class="pre">BytesChunk</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">BitsChunk</span></code>)</li>
@@ -430,9 +420,14 @@ also possible to write a user defined chunk from scratch.</p>
 <li>many protocol specific field based chunks (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Header</span></code>
 subclass of <code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>)</li>
 </ul>
-<p>Applications and communication protocols most often construct simple
-chunks to represent application data and protocol headers. The following
-examples demonstrate the construction of various simple chunks.</p>
+<p>In addition, communication protocols and applications often define
+their own chunk types. User-defined chunks are normally defined in
+<code class="docutils literal notranslate"><span class="pre">msg</span></code> files as a subclass of <code class="code literal-cpp docutils literal notranslate"><span class="pre">FieldsChunk</span></code>, which the
+OMNeT++ MSG compiler turns into C++ code.
+It is also possible to write a user defined chunk from scratch.</p>
+<p>Chunks usually represent application data and protocol headers.
+The following examples demonstrate the construction of various
+chunks.</p>
 <div class="highlight-cpp notranslate" id="chunk-construction-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">bitCountData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BitCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 3 zero bits</span>
 <span class="k">auto</span> <span class="n">byteCountData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">ByteCountChunk</span><span class="o">&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="sc">&#39;?&#39;</span><span class="p">);</span> <span class="c1">// 10 &#39;?&#39; bytes</span>
 <span class="k">auto</span> <span class="n">rawBitsData</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">BitsChunk</span><span class="o">&gt;</span><span class="p">();</span>
@@ -443,13 +438,12 @@ examples demonstrate the construction of various simple chunks.</p>
 <span class="n">fieldBasedHeader</span><span class="o">-&gt;</span><span class="n">setSrcPort</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// set some fields</span>
 </pre></div>
 </div>
-<p>In general, chunks must be constructed with a call to <code class="code literal-cpp docutils literal notranslate"><span class="pre">makeShared</span></code>
-instead of the standard C++ <code class="code literal-cpp docutils literal notranslate"><span class="pre">new</span></code> operator. The special
-construction mechanism is required for the efficient sharing of chunks
-among packets using C++ shared pointers.</p>
-<p>Packets most often contain several chunks inserted by different
-protocols as they are passed through the protocol layers. The most
-common way to represent packet contents, is forming a compound chunk by
+<p>In general, chunks must be constructed with a call to the <code class="code literal-cpp docutils literal notranslate"><span class="pre">makeShared</span></code>
+function instead of the standard C++ <code class="code literal-cpp docutils literal notranslate"><span class="pre">new</span></code> operator, because chunks
+are shared among packets using C++ shared pointers.</p>
+<p>Packets most often contain several chunks, inserted by different
+protocols, as they are passed through the protocol layers. The most
+common way to represent packet contents is to form a compound chunk by
 concatenation.</p>
 <div class="highlight-cpp notranslate" id="chunk-concatenation-example"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">sequence</span> <span class="o">=</span> <span class="n">makeShared</span><span class="o">&lt;</span><span class="n">SequenceChunk</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// create empty sequence</span>
 <span class="n">sequence</span><span class="o">-&gt;</span><span class="n">insertAtBack</span><span class="p">(</span><span class="n">makeShared</span><span class="o">&lt;</span><span class="n">UdpHeader</span><span class="o">&gt;</span><span class="p">());</span> <span class="c1">// append UDP header</span>
@@ -524,11 +518,13 @@ processing.</p>
 </pre></div>
 </div>
 <p>In order to facilitate packet processing by communication protocols at
-the receiver node, packets are split into three parts: front popped
+the receiver node, <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> maintains two offsets into the packet data
+that divide the data into three regions: front popped
 part, data part, and back popped part. During packet processing, as the
 packet is passed through the protocol layers, headers and trailers are
-popped from the beginning and from the end. This effectively reduces the
-remaining unprocessed part called the data part, but it doesn’t affect
+popped from the beginning and from the end of the packet, moving the
+corresponding offsets. This effectively reduces the remaining
+unprocessed part called the data part, but it doesn’t affect
 the data stored in the packet.</p>
 <div class="highlight-cpp notranslate" id="packet-processing-example"><div class="highlight"><pre><span></span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtFront</span><span class="o">&lt;</span><span class="n">MacHeader</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop specific header from packet</span>
 <span class="n">packet</span><span class="o">-&gt;</span><span class="n">popAtBack</span><span class="o">&lt;</span><span class="n">MacTrailer</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">// pop specific trailer from packet</span>
