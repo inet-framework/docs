@@ -404,8 +404,8 @@ control structure to the LLC by the network layer.</p>
 <p>EtherFrameWithLLC</p>
 <p>SAP registration</p>
 <div class="section" id="etherllc-and-higher-layers">
-<h3><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> and higher layers<a class="headerlink" href="#etherllc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> module can serve several applications (higher layer
+<h3><span>EtherLlc</span> and higher layers<a class="headerlink" href="#etherllc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
+<p>The <span>EtherLlc</span> module can serve several applications (higher layer
 protocols), and dispatch data to them. Higher layers are identified by
 DSAP. See section “Application registration” for more info.</p>
 <p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherEncap.html">EtherEncap</a> doesn’t have the functionality to dispatch to
@@ -414,12 +414,12 @@ IP.</p>
 </div>
 <div class="section" id="communication-between-llc-and-higher-layers">
 <h3>Communication between LLC and Higher Layers<a class="headerlink" href="#communication-between-llc-and-higher-layers" title="Permalink to this headline">¶</a></h3>
-<p>Higher layers (applications or protocols) talk to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>
+<p>Higher layers (applications or protocols) talk to the <span>EtherLlc</span>
 module.</p>
 <p>When a higher layer wants to send a packet via Ethernet, it just passes
-the data packet (a cMessage or any subclass) to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>. The
+the data packet (a cMessage or any subclass) to <span>EtherLlc</span>. The
 message kind has to be set to IEEE802CTRL_DATA.</p>
-<p>In general, if <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> receives a packet from the higher layers,
+<p>In general, if <span>EtherLlc</span> receives a packet from the higher layers,
 it interprets the message kind as a command. The commands include
 IEEE802CTRL_DATA (send a frame), IEEE802CTRL_REGISTER_DSAP (register
 highher layer) IEEE802CTRL_DEREGISTER_DSAP (deregister higher layer) and
@@ -433,7 +433,7 @@ identifier, the application sets the data packet’s message kind to
 ETH_DATA (“please send this data packet” command), fills in the
 <span>Ieee802Ctrl</span> structure with the destination MAC address and the
 protocol identifier, adds the control info to the message, then sends
-the packet to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>.</p>
+the packet to <span>EtherLlc</span>.</p>
 <p>When the command doesn’t involve a data packet (e.g.
 IEEE802CTRL_(DE)REGISTER_DSAP, IEEE802CTRL_SENDPAUSE), a dummy packet
 (empty cMessage) is used.</p>
@@ -463,11 +463,11 @@ as opposed to “interface” packets.</p>
 protocols.</p>
 <p>So that data arriving from the network can be dispatched to the correct
 applications (higher layer protocols), applications have to register
-themselves in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>. The registration is done with the
+themselves in <span>EtherLlc</span>. The registration is done with the
 IEEE802CTRL_REGISTER_DSAP command (see section “Communication between
 LLC and higher layers”) which associates a SAP with the LLC port.
 Different applications have to connect to different ports of
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a>.</p>
+<span>EtherLlc</span>.</p>
 <p>The ETHERCTRL_REGISTER_DSAP/IEEE802CTRL_DEREGISTER_DSAP commands use
 only the dsap field in the <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee802Ctrl</span></code> structure.</p>
 </div>
@@ -571,7 +571,7 @@ resume immediately.</p>
 by itself. (For one thing, it doesn’t have an input buffer that can
 overflow.)</p>
 <p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherMac.html">EtherMac</a>, however, transmits PAUSE frames received by higher
-layers, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ethernet.EtherLlc.html">EtherLlc</a> can be instructed by a command to send a
+layers, and <span>EtherLlc</span> can be instructed by a command to send a
 PAUSE frame to MAC.</p>
 </div>
 <div class="section" id="error-handling">
@@ -600,7 +600,7 @@ Erronous packets are dropped by the MAC.</p>
 <li><a class="reference internal" href="#receiving-ethernet-frames">Receiving Ethernet Frames</a></li>
 <li><a class="reference internal" href="#frames">Frames</a></li>
 <li><a class="reference internal" href="#etherllc">EtherLlc</a><ul>
-<li><a class="reference internal" href="#etherllc-and-higher-layers">EtherLlc and higher layers</a></li>
+<li><a class="reference internal" href="#etherllc-and-higher-layers"><span>EtherLlc</span> and higher layers</a></li>
 <li><a class="reference internal" href="#communication-between-llc-and-higher-layers">Communication between LLC and Higher Layers</a></li>
 <li><a class="reference internal" href="#rationale">Rationale</a></li>
 <li><a class="reference internal" href="#etherllc-sap-registration">EtherLLC: SAP Registration</a></li>
