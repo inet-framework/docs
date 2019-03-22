@@ -117,6 +117,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
@@ -146,7 +147,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configurator/doc/index.html">IPv4 Network Configurator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
@@ -269,6 +270,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
@@ -298,7 +300,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configurator/doc/index.html">IPv4 Network Configurator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
@@ -492,7 +494,7 @@ than more realistic ones, due to the low computational cost.</p>
 is part of wireless NIC modules. There are various radio modules, and
 one must always use one that is compatible with the medium module. In
 this step, hosts contain <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> as part of
-<code class="docutils literal notranslate"><span class="pre">AckingWirelessNic</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">AckingWirelessInterface</span></code>.</p>
 <p>In this model, we configure the chosen physical layer model
 (<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>) as follows. The
 communication range is set to 500m. Modeling packet losses due to
@@ -505,7 +507,7 @@ parameters of the appropriate modules.</p>
 <div class="section" id="mac-layer">
 <h3>MAC layer<a class="headerlink" href="#mac-layer" title="Permalink to this headline">¶</a></h3>
 <p>NICs modules also contain an L2 (i.e. data link layer) protocol. The MAC
-protocol in <code class="docutils literal notranslate"><span class="pre">AckingWirelessNic</span></code> is configurable, the default choice
+protocol in <code class="docutils literal notranslate"><span class="pre">AckingWirelessInterface</span></code> is configurable, the default choice
 being <code class="docutils literal notranslate"><span class="pre">MultipleAccessMac</span></code>. <code class="docutils literal notranslate"><span class="pre">MultipleAccessMac</span></code> implements a trivial
 MAC layer which only provides encapsulation/decapsulation but no real
 medium access protocol. There is virtually no medium access control:
@@ -563,7 +565,7 @@ OMNeT++’s default “message sending” animation.</p>
 that around 2000 packets were sent. A packet with overhead is 1028
 bytes, which means the transmission rate was around 660 kbps.</p>
 <p><strong>Number of packets received by host B: 2017</strong></p>
-<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp10.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<p>Sources: <a class="reference download internal" href="../../../_downloads/omnetpp11.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" href="../../../_downloads/WirelessA.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">WirelessA.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

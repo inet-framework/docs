@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="IEEE 802.11 Throughput" href="../../throughput/doc/index.html" />
+    <link rel="next" title="IEEE 802.15.4 Smart Home" href="../../ieee802154/doc/index.html" />
     <link rel="prev" title="Path Loss Models" href="../../pathloss/doc/index.html" /> 
   </head>
 <body>
@@ -117,6 +117,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
@@ -146,7 +147,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
@@ -269,6 +270,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
@@ -298,7 +300,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Confgurator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
@@ -383,8 +385,10 @@ implementations, alongside IEEE 802.15.4 models. This showcase consists
 of two parts. In Part 1, we demonstrate three wireless sensor network
 MAC protocols with three example simulations of a wireless sensor
 network. In Part 2, we compare the three protocols using statistics.</p>
-<p>INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></p>
-<p>Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/sensornetwork">inet/showcases/wireless/sensornetwork</a></p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/sensornetwork">inet/showcases/wireless/sensornetwork</a></div>
+</div>
 </div>
 <div class="section" id="part-1-demonstrating-the-mac-protocols">
 <h2>Part 1: Demonstrating the MAC protocols<a class="headerlink" href="#part-1-demonstrating-the-mac-protocols" title="Permalink to this headline">¶</a></h2>
@@ -493,14 +497,14 @@ server over IP. Thus the node would act as a gateway between the WSN and
 the outside IP network. In the example simulations, the gateway just
 forwards the data packets over IP.</p>
 <p>To run the example simulations, choose the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> and
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configurations from <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
 Most of the configuration keys in the ini file are shared between the
 three simulations (they are defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration),
 except for the MAC protocol specific settings. All three simulations
 will use the same network, <span>SensorNetworkShowcaseA</span>, defined in
 <a class="reference download internal" href="../../../../_downloads/SensorNetworkShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">SensorNetworkShowcase.ned</span></code></a>:</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../../../_images/network5.png"><img alt="../../../../_images/network5.png" src="../../../../_images/network5.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/network6.png"><img alt="../../../../_images/network6.png" src="../../../../_images/network6.png" style="width: 100%;" /></a>
 </div>
 <p>In the network, the wireless sensor nodes are of the type
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>, named <code class="docutils literal notranslate"><span class="pre">sensor1</span></code> up to <code class="docutils literal notranslate"><span class="pre">sensor4</span></code>, and <code class="docutils literal notranslate"><span class="pre">gateway</span></code>.
@@ -512,7 +516,7 @@ meters. The warehouse is just a background image providing context.
 Obstacle loss is not modelled, so the background image doesn’t affect
 the simulation in any way.</p>
 <p>The wireless interface in the sensor nodes and the gateway is specified
-in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
+in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.common.WirelessInterface.html">WirelessInterface</a> (instead of the Ieee802154 specific
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a>, which is the default wlan interface
 in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>). The radio type is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>:</p>
@@ -528,7 +532,7 @@ simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
 spreading. We set the bitrate in
-<a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to 19200 bps, to match the
 default for the MAC bitrates (we’ll use the default bitrate in the MACs,
 which is 19200 bps for all three MAC types.) The <code class="code literal-ini docutils literal notranslate"><span class="pre">preambleDuration</span></code> is
 set to be very short for better compatibility with the MACs. We also set
@@ -553,14 +557,14 @@ default settings), and then modifying it. The modified configuration is
 in the <a class="reference download internal" href="../../../../_downloads/config.xml" download=""><code class="xref download docutils literal notranslate"><span class="pre">config.xml</span></code></a> file. The following
 image shows the routes:</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../../../_images/routes1.png"><img alt="../../../../_images/routes1.png" src="../../../../_images/routes1.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/routes2.png"><img alt="../../../../_images/routes2.png" src="../../../../_images/routes2.png" style="width: 100%;" /></a>
 </div>
 <p>Each sensor node will send an UDP packet with a 10-byte payload
 (“temperature data”) every second to the server, with a random start
 time around 1s. The packets will have an 8-byte UDP header and a 20-byte
 Ipv4 header, so they will be 38 bytes at the MAC level. The packets will
 be routed via the gateway. Here are the application settings in
-<a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.sensor*.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.sensor*.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
 <span class="na">*.sensor*.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;server&quot;</span>
@@ -580,7 +584,7 @@ individual MACs.</p>
 <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>. Also, the <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter is set to 0.025s (an
 arbitrary value.) This parameter is essentially the nodes’ sleep
 duration. Here is the configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config BMac]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
@@ -598,7 +602,7 @@ intervals for different nodes, as long as the sender node’s sleep
 interval is greater than the receiver’s. (?). We set the slot duration
 of the gateway to a shorter value, because it has to receive and relay
 data from all sensors, thus it has more traffic. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config XMac]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
@@ -617,7 +621,7 @@ setup. The parameter’s default value is 2, but it is set to 0. The
 50ms to decrease the network setup time. The duration of a timeframe
 will be 400ms (number of slots * slot duration.) The network is set up
 in the first five frames, i.e. in the first 2 seconds. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config LMac]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseA</span>
 
@@ -705,7 +709,7 @@ studies for the individual MACs are detailed in the following sections.</p>
 <h3>Optimizing B-MAC<a class="headerlink" href="#optimizing-b-mac" title="Permalink to this headline">¶</a></h3>
 <p>The goal is to optimize <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>’s <code class="code literal-ini docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number
 of packets received by the server. The configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticBMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticBMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
@@ -732,7 +736,7 @@ smooth curve. We choose 0.19s as the best performing value for
 <p>Again, we optimize the <code class="code literal-ini docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number of packets
 received by the server. As in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configuration, the
 <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> for the gateway will be shorter than for the sensors. The
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
 <code class="docutils literal notranslate"><span class="pre">StatisticXMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticXMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
@@ -756,7 +760,7 @@ is 0.14s (0.35s for the sensors), so we choose that.</p>
 <h3>Optimizing LMAC<a class="headerlink" href="#optimizing-lmac" title="Permalink to this headline">¶</a></h3>
 <p>We’ll optimize the <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter for the number of packets
 received by the server. The configuration for this study in
-<a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
 contains 1000 runs. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticLMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
@@ -909,11 +913,11 @@ the GitHub issue tracker for commenting on this showcase.</p>
             <div>Path Loss Models</div>
          </div>
      </a>
-     <a id="button-next" href="../../throughput/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../ieee802154/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>IEEE 802.11 Throughput</div>
+            <div>IEEE 802.15.4 Smart Home</div>
         </div>
      </a>
   </div>

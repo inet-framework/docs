@@ -14,7 +14,7 @@ that display various gauges and meters.
 This showcase contains a configuration that demonstrates multiple instrument
 figures.
 
-| INET version: ``4.1```
+| INET version: ``4.1``
 | Source files location: `inet/showcases/visualizer/instrumentfigures <https://github.com/inet-framework/inet-showcases/tree/master/visualizer/instrumentfigures>`__
 
 About Instrument Figures
@@ -26,11 +26,13 @@ Some of the instrument figure types available in INET are the following:
 
 .. figure:: gauge.png
    :align: center
+   :width: 150
 
 - *linearGauge:* A horizontal linear gauge similar to a VU meter.
 
 .. figure:: linear.png
    :align: center
+   :width: 300
 
 - *progressMeter:* A horizontal progress bar.
 
@@ -46,6 +48,7 @@ Some of the instrument figure types available in INET are the following:
 
 .. figure:: thermometer.png
    :align: center
+   :width: 100
 
 - *indexedImage:* A figure that displays one of several images: the first image for the value 0, the second image for the value of 1, and so on.
 
@@ -67,12 +70,13 @@ instrument figures. It uses the following network:
 
 .. figure:: network3.png
    :width: 80%
+   :align: center
 
-The network contains two :ned:`AdhocHost` nodes, a client and a server. 
+The network contains two :ned:`AdhocHost` nodes, a client and a server.
 (The visualizer is only needed to display the server's communication range.)
 The scenario is that client connects to the server via WiFi, and downloads a 1-megabyte file.
 The client is configured to first move away from the server, eventually
-moving out of its transmission range, then to move back. 
+moving out of its transmission range, then to move back.
 Both hosts are configured to use WiFi adaptive rate control (:ned:`AarfRateControl`),
 so the WiFi transmission bit rate will adapt to the changing channel
 conditions, resulting in a varying application level throughput.
@@ -87,7 +91,7 @@ We would like the following statistics to be displayed using instrument figures:
 -  Wifi bit rate determined by automatic rate control should be displayed by a
    ``linearGauge`` figure and a ``plot`` figure;
 -  Packet error rate at the client, estimated at the physical layer from signal-to-noise
-   ratio, should be displayed by a ``thermometer`` figure and 
+   ratio, should be displayed by a ``thermometer`` figure and
    a ``plot`` figure;
 -  The Wifi MAC channel access contention state of the server should be
    displayed by an ``indexedImage`` figure. IDLE means nothing to send,
@@ -107,15 +111,15 @@ module:
 
 How does that work? Take the first one, ``throughputGauge``, for example.
 Instrument figures visualize statistics derived from OMNeT++ signals,
-emitted by modules in the network. The ``source`` attribute of 
-``@statistic[throughput]`` declares that the ``client.app[0]`` module's 
+emitted by modules in the network. The ``source`` attribute of
+``@statistic[throughput]`` declares that the ``client.app[0]`` module's
 ``packetReceived`` signal should be taken (it emits the packet object),
 and the ``throughput()`` result filter should be applied and divided by
 1000000 to get the throughput in Mbps.
 Further two attributes, ``record`` and ``targetFigure`` specify that the
 resulting values should be sent to the ``throughputGauge`` instrument
 figure. The next, ``@figure[throughputGauge]`` line defines the figure
-in question. It sets the figure type to ``gauge``, and specifies various 
+in question. It sets the figure type to ``gauge``, and specifies various
 attributes such as position, size, minimum and maximum value, and so on.
 
 Further details:
@@ -165,7 +169,8 @@ Running the Simulation
 This video illustrates what happens when the simulation is run:
 
 .. video:: instruments.mp4
-   :width: 912
+   :width: 100%
+   :align: center
 
 The client starts moving away from the server. At the beginning, the
 server transmits with 54 Mbps bit rate. The transmissions are received
@@ -174,7 +179,7 @@ away, signal to noise ratio drops and packet error rate goes up. As
 packet loss increases, the rate control in the server lowers the bit
 rate, because lower bit rates are more tolerant to noise. When the
 client gets to the edge of the communication range, the bit rate is only
-24 Mbps. When it leaves the communicaton range, successful reception is
+24 Mbps. When it leaves the communication range, successful reception is
 impossible, so the rate quickly reaches its lowest. After the client
 turns around and re-enters communication range, the rate starts to rise,
 eventually reaching 54Mbps again.
@@ -204,4 +209,3 @@ Discussion
 
 Use `this page <https://github.com/inet-framework/inet-showcases/issues/29>`__ in
 the GitHub issue tracker for commenting on this showcase.
-
