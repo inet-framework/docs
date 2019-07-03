@@ -12,7 +12,7 @@ battery lasts until it can be recharged or replaced.
 
 In this step, we augment the nodes with components so that we can model
 (and measure) their energy consumption. For simplicity, we ignore energy
-constraints, and just install infinite energy sources into the nodes.
+constraints and just install infinite energy sources into the nodes.
 
 The model
 ---------
@@ -26,7 +26,7 @@ energy consumption is represented by a separate component. This energy
 consumption model maps the activity of the core parts of the radio (the
 transmitter and the receiver) to power (energy) consumption. The core
 parts of the radio themselves do not contain anything about power
-consumption, they only expose their state variables. This allows one to
+consumption; they only expose their state variables. This allows one to
 switch to arbitrarily complex (or simple) power consumption models,
 without affecting the operation of the radio. The energy consumption
 model can be specified in the ``energyConsumerType`` parameter of the
@@ -42,7 +42,7 @@ in a particular state.
 To go into a little bit more detail: the radio maintains two state
 variables, *receive state* and *transmit state*. At any given time, the
 radio mode (one of *off*, *sleep*, *switching*, *receiver*,
-*transmitter* and *transciever*) decides which of the two state
+*transmitter*, and *transceiver*) decides which of the two state
 variables are valid. The receive state may be *idle*, *busy*, or
 *receiving*, the former two referring to the channel state. When it is
 *receiving*, a sub-state stores which part of the signal it is
@@ -54,7 +54,7 @@ being transmitted (if any).
 :ned:`StateBasedEpEnergyConsumer` expects the consumption in various states
 to be specified in watts in parameters like ``sleepPowerConsumption``,
 ``receiverBusyPowerConsumption``,
-``transmitterTransmittingPreamblePowerConsumption`` and so on.
+``transmitterTransmittingPreamblePowerConsumption``, and so on.
 
 Measuring energy consumption
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,13 +97,13 @@ The image below shows host A's ``energyBalance`` variable at the end of
 the simulation. The negative energy value signifies the consumption of
 energy.
 
-.. figure:: wireless-step8-energy-2.png
+.. figure:: media/wireless-step8-energy-2.png
 
-The ``residualCapacity`` statistic of hosts A, R1 and B is plotted in
+The ``residualCapacity`` statistic of hosts A, R1 and B are plotted on the
 following diagram. The diagram shows that host A has consumed the most
 power because it transmitted more than the other nodes.
 
-.. figure:: wireless-step8.png
+.. figure:: media/wireless-step8.png
 
 **Number of packets received by host B: 1393**
 

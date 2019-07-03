@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>IEEE 802.11 Block Acknowledgment &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Tutorials" href="../../../../tutorials/index.html" />
+    <link rel="prev" title="IEEE 802.11 Quality of Service" href="../../qos/doc/index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Wireless</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">IEEE 802.11 Block Acknowledgment</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/wireless/blockack/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Block Acknowledgment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Block Acknowledgment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="ieee-802-11-block-acknowledgment">
+<h1>IEEE 802.11 Block Acknowledgment<a class="headerlink" href="#ieee-802-11-block-acknowledgment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>Block Acknowledgment is an 802.11 MAC feature that increases throughput by decreasing
+protocol overhead. Instead of individually acknowledging each received packet, a single block
+acknowledgment frame can acknowledge multiple packets. This reduces the number of ack frames
+and corresponding interframe spaces, thereby increasing throughput.</p>
+<p>This showcase demonstrates the block acknowledgment feature in INET’s 802.11 model.</p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.1</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/blockack">inet/showcases/wireless/blockack</a></div>
+</div>
+</div>
+<div class="section" id="about-block-acknowledgment">
+<h2>About Block Acknowledgment<a class="headerlink" href="#about-block-acknowledgment" title="Permalink to this headline">¶</a></h2>
+<p>In 802.11, block acknowledgment frames (block acks or BAs) are used within block ack sessions.
+To establish a block ack session, one of the participants, the originator, sends an
+<cite>ADDBA request</cite> frame. The other participant, the recipient, replies with an <cite>ADDBA
+response</cite> frame. This exchange establishes the block ack session. The frames contain
+information about the capabilities of each participant, such as buffer size,
+or whether aggregation is supported. Each ADDBA frame is acked. The block ack session
+is for one direction only, i.e. a separate block ack session must be established for
+the reverse direction. Block ack sessions are terminated by the originator sending
+a <cite>DELBA</cite> frame.</p>
+<p>The originator sends multiple data frames, then sends a <cite>block ack request</cite> frame.
+The recipient replies with a <cite>block ack</cite> frame, acknowledging the correctly received
+frames from the previous block. The block ack request frame and block ack frame are
+acked if <em>delayed block ack</em> is used, and not acked if <em>immediate block ack</em> is used.
+The frames or fragments of frames from the previous block which are not acked are
+retransmitted in the next block by the originator.</p>
+<p>There are several kinds of block acks, such as <cite>normal</cite>, <cite>compressed</cite>, and <cite>multi-tid</cite>.
+INET currently only supports <cite>normal block ack</cite>. Normal block acks contain a bitmap,
+which contains up to 64 entries, each entry being a 16-bit array. The bitmap can acknowledge
+up to 64 MSDUs. Each MSDU can be fragmented to at most 16 fragments. The 16 bits in a bitmap
+entry are used to acknowledge the individual fragments of the MSDU.</p>
+</div>
+<div class="section" id="block-acknowledgment-in-inet">
+<h2>Block Acknowledgment in INET<a class="headerlink" href="#block-acknowledgment-in-inet" title="Permalink to this headline">¶</a></h2>
+<p>In INET, the block ack mechanism can be enabled by setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">isBlockAckSupported</span></code>
+parameter of the MAC’s <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Hcf.html">Hcf</a> submodule to <code class="docutils literal notranslate"><span class="pre">true</span></code> (it is disabled by default).</p>
+<p>Several submodules of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Hcf.html">Hcf</a> are involved in the block ack mechanism.
+These modules have parameters controlling the block ack behavior. The following paragraphs
+list some of the main parameters.</p>
+<p>The details of the block ack agreement, which is negotiated at the beginning of
+the block ack session, are specified by <cite>block ack agreement policy</cite> modules.
+There are two module types, one for the originator and one for the recipient direction.
+They have the same set of parameters. The parameters of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.blockack.OriginatorBlockAckAgreementPolicy.html">OriginatorBlockAckAgreementPolicy</a>
+(at <code class="docutils literal notranslate"><span class="pre">mac.hcf.originatorBlockAckAgreementPolicy</span></code>) and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.blockack.RecipientBlockAckAgreementPolicy.html">RecipientBlockAckAgreementPolicy</a>
+(at <code class="docutils literal notranslate"><span class="pre">mac.hcf.recipientBlockAckAgreementPolicy</span></code>) are the following:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">aMsduSupported</span></code>: If <code class="docutils literal notranslate"><span class="pre">true</span></code>, aMSDUs are block acked; otherwise they are normal acked (default).</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">maximumAllowedBufferSize</span></code>: Sets the buffer size, i.e. how many MSDUs can be acked with a block ack, 64 by default.</li>
+</ul>
+<p><cite>Ack policy modules</cite> control how packets are acked. There are two module types,
+one for each direction (originator and recipient), but settings are configured in
+the originator module. Parameters of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.OriginatorQosAckPolicy.html">OriginatorQosAckPolicy</a> (at <code class="docutils literal notranslate"><span class="pre">mac.hcf.originatorAckPolicy</span></code>) are the following:</p>
+<ul class="simple">
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">blockAckReqThreshold</span></code>: The originator sends a block ack request after sending this many packets</li>
+<li><code class="code literal-ini docutils literal notranslate"><span class="pre">maxBlockAckPolicyFrameLength</span></code>: Only packets below this length are block acked (others are normal acked)</li>
+</ul>
+<p>Currently, only immediate block ack is implemented. Also, block ack sessions cannot be enabled
+in one direction and disabled in the other.</p>
+</div>
+<div class="section" id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-model">
+<h3>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h3>
+<p>The example simulation uses a network that contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> modules,
+an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> and
+an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module. During simulation, <code class="docutils literal notranslate"><span class="pre">host1</span></code> will send
+UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/network.png"><img alt="../../../../_images/network.png" src="../../../../_images/network.png" style="width: 70%;" /></a>
+</div>
+<p>We’ll use three configurations to demonstrate various aspects of the block ack mechanism.
+The configurations in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> are the following:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">NoFragmentation</span></code>: Packets are sent without fragmentation or aggregation. Block ack requests are sent after five packets (default).</li>
+<li><code class="docutils literal notranslate"><span class="pre">Fragmentation</span></code>: Packets are fragmented to 16 pieces, block ack requests are sent after 16 fragments.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MixedTraffic</span></code>: Two traffic sources in <code class="docutils literal notranslate"><span class="pre">host1</span></code> generate packets below and above the <code class="code literal-ini docutils literal notranslate"><span class="pre">maxBlockAckPolicyFrameLength</span></code> threshold. Packets with size below the threshold are block acked; those above aren’t.</li>
+</ul>
+<p>Parameter settings common to the three configurations are defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration
+in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The rest of this section explains the most important
+settings.</p>
+<p><code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to send 700B UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code> with about 10Mbps:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.host1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;host2&quot;</span>
+<span class="na">*.host1.app[0].destPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">*.host1.app[0].messageLength</span> <span class="o">=</span> <span class="s">700B</span>
+<span class="na">*.host1.app[0].sendInterval</span> <span class="o">=</span> <span class="s">0.1ms		</span><span class="c1"># 10 Mbps</span>
+<span class="na">*.host1.app[0].packetName</span> <span class="o">=</span> <span class="s">&quot;Data&quot;</span>
+
+<span class="na">*.host2.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host2.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.host2.app[0].localPort</span> <span class="o">=</span> <span class="s">1000</span>
+</pre></div>
+</div>
+<p>802.11 QoS is enabled in both hosts, and a classifier is included:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host*.wlan[*].mac.qosStation</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.host*.wlan[*].classifier.typename</span> <span class="o">=</span> <span class="s">&quot;QosClassifier&quot;</span>
+</pre></div>
+</div>
+<p>Block ack support is enabled in both hosts:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host*.wlan[*].mac.hcf.isBlockAckSupported</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<p>The maximum block ack frame length is left on default, 1000B.</p>
+<p>Fragmentation and aggregation is disabled by raising the thresholds:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.hcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">10000B</span>
+<span class="na">**.hcf.originatorMacDataService.msduAggregationPolicy.aggregationLengthThreshold</span> <span class="o">=</span> <span class="s">10000</span>
+</pre></div>
+</div>
+<p>The transmitter power is lowered to make the communication more noisy, in order to
+get some lost packets:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host*.wlan[*].radio.transmitter.power</span> <span class="o">=</span> <span class="s">0.12mW</span>
+</pre></div>
+</div>
+<p>In the next sections, we’ll look at the three configurations and their results.</p>
+</div>
+<div class="section" id="no-fragmentation">
+<h3>No Fragmentation<a class="headerlink" href="#no-fragmentation" title="Permalink to this headline">¶</a></h3>
+<p>In this simulation, packets are sent unfragmented, and <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends a block ack request
+after sending five frames (the default). The configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> (<code class="docutils literal notranslate"><span class="pre">NoFragmentation</span></code>)
+is empty:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config NoFragmentation]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Packets are not fragmented, block ack after 5 packet transmissions (default)&quot;</span>
+</pre></div>
+</div>
+<p>Here is the starting frame sequence at the beginning of the simulation displayed in
+Qtenv’s packet traffic view:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/startingframesequence.png"><img alt="../../../../_images/startingframesequence.png" src="../../../../_images/startingframesequence.png" style="width: 100%;" /></a>
+</div>
+<p>First, <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends an UDP packet, then an ADDBA request frame. <code class="docutils literal notranslate"><span class="pre">host2</span></code> replies
+with an ADDBA response frame (both frames are acked). This frame exchange establishes
+the block ack session, and <code class="docutils literal notranslate"><span class="pre">host2</span></code> doesn’t normal ack the frames from this point forward
+but waits for a block ack request.</p>
+<p>Here are the ADDBA request and ADDBA response frames displayed in the packet traffic view:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/addba.png"><img alt="../../../../_images/addba.png" src="../../../../_images/addba.png" style="width: 100%;" /></a>
+</div>
+<p>It indicates that aggregate MSDUs (aMSDUs) are supported, and the buffer size in both hosts is 64.</p>
+<p>After sending five UDP packets, <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends a block ack request, <code class="docutils literal notranslate"><span class="pre">host2</span></code> replies
+with a block ack. The block ack frame acks the five previous frames. Here is the block ack
+request frame displayed in Qtenv’s packet inspector:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/blockackreq.png"><img alt="../../../../_images/blockackreq.png" src="../../../../_images/blockackreq.png" style="width: 90%;" /></a>
+</div>
+<p>The block ack request contains the starting sequence number, which indicates the
+first packet to be acked. Here is the block ack response frame:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/blockackresp.png"><img alt="../../../../_images/blockackresp.png" src="../../../../_images/blockackresp.png" style="width: 80%;" /></a>
+</div>
+<p>It contains the starting sequence number as well, and the bitmap which specifies
+which packets were received correctly. Here is the bitmap:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/bitmap.png"><img alt="../../../../_images/bitmap.png" src="../../../../_images/bitmap.png" style="width: 80%;" /></a>
+</div>
+<p>The first five entries are used. It acks the five packets, starting from sequence number 1.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When there is no fragmentation, only the first bit of the 16-bit entry is used to ack the frame. Here, the first three entries are all ones because the MAC already passed those packets to the higher layers, and has no information about the number of fragments, but still it indicates that the packets were successfully received. (This is an implementation detail.)</p>
+</div>
+<p>It is indicated in the block ack when some of the frames in a block were not received correctly.
+The MAC retransmits those in the next block. Here is a retransmission in the packet traffic view:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/retransmission.png"><img alt="../../../../_images/retransmission.png" src="../../../../_images/retransmission.png" style="width: 100%;" /></a>
+</div>
+<p>First, <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends five packets, <code class="docutils literal notranslate"><span class="pre">Data-16</span></code> to <code class="docutils literal notranslate"><span class="pre">Data-20</span></code>. Two of the frames, <code class="docutils literal notranslate"><span class="pre">Data-17</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Data-18</span></code> are not received correctly, indicated in the block ack’s bitmap (starting
+sequence number is 16, corresponding to <code class="docutils literal notranslate"><span class="pre">Data-16</span></code>):</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/retxblockack2.png"><img alt="../../../../_images/retxblockack2.png" src="../../../../_images/retxblockack2.png" style="width: 80%;" /></a>
+</div>
+<p>The next block starts with <code class="docutils literal notranslate"><span class="pre">host1</span></code> retransmitting these two frames, then transmitting
+three new ones.</p>
+</div>
+<div class="section" id="fragmentation">
+<h3>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this headline">¶</a></h3>
+<p>In this simulation, 1080B packets are fragmented to 16 pieces, each 100B. Block ack requests
+are sent after 16 frames. It is defined in the <code class="docutils literal notranslate"><span class="pre">Fragmentation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Fragmentation]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Packets are fragmented to 16 pieces, block ack after 16 packet transmissions&quot;</span>
+
+<span class="na">**.hcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">100B</span>
+<span class="na">*.host1.app[0].messageLength</span> <span class="o">=</span> <span class="s">1080B</span>
+
+<span class="na">*.host*.wlan[*].mac.hcf.originatorAckPolicy.blockAckReqTreshold</span> <span class="o">=</span> <span class="s">16</span>
+</pre></div>
+</div>
+<p>Here is how the simulation starts displayed in the packet traffic view:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/frag_packetview_.png"><img alt="../../../../_images/frag_packetview_.png" src="../../../../_images/frag_packetview_.png" style="width: 100%;" /></a>
+</div>
+<p>After sending a fragment, the block ack session is negotiated. After that, <code class="docutils literal notranslate"><span class="pre">host1</span></code> transmits
+the remaining fragments of <code class="docutils literal notranslate"><span class="pre">Data-0</span></code>, which are normal acked. However, the fragments of the
+next packet, <code class="docutils literal notranslate"><span class="pre">Data-1</span></code>, are block acked:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/frag_blockack_messageview_.png"><img alt="../../../../_images/frag_blockack_messageview_.png" src="../../../../_images/frag_blockack_messageview_.png" style="width: 100%;" /></a>
+</div>
+<p>In the next block, two fragments of <code class="docutils literal notranslate"><span class="pre">Data-1</span></code> are retransmitted, then several fragments of <code class="docutils literal notranslate"><span class="pre">Data-2</span></code>
+are sent:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/frag_retx_messageview.png"><img alt="../../../../_images/frag_retx_messageview.png" src="../../../../_images/frag_retx_messageview.png" style="width: 100%;" /></a>
+</div>
+<p>Here is the block ack bitmap for this block:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/frag_retx_ba.png"><img alt="../../../../_images/frag_retx_ba.png" src="../../../../_images/frag_retx_ba.png" style="width: 90%;" /></a>
+</div>
+<p>The first entry of the bitmap is all ones, indicating that <code class="docutils literal notranslate"><span class="pre">Data-1</span></code> was completely received
+(all fragments), even though only two fragments of it were sent in this block. The second
+entry has three zeros. The first zero indicates a lost fragment of <code class="docutils literal notranslate"><span class="pre">Data-2</span></code>; the last two correspond to fragments that haven’t been sent yet.</p>
+</div>
+<div class="section" id="mixed-traffic">
+<h3>Mixed Traffic<a class="headerlink" href="#mixed-traffic" title="Permalink to this headline">¶</a></h3>
+<p>In this configuration, there are two UDP apps in <code class="docutils literal notranslate"><span class="pre">host1</span></code>, sending 1700B and 700B packets.
+The <code class="code literal-ini docutils literal notranslate"><span class="pre">maxBlockAckPolicyFrameLength</span></code> parameter is set to 1000B (default), so the large
+packets are individually acked, while the smaller ones are block acked. The simulation is
+defined in the <code class="docutils literal notranslate"><span class="pre">MixedTraffic</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config MixedTraffic]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixed traffic of packets shorter and longer than blockAckReqThreshold&quot;</span>
+
+<span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.host1.app[1].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.host1.app[1].destAddresses</span> <span class="o">=</span> <span class="s">&quot;host2&quot;</span>
+<span class="na">*.host1.app[1].destPort</span> <span class="o">=</span> <span class="s">2000</span>
+<span class="na">*.host1.app[1].messageLength</span> <span class="o">=</span> <span class="s">1700B</span>
+<span class="na">*.host1.app[1].sendInterval</span> <span class="o">=</span> <span class="s">0.1ms		</span><span class="c1"># 10 Mbps</span>
+<span class="na">*.host1.app[1].packetName</span> <span class="o">=</span> <span class="s">&quot;Large&quot;</span>
+
+<span class="na">*.host2.numApps</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.host2.app[1].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.host2.app[1].localPort</span> <span class="o">=</span> <span class="s">2000</span>
+</pre></div>
+</div>
+<p>The smaller and larger packets are created at the same rate, so <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends them alternately.
+However, only the smaller ones are considered when sending block ack requests (sent after five
+of the 700B packets). The larger packets are normal acked immediately:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/mixed_messageview.png"><img alt="../../../../_images/mixed_messageview.png" src="../../../../_images/mixed_messageview.png" style="width: 100%;" /></a>
+</div>
+<p>Here, the block starts with <code class="docutils literal notranslate"><span class="pre">Data-6</span></code>. <code class="docutils literal notranslate"><span class="pre">Data-6</span></code> to <code class="docutils literal notranslate"><span class="pre">Data-10</span></code>, and also some large packets, are sent.
+<code class="docutils literal notranslate"><span class="pre">Large-8</span></code> and <code class="docutils literal notranslate"><span class="pre">Large-9</span></code>, for example, are sent twice because they weren’t correctly received
+for the first time (there was no ack). The 802.11 MAC sequence numbers are contiguous between
+all the packets sent by the MAC, so the block ack bitmap contains (the already acked) large
+packets as well:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/mixed_blockack.png"><img alt="../../../../_images/mixed_blockack.png" src="../../../../_images/mixed_blockack.png" style="width: 100%;" /></a>
+</div>
+<p>Also, the block ack is lost, so the not-yet-acked packets in the previous block (<code class="docutils literal notranslate"><span class="pre">Data-6</span></code>
+to <code class="docutils literal notranslate"><span class="pre">Data-10</span></code>) are retransmitted.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Instead of retransmitting the data frames, the originator could send the block ack request again if it didn’t receive a block ack. This is currently a limitation of the implementation.</p>
+</div>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/BlockAckShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">BlockAckShowcase.ned</span></code></a></p>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-showcases/issues/43">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">IEEE 802.11 Block Acknowledgment</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#about-block-acknowledgment">About Block Acknowledgment</a></li>
+<li><a class="reference internal" href="#block-acknowledgment-in-inet">Block Acknowledgment in INET</a></li>
+<li><a class="reference internal" href="#experiments">Experiments</a><ul>
+<li><a class="reference internal" href="#the-model">The Model</a></li>
+<li><a class="reference internal" href="#no-fragmentation">No Fragmentation</a></li>
+<li><a class="reference internal" href="#fragmentation">Fragmentation</a></li>
+<li><a class="reference internal" href="#mixed-traffic">Mixed Traffic</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../../qos/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>IEEE 802.11 Quality of Service</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../../../tutorials/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Tutorials</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

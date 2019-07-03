@@ -16,7 +16,7 @@ Part A - Dumping the full configuration
 ---------------------------------------
 
 The configurator can be instructed to dump its configuration into a
-config file, in the XML configuration format. This contains all the
+config file, in the XML configuration format. This file contains all the
 assigned addresses, routing table entries and members of wireless links,
 so they can be easily modified. The modified config file can be used as
 the XML configuration for subsequent simulation runs.
@@ -27,7 +27,7 @@ Configuration
 Both parts in this step use the :ned:`ConfiguratorA` network defined in
 :download:`ConfiguratorA.ned <../ConfiguratorA.ned>`:
 
-.. figure:: step4network.png
+.. figure:: media/step4network.png
    :width: 100%
 
 The configuration for this part in omnetpp.ini is the following:
@@ -46,7 +46,7 @@ Results
 
 Routes to all nodes are visualized on the following image.
 
-.. figure:: step11a_routes.png
+.. figure:: media/step11a_routes.png
    :width: 100%
 
 The configuration is dumped into
@@ -56,7 +56,7 @@ this config file in the next part.
 Part B - Using the modified configuration
 -----------------------------------------
 
-In this part, we edit the config file, and use it as the XML
+In this part, we edit the config file and use it as the XML
 configuration. The goal is that packets should travel counter-clockwise
 in the triangle of the three routers, i.e. each router should forward
 packets in the triangle through its interface on the right.
@@ -80,16 +80,16 @@ counter-clockwise direction.
 The routes in all three routers' routing tables are modified. Routes
 that would send packets the wrong way (i.e. not counter-clockwise in the
 triangle) are redirected to the other interface. In essence, all routers
-send out packets through their interface to the right (expect for
+send out packets through their interface to the right (except for
 packets destined to the connecting LAN.)
 
 The modified XML configuration is in
 :download:`step11b.xml <../step11b.xml>` (see
 :download:`step11a\_dump.xml <../step11a_dump.xml>` for the original.)
-The differences between the original and the modified config files area
+The differences between the original and the modified config files are
 displayed below (the original is shown in red).
 
-.. figure:: step11diff.png
+.. figure:: media/step11diff.png
    :width: 100%
 
 Results
@@ -98,12 +98,12 @@ Results
 Routes to all nodes are visualized on the following image. Note that
 arrows point only counter-clockwise in the triangle.
 
-.. figure:: step11b_routes.png
+.. figure:: media/step11b_routes.png
    :width: 100%
 
 The ping exchanges highlight the modified routes on the following video:
 
-.. video:: Step11B_2_cropped.mp4
+.. video:: media/Step11B_2_cropped.mp4
    :width: 698
 
    <!--from #295 zoom 0.77 playback speed 2.5 animation speed none crop 30 70 150 80-->

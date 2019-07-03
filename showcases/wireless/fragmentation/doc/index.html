@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>IEEE 802.11 Fragmentation &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="IEEE 802.11 Quality of Service" href="../../qos/doc/index.html" />
+    <link rel="prev" title="Multiple Wireless Interfaces" href="../../multiradio/doc/index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Wireless</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">IEEE 802.11 Fragmentation</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/wireless/fragmentation/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Wireless</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="ieee-802-11-fragmentation">
+<h1>IEEE 802.11 Fragmentation<a class="headerlink" href="#ieee-802-11-fragmentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>Fragmentation is a way of improving 802.11 performance in the presence
+of interference, noise, or in a network with large distances. It works
+by splitting up large frames to a number of shorter framents called
+fragments, thereby increasing the chance of successful data transfer.</p>
+<p>This showcase demonstrates 802.11 MAC-level fragmentation.</p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/fragmentation">inet/showcases/wireless/fragmentation</a></div>
+</div>
+</div>
+<div class="section" id="about-802-11-fragmentation">
+<h2>About 802.11 Fragmentation<a class="headerlink" href="#about-802-11-fragmentation" title="Permalink to this headline">¶</a></h2>
+<p>Fragmentation in 802.11 reduces packet errors in certain situations,
+e.g. in a noisy environment. A larger frame has a higher chance of
+getting corrupted than a smaller one.
+The error correcting mechanism can correct some erroneous bits in a received frame,
+but as the bit error rate
+increases, it becomes less likely that it can correct all bit errors.
+In 802.11, a frame can be fragmented to a maximum of 16 fragments.</p>
+<p>The downside is that fragmentation increases overhead, and thus decreases throughput
+and channel utilization. The smaller packets resulting from fragmentation
+each have PHY and MAC headers, and each packet transmission might be followed
+by a contention period and ACK (depending on block ack policy and whether
+TXOP is used). Also, fragmentation increases delay, because an incoming packet
+only arrives at the application when all of its fragments have been received.</p>
+</div>
+<div class="section" id="fragmentation-in-inet">
+<h2>802.11 Fragmentation in INET<a class="headerlink" href="#fragmentation-in-inet" title="Permalink to this headline">¶</a></h2>
+<p>In INET, 802.11 fragmentation is controlled by fragmentation policies
+in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a>. By default, the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Dcf.html">Dcf</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Hcf.html">Hcf</a> submodules
+of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> contain a fragmentation policy submodule
+(at <code class="docutils literal notranslate"><span class="pre">mac.dcf.originatorMacDataService.fragmentationPolicy</span></code>
+and <code class="docutils literal notranslate"><span class="pre">mac.hcf.originatorMacDataService.fragmentationPolicy</span></code>).
+The default fragmentation policy type is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy.html">BasicFragmentationPolicy</a>.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy.html">BasicFragmentationPolicy</a> has just one parameter,
+<code class="code literal-ini docutils literal notranslate"><span class="pre">fragmentationThreshold</span></code>. Frames larger than this value are fragmented.
+The value includes the MAC header, the payload, and the MAC trailer.
+The MAC overhead (header + trailer) is 28 bytes with DCF and 30 bytes with HCF.
+The default for this parameter is 1500 bytes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Caveat: In addition to <code class="code literal-ini docutils literal notranslate"><span class="pre">fragmentationThreshold</span></code>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> also
+has a parameter named <code class="code literal-ini docutils literal notranslate"><span class="pre">mtu</span></code> (maximum transfer unit), which appears to be
+similar in purpose. However, MTU controls IP level fragmentation
+on the interface the MAC is part of, i.e. it is actually used by the IP module
+instead of the MAC. The two are related; for example, by setting MTU to an
+appropriately small value, one can achieve that 802.11 fragmentation is
+never triggered (for IP packets at least).</p>
+</div>
+</div>
+<div class="section" id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>The example simulation contains two wireless nodes. One of them sends large UDP
+packets to the other via Wifi in a noisy environment. The simulation will be run
+with fragmentation turned off and turned on. We’ll examine the effect of fragmentation
+on the Wifi performance. We’ll also see how TXOP and block acknowledgments affect
+the performance. Furthermore, we’ll examine the domain of effectiveness for fragmentation.</p>
+<p>The example simulation uses the following network:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/network31.png"><img alt="../../../../_images/network31.png" src="../../../../_images/network31.png" style="width: 90%;" /></a>
+</div>
+<p>The network contains two <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>’s named <code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> and <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code>.
+It also contains an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>,
+and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> module.</p>
+<p>Configuration keys for the UDP traffic, the radio, and the radio medium are defined
+in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> sends 2000-byte UDP packets to <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code> every 0.5 seconds,
+which corresponds to about 32 Mbps of application-level traffic. The hosts operate
+in 802.11g mode with 54 Mbps data rate. Here is the traffic configuration in
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost1.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.wifiHost1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.wifiHost1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;wifiHost2&quot;</span>
+<span class="na">*.wifiHost1.app[0].destPort</span> <span class="o">=</span> <span class="s">4000</span>
+<span class="na">*.wifiHost1.app[0].sendInterval</span> <span class="o">=</span> <span class="s">0.5ms</span>
+<span class="na">*.wifiHost1.app[0].messageLength</span> <span class="o">=</span> <span class="s">2000Byte</span>
+
+<span class="na">*.wifiHost2.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.wifiHost2.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.wifiHost2.app[0].localPort</span> <span class="o">=</span> <span class="s">4000</span>
+</pre></div>
+</div>
+<p>We make the environment noisy by lowering the transmission power. Also, to make the
+simulation more precise, we lower various thresholds to prevent certain shortcuts
+in the computations from kicking in. Here is the configuration in
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost*.wlan[*].radio.receiver.energyDetection</span> <span class="o">=</span> <span class="s">-105dBm</span>
+<span class="na">*.wifiHost*.wlan[*].radio.receiver.sensitivity</span> <span class="o">=</span> <span class="s">-105dBm</span>
+<span class="na">*.wifiHost*.wlan[*].radio.receiver.snirThreshold</span> <span class="o">=</span> <span class="s">0dB</span>
+
+<span class="na">*.wifiHost*.wlan[*].radio.transmitter.power</span> <span class="o">=</span> <span class="s">0.08mW</span>
+</pre></div>
+</div>
+<p>We want to demonstrate that fragmenting packets is advantageous in a noisy
+environment, so we set the transmission power accordingly. If there is too
+much noise, the fragmentation doesn’t make any difference, as communication
+becomes impossible. If there is too little noise, fragmentation is disadvantageous
+due to the extra overhead.</p>
+<p>The simulation will be run with four scenarios. Each scenario aims to improve
+the noisy channel performance of the previous one. They are defined in the
+following configurations:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">DCFnofrag</span></code>: The MAC uses DCF, and there is no fragmentation. It is expected that only a few of the large packets will be received successfully; throughput will be low.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DCFfrag</span></code>: The MAC uses DCF, and packets are fragmented. Due to the smaller fragments, packet error rate should decrease, and throughput should increase compared to the previous scenario.</li>
+<li><code class="docutils literal notranslate"><span class="pre">HCFfrag</span></code>: The MAC uses HCF, packets are fragmented, and transmitted during a TXOP. Throughput should increase even more, as the sender node doesn’t have to contend for channel access before transmitting each packet (although packets are ACKed individually).</li>
+<li><code class="docutils literal notranslate"><span class="pre">HCFfragblockack</span></code>: This is the same as the previous scenario, but block acknowledgments are enabled. Throughput should increase yet again, as the receiver node doesn’t have to ACK each packet individually.</li>
+</ul>
+<p>The simulations will be run for 10 seconds, and we’ll examine the number of packets
+received by the UDP application of <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code>, and the application level throughput
+(the many small packets resulting from fragmentation doesn’t affect the number of packets
+received by the UDP application, because they are defragmented by the MAC before they arrive
+at the UDP app).</p>
+<p>Let’s look at the details of the four configurations. Here is <code class="docutils literal notranslate"><span class="pre">DCFnofrag</span></code> from
+<a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config DCFnofrag]</span>
+
+<span class="na">**.mac.dcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">2250B</span>
+</pre></div>
+</div>
+<p>It just sets a fragmentation threshold higher than the packet size to avoid fragmentation.</p>
+<p>In the next configuration, <code class="docutils literal notranslate"><span class="pre">DCFfrag</span></code>, we turn on fragmentation. Here is the
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config DCFfrag]</span>
+
+<span class="na">**.mac.dcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">250B</span>
+</pre></div>
+</div>
+<p>It sets a fragmentation threshold value smaller than the packet size.
+Packets will be fragmented to 250-byte pieces. Each packet is followed
+by an ACK and a contention period.</p>
+<p>Next, we examine how performance is affected if the small packets are sent
+during a TXOP, so the originator MAC doesn’t have to contend for the channel
+after transmitting each packet. In the next configuration, <code class="docutils literal notranslate"><span class="pre">HCFfrag</span></code>,
+the MAC will use HCF instead of DCF, and take advantage of video priority TXOP.
+Here is the configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config HCFfrag]</span>
+
+<span class="na">*.wifiHost*.wlan[*].mac.qosStation</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.wifiHost*.wlan[*].classifier.typename</span> <span class="o">=</span> <span class="s">&quot;QosClassifier&quot;</span>
+<span class="na">**.mac.hcf.originatorMacDataService.msduAggregationPolicy.typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="na">**.mac.hcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">250B</span>
+</pre></div>
+</div>
+<p>It sets the same fragmentation threshold as the previous configuration.
+QoS is enabled (so the MAC uses HCF). A classifier is added to sort packets
+into the video priority category. Frame aggregation is turned off, because
+we don’t want to aggregate our fragments into a larger frame.</p>
+<p>Packets are transmitted without contention during the TXOP, but all of them are ACKed
+individually.</p>
+<p>In the final configuration, <code class="docutils literal notranslate"><span class="pre">HCFfragblockack</span></code>, we extend the previous configuration
+and turn on block acks, so a group of packets can be ACKed.</p>
+<p>When block acks are enabled, the sender node sends a block ack request after
+transmitting a certain number of frames (by default, five). The receiver node
+then sends a block ack, which contains information about which packets were
+received correctly, and which weren’t. The incorrectly received ones can be
+retransmitted by the sender.</p>
+<p>Here is the configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config HCFfragblockack]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">HCFfrag</span>
+
+<span class="na">*.wifiHost*.wlan[*].mac.hcf.isBlockAckSupported</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<p>This configuration just enables block acks. The default block ack threshold is used,
+i.e. block ack requests are sent after five frames.</p>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Here are the results from the simulations:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/numberofpackets.png"><img alt="../../../../_images/numberofpackets.png" src="../../../../_images/numberofpackets.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/throughput.png"><img alt="../../../../_images/throughput.png" src="../../../../_images/throughput.png" style="width: 100%;" /></a>
+</div>
+<p>In our setup, the throughput is the lowest when packets are not fragmented
+(<code class="docutils literal notranslate"><span class="pre">DFCnofrag</span></code> line), because very few packets are received correctly.
+Throughput improves considerably (by a factor of 20) when fragmentation
+is turned on (<code class="docutils literal notranslate"><span class="pre">DCFfrag</span></code> line). The use of TXOPs (<code class="docutils literal notranslate"><span class="pre">HCFfrag</span></code> line) again brings
+a two-fold increase in througput by eliminating contention periods.
+The use of block ACKs (<code class="docutils literal notranslate"><span class="pre">HCFfragblockack</span></code> line) brings another two-fold improvement.</p>
+<div class="section" id="further-analysis">
+<h3>Further Analysis<a class="headerlink" href="#further-analysis" title="Permalink to this headline">¶</a></h3>
+<p>We ran some parameter studies to examine the domain of effectiveness for
+fragmentation. We based the parameter studies on the above simulations.
+We examined the average application-level throughput. (The noise level,
+transmission power, and other settings are the same as in the above
+configurations unless otherwise noted.)</p>
+<p>First, the iteration variable was the packet size (going from 100B to 2500B),
+with a constant fragmentation threshold of 250 bytes:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/onlypacketsize.png"><img alt="../../../../_images/onlypacketsize.png" src="../../../../_images/onlypacketsize.png" style="width: 90%;" /></a>
+</div>
+<p>Performance decreases with packet size in the <code class="docutils literal notranslate"><span class="pre">DCFnofrag</span></code> case, as larger packets
+have more chance for becoming corrupted. In the cases where fragmentation is enabled,
+the throughput follows a similar curve (increasing at the beginning, and fairly
+constant after that). At small packet sizes, the 802.11 overhead is significant.
+As the packet size increases above 1000B, throughput doesn’t change substantially.
+The difference in magnitude between the three curves of <code class="docutils literal notranslate"><span class="pre">DCFfrag</span></code>, <code class="docutils literal notranslate"><span class="pre">HCFfrag</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">HCFfragblockack</span></code> is due to the improvements of each configuration: the use
+of TXOP increases throughput, and the use of TXOP + block acks increases it further.</p>
+<p>Secondly, the fragmentation threshold was iterated, using a 1000-byte packet size:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/threshold.png"><img alt="../../../../_images/threshold.png" src="../../../../_images/threshold.png" style="width: 90%;" /></a>
+</div>
+<p>The three curves are similar in shape to each other
+in this case. The difference in magnitude between them can be attributed to the use
+of TXOP and TXOP + block ack.</p>
+<p>Next, the packet size was iterated, but on a wider range (from 100B to 6000B).
+The MAC can fragment packets to a maximum of 16 fragments. Due to the larger
+packets, the fragmentation threshold was set to around 1/16th of the packet size
+(taking MAC headers into account), so that the MAC always fragments packets to 16 pieces.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/packetsize.png"><img alt="../../../../_images/packetsize.png" src="../../../../_images/packetsize.png" style="width: 90%;" /></a>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DCFnofrag</span></code> has an advantage when packets are small since fragmenting small packets
+to 16 fragments entails a lot of overhead. Otherwise, the three curves where fragmentation
+is enabled are similar, and the difference in magnitude is attributed to the use of TXOP
+and TXOP + block ack.</p>
+<p>Then, the transmission power was iterated to examine performance at different noise levels.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/snir.png"><img alt="../../../../_images/snir.png" src="../../../../_images/snir.png" style="width: 90%;" /></a>
+</div>
+<p>It is apparent that in this scenario, the domain in which fragmentation is useful is
+a very small range. Above a certain SNIR threshold, the fragmentation decreases performance,
+and below another threshold, it doesn’t make any difference because all packets are lost.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The parameter study configurations are defined in <a class="reference download internal" href="../../../../_downloads/parameterstudy.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">parameterstudy.ini</span></code></a>. The charts are available in <code class="docutils literal notranslate"><span class="pre">ParameterStudy.anf</span></code>.</p>
+</div>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp8.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/FragmentationShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">FragmentationShowcase.ned</span></code></a></p>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-showcases/issues/41">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">IEEE 802.11 Fragmentation</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#about-802-11-fragmentation">About 802.11 Fragmentation</a></li>
+<li><a class="reference internal" href="#fragmentation-in-inet">802.11 Fragmentation in INET</a></li>
+<li><a class="reference internal" href="#the-model">The Model</a></li>
+<li><a class="reference internal" href="#results">Results</a><ul>
+<li><a class="reference internal" href="#further-analysis">Further Analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../../multiradio/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Multiple Wireless Interfaces</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../qos/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>IEEE 802.11 Quality of Service</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
