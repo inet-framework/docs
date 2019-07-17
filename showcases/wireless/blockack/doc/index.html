@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Tutorials" href="../../../../tutorials/index.html" />
+    <link rel="next" title="IEEE 802.11 Frame Aggregation" href="../../aggregation/doc/index.html" />
     <link rel="prev" title="IEEE 802.11 Quality of Service" href="../../qos/doc/index.html" /> 
   </head>
 <body>
@@ -128,6 +128,8 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
 </ul>
 </li>
 </ul>
@@ -285,6 +287,8 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
 </ul>
 </li>
 </ul>
@@ -456,17 +460,17 @@ an <a class="reference-ned reference external" href="https://omnetpp.org/doc/ine
 an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module. During simulation, <code class="docutils literal notranslate"><span class="pre">host1</span></code> will send
 UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code>.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/network.png"><img alt="../../../../_images/network.png" src="../../../../_images/network.png" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/network1.png"><img alt="../../../../_images/network1.png" src="../../../../_images/network1.png" style="width: 70%;" /></a>
 </div>
 <p>We’ll use three configurations to demonstrate various aspects of the block ack mechanism.
-The configurations in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> are the following:</p>
+The configurations in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> are the following:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">NoFragmentation</span></code>: Packets are sent without fragmentation or aggregation. Block ack requests are sent after five packets (default).</li>
 <li><code class="docutils literal notranslate"><span class="pre">Fragmentation</span></code>: Packets are fragmented to 16 pieces, block ack requests are sent after 16 fragments.</li>
 <li><code class="docutils literal notranslate"><span class="pre">MixedTraffic</span></code>: Two traffic sources in <code class="docutils literal notranslate"><span class="pre">host1</span></code> generate packets below and above the <code class="code literal-ini docutils literal notranslate"><span class="pre">maxBlockAckPolicyFrameLength</span></code> threshold. Packets with size below the threshold are block acked; those above aren’t.</li>
 </ul>
 <p>Parameter settings common to the three configurations are defined in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration
-in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The rest of this section explains the most important
+in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The rest of this section explains the most important
 settings.</p>
 <p><code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to send 700B UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code> with about 10Mbps:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
@@ -507,7 +511,7 @@ get some lost packets:</p>
 <div class="section" id="no-fragmentation">
 <h3>No Fragmentation<a class="headerlink" href="#no-fragmentation" title="Permalink to this headline">¶</a></h3>
 <p>In this simulation, packets are sent unfragmented, and <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends a block ack request
-after sending five frames (the default). The configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> (<code class="docutils literal notranslate"><span class="pre">NoFragmentation</span></code>)
+after sending five frames (the default). The configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> (<code class="docutils literal notranslate"><span class="pre">NoFragmentation</span></code>)
 is empty:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config NoFragmentation]</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Packets are not fragmented, block ack after 5 packet transmissions (default)&quot;</span>
@@ -565,7 +569,7 @@ three new ones.</p>
 <div class="section" id="fragmentation">
 <h3>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this headline">¶</a></h3>
 <p>In this simulation, 1080B packets are fragmented to 16 pieces, each 100B. Block ack requests
-are sent after 16 frames. It is defined in the <code class="docutils literal notranslate"><span class="pre">Fragmentation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+are sent after 16 frames. It is defined in the <code class="docutils literal notranslate"><span class="pre">Fragmentation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Fragmentation]</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Packets are fragmented to 16 pieces, block ack after 16 packet transmissions&quot;</span>
 
@@ -603,7 +607,7 @@ entry has three zeros. The first zero indicates a lost fragment of <code class="
 <p>In this configuration, there are two UDP apps in <code class="docutils literal notranslate"><span class="pre">host1</span></code>, sending 1700B and 700B packets.
 The <code class="code literal-ini docutils literal notranslate"><span class="pre">maxBlockAckPolicyFrameLength</span></code> parameter is set to 1000B (default), so the large
 packets are individually acked, while the smaller ones are block acked. The simulation is
-defined in the <code class="docutils literal notranslate"><span class="pre">MixedTraffic</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+defined in the <code class="docutils literal notranslate"><span class="pre">MixedTraffic</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config MixedTraffic]</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixed traffic of packets shorter and longer than blockAckReqThreshold&quot;</span>
 
@@ -640,7 +644,7 @@ to <code class="docutils literal notranslate"><span class="pre">Data-10</span></
 <p class="first admonition-title">Note</p>
 <p class="last">Instead of retransmitting the data frames, the originator could send the block ack request again if it didn’t receive a block ack. This is currently a limitation of the implementation.</p>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/BlockAckShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">BlockAckShowcase.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp7.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/BlockAckShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">BlockAckShowcase.ned</span></code></a></p>
 </div>
 </div>
 <div class="section" id="discussion">
@@ -687,11 +691,11 @@ to <code class="docutils literal notranslate"><span class="pre">Data-10</span></
             <div>IEEE 802.11 Quality of Service</div>
          </div>
      </a>
-     <a id="button-next" href="../../../../tutorials/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../aggregation/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Tutorials</div>
+            <div>IEEE 802.11 Frame Aggregation</div>
         </div>
      </a>
   </div>
