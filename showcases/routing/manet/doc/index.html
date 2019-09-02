@@ -77,6 +77,10 @@ Show Source
             <nav class="mdl-navigation">
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
@@ -236,6 +240,10 @@ Show Source
             <nav class="mdl-navigation">
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
@@ -595,7 +603,7 @@ Since routes are managed dynamically by the MANET routing algorithms,
 the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> module is instructed not to add any
 routes (it will only assign IP addresses). The netmask routes added by
 network interfaces are disabled as well. The following keys in the
-<code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>
+<code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>
 achieve this:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.configurator.addStaticRoutes</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">**.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
@@ -604,7 +612,7 @@ achieve this:</p>
 <div class="section" id="aodv">
 <h3>AODV<a class="headerlink" href="#aodv" title="Permalink to this headline">¶</a></h3>
 <p>The example simulation featuring AODV is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. This
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. This
 configuration uses the <code class="docutils literal notranslate"><span class="pre">ManetProtocolShowcaseA</span></code> network. The network
 looks like the following:</p>
 <div class="figure align-center">
@@ -617,7 +625,7 @@ cannot reach <code class="docutils literal notranslate"><span class="pre">destin
 nodes. The routing protocols will adapt the routes to the changing
 network topology.</p>
 <p>The mobility settings are defined in the <code class="docutils literal notranslate"><span class="pre">MobileNodesBase</span></code>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The
 simulations for AODV and DSDV, which feature moving nodes, are based on
 this configuration. The nodes will be moving on linear paths in random
 directions with a speed of 25 meters per second, bouncing back from the
@@ -635,7 +643,7 @@ edge of the scene. The mobility settings are the following:</p>
 <p>The ping app in <code class="docutils literal notranslate"><span class="pre">source</span></code> will send one ping request every second to
 <code class="docutils literal notranslate"><span class="pre">destination</span></code>.</p>
 <p>In INET, AODV is implemented by the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> module. This module is configured
-in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> as the routing protocol
+in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> as the routing protocol
 type in <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.node.inet.ManetRouter.html">ManetRouter</a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.routingApp.typename</span> <span class="o">=</span> <span class="s">&quot;Aodv&quot;</span>
 </pre></div>
@@ -695,7 +703,7 @@ RREP messages:</p>
 <div class="section" id="dsdv">
 <h3>DSDV<a class="headerlink" href="#dsdv" title="Permalink to this headline">¶</a></h3>
 <p>The example simulation featuring DSDV is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.dsdv.Dsdv.html">Dsdv</a>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. Just like
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. Just like
 the AODV configuration, this one uses the
 <code class="docutils literal notranslate"><span class="pre">ManetRoutingProtocolsShowcaseB</span></code> network. The mobility settings are
 also the same as in the AODV simulation. The ping app in <code class="docutils literal notranslate"><span class="pre">source</span></code> will
@@ -733,7 +741,7 @@ are visualized here.</p>
 <div class="section" id="gpsr">
 <h3>GPSR<a class="headerlink" href="#gpsr" title="Permalink to this headline">¶</a></h3>
 <p>The example simulation featuring GPSR is defined in the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.routing.gpsr.Gpsr.html">Gpsr</a>
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. It uses the
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. It uses the
 <code class="docutils literal notranslate"><span class="pre">ManetRoutingProtocolsShowcaseB</span></code> network. The network looks like the
 following:</p>
 <div class="figure">
@@ -799,6 +807,7 @@ Protocol</a></li>
 <li><a class="reference external" href="http://www.icir.org/bkarp/jobs/gpsr-mobicom2000.pdf">GPSR: Greedy Perimeter Stateless Routing for Wireless
 Networks</a></li>
 </ul>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp6.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/ManetProtocolsShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">ManetProtocolsShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
