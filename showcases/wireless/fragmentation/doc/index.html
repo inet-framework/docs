@@ -466,11 +466,11 @@ the performance. Furthermore, we’ll examine the domain of effectiveness for fr
 It also contains an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>,
 and an <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> module.</p>
 <p>Configuration keys for the UDP traffic, the radio, and the radio medium are defined
-in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.</p>
+in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> sends 2000-byte UDP packets to <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code> every 0.5 seconds,
 which corresponds to about 32 Mbps of application-level traffic. The hosts operate
 in 802.11g mode with 54 Mbps data rate. Here is the traffic configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost1.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.wifiHost1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
 <span class="na">*.wifiHost1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;wifiHost2&quot;</span>
@@ -486,7 +486,7 @@ in 802.11g mode with 54 Mbps data rate. Here is the traffic configuration in
 <p>We make the environment noisy by lowering the transmission power. Also, to make the
 simulation more precise, we lower various thresholds to prevent certain shortcuts
 in the computations from kicking in. Here is the configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost*.wlan[*].radio.receiver.energyDetection</span> <span class="o">=</span> <span class="s">-105dBm</span>
 <span class="na">*.wifiHost*.wlan[*].radio.receiver.sensitivity</span> <span class="o">=</span> <span class="s">-105dBm</span>
 <span class="na">*.wifiHost*.wlan[*].radio.receiver.snirThreshold</span> <span class="o">=</span> <span class="s">0dB</span>
@@ -514,7 +514,7 @@ received by the UDP application of <code class="docutils literal notranslate"><s
 received by the UDP application, because they are defragmented by the MAC before they arrive
 at the UDP app).</p>
 <p>Let’s look at the details of the four configurations. Here is <code class="docutils literal notranslate"><span class="pre">DCFnofrag</span></code> from
-<a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config DCFnofrag]</span>
 
 <span class="na">**.mac.dcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">2250B</span>
@@ -522,7 +522,7 @@ at the UDP app).</p>
 </div>
 <p>It just sets a fragmentation threshold higher than the packet size to avoid fragmentation.</p>
 <p>In the next configuration, <code class="docutils literal notranslate"><span class="pre">DCFfrag</span></code>, we turn on fragmentation. Here is the
-configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config DCFfrag]</span>
 
 <span class="na">**.mac.dcf.originatorMacDataService.fragmentationPolicy.fragmentationThreshold</span> <span class="o">=</span> <span class="s">250B</span>
@@ -535,7 +535,7 @@ by an ACK and a contention period.</p>
 during a TXOP, so the originator MAC doesn’t have to contend for the channel
 after transmitting each packet. In the next configuration, <code class="docutils literal notranslate"><span class="pre">HCFfrag</span></code>,
 the MAC will use HCF instead of DCF, and take advantage of video priority TXOP.
-Here is the configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+Here is the configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config HCFfrag]</span>
 
 <span class="na">*.wifiHost*.wlan[*].mac.qosStation</span> <span class="o">=</span> <span class="s">true</span>
@@ -631,7 +631,7 @@ and below another threshold, it doesn’t make any difference because all packet
 <p class="first admonition-title">Note</p>
 <p class="last">The parameter study configurations are defined in <a class="reference download internal" href="../../../../_downloads/parameterstudy.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">parameterstudy.ini</span></code></a>. The charts are available in <code class="docutils literal notranslate"><span class="pre">ParameterStudy.anf</span></code>.</p>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp29.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/FragmentationShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">FragmentationShowcase.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp30.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/FragmentationShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">FragmentationShowcase.ned</span></code></a></p>
 </div>
 </div>
 <div class="section" id="discussion">
