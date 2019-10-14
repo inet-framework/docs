@@ -78,6 +78,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -242,6 +243,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -436,13 +438,13 @@ it to the physical layer through the <code class="code literal-ned docutils lite
 layer immediately through the <code class="code literal-ned docutils literal notranslate"><span class="pre">netwOut</span></code> gate.</p>
 <p>Incoming datagrams are waiting in a queue if the line is currently busy.
 In routers, PPP relies on an external queue module (implementing
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a>) to model finite buffer, implement QoS and/or RED,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a>) to model finite buffer, implement QoS and/or RED,
 and requests packets from this external queue one-by-one. The name of
 this queue is given as the <code class="code literal-ini docutils literal notranslate"><span class="pre">queueModule</span></code> parameter.</p>
 <p>In hosts, no such queue is used, so <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ppp.Ppp.html">Ppp</a> contains an internal
-queue named txQueue to queue up packets wainting for transmission.
-Conceptually txQueue is of inifinite size, but for better diagnostics
-one can specify a hard limit in the <code class="code literal-ini docutils literal notranslate"><span class="pre">txQueueLimit</span></code> parameter – if
+queue to store packets wainting for transmission.
+Conceptually the queue is of inifinite size, but for better diagnostics
+one can specify a hard limit in the <code class="code literal-ini docutils literal notranslate"><span class="pre">packetCapacity</span></code> parameter – if
 this is exceeded, the simulation stops with an error.</p>
 <p>The module can be used in simulations where the nodes are connected and
 disconnected dinamically. If the channel between the PPP modules is
@@ -461,7 +463,7 @@ the entry in the interface table.</p>
 passive queue for the messages received from the network layer.</p>
 <p>The queue type is specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">queueType</span></code> parameter. It can be
 set to <code class="docutils literal notranslate"><span class="pre">NoQueue</span></code> or to a module type implementing the
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a> interface. There are implementations with QoS and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a> interface. There are implementations with QoS and
 RED support.</p>
 <p>In typical use of the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.linklayer.ppp.Ppp.html">Ppp</a> module it is augmented with other nodes
 that monitor the traffic or simulate package loss and duplication. The

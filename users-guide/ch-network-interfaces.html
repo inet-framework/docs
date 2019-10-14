@@ -78,6 +78,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -242,6 +243,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -463,7 +465,7 @@ outgoing paths of packets.</li>
 <span id="ug-sec-interfaces-internal-vs-external-output-queue"></span><h3>Internal vs External Output Queue<a class="headerlink" href="#internal-vs-external-output-queue" title="Permalink to this headline">¶</a></h3>
 <p>Network interfaces usually have the external queue module defined with a
 parametric type like this:</p>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">queueType</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IOutputQueue</span> <span class="k">if</span> <span class="n">queueType</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="o">:</span> <span class="o">&lt;</span><span class="n">queueType</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IPacketQueue</span> <span class="k">if</span> <span class="n">queueType</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>When <code class="code literal-ini docutils literal notranslate"><span class="pre">queueType</span></code> is empty (this is the default), the external queue
@@ -473,11 +475,11 @@ size, but for better diagnostics one can often specify a hard limit for
 the queue length in a module parameter – if this is exceeded, the
 simulation stops with an error.</p>
 <p>When <code class="code literal-ini docutils literal notranslate"><span class="pre">queueType</span></code> is not empty, it must name a NED type that
-implements the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a> interface. The external queue module
+implements the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a> interface. The external queue module
 model allows modeling a finite buffer, or implement various queueing
 policies for QoS and/or RED.</p>
 <p>The most frequently used module type for external queue is
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a>, a finite-size FIFO that drops overflowing
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.DropTailQueue.html">DropTailQueue</a>, a finite-size FIFO that drops overflowing
 packets). Other queue types that implement queueing policies can be
 created by assembling compound modules from DiffServ components (see
 chapter <a class="reference internal" href="ch-diffserv.html"><span class="doc">Differentiated Services</span></a>). An example of such compound
@@ -485,7 +487,7 @@ modules is <a class="reference-ned reference external" href="https://omnetpp.org
 <p>An example ini file fragment that installs drop-tail queues of size 10
 on PPP interfaces:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.ppp[*].ppp.queueType</span> <span class="o">=</span> <span class="s">&quot;DropTailQueue&quot;</span>
-<span class="na">**.ppp[*].ppp.queue.frameCapacity</span> <span class="o">=</span> <span class="s">10</span>
+<span class="na">**.ppp[*].ppp.queue.packetCapacity</span> <span class="o">=</span> <span class="s">10</span>
 </pre></div>
 </div>
 </div>
@@ -527,8 +529,8 @@ chained in their numeric order.</p>
 <p>Modules inserted as hooks may act as probes (for measuring or recording
 traffic) or as means of modifying or perturbing the packet flow for
 experimentation. Module types implementing the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.IHook.html">IHook</a> NED
-interface include <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.misc.ThruputMeter.html">ThruputMeter</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.Delayer.html">Delayer</a>,
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.OrdinalBasedDropper.html">OrdinalBasedDropper</a>, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.OrdinalBasedDuplicator.html">OrdinalBasedDuplicator</a>.</p>
+interface include <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.misc.ThruputMeter.html">ThruputMeter</a>, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.Delayer.html">Delayer</a>,
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.OrdinalBasedDropper.html">OrdinalBasedDropper</a>, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.OrdinalBasedDuplicator.html">OrdinalBasedDuplicator</a>.</p>
 <p>The following ini file fragment inserts two hook modules into the output
 paths of PPP interfaces, a delayer and a throughput meter:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.ppp[*].numOutputHooks</span> <span class="o">=</span> <span class="s">2</span>

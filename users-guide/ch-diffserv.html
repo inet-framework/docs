@@ -78,6 +78,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -242,6 +243,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
@@ -484,11 +486,11 @@ composed to build a traffic conditioner as a compound module.</p>
 </div>
 <div class="section" id="output-queues">
 <span id="ug-sec-diffserv-output-queues"></span><h3>Output Queues<a class="headerlink" href="#output-queues" title="Permalink to this headline">¶</a></h3>
-<p>Queue components must implement the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a> module
+<p>Queue components must implement the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a> module
 interface. In addition to having one input and one output gate, these
 components must implement a passive queue behaviour: they only deliver a
 packet when the module connected to their output explicitly requests it.
-(In C++ terms, the module must implement the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code>
+(In C++ terms, the module must implement the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPacketQueue</span></code>
 interface. The next module requests a packet by calling the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">requestPacket()</span></code> method of that interface.)</p>
 </div>
@@ -529,21 +531,21 @@ method.</p>
 the arrival of new packets.</p>
 <div class="section" id="fifo-queue">
 <span id="ug-sec-diffserv-fifo-queue"></span><h4>FIFO Queue<a class="headerlink" href="#fifo-queue" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.FifoQueue.html">FifoQueue</a> module implements a passive FIFO queue with
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.FifoQueue.html">FifoQueue</a> module implements a passive FIFO queue with
 unlimited buffer space. It can be combined with algorithmic droppers and
-schedulers to form an IOutputQueue compound module.</p>
+schedulers to form an IPacketQueue compound module.</p>
 <p>The C++ class implements the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IQueueAccess</span></code> and
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code> interfaces.</p>
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPacketQueue</span></code> interfaces.</p>
 </div>
 <div class="section" id="droptailqueue">
 <span id="ug-sec-diffserv-droptailqueue"></span><h4>DropTailQueue<a class="headerlink" href="#droptailqueue" title="Permalink to this headline">¶</a></h4>
-<p>The other primitive queue module is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a>. Its capacity
-can be specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">frameCapacity</span></code> parameter. When the number
+<p>The other primitive queue module is <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.DropTailQueue.html">DropTailQueue</a>. Its capacity
+can be specified by the <code class="code literal-ini docutils literal notranslate"><span class="pre">packetCapacity</span></code> parameter. When the number
 of stored packet reached the capacity of the queue, further packets are
 dropped. Because this module contains a built-in dropping strategy, it
-cannot be combined with algorithmic droppers as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.FifoQueue.html">FifoQueue</a> can be.
+cannot be combined with algorithmic droppers as <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.FifoQueue.html">FifoQueue</a> can be.
 However its output can be connected to schedulers.</p>
-<p>This module implements the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a> interface, so it can be
+<p>This module implements the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a> interface, so it can be
 used as the queue component of interface card per se.</p>
 </div>
 </div>
@@ -554,10 +556,10 @@ condition. The condition can be either deterministic (e.g. to bound the
 queue length), or probabilistic (e.g. RED queues).</p>
 <p>Other kind of droppers are absolute droppers; they drop each received
 packet. They can be used to discard excess traffic, i.e. packets whose
-arrival rate exceeds the allowed maximum. In INET the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.Sink.html">Sink</a> module
+arrival rate exceeds the allowed maximum. In INET the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.Sink.html">Sink</a> module
 can be used as an absolute dropper.</p>
-<p>The algorithmic droppers in INET are <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.ThresholdDropper.html">ThresholdDropper</a> and
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.RedDropper.html">RedDropper</a>. These modules has multiple input and multiple output
+<p>The algorithmic droppers in INET are <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.ThresholdDropper.html">ThresholdDropper</a> and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.RedDropper.html">RedDropper</a>. These modules has multiple input and multiple output
 gates. Packets that arrive on gate <code class="code literal-ned docutils literal notranslate"><span class="pre">in[i]</span></code> are forwarded to gate
 <code class="code literal-ned docutils literal notranslate"><span class="pre">out[i]</span></code> (unless they are dropped). However the queues attached to
 the output gates are viewed as a whole, i.e. the queue length parameter
@@ -566,26 +568,26 @@ This way we can emulate shared buffers of the queues. Note, that it is
 also possible to connect each output to the same queue module.</p>
 <div class="section" id="threshold-dropper">
 <span id="ug-sec-diffserv-threshold-dropper"></span><h4>Threshold Dropper<a class="headerlink" href="#threshold-dropper" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.ThresholdDropper.html">ThresholdDropper</a> module selectively drops packets, based on
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.ThresholdDropper.html">ThresholdDropper</a> module selectively drops packets, based on
 the available buffer space of the queues attached to its output. The
 buffer space can be specified as the count of packets, or as the size in
 bytes.</p>
 <p>The module sums the buffer lengths of its outputs and if enqueuing a
 packet would exceed the configured capacities, then the packet will be
 dropped instead.</p>
-<p>By attaching a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.ThresholdDropper.html">ThresholdDropper</a> to the input of a FIFO queue, you
+<p>By attaching a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.ThresholdDropper.html">ThresholdDropper</a> to the input of a FIFO queue, you
 can compose a drop tail queue. Shared buffer space can be modeled by
 attaching more FIFO queues to the output.</p>
 </div>
 <div class="section" id="red-dropper">
 <h4>RED Dropper<a class="headerlink" href="#red-dropper" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.RedDropper.html">RedDropper</a> module implements Random Early Detection
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.RedDropper.html">RedDropper</a> module implements Random Early Detection
 ().</p>
 <p>It has <span class="math notranslate nohighlight">\(n\)</span> input and <span class="math notranslate nohighlight">\(n\)</span> output gates (specified by the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">numGates</span></code> parameter). Packets that arrive at the <span class="math notranslate nohighlight">\(i^{th}\)</span>
 input gate are forwarded to the <span class="math notranslate nohighlight">\(i^{th}\)</span> output gate, or dropped.
 The output gates must be connected to simple modules implementing the
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">IQueueAccess</span></code> C++ interface (e.g. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.FifoQueue.html">FifoQueue</a>).</p>
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">IQueueAccess</span></code> C++ interface (e.g. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.FifoQueue.html">FifoQueue</a>).</p>
 <p>The module sums the used buffer space of the queues attached to the
 output gates. If it is below a minimum threshold, the packet won’t be
 dropped, if above a maximum threshold, it will be dropped, if it is
@@ -610,30 +612,30 @@ implement different packet drop priorities.</p>
 interface is ready to transmit one. They have several input gates and
 one output gate.</p>
 <p>Modules that are connected to the inputs of a scheduler must implement
-the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code> C++ interface. Schedulers also implement
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassiveQueue</span></code>, so they can be cascaded to other schedulers, and
-can be used as the output module of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.IOutputQueue.html">IOutputQueue</a>’s.</p>
+the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPacketQueue</span></code> C++ interface. Schedulers also implement
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">IPacketQueue</span></code>, so they can be cascaded to other schedulers, and
+can be used as the output module of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.IPacketQueue.html">IPacketQueue</a>’s.</p>
 <p>There are several possible scheduling discipline (first come/first
 served, priority, weighted fair, weighted round-robin, deadline-based,
 rate-based). INET contains implementation of priority and weighted
 round-robin schedulers.</p>
 <div class="section" id="priority-scheduler">
 <span id="ug-sec-diffserv-priority-scheduler"></span><h4>Priority Scheduler<a class="headerlink" href="#priority-scheduler" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.PriorityScheduler.html">PriorityScheduler</a> module implements a strict priority
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.PriorityScheduler.html">PriorityScheduler</a> module implements a strict priority
 scheduler. Packets that arrived on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[0]</span></code> has the highest
 priority, then packets arrived on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[1]</span></code>, and so on. If more
 packets available when one is requested, then the one with highest
 priority is chosen. Packets with lower priority are transmitted only
 when there are no packets on the inputs with higher priorities.</p>
-<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.PriorityScheduler.html">PriorityScheduler</a> must be used with care, because a large volume
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.PriorityScheduler.html">PriorityScheduler</a> must be used with care, because a large volume
 of higher packets can starve lower priority packets. Therefore it is
 necessary to limit the rate of higher priority packets to a fraction of
 the output datarate.</p>
-<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.PriorityScheduler.html">PriorityScheduler</a> can be used to implement the <code class="docutils literal notranslate"><span class="pre">EF</span></code> PHB.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.PriorityScheduler.html">PriorityScheduler</a> can be used to implement the <code class="docutils literal notranslate"><span class="pre">EF</span></code> PHB.</p>
 </div>
 <div class="section" id="weighted-round-robin-scheduler">
 <h4>Weighted Round Robin Scheduler<a class="headerlink" href="#weighted-round-robin-scheduler" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.WrrScheduler.html">WrrScheduler</a> module implements a weighted round-robin
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.WrrScheduler.html">WrrScheduler</a> module implements a weighted round-robin
 scheduler. The scheduler visits the input gates in turn and selects the
 number of packets for transmission based on their weight.</p>
 <p>For example if the module has three input gates, and the weights are 3,
@@ -645,14 +647,14 @@ number of packets for transmission based on their weight.</p>
 and C packets on <code class="code literal-ned docutils literal notranslate"><span class="pre">in[2]</span></code>. If there are no packets in the current
 one when a packet is requested, then the next one is chosen that has
 enough tokens.</p>
-<p>If the size of the packets are equal, then <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.WrrScheduler.html">WrrScheduler</a> divides
+<p>If the size of the packets are equal, then <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.WrrScheduler.html">WrrScheduler</a> divides
 the available bandwith according to the weights. In each case, it
 allocates the bandwith fairly. Each flow receives a guaranteed minimum
 bandwith, which is ensured even if other flows exceed their share (flow
 isolation). It is also efficiently uses the channel, because if some
 traffic is smaller than its share of bandwidth, then the rest is
 allocated to the other flows.</p>
-<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.WrrScheduler.html">WrrScheduler</a> can be used to implement the <code class="docutils literal notranslate"><span class="pre">AFxy</span></code> PHBs.</p>
+<p><a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.WrrScheduler.html">WrrScheduler</a> can be used to implement the <code class="docutils literal notranslate"><span class="pre">AFxy</span></code> PHBs.</p>
 </div>
 </div>
 <div class="section" id="classifiers">

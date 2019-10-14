@@ -79,6 +79,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Generic</a><ul class="current">
@@ -243,6 +244,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Generic</a><ul class="current">
@@ -533,7 +535,7 @@ the <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</sp
 </pre></div>
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">VoIP_WithPolicingAndQueuing</span></code> configuration, a
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a> module is used instead of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a> in the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a> module is used instead of <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.DropTailQueue.html">DropTailQueue</a> in the
 router’s PPP interface to achieve priority queuing.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/DiffServQueue.png"><img alt="../../../../_images/DiffServQueue.png" src="../../../../_images/DiffServQueue.png" style="width: 504.0px; height: 550.0px;" /></a>
@@ -573,7 +575,7 @@ the play button below:</p>
 <p>As expected, the quality of the received sound using the
 <code class="docutils literal notranslate"><span class="pre">VoIP_WithoutQoS</span></code> configuration is very low:</p>
 <audio controls class="align-center" src="media/VoIP_WithoutQoS_results.wav">Audio -- </audio><p>The jaggedness in the received audio is because approximately half
-of the VoIP packets sent by <code class="docutils literal notranslate"><span class="pre">voipPhone1</span></code> are dropped by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.common.queue.DropTailQueue.html">DropTailQueue</a>
+of the VoIP packets sent by <code class="docutils literal notranslate"><span class="pre">voipPhone1</span></code> are dropped by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.queueing.DropTailQueue.html">DropTailQueue</a>
 in the output interface of the router.</p>
 <p>The delay of the VoIP packets also is very high, approximately 2.5 seconds,
 which is way too much compared to a real phone call. The following plot
@@ -628,7 +630,7 @@ the previous configuration are almost inaudible now.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../../_images/VoIP_WithPolicingAndQueueing_delay.png"><img alt="../../../../_images/VoIP_WithPolicingAndQueueing_delay.png" src="../../../../_images/VoIP_WithPolicingAndQueueing_delay.png" style="width: 100%;" /></a>
 </div>
-<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/DiffservNetwork.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">DiffservNetwork.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp2.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/DiffservNetwork.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">DiffservNetwork.ned</span></code></a></p>
 </div>
 </div>
 <div class="section" id="discussion">

@@ -79,6 +79,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -243,6 +244,7 @@ Show Source
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -490,7 +492,7 @@ It also contains an <a class="reference-ned reference external" href="https://om
 <h3>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">host1</span></code> is configured to send small, 100-byte UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code>.
 Here are the traffic settings in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host1.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.host1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
 <span class="na">*.host1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;host2&quot;</span>
@@ -503,7 +505,7 @@ Here are the traffic settings in the <code class="docutils literal notranslate">
 </pre></div>
 </div>
 <p>Here are the 802.11 settings in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host*.wlan[*].opMode</span> <span class="o">=</span> <span class="s">&quot;g(erp)&quot;</span>
 <span class="na">*.host*.wlan[*].bitrate</span> <span class="o">=</span> <span class="s">54Mbps</span>
 <span class="na">*.host*.wlan[*].classifier.typename</span> <span class="o">=</span> <span class="s">&quot;QosClassifier&quot;</span>
@@ -524,7 +526,7 @@ in a progression to improve throughput:</p>
 <p>To negate the effect of queue length on the delay of packets, we set the amount of
 traffic to match the possible throughput in each configuration. This way we can concentrate on the effect
 aggregation has on the delay. (We measured the maximum possible throughput by running the simulations with very high traffic.)</p>
-<p>Here is the <code class="docutils literal notranslate"><span class="pre">NoAggregation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<p>Here is the <code class="docutils literal notranslate"><span class="pre">NoAggregation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config NoAggregation]</span>
 
 <span class="na">*.*.wlan[*].mac.hcf.originatorMacDataService.msduAggregationPolicy.typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
@@ -533,7 +535,7 @@ aggregation has on the delay. (We measured the maximum possible throughput by ru
 </pre></div>
 </div>
 <p>The configuration turns off aggregation.</p>
-<p>Here is the <code class="docutils literal notranslate"><span class="pre">Aggregation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<p>Here is the <code class="docutils literal notranslate"><span class="pre">Aggregation</span></code> configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Aggregation]</span>
 
 <span class="na">*.*.wlan[*].mac.hcf.originatorMacDataService.msduAggregationPolicy.maxAMsduSize</span> <span class="o">=</span> <span class="s">1500</span>
@@ -543,7 +545,7 @@ aggregation has on the delay. (We measured the maximum possible throughput by ru
 </div>
 <p>Aggregation is turned on by default. This configuration sets the aggregated frame size to 1500B,
 so that the small packets are aggregated into a 1500B frame.</p>
-<p>Here is the <code class="docutils literal notranslate"><span class="pre">VoicePriorityAggregation</span></code> in <a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<p>Here is the <code class="docutils literal notranslate"><span class="pre">VoicePriorityAggregation</span></code> in <a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config VoicePriorityAggregation]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">Aggregation</span>
 
@@ -625,7 +627,7 @@ in aggregate frames corresponds to the send interval of the UDP app.</p>
 fit on the chart below the existing aggregate frame data points. This is because
 the MAC actually assembles an additional aggregate frame before sending the current one,
 thus increasing delay. This is an implementation detail.</p>
-<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp25.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/AggregationShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">AggregationShowcase.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp26.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/AggregationShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">AggregationShowcase.ned</span></code></a></p>
 </div>
 </div>
 <div class="section" id="discussion">

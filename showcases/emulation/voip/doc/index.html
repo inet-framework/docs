@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Using Simulated Applications in a Real Network &#8212; INET Documentation  documentation</title>
+
+    <link rel="stylesheet" href="../../../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Generic" href="../../../general/index.html" />
+    <link rel="prev" title="Testing a Linux Routing Daemon in a Simulated Environment" href="../../babel/doc/index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Emulation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Using Simulated Applications in a Real Network</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/emulation/voip/doc/index.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Emulation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Simulated Applications in a Real Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Emulation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Simulated Applications in a Real Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="using-simulated-applications-in-a-real-network">
+<h1>Using Simulated Applications in a Real Network<a class="headerlink" href="#using-simulated-applications-in-a-real-network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>In this showcase, we show how a simulated application can be used as a real
+application that communicates over the (real) network. Being able to do so opens
+a lot of possibilities. For example, you can deploy an application that only
+exists as a simulation model on real nodes, and test its behavior over a real
+network. Or, by letting the model talk to real-world implementations of the same
+application, you can test its interoperability and validate its behavior.</p>
+<p>The goal will be achieved by running the INET application-layer module inside a
+“wrapper” simulation, which (1) ensures that INET sockets map to real
+sockets of the host OS (so that application traffic goes via the network stack
+of the host OS and not stay inside the simulation), and (2) uses a real-time event
+scheduler so that timings correspond to real time.</p>
+<p>We’ll use a VoIP application as an example. There’ll be a sender and a receiver
+application, running in two separate simulations, and we’ll send realistic VoIP
+traffic (contents of an audio file) between them. The received audio will be
+saved to a file, which can be compared to the original to examine how the audio
+quality is affected by the packets passing through the network.</p>
+<p>Note that this showcase requires the <code class="docutils literal notranslate"><span class="pre">VoIPStream</span></code> and <code class="docutils literal notranslate"><span class="pre">ExtInterface</span></code>
+features of the INET Framework to be turned on (they are off by default), and it
+only runs on Linux.</p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.0</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/emulation/voip">inet/showcases/emulation/voip</a></div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see a bit of background first. INET contains several components to allow a
+variety of hardware-in-the-loop (HIL) simulation scenarios. Specifically, it
+contains one or two additional variants for several protocols and interfaces: an
+“ext lower” and/or an “ext upper” variant. The naming indicates that the given
+“half” of the protocol or interface connects to something external to the
+simulation, namely to an interface or socket on the host OS. This showcase
+demonstrates how such modules make it possible to build HIL scenarios like real
+apps/devices in a simulated network, or simulated apps/devices in a real
+network.</p>
+<p>In this showcase, we’ll use <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a>. This is a module that looks like
+a normal UDP module to its higher layers (i.e. applications), but in fact it
+sends and receives real UDP packets via the network stack of the host OS. In our
+simulation, we’ll let a pair of VoIP applications that normally use the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module communicate over <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a>, and we’ll make the actual
+UDP packets travel across a real network so that we can see how that affects
+voice quality. The simulations will be run under a real-time event scheduler
+(<code class="docutils literal notranslate"><span class="pre">inet::RealTimeScheduler</span></code>), so that timings correspond to real time.</p>
+<p>Note that the division of the simulated and real parts of the network is
+arbitrary; INET has support for dividing the network at other levels of the
+protocol stack; for example, at the link layer.</p>
+</div>
+<div class="section" id="the-simulation-setup">
+<h2>The Simulation Setup<a class="headerlink" href="#the-simulation-setup" title="Permalink to this headline">¶</a></h2>
+<p>The following figure illustrates the simulation setup:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/setup.png"><img alt="../../../../_images/setup.png" src="../../../../_images/setup.png" style="width: 40%;" /></a>
+</div>
+<p>We’ll use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> modules to
+generate the realistic VoIP traffic, and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> modules to connect
+the applications to the real network. These modules are the only ones we need,
+so the following “network” will suffice:</p>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">AppContainer</span>
+<span class="p">{</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">app</span><span class="o">:</span> <span class="o">&lt;&gt;</span> <span class="k">like</span> <span class="n">IApp</span><span class="p">;</span>
+        <span class="n">udp</span><span class="o">:</span> <span class="n">ExtLowerUdp</span><span class="p">;</span>
+    <span class="k">connections</span><span class="o">:</span>
+        <span class="n">app</span><span class="p">.</span><span class="n">socketOut</span> <span class="k">--&gt;</span> <span class="n">udp</span><span class="p">.</span><span class="n">appIn</span><span class="p">;</span>
+        <span class="n">app</span><span class="p">.</span><span class="n">socketIn</span> <span class="k">&lt;--</span> <span class="n">udp</span><span class="p">.</span><span class="n">appOut</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We’ll configure the <code class="docutils literal notranslate"><span class="pre">app</span></code> submodule to have type <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> and
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> on the sender and the receiver side, respectively.
+Both networks look like the following when run under Qtenv:</p>
+<a class="reference internal image-reference" href="../../../../_images/VoipStreamSenderApplication.png"><img alt="../../../../_images/VoipStreamSenderApplication.png" class="align-center" src="../../../../_images/VoipStreamSenderApplication.png" style="width: 25%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">AppContainer</span></code> module used in this showcase is quite generic. It can
+turn any (UDP-only) simulated application into a real-life application that
+communicates over the network stack of the host OS.</p>
+</div>
+<div class="section" id="operation">
+<h3>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h3>
+<p>When we run the simulations, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> in the sender-side
+simulation process will generate VoIP packets and send them to its
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> module. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> maintains a real UDP socket in the
+host OS, so the packets it receives from the application will be sent in real
+UDP packets over the protocol stack of the host OS.</p>
+<p>The UDP packets will then travel through the real network, and find their way to
+the node which runs the receiver-side simulation process. The packets will be
+received by the real UDP socket that <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> maintains there, converted to
+simulation packets, then sent up to the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> module. The
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> module receives and decodes them, and creates an audio
+file at the end of the simulation.</p>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>In the simulation, only a sender node and a receiver node are needed in order to
+send the packets into the real network on one side and receive them on
+the other side. The two simulated nodes are in separate parts of the whole
+network, so they are defined in separate networks in the NED file, and run in
+separate simulations.</p>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> module behaves just like the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module from the point of view
+of the modules above them. In this showcase (aside from assigning the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a>
+modules to network namespaces) only the VoIP modules need to be configured.
+The simulations are defined in separate configurations of <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.</p>
+<ul class="simple">
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> module transmits the contents of an audio file
+as VoIP traffic. The module resamples the audio, encodes it with a codec,
+chops it into packets and sends the packets via UDP. By default, it creates
+packets containing 20 ms of audio, and sends a packet every 20 ms.
+The codec, the sample rate, the time length of the audio packets, and other
+settings can be specified by parameters.</li>
+<li>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> module can receive this data stream, decode it
+and save it as an audio file. The module numbers the incoming packets, and discards
+out-of-order ones. There is a playout delay (specified by parameter; by default 20 ms)
+simulating a de-jitter buffer.</li>
+</ul>
+<p>The <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> and <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> modules are configured
+just like they would be in a fully simulated scenario, no special configuration
+is needed. Here is the relevant configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">AppContainer</span>
+<span class="na">scheduler-class</span> <span class="o">=</span> <span class="s">&quot;inet::RealTimeScheduler&quot;</span>
+
+<span class="k">[Config VoipSender]</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">47s</span>
+<span class="na">*.app.typename</span> <span class="o">=</span> <span class="s">&quot;VoipStreamSender&quot;</span>
+<span class="na">*.app.packetTimeLength</span> <span class="o">=</span> <span class="s">20ms</span>
+<span class="na">*.app.codec</span> <span class="o">=</span> <span class="s">&quot;pcm_s16le&quot;</span>
+<span class="na">*.app.sampleRate</span> <span class="o">=</span> <span class="s">32000Hz</span>
+<span class="na">*.app.voipHeaderSize</span> <span class="o">=</span> <span class="s">40B</span>
+<span class="na">*.app.voipSilenceThreshold</span> <span class="o">=</span> <span class="s">100</span>
+<span class="na">*.app.repeatCount</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.app.soundFile</span> <span class="o">=</span> <span class="s">&quot;Beatify_Dabei_cut.mp3&quot;</span>
+<span class="na">*.app.localPort</span> <span class="o">=</span> <span class="s">-1</span>
+<span class="na">*.app.destPort</span> <span class="o">=</span> <span class="s">60001</span>
+
+<span class="k">[Config VoipReceiver]</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">50s</span>
+<span class="na">*.app.typename</span> <span class="o">=</span> <span class="s">&quot;VoipStreamReceiver&quot;</span>
+<span class="na">*.app.localPort</span> <span class="o">=</span> <span class="s">60001</span>
+<span class="na">*.app.resultFile</span> <span class="o">=</span> <span class="s">&quot;results/received.wav&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<p>Several setups are provided here. In addition to running the setup over a real
+network, two other setup are also provided that only use the local computer, so
+they are supposedly easier to try out.</p>
+<div class="section" id="over-a-real-network">
+<h3>Over a Real Network<a class="headerlink" href="#over-a-real-network" title="Permalink to this headline">¶</a></h3>
+<p>To try this showcase over a real network, you need to install the simulation on
+two different machines. When it is done:</p>
+<p>First, run the following command on the receiver side:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>inet -u Cmdenv -c VoipReceiver
+</pre></div>
+</div>
+<p>Once the receiver is running, enter the following command on the sender side
+(replace <code class="docutils literal notranslate"><span class="pre">10.0.0.8</span></code> with the IP address of the host the receiver side is
+running on):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>inet -u Cmdenv -c VoipSender <span class="s1">&#39;--*.app.destAddress=&quot;10.0.0.8&quot;&#39;</span>
+</pre></div>
+</div>
+<p>That’s all. When the receiver-side simulation exits, you’ll find the received
+audio file in <code class="docutils literal notranslate"><span class="pre">results/received.wav</span></code>. You may need to raise the CPU time limit
+in the receiver-side simulation so that it does not exit prematurely.</p>
+</div>
+<div class="section" id="using-the-loopback-interface">
+<h3>Using the Loopback Interface<a class="headerlink" href="#using-the-loopback-interface" title="Permalink to this headline">¶</a></h3>
+<p>In this configuration, both simulations run on the same host, and packets will
+go via the loopback interface. Each sent packet goes down the protocol stack,
+through the loopback interface, and back up the protocol stack into the other
+simulation process. The Linux kernel even allows us to apply a small amount of
+delay, jitter, packet loss and data corruption to the packets traveling through
+the interface, to simulate the effects of the packets going through a real
+network.</p>
+<p>The setup for the loopback interface case is illustrated by the following
+figure:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/setup2.png"><img alt="../../../../_images/setup2.png" src="../../../../_images/setup2.png" style="width: 40%;" /></a>
+</div>
+<p>The simulation can be run with a shell script, listed below, that performs the
+appropriate configuration and starts the simulations. The script applies some
+delay (10ms with 1ms random variation), packet loss and data corruption to the
+traffic passing through the loopback interface. It runs both simulations in
+Cmdenv. The simulations are run until the configured simulation time limit,
+which is enough for the transfer of the whole audio file. When the simulations
+are finished, the delay, packets loss and corruption are removed from the
+loopback interface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_loopback</span></code> script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/sh</span>
+
+cleanup<span class="o">()</span> <span class="o">{</span>
+    <span class="c1"># remove delay, packet loss, etc. from the loopback interface</span>
+    sudo tc qdisc del dev lo root
+<span class="o">}</span>
+
+sigcleanup<span class="o">()</span> <span class="o">{</span>
+    cleanup<span class="p">;</span> <span class="nb">trap</span> <span class="s1">&#39;&#39;</span> EXIT <span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="o">}</span>
+
+<span class="c1"># auto-cleanup on exit and when interrupted</span>
+<span class="nb">trap</span> cleanup EXIT
+<span class="nb">trap</span> sigcleanup INT QUIT TERM
+
+<span class="c1"># add delay, jitter, and packet loss/corruption to packets going through the loopback interface</span>
+cleanup <span class="m">2</span>&gt;/dev/null
+sudo tc qdisc add dev lo root netem loss <span class="m">1</span>% corrupt <span class="m">5</span>% delay 10ms 1ms <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+
+<span class="c1"># run the simulations</span>
+inet -s -u Cmdenv -c VoipReceiverLoopback <span class="p">&amp;</span>
+sleep <span class="m">1</span>
+inet -s -u Cmdenv -c VoipSenderLoopback <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="nb">wait</span>
+</pre></div>
+</div>
+<p>The only extra configuration needed in the simulations is to set the
+<code class="docutils literal notranslate"><span class="pre">destAddress</span></code> parameter of the sender to <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, the loopback address.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config VoipSenderLoopback]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">VoipSender</span>
+<span class="na">*.app.destAddress</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
+
+<span class="k">[Config VoipReceiverLoopback]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">VoipReceiver</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-virtual-ethernet-interfaces">
+<h3>Using Virtual Ethernet Interfaces<a class="headerlink" href="#using-virtual-ethernet-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>This configuration uses network namespaces and virtual Ethernet interfaces,
+which are features provided by the Linux kernel. A network namespace provides a
+complete virtualized network stack independent from the main network stack of
+the host OS.</p>
+<p>We’ll create two namespaces, <code class="docutils literal notranslate"><span class="pre">net0</span></code> and <code class="docutils literal notranslate"><span class="pre">net1</span></code>. Then we’ll create a virtual
+Ethernet interface in both, and name them <code class="docutils literal notranslate"><span class="pre">veth0</span></code> and <code class="docutils literal notranslate"><span class="pre">veth1</span></code>. The two
+interfaces will be connected to each other. This setup is illustrated below:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/setup3.png"><img alt="../../../../_images/setup3.png" src="../../../../_images/setup3.png" style="width: 40%;" /></a>
+</div>
+<p>The run script in this case (see below) creates the two namespaces and a <em>veth</em>
+interface in each, and adds routes (a route for each direction is required
+because there is an ARP exchange at the beginning). Note that the <em>veth</em>
+interfaces are created in pairs, and are automatically connected to each other.
+The scripts also adds the same delay, loss and corruption to the <code class="docutils literal notranslate"><span class="pre">veth0</span></code>
+interface as the loopback script. Then it runs the simulations. When they are
+finished, it destroys the namespaces.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">run_veth</span></code> script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/sh</span>
+
+cleanup<span class="o">()</span> <span class="o">{</span>
+    <span class="c1"># delete namespaces</span>
+    sudo ip netns del net0
+    sudo ip netns del net1
+<span class="o">}</span>
+
+sigcleanup<span class="o">()</span> <span class="o">{</span>
+    cleanup<span class="p">;</span> <span class="nb">trap</span> <span class="s1">&#39;&#39;</span> EXIT <span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="o">}</span>
+
+<span class="c1"># auto-cleanup on exit and when interrupted</span>
+<span class="nb">trap</span> cleanup EXIT
+<span class="nb">trap</span> sigcleanup INT QUIT TERM
+
+<span class="c1"># create namespaces</span>
+cleanup <span class="m">2</span>&gt;/dev/null
+sudo ip netns add net0
+sudo ip netns add net1
+
+<span class="c1"># create a virtual ethernet interface in each namespace, assign IP addresses to them</span>
+<span class="c1"># and bring them up</span>
+sudo ip link add veth0 netns net0 <span class="nb">type</span> veth peer name veth1 netns net1 <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+sudo ip netns <span class="nb">exec</span> net0 ip addr add <span class="m">192</span>.168.2.1 dev veth0 <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+sudo ip netns <span class="nb">exec</span> net1 ip addr add <span class="m">192</span>.168.2.2 dev veth1 <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+sudo ip netns <span class="nb">exec</span> net0 ip link <span class="nb">set</span> veth0 up <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+sudo ip netns <span class="nb">exec</span> net1 ip link <span class="nb">set</span> veth1 up <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+
+<span class="c1"># add routes</span>
+sudo ip netns <span class="nb">exec</span> net0 route add -net <span class="m">192</span>.168.2.0 netmask <span class="m">255</span>.255.255.0 dev veth0 <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+sudo ip netns <span class="nb">exec</span> net1 route add -net <span class="m">192</span>.168.2.0 netmask <span class="m">255</span>.255.255.0 dev veth1 <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+
+<span class="c1"># add delay+loss+corruption to veth0 interface</span>
+sudo ip netns <span class="nb">exec</span> net0 tc qdisc add dev veth0 root netem loss <span class="m">1</span>% corrupt <span class="m">5</span>% delay 10ms 1ms <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+
+<span class="c1"># run both simulations</span>
+inet -s -u Cmdenv -c VoipReceiverVirtualEth <span class="p">&amp;</span>
+sleep <span class="m">1</span>
+inet -s -u Cmdenv -c VoipSenderVirtualEth <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="nb">wait</span>
+</pre></div>
+</div>
+<p>In the simulation configurations, we need to set the network namespace of the
+<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.emulation.transportlayer.udp.ExtLowerUdp.html">ExtLowerUdp</a> modules to <code class="docutils literal notranslate"><span class="pre">net0</span></code> and <code class="docutils literal notranslate"><span class="pre">net1</span></code>, and the sender’s
+<code class="docutils literal notranslate"><span class="pre">destAddress</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">192.168.2.2</span></code>.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config VoipSenderVirtualEth]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">VoipSender</span>
+<span class="na">*.udp.namespace</span> <span class="o">=</span> <span class="s">&quot;net0&quot;</span>
+<span class="na">*.app.destAddress</span> <span class="o">=</span> <span class="s">&quot;192.168.2.2&quot;</span>
+
+<span class="k">[Config VoipReceiverVirtualEth]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">VoipReceiver</span>
+<span class="na">*.udp.namespace</span> <span class="o">=</span> <span class="s">&quot;net1&quot;</span>
+</pre></div>
+</div>
+<p>The received audio file is saved to the <code class="docutils literal notranslate"><span class="pre">results</span></code> folder.</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at results obtained from running the loopback-based configuration! As
+a reference, you can listen to the original audio file by clicking the play
+button below:</p>
+<p><audio controls> <source src="media/Beatify_Dabei_cut.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio></p><p>Here is the received audio file:</p>
+<p><audio controls> <source src="media/received.wav" type="audio/wav">Your browser does not support the audio tag.</audio></p><p>The quality of the received sound is degraded compared to the original. The sender creates
+and sends audio packets every 20ms, but when they go through the host OS
+protocol stack, the packets are sent in bursts, as illustrated by the following image.
+The image displays the time for packets sent by the sender (left) and packets received
+by the receiver (right):</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/log.png"><img alt="../../../../_images/log.png" src="../../../../_images/log.png" style="width: 100%;" /></a>
+</div>
+<p>The traffic becomes bursty before the delay and jitter are applied.
+The time difference between the packets in a burst is smaller than the applied jitter,
+so that some of the packets are reordered. The receiver drops out-of-order packets,
+thus the audio quality suffers.</p>
+<p>Without the jitter, the packets would still arrive in bursts, but not reordered.
+The quality would be nearly as good as the original file. (To reduce burstiness
+and keep the packet order, a data rate can be specified in the <code class="docutils literal notranslate"><span class="pre">netem</span></code> command,
+e.g. <code class="docutils literal notranslate"><span class="pre">rate</span> <span class="pre">1000kbps</span></code>. This eliminates reordering in this scenario.)</p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp1.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/AppContainer.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">AppContainer.ned</span></code></a>,
+<a class="reference download internal" href="../../../../_downloads/run_loopback" download=""><code class="xref download docutils literal notranslate"><span class="pre">run_loopback</span></code></a>, <a class="reference download internal" href="../../../../_downloads/run_veth" download=""><code class="xref download docutils literal notranslate"><span class="pre">run_veth</span></code></a></p>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-showcases/issues/47">this
+page</a> in
+the GitHub issue tracker for commenting on this showcase.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Using Simulated Applications in a Real Network</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#the-simulation-setup">The Simulation Setup</a><ul>
+<li><a class="reference internal" href="#operation">Operation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running">Running</a><ul>
+<li><a class="reference internal" href="#over-a-real-network">Over a Real Network</a></li>
+<li><a class="reference internal" href="#using-the-loopback-interface">Using the Loopback Interface</a></li>
+<li><a class="reference internal" href="#using-virtual-ethernet-interfaces">Using Virtual Ethernet Interfaces</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../../babel/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Testing a Linux Routing Daemon in a Simulated Environment</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../../general/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Generic</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

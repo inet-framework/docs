@@ -75,6 +75,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -239,6 +240,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -554,11 +556,11 @@ arranged in a rectangle, and all of them are in communication range with each ot
 (corresponding hosts are 20 meters apart). One host in each host pair sends frames
 to the other (<code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> to <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code>, and <code class="docutils literal notranslate"><span class="pre">wpanHost1</span></code> to <code class="docutils literal notranslate"><span class="pre">wpanHost2</span></code>).</p>
 <p>The simulation is defined in the <code class="docutils literal notranslate"><span class="pre">Coexistence</span></code> configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The radio medium module in the network
+<a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The radio medium module in the network
 is a <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.RadioMedium.html">RadioMedium</a>. It is configured to use the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.analogmodel.packetlevel.DimensionalAnalogModel.html">DimensionalAnalogModel</a>.
 The background noise type is set to <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.physicallayer.backgroundnoise.IsotropicDimensionalBackgroundNoise.html">IsotropicDimensionalBackgroundNoise</a>,
 with a power of -110 dBm. Here is the radio medium configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.radioMedium.analogModel.typename</span> <span class="o">=</span> <span class="s">&quot;DimensionalAnalogModel&quot;</span>
 <span class="na">*.radioMedium.backgroundNoise.typename</span> <span class="o">=</span> <span class="s">&quot;IsotropicDimensionalBackgroundNoise&quot;</span>
 <span class="na">*.radioMedium.backgroundNoise.powerSpectralDensity</span> <span class="o">=</span> <span class="s">-113dBmWpMHz</span>
@@ -611,7 +613,7 @@ than the WPAN.</p>
 <p>The Wifi channel is set to Channel 9 (center frequency of 2452MHz) to ensure that
 the Wifi transmissions overlap with the 802.15.4 transmissions in frequency.
 Here is the configuration for the Wifi host radios in
-<a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost*.wlan[*].radio.typename</span> <span class="o">=</span> <span class="s">&quot;Ieee80211DimensionalRadio&quot;</span>
 <span class="na">*.wifiHost*.wlan[*].radio.channelNumber</span> <span class="o">=</span> <span class="s">8</span>
 </pre></div>
@@ -634,7 +636,7 @@ parameter value specifying this spectrum:</p>
 </div>
 <p>The default carrier frequency (2450 MHz) and bandwidth (2.8 MHz) is not changed.
 Here is the configuration for the WPAN host radios in
-<a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wpanHost*.wlan[*].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee802154NarrowbandInterface&quot;</span>
 <span class="na">*.wpanHost*.wlan[*].radio.typename</span> <span class="o">=</span> <span class="s">&quot;Ieee802154NarrowbandDimensionalRadio&quot;</span>
 </pre></div>
@@ -646,7 +648,7 @@ hosts use the default bitrate of 250 kbps (specified in <a class="reference-ned 
 <p><code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> is configured to send a 1000-byte UDP packet to <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code>
 every 0.4 milliseconds, corresponding to about 20 Mbps traffic, saturating
 the Wifi channel. Here is the Wifi traffic configuration in
-<a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+<a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wifiHost1.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.wifiHost1.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
 <span class="na">*.wifiHost1.app[*].destAddresses</span> <span class="o">=</span> <span class="s">&quot;wifiHost2&quot;</span>
@@ -665,7 +667,7 @@ the Wifi channel. Here is the Wifi traffic configuration in
 every 0.1 seconds, which is about 7 Kbps of traffic
 (the packet size is set to 88 bytes in order not to exceed the default
 maximum transfer unit in 802.15.4).
-Here is the WPAN traffic configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
+Here is the WPAN traffic configuration in <a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.wpanHost1.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.wpanHost1.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
 <span class="na">*.wpanHost1.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;wpanHost2&quot;</span>
@@ -681,7 +683,7 @@ Here is the WPAN traffic configuration in <a class="reference download internal"
 </pre></div>
 </div>
 <p>The independent performance data can be obtained by running the <code class="docutils literal notranslate"><span class="pre">WifiOnly</span></code>
-and the <code class="docutils literal notranslate"><span class="pre">WpanOnly</span></code> configurations in <a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
+and the <code class="docutils literal notranslate"><span class="pre">WpanOnly</span></code> configurations in <a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
 These configurations extend the <code class="docutils literal notranslate"><span class="pre">Coexistence</span></code> configuration, and disable
 either the Wifi or the WPAN host communication by setting the number of
 applications to 0:</p>
@@ -770,7 +772,7 @@ packets is due to the averaging of the repetitions.</p>
 correctly when interfering with each other. The decrease in performance comes
 from the fact that hosts defer from transmitting when they detect ongoing
 transmissions.</p>
-<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp27.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/CoexistenceShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">CoexistenceShowcase.ned</span></code></a></p>
+<p>Sources: <a class="reference download internal" href="../../../../_downloads/omnetpp28.ini" download=""><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" href="../../../../_downloads/CoexistenceShowcase.ned" download=""><code class="xref download docutils literal notranslate"><span class="pre">CoexistenceShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
