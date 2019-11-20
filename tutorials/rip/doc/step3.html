@@ -160,10 +160,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -328,10 +328,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -410,13 +410,41 @@ routes to indicate that the link is broken</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>TODO: what is SplitHorizon</p>
-<p>TODO: the network and the config</p>
+<p>This step uses the same network as the previous one.</p>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step3]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Link Breakage&quot;</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step2</span>
+
+<span class="c1"># enable split horizon in order for the scenario to work properly</span>
+<span class="na">*.router*.rip.ripConfig</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; &lt;interface hosts=&#39;router*&#39; mode=&#39;SplitHorizon&#39; /&gt; &lt;/config&gt;&quot;)</span>
+
+<span class="c1"># disable ping application</span>
+<span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario2.xml&quot;)</span>
+</pre></div>
+</div>
+<p>The scenario manager script:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario2.xml --&gt;</span>
+<span class="nt">&lt;scenario&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[1]&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/at&gt;</span>
+<span class="nt">&lt;/scenario&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>TODO: video</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step3_linkbreak.mp4" width="100%" height="" class="align-center"></video><p>TODO: what happens</p>
 <p>TODO: maybe routing tables and screenshots of RIP packets</p>
+<p>Sources:
+<a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/6885266c9632f739e9242f9b68ef449c/RipNetworkA.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkA.ned</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/2c8b3a9a47b41581edc4c95e820cba11/scenario2.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario2.xml</span></code></a></p>
 </div>
 </div>
 

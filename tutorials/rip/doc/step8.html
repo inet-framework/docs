@@ -160,10 +160,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -328,10 +328,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -409,6 +409,22 @@ splithorizon with poisoned reverse are not effective.</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>This step uses the same network as the previous one.</p>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step8]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Hold-down timer&quot;</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step7</span>
+
+<span class="c1"># enabling split horizon with/without poissoned reverse alone does not solve the problem</span>
+<span class="c1"># -&gt; because there are loops -&gt; a router doesnt send the update to where it received it from, but another router in the loop can</span>
+<span class="c1"># but we have seen this in step7 so splithorizon is not needed here (actually, doesnt make a difference, but it is easier to demonstrate holddown without it)</span>
+<span class="c1">#*.router*.rip.ripConfig = xml(&quot;&lt;config&gt; &lt;interface hosts=&#39;router*&#39; mode=&#39;SplitHorizon&#39; /&gt; &lt;/config&gt;&quot;)</span>
+<span class="c1"># without splithorizon, router2 sends the no longer working route to router3, with a metric of 3.</span>
+<span class="c1"># since the route in router3 is in holddown, it doesn&#39;t update it -&gt; it might be more visible this way</span>
+
+<span class="na">*.router*.rip.holdDownTime</span> <span class="o">=</span> <span class="s">30s</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
@@ -428,6 +444,9 @@ on the image to enlarge):</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../_images/step8_1.png"><img alt="../../../_images/step8_1.png" src="../../../_images/step8_1.png" style="width: 100%;" /></a>
 </div>
+<p>Sources:
+<a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/64ff2379e85332e1a8ebd9285a3cc4d6/RipNetworkD.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkD.ned</span></code></a></p>
 </div>
 </div>
 

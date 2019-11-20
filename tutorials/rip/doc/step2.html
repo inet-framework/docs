@@ -160,10 +160,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -328,10 +328,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -409,7 +409,40 @@ RIP features are turned off</p>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <p>TODO: about RIP and the INET implementation</p>
-<p>TODO: the network and config for this step</p>
+<p>This step uses the same network as the previous one.</p>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step2]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Pinging after RIP convergence&quot;</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">RipNetworkA</span>
+
+<span class="c1"># adding default routes in all hosts</span>
+<span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; \</span>
+<span class="s">                                &lt;interface hosts=&#39;**&#39; address=&#39;10.x.x.x&#39; netmask=&#39;255.x.x.x&#39;/&gt; \</span>
+<span class="s">                                &lt;autoroute sourceHosts=&#39;host*&#39;/&gt; \</span>
+<span class="s">                             &lt;/config&gt;&quot;)</span>
+
+<span class="na">*.configurator.addStaticRoutes</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c1"># RIP parameters on routers</span>
+<span class="na">*.router*.hasRip</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.router*.rip.startupTime</span> <span class="o">=</span> <span class="s">uniform(0s,1s)</span>
+<span class="c1"># disable advanced features for now!</span>
+<span class="na">*.router*.rip.ripConfig</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; &lt;interface hosts=&#39;router*&#39; mode=&#39;NoSplitHorizon&#39; /&gt; &lt;/config&gt;&quot;)</span>
+<span class="na">*.router*.rip.triggeredUpdate</span> <span class="o">=</span> <span class="s">false</span>
+
+<span class="c1"># Application parameters</span>
+<span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host0.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host0.app[0].destAddr</span> <span class="o">=</span> <span class="s">&quot;host6&quot;</span>
+<span class="na">*.host0.app[0].startTime</span> <span class="o">=</span> <span class="s">50s</span>
+
+<span class="c1"># turning on global ARP to focus on the RIP messages</span>
+<span class="na">*.*.ipv4.arp.typename</span> <span class="o">=</span> <span class="s">&quot;GlobalArp&quot;  </span><span class="c1"># TODO: for some reasons GlobalArp does not work -&gt; it seems to work now</span>
+
+<span class="c1"># Visualizer settings</span>
+<span class="na">*.visualizer.interfaceTableVisualizer[0].displayInterfaceTables</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
@@ -417,6 +450,9 @@ RIP features are turned off</p>
 <p>Rip convergence:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step2_3.mp4" width="100%" height="" class="align-center"></video><p>Ping (basically the same as in step 1, so not sure it’s needed):</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step2_3_ping.mp4" width="100%" height="" class="align-center"></video><p>TODO: what happens</p>
+<p>Sources:
+<a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/6885266c9632f739e9242f9b68ef449c/RipNetworkA.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkA.ned</span></code></a></p>
 </div>
 </div>
 

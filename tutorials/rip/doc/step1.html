@@ -160,10 +160,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -328,10 +328,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -408,7 +408,96 @@ by the <a class="reference-ned reference external" href="https://omnetpp.org/doc
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>The configuration uses the following network:</p>
+<p>This step uses the following network:</p>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">RipNetworkA</span>
+<span class="p">{</span>
+    <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=2101.0125,829.44995&quot;</span><span class="p">);</span>
+    <span class="nb">@figure</span><span class="p">[</span><span class="n">simtime</span><span class="p">](</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;simTimeText&quot;</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">1550</span><span class="p">,</span><span class="mi">60</span><span class="p">;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;SimTime: &quot;</span><span class="p">;</span> <span class="n">font</span><span class="o">=</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=757.8,76.30625&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">visualizer</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;IntegratedCanvasVisualizer&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IIntegratedVisualizer</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1023.5563,76.30625&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">scenarioManager</span><span class="o">:</span> <span class="n">ScenarioManager</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1310.3625,76.30625&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host0</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,375.59998;i=,red&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host1</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,532.1&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host2</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,694.46875&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host3</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,334.51874&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">router0</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=543.83746,532.1&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">router2</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1508.2687,532.1&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">router1</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=925.3062,532.1&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host4</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,692.51245&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host5</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1473.0562,389.29373&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host6</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,373.64374;i=,blue&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host7</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,532.1&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">host8</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,692.51245&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switch0</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=318.86874,530.14374&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switch2</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1727.3687,530.14374&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switch1</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,530.14374&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">router3</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1054.4187,334.51874&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">router4</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=712.07495,334.51874&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="k">connections</span><span class="o">:</span>
+        <span class="n">host2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">host1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">host0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host5</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host6</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host7</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host8</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="n">router2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth10M</span> <span class="k">&lt;--&gt;</span> <span class="n">router1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">router1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth10M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">router4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">router3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../_images/step1network1.png"><img alt="../../../_images/step1network1.png" src="../../../_images/step1network1.png" style="width: 80%;" /></a>
 </div>
@@ -417,7 +506,7 @@ via ethernet switches</p>
 <p>TODO: In the simulation, a host from one subnet will ping a host in
 another subnet. The ping packets will be routed via the routers, which
 use static routes assigned by <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>.</p>
-<p>The configuration in is the following:</p>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step1]</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Static routing&quot;</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">RipNetworkA</span>
@@ -445,7 +534,10 @@ and towards <code class="docutils literal notranslate"><span class="pre">host6</
 <a class="reference internal image-reference" href="../../../_images/step1routes.png"><img alt="../../../_images/step1routes.png" src="../../../_images/step1routes.png" style="width: 80%;" /></a>
 </div>
 <p>Here is a video of <code class="docutils literal notranslate"><span class="pre">host0</span></code> pinging <code class="docutils literal notranslate"><span class="pre">host6</span></code>:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step1_2.mp4" width="100%" height="" class="align-center"></video></div>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step1_2.mp4" width="100%" height="" class="align-center"></video><p>Sources:
+<a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/6885266c9632f739e9242f9b68ef449c/RipNetworkA.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkA.ned</span></code></a></p>
+</div>
 </div>
 
 

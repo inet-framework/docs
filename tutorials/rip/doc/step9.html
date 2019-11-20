@@ -160,10 +160,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -328,10 +328,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -403,12 +403,72 @@ Show Source
 <h1>Step 9. Measure RIP recovery time<a class="headerlink" href="#step-9-measure-rip-recovery-time" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
 </div>
 <div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>This step uses the same network as the previous one.</p>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step9]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Measure RIP recovery time&quot;</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step2</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">1500s</span>
+
+<span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host0.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpBasicApp&quot;</span>
+<span class="na">*.host0.app[0].destAddresses</span> <span class="o">=</span> <span class="s">&quot;host6&quot;</span>
+<span class="na">*.host0.app[0].destPort</span> <span class="o">=</span> <span class="s">1234</span>
+<span class="c1">#*.host0.app[0].startTime = 50s</span>
+<span class="na">*.host0.app[0].sendInterval</span> <span class="o">=</span> <span class="s">0.5s</span>
+<span class="na">*.host0.app[0].messageLength</span> <span class="o">=</span> <span class="s">32 bytes</span>
+
+<span class="na">*.host6.numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host6.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSink&quot;</span>
+<span class="na">*.host6.app[0].localPort</span> <span class="o">=</span> <span class="s">1234</span>
+
+<span class="c1"># TODO: change startup time to maximise the effect of triggered update</span>
+<span class="na">*.router*.rip.startupTime</span> <span class="o">=</span> <span class="s">uniform(0s,1s)</span>
+<span class="c1"># enable split horizon in order for the scenario to work properly</span>
+<span class="na">*.router*.rip.ripConfig</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; &lt;interface hosts=&#39;router*&#39; mode=&#39;SplitHorizon&#39; /&gt; &lt;/config&gt;&quot;)</span>
+
+<span class="c1">#*.scenarioManager.script = xmldoc(&quot;scenario3.xml&quot;)</span>
+
+<span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario7.xml&quot;)        </span><span class="c1"># break link between router2 and switch1; with scenario3, the link doesn&#39;t recover</span>
+
+<span class="na">*.router*.rip.triggeredUpdate</span> <span class="o">=</span> <span class="s">${triggeredUpdate = false, true}</span>
+</pre></div>
+</div>
+<p>The scenario manager script:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario7.xml --&gt;</span>
+<span class="nt">&lt;scenario&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;250&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/at&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;602&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[3]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[0]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/at&gt;</span>
+<span class="nt">&lt;/scenario&gt;</span>
+</pre></div>
+</div>
+<p><strong>No Netmask Routes:</strong></p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step9NoNetmaskRoutes]</span>
+<span class="na">extends</span> <span class="o">=</span> <span class="s">Step9</span>
+
+<span class="na">**.netmaskRoutes</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="na">*.configurator.addDirectRoutes</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+<p>Sources:
+<a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/64ff2379e85332e1a8ebd9285a3cc4d6/RipNetworkD.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkD.ned</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/340f063cb30c0b750fc1df62e358311d/scenario3.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario3.xml</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/b43c2b217f696fb814b9dd354223c9da/scenario7.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario7.xml</span></code></a></p>
 </div>
 </div>
 

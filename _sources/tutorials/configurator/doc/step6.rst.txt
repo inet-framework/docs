@@ -1,4 +1,4 @@
-Step 6. Setting different metric for automatic routing table configuration
+Step 6. Using a different metric for automatic routing table configuration
 ==========================================================================
 
 Goals
@@ -9,12 +9,12 @@ algorithm. By default, paths are optimized for hop count. However, there
 are other cost functions available, like data rate, error rate, etc.
 This step consists of two parts:
 
-- **Part A** demonstrates using the data rate metric for automatically setting up routes.
-- **Part B** demonstrates instructing the configurator not to use a link when setting
-  up routes, by manually specifying a high link cost.
+- **Part A** demonstrates using data rate as metric.
+- **Part B** demonstrates instructing the configurator to ignore a link
+  when setting up routes, by manually specifying a high link cost.
 
-Part A: Using the data rate metric
-----------------------------------
+Part A: Using the data rate as metric
+-------------------------------------
 
 When setting up routes, the configurator first builds a graph
 representing the network topology. A vertex in the graph represents a

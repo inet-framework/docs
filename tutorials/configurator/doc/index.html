@@ -163,10 +163,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -331,10 +331,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -404,23 +404,22 @@ Show Source
         
   <div class="section" id="ipv4-network-configurator-tutorial">
 <h1>IPv4 Network Configurator Tutorial<a class="headerlink" href="#ipv4-network-configurator-tutorial" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial shows how to configure IP addresses and routing tables
-(that is, achieve static autoconfiguration) in wired and wireless
-networks in the INET Framework using the <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>
-module.</p>
-<p>In INET simulations, configurator modules are commonly used for
-assigning IP addresses to network nodes and for setting up their routing
-tables. There are various configurators modules in INET; this tutorial
-covers the most generic and most featureful one,
-<a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> supports
-automatic and manual network configuration, and their combinations. By
-default, the configuration is fully automatic. The user can also specify
-parts (or all) of the configuration manually, and the rest will be
-configured automatically by the configurator. The configurator’s various
-features can be turned on and off with parameters. The details of the
-configuration, such as IP addresses and routes, can be specified in an
-XML file.</p>
-<p>IPv4 Network Configurator Tutorial:</p>
+<p>This tutorial shows how one can configure IP addresses and routing tables in wired
+and wireless networks in the INET Framework without using a host configuration
+protocol and a routing protocol; that is, how to achieve static autoconfiguration.</p>
+<p>In INET simulations, configurator modules are commonly used for assigning IP
+addresses to network nodes and for setting up their routing tables. There are
+various configurators modules in INET. This tutorial covers the most generic and
+most featureful one, <a class="reference-ned reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. It supports automatic and
+manual network configuration, and their combinations. By default, the
+configuration is fully automatic. When automatic configuration does not yield
+the desired results, the user can specify manual configuration for parts (or
+all) of the network, and the rest will be configured automatically. The
+configurator’s various features can be turned on and off with parameters. The
+details of the configuration, such as IP addresses and routes, can be specified
+in an XML file.</p>
+<p>The tutorial is organized into several steps, each one demonstrating
+a different feature or use case for the network configurator:</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="step1.html">Step 1. Fully automatic IP address assignment</a></li>
@@ -428,10 +427,10 @@ XML file.</p>
 <li class="toctree-l1"><a class="reference internal" href="step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step4.html">Step 4. Fully automatic static routing table configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step5.html">Step 5. Manually overriding individual routes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step6.html">Step 6. Using a different metric for automatic routing table configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step7.html">Step 7. Configuring a hierarchical network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
-<li class="toctree-l1"><a class="reference internal" href="step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step9.html">Step 9. Leaving some parts of the network unconfigured</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step10.html">Step 10. Configuring a completely wireless network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step12.html">Step 12. Mixing different kinds of autorouting</a></li>
@@ -439,20 +438,8 @@ XML file.</p>
 </ul>
 </div>
 <p>This is an advanced tutorial, and it assumes that you are familiar with
-creating and running simulations in OMNeT++ and INET. If you aren’t, you
-can check out the TicToc Tutorial to get started with using OMNeT++.</p>
-<p>If you need more information at any time, feel free to refer to the
-OMNeT++ and INET documentation:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://omnetpp.org/doc/omnetpp/manual/usman.html">OMNeT++ User
-Manual</a></p></li>
-<li><p><a class="reference external" href="https://omnetpp.org/doc/omnetpp/api/index.html">OMNeT++ API
-Reference</a></p></li>
-<li><p><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/inet-manual-draft.pdf">INET Manual
-draft</a></p></li>
-<li><p><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html">INET
-Reference</a></p></li>
-</ul>
+creating and running simulations in OMNeT++ and INET. If you aren’t,
+please read the INET User’s Guide first.</p>
 </div>
 
 
