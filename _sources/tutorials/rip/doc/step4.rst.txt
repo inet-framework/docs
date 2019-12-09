@@ -15,7 +15,7 @@ still advertise until deleted)
 
 This step uses the following network:
 
-.. literalinclude:: ../RipNetworkB.ned
+.. literalinclude:: ../RipNetworkA.ned
    :language: ned
    :start-at: RipNetwork
 
@@ -103,7 +103,7 @@ TODO: screenshots or routing tables / RIP packets
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkB.ned <../RipNetworkB.ned>`,
+:download:`RipNetworkA.ned <../RipNetworkA.ned>`,
 :download:`scenario1.xml <../scenario1.xml>`,
 :download:`scenario5.xml <../scenario5.xml>`,
 :download:`scenario6.xml <../scenario6.xml>`

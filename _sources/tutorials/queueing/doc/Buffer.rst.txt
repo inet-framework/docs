@@ -1,11 +1,57 @@
-Buffer
-======
+Storing Packets on Behalf of Multiple Queues
+============================================
 
-In this step, packets are produced periodically (randomly) by two active packet
-sources (:ned:`ActivePacketSource`). The packets are collected periodically (randomly)
-by two active packet sinks (:ned:`ActivePacketSink`). The sources and the sinkes are
-connected by packet queues (:ned:`PacketQueue`) and packets are stored in shared packet
-buffer (:ned:`PacketBuffer`). The packet buffer drops packets from the beginning of
+.. Buffer
+   Storing packets in a buffer shared among multiple queues
+
+.. This step demonstrates the :ned:`PacketBuffer` module. The module stores packets on
+   behalf of multiple queues, acting as a shared packet buffer for them.
+   Instead of each individual queue having a capacity to store a given number of packets,
+   the packets are stored by the buffer on behalf of the queues.
+   the buffer's capacity
+
+.. V1
+
+   The :ned:`PacketBuffer` module stores packets on
+   behalf of multiple queues, acting as a shared packet buffer for them.
+   Instead of each individual queue having a capacity to store a given number of packets,
+   the packets are stored by the buffer on behalf of the queues.
+   The buffer's capacity limits the number of packet that can be stored by the queues.
+   The buffer keeps a record of which packets belong to which queue.
+
+.. V2
+
+The :ned:`PacketBuffer` module stores packets on
+behalf of multiple queues, acting as a shared packet buffer for them.
+Instead of each individual queue having a capacity to store a given number of packets,
+the whole queue system has a global, shared packet capacity.
+The buffer keeps a record of which packets belong to which queue.
+
+.. The whole queue system has a global, shared packet capacity. Otherwise, the packets in the queues
+   are stored the same way. / Otherwise each individual queue contains the packets
+
+.. -the queues dont have packet capacity individually
+   -instead, since packets are stored in the buffer, the buffer's capacity is relevant.
+   -so if there are two queues with 5 packet capacity, and 2 queues and a buffer with 10 packet
+   capacity, one of the queues could store 10 packets while the other stores 0
+   -the buffer records which packet belongs in which queue
+   -so the buffer takes the packet storing mechanism from the queues (that mean capacity as well)
+   -so the queues have shared packet storing mechanism and packet capacity
+   -while a record is kept about which packet belongs to which queue
+
+.. In this step, packets are produced at random intervals by two active packet
+   sources (:ned:`ActivePacketSource`). The packets are collected at random intervals
+   by two active packet sinks (:ned:`ActivePacketSink`). The sources and the sinks are
+   connected by packet queues (:ned:`PacketQueue`) and packets are stored in a shared packet
+   buffer (:ned:`PacketBuffer`). The packet buffer drops packets from the beginning of
+   the buffer when it gets overloaded.
+
+In this example network, packets are produced at random intervals by two active packet sources
+(:ned:`ActivePacketSource`). Each packet source pushes packets into a queue (:ned:`PacketQueue`).
+The two queues share a packet buffer module (:ned:`PacketBuffer`). The buffer is configured to have
+a packet capacity of 2. Packets are popped from the queues by two active packet sinks (:ned:`ActivePacketSink`).
+Since the buffer has a limited packet capacity, and the ``PacketAtCollectionBeginDropper`` function is used
+as the dropper function, the buffer drops packets from the beginning of
 the buffer when it gets overloaded.
 
 .. figure:: media/Buffer.png

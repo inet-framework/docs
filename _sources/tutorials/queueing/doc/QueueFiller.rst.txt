@@ -1,7 +1,16 @@
-Queue Filler
-============
+Preventing a Queue from Becoming Empty
+======================================
 
-In this step, an active packet sink (:ned:`ActivePacketSink`) periodically pops packets from a queue (:ned:`PacketQueue`).
+.. Making sure a Queue is Always Filled
+   Preventing a Queue from Becoming Empty
+   Ensure a Queue is Never Empty
+
+This step demonstrates the :ned:`QueueFiller` module, which creates packets whenever
+a connected queue becomes empty. The module can be used to completely utilize a network interface.
+
+.. The module can be used to saturate a channel. TODO
+
+In this example network, an active packet sink (:ned:`ActivePacketSink`) periodically pops packets from a queue (:ned:`PacketQueue`).
 Whenever the queue becomes empty, a queue filler module (:ned:`QueueFiller`) pushes a packet into it.
 
 .. figure:: media/QueueFillerNetwork.png

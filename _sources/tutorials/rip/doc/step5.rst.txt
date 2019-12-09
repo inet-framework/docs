@@ -42,4 +42,4 @@ TODO: screenshots of routing tables / RIP packets
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkB.ned <../RipNetworkB.ned>`
+:download:`RipNetworkA.ned <../RipNetworkA.ned>`

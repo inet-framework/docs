@@ -29,4 +29,4 @@ The RIP messages are only sent among the routers, but not the hosts.
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkD.ned <../RipNetworkD.ned>`
+:download:`RipNetworkC.ned <../RipNetworkC.ned>`

@@ -1,5 +1,23 @@
-Request Response
-================
+Request/Response Based Communication
+====================================
+
+.. Request Consumer and Response Producer
+
+V1
+
+This step demonstrates a simplified request/response based communication,
+using a pair of :ned:`RequestConsumer` and :ned:`ResponseProducer` modules.
+The :ned:`RequestConsumer` module classifies incoming packets according to a configured
+packet classifier function, into a configurable
+number of categories. When a packet is classified into a category, a token is generated
+into the same category of the :ned:`ResponseProducer` module. The :ned:`ResponseProducer`
+creates packets in different traffic categories, when the corresponing token-based server
+has enough tokens. A signal-based token generator watches the token-based server in the request
+consumer and generates a token when a ``tokensDepleted`` signal is received.
+
+---------------------------
+
+V2
 
 This test contains a simplified version of a client/server and a request/response
 based communication.
@@ -17,6 +35,37 @@ The response producer generates different traffic randomly over a period of time
 for each kind of request.
 
 The client consumes the response packets by a passive packet sink (:ned:`PassivePacketSink`).
+
+---------------------------
+
+V3
+
+Request packets are produced by an active packet source. The RequestConsumer module
+turns the packets into tokens for the RensponseProducer module, which in turn
+produces the response traffic. The traffic is consumed by a passive packet sink.
+The RequestConsumer module classifies incoming request packets into a configurable
+number of categories; tokens are generated into the corresponding category's token-based
+server, thus starting the response traffic in the category. The various components
+making up the modules are configurable.
+
+-------------------------
+
+.. so
+
+  - requests are produced by an active packet source
+  - the requestConsumer turns the requests into tokens for the responseProducer
+  - which creates the response traffic
+  - which is consumed by the responseConsumer
+
+  - requests are produced by an active packet source
+  - the requestConsumer turns the requests into tokens for the responseProducer
+  - which creates the response traffic
+  - which is consumed by the responseConsumer
+  - the requestConsumer classifies the request packet into one of a configurable number
+    of categories - the classifier function is configurable, so as everything actually
+  - the tokens are created into the corresponding category in the responseProducer
+  - also, the token generator in the responseProducer observes the tokensDepleted signal
+    in the requestConsumer
 
 .. figure:: media/ResponseProducer.png
    :width: 70%

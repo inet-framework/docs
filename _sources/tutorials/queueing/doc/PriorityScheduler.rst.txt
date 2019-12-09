@@ -1,12 +1,29 @@
 Priority Scheduler
 ==================
 
-In this step, packets are collected periodically by an active packet sink
-(:ned:`ActivePacketSink`). The packets are produced by two active packet sources
-(:ned:`ActivePacketSources`). The sources are connected to FIFO queues (:ned:`PacketQueue`)
-where packets are stored temporarily. The single sink is connected to the
-queues using a scheduler (:ned:`PriorityScheduler`). The scheduler forwards packets
-from the queues to the sink in a prioritized way.
+This step demonstrates the :ned:`PriorityScheduler` module. The module pops packets from the first
+connected non-empty queue or packet provider.
+
+.. V1
+
+   In this step, packets are collected periodically by an active packet sink
+   (:ned:`ActivePacketSink`). The packets are produced by two active packet sources
+   (:ned:`ActivePacketSource`). The sources are connected to FIFO queues (:ned:`PacketQueue`)
+   where packets are stored temporarily. The single sink is connected to the
+   queues using a scheduler (:ned:`PriorityScheduler`). The scheduler forwards packets
+   from the queues to the sink in a prioritized way, favoring the first queue.
+
+.. In this example network, packets are produced by two active packet sources (:ned:`ActivePacketSource`).
+   The sources are connected to queues (:ned:`PacketQueue`), where packets are stored temporarily.
+   The
+
+.. V2
+
+In this example network, two active packet sources (:ned:`ActivePacketSource`) generate packets
+in random periods. The packets are pushed into queues (:ned:`PacketQueue`), where packets are
+stored temporarily. The queues are connected to a priority scheduler (:ned:`PriorityScheduler`).
+An active packet sink (:ned:`ActivePacketSink`) pops packets from the scheduler, which in turn
+pops packets from one of the queues in a prioritized way, favoring the first queue.
 
 .. figure:: media/PriorityScheduler.png
    :width: 90%

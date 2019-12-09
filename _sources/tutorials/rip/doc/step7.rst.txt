@@ -14,7 +14,7 @@ step
 
 This step uses the following network:
 
-.. literalinclude:: ../RipNetworkD.ned
+.. literalinclude:: ../RipNetworkC.ned
    :language: ned
    :start-at: RipNetwork
 
@@ -58,4 +58,4 @@ TODO: screenshots of routing tables / RIP packets
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkD.ned <../RipNetworkD.ned>`
+:download:`RipNetworkC.ned <../RipNetworkC.ned>`

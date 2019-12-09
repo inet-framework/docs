@@ -1,0 +1,36 @@
+Weighted Round-Robin Classifier
+===============================
+
+.. This step demonstrates the Weighted Round-Robin Classifier (:ned:`WrrClassifier`).
+
+The Weighted Round-Robin Classifier (:ned:`WrrClassifier`) module classifies packets
+to its outputs in a round-robin fashion, based on the configured weights of the outputs.
+For example, if the configured weights are "2 3", then first two packets are sent to output 0,
+the next three to output 1.
+
+.. In this step, packets are produced periodically by an active packet source
+   (:ned:`ActivePacketSource`). The packets are consumed by two passive packet sinks
+   (:ned:`PassivePacketSink`). The single source is connected to the two sinks using a
+   classifier (:ned:`WrrClassifier`). The classifier forwards packets alternately to
+   one or the other sink.
+
+In this step, packets are produced periodically by an active packet source
+(:ned:`ActivePacketSource`). The single source is connected to a
+classifier (:ned:`WrrClassifier`), which is connected to two passive packet sinks
+(:ned:`PassivePacketSink`). All outputs of the classifier are configured to have
+a weight of 1, thus the classifier forwards packets alternately to
+one sink or the other.
+
+.. figure:: media/Classifier.png
+   :width: 80%
+   :align: center
+
+.. literalinclude:: ../QueueingTutorial.ned
+   :start-at: network WrrClassifierTutorialStep
+   :end-before: //----
+   :language: ned
+
+.. literalinclude:: ../omnetpp.ini
+   :start-at: Config WrrClassifier
+   :end-at: weights
+   :language: ini

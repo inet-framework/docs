@@ -1,5 +1,5 @@
-Network
-=======
+Simplistic Network
+==================
 
 This step demonstrates combining queueing components to create a simplistic network.
 The network features two hosts (ExampleHost) communicating. The hosts are connected by a cable module (ExampleCable) which

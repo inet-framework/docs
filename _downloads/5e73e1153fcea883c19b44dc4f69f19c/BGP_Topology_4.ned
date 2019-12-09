@@ -5,7 +5,7 @@ import inet.node.ethernet.Eth100M;
 import inet.node.ethernet.EtherSwitch;
 import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
-import inet.visualizer.integrated.IntegratedCanvasVisualizer;
+import inet.visualizer.integrated.IntegratedMultiCanvasVisualizer;
 
 
 network BGP_Topology_4
@@ -16,7 +16,7 @@ network BGP_Topology_4
         configurator: Ipv4NetworkConfigurator {
             @display("p=93,44");
         }
-        visualizer: IntegratedCanvasVisualizer {
+        visualizer: IntegratedMultiCanvasVisualizer {
             @display("p=243.2025,43.536247");
         }
         RB2: Router {

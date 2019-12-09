@@ -49,4 +49,4 @@ on the image to enlarge):
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkD.ned <../RipNetworkD.ned>`
+:download:`RipNetworkC.ned <../RipNetworkC.ned>`

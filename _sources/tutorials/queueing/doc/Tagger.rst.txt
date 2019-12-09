@@ -1,5 +1,19 @@
-Tagger
-======
+Requesting Protocol-Specific Behavior for Packets
+=================================================
+
+.. Requesting Protocol Specific Behavior (too generic in the sense that the reader doesn't know what behavior: VLAN, outgoing interface)
+
+This step demonstrates the :ned:`PacketTagger` module, which attaches various protocol-specific request tags to packets.
+Several of the request tags available in INET can be attached, such as the following:
+
+- Request to send the packet via a particular interface
+- Request to use a specific transmission power when transmitting the packet
+- etc.
+
+For the list of tags that can be attached, see the parameters of :ned:`PacketTagger`.
+
+The packet tagger module has a filter class to filter which packets to attach a tag onto.
+By default, packets are not filtered.
 
 In this step, packets are produced periodically by an active packet source
 (:ned:`ActivePacketSource`). The packets pass through a packet tagger which attaches

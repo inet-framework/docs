@@ -4,16 +4,18 @@ Step 3. Link Breakage
 Goals
 -----
 
-TODO: routes will be added by RIP...then a link break is scheduled by
-:ned:`ScenarioManager`. SplitHorizon is enabled. RIP should update the
-routes to indicate that the link is broken
+We demonstrate how RIP updates the routing tables after changes occur in a
+network topology.
 
-The model
----------
+Network Configuration
+---------------------
 
-TODO: what is SplitHorizon
-
-This step uses the same network as the previous one.
+We keep the network configuration same as the previous step, except that we will
+schedule a break with the help of :ned:`ScenarioManager`. RIP should update the routing
+information in the routing tables of routers to eliminate the references to the
+broken link. Here, for the reliable convergence of routing tables, we need to
+enable SplitHorizon though (we will postpone discussion of this issue until
+Step 6 of the tutorial).
 
 The configuration in ``omnetpp.ini`` is the following:
 
@@ -22,24 +24,28 @@ The configuration in ``omnetpp.ini`` is the following:
    :start-at: Step3
    :end-before: ------
 
-The scenario manager script:
+The last line in the above figure is for scheduling a break. The
+``scenario2.xml`` file contains these lines:
 
 .. literalinclude:: ../scenario2.xml
    :language: xml
 
-Results
--------
+Experiment
+----------
 
-TODO: video
+In the video below observe that at t=50 seconds, as directed by ``scenario2.xml``,
+the link connecting ``router2`` and ``switch2`` breaks (note that the video starts
+approximately at t=30, after the routing tables stabilize).
+
 
 .. video:: media/step3_linkbreak.mp4
    :width: 100%
 
 ..   <!--internal video recording, normal run from 31s to 71+s, animation speed none, playback speed 2.138-->
 
-TODO: what happens
+TODO explain why arrow from host6 remains: It is a static route. RIP only controls routes between routers,
+and host routes are statically configured by :ned:`Ipv4NetworkConfigurator`.
 
-TODO: maybe routing tables and screenshots of RIP packets
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,

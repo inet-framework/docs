@@ -15,7 +15,7 @@ TODO: how this can be prevented (SplitHorizon, etc)
 
 This step uses the following network:
 
-.. literalinclude:: ../RipNetworkC.ned
+.. literalinclude:: ../RipNetworkB.ned
    :language: ned
    :start-at: RipNetwork
 
@@ -89,5 +89,5 @@ TODO: screenshots of routing tables / RIP packets
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkC.ned <../RipNetworkC.ned>`,
+:download:`RipNetworkB.ned <../RipNetworkB.ned>`,
 :download:`scenario4.xml <../scenario4.xml>`
