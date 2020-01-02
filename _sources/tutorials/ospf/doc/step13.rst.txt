@@ -26,11 +26,6 @@ The configuration in ``omnetpp.ini`` is the following:
    :start-at: Step13
    :end-before: ------
 
-The scenario script:
-
-.. literalinclude:: ../scenario_fresh.xml
-   :language: xml
-
 Results
 ~~~~~~~
 
@@ -38,12 +33,10 @@ Results
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`Freshness.ned <../Freshness.ned>`,
-:download:`scenario_fresh.xml <../scenario_fresh.xml>`
+:download:`Freshness.ned <../Freshness.ned>`
 
 Discussion
 ----------
 
 Use `this page <https://github.com/inet-framework/inet-tutorials/issues/TODO>`__ in
 the GitHub issue tracker for commenting on this tutorial.
-

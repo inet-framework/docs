@@ -1,22 +1,14 @@
-Filtering an Active Source
-==========================
-
-.. This step demonstrates the :ned:`ContentBasedFilter` module, which can filter packets according
-   to their contents.
+Content-Based Filtering (Active Source)
+=======================================
 
 The :ned:`ContentBasedFilter` module filters packets according to the configured packet filter
-and packet data filter. The packets matching the filter expressions are pushed/popped on the output;
-not maching packets are dropped.
-
-.. In this step, packets are produced periodically by an active packet source
-   (:ned:`ActivePacketSource`). The packets are consumed by a passive packet sink (:ned:`PassivePacketSink`).
-   Packets are passed through from the source to the sink by a filter (:ned:`ContentBasedFilter`).
-   Every second packet is dropped.
+and packet data filter. Packets that match the filter expressions are pushed/popped on the output;
+non-maching packets are dropped.
 
 In this example network, an active packet source (:ned:`ActivePacketSource`) generates
-either 1B or 2B packets randomly.
+1-byte and 2-byte packets randomly.
 The source pushes packets into a filter (:ned:`ContentBasedFilter`), which
-pushes 1B packets into a passive packet sink (:ned:`PassivePacketSink`), and drops 2B packets.
+pushes 1-byte packets into a passive packet sink (:ned:`PassivePacketSink`) and drops 2-byte ones.
 
 .. figure:: media/Filter1.png
    :width: 80%

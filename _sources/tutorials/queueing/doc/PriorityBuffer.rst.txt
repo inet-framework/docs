@@ -1,35 +1,18 @@
 Priority Buffer
 ===============
 
-.. This step demonstrates the :ned:`PriorityBuffer` module. The module has a configurable
-   packet dropping stragegy; by default, the module drops packets belonging to the last
-   connected queue.
-
-.. The :ned:`PriorityBuffer` module has a configurable
-   packet dropping stragegy. By default, the module drops packets belonging to the last
-   connected queue.
-
-.. The :ned:`PriorityBuffer` module is extends :ned:`PacketBuffer` by configuring
-
 The :ned:`PriorityBuffer` module extends :ned:`PacketBuffer` by configuring
-a packet drop stragegy. By default, when the buffer is full, packets belonging to the last
-queue are dropped first.
-
-.. In this step, packets are produced at random intervals by two active packet
-   sources (:ned:`ActivePacketSource`). The packets are collected at random intervals
-   by two active packet sinks (:ned:`ActivePacketSink`). The sources and the sinkes are
-   connected by packet queues (:ned:`PacketQueue`) and packets are stored in shared packet
-   buffer (:ned:`PacketBuffer`). The packet buffer drops packets when it gets overloaded
-   prioritizing over the packet queues.
+a packet drop strategy. By default, when the buffer is full, packets belonging to the last
+queue are dropped first. This is the behavior that can be changed by the packet drop strategy.
 
 In this example network, packets are produced at random intervals by two active packet
 sources (:ned:`ActivePacketSource`). The packet packet sources push packets into two
 queues (:ned:`PacketQueue`). The queues share a :ned:`PriorityBuffer` with a packet capacity of
 2. Packets are popped from the queues at random intervals by two active packet sinks (:ned:`ActivePacketSink`).
-When the buffer gets overloaded, it drops packets from the second queue first.
+When the buffer becomes full, it drops packets from the second queue first.
 
 .. figure:: media/PriorityBuffer.png
-   :width: 80%
+   :width: 90%
    :align: center
 
 .. literalinclude:: ../QueueingTutorial.ned

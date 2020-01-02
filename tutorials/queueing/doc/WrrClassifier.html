@@ -25,8 +25,8 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Markov Chain Based Classifier" href="MarkovClassifier.html" />
-    <link rel="prev" title="Generic Classifier" href="GenericClassifier.html" /> 
+    <link rel="next" title="Content-Based Classifier" href="ContentBasedClassifier.html" />
+    <link rel="prev" title="Priority Classifier" href="PriorityClassifier.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
@@ -178,25 +178,27 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Comparator.html">Ordering the Packets in the Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GenericClassifier.html">Generic Classifier</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Weighted Round-Robin Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MarkovClassifier.html">Markov Chain Based Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Weighted Round-Robin Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedClassifier.html">Content-Based Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GenericScheduler.html">Generic Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MarkovScheduler.html">Markov Chain Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenericClassifier.html">Generic Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedScheduler.html">Content-Based Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenericScheduler.html">Generic Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityBuffer.html">Priority Buffer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityQueue.html">Priority Queue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Filter1.html">Filtering an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Filter2.html">Filtering an Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filter2.html">Content-Based Filtering (Active Sink)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RedDropper.html">RED Dropper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Server.html">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Server.html">Time-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TokenBasedServer.html">Token-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
@@ -205,29 +207,30 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Labeler.html">Labeling Packets with Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Labeler.html">Labeling Packets with Textual Tags</a></li>
 <li class="toctree-l3"><a class="reference internal" href="LeakyBucket.html">Leaky Bucket</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TokenBucket.html">Token Bucket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Delayer.html">Packet Delayer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Multiplexer.html">Multiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Demultiplexer.html">Demultiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Gate1.html">Gate with an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Gate2.html">Gate with an Active Sink</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Duplicator.html">Duplicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDuplicator.html">Ordinal-Based Duplicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RequestResponse.html">Request/Response Based Communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Telnet.html">Telnet Traffic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Network.html">Simplistic Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Network.html">Example: Simulating a Transmission Channel</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../rip/doc/index.html">RIP (work in progress)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step1.html">Step 1. Static routing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step2.html">Step 2. Pinging after RIP convergence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step3.html">Step 3. Link Breakage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step4.html">Step 4. RIP Timeout timer and garbage-collection timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step5.html">Step 5. RIP Triggered Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step6.html">Step 6. Counting to Infinity (Two-node loop instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step4.html">Step 4. Timeout Timer and Garbage Collection Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step5.html">Step 5. Triggered Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step7.html">Step 7. Counting to Infinity (Loop Instability with Higher Number of Nodes)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step8.html">Step 8. Hold-down timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step9.html">Step 9. Measure RIP recovery time</a></li>
@@ -471,25 +474,27 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Comparator.html">Ordering the Packets in the Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GenericClassifier.html">Generic Classifier</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Weighted Round-Robin Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MarkovClassifier.html">Markov Chain Based Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Weighted Round-Robin Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedClassifier.html">Content-Based Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GenericScheduler.html">Generic Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="MarkovScheduler.html">Markov Chain Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenericClassifier.html">Generic Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedScheduler.html">Content-Based Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenericScheduler.html">Generic Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityBuffer.html">Priority Buffer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PriorityQueue.html">Priority Queue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Filter1.html">Filtering an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Filter2.html">Filtering an Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filter2.html">Content-Based Filtering (Active Sink)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RedDropper.html">RED Dropper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Server.html">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Server.html">Time-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TokenBasedServer.html">Token-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
@@ -498,29 +503,30 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Labeler.html">Labeling Packets with Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Labeler.html">Labeling Packets with Textual Tags</a></li>
 <li class="toctree-l3"><a class="reference internal" href="LeakyBucket.html">Leaky Bucket</a></li>
 <li class="toctree-l3"><a class="reference internal" href="TokenBucket.html">Token Bucket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Delayer.html">Packet Delayer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Multiplexer.html">Multiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Demultiplexer.html">Demultiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Gate1.html">Gate with an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Gate2.html">Gate with an Active Sink</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Duplicator.html">Duplicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDuplicator.html">Ordinal-Based Duplicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RequestResponse.html">Request/Response Based Communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Telnet.html">Telnet Traffic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Network.html">Simplistic Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Network.html">Example: Simulating a Transmission Channel</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../rip/doc/index.html">RIP (work in progress)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step1.html">Step 1. Static routing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step2.html">Step 2. Pinging after RIP convergence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step3.html">Step 3. Link Breakage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step4.html">Step 4. RIP Timeout timer and garbage-collection timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step5.html">Step 5. RIP Triggered Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step6.html">Step 6. Counting to Infinity (Two-node loop instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step4.html">Step 4. Timeout Timer and Garbage Collection Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step5.html">Step 5. Triggered Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step7.html">Step 7. Counting to Infinity (Loop Instability with Higher Number of Nodes)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step8.html">Step 8. Hold-down timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../rip/doc/step9.html">Step 9. Measure RIP recovery time</a></li>
@@ -657,20 +663,21 @@ Show Source
 <h1>Weighted Round-Robin Classifier<a class="headerlink" href="#weighted-round-robin-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Weighted Round-Robin Classifier (<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.classifier.WrrClassifier.html">WrrClassifier</a>) module classifies packets
 to its outputs in a round-robin fashion, based on the configured weights of the outputs.
-For example, if the configured weights are “2 3”, then first two packets are sent to output 0,
-the next three to output 1.</p>
+For example, if the configured weights are [2,3], then first two packets are sent to output 0,
+the next three to output 1. If a component connected to an output is busy (the output is
+not <em>pushable</em>), the scheduler waits until it becomes available.</p>
 <p>In this step, packets are produced periodically by an active packet source
 (<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.source.ActivePacketSource.html">ActivePacketSource</a>). The single source is connected to a
-classifier (<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.classifier.WrrClassifier.html">WrrClassifier</a>), which is connected to two passive packet sinks
-(<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.sink.PassivePacketSink.html">PassivePacketSink</a>). All outputs of the classifier are configured to have
-a weight of 1, thus the classifier forwards packets alternately to
-one sink or the other.</p>
+classifier (<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.classifier.WrrClassifier.html">WrrClassifier</a>), which is connected to three passive packet sinks
+(<a class="reference-ned reference external" href="/home/user/Integration/inet/doc/neddoc/inet.queueing.sink.PassivePacketSink.html">PassivePacketSink</a>). The outputs of the classifier are configured to have
+the weights [1,3,2], thus the classifier forwards 1, 3 and 2 packet(s)
+to the three sinks in one round.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/Classifier.png"><img alt="../../../_images/Classifier.png" src="../../../_images/Classifier.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/WrrClassifier.png"><img alt="../../../_images/WrrClassifier.png" src="../../../_images/WrrClassifier.png" style="width: 80%;" /></a>
 </div>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WrrClassifierTutorialStep</span>
 <span class="p">{</span>
-    <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=600,300&quot;</span><span class="p">);</span>
+    <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=600,400&quot;</span><span class="p">);</span>
     <span class="k">submodules</span><span class="o">:</span>
         <span class="n">producer</span><span class="o">:</span> <span class="n">ActivePacketSource</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,100&quot;</span><span class="p">);</span>
@@ -684,20 +691,25 @@ one sink or the other.</p>
         <span class="n">consumer2</span><span class="o">:</span> <span class="n">PassivePacketSink</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,200&quot;</span><span class="p">);</span>
         <span class="p">}</span>
+        <span class="n">consumer3</span><span class="o">:</span> <span class="n">PassivePacketSink</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,300&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        
     <span class="k">connections</span> <span class="k">allowunconnected</span><span class="o">:</span>
         <span class="n">producer</span><span class="p">.</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">classifier</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
         <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">consumer1</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
         <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">consumer2</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
+        <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">consumer3</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config WrrClassifier]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">WrrClassifierTutorialStep</span>
-<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">10s</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">100s</span>
 
 <span class="na">*.producer.packetLength</span> <span class="o">=</span> <span class="s">1B</span>
 <span class="na">*.producer.productionInterval</span> <span class="o">=</span> <span class="s">1s</span>
-<span class="na">*.classifier.weights</span> <span class="o">=</span> <span class="s">&quot;1 1&quot;</span>
+<span class="na">*.classifier.weights</span> <span class="o">=</span> <span class="s">&quot;1 3 2&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -711,18 +723,18 @@ one sink or the other.</p>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="GenericClassifier.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="PriorityClassifier.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Generic Classifier</div>
+            <div>Priority Classifier</div>
          </div>
      </a>
-     <a id="button-next" href="MarkovClassifier.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="ContentBasedClassifier.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Markov Chain Based Classifier</div>
+            <div>Content-Based Classifier</div>
         </div>
      </a>
   </div>

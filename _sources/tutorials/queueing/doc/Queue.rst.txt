@@ -1,23 +1,18 @@
 Enqueueing Packets
 ==================
 
-.. This step demonstrates the :ned:`PacketQueue` module, which stores a configurable
-   number of packets.
-
-The :ned:`PacketQueue` module stores a configurable number of packets.
-
-.. In the following example network, packets are produced at random intervals by an active packet
-   source (:ned:`ActivePacketSource`). The packets are collected at random intervals by
-   an active packet sink (:ned:`ActivePacketSink`). The source and the sink is connected
-   by a FIFO queue (:ned:`PacketQueue`) where packets are stored temporarily.
+This step demonstrates the :ned:`PacketQueue` module, which can store a configurable
+number of packets. By default, it works as a FIFO queue and has unlimited capacity.
+Optionally, the queue can be limited (both by number of packets and byte count),
+and ordering can be specified.
 
 In the following example network, packets are produced at random intervals by an active packet
-source (:ned:`ActivePacketSource`). The packets are pushed into a FIFO queue (:ned:`PacketQueue`),
+source (:ned:`ActivePacketSource`). The packets are pushed into an unlimited FIFO queue (:ned:`PacketQueue`),
 where they are stored temporarily. An active packet sink (:ned:`ActivePacketSink`) module
 pops packets from the queue at random intervals.
 
 .. figure:: media/PacketQueue.png
-   :width: 80%
+   :width: 90%
    :align: center
 
 .. literalinclude:: ../QueueingTutorial.ned

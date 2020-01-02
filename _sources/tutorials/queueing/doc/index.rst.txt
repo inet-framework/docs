@@ -3,6 +3,19 @@
 Queueing Tutorial
 =================
 
+INET contains a queueing library which provides various components
+such as traffic generators, queues, and traffic conditioners.
+Elements of the library can be used to assemble queueing functionality
+that can be
+used at layer 2 and layer 3 of the protocol stack. With extra elements, the queueing library can also be used
+to define custom application behavior without C++ programming.
+
+Each step in this tutorial demonstrates one of the available queueing elements,
+with a few more complex examples at the end.
+Note that most of the available elements are demonstrated here, but not all 
+(for example, elements specific to DiffServ are omitted from here).
+See the INET Reference for the complete list of elements.
+
 Sources and Sinks
 
 .. toctree::
@@ -17,6 +30,8 @@ Queues and Buffers
    :maxdepth: 1
 
    Queue
+   DropTailQueue
+   Comparator
    Buffer
 
 Classifying Packets from One Input to Multiple Outputs
@@ -24,31 +39,31 @@ Classifying Packets from One Input to Multiple Outputs
 .. toctree::
    :maxdepth: 1
 
-   GenericClassifier
-   WrrClassifier
-   MarkovClassifier
    PriorityClassifier
+   WrrClassifier
    ContentBasedClassifier
+   MarkovClassifier
+   GenericClassifier
 
 Scheduling Packets from Multiple Inputs to One Output
 
 .. toctree::
    :maxdepth: 1
 
-   GenericScheduler
-   WrrScheduler
-   MarkovScheduler
    PriorityScheduler
+   WrrScheduler
    ContentBasedScheduler
+   MarkovScheduler
+   GenericScheduler
 
 Advanced Queues and Buffers
 
 .. toctree::
    :maxdepth: 1
 
-   CompoundQueue
    PriorityBuffer
    PriorityQueue
+   CompoundQueue
 
 Filtering and Dropping Packets
 
@@ -108,6 +123,7 @@ Other Generic Elements
    Gate2
    Duplicator
    OrdinalBasedDuplicator
+   Cloner
 
 Advanced Sources and Sinks
 

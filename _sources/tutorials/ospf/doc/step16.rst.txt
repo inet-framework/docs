@@ -18,11 +18,6 @@ The configuration in ``omnetpp.ini`` is the following:
    :start-at: Step16
    :end-before: ------
 
-The scenario script:
-
-.. literalinclude:: ../scenario_area_linkBreak.xml
-   :language: xml
-
 Results
 ~~~~~~~
 
@@ -30,12 +25,10 @@ Results
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`OSPF_AreaTest.ned <../OSPF_AreaTest.ned>`,
-:download:`scenario_area_linkBreak.xml <../scenario_area_linkBreak.xml>`
+:download:`OSPF_AreaTest.ned <../OSPF_AreaTest.ned>`
 
 Discussion
 ----------
 
 Use `this page <https://github.com/inet-framework/inet-tutorials/issues/TODO>`__ in
 the GitHub issue tracker for commenting on this tutorial.
-

@@ -1,109 +1,104 @@
-Step 4. RIP Timeout timer and garbage-collection timer
-======================================================
+Step 4. Timeout Timer and Garbage Collection Timer
+==================================================
 
 Goals
 -----
 
-TODO: Demonstrating the timeout-timer and the garbage collection timer
+In this step, we will demonstrate the operation of timeout and
+garbage-collection timers.
 
-The model
----------
+Routers talk to their neighbours regularly to update them about the changes in
+their routing tables. Every time a router receives one of these messages from
+one of its neighbours, it resets a timeout timer associated with this route. If
+these messages stop coming, the timer expires (its default value is 180
+seconds), and the router marks this route as unreachable. However, it keeps the
+route in its routing table, and starts a garbage-collection timer. It
+deletes the route when the garbage-collection timer expires (its default value
+is 120 seconds).
 
-TODO: about the timout-timer and garbage collection timer... mark routes
-as expired after 180s inactivity by default, delete them after 120s (but
-still advertise until deleted)
+Network Configuration
+---------------------
 
-This step uses the following network:
+Our network configuration is the same as the one we used in the earlier steps.
 
-.. literalinclude:: ../RipNetworkA.ned
-   :language: ned
-   :start-at: RipNetwork
-
-The configuration in ``omnetpp.ini`` is the following:
+The ``omnetpp.ini`` configuration is listed here:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
    :start-at: Step4
    :end-before: ------
 
-The scenario manager script:
+Experiments
+-----------
 
-.. literalinclude:: ../scenario1.xml
-   :language: xml
+To observe how RIP behaves, we introduce a breakdown by disconnecting the link
+between ``router2`` and ``switch1`` at t = 50s, and simulate three
+possible scenarios in which the link becomes operational again:
 
-**Variant "A":**
+* A. Before the timeout timer associated with its routing table entry expires,
+* B. After the timeout timer expires but before the garbage-collection timer expires, and
+* C. After both timers expire, and the link is purged from the routing table.
 
-.. literalinclude:: ../omnetpp.ini
-   :language: ini
-   :start-at: Step4A
-   :end-before: ------
+We run these cases one by one. Their ``omnetpp.ini`` configuration sections are
+``Step4A``, ``Step4B`` and ``Step4C``, respectively. These configurations are
+identical apart from the scenario script they refer to.
 
-The scenario manager script:
+
+A: Link becomes operational before the timeout timer expires
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We break the link connecting ``router2`` to ``switch1`` at t = 50s, and
+reconnect at t = 150s. This is written in the ``scenario5.xml`` file:
 
 .. literalinclude:: ../scenario5.xml
    :language: xml
 
-**Variant "B":**
+After the ``switch1`` connection is lost, the timeout timer associated with the
+routing table entry related to this link is not reset any more, and after 180
+seconds (default value) the router marks the associated entry as "unreachable".
+But here we re-activate the link before it expires.
 
-.. literalinclude:: ../omnetpp.ini
-   :language: ini
-   :start-at: Step4B
-   :end-before: ------
+B: Link becomes operational after the timeout timer expires
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The scenario manager script:
-
-.. literalinclude:: ../scenario6.xml
-   :language: xml
-
-**Variant "C":**
-
-.. literalinclude:: ../omnetpp.ini
-   :language: ini
-   :start-at: Step4C
-   :end-before: ------
-
-The scenario manager script:
+Here, we use ``scenario6.xml``, in which we make the link reactivation to occur
+at t = 300s. This time:
 
 .. literalinclude:: ../scenario6.xml
    :language: xml
 
+C: Link becomes operational after the garbage-collection timer expires
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Results
--------
+In this scenario, we wait until after the garbage-collection timer expires to
+observe the changes to the routing tables. The corresponding ``scenario7.xml`` file:
 
-TODO: video
+.. literalinclude:: ../scenario7.xml
+   :language: xml
 
-.. video:: media/step4.mp4
-   :width: 100%
-
-Here are two images of the RIP table of ``router1``.
-
-The link breaks at 50s, so ``router1`` doesn't receive any updates on
-the route to the 10.0.0.24/29 network from ``router2``. As indicated on
-the following image, the last update to the route was at 30s, thats when
-the timeout timer was started.
+The link breaks at t = 50s, and ``router1`` stops receiving any updates on the
+route to the 10.0.0.24/29 network from ``router2``. As shown in the highlighted
+line of the image below, the last update to the route was approximately at t =
+30.5929s, the moment the timeout timer was last reset.
 
 .. figure:: media/step4_3.png
    :width: 80%
    :align: center
 
-The timeout timer expires at 210s, the route is set to metric 16, and
-the flush timer is started.
+The timeout timer expires at t = 210s. At that time, the route's metric is set
+to 16, and the garbage-collection timer is started.
 
 .. figure:: media/step4_4.png
    :width: 80%
    :align: center
 
-The flush timer expires at 330s, and the route is removed from the RIP
-table.
+At t = 330s, the garbage-collection timer expires, and the route is removed from
+the routing table:
 
-TODO: what happens
-
-TODO: screenshots or routing tables / RIP packets
+TODO image 4C3
 
 Sources:
 :download:`omnetpp.ini <../omnetpp.ini>`,
-:download:`RipNetworkA.ned <../RipNetworkA.ned>`,
-:download:`scenario1.xml <../scenario1.xml>`,
 :download:`scenario5.xml <../scenario5.xml>`,
 :download:`scenario6.xml <../scenario6.xml>`
+:download:`RipNetworkA.ned <../RipNetworkA.ned>`

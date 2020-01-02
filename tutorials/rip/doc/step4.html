@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Step 4. RIP Timeout timer and garbage-collection timer &#8212; INET 4.2 documentation</title>
+    <title>Step 4. Timeout Timer and Garbage Collection Timer &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Step 5. RIP Triggered Update" href="step5.html" />
-    <link rel="prev" title="Step 3. Link Breakage" href="step3.html" /> 
+    <link rel="next" title="Step 5. Triggered Updates" href="step5.html" />
+    <link rel="prev" title="Step 3. Link Breakage and Routing Table Updates" href="step3.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
@@ -35,7 +35,7 @@
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../../index.html">Tutorials</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="index.html">RIP Routing Tutorial</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Step 4. RIP Timeout timer and garbage-collection timer</a>
+            <a class="mdl-navigation__link is-active">Step 4. Timeout Timer and Garbage Collection Timer</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -178,25 +178,27 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovClassifier.html">Markov Chain Based Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovScheduler.html">Markov Chain Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityQueue.html">Priority Queue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter1.html">Filtering an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter2.html">Filtering an Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RedDropper.html">RED Dropper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Server.html">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Server.html">Time-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
@@ -205,29 +207,30 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Labeler.html">Labeling Packets with Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TokenBucket.html">Token Bucket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Delayer.html">Packet Delayer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Multiplexer.html">Multiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Demultiplexer.html">Demultiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate1.html">Gate with an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate2.html">Gate with an Active Sink</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Duplicator.html">Duplicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDuplicator.html">Ordinal-Based Duplicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RequestResponse.html">Request/Response Based Communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Telnet.html">Telnet Traffic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Network.html">Simplistic Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">RIP (work in progress)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="step1.html">Step 1. Static routing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step2.html">Step 2. Pinging after RIP convergence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Link Breakage</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 4. RIP Timeout timer and garbage-collection timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. RIP Triggered Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Counting to Infinity (Two-node loop instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 4. Timeout Timer and Garbage Collection Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Triggered Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step7.html">Step 7. Counting to Infinity (Loop Instability with Higher Number of Nodes)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Hold-down timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Measure RIP recovery time</a></li>
@@ -471,25 +474,27 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovClassifier.html">Markov Chain Based Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovScheduler.html">Markov Chain Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PriorityQueue.html">Priority Queue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter1.html">Filtering an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter2.html">Filtering an Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RedDropper.html">RED Dropper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Server.html">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Server.html">Time-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
@@ -498,29 +503,30 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Labeler.html">Labeling Packets with Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/TokenBucket.html">Token Bucket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Delayer.html">Packet Delayer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Multiplexer.html">Multiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Demultiplexer.html">Demultiplexer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate1.html">Gate with an Active Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate2.html">Gate with an Active Sink</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Duplicator.html">Duplicator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDuplicator.html">Ordinal-Based Duplicator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RequestResponse.html">Request/Response Based Communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Telnet.html">Telnet Traffic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Network.html">Simplistic Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">RIP (work in progress)</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="step1.html">Step 1. Static routing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step2.html">Step 2. Pinging after RIP convergence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Link Breakage</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 4. RIP Timeout timer and garbage-collection timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. RIP Triggered Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Counting to Infinity (Two-node loop instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Step 4. Timeout Timer and Garbage Collection Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step5.html">Step 5. Triggered Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step7.html">Step 7. Counting to Infinity (Loop Instability with Higher Number of Nodes)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step8.html">Step 8. Hold-down timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step9.html">Step 9. Measure RIP recovery time</a></li>
@@ -653,227 +659,138 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="step-4-rip-timeout-timer-and-garbage-collection-timer">
-<h1>Step 4. RIP Timeout timer and garbage-collection timer<a class="headerlink" href="#step-4-rip-timeout-timer-and-garbage-collection-timer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="step-4-timeout-timer-and-garbage-collection-timer">
+<h1>Step 4. Timeout Timer and Garbage Collection Timer<a class="headerlink" href="#step-4-timeout-timer-and-garbage-collection-timer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>TODO: Demonstrating the timeout-timer and the garbage collection timer</p>
+<p>In this step, we will demonstrate the operation of timeout and
+garbage-collection timers.</p>
+<p>Routers talk to their neighbours regularly to update them about the changes in
+their routing tables. Every time a router receives one of these messages from
+one of its neighbours, it resets a timeout timer associated with this route. If
+these messages stop coming, the timer expires (its default value is 180
+seconds), and the router marks this route as unreachable. However, it keeps the
+route in its routing table, and starts a garbage-collection timer. It
+deletes the route when the garbage-collection timer expires (its default value
+is 120 seconds).</p>
 </div>
-<div class="section" id="the-model">
-<h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>TODO: about the timout-timer and garbage collection timer… mark routes
-as expired after 180s inactivity by default, delete them after 120s (but
-still advertise until deleted)</p>
-<p>This step uses the following network:</p>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">RipNetworkA</span>
-<span class="p">{</span>
-    <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=2101.0125,829.44995&quot;</span><span class="p">);</span>
-    <span class="nb">@figure</span><span class="p">[</span><span class="n">simtime</span><span class="p">](</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;simTimeText&quot;</span><span class="p">;</span> <span class="n">pos</span><span class="o">=</span><span class="mi">1550</span><span class="p">,</span><span class="mi">60</span><span class="p">;</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&quot;SimTime: &quot;</span><span class="p">;</span> <span class="n">font</span><span class="o">=</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span>
-    <span class="k">submodules</span><span class="o">:</span>
-        <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=757.8,76.30625&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">visualizer</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;IntegratedCanvasVisualizer&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IIntegratedVisualizer</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1023.5563,76.30625&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">scenarioManager</span><span class="o">:</span> <span class="n">ScenarioManager</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1310.3625,76.30625&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host0</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,375.59998;i=,red&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host1</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,532.1&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host2</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=97.81249,694.46875&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host3</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,334.51874&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">router0</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=543.83746,532.1&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">router2</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1508.2687,532.1&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">router1</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=925.3062,532.1&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host4</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,692.51245&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host5</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1473.0562,389.29373&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host6</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,373.64374;i=,blue&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host7</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,532.1&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">host8</span><span class="o">:</span> <span class="n">StandardHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1977.7687,692.51245&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">switch0</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=318.86874,530.14374&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">switch2</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1727.3687,530.14374&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">switch1</span><span class="o">:</span> <span class="n">EtherSwitch</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1271.5625,530.14374&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">router3</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1054.4187,334.51874&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">router4</span><span class="o">:</span> <span class="n">Router</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=712.07495,334.51874&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="k">connections</span><span class="o">:</span>
-        <span class="n">host2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">host1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">host0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-
-        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host5</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-
-        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host6</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host7</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">host8</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-
-        <span class="n">router2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch2</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth10M</span> <span class="k">&lt;--&gt;</span> <span class="n">router1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">router1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth10M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">router0</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">router4</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">router3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-        <span class="n">router3</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="n">Eth100M</span> <span class="k">&lt;--&gt;</span> <span class="n">switch1</span><span class="p">.</span><span class="n">ethg</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The configuration in <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> is the following:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4]</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;RIP Timeout timer and garbage-collection timer&quot;</span>
+<div class="section" id="network-configuration">
+<h2>Network Configuration<a class="headerlink" href="#network-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Our network configuration is the same as the one we used in the earlier steps.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> configuration is listed here:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4A]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;RIP timers: Link comes back online before the timeout timer expires&quot;</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">Step2</span>
 
-<span class="c1"># enable split horizon in order for the scenario to work properly</span>
-<span class="na">*.router*.rip.ripConfig</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; &lt;interface hosts=&#39;router*&#39; mode=&#39;SplitHorizon&#39; /&gt; &lt;/config&gt;&quot;)</span>
-
+<span class="c1"># Enable split horizon in order for the scenario to work properly</span>
+<span class="na">*.router*.rip.ripConfig</span> <span class="o">=</span> <span class="s">xml(&quot;&lt;config&gt; \</span>
+<span class="s">                                  &lt;interface hosts=&#39;router*&#39; mode=&#39;SplitHorizon&#39; /&gt; \</span>
+<span class="s">                               &lt;/config&gt;&quot;)</span>
 <span class="c1"># disable ping application</span>
 <span class="na">*.host0.numApps</span> <span class="o">=</span> <span class="s">0</span>
 
-<span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario1.xml&quot;)</span>
-</pre></div>
-</div>
-<p>The scenario manager script:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario1.xml --&gt;</span>
-<span class="nt">&lt;scenario&gt;</span>
-    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/at&gt;</span>
-<span class="nt">&lt;/scenario&gt;</span>
-</pre></div>
-</div>
-<p><strong>Variant “A”:</strong></p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4A]</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;What happens when the route comes back online before the timeout timer runs out?&quot;</span>
-<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
-
-<span class="c1"># disconnect at 50s, reconnect at 180s</span>
+<span class="c1"># Break the router2 &lt;--&gt; switch1 link at t=50 s. and reconnect at t=150 s.</span>
 <span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario5.xml&quot;)</span>
 </pre></div>
 </div>
-<p>The scenario manager script:</p>
+</div>
+<div class="section" id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
+<p>To observe how RIP behaves, we introduce a breakdown by disconnecting the link
+between <code class="docutils literal notranslate"><span class="pre">router2</span></code> and <code class="docutils literal notranslate"><span class="pre">switch1</span></code> at t = 50s, and simulate three
+possible scenarios in which the link becomes operational again:</p>
+<ul class="simple">
+<li><ol class="upperalpha simple">
+<li><p>Before the timeout timer associated with its routing table entry expires,</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="2">
+<li><p>After the timeout timer expires but before the garbage-collection timer expires, and</p></li>
+</ol>
+</li>
+<li><ol class="upperalpha simple" start="3">
+<li><p>After both timers expire, and the link is purged from the routing table.</p></li>
+</ol>
+</li>
+</ul>
+<p>We run these cases one by one. Their <code class="docutils literal notranslate"><span class="pre">omnetpp.ini</span></code> configuration sections are
+<code class="docutils literal notranslate"><span class="pre">Step4A</span></code>, <code class="docutils literal notranslate"><span class="pre">Step4B</span></code> and <code class="docutils literal notranslate"><span class="pre">Step4C</span></code>, respectively. These configurations are
+identical apart from the scenario script they refer to.</p>
+<div class="section" id="a-link-becomes-operational-before-the-timeout-timer-expires">
+<h3>A: Link becomes operational before the timeout timer expires<a class="headerlink" href="#a-link-becomes-operational-before-the-timeout-timer-expires" title="Permalink to this headline">¶</a></h3>
+<p>We break the link connecting <code class="docutils literal notranslate"><span class="pre">router2</span></code> to <code class="docutils literal notranslate"><span class="pre">switch1</span></code> at t = 50s, and
+reconnect at t = 150s. This is written in the <code class="docutils literal notranslate"><span class="pre">scenario5.xml</span></code> file:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario5.xml --&gt;</span>
 <span class="nt">&lt;scenario&gt;</span>
     <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
-    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;180&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;150&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[3]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[0]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
 <span class="nt">&lt;/scenario&gt;</span>
 </pre></div>
 </div>
-<p><strong>Variant “B”:</strong></p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4B]</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;What happens when the route comes back online before the flush timer runs out?&quot;</span>
-<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
-
-<span class="c1"># disconnect at 50s, reconnect at 300s</span>
-<span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario6.xml&quot;)</span>
-</pre></div>
+<p>After the <code class="docutils literal notranslate"><span class="pre">switch1</span></code> connection is lost, the timeout timer associated with the
+routing table entry related to this link is not reset any more, and after 180
+seconds (default value) the router marks the associated entry as “unreachable”.
+But here we re-activate the link before it expires.</p>
 </div>
-<p>The scenario manager script:</p>
+<div class="section" id="b-link-becomes-operational-after-the-timeout-timer-expires">
+<h3>B: Link becomes operational after the timeout timer expires<a class="headerlink" href="#b-link-becomes-operational-after-the-timeout-timer-expires" title="Permalink to this headline">¶</a></h3>
+<p>Here, we use <code class="docutils literal notranslate"><span class="pre">scenario6.xml</span></code>, in which we make the link reactivation to occur
+at t = 300s. This time:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario6.xml --&gt;</span>
 <span class="nt">&lt;scenario&gt;</span>
     <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
-    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;330&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[3]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[0]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
 <span class="nt">&lt;/scenario&gt;</span>
 </pre></div>
 </div>
-<p><strong>Variant “C”:</strong></p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step4C]</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;What happens when the route comes back online after the flush timer runs out and its already deleted?&quot;</span>
-<span class="na">extends</span> <span class="o">=</span> <span class="s">Step4</span>
-
-<span class="c1"># disconnect at 50s, reconnect at 300s</span>
-<span class="na">*.scenarioManager.script</span> <span class="o">=</span> <span class="s">xmldoc(&quot;scenario6.xml&quot;)</span>
-</pre></div>
 </div>
-<p>The scenario manager script:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario6.xml --&gt;</span>
+<div class="section" id="c-link-becomes-operational-after-the-garbage-collection-timer-expires">
+<h3>C: Link becomes operational after the garbage-collection timer expires<a class="headerlink" href="#c-link-becomes-operational-after-the-garbage-collection-timer-expires" title="Permalink to this headline">¶</a></h3>
+<p>In this scenario, we wait until after the garbage-collection timer expires to
+observe the changes to the routing tables. The corresponding <code class="docutils literal notranslate"><span class="pre">scenario7.xml</span></code> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- scenario7.xml --&gt;</span>
 <span class="nt">&lt;scenario&gt;</span>
     <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;disconnect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
-    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;330&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;at</span> <span class="na">t=</span><span class="s">&quot;602&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[0]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[3]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;connect</span> <span class="na">src-module=</span><span class="s">&quot;switch1&quot;</span> <span class="na">src-gate=</span><span class="s">&quot;ethg$o[3]&quot;</span> <span class="na">dest-module=</span><span class="s">&quot;router2&quot;</span> <span class="na">dest-gate=</span><span class="s">&quot;ethg$i[0]&quot;</span> <span class="na">channel-type=</span><span class="s">&quot;inet.node.ethernet.Eth10M&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/at&gt;</span>
 <span class="nt">&lt;/scenario&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>TODO: video</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/step4.mp4" width="100%" height="" class="align-center"></video><p>Here are two images of the RIP table of <code class="docutils literal notranslate"><span class="pre">router1</span></code>.</p>
-<p>The link breaks at 50s, so <code class="docutils literal notranslate"><span class="pre">router1</span></code> doesn’t receive any updates on
-the route to the 10.0.0.24/29 network from <code class="docutils literal notranslate"><span class="pre">router2</span></code>. As indicated on
-the following image, the last update to the route was at 30s, thats when
-the timeout timer was started.</p>
+<p>The link breaks at t = 50s, and <code class="docutils literal notranslate"><span class="pre">router1</span></code> stops receiving any updates on the
+route to the 10.0.0.24/29 network from <code class="docutils literal notranslate"><span class="pre">router2</span></code>. As shown in the highlighted
+line of the image below, the last update to the route was approximately at t =
+30.5929s, the moment the timeout timer was last reset.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../_images/step4_3.png"><img alt="../../../_images/step4_3.png" src="../../../_images/step4_3.png" style="width: 80%;" /></a>
 </div>
-<p>The timeout timer expires at 210s, the route is set to metric 16, and
-the flush timer is started.</p>
+<p>The timeout timer expires at t = 210s. At that time, the route’s metric is set
+to 16, and the garbage-collection timer is started.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../_images/step4_4.png"><img alt="../../../_images/step4_4.png" src="../../../_images/step4_4.png" style="width: 80%;" /></a>
 </div>
-<p>The flush timer expires at 330s, and the route is removed from the RIP
-table.</p>
-<p>TODO: what happens</p>
-<p>TODO: screenshots or routing tables / RIP packets</p>
+<p>At t = 330s, the garbage-collection timer expires, and the route is removed from
+the routing table:</p>
+<p>TODO image 4C3</p>
 <p>Sources:
 <a class="reference download internal" download="" href="../../../_downloads/577859d0f9c9cfa45fcac193fae42e26/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
-<a class="reference download internal" download="" href="../../../_downloads/6885266c9632f739e9242f9b68ef449c/RipNetworkA.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkA.ned</span></code></a>,
-<a class="reference download internal" download="" href="../../../_downloads/c29a2151674d8e491c19a7bb66eb8876/scenario1.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario1.xml</span></code></a>,
 <a class="reference download internal" download="" href="../../../_downloads/331bfbbae52eb7b7c50be7428558b0fd/scenario5.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario5.xml</span></code></a>,
-<a class="reference download internal" download="" href="../../../_downloads/e07e3408188aa3734627d6c673e9ccf0/scenario6.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario6.xml</span></code></a></p>
+<a class="reference download internal" download="" href="../../../_downloads/e07e3408188aa3734627d6c673e9ccf0/scenario6.xml"><code class="xref download docutils literal notranslate"><span class="pre">scenario6.xml</span></code></a>
+<a class="reference download internal" download="" href="../../../_downloads/6885266c9632f739e9242f9b68ef449c/RipNetworkA.ned"><code class="xref download docutils literal notranslate"><span class="pre">RipNetworkA.ned</span></code></a></p>
+</div>
 </div>
 </div>
 
@@ -886,10 +803,15 @@ table.</p>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Step 4. RIP Timeout timer and garbage-collection timer</a><ul>
+<li><a class="reference internal" href="#">Step 4. Timeout Timer and Garbage Collection Timer</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
-<li><a class="reference internal" href="#the-model">The model</a></li>
-<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#network-configuration">Network Configuration</a></li>
+<li><a class="reference internal" href="#experiments">Experiments</a><ul>
+<li><a class="reference internal" href="#a-link-becomes-operational-before-the-timeout-timer-expires">A: Link becomes operational before the timeout timer expires</a></li>
+<li><a class="reference internal" href="#b-link-becomes-operational-after-the-timeout-timer-expires">B: Link becomes operational after the timeout timer expires</a></li>
+<li><a class="reference internal" href="#c-link-becomes-operational-after-the-garbage-collection-timer-expires">C: Link becomes operational after the garbage-collection timer expires</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -904,14 +826,14 @@ table.</p>
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Step 3. Link Breakage</div>
+            <div>Step 3. Link Breakage and Routing Table Updates</div>
          </div>
      </a>
      <a id="button-next" href="step5.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Step 5. RIP Triggered Update</div>
+            <div>Step 5. Triggered Updates</div>
         </div>
      </a>
   </div>
