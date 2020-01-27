@@ -1,5 +1,5 @@
-Step 9. Leaving some part of the network unconfigured
-=====================================================
+Step 9. Leaving some parts of the network unconfigured
+======================================================
 
 Goals
 -----
