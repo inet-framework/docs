@@ -1,10 +1,11 @@
-Example: Simulating a Transmission Channel
-==========================================
+Example: Simulating a Simplistic Network
+========================================
 
 This example network demonstrates how queueing components can be combined to
-simulate a point-to-point link with a finite bit rate. (This is only interesting
-as a demonstration of the power of the queueing library, network links are never
-actually simulated like this in OMNeT++ or INET.)
+create a simplistic network with two network nodes, connected by a point-to-point link 
+with a finite bit rate. (This is only interesting as a demonstration of the power 
+of the queueing library, network links are never actually simulated like this in 
+OMNeT++ or INET.)
 
 The network features two hosts (``ExampleHost``) communicating. The hosts are
 connected by a cable module (``ExampleCable``) which adds delay to the connection.
