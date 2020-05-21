@@ -16,7 +16,7 @@ Since the buffer has a limited packet capacity, and the ``PacketAtCollectionBegi
 as the dropper function, the buffer drops packets from the beginning of
 the buffer when it gets overloaded.
 
-.. figure:: media/Buffer.png
+.. image:: media/Buffer.png
    :width: 80%
    :align: center
 

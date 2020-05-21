@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Coexistence of IEEE 802.11 and 802.15.4 &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="IEEE 802.11 Throughput" href="../../throughput/doc/index.html" />
+    <link rel="next" title="Wireless Signal Analog Domain Representations" href="../../analogmodel/doc/index.html" />
     <link rel="prev" title="Power Consumption" href="../../power/doc/index.html" /> 
   </head>
 <body>
@@ -126,6 +139,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -425,6 +439,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -850,9 +865,9 @@ We’ll use the 802.11 OFDM spectral mask, as in the standard:</p>
 </div>
 <p>Briefly about the syntax:</p>
 <ul class="simple">
-<li><p>The parameter uses frequency and gain pairs to define points on the frequency/gain graph. Between these points, the interpolation mode can be specified, e.g. <code class="docutils literal notranslate"><span class="pre">left</span></code> (take value of the left point), <code class="docutils literal notranslate"><span class="pre">greater</span></code> (take the greater of the two points), <code class="docutils literal notranslate"><span class="pre">linear</span></code>, etc.</p></li>
+<li><p>The parameter uses frequency and gain pairs to define points on the frequency/gain graph. <code class="docutils literal notranslate"><span class="pre">c</span></code> is the center frequency and <code class="docutils literal notranslate"><span class="pre">b</span></code> is the bandwidth. These values are properties of the transmission, i.e. the receiver listens on the frequency band defined by the center frequency and bandwidth. However, the signal can have radio energy outside of this range, which can cause interference.</p></li>
+<li><p>Between these points, the interpolation mode can be specified, e.g. <code class="docutils literal notranslate"><span class="pre">left</span></code> (take value of the left point), <code class="docutils literal notranslate"><span class="pre">greater</span></code> (take the greater of the two points), <code class="docutils literal notranslate"><span class="pre">linear</span></code>, etc.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">-inf</span> <span class="pre">Hz/-inf</span> <span class="pre">dB</span></code> and the <code class="docutils literal notranslate"><span class="pre">+inf</span> <span class="pre">Hz/+inf</span> <span class="pre">dB</span></code> points are implicit (hence the <code class="docutils literal notranslate"><span class="pre">frequencyGains</span></code> string starts with an interpolation mode).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> is the center frequency and <code class="docutils literal notranslate"><span class="pre">b</span></code> is the bandwidth. These values are properties of the transmission, i.e. the receiver listens on the center frequency and bandwidth. However, the signal can have radio energy outside of this range, which can cause interference.</p></li>
 </ul>
 <p>For more on the syntax, see <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.base.packetlevel.DimensionalTransmitterBase.html">DimensionalTransmitterBase</a>.</p>
 <p>Also we set the <code class="code literal-ini docutils literal notranslate"><span class="pre">snirThresholdMode</span></code> parameter in the radio’s receiver module,
@@ -1084,11 +1099,11 @@ transmissions.</p>
             <div>Power Consumption</div>
          </div>
      </a>
-     <a id="button-next" href="../../throughput/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../analogmodel/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>IEEE 802.11 Throughput</div>
+            <div>Wireless Signal Analog Domain Representations</div>
         </div>
      </a>
   </div>

@@ -91,7 +91,7 @@ traffic continues.
 The AODV route discovery messages can be seen in the following packet
 log:
 
-.. figure:: media/wireless-step10-packetlog.png
+.. image:: media/wireless-step10-packetlog.png
    :width: 100%
 
 The number of successfully received packets at host B has roughly

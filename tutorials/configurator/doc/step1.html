@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Step 1. Fully automatic IP address assignment &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 2. Manually overriding individual IP addresses" href="step2.html" />
@@ -126,6 +139,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -425,6 +439,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -681,10 +696,17 @@ filling routing tables for now – it will be covered in later steps.</p>
 <p>The network we want to configure is <span>ConfiguratorA</span>, defined in
 <code class="docutils literal notranslate"><span class="pre">ConfiguratorA.ned</span></code>. It looks like
 this:</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/step1network.png"><img alt="../../../_images/step1network.png" src="../../../_images/step1network.png" style="width: 100%;" /></a>
-</div>
-<p>The network contains three routers, each connected to the other two.
+<a class=""
+               data-lightbox="group-f1826883-9b8b-4344-882a-295be642360a"
+               href="../../../_images/step1network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step1network1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The network contains three routers, each connected to the other two.
 There are three subnetworks with <code class="docutils literal notranslate"><span class="pre">StandardHosts</span></code>, connected to the
 routers by Ethernet switches. It also contains an instance of
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>.</p>
@@ -768,10 +790,17 @@ configurator assigned addresses sequentially starting from 10.0.0.1
 while making sure that different subnets got different address prefixes
 and netmasks, as instructed by the <code class="docutils literal notranslate"><span class="pre">assignDisjunctSubnetAddresses</span></code>
 parameter.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/step1addresses.png"><img alt="../../../_images/step1addresses.png" src="../../../_images/step1addresses.png" style="width: 100%;" /></a>
-</div>
-<p>Note that the configurator assigned a 29-bit netmask to the hosts and
+<a class=""
+               data-lightbox="group-874a2201-f729-4463-8933-ddeae30bea68"
+               href="../../../_images/step1addresses1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step1addresses1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Note that the configurator assigned a 29-bit netmask to the hosts and
 the router interfaces connecting to the switches, and a 30-bit netmask
 to the other router interfaces. Three hosts and the router’s interface
 towards a switch as a group has four interfaces, thus, a 30-bit netmask

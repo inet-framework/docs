@@ -23,7 +23,7 @@ The classifier is connected to two passive packet sinks (:ned:`PassivePacketSink
 The classifier pushes packets into one of the packet sinks based on the current state of
 the Markov process.
 
-.. figure:: media/MarkovClassifier.png
+.. image:: media/MarkovClassifier.png
    :width: 80%
    :align: center
 

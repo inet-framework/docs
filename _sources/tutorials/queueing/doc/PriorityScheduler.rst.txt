@@ -10,7 +10,7 @@ stored temporarily. The queues are connected to a priority scheduler (:ned:`Prio
 An active packet sink (:ned:`ActivePacketSink`) pops packets from the scheduler, which in turn
 pops packets from one of the queues in a prioritized way, favoring the first queue.
 
-.. figure:: media/PriorityScheduler.png
+.. image:: media/PriorityScheduler.png
    :width: 90%
    :align: center
 

@@ -10,7 +10,7 @@ The packet source pushes packets into the tagger (:ned:`ContentBasedTagger`), wh
 to attach a hop limit tag to 1-byte packets. Packets are consumed by a passive packet sink
 (:ned:`PassivePacketSink`).
 
-.. figure:: media/ContentBasedTagger.png
+.. image:: media/ContentBasedTagger.png
    :width: 80%
    :align: center
 

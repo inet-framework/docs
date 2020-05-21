@@ -9,7 +9,7 @@ In this example network, packets are created at random intervals by an active pa
 The packets are pushed into a drop-tail queue (:ned:`DropTailQueue`) with a capacity of 4 packets.
 The packets are popped from the queue at random intervals by an active packet sink (:ned:`ActivePacketSink`).
 
-.. figure:: media/DropTailQueue.png
+.. image:: media/DropTailQueue.png
    :width: 90%
    :align: center
 

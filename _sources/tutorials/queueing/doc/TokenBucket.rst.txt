@@ -12,11 +12,11 @@ The packets are pushed into a token bucket (:ned:`TokenBucket`), which pushes th
 into a passive packet sink (:ned:`PassivePacketSink`). A token generator (:ned:`TimeBasedTokenGenerator`)
 generates tokens periodically into the token bucket module.
 
-.. figure:: media/TokenBucket.png
+.. image:: media/TokenBucket.png
    :width: 60%
    :align: center
 
-.. figure:: media/TokenBucket_Bucket.png
+.. image:: media/TokenBucket_Bucket.png
    :width: 80%
    :align: center
 

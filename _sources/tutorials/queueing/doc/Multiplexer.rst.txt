@@ -10,7 +10,7 @@ packet sink (:ned:`PassivePacketSink`) upon arrival. The single sink is connecte
 multiple sources using an intermediary component (:ned:`PacketMultiplexer`) which simply
 forwards packets.
 
-.. figure:: media/Multiplexer.png
+.. image:: media/Multiplexer.png
    :width: 80%
    :align: center
 

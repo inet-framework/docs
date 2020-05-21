@@ -114,7 +114,7 @@ UDPData-0 and UDPData-1 are transmitted back-to-back because there's no
 gap between them. UDPData-2 and UDPData-3 are also transmitted
 back-to-back.
 
-.. figure:: media/wireless-step2-seq3.png
+.. image:: media/wireless-step2-seq3.png
    :width: 100%
 
 **Number of packets received by host B: 2017**

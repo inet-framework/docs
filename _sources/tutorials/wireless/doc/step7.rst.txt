@@ -64,7 +64,7 @@ corresponding ACK from host B.
 
 The UDPData + ACK sequences can be seen in the sequence chart below:
 
-.. figure:: media/wireless-step7-seq-2.png
+.. image:: media/wireless-step7-seq-2.png
    :width: 100%
 
 In the following chart, the UDPData packet sequence numbers that are
@@ -72,7 +72,7 @@ received by host B's UDPApp, are plotted against time. This chart
 contains the statistics of the previous step (ACK off, blue) and the
 current step (ACK on, red).
 
-.. figure:: media/wireless-step7-seqno.png
+.. image:: media/wireless-step7-seqno.png
    :width: 100%
 
 When ACKs are turned on, each successfully received UDPData packet has

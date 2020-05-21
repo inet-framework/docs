@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Adding New Events - Part 1 &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
   </head>
@@ -122,6 +135,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -421,6 +435,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -681,8 +696,8 @@ Show Source
 </div>
 <p>Then we add a line to one of the functions in <code class="code literal-cpp docutils literal notranslate"><span class="pre">Udp.cc</span></code> which schedules a self message;
 we also add a handleSelfMessage() function which just deletes the message when its received:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /doc/doc/src/tutorials/fingerprint/Udp_orig.cc</span>
-<span class="gi">+++ /doc/doc/src/tutorials/fingerprint/Udp_mod.cc</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/Udp_orig.cc</span>
+<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/Udp_mod.cc</span>
 <span class="gu">@@ -125,8 +125,16 @@</span>
      }
  }
@@ -719,6 +734,21 @@ we also add a handleSelfMessage() function which just deletes the message when i
 <p>The <code class="docutils literal notranslate"><span class="pre">-fingerprint-module=&quot;&quot;</span></code> command line argument can be added to the .csv file as well.</p>
 </div>
 <p>We can change the ingredients back to <code class="docutils literal notranslate"><span class="pre">tplx</span></code> (or some other default), re-run the tests, and accept the new values. This process is described in more detail in the <a class="reference internal" href="accepting.html"><span class="doc">Accepting Fingerprint Changes</span></a> step.</p>
+<p>Another option for dealing with the effect of new events is to filter out only the new event
+from the fingerprint calculation. This approach is beneficial because alternate fingerprints
+with different ingredients are not needed. If only the new event is filtered out, the fingerprints should stay the same.</p>
+<p>As a simplistic example, we’ll make the same change to the Udp module as before.
+We’ll run the tests with the baseline ingredients and filter out the new self message by its id:</p>
+<div class="highlight-fp notranslate"><div class="highlight"><pre><span></span><span class="ni">$ inet_fingerprinttest -m AddingNewEvents1 -a --fingerprint-events=&#39;&quot;not kind=~42&quot;&#39;</span>
+<span class="ni">. -f omnetpp.ini -c Ethernet -r 0 ... : </span><span class="nb">PASS</span><span class="ni"></span>
+<span class="ni">. -f omnetpp.ini -c Wifi -r 0 ... : </span><span class="nb">PASS</span><span class="ni"></span>
+</pre></div>
+</div>
+<p>The tests PASS, and the model is verified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a rule of thumb, it is best to filter out specifically those aspects of the simulation which were affected by the change. The more specific the filtering, the better; if you filter specifically, the fingerprints will retain their sensitivity to a broad range of changes, but won’t be sensitive to that specific change.</p>
+</div>
 </div>
 
 

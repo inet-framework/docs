@@ -80,7 +80,7 @@ and can be inspected in the runtime GUI. The routing table of host A
 (10.0.0.2) can be reached via host R1 (10.0.0.3), as specified by the
 gateway (gw) value.
 
-.. figure:: media/wireless-step4-rt.png
+.. image:: media/wireless-step4-rt.png
    :width: 100%
 
 When the first packet sent by host A arrives at host R1, a dotted dark

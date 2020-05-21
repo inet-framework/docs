@@ -10,7 +10,7 @@ In this step, packets are passed through from the source to the sink periodicall
 by a passive packet source (:ned:`PassivePacketSource`) and consumed by a passive packet sink
 (:ned:`PassivePacketSink`).
 
-.. figure:: media/Server.png
+.. image:: media/Server.png
    :width: 80%
    :align: center
 

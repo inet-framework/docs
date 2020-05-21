@@ -21,7 +21,7 @@ providing interval. In this period, the provider doesn't have an available packe
 the scheduler pops packets from the other provider if it has an available packet;
 if it doesn't, the next packet is popped as soon as one becomes available.
 
-.. figure:: media/GenericScheduler.png
+.. image:: media/GenericScheduler.png
    :width: 80%
    :align: center
 

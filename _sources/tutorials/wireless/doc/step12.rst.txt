@@ -104,7 +104,7 @@ In host A, the MAC receives the packet UDPData-408 from the radio. The
 MAC drops the packet because of bit errors; this can be seen in the
 following log:
 
-.. figure:: media/wireless-step12-log.png
+.. image:: media/wireless-step12-log.png
    :width: 100%
 
 **Number of packets received by host B: 665**

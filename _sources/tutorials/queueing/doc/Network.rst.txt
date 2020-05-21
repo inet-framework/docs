@@ -12,19 +12,19 @@ connected by a cable module (``ExampleCable``) which adds delay to the connectio
 Each host contains a packet source and a packet sink application, connected to
 the network level by an interface module (``ExampleInterface``).
 
-.. figure:: media/Network_TestCable.png
+.. image:: media/Network_TestCable.png
    :width: 30%
    :align: center
 
-.. figure:: media/Network.png
+.. image:: media/Network.png
    :width: 50%
    :align: center
 
-.. figure:: media/Network_TestHost.png
+.. image:: media/Network_TestHost.png
    :width: 60%
    :align: center
 
-.. figure:: media/NetworkInterface.png
+.. image:: media/NetworkInterface.png
    :width: 50%
    :align: center
 

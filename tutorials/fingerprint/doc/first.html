@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>About Fingerprint Testing &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
   </head>
@@ -122,6 +135,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -421,6 +435,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -684,11 +699,11 @@ Qtenv and Cmdenv indicate whether the fingerprint is verified, and print the cal
 <div class="section" id="the-fingerprint-tool">
 <h2>The fingerprint tool<a class="headerlink" href="#the-fingerprint-tool" title="Permalink to this headline">¶</a></h2>
 <p>The fingerprint tool is a conventient way to run fingerprint tests. It is located in the <code class="docutils literal notranslate"><span class="pre">inet/bin</span></code> folder, and when the <code class="docutils literal notranslate"><span class="pre">inet</span></code> directory is added to the PATH, it can be run from any project directory.</p>
-<p>The fingerprint test tool uses .csv files to run fingerprint tests.
+<p>The fingerprint test tool uses .csv files to run fingerprint tests./uses .csv files to keep track of test runs
 A line in the .csv file defines a simulation run by specifying the working directory, command line arguments, sim time limit, fingerprint+ingredients, expected result, and tags.
 The result of one fingerprint test can either be PASS, FAILED or ERROR. A test results in FAILED if the calculated fingerprint differs from the one in the .csv file; it results in ERROR when there was an error during the simulation.</p>
 <p>When run without arguments, the fingerprint test tool runs all tests in all .csv files in the current directory. Specific .csv files to run can be selected with the first argument.
-Also, the set of tests to run can be filtered with the <code class="docutils literal notranslate"><span class="pre">-m</span></code> command line option, by providing a regex expression that is matched against all information in the .csv files.</p>
+Also, the set of tests to run can be filtered with the <code class="docutils literal notranslate"><span class="pre">-m</span></code> command line option, by providing a regex expression/regex that is matched against all information in the .csv files.</p>
 <p>The fingerprint test tool runs tests concurrently by default, using all CPU cores.</p>
 <p>For the list of all available options, run the tool with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> argument.</p>
 <p>When the tests are finished, the tool may create additional .csv files (appending UPDATED, FAILED, and ERROR to the .csv file’s name):</p>
@@ -704,15 +719,29 @@ Also, the set of tests to run can be filtered with the <code class="docutils lit
 <p>The tutorial contains several simulations, which will be used to demonstrate how various changes affect fingerprints. Here is an overview of the simulations:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Ethernet</span></code>: Contains an Ethernet network with wired hosts and routers. The server host sends UDP packets to two of the hosts:</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="tutorials/fingerprint/doc/media/EthernetNetwork.png"><img alt="tutorials/fingerprint/doc/media/EthernetNetwork.png" src="tutorials/fingerprint/doc/media/EthernetNetwork.png" style="width: 100%;" /></a>
-</div>
-</li>
+<a class=""
+               data-lightbox="group-552cbf21-7459-476d-8d2c-e00d48a37743"
+               href="../../../_images/EthernetNetwork1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/EthernetNetwork1.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Wifi</span></code>: Contains two ad-hoc hosts; one of them sends UDP packets to the other:</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="tutorials/fingerprint/doc/media/WifiNetwork.png"><img alt="tutorials/fingerprint/doc/media/WifiNetwork.png" src="tutorials/fingerprint/doc/media/WifiNetwork.png" style="width: 100%;" /></a>
-</div>
-</li>
+<a class=""
+               data-lightbox="group-a735f574-ee2e-49bd-a1bb-f2552530a651"
+               href="../../../_images/WifiNetwork1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/WifiNetwork1.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">EthernetShortPacket</span></code>: The same as the <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code> configuration, but the server sends 10-Byte UDP packets.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WifiShortPacket</span></code>: The same as the <code class="docutils literal notranslate"><span class="pre">Wifi</span></code> configuration, but the host sends 10-Byte UDP packets.</p></li>
 </ul>

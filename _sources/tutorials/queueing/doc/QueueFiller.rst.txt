@@ -8,11 +8,11 @@ interface.
 In this example network, an active packet sink (:ned:`ActivePacketSink`) periodically pops packets from a queue (:ned:`PacketQueue`).
 Whenever the queue becomes empty, a queue filler module (:ned:`QueueFiller`) pushes a packet into it.
 
-.. figure:: media/QueueFillerNetwork.png
+.. image:: media/QueueFillerNetwork.png
    :width: 80%
    :align: center
 
-.. figure:: media/QueueFiller.png
+.. image:: media/QueueFiller.png
    :width: 50%
    :align: center
 

@@ -11,7 +11,7 @@ source (:ned:`ActivePacketSource`). The packets are pushed into an unlimited FIF
 where they are stored temporarily. An active packet sink (:ned:`ActivePacketSink`) module
 pops packets from the queue at random intervals.
 
-.. figure:: media/PacketQueue.png
+.. image:: media/PacketQueue.png
    :width: 90%
    :align: center
 

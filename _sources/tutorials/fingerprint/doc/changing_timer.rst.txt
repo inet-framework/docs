@@ -20,7 +20,7 @@ In such case, the events or modules that contain the timer need to be filtered:
 - Before making the change, filter the events or modules which involve the affected timer, and calculate the fingerprints
 - Accept the new fingerprint values
 - Make the change
-- Rerun the fingerprint tests
+- Rerun the fingerprint tests with the same filtering
 
 The tests should pass.
 

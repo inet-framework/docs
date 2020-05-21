@@ -18,7 +18,7 @@ In this example network, packets are produced periodically by an active packet s
 Finally, the packets are all sent into a passive packet
 sink (:ned:`PassivePacketSink`).
 
-.. figure:: media/Duplicator.png
+.. image:: media/Duplicator.png
    :width: 80%
    :align: center
 

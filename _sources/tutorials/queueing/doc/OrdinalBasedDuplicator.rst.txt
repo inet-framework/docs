@@ -13,7 +13,7 @@ The packet source pushed packets into a duplicator (:ned:`OrdinalBasedDuplicator
 The duplicator is configured to duplicate every second packet on its ordinal number.
 The packets are then consumed by a passive packet sink (:ned:`PassivePacketSink`).
 
-.. figure:: media/OrdinalBasedDuplicator.png
+.. image:: media/OrdinalBasedDuplicator.png
    :width: 60%
    :align: center
 

@@ -17,7 +17,7 @@ In this step, packets are produced periodically by an active packet source
 (:ned:`ActivePacketSource`). The packets pass through a packet tagger which attaches
 a HopLimitReq tag. The packets are consumed by a passive packet sink (:ned:`PassivePacketSink`).
 
-.. figure:: media/Tagger.png
+.. image:: media/Tagger.png
    :width: 80%
    :align: center
 

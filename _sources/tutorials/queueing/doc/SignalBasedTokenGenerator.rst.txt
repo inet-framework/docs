@@ -11,7 +11,7 @@ and generates a token whenever the signal is emitted. The provider has a configu
 Setting a providing interval is necessary because otherwise (if the provider could generate packets any time),
 an infinite amount of packets would be generated and dropped in zero simulation time, resulting in an error.
 
-.. figure:: media/SignalBasedTokenGenerator.png
+.. image:: media/SignalBasedTokenGenerator.png
    :width: 80%
    :align: center
 

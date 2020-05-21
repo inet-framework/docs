@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Step 12. Mixing different kinds of autorouting &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Conclusion" href="conclusion.html" />
@@ -126,6 +139,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -425,6 +439,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -678,10 +693,17 @@ error rate metrics in a mixed wired/wireless network.</p>
 <p>This step uses the <span>ConfiguratorE</span> network, defined in
 <a class="reference download internal" download="" href="../../../_downloads/c4142bf2808449772df11835d724cdb5/ConfiguratorE.ned"><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorE.ned</span></code></a>. The network
 looks like this:</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/step12network.png"><img alt="../../../_images/step12network.png" src="../../../_images/step12network.png" style="width: 100%;" /></a>
-</div>
-<p>The core of the network is composed of three routers connected to each
+<a class=""
+               data-lightbox="group-f1d070dc-75bc-40c5-8407-de075f2849ca"
+               href="../../../_images/step12network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12network1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The core of the network is composed of three routers connected to each
 other, each belonging to an area. There are three areas, each containing
 a number of hosts, connected to the area router.</p>
 <ul class="simple">
@@ -700,10 +722,17 @@ image below.) Thus, <code class="docutils literal notranslate"><span class="pre"
 rather than hop count, is best suited to configure routes in this LAN.
 Routes in the rest of the network can be configured properly based on
 the hop count metric.</p>
-<div class="figure align-default">
-<img alt="../../../_images/step12ranges.png" src="../../../_images/step12ranges.png" />
-</div>
-<p>The configuration for this step in omnetpp.ini is the following:</p>
+<a class=""
+               data-lightbox="group-684c69bb-f300-4845-909b-75fb43dd4ea4"
+               href="../../../_images/step12ranges1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12ranges1.png"
+                     class=""
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The configuration for this step in omnetpp.ini is the following:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step12]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorE</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixing different kinds of autorouting&quot;</span>
@@ -769,10 +798,17 @@ link can reach it directly. This is not the case for area 1, because
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The routes are visualized on the following image.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/step12routes_2.png"><img alt="../../../_images/step12routes_2.png" src="../../../_images/step12routes_2.png" style="width: 100%;" /></a>
-</div>
-<p>As intended, <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> connects to the network via <code class="docutils literal notranslate"><span class="pre">area1host2</span></code>.</p>
+<a class=""
+               data-lightbox="group-0cfd675b-36fe-44a8-b021-28852dca5277"
+               href="../../../_images/step12routes_21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12routes_21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>As intended, <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> connects to the network via <code class="docutils literal notranslate"><span class="pre">area1host2</span></code>.</p>
 <p>The routing table of <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorF.area1host1
 -- Routing table --

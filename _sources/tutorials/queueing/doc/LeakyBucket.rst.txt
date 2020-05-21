@@ -11,11 +11,11 @@ The packet source pushes packets into a :ned:`LeakyBucket` module, which pushes 
 a passive packet sink (:ned:`PassivePacketSink`). The leaky bucket is configured with a
 processing time of 1s, and a packet capacity of 1.
 
-.. figure:: media/LeakyBucket.png
+.. image:: media/LeakyBucket.png
    :width: 60%
    :align: center
 
-.. figure:: media/LeakyBucket_Bucket.png
+.. image:: media/LeakyBucket_Bucket.png
    :width: 65%
    :align: center
 

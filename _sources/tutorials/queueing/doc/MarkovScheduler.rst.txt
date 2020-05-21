@@ -14,7 +14,7 @@ Packets are popped from the scheduler by an active packet sink (:ned:`ActivePack
 The scheduler in turn pops packets from one of the packet sources, based on the current
 state of the Markov process.
 
-.. figure:: media/MarkovScheduler.png
+.. image:: media/MarkovScheduler.png
    :width: 80%
    :align: center
 

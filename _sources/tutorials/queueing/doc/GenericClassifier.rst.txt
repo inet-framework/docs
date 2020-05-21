@@ -13,7 +13,7 @@ is configured to use the ``PacketDataClassifier`` function to classify packets. 
 classifier's output where the output index matches the data contained in the packet.
 Thus packets with data 0 are pushed to ``consumer1``, and those with data 1 to ``consumer2``.
 
-.. figure:: media/GenericClassifier.png
+.. image:: media/GenericClassifier.png
    :width: 80%
    :align: center
 

@@ -58,8 +58,8 @@ first. The two curves separate towards the end of the displayed
 interval. As expected, in the case of the two-ray ground reflection
 model, the bit error rate is greater.
 
-.. figure:: media/wireless-step13.png
-   :width: 100%
+.. image:: media/wireless-step13.png
+   :width: 70%
 
 **Number of packets received by host B: 679**
 

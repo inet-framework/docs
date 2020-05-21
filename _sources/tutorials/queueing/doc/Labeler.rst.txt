@@ -23,7 +23,7 @@ and the ``large`` text label to 2-byte packets. The labeler pushes packets into 
 :ned:`LabelClassifier`, which classifies packets labeled ``small`` to
 ``consumer1``, and packets labeled ``large`` to ``consumer2``.
 
-.. figure:: media/Labeler.png
+.. image:: media/Labeler.png
    :width: 90%
    :align: center
 

@@ -93,7 +93,7 @@ R1's and B's network layer. The image indicates that host B only
 occasionally receives packets successfully; most packets sent by R1 do
 not make it to host B's IP layer.
 
-.. figure:: media/wireless-step5-seq.png
+.. image:: media/wireless-step5-seq.png
    :width: 100%
 
 The sequence chart below shows host R1's and host A's signals
@@ -109,7 +109,7 @@ larger simulation time interval, because the more events there are in an
 interval, the more it is inflated to make the events visible and
 discernible on the chart.
 
-.. figure:: media/wireless-step5-seq-2.png
+.. image:: media/wireless-step5-seq-2.png
    :width: 100%
 
 To minimize interference, some kind of media access protocol is needed

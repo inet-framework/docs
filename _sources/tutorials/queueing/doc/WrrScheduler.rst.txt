@@ -15,7 +15,7 @@ sink (:ned:`ActivePacketSink`), which pops packets from the scheduler periodical
 scheduler are configured to have the weights [1 3 2], thus the scheduler pops 1, 3 and 2 packet(s)
 from the three providers in one round.
 
-.. figure:: media/Scheduler.png
+.. image:: media/Scheduler.png
    :width: 80%
    :align: center
 

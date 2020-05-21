@@ -31,7 +31,7 @@ All three parts in this step use the :ned:`ConfiguratorB` network defined
 in :download:`ConfiguratorB.ned <../ConfiguratorB.ned>`. The network
 looks like this:
 
-.. figure:: media/step7network.png
+.. image:: media/step7network.png
    :width: 100%
 
 The network is comprised of three areas, each containing two local area
@@ -57,7 +57,7 @@ Results
 
 The assigned addresses are shown in the image below:
 
-.. figure:: media/step7a_addresses.png
+.. image:: media/step7a_addresses.png
    :width: 100%
 
 The size of some of the routing tables are the following:
@@ -262,7 +262,7 @@ Results
 
 The image below shows the assigned addresses.
 
-.. figure:: media/step7c_addresses.png
+.. image:: media/step7c_addresses.png
    :width: 100%
 
 The sizes of some of the routing tables are displayed on the following

@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Renaming a Submodule &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
   </head>
@@ -122,6 +135,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -421,6 +435,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -699,8 +714,8 @@ We can update the .csv file with the new values:</p>
 </pre></div>
 </div>
 <p>As a simplisic example, we rename the <code class="docutils literal notranslate"><span class="pre">eth</span></code> module vector to <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.base.NetworkLayerNodeBase.html">NetworkLayerNodeBase</a>. This change affects all host-types such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> since they are derived modules:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /doc/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.orig</span>
-<span class="gi">+++ /doc/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.modified</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.orig</span>
+<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.modified</span>
 <span class="gu">@@ -70,7 +70,7 @@</span>
              parameters:
                  @display(&quot;p=300,526,row,150;q=txQueue&quot;);
@@ -721,8 +736,8 @@ We can update the .csv file with the new values:</p>
          for i=0..sizeof(pppg)-1 {
 </pre></div>
 </div>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /doc/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.orig</span>
-<span class="gi">+++ /doc/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.modified</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.orig</span>
+<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.modified</span>
 <span class="gu">@@ -72,8 +72,8 @@</span>
          }
  
@@ -751,8 +766,8 @@ We can update the .csv file with the new values:</p>
 </div>
 <p>Here is an example change which results in ERROR in the tests when using <code class="docutils literal notranslate"><span class="pre">tlx</span></code> fingerprints:</p>
 <p>In <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a>, we rename the <code class="docutils literal notranslate"><span class="pre">routingTable</span></code> submodule to <code class="docutils literal notranslate"><span class="pre">ipv4RoutingTable</span></code>:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /doc/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.orig</span>
-<span class="gi">+++ /doc/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.routingtable.modified</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.orig</span>
+<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.routingtable.modified</span>
 <span class="gu">@@ -54,7 +54,7 @@</span>
              parameters:
                  @display(&quot;p=100,100;is=s&quot;);

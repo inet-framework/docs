@@ -11,7 +11,7 @@ queues (:ned:`PacketQueue`). The queues share a :ned:`PriorityBuffer` with a pac
 2. Packets are popped from the queues at random intervals by two active packet sinks (:ned:`ActivePacketSink`).
 When the buffer becomes full, it drops packets from the second queue first.
 
-.. figure:: media/PriorityBuffer.png
+.. image:: media/PriorityBuffer.png
    :width: 90%
    :align: center
 

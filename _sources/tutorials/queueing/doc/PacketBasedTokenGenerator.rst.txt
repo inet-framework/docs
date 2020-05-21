@@ -10,7 +10,7 @@ pushed into the token generator (:ned:`PacketBasedTokenGenerator`). The generato
 provider (:ned:`PassivePacketSource`), and pushes them into a packet consumer
 (:ned:`PassivePacketSink`).
 
-.. figure:: media/PacketBasedTokenGenerator.png
+.. image:: media/PacketBasedTokenGenerator.png
    :width: 100%
    :align: center
 

@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Example: Simulating a Simplistic Network &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="RIP Routing Tutorial" href="../../rip/doc/index.html" />
@@ -126,6 +139,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -425,6 +439,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -676,19 +691,47 @@ OMNeT++ or INET.)</p>
 connected by a cable module (<code class="docutils literal notranslate"><span class="pre">ExampleCable</span></code>) which adds delay to the connection.
 Each host contains a packet source and a packet sink application, connected to
 the network level by an interface module (<code class="docutils literal notranslate"><span class="pre">ExampleInterface</span></code>).</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/Network_TestCable.png"><img alt="../../../_images/Network_TestCable.png" src="../../../_images/Network_TestCable.png" style="width: 30%;" /></a>
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/Network.png"><img alt="../../../_images/Network.png" src="../../../_images/Network.png" style="width: 50%;" /></a>
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/Network_TestHost.png"><img alt="../../../_images/Network_TestHost.png" src="../../../_images/Network_TestHost.png" style="width: 60%;" /></a>
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../_images/NetworkInterface.png"><img alt="../../../_images/NetworkInterface.png" src="../../../_images/NetworkInterface.png" style="width: 50%;" /></a>
-</div>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">ExampleNetworkTutorialStep</span>
+<a class=""
+               data-lightbox="group-6b5c407f-9a02-47b8-acda-06fd2625ad4b"
+               href="../../../_images/Network_TestCable1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network_TestCable1.png"
+                     class="align-center"
+                     width="30%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-11172e39-1781-4fe7-bbb8-9cd36bb5b101"
+               href="../../../_images/Network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network1.png"
+                     class="align-center"
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-c539b20d-cc7c-4d0d-a89f-a57a2eb9075d"
+               href="../../../_images/Network_TestHost1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network_TestHost1.png"
+                     class="align-center"
+                     width="60%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-76004d22-efbd-412d-b61b-6a84fe4f21bd"
+               href="../../../_images/NetworkInterface1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/NetworkInterface1.png"
+                     class="align-center"
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">ExampleNetworkTutorialStep</span>
 <span class="p">{</span>
     <span class="k">submodules</span><span class="o">:</span>
         <span class="n">source</span><span class="o">:</span> <span class="n">ExampleHost</span> <span class="p">{</span>

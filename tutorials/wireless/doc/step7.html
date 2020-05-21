@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
     
     <title>Step 7. Turning on ACKs in CSMA &#8212; INET 4.2 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/inet_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 8. Modeling energy consumption" href="step8.html" />
@@ -126,6 +139,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -425,6 +439,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
@@ -715,17 +730,31 @@ sign that a route has become broken, and a new one needs to be found.</p>
 The animation below depicts a packet transmission from host R1, and the
 corresponding ACK from host B.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/wireless-step7-1.mp4" width="655" height="575" class="align-center"></video><p>The UDPData + ACK sequences can be seen in the sequence chart below:</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/wireless-step7-seq-2.png"><img alt="../../../_images/wireless-step7-seq-2.png" src="../../../_images/wireless-step7-seq-2.png" style="width: 100%;" /></a>
-</div>
-<p>In the following chart, the UDPData packet sequence numbers that are
+<a class=""
+               data-lightbox="group-99e11216-c59e-4b84-ab35-b41d839e3eb3"
+               href="../../../_images/wireless-step7-seq-21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/wireless-step7-seq-21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>In the following chart, the UDPData packet sequence numbers that are
 received by host B’s UDPApp, are plotted against time. This chart
 contains the statistics of the previous step (ACK off, blue) and the
 current step (ACK on, red).</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/wireless-step7-seqno.png"><img alt="../../../_images/wireless-step7-seqno.png" src="../../../_images/wireless-step7-seqno.png" style="width: 100%;" /></a>
-</div>
-<p>When ACKs are turned on, each successfully received UDPData packet has
+<a class=""
+               data-lightbox="group-a09a8de5-825b-482e-aaaa-82548ec25b65"
+               href="../../../_images/wireless-step7-seqno1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/wireless-step7-seqno1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>When ACKs are turned on, each successfully received UDPData packet has
 to be acknowledged before the next one can be sent. Lost packets are
 retransmitted until an ACK arrives, implementing a kind of reliable
 transport. Because of this, the sequence numbers are sequential. In the
@@ -740,9 +769,27 @@ are received sequentially. However, often there are gaps in the sequence
 numbers, signifying lost packets. The second one (red) is for the
 current step, where the difference is always 1, as there are no lost
 packets.</p>
-<a class="reference internal image-reference" href="../../../_images/wireless-step7-seqdiff6.png"><img alt="../../../_images/wireless-step7-seqdiff6.png" src="../../../_images/wireless-step7-seqdiff6.png" style="width: 100%;" /></a>
-<a class="reference internal image-reference" href="../../../_images/wireless-step7-seqdiff7.png"><img alt="../../../_images/wireless-step7-seqdiff7.png" src="../../../_images/wireless-step7-seqdiff7.png" style="width: 100%;" /></a>
-<p><strong>Number of packets received by host B: 1393</strong></p>
+<a class=""
+               data-lightbox="group-e46f538d-08b8-41f5-a316-05b74a1d0afe"
+               href="../../../_images/wireless-step7-seqdiff61.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/wireless-step7-seqdiff61.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-46449b37-e5e1-4bff-881d-8f29664ccd9c"
+               href="../../../_images/wireless-step7-seqdiff71.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/wireless-step7-seqdiff71.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p><strong>Number of packets received by host B: 1393</strong></p>
 <p>Sources: <a class="reference download internal" download="" href="../../../_downloads/84c3e3d9f7fe1d859c57b87d38ad1571/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" download="" href="../../../_downloads/c639c86c3096e702a8fb5236caeb1a64/WirelessB.ned"><code class="xref download docutils literal notranslate"><span class="pre">WirelessB.ned</span></code></a></p>
 </div>

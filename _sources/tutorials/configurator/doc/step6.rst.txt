@@ -100,7 +100,7 @@ that routes going backward, from hosts 6--8 to hosts 0--2, go through
 ``router1``. No traffic is routed between ``router0`` and ``router2`` at
 all (as opposed to Step 4 and 5.)
 
-.. figure:: media/step6aroutes.png
+.. image:: media/step6aroutes.png
    :width: 100%
 
 The routing table of ``router0`` is as follows:
@@ -142,7 +142,7 @@ One can easily check that no routes go through the link between
 ``router0`` and ``router2`` by setting the destination filter to ``"*"``
 in the visualizer. This indicates all routes in the network:
 
-.. figure:: media/step6allroutes.png
+.. image:: media/step6allroutes.png
    :width: 100%
 
 Part B - Manually specifying link cost
@@ -190,7 +190,7 @@ Results
 
 The routes towards ``host1`` are visualized on the following image:
 
-.. figure:: media/step6broutes.png
+.. image:: media/step6broutes.png
    :width: 100%
 
 The routes are the same as in Part A, where the data rate metric was

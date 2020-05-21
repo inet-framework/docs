@@ -9,7 +9,7 @@ A :ned:`TokenBasedServer` pops packets from the connected packet source when it 
 and pushes them onto a passive packet sink (:ned:`PassivePacketSink`).
 Tokens are generated at random intervals by a :ned:`TimeBasedTokenGenerator`.
 
-.. figure:: media/TimeBasedTokenGenerator.png
+.. image:: media/TimeBasedTokenGenerator.png
    :width: 80%
    :align: center
 

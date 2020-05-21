@@ -9,7 +9,7 @@ The active packet sink module has a configurable collection interval. The passiv
 source also has a configurable providing interval, which limits the times at which packets
 can be popped from the module.
 
-.. figure:: media/PassiveSourceActiveSink.png
+.. image:: media/PassiveSourceActiveSink.png
    :width: 60%
    :align: center
 

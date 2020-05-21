@@ -9,7 +9,7 @@ pushes packets to the dropper module. The dropper module drops packets with a pr
 on the number of packets contained in the queue (:ned:`PacketQueue`) connected to its output.
 The packets are collected by an active packet sink (:ned:`ActivePacketSink`).
 
-.. figure:: media/RedDropper.png
+.. image:: media/RedDropper.png
    :width: 100%
    :align: center
 

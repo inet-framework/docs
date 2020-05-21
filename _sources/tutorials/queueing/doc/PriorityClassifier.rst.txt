@@ -11,7 +11,7 @@ The classifier sends packets to the queues, favoring ``queue1``. It will only co
 ``queue2`` when ``queue1`` is full.
 The packets are popped from the queues by two active packet sinks (:ned:`ActivePacketSink`).
 
-.. figure:: media/PriorityClassifier.png
+.. image:: media/PriorityClassifier.png
    :width: 90%
    :align: center
 

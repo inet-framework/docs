@@ -9,7 +9,7 @@ the module.
 In this example network, packets are produced periodically by the active packet source (:ned:`ActivePacketSource`)
 and pushed into the passive packet sink (:ned:`PassivePacketSink`).
 
-.. figure:: media/ActiveSourcePassiveSink.png
+.. image:: media/ActiveSourcePassiveSink.png
    :width: 50%
    :align: center
 

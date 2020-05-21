@@ -12,7 +12,7 @@ otherwise packets are not generated. The packets are consumed by a passive
 packet sink (:ned:`PassivePacketSink`). The time of opening and closing the gate is
 configured via parameters.
 
-.. figure:: media/Gate1.png
+.. image:: media/Gate1.png
    :width: 80%
    :align: center
 

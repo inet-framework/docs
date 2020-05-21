@@ -10,7 +10,7 @@ In this example network, an active packet source (:ned:`ActivePacketSource`) gen
 The source pushes packets into a filter (:ned:`ContentBasedFilter`), which
 pushes 1-byte packets into a passive packet sink (:ned:`PassivePacketSink`) and drops 2-byte ones.
 
-.. figure:: media/Filter1.png
+.. image:: media/Filter1.png
    :width: 80%
    :align: center
 

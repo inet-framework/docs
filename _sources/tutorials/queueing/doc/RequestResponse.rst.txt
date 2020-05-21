@@ -19,15 +19,15 @@ for each kind of request.
 
 The client consumes the response packets by a passive packet sink (:ned:`PassivePacketSink`).
 
-.. figure:: media/ResponseProducer.png
+.. image:: media/ResponseProducer.png
    :width: 70%
    :align: center
 
-.. figure:: media/RequestResponse.png
+.. image:: media/RequestResponse.png
    :width: 50%
    :align: center
 
-.. figure:: media/RequestConsumer.png
+.. image:: media/RequestConsumer.png
    :width: 80%
    :align: center
 

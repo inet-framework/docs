@@ -107,7 +107,7 @@ Results
 
 The visualized routes are displayed on the following image:
 
-.. figure:: media/step4routes.png
+.. image:: media/step4routes.png
    :width: 100%
 
 Routes from all nodes to ``host7`` are visualized. Note that arrows

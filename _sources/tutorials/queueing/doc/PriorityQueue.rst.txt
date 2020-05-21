@@ -14,11 +14,11 @@ source (:ned:`ActivePacketSource`). The source is connected
 to a priority queue (:ned:`PriorityQueue`) with two inner queues (:ned:`PacketQueue`).
 The packets are collected at random intervals by an active packet sink (:ned:`ActivePacketSink`).
 
-.. figure:: media/PriorityQueue.png
+.. image:: media/PriorityQueue.png
    :width: 70%
    :align: center
 
-.. figure:: media/PriorityQueue_Queue.png
+.. image:: media/PriorityQueue_Queue.png
    :width: 80%
    :align: center
 

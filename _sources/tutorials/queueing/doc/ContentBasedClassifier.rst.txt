@@ -11,7 +11,7 @@ The packet source generates 1-byte packets with either 0 or 1 as data randomly. 
 packet data filter is configured to send packets which contain 0 to output 0, and those
 that contain 1 to output 1.
 
-.. figure:: media/ContentBasedClassifier.png
+.. image:: media/ContentBasedClassifier.png
    :width: 80%
    :align: center
 

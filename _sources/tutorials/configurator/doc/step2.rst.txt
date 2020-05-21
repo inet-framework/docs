@@ -101,7 +101,7 @@ Results
 
 The assigned addresses are shown in the following image.
 
-.. figure:: media/step2address.png
+.. image:: media/step2address.png
    :width: 100%
 
 As in the previous step, the configurator assigned disjunct subnet

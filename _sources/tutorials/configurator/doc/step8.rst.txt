@@ -36,7 +36,7 @@ This step uses the :ned:`ConfiguratorC` network defined in
 :download:`ConfiguratorC.ned <../ConfiguratorC.ned>`. The network is
 displayed on the following image.
 
-.. figure:: media/step8network.png
+.. image:: media/step8network.png
    :width: 100%
 
 The :ned:`ConfiguratorC` network extends :ned:`ConfiguratorB` by adding two
@@ -86,7 +86,7 @@ Results
 The addresses and routes are indicated in the following image. Routes
 leading towards hosts ``area3lan3`` are visualized.
 
-.. figure:: media/step8a_2.png
+.. image:: media/step8a_2.png
    :width: 100%
 
 Wireless hosts connect to the router through the access points. The
@@ -108,7 +108,7 @@ LAN).
 The following image shows how the routes would look like if the XML configuration didn't
 contain the ``<wireless>`` elements:
 
-.. figure:: media/step8fullmesh_2.png
+.. image:: media/step8fullmesh_2.png
    :width: 100%
 
 There are no routes visualized between the ``backbonerouter`` and

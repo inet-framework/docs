@@ -12,7 +12,7 @@ In this step, packets are produced periodically by an active packet source
 and if the rate of packets is higher than a predefined threshold, then packets are
 dropped by the :ned:`RateLimiter`.
 
-.. figure:: media/Meter.png
+.. image:: media/Meter.png
    :width: 90%
    :align: center
 

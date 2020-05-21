@@ -28,7 +28,7 @@ This step uses the :ned:`ConfiguratorD` network, defined in
 :download:`ConfiguratorD.ned <../ConfiguratorD.ned>`. The network
 looks like this:
 
-.. figure:: media/step10network.png
+.. image:: media/step10network.png
    :width: 100%
 
 It contains seven ``AODVRouters`` laid out in a chain.
@@ -75,7 +75,7 @@ thus, all arrows are within the circles. Routes lead through adjacent
 hosts in the chain. In each segment of the path, correct reception is
 possible.
 
-.. figure:: media/step10a_routes.png
+.. image:: media/step10a_routes.png
    :width: 100%
 
 Part B: Unconfigured routing tables, prepared for MANET routing
@@ -104,7 +104,7 @@ destinations.
 Results
 ~~~~~~~
 
-.. figure:: media/step10b.png
+.. image:: media/step10b.png
    :width: 100%
 
 As instructed, the configurator didn't add any routes, as indicated by

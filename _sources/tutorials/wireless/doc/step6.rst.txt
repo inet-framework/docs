@@ -81,7 +81,7 @@ because only host R1 is transmitting.
 The following sequence chart displays that after receiving the UDPData-2
 packet, host R1 transmits it after the backoff period timer has expired.
 
-.. figure:: media/wireless-step6-seq-3.png
+.. image:: media/wireless-step6-seq-3.png
    :width: 100%
 
 It is already apparent by watching the simulation that there are much
