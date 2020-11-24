@@ -1,4 +1,4 @@
-.. :orphan:
+:orphan:
 
 Tracking Down Fingerprint Differences
 =====================================

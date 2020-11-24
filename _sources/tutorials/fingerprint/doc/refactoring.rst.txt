@@ -1,5 +1,3 @@
-.. :orphan:
-
 Easy to Handle Changes
 ======================
 

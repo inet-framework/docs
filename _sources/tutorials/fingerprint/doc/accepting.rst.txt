@@ -1,5 +1,3 @@
-.. :orphan:
-
 Accepting Fingerprint Changes
 =============================
 

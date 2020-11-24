@@ -1,5 +1,3 @@
-.. :orphan:
-
 Changing Packet Length
 ======================
 
@@ -113,9 +111,9 @@ As expected, the tests pass when the packet size is small.
 
 .. TODO why the two fingerprints didn't change -> for small packets, the fingerprints didn't change because described earlier. For normal/large ones, they did.
 
-----
+.. ----
 
-**TODO** finish later
+.. **TODO** finish later
 
 .. **TODO** run with only, and it doesnt work
 

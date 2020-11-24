@@ -1,5 +1,3 @@
-.. :orphan:
-
 Removing Events
 ===============
 

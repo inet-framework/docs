@@ -1,5 +1,3 @@
-.. :orphan:
-
 Adding New Events - Part 2
 ==========================
 

@@ -1,5 +1,3 @@
-.. :orphan:
-
 Regression Testing and Fingerprints Tutorial
 ============================================
 

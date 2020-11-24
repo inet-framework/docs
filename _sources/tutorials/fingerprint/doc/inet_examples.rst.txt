@@ -1,4 +1,4 @@
-.. :orphan:
+:orphan:
 
 Examples From the INET Repository
 =================================
