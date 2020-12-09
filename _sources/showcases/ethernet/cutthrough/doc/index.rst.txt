@@ -45,7 +45,7 @@ Packet streaming is required because the frame needs to be processed as a stream
 
 The example simulation contains two :ned:`StandardHost` nodes connected by two :ned:`EthernetSwitch`' nodes (all connections are 1 Gbps):
 
-.. figure:: media/Network.png
+.. image:: media/Network.png
    :align: center
    :width: 100%
 
@@ -138,17 +138,17 @@ The following sequence chart excerpt shows a packet sent from host1 to host2 via
 
 .. **TODO** azert vannak kiugrok mert 1 csomag tud varakozni a queue-ban; vagy change the rate (ritkabban)
 
-.. figure:: media/storeandforwardseq2.png
+.. image:: media/storeandforwardseq2.png
    :align: center
    :width: 100%
 
-.. figure:: media/seqchart.png
+.. image:: media/seqchart2.png
    :align: center
    :width: 100%
 
 We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching vs cut-through switching:
 
-.. figure:: media/delay.png
+.. image:: media/delay.png
    :align: center
    :width: 100%
 

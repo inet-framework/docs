@@ -728,10 +728,17 @@ Packet streaming is required because the frame needs to be processed as a stream
 <p>The default is store-and-forward behavior in hosts such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>.</p>
 </div>
 <p>The example simulation contains two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> nodes connected by two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a>’ nodes (all connections are 1 Gbps):</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/Network.png"><img alt="../../../../_images/Network.png" src="../../../../_images/Network.png" style="width: 100%;" /></a>
-</div>
-<p>In the simulation, host1 sends 1000-Byte UDP packets to host2, with a mean arrival time of 100ms, and X ms jitter. There are two configurations in omnetpp.ini, <code class="docutils literal notranslate"><span class="pre">StoreAndForward</span></code> and <code class="docutils literal notranslate"><span class="pre">Cutthrough</span></code> (only differing in the use of cut-through switching).</p>
+<a class=""
+               data-lightbox="group-12bd2d3b-30f9-4f67-9a9e-f4896a59c159"
+               href="../../../../_images/Network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/Network1.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>In the simulation, host1 sends 1000-Byte UDP packets to host2, with a mean arrival time of 100ms, and X ms jitter. There are two configurations in omnetpp.ini, <code class="docutils literal notranslate"><span class="pre">StoreAndForward</span></code> and <code class="docutils literal notranslate"><span class="pre">Cutthrough</span></code> (only differing in the use of cut-through switching).</p>
 <p><strong>TODO</strong> NoCuttrough -&gt; StoreAndForward; - in config name (try)</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration, the following lines configure the hosts and switches to use the modular Ethernet model:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.encap.typename</span> <span class="o">=</span> <span class="s">&quot;OmittedEthernetEncapsulation&quot;</span>
@@ -765,17 +772,38 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following videos store-and-forward and cut-through behavior in Qtenv, respectively:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/storeandforward.mp4" width="100%" height="" class="align-center"></video><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/cutthrough1.mp4" width="100%" height="" class="align-center"></video><p>The following sequence chart excerpt shows a packet sent from host1 to host2 via the switches, for store-and-forward and cut-through, respectively (the timeline is linear):</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/storeandforwardseq2.png"><img alt="../../../../_images/storeandforwardseq2.png" src="../../../../_images/storeandforwardseq2.png" style="width: 100%;" /></a>
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="showcases/ethernet/cutthrough/doc/media/seqchart.png"><img alt="showcases/ethernet/cutthrough/doc/media/seqchart.png" src="showcases/ethernet/cutthrough/doc/media/seqchart.png" style="width: 100%;" /></a>
-</div>
-<p>We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching vs cut-through switching:</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/delay.png"><img alt="../../../../_images/delay.png" src="../../../../_images/delay.png" style="width: 100%;" /></a>
-</div>
-<p>We can verify that result analytically. In case of store-and-forward, the end-to-end duration is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">(transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">propagation</span> <span class="pre">time)</span></code>, around 25.296 ms. In the case of cut-through, the duration is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">cut-through</span> <span class="pre">delay</span></code>, around 8.432 ms.</p>
+<a class=""
+               data-lightbox="group-f76cc3c2-ae84-4e2d-b532-3c805dedbcaf"
+               href="../../../../_images/storeandforwardseq21.png"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/storeandforwardseq21.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-25b355c0-bd90-4eb9-b53b-b2f12128cf8f"
+               href="../../../../_images/seqchart21.png"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/seqchart21.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching vs cut-through switching:</p>
+<a class=""
+               data-lightbox="group-011fb2d6-4808-4744-a063-487e7aa7f847"
+               href="../../../../_images/delay1.png"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/delay1.png"
+                     class="align-center"
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>We can verify that result analytically. In case of store-and-forward, the end-to-end duration is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">(transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">propagation</span> <span class="pre">time)</span></code>, around 25.296 ms. In the case of cut-through, the duration is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">cut-through</span> <span class="pre">delay</span></code>, around 8.432 ms.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/88981c0a667f0eae32588db2d9713022/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/8a6c0089c452b20f3446313f62d00061/EthernetCutthroughShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">EthernetCutthroughShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
