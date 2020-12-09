@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Renaming a Submodule &#8212; INET 4.2.0 documentation</title>
+    <title>Renaming a Submodule &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Renaming a Module Parameter" href="renaming_module_parameter.html" />
@@ -745,43 +749,6 @@ We can update the .csv file with the new values:</p>
 </pre></div>
 </div>
 <p>As a simplisic example, we rename the <code class="docutils literal notranslate"><span class="pre">eth</span></code> module vector to <code class="docutils literal notranslate"><span class="pre">ethernet</span></code> in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.base.NetworkLayerNodeBase.html">NetworkLayerNodeBase</a>. This change affects all host-types such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a> since they are derived modules:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.orig</span>
-<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/LinkLayerNodeBase.ned.modified</span>
-<span class="gu">@@ -70,7 +70,7 @@</span>
-             parameters:
-                 @display(&quot;p=300,526,row,150;q=txQueue&quot;);
-         }
-<span class="gd">-        eth[sizeof(ethg)]: &lt;default(&quot;EthernetInterface&quot;)&gt; like IEthernetInterface {</span>
-<span class="gi">+        ethernet[sizeof(ethg)]: &lt;default(&quot;EthernetInterface&quot;)&gt; like IEthernetInterface {</span>
-             parameters:
-                 @display(&quot;p=900,526,row,150;q=txQueue&quot;);
-         }
-<span class="gu">@@ -89,7 +89,7 @@</span>
-         }
- 
-         for i=0..sizeof(ethg)-1 {
-<span class="gd">-            ethg[i] &lt;--&gt; { @display(&quot;m=s&quot;); } &lt;--&gt; eth[i].phys;</span>
-<span class="gi">+            ethg[i] &lt;--&gt; { @display(&quot;m=s&quot;); } &lt;--&gt; ethernet[i].phys;</span>
-         }
- 
-         for i=0..sizeof(pppg)-1 {
-</pre></div>
-</div>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.orig</span>
-<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/NetworkLayerNodeBase.ned.modified</span>
-<span class="gu">@@ -72,8 +72,8 @@</span>
-         }
- 
-         for i=0..sizeof(ethg)-1 {
-<span class="gd">-            eth[i].upperLayerOut --&gt; nl.in++;</span>
-<span class="gd">-            eth[i].upperLayerIn &lt;-- nl.out++;</span>
-<span class="gi">+            ethernet[i].upperLayerOut --&gt; nl.in++;</span>
-<span class="gi">+            ethernet[i].upperLayerIn &lt;-- nl.out++;</span>
-         }
- 
-         for i=0..sizeof(pppg)-1 {
-</pre></div>
-</div>
 <p>We run the fingerprint tests again:</p>
 <div class="highlight-fp notranslate"><div class="highlight"><pre><span></span><span class="ni">$ inet_fingerprinttest -m RenamingSubmodule</span>
 <span class="ni">. -f omnetpp.ini -c Ethernet -r 0  ... : </span><span class="nb">PASS</span><span class="ni"></span>
@@ -797,19 +764,6 @@ We can update the .csv file with the new values:</p>
 </div>
 <p>Here is an example change which results in ERROR in the tests when using <code class="docutils literal notranslate"><span class="pre">tlx</span></code> fingerprints:</p>
 <p>In <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a>, we rename the <code class="docutils literal notranslate"><span class="pre">routingTable</span></code> submodule to <code class="docutils literal notranslate"><span class="pre">ipv4RoutingTable</span></code>:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.orig</span>
-<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/Ipv4NetworkLayer.ned.routingtable.modified</span>
-<span class="gu">@@ -54,7 +54,7 @@</span>
-             parameters:
-                 @display(&quot;p=100,100;is=s&quot;);
-         }
-<span class="gd">-        routingTable: Ipv4RoutingTable {</span>
-<span class="gi">+        ipv4RoutingTable: Ipv4RoutingTable {</span>
-             parameters:
-                 @display(&quot;p=100,200;is=s&quot;);
-         }
-</pre></div>
-</div>
 <p>Here are the results of the fingerprint tests:</p>
 <div class="highlight-fp notranslate"><div class="highlight"><pre><span></span><span class="ni">$ inet_fingerprinttest -m RenamingSubmodule</span>
 <span class="ni">. -f omnetpp.ini -c Wifi -r 0  ... : </span><span class="s">ERROR</span><span class="ni"> (should be PASS)</span>

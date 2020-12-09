@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Clock Model &#8212; INET 4.2.0 documentation</title>
+    <title>Clock Model &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Physical Layer" href="ch-physicallayer.html" />
@@ -746,10 +750,10 @@ return values. The interface contains functions such as <code class="code litera
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">scheduleClockEventAt()</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">scheduleClockEventAfter()</span></code>,
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">cancelClockEvent()</span></code>.</p>
 <p>INET contains optional clock modules (not used by default) at the network node
-and the network interface levels. The following clock models available:</p>
+and the network interface levels. The following clock models are available:</p>
 <ul class="simple">
 <li><p><span>IdealClock</span>: clock time is identical to the simulation time.</p></li>
-<li><p><span>OscillatorBaseClock</span>: clock time is the number of oscillator ticks
+<li><p><span>OscillatorBasedClock</span>: clock time is the number of oscillator ticks
 multiplied by the nominal tick length.</p></li>
 <li><p><span>SettableClock</span>: a clock which can be set to a different clock time.</p></li>
 </ul>
@@ -769,10 +773,10 @@ the <code class="code literal-cpp docutils literal notranslate"><span class="pre
 Note that these macros don’t change the numerical value, they simply convert
 between the C++ types.</p>
 <p>When the actual clock time is used by a clock, the value may be rounded according
-to the clock granularity and rounding mode (e.g. <span>OscillatorBaseClock</span>). For
+to the clock granularity and rounding mode (e.g. <span>OscillatorBasedClock</span>). For
 example, when a clock with a us granularity is instructed to wait for 100 ns,
 while its oscillator is right in the middle of its ticking period, it may actually
-wait for the next tick to happen to start the timer and wait another tick to
+wait for the next tick to happen to start the timer, and wait another tick to
 happen to account for the requested wait time interval.</p>
 </div>
 <div class="section" id="oscillators">
@@ -782,7 +786,7 @@ ways to implement it. Nevertheless, the most common way is to use an oscillator
 based clock model.</p>
 <p>An oscillator efficiently models the periodic generation of ticks that are usually
 counted by a clock module. The tick period is not necessarily constant, it can
-change over time. Oscillators implement the <span>IOscillator</span>: module interface
+change over time. Oscillators implement the <span>IOscillator</span> module interface
 and the corresponding <code class="code literal-cpp docutils literal notranslate"><span class="pre">IOscillator</span></code> C++ interface.</p>
 <p>The following oscillator models are available:</p>
 <ul class="simple">

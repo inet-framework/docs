@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Migrating Code from INET 3.x &#8212; INET 4.2.0 documentation</title>
+    <title>Migrating Code from INET 3.x &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Appendix: Author’s Guide" href="../developers-guide/ch-authors-guide.html" /> 
@@ -706,7 +710,7 @@ Show Source
         
   <div class="section" id="migrating-code-from-inet-3-x">
 <span id="mg-cha-migrationguide"></span><h1>Migrating Code from INET 3.x<a class="headerlink" href="#migrating-code-from-inet-3-x" title="Permalink to this headline">¶</a></h1>
-<p>Release: 4.2.0</p>
+<p>Release: v4.3.0</p>
 <div class="section" id="network-node-architecture">
 <span id="mg-sec-migrationguide-architecture"></span><h2>Network Node Architecture<a class="headerlink" href="#network-node-architecture" title="Permalink to this headline">¶</a></h2>
 <p>The internal structure of network nodes has been changed considerably. With the
@@ -754,7 +758,7 @@ should be created as a <code class="code literal-cpp docutils literal notranslat
 properly. This is done by calling <code class="docutils literal notranslate"><span class="pre">inet::registerProtocol(...)</span></code> for each supported
 protocol on each gate in <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>. Interfaces (usually MAC protocols modules)
 must also register with calling <code class="docutils literal notranslate"><span class="pre">inet::registerInterface(...)</span></code> for the corresponding
-<code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceEntry</span></code> and gate in <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>. On the other hand, sockets are learned
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">NetworkInterface</span></code> and gate in <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>. On the other hand, sockets are learned
 by the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> automatically on the fly.</p>
 </div>
 <div class="section" id="attaching-tags-for-dispatching">

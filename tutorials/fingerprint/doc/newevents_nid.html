@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Adding New Events - Part 2 &#8212; INET 4.2.0 documentation</title>
+    <title>Adding New Events - Part 2 &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Removing Events" href="removingevents.html" />
@@ -726,10 +730,6 @@ only the data of the packets sent between network nodes.</p>
 <p>Both <code class="docutils literal notranslate"><span class="pre">d</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> are packet data ingredients; <code class="docutils literal notranslate"><span class="pre">d</span></code> includes the C++ packet data representation and meta-infos such as annotations, tags, and flags; <code class="docutils literal notranslate"><span class="pre">D</span></code> includes only the packet data in network byte order, as seen on the network.</p>
 </div>
 <p>To use the new ingredients, add the following line to the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
-<span class="na">fingerprintcalculator-class</span> <span class="o">=</span> <span class="s">&quot;inet::FingerprintCalculator&quot;</span>
-</pre></div>
-</div>
 <p>Now, the new and the default ingredients can be mixed.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">~</span></code> ingredient toggles filtering of events to those that are messages between two different network nodes, effectively limiting the set of events taking part in fingerprint calculation to network communication. Note that this behavior affects the default ingredients as well.</p>
 <div class="admonition note">
@@ -767,8 +767,8 @@ We will use only network communication ingredients to calculate fingerprints, an
 </pre></div>
 </div>
 <p>We make the change:</p>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/Udp_orig.cc</span>
-<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/Udp_mod.cc</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- /docs/doc/src/tutorials/fingerprint/sources/Udp_orig.cc</span>
+<span class="gi">+++ /docs/doc/src/tutorials/fingerprint/sources/Udp_mod.cc</span>
 <span class="gu">@@ -125,8 +125,16 @@</span>
      }
  }

@@ -88,14 +88,14 @@ The tests failed because the values in the .csv file were calculated with the de
 
 Then we increase the Udp header size:
 
-.. literalinclude:: ../UdpHeader.msg.mod
-   :diff: ../UdpHeader.msg.orig
+.. literalinclude:: ../sources/UdpHeader.msg.mod
+   :diff: ../sources/UdpHeader.msg.orig
 
 The change needs to be followed in ``UdpHeaderSerializer.cc`` as well:
 (otherwise the packets couldn't be serialized, leading to dropped packets)
 
-.. literalinclude:: ../UdpHeaderSerializer.cc.modified
-   :diff: ../UdpHeaderSerializer.cc.orig
+.. literalinclude:: ../sources/UdpHeaderSerializer.cc.modified
+   :diff: ../sources/UdpHeaderSerializer.cc.orig
 
 We run the fingerprint tests again:
 
@@ -206,8 +206,8 @@ As expected, the tests pass when the packet size is small.
 
   Now, we change the Udp header size from 8 bytes to 10 bytes:
 
-  .. literalinclude:: ../UdpHeader.msg.mod
-     :diff: ../UdpHeader.msg.orig
+  .. literalinclude:: ../sources/UdpHeader.msg.mod
+     :diff: ../sources/UdpHeader.msg.orig
 
   Then, we run the fingerprint tests again:
 

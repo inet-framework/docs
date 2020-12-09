@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Step 12. Mixing different kinds of autorouting &#8212; INET 4.2.0 documentation</title>
+    <title>Step 12. Mixing different kinds of autorouting &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Conclusion" href="conclusion.html" />
@@ -720,8 +724,17 @@ error rate metrics in a mixed wired/wireless network.</p>
 <p>This step uses the <span>ConfiguratorE</span> network, defined in
 <a class="reference download internal" download="" href="../../../_downloads/c4142bf2808449772df11835d724cdb5/ConfiguratorE.ned"><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorE.ned</span></code></a>. The network
 looks like this:</p>
-<a class="reference internal image-reference" href="../../../_images/step12network.png"><img alt="../../../_images/step12network.png" src="../../../_images/step12network.png" style="width: 100%;" /></a>
-<p>The core of the network is composed of three routers connected to each
+<a class=""
+               data-lightbox="group-4a5193ce-7e37-4f26-aad3-060792464d18"
+               href="../../../_images/step12network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12network1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The core of the network is composed of three routers connected to each
 other, each belonging to an area. There are three areas, each containing
 a number of hosts, connected to the area router.</p>
 <ul class="simple">
@@ -740,8 +753,17 @@ image below.) Thus, <code class="docutils literal notranslate"><span class="pre"
 rather than hop count, is best suited to configure routes in this LAN.
 Routes in the rest of the network can be configured properly based on
 the hop count metric.</p>
-<a class="reference internal image-reference" href="../../../_images/step12ranges.png"><img alt="../../../_images/step12ranges.png" src="../../../_images/step12ranges.png" style="width: 50%;" /></a>
-<p>The configuration for this step in omnetpp.ini is the following:</p>
+<a class=""
+               data-lightbox="group-ae728488-7fb2-47a2-a12f-80cab5d5afe3"
+               href="../../../_images/step12ranges1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12ranges1.png"
+                     class=""
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The configuration for this step in omnetpp.ini is the following:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config Step12]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">ConfiguratorE</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Mixing different kinds of autorouting&quot;</span>
@@ -807,8 +829,17 @@ link can reach it directly. This is not the case for area 1, because
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The routes are visualized on the following image.</p>
-<a class="reference internal image-reference" href="../../../_images/step12routes_2.png"><img alt="../../../_images/step12routes_2.png" src="../../../_images/step12routes_2.png" style="width: 100%;" /></a>
-<p>As intended, <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> connects to the network via <code class="docutils literal notranslate"><span class="pre">area1host2</span></code>.</p>
+<a class=""
+               data-lightbox="group-a6993f68-4d7f-40df-a7ae-4080719f77ac"
+               href="../../../_images/step12routes_21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step12routes_21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>As intended, <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> connects to the network via <code class="docutils literal notranslate"><span class="pre">area1host2</span></code>.</p>
 <p>The routing table of <code class="docutils literal notranslate"><span class="pre">area1host1</span></code> is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorF.area1host1
 -- Routing table --

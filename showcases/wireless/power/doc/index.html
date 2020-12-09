@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Power Consumption &#8212; INET 4.2.0 documentation</title>
+    <title>Power Consumption &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Coexistence of IEEE 802.11 and 802.15.4" href="../../coexistence/doc/index.html" />
@@ -738,7 +742,7 @@ finished, we will analyze the recorded energy storage statistics.</p>
 <p>The simulations will be run using 20 hosts. Here is what the network
 will look like when the simulation is run:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../_images/network42.png"><img alt="../../../../_images/network42.png" src="../../../../_images/network42.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/network43.png"><img alt="../../../../_images/network43.png" src="../../../../_images/network43.png" style="width: 80%;" /></a>
 </div>
 </div>
 <div class="section" id="configuration-and-behavior">
@@ -787,7 +791,7 @@ module’s <code class="code literal-ini docutils literal notranslate"><span cla
 </div>
 <div class="section" id="radio-modes-and-states">
 <h3>Radio modes and states<a class="headerlink" href="#radio-modes-and-states" title="Permalink to this headline">¶</a></h3>
-<p>In the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadio.html">Ieee80211ScalarRadio</a> model used in this simulation (and in
+<p>In the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio.html">Ieee80211ScalarRadio</a> model used in this simulation (and in
 other radio models), there are different modes in which radios operate,
 such as off, sleep, receiver, transmitter. The mode is set by the model
 and does not depend on external effects. In addition to mode, radios
@@ -799,7 +803,7 @@ medium.</p>
 <div class="section" id="energy-consumption-of-radios">
 <h3>Energy consumption of radios<a class="headerlink" href="#energy-consumption-of-radios" title="Permalink to this headline">¶</a></h3>
 <p>Radios in the simulation are configured to contain a
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> module. In this model, energy consumption
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> module. In this model, energy consumption
 is based on power consumption values for various radio modes and states,
 and the time the radio spends in these states. For example, radios
 consume a small amount of power when they are idle in receive mode, i.e.

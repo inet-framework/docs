@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Step 12. Changing to a more realistic radio model &#8212; INET 4.2.0 documentation</title>
+    <title>Step 12. Changing to a more realistic radio model &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 13. Configuring a more accurate path loss model" href="step13.html" />
@@ -721,8 +725,8 @@ to simulate attenuation and obstacle loss.</p>
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="switching-to-apsk-radio">
 <h3>Switching to APSK radio<a class="headerlink" href="#switching-to-apsk-radio" title="Permalink to this headline">¶</a></h3>
-<p>In this step, we replace <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> with <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>.
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> models a radio with an APSK (amplitude and
+<p>In this step, we replace <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> with <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>.
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> models a radio with an APSK (amplitude and
 phase-shift keying) modulation scheme. By default it uses BPSK, but
 QPSK, QAM-16, QAM-64, QAM-256 and several other modulations can also be
 configured. (Modulation is a parameter of the radio’s transmitter
@@ -733,7 +737,7 @@ transmission power of the radios. Together with other parameters, they
 will allow the radio channel and the receiver models to compute path
 loss, SNIR, bit error rate, and other values, and ultimately determine
 the success of the reception.</p>
-<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> also adds realism in that it simulates that the data
+<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> also adds realism in that it simulates that the data
 are preceded by a preamble and a physical layer header. Their lengths
 are also parameters (and may be set to zero when not needed.)</p>
 <p>NOTE: When choosing the preamble and the physical layer header lengths,
@@ -754,11 +758,11 @@ steps.</p>
 </div>
 <div class="section" id="setting-up-the-wireless-channel">
 <h3>Setting up the wireless channel<a class="headerlink" href="#setting-up-the-wireless-channel" title="Permalink to this headline">¶</a></h3>
-<p>Since we switched the radio to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>, we also need to
-change the medium to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a>. In general, one always
+<p>Since we switched the radio to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>, we also need to
+change the medium to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a>. In general, one always
 needs to use a medium that is compatible with the given radio. (With
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>, we also used <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>.)</p>
-<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> has “slots” to plug in various propagation
+<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> has “slots” to plug in various propagation
 models, path loss models, obstacle loss models, analog models, and
 background noise models. Here we make use of the fact that the default
 background noise model is homogeneous isotropic white noise, and set up
@@ -802,8 +806,17 @@ fail, as in the case of <a class="reference-ned reference external" href="https:
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/wireless-step12-1.mp4" width="655" height="575" class="align-center"></video><p>In host A, the MAC receives the packet UDPData-408 from the radio. The
 MAC drops the packet because of bit errors; this can be seen in the
 following log:</p>
-<a class="reference internal image-reference" href="../../../_images/wireless-step12-log.png"><img alt="../../../_images/wireless-step12-log.png" src="../../../_images/wireless-step12-log.png" style="width: 100%;" /></a>
-<p><strong>Number of packets received by host B: 665</strong></p>
+<a class=""
+               data-lightbox="group-0060f651-39a9-45b8-a278-c60abff94ce8"
+               href="../../../_images/wireless-step12-log1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/wireless-step12-log1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p><strong>Number of packets received by host B: 665</strong></p>
 <p>Sources: <a class="reference download internal" download="" href="../../../_downloads/84c3e3d9f7fe1d859c57b87d38ad1571/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
 <a class="reference download internal" download="" href="../../../_downloads/12d07a1d761c6265da3b7d2ae30f7286/WirelessC.ned"><code class="xref download docutils literal notranslate"><span class="pre">WirelessC.ned</span></code></a></p>
 </div>

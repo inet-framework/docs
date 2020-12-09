@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Queueing Model &#8212; INET 4.2.0 documentation</title>
+    <title>Queueing Model &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Differentiated Services" href="ch-diffserv.html" />
@@ -749,44 +753,43 @@ can still send and receive messages through the gates of queueing model elements
 but only <code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> instances are allowed.</p>
 <p>There are two new important operations on queueing model elements defined in
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassivePacketSource</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPassivePacketSink</span></code>. Packets can be <em>pushed</em>
-into gates and packets can be <em>popped</em> from gates. Both of these operations are
+into gates and packets can be <em>pulled</em> from gates. Both of these operations are
 synchronous, they either finish successfully or throw an exception. The main
-difference between pushing and popping is the subject of the activity. In the
+difference between pushing and pulling is the subject of the activity. In the
 former case, when a packet is pushed, the activity is initiated by the source
-of the packet. In contrast, when a packet is popped, the activity is initiated
+of the packet. In contrast, when a packet is pulled, the activity is initiated
 by the sink of the packet. In both cases, the passive elements can be asked
-via separate methods to tell if they can be pushed or popped in their current
+via separate methods to tell if they can be pushed or pulled in their current
 state either with respect to a specific packet or any packet thereof.</p>
 <p>Queueing model elements can be divided into two categories with respect to the
 operation on a given gate: <em>passive</em> and <em>active</em>. The passive model elements
-are pushed into and popped from by other connected modules. In contrast, the
-active model elements push into and pop from other connected modules as they see
-fit. They implement the <code class="code literal-cpp docutils literal notranslate"><span class="pre">IActivePacketSource</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">IActivePacketSink</span></code>
-C++ interfaces.</p>
+are pushed into and pulled from by other connected modules. In contrast, the
+active model elements push into and pull from other connected modules as they see
+fit. They implement the interfaces <code class="code literal-cpp docutils literal notranslate"><span class="pre">IActivePacketSource</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">IActivePacketSink</span></code>.</p>
 <p>The active queueing elements take into consideration the state of the connected
-passive elements. That is, they push or pop packets only when the passive end is
+passive elements. That is, they push or pull packets only when the passive end is
 able to consume or provide, respectively. The queueing model elements also validate
 the assembled structure during module initialization with respect to the active
 and passive behavior of the connected gates. That is, active output gates must
 be connected to passive input gates, and active input gates must be connected
 to passive output gates.</p>
-<p>Pushing a packet into a gate (and similarly popping a packet from a gate) can
+<p>Pushing a packet into a gate (and similarly pulling a packet from a gate) can
 have far reaching consequences by triggering a chain of operations potentially
 by passing through multiple connected elements. For example, pushing a packet
 into a classifier will immediately push the packet into one of the connected
 queueing elements, and will also potentially lead to additional operations on
-further connected elements. Similarly, popping a packet from a scheduler will
-immediately pop a packet from one of the connected queueing elements, and will
+further connected elements. Similarly, pulling a packet from a scheduler will
+immediately pull a packet from one of the connected queueing elements, and will
 also potentially lead to additional operations on further connected elements.</p>
 <p>In general, the following equation about the number of packets holds true for
 all queueing model elements:</p>
-<p>#created + #pushed - #popped - #removed - #dropped = #available + #delayed</p>
+<p>#created + #pushed - #pulled - #removed - #dropped = #available + #delayed</p>
 </div>
 </div>
 <div class="section" id="sources">
 <h2>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h2>
 <p>These modules act as sources of packets. An active packet source pushes packets
-to its output. A passive packet source returns a packet when it is popped by
+to its output. A passive packet source returns a packet when it is pulled by
 other queueing model elements.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.source.ActivePacketSource.html">ActivePacketSource</a>: generic source that produces packets periodically</p></li>
@@ -799,7 +802,7 @@ other queueing model elements.</p>
 </div>
 <div class="section" id="sinks">
 <h2>Sinks<a class="headerlink" href="#sinks" title="Permalink to this headline">¶</a></h2>
-<p>These modules act as sinks of packets. An active packet sink pops packets from
+<p>These modules act as sinks of packets. An active packet sink pulls packets from
 its input. A passive packet sink is pushed with packets by other queueing model
 elements.</p>
 <ul class="simple">
@@ -814,10 +817,10 @@ elements.</p>
 <p>These modules store packets and maintain an ordering among them. Queues do not
 delay packets, so if a queue is not empty, then a packet is always available.
 When a packet is pushed into the input of a queue, then the packet is either
-stored, or if the queue is overloaded, it is dropped. When a packet is popped
+stored, or if the queue is overloaded, it is dropped. When a packet is pulled
 from the output of a queue, then one of the stored packets is returned.</p>
 <p>The following simpler equation about the number of packets always holds true for queues:</p>
-<p>#pushed - #popped - #dropped - #removed = #queueLength = #available</p>
+<p>#pushed - #pulled - #dropped - #removed = #queueLength = #available</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.PacketQueue.html">PacketQueue</a>: generic queue that provides ordering and selective dropping;
 it can be parameterized with a <em>comparator</em> and a <em>dropper</em> function (such functions can be defined in C++)</p></li>
@@ -825,14 +828,14 @@ it can be parameterized with a <em>comparator</em> and a <em>dropper</em> functi
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.DropTailQueue.html">DropTailQueue</a>: drops packets at the tail of the queue, the most commonly used queue</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.PriorityQueue.html">PriorityQueue</a>: contains several subqueues that share a buffer</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.RedDropperQueue.html">RedDropperQueue</a>: combines random early detection with a queue</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.CompoundPacketQueue.html">CompoundPacketQueue</a>: allows building complex queues by pure NED composition</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.CompoundPacketQueueBase.html">CompoundPacketQueueBase</a>: allows building complex queues by pure NED composition</p></li>
 </ul>
 </div>
 <div class="section" id="buffers">
 <h2>Buffers<a class="headerlink" href="#buffers" title="Permalink to this headline">¶</a></h2>
 <p>These modules deal with memory allocation of packets without considering the
 ordering among them. A packet buffer generally doesn’t have gates, and packets
-are not pushed into or popped from it.</p>
+are not pushed into or pulled from it.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.buffer.PacketBuffer.html">PacketBuffer</a>: generic buffer that provides shared storage between several queues;
 it can be parameterized with a <em>dropper</em> function (such functions can be defined in C++)</p></li>
@@ -844,7 +847,7 @@ it can be parameterized with a <em>dropper</em> function (such functions can be 
 <p>These modules filter for specific packets while dropping the rest. When a packet
 is pushed into the input of a packet filter, then the filter either pushes the
 packet to its output or it simply drops the packet. In contrast, when a packet
-is popped from the output of a packet filter, then it continuously pops and drops
+is pulled from the output of a packet filter, then it continuously pulls and drops
 packets from its input until it finds one that matches the filter criteria.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.filter.PacketFilter.html">PacketFilter</a>: generic packet filter;
@@ -873,8 +876,8 @@ it can be parameterized with a <em>classifier</em> function (such functions can 
 </div>
 <div class="section" id="schedulers">
 <h2>Schedulers<a class="headerlink" href="#schedulers" title="Permalink to this headline">¶</a></h2>
-<p>These modules schedule packets from one of their inputs. When a packet is popped
-from the output of a packet scheduler, then it immediately pops a packet from one
+<p>These modules schedule packets from one of their inputs. When a packet is pulled
+from the output of a packet scheduler, then it immediately pulls a packet from one
 of its inputs and returns that packet.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.scheduler.PacketScheduler.html">PacketScheduler</a>: generic packet scheduler;
@@ -888,7 +891,7 @@ it can be parameterized with a <em>packet scheduler</em> function (such function
 </div>
 <div class="section" id="servers">
 <h2>Servers<a class="headerlink" href="#servers" title="Permalink to this headline">¶</a></h2>
-<p>These modules process packets in order one by one. A packet server actively pops
+<p>These modules process packets in order one by one. A packet server actively pulls
 packets from its input when it sees fit, and it also actively pushes packets into
 its output.</p>
 <ul class="simple">
@@ -899,7 +902,7 @@ its output.</p>
 <div class="section" id="markers">
 <h2>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h2>
 <p>These modules attach some information to packets on an individual basis. Packets
-can be both pushed into the input and popped from the output of packet markers.</p>
+can be both pushed into the input and pulled from the output of packet markers.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.marker.PacketLabeler.html">PacketLabeler</a>: generic marker which attaches labels to matching packets;
 it can be parameterized with an <code class="code literal-cpp docutils literal notranslate"><span class="pre">IPacketFilterFunction</span></code></p></li>
@@ -913,7 +916,7 @@ it can be parameterized with an <code class="code literal-cpp docutils literal n
 <div class="section" id="meters">
 <h2>Meters<a class="headerlink" href="#meters" title="Permalink to this headline">¶</a></h2>
 <p>These modules measure some property of a stream of packets. Packets can be both
-pushed into the input and popped from the output of packet meters.</p>
+pushed into the input and pulled from the output of packet meters.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.meter.RateMeter.html">RateMeter</a>: measures the packetrate and datarate of the packet stream</p></li>
 </ul>
@@ -921,7 +924,7 @@ pushed into the input and popped from the output of packet meters.</p>
 <div class="section" id="token-generators">
 <h2>Token generators<a class="headerlink" href="#token-generators" title="Permalink to this headline">¶</a></h2>
 <p>These modules generate tokens for other modules. A token generator generally
-doesn’t have gates and packets are not pushed into or popped from it.</p>
+doesn’t have gates and packets are not pushed into or pulled from it.</p>
 <ul class="simple">
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.tokengenerator.TimeBasedTokenGenerator.html">TimeBasedTokenGenerator</a>: generates tokens based on elapsed simulation time</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.tokengenerator.PacketBasedTokenGenerator.html">PacketBasedTokenGenerator</a>: generates tokens based on received packets</p></li>
@@ -945,9 +948,9 @@ generally built by composition using other queueing model elements.</p>
 <p>There are also some other generic queueing model elements which don’t fit well
 into any of the above categories.</p>
 <ul class="simple">
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketGate.html">PacketGate</a>: allows or prevents packets to pass through, either pushed or popped</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketGate.html">PacketGate</a>: allows or prevents packets to pass through, either pushed or pulled</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketMultiplexer.html">PacketMultiplexer</a>: passively connects multiple inputs to a single output, packets are pushed into the inputs</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketDemultiplexer.html">PacketDemultiplexer</a>: passively connects a single input to multiple outputs, packets are popped from the outputs</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketDemultiplexer.html">PacketDemultiplexer</a>: passively connects a single input to multiple outputs, packets are pulled from the outputs</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketDelayer.html">PacketDelayer</a>: sends received packets to the output with some delay independently</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketCloner.html">PacketCloner</a>: sends one copy of each received packet to all outputs</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.common.PacketHistory.html">PacketHistory</a>: keeps track of the last N packets which can be inspected in Qtenv</p></li>

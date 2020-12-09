@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Weighted Round-Robin Classifier &#8212; INET 4.2.0 documentation</title>
+    <title>Weighted Round-Robin Classifier &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Content-Based Classifier" href="ContentBasedClassifier.html" />
@@ -720,8 +724,17 @@ classifier (<a class="reference-ned reference external" href="https://doc.omnetp
 (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.sink.PassivePacketSink.html">PassivePacketSink</a>). The outputs of the classifier are configured to have
 the weights [1,3,2], thus the classifier forwards 1, 3 and 2 packet(s)
 to the three sinks in one round.</p>
-<a class="reference internal image-reference" href="../../../_images/WrrClassifier.png"><img alt="../../../_images/WrrClassifier.png" class="align-center" src="../../../_images/WrrClassifier.png" style="width: 80%;" /></a>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WrrClassifierTutorialStep</span>
+<a class=""
+               data-lightbox="group-5d8c7553-267a-4a9c-8d50-ab0f72ea405b"
+               href="../../../_images/WrrClassifier1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/WrrClassifier1.png"
+                     class="align-center"
+                     width="80%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">WrrClassifierTutorialStep</span>
 <span class="p">{</span>
     <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=600,400&quot;</span><span class="p">);</span>
     <span class="k">submodules</span><span class="o">:</span>
@@ -740,7 +753,7 @@ to the three sinks in one round.</p>
         <span class="n">consumer3</span><span class="o">:</span> <span class="n">PassivePacketSink</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,300&quot;</span><span class="p">);</span>
         <span class="p">}</span>
-        
+
     <span class="k">connections</span> <span class="k">allowunconnected</span><span class="o">:</span>
         <span class="n">producer</span><span class="p">.</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">classifier</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
         <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">consumer1</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>

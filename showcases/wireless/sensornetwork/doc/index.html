@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>MAC Protocols for Wireless Sensor Networks &#8212; INET 4.2.0 documentation</title>
+    <title>MAC Protocols for Wireless Sensor Networks &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="IEEE 802.15.4 Smart Home" href="../../ieee802154/doc/index.html" />
@@ -809,7 +813,7 @@ parameters. Check the NED files of the MAC modules (<code class="docutils litera
 <code class="docutils literal notranslate"><span class="pre">XMac.ned</span></code>, and <code class="docutils literal notranslate"><span class="pre">LMac.ned</span></code>) to see all parameters.</p>
 <p>The MACs don’t have corresponding physical layer models. They can be
 used with existing generic radio models in INET, such as
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> or <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskRadio.html">ApskRadio</a>. We’re using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskRadio.html">ApskRadio</a> in this
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> or <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskRadio.html">ApskRadio</a>. We’re using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskRadio.html">ApskRadio</a> in this
 showcase because it is more realistic than <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>.</p>
 <p>INET doesn’t have WSN routing protocol models (such as Collection Tree
 Protocol), so we’re using Ipv4 and static routing.</p>
@@ -842,7 +846,7 @@ will use the same network, <span>SensorNetworkShowcaseA</span>, defined in
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>, named <code class="docutils literal notranslate"><span class="pre">sensor1</span></code> up to <code class="docutils literal notranslate"><span class="pre">sensor4</span></code>, and <code class="docutils literal notranslate"><span class="pre">gateway</span></code>.
 The node named <code class="docutils literal notranslate"><span class="pre">server</span></code> is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>. The network also
 contains an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>,
-and an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> module. The nodes are placed against
+and an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> module. The nodes are placed against
 the backdrop of a warehouse floorplan. The scene size is 60x30
 meters. The warehouse is just a background image providing context.
 Obstacle loss is not modeled, so the background image doesn’t affect
@@ -851,7 +855,7 @@ the simulation in any way.</p>
 in <a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> to be the generic
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.common.WirelessInterface.html">WirelessInterface</a> (instead of the Ieee802154 specific
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a>, which is the default wlan interface
-in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>). The radio type is set to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>:</p>
+in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>). The radio type is set to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.wlan[*].typename</span> <span class="o">=</span> <span class="s">&quot;WirelessInterface&quot;</span>
 <span class="na">**.wlan[*].radio.typename</span> <span class="o">=</span> <span class="s">&quot;ApskScalarRadio&quot;</span>
 </pre></div>
@@ -859,7 +863,7 @@ in <a class="reference-ned reference external" href="https://doc.omnetpp.org/ine
 <p>Note that the wireless interface module’s name is <code class="docutils literal notranslate"><span class="pre">wlan</span></code> in all host
 types that have a wireless interface. The term doesn’t imply that it’s
 Wifi but stands for wireless LAN.</p>
-<p>We are using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> here because it is a relatively
+<p>We are using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> here because it is a relatively
 simple, generic radio. It uses amplitude and phase-shift keying
 modulations (e.g. BPSK, QAM-16 or QAM-64, BPSK by default), without
 additional features such as forward error correction, interleaving or
@@ -1129,13 +1133,13 @@ consumption, but we are optimizing for the number of packets here.</p>
 terms of power consumption.</p>
 <p>We want to record the power consumption of the radios in the wireless
 nodes. The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> host type has an energy consumer submodule in
-its radio by default, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a>. This module
+its radio by default, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a>. This module
 assigns a constant power consumption value to each radio mode and
 transmitter/receiver state. Note that the values for each state are
 parameters of the energy consumer module and don’t come from other
 modules (such as the radio), so they need to be set correctly
 to obtain accurate power consumption results.
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a> has default power consumption
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a> has default power consumption
 values typical for wireless sensor nodes, thus we leave module’s
 parameters on default. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> has an energy storage submodule by
 default, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.power.storage.IdealEpEnergyStorage.html">IdealEpEnergyStorage</a>. This module keeps track of the node’s

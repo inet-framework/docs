@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Modeling Directional Antennas &#8212; INET 4.2.0 documentation</title>
+    <title>Modeling Directional Antennas &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="MAC Protocols for Wireless Sensor Networks" href="../../sensornetwork/doc/index.html" />
@@ -743,29 +747,29 @@ receiving transmissions.</p>
 <ul class="simple">
 <li><p>Isotropic:</p>
 <ul>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a>: hypothetical antenna that radiates with the same intensity in all directions</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.ConstantGainAntenna.html">ConstantGainAntenna</a>: the same as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a>, but has a constant <cite>gain</cite> parameter (for testing purposes)</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a>: hypothetical antenna that radiates with the same intensity in all directions</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.ConstantGainAntenna.html">ConstantGainAntenna</a>: the same as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a>, but has a constant <cite>gain</cite> parameter (for testing purposes)</p></li>
 </ul>
 </li>
 <li><p>Omnidirectional:</p>
 <ul>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.DipoleAntenna.html">DipoleAntenna</a>: models a <a class="reference external" href="https://en.wikipedia.org/wiki/Dipole_antenna">dipole antenna</a></p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.DipoleAntenna.html">DipoleAntenna</a>: models a <a class="reference external" href="https://en.wikipedia.org/wiki/Dipole_antenna">dipole antenna</a></p></li>
 </ul>
 </li>
 <li><p>Directional:</p>
 <ul>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.ParabolicAntenna.html">ParabolicAntenna</a>: models a <a class="reference external" href="https://en.wikipedia.org/wiki/Parabolic_antenna">parabolic antenna</a>’s main radiation lobe, ignoring sidelobes</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.CosineAntenna.html">CosineAntenna</a>: models directional antenna characteristics with a cosine pattern</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.ParabolicAntenna.html">ParabolicAntenna</a>: models a <a class="reference external" href="https://en.wikipedia.org/wiki/Parabolic_antenna">parabolic antenna</a>’s main radiation lobe, ignoring sidelobes</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.CosineAntenna.html">CosineAntenna</a>: models directional antenna characteristics with a cosine pattern</p></li>
 </ul>
 </li>
 <li><p>Other:</p>
 <ul>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>: can model arbitrary antennas with axially symmetric radiation patterns</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.InterpolatingAntenna.html">InterpolatingAntenna</a>: can model antennas with arbitrary radiation patterns, using interpolation</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>: can model arbitrary antennas with axially symmetric radiation patterns</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.InterpolatingAntenna.html">InterpolatingAntenna</a>: can model antennas with arbitrary radiation patterns, using interpolation</p></li>
 </ul>
 </li>
 </ul>
-<p>The default antenna module in all radios is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a>.</p>
+<p>The default antenna module in all radios is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a>.</p>
 <div class="section" id="visualizing-antenna-directionality">
 <h3>Visualizing Antenna Directionality<a class="headerlink" href="#visualizing-antenna-directionality" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.physicallayer.RadioVisualizer.html">RadioVisualizer</a> module can visualize antenna directional characteristics,
@@ -799,7 +803,7 @@ the <code class="docutils literal notranslate"><span class="pre">DirectionalAnte
 </div>
 <p>The network contains two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.AdhocHost.html">AdhocHost</a>s, named <code class="docutils literal notranslate"><span class="pre">source</span></code> and
 <code class="docutils literal notranslate"><span class="pre">destination</span></code>. There is also an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>, and an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> module.</p>
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a>, and an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a> module.</p>
 <p>The source host is positioned in the center of the playground. The
 destination host is configured to circle the source host, while the
 source host pings the destination every 0.5 seconds. We’ll use the ping
@@ -808,10 +812,10 @@ antenna, by recording the power of the received signal in
 <code class="docutils literal notranslate"><span class="pre">destination</span></code>. The destination host will do one full circle around the
 source. The distance of the two hosts will be constant to get meaningful
 data about the antenna characteristics. We’ll run the simulation with
-five antenna types in <code class="docutils literal notranslate"><span class="pre">source</span></code>: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a>,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.ParabolicAntenna.html">ParabolicAntenna</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.DipoleAntenna.html">DipoleAntenna</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.CosineAntenna.html">CosineAntenna</a>, and
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>. The destination has the default
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a> in all simulations.</p>
+five antenna types in <code class="docutils literal notranslate"><span class="pre">source</span></code>: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a>,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.ParabolicAntenna.html">ParabolicAntenna</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.DipoleAntenna.html">DipoleAntenna</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.CosineAntenna.html">CosineAntenna</a>, and
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>. The destination has the default
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a> in all simulations.</p>
 <p>The configurations for the five simulations differ in the antenna
 settings only; all other settings are in the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration
 section:</p>
@@ -860,10 +864,10 @@ named according to the antenna type used (<code class="docutils literal notransl
 <code class="docutils literal notranslate"><span class="pre">AxiallySymmetricAntenna</span></code>).</p>
 <div class="section" id="isotropic-antenna">
 <h3>Isotropic Antenna<a class="headerlink" href="#isotropic-antenna" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a> is the default in all radio modules. This
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a> is the default in all radio modules. This
 module models a hypothetical antenna which radiates with the same power
 in all directions. The module has no parameters. The
-simulation configuration which demonstrates this antenna is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.IsotropicAntenna.html">IsotropicAntenna</a> in <a class="reference download internal" download="" href="../../../../_downloads/73436dabc5ca4d71a1092c56a856f588/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
+simulation configuration which demonstrates this antenna is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.IsotropicAntenna.html">IsotropicAntenna</a> in <a class="reference download internal" download="" href="../../../../_downloads/73436dabc5ca4d71a1092c56a856f588/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>.
 The configuration just sets the antenna type in <code class="docutils literal notranslate"><span class="pre">source</span></code>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config IsotropicAntenna]</span>
 
@@ -881,7 +885,7 @@ Here is the reception power vs. direction plot:</p>
 </div>
 <div class="section" id="parabolic-antenna">
 <h3>Parabolic Antenna<a class="headerlink" href="#parabolic-antenna" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.ParabolicAntenna.html">ParabolicAntenna</a> module simulates the radiation
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.ParabolicAntenna.html">ParabolicAntenna</a> module simulates the radiation
 pattern of the main lobe of a <a class="reference external" href="https://en.wikipedia.org/wiki/Parabolic_antenna">parabolic antenna</a>,
 such as this one:</p>
 <div class="figure align-center">
@@ -893,7 +897,7 @@ such as this one:</p>
 <li><p><code class="code literal-ini docutils literal notranslate"><span class="pre">minGain</span></code>: the minimum gain of the antenna in dB</p></li>
 <li><p><code class="code literal-ini docutils literal notranslate"><span class="pre">beamWidth</span></code>: width of the 3 dB beam in degrees</p></li>
 </ul>
-<p>The configuration for this antenna is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.ParabolicAntenna.html">ParabolicAntenna</a> in
+<p>The configuration for this antenna is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.ParabolicAntenna.html">ParabolicAntenna</a> in
 <a class="reference download internal" download="" href="../../../../_downloads/73436dabc5ca4d71a1092c56a856f588/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config ParabolicAntenna]</span>
 
@@ -922,7 +926,7 @@ more apparent on the reception power plot):</p>
 </div>
 <div class="section" id="dipole-antenna">
 <h3>Dipole Antenna<a class="headerlink" href="#dipole-antenna" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.DipoleAntenna.html">DipoleAntenna</a> module models a dipole antenna. Antenna length can be specified with
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.DipoleAntenna.html">DipoleAntenna</a> module models a dipole antenna. Antenna length can be specified with
 a parameter. By default, the antenna is vertical. When viewed from above, its radiation pattern
 is a circle, which would not be very interesting for demonstration. To make the simulation
 more interesting, we set the antenna to point in the direction of the y axis.
@@ -946,7 +950,7 @@ Here is the reception power vs. direction plot:</p>
 </div>
 <div class="section" id="cosine-antenna">
 <h3>Cosine Antenna<a class="headerlink" href="#cosine-antenna" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.CosineAntenna.html">CosineAntenna</a> module models a hypotethical antenna with a cosine-based
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.CosineAntenna.html">CosineAntenna</a> module models a hypotethical antenna with a cosine-based
 radiation pattern. This antenna model is commonly used in the real world to approximate
 various directional antennas. The module has two parameters, <code class="code literal-ini docutils literal notranslate"><span class="pre">maxGain</span></code>
 and <code class="code literal-ini docutils literal notranslate"><span class="pre">beamWidth</span></code>. The configuration in <a class="reference download internal" download="" href="../../../../_downloads/73436dabc5ca4d71a1092c56a856f588/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is the
@@ -967,7 +971,7 @@ Here is the reception power vs. direction plot:</p>
 </div>
 <div class="section" id="axially-symmetric-antenna">
 <h3>Axially Symmetric Antenna<a class="headerlink" href="#axially-symmetric-antenna" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> is a universal antenna model which can describe
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> is a universal antenna model which can describe
 any axially symmetrical radiation pattern. It can model an isotropic antenna, a parabolic
 antenna, dipole antenna, and many other antenna types.</p>
 <p>The radiation pattern is described by specifying
@@ -982,17 +986,17 @@ The angle is in the range of (0,180).
 The axis of symmetry is given by the <code class="code literal-ini docutils literal notranslate"><span class="pre">axisOfSymmetry</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">x</span></code> by default.
 There is also a <code class="code literal-ini docutils literal notranslate"><span class="pre">baseGain</span></code> parameter (0 dB by default). The default for the <code class="code literal-ini docutils literal notranslate"><span class="pre">gains</span></code>
 parameters is <code class="docutils literal notranslate"><span class="pre">&quot;0</span> <span class="pre">0&quot;</span></code>, defaulting to an isotropic antenna.</p>
-<p>We demonstrate <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> by modeling a real-world
+<p>We demonstrate <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> by modeling a real-world
 16-element Yagi antenna, such as this one:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/yagiantenna.jpg"><img alt="../../../../_images/yagiantenna.jpg" src="../../../../_images/yagiantenna.jpg" style="width: 60%;" /></a>
 </div>
 <p>The antenna type in <code class="docutils literal notranslate"><span class="pre">source</span></code>’s radio is set to
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>. We entered the characteristics data for the antenna
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a>. We entered the characteristics data for the antenna
 in the <code class="code literal-ini docutils literal notranslate"><span class="pre">gains</span></code> parameter with 1 degree resolution.
 We also set a <code class="code literal-ini docutils literal notranslate"><span class="pre">baseGain</span></code> of 10 dB, because the gain data is given as relative
 (i.e. the maximum gain is at 0 dB).</p>
-<p>The simulation configuration is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> in
+<p>The simulation configuration is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.antenna.AxiallySymmetricAntenna.html">AxiallySymmetricAntenna</a> in
 <a class="reference download internal" download="" href="../../../../_downloads/73436dabc5ca4d71a1092c56a856f588/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config AxiallySymmetricAntenna]</span>
 

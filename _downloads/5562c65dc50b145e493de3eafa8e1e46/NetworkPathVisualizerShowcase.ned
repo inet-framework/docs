@@ -3,27 +3,26 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
-// along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.// 
 
 package inet.showcases.visualizer.networkpathactivity;
 import inet.common.scenario.ScenarioManager;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.aodv.AodvRouter;
 import inet.node.ethernet.Eth100M;
-import inet.node.ethernet.EtherSwitch;
+import inet.node.ethernet.EthernetSwitch;
 import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
-import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 import inet.visualizer.networklayer.NetworkRouteVisualizer;
 
@@ -87,16 +86,16 @@ network NetworkPathComplexShowcase
         videoServer: StandardHost {
             @display("p=249.24,639.984");
         }
-        etherSwitch0: EtherSwitch {
+        etherSwitch0: EthernetSwitch {
             @display("p=249.24,160.8");
         }
-        etherSwitch1: EtherSwitch {
+        etherSwitch1: EthernetSwitch {
             @display("p=947.52496,229.665");
         }
-        etherSwitch2: EtherSwitch {
+        etherSwitch2: EthernetSwitch {
             @display("p=279.865,515.805");
         }
-        etherSwitch3: EtherSwitch {
+        etherSwitch3: EthernetSwitch {
             @display("p=731.665,448.03497");
         }
         router1: Router {
@@ -216,10 +215,10 @@ network NetworkPathRIPShowcase
         accessPoint1: AccessPoint {
             @display("p=876.36,479.184");
         }
-        etherSwitch0: EtherSwitch {
+        etherSwitch0: EthernetSwitch {
             @display("p=876.36,276.576");
         }
-        etherSwitch1: EtherSwitch {
+        etherSwitch1: EthernetSwitch {
             @display("p=329.64,402");
         }
         router0: Router {

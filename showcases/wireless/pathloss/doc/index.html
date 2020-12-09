@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Path Loss Models &#8212; INET 4.2.0 documentation</title>
+    <title>Path Loss Models &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Modeling Directional Antennas" href="../../directionalantennas/doc/index.html" />
@@ -738,27 +742,27 @@ there are several more path loss models available in INET, suitable for
 various other scenarios. Here is a list of the path loss module types
 featured in this showcase example:</p>
 <ul class="simple">
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> computes the loss of signal power in a single
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> computes the loss of signal power in a single
 line-of-sight propagation path, without any reflections or shadowing.</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a> computes the loss of signal power by assuming
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a> computes the loss of signal power by assuming
 a line-of-sight wave interfering with another wave reflected from the
 ground between the transmitter and the receiver. This model computes
 interference in the far-field only and is the same as free space
 path loss up until a certain crossover distance.</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayInterference.html">TwoRayInterference</a> is the same as the two-ray ground
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayInterference.html">TwoRayInterference</a> is the same as the two-ray ground
 reflection model in the far-field, but it models the interference of
 the two waves in the near-field as well.</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.RicianFading.html">RicianFading</a> is a stochastic path loss model that assumes a
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.RicianFading.html">RicianFading</a> is a stochastic path loss model that assumes a
 dominant line-of-sight signal and multiple reflected signals between
 the transmitter and the receiver. It is useful for modeling radio
 propagation in an urban environment.</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> is a stochastic path loss model where
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> is a stochastic path loss model where
 power levels follow a lognormal distribution. It is useful for
 modeling shadowing caused by objects such as trees.</p></li>
 </ul>
-<p>Other path loss modules in INET include <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.RayleighFading.html">RayleighFading</a>,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.NakagamiFading.html">NakagamiFading</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.UwbIrStochasticPathLoss.html">UwbIrStochasticPathLoss</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.BreakpointPathLoss.html">BreakpointPathLoss</a>,
-and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.SuiPathLoss.html">SuiPathLoss</a>.</p>
+<p>Other path loss modules in INET include <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.RayleighFading.html">RayleighFading</a>,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.NakagamiFading.html">NakagamiFading</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.UwbIrStochasticPathLoss.html">UwbIrStochasticPathLoss</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.BreakpointPathLoss.html">BreakpointPathLoss</a>,
+and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.SuiPathLoss.html">SuiPathLoss</a>.</p>
 <p>The various path loss modules each have sets of parameters to fine-tune
 their behavior. In this showcase, we leave the parameters at their
 defaults.</p>
@@ -771,7 +775,7 @@ sent from one host to the other, and the signal’s received power will be
 recorded.</p>
 <p>In addition to the two hosts named <code class="docutils literal notranslate"><span class="pre">source</span></code> and <code class="docutils literal notranslate"><span class="pre">destination</span></code>,
 the network also contains a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.environment.common.PhysicalEnvironment.html">PhysicalEnvironment</a> module, an
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, and a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>:</p>
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, and a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium.html">Ieee80211ScalarRadioMedium</a>:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../../../_images/network9.png"><img alt="../../../../_images/network9.png" src="../../../../_images/network9.png" style="width: 80%;" /></a>
 </div>
@@ -808,9 +812,9 @@ hosts:</p>
 </pre></div>
 </div>
 <p>The other variable in the parameter study is the path loss type, which
-takes on the following values: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a>,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayInterference.html">TwoRayInterference</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.RicianFading.html">RicianFading</a>,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.LogNormalShadowing.html">LogNormalShadowing</a>.</p>
+takes on the following values: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a>,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayInterference.html">TwoRayInterference</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.RicianFading.html">RicianFading</a>,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.LogNormalShadowing.html">LogNormalShadowing</a>.</p>
 <p>The source host will transmit with the default power of 20mW. We will
 record the power of the received transmission, using the
 <code class="docutils literal notranslate"><span class="pre">receptionPower</span></code> statistic. The <code class="docutils literal notranslate"><span class="pre">receptionPower</span></code> statistic is
@@ -823,13 +827,31 @@ signal of the radio medium module as input:</p>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The power of the received signal vs. distance, using
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>, and
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.TwoRayInterference.html">TwoRayInterference</a> path loss module types, is displayed on the
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>, and
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayInterference.html">TwoRayInterference</a> path loss module types, is displayed on the
 following plot:</p>
-<a class="reference internal image-reference" href="../../../../_images/tworay.svg"><img alt="../../../../_images/tworay.svg" src="../../../../_images/tworay.svg" width="100%" /></a>
-<p>Here is the same plot zoomed in:</p>
-<a class="reference internal image-reference" href="../../../../_images/tworay2.svg"><img alt="../../../../_images/tworay2.svg" src="../../../../_images/tworay2.svg" width="100%" /></a>
-<p>It is apparent that the two-ray ground reflection model yields the same
+<a class=""
+               data-lightbox="group-21805da7-50a8-4b71-921c-c8c1a2640301"
+               href="../../../../_images/tworay1.svg"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/tworay1.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Here is the same plot zoomed in:</p>
+<a class=""
+               data-lightbox="group-2933e5c3-52ea-41eb-8e9c-4f56f558e82c"
+               href="../../../../_images/tworay21.svg"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/tworay21.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>It is apparent that the two-ray ground reflection model yields the same
 values as the free space path loss model, up until the cross-over
 distance. After that point, the two curves diverge. The power of the
 two-ray interference model fluctuates in the near-field and converges
@@ -837,14 +859,32 @@ to the two-ray ground reflection model in the far- field. Thus the
 two-ray interference model can be used for more realistic two-ray
 propagation simulations.</p>
 <p>The next plot displays the power of the received signal vs. distance
-using the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.RicianFading.html">RicianFading</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> models, and the
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> model for reference:</p>
-<a class="reference internal image-reference" href="../../../../_images/ricianlognormal.svg"><img alt="../../../../_images/ricianlognormal.svg" src="../../../../_images/ricianlognormal.svg" width="100%" /></a>
-<p>The sharp visual change in the “raggedness” of the curves near 100m is
+using the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.RicianFading.html">RicianFading</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> models, and the
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> model for reference:</p>
+<a class=""
+               data-lightbox="group-59bde012-b166-4b76-b964-1da7148168a8"
+               href="../../../../_images/ricianlognormal1.svg"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/ricianlognormal1.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The sharp visual change in the “raggedness” of the curves near 100m is
 due to the data points becoming less dense. Here is the same plot zoomed
 in on the near-field:</p>
-<a class="reference internal image-reference" href="../../../../_images/ricianlognormal2.svg"><img alt="../../../../_images/ricianlognormal2.svg" src="../../../../_images/ricianlognormal2.svg" width="100%" /></a>
-<p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/a3cdb38685bbb6d9a3e91a15e5e30c2a/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/37c2522f4ab001fa97a14511ef789a84/PathLossShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">PathLossShowcase.ned</span></code></a></p>
+<a class=""
+               data-lightbox="group-a8ea3e38-8940-464e-857c-fa42f52d9fe7"
+               href="../../../../_images/ricianlognormal21.svg"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/ricianlognormal21.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/a3cdb38685bbb6d9a3e91a15e5e30c2a/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/37c2522f4ab001fa97a14511ef789a84/PathLossShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">PathLossShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="further-information">
 <h2>Further Information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>

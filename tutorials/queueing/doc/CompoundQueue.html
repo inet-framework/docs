@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Building Complex Queues via Composition &#8212; INET 4.2.0 documentation</title>
+    <title>Building Complex Queues via Composition &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Content-Based Filtering (Active Source)" href="Filter1.html" />
@@ -720,9 +724,27 @@ source (<a class="reference-ned reference external" href="https://doc.omnetpp.or
 to a compound priority queue (ExampleCompoundPriorityQueue) where packets are stored temporarily.
 Packets are collected at random intervals by
 an active packet sink (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.sink.ActivePacketSink.html">ActivePacketSink</a>).</p>
-<a class="reference internal image-reference" href="../../../_images/CompoundQueue.png"><img alt="../../../_images/CompoundQueue.png" class="align-center" src="../../../_images/CompoundQueue.png" style="width: 70%;" /></a>
-<a class="reference internal image-reference" href="../../../_images/CompoundQueue_Queue.png"><img alt="../../../_images/CompoundQueue_Queue.png" class="align-center" src="../../../_images/CompoundQueue_Queue.png" style="width: 90%;" /></a>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">CompoundPacketQueueTutorialStep</span>
+<a class=""
+               data-lightbox="group-5dee5d0b-a1aa-4dd5-ba2c-353bed4ff767"
+               href="../../../_images/CompoundQueue1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/CompoundQueue1.png"
+                     class="align-center"
+                     width="70%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-287756c3-877c-4804-9686-3627496806cd"
+               href="../../../_images/CompoundQueue_Queue1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/CompoundQueue_Queue1.png"
+                     class="align-center"
+                     width="90%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">CompoundPacketQueueTutorialStep</span>
 <span class="p">{</span>
     <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;bgb=600,200&quot;</span><span class="p">);</span>
     <span class="k">submodules</span><span class="o">:</span>
@@ -741,10 +763,10 @@ an active packet sink (<a class="reference-ned reference external" href="https:/
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">ExampleCompoundPriorityQueue</span> <span class="k">extends</span> <span class="n">CompoundPacketQueue</span>
+<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">ExampleCompoundPriorityQueue</span> <span class="k">extends</span> <span class="n">CompoundPacketQueueBase</span>
 <span class="p">{</span>
     <span class="k">parameters</span><span class="o">:</span>
-        <span class="nb">@class</span><span class="p">(</span><span class="o">::</span><span class="n">inet</span><span class="o">::</span><span class="n">queueing</span><span class="o">::</span><span class="n">CompoundPacketQueue</span><span class="p">);</span>
+        <span class="nb">@class</span><span class="p">(</span><span class="o">::</span><span class="n">inet</span><span class="o">::</span><span class="n">queueing</span><span class="o">::</span><span class="n">CompoundPacketQueueBase</span><span class="p">);</span>
     <span class="k">submodules</span><span class="o">:</span>
         <span class="n">classifier</span><span class="o">:</span> <span class="n">WrrClassifier</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,100&quot;</span><span class="p">);</span>
@@ -763,7 +785,7 @@ an active packet sink (<a class="reference-ned reference external" href="https:/
         <span class="p">}</span>
         <span class="n">producer</span><span class="o">:</span> <span class="n">ActivePacketSource</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=325,350&quot;</span><span class="p">);</span>
-        <span class="p">}</span>            
+        <span class="p">}</span>
         <span class="n">scheduler</span><span class="o">:</span> <span class="n">PriorityScheduler</span> <span class="p">{</span>
             <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=550,100&quot;</span><span class="p">);</span>
         <span class="p">}</span>

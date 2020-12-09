@@ -3,24 +3,23 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
-// along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.// 
 
 package inet.showcases.visualizer.transportpathactivity;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
-import inet.node.ethernet.EtherSwitch;
+import inet.node.ethernet.EthernetSwitch;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
-import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 import inet.visualizer.transportlayer.TransportRouteVisualizer;
 
@@ -103,16 +102,16 @@ network TransportPathVisualizerFilteringShowcase
         videoStreamClient: StandardHost {
             @display("p=78.792,427.728");
         }
-        switch0: EtherSwitch {
+        switch0: EthernetSwitch {
             @display("p=268.536,173.664");
         }
-        switch1: EtherSwitch {
+        switch1: EthernetSwitch {
             @display("p=805.60803,147.936");
         }
-        switch2: EtherSwitch {
+        switch2: EthernetSwitch {
             @display("p=255.672,426.12");
         }
-        switch3: EtherSwitch {
+        switch3: EthernetSwitch {
             @display("p=668.928,545.112");
         }
         router0: Router {

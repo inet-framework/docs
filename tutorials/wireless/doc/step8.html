@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Step 8. Modeling energy consumption &#8212; INET 4.2.0 documentation</title>
+    <title>Step 8. Modeling energy consumption &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 9. Configuring node movements" href="step9.html" />
@@ -736,7 +740,7 @@ without affecting the operation of the radio. The energy consumption
 model can be specified in the <code class="docutils literal notranslate"><span class="pre">energyConsumerType</span></code> parameter of the
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.Radio.html">Radio</a> module.</p>
 <p>Here, we set the energy consumption model in the node radios to
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a>. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> models
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a>. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> models
 radio power consumption based on states like radio mode, transmitter and
 receiver state. Each state has a constant power consumption that can be
 set by a parameter. Energy use depends on how much time the radio spends
@@ -752,7 +756,7 @@ receiving: the <em>preamble</em>, the (physical layer) <em>header</em>, the <em>
 <em>any</em> (we don’t know/care). Similarly, the transmit state may be <em>idle</em>
 or <em>transmitting</em>, and a sub-state stores which part of the signal is
 being transmitted (if any).</p>
-<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> expects the consumption in various states
+<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.StateBasedEpEnergyConsumer.html">StateBasedEpEnergyConsumer</a> expects the consumption in various states
 to be specified in watts in parameters like <code class="docutils literal notranslate"><span class="pre">sleepPowerConsumption</span></code>,
 <code class="docutils literal notranslate"><span class="pre">receiverBusyPowerConsumption</span></code>,
 <code class="docutils literal notranslate"><span class="pre">transmitterTransmittingPreamblePowerConsumption</span></code>, and so on.</p>

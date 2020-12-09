@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Networks &#8212; INET 4.2.0 documentation</title>
+    <title>Networks &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Network Nodes" href="ch-network-nodes.html" />
@@ -746,7 +750,7 @@ taste of the built-in network nodes.</p>
 <span class="protocol">Ethernet</span>, <span class="protocol">IEEE 802.11</span>. It also supports an
 optional mobility model, optional energy models, and any number of
 applications which are entirely configurable from INI files.</p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EtherSwitch.html">EtherSwitch</a> models an <span class="protocol">Ethernet</span> switch containing a
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a> models an <span class="protocol">Ethernet</span> switch containing a
 relay unit and one MAC unit per port.</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.Router.html">Router</a> provides the most common routing protocols:
 <span class="protocol">OSPF</span>, <span class="protocol">BGP</span>, <span class="protocol">RIP</span>, <span class="protocol">PIM</span>.</p></li>
@@ -772,8 +776,8 @@ application data).</p>
 are not models of physical network nodes. They are necessary to model
 other aspects. Some of them are:</p>
 <ul class="simple">
-<li><p>A <em>radio medium</em> module such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211RadioMedium.html">Ieee80211RadioMedium</a>,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a> (there
+<li><p>A <em>radio medium</em> module such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211RadioMedium.html">Ieee80211RadioMedium</a>,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a> (there
 are a few of them) are a required component of wireless networks.</p></li>
 <li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.environment.common.PhysicalEnvironment.html">PhysicalEnvironment</a> models the effect of the physical
 environment (i.e. obstacles) on radio signal propagation. It is an
@@ -826,7 +830,7 @@ automatic network configurator is also included.</p>
         <span class="n">configurator</span><span class="o">:</span> <span class="n">Ipv4NetworkConfigurator</span><span class="p">;</span> <span class="c1">// network autoconfiguration</span>
         <span class="n">server</span><span class="o">:</span> <span class="n">StandardHost</span><span class="p">;</span> <span class="c1">// predefined standard host</span>
         <span class="n">router</span><span class="o">:</span> <span class="n">Router</span><span class="p">;</span> <span class="c1">// predefined router</span>
-        <span class="n">switch</span><span class="o">:</span> <span class="n">EtherSwitch</span><span class="p">;</span> <span class="c1">// predefined ethernet switch</span>
+        <span class="n">switch</span><span class="o">:</span> <span class="n">EthernetSwitch</span><span class="p">;</span> <span class="c1">// predefined ethernet switch</span>
         <span class="n">client</span><span class="p">[</span><span class="n">numClients</span><span class="p">]</span><span class="o">:</span> <span class="n">StandardHost</span><span class="p">;</span>
     <span class="k">connections</span><span class="o">:</span> <span class="c1">// network level connections</span>
         <span class="n">router</span><span class="p">.</span><span class="n">pppg</span><span class="o">++</span> <span class="k">&lt;--&gt;</span> <span class="p">{</span> <span class="n">datarate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">GBps</span><span class="p">;</span> <span class="p">}</span> <span class="k">&lt;--&gt;</span> <span class="n">server</span><span class="p">.</span><span class="n">pppg</span><span class="o">++</span><span class="p">;</span> <span class="c1">// PPP</span>

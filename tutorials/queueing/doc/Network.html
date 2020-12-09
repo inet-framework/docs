@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Example: Simulating a Simplistic Network &#8212; INET 4.2.0 documentation</title>
+    <title>Example: Simulating a Simplistic Network &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Regression Testing and Fingerprints Tutorial" href="../../fingerprint/doc/index.html" />
@@ -718,31 +722,47 @@ OMNeT++ or INET.)</p>
 connected by a cable module (<code class="docutils literal notranslate"><span class="pre">ExampleCable</span></code>) which adds delay to the connection.
 Each host contains a packet source and a packet sink application, connected to
 the network level by an interface module (<code class="docutils literal notranslate"><span class="pre">ExampleInterface</span></code>).</p>
-<a class="reference internal image-reference" href="../../../_images/Network_TestCable.png"><img alt="../../../_images/Network_TestCable.png" class="align-center" src="../../../_images/Network_TestCable.png" style="width: 30%;" /></a>
-<a class="reference internal image-reference" href="../../../_images/Network.png"><img alt="../../../_images/Network.png" class="align-center" src="../../../_images/Network.png" style="width: 50%;" /></a>
-<a class="reference internal image-reference" href="../../../_images/Network_TestHost.png"><img alt="../../../_images/Network_TestHost.png" class="align-center" src="../../../_images/Network_TestHost.png" style="width: 60%;" /></a>
-<a class="reference internal image-reference" href="../../../_images/NetworkInterface.png"><img alt="../../../_images/NetworkInterface.png" class="align-center" src="../../../_images/NetworkInterface.png" style="width: 50%;" /></a>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">network</span> <span class="n">ExampleNetworkTutorialStep</span>
-<span class="p">{</span>
-    <span class="k">submodules</span><span class="o">:</span>
-        <span class="n">source</span><span class="o">:</span> <span class="n">ExampleHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,100&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">cable</span><span class="o">:</span> <span class="n">ExampleCable</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=200,100&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">destination</span><span class="o">:</span> <span class="n">ExampleHost</span> <span class="p">{</span>
-            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=300,100&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="k">connections</span><span class="o">:</span>
-        <span class="n">source</span><span class="p">.</span><span class="n">lowerOut</span> <span class="k">--&gt;</span> <span class="n">cable</span><span class="p">.</span><span class="n">aIn</span><span class="p">;</span>
-        <span class="n">cable</span><span class="p">.</span><span class="n">aOut</span> <span class="k">--&gt;</span> <span class="n">destination</span><span class="p">.</span><span class="n">lowerIn</span><span class="p">;</span>
-        <span class="n">destination</span><span class="p">.</span><span class="n">lowerOut</span> <span class="k">--&gt;</span> <span class="n">cable</span><span class="p">.</span><span class="n">bIn</span><span class="p">;</span>
-        <span class="n">cable</span><span class="p">.</span><span class="n">bOut</span> <span class="k">--&gt;</span> <span class="n">source</span><span class="p">.</span><span class="n">lowerIn</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">ExampleHost</span>
+<a class=""
+               data-lightbox="group-fc65aba3-b5a0-4a7d-a400-d11d0c726fc6"
+               href="../../../_images/Network_TestCable1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network_TestCable1.png"
+                     class="align-center"
+                     width="30%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-b38a2dde-93f6-4ae4-bb50-8ec38e9d9a00"
+               href="../../../_images/Network3.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network3.png"
+                     class="align-center"
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-fadbb380-1246-4c7d-ba24-8151c7e5af77"
+               href="../../../_images/Network_TestHost1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/Network_TestHost1.png"
+                     class="align-center"
+                     width="60%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-5ff29e60-3d76-4418-8cb8-1efcf1b8b8bd"
+               href="../../../_images/NetworkInterface1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/NetworkInterface1.png"
+                     class="align-center"
+                     width="50%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">ExampleHost</span>
 <span class="p">{</span>
     <span class="k">parameters</span><span class="o">:</span>
         <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;i=device/pc&quot;</span><span class="p">);</span>

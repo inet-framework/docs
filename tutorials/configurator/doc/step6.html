@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Step 6. Using a different metric for automatic routing table configuration &#8212; INET 4.2.0 documentation</title>
+    <title>Step 6. Using a different metric for automatic routing table configuration &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 7. Configuring a hierarchical network" href="step7.html" />
@@ -805,8 +809,17 @@ resulting routes are similar to the ones in Step 5B. The difference is
 that routes going backward, from hosts 6–8 to hosts 0–2, go through
 <code class="docutils literal notranslate"><span class="pre">router1</span></code>. No traffic is routed between <code class="docutils literal notranslate"><span class="pre">router0</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code> at
 all (as opposed to Step 4 and 5.)</p>
-<a class="reference internal image-reference" href="../../../_images/step6aroutes.png"><img alt="../../../_images/step6aroutes.png" src="../../../_images/step6aroutes.png" style="width: 100%;" /></a>
-<p>The routing table of <code class="docutils literal notranslate"><span class="pre">router0</span></code> is as follows:</p>
+<a class=""
+               data-lightbox="group-cd5b483b-2453-4e32-89f1-a55847f83488"
+               href="../../../_images/step6aroutes1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step6aroutes1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The routing table of <code class="docutils literal notranslate"><span class="pre">router0</span></code> is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Node ConfiguratorA.router0
 -- Routing table --
 Destination      Netmask          Gateway          Iface            Metric
@@ -833,8 +846,17 @@ don’t use the link between <code class="docutils literal notranslate"><span cl
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/Step6A_1_cropped.mp4" width="100%" height="" class="align-center"></video><p>One can easily check that no routes go through the link between
 <code class="docutils literal notranslate"><span class="pre">router0</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code> by setting the destination filter to <code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code>
 in the visualizer. This indicates all routes in the network:</p>
-<a class="reference internal image-reference" href="../../../_images/step6allroutes.png"><img alt="../../../_images/step6allroutes.png" src="../../../_images/step6allroutes.png" style="width: 100%;" /></a>
-</div>
+<a class=""
+               data-lightbox="group-416eb390-801b-4c88-a15e-36919b5661bd"
+               href="../../../_images/step6allroutes1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step6allroutes1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
 </div>
 <div class="section" id="part-b-manually-specifying-link-cost">
 <h2>Part B - Manually specifying link cost<a class="headerlink" href="#part-b-manually-specifying-link-cost" title="Permalink to this headline">¶</a></h2>
@@ -881,8 +903,17 @@ it.</p>
 <div class="section" id="id2">
 <h3>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The routes towards <code class="docutils literal notranslate"><span class="pre">host1</span></code> are visualized on the following image:</p>
-<a class="reference internal image-reference" href="../../../_images/step6broutes.png"><img alt="../../../_images/step6broutes.png" src="../../../_images/step6broutes.png" style="width: 100%;" /></a>
-<p>The routes are the same as in Part A, where the data rate metric was
+<a class=""
+               data-lightbox="group-fee313aa-0435-4eff-bafc-daaa54a4636f"
+               href="../../../_images/step6broutes1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step6broutes1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The routes are the same as in Part A, where the data rate metric was
 used, and routes didn’t use the 10Mbps link between <code class="docutils literal notranslate"><span class="pre">router0</span></code> and
 <code class="docutils literal notranslate"><span class="pre">router2</span></code>. In this part, the link between <code class="docutils literal notranslate"><span class="pre">router0</span></code> and <code class="docutils literal notranslate"><span class="pre">router2</span></code>
 is “turned off” by specifying an infinite cost for it. The following

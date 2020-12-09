@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Coexistence of IEEE 802.11 and 802.15.4 &#8212; INET 4.2.0 documentation</title>
+    <title>Coexistence of IEEE 802.11 and 802.15.4 &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Wireless Signal Analog Domain Representations" href="../../analogmodel/doc/index.html" />
@@ -770,7 +774,7 @@ path loss, background noise, and analog signal representation modules.
 (For more information, read the <a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html"><span class="doc">corresponding section</span></a> in the INET User’s Guide.)</p>
 <p>The standard radio medium module in INET is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.RadioMedium.html">RadioMedium</a>. Wireless protocols
 in INET (such as 802.11 or 802.15.4) often have their own radio medium module types
-(e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium.html">Ieee80211DimensionalRadioMedium</a>), but these modules are actually
+(e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium.html">Ieee80211DimensionalRadioMedium</a>), but these modules are actually
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.RadioMedium.html">RadioMedium</a>, just with different default parameterizations (each
 parameterized for its typical use case). For example, they might have different
 defaults for path loss type, background noise power, or analog signal representation
@@ -869,8 +873,8 @@ arranged in a rectangle, and all of them are in communication range with each ot
 to the other (<code class="docutils literal notranslate"><span class="pre">wifiHost1</span></code> to <code class="docutils literal notranslate"><span class="pre">wifiHost2</span></code>, and <code class="docutils literal notranslate"><span class="pre">wpanHost1</span></code> to <code class="docutils literal notranslate"><span class="pre">wpanHost2</span></code>).</p>
 <p>The simulation is defined in the <code class="docutils literal notranslate"><span class="pre">Coexistence</span></code> configuration in
 <a class="reference download internal" download="" href="../../../../_downloads/83fca05896d50caf9933021ac6e11384/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. The radio medium module in the network
-is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.RadioMedium.html">RadioMedium</a>. It is configured to use the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.analogmodel.packetlevel.DimensionalAnalogModel.html">DimensionalAnalogModel</a>.
-The background noise type is set to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.backgroundnoise.IsotropicDimensionalBackgroundNoise.html">IsotropicDimensionalBackgroundNoise</a>,
+is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.common.packetlevel.RadioMedium.html">RadioMedium</a>. It is configured to use the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.analogmodel.packetlevel.DimensionalAnalogModel.html">DimensionalAnalogModel</a>.
+The background noise type is set to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.backgroundnoise.IsotropicDimensionalBackgroundNoise.html">IsotropicDimensionalBackgroundNoise</a>,
 with a power of -110 dBm. Here is the radio medium configuration in
 <a class="reference download internal" download="" href="../../../../_downloads/83fca05896d50caf9933021ac6e11384/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.radioMedium.analogModel.typename</span> <span class="o">=</span> <span class="s">&quot;DimensionalAnalogModel&quot;</span>
@@ -878,7 +882,7 @@ with a power of -110 dBm. Here is the radio medium configuration in
 <span class="na">*.radioMedium.backgroundNoise.powerSpectralDensity</span> <span class="o">=</span> <span class="s">-113dBmWpMHz</span>
 </pre></div>
 </div>
-<p>The Wifi hosts are configured to have <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadio.html">Ieee80211DimensionalRadio</a>.
+<p>The Wifi hosts are configured to have <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211DimensionalRadio.html">Ieee80211DimensionalRadio</a>.
 The default <code class="docutils literal notranslate"><span class="pre">timeGains</span></code> parameter is not changed in the transmitter,
 so the radio uses a flat signal in time. In frequency, instead of the
 default flat signal, we configure a more realistic shape.
@@ -896,7 +900,7 @@ We’ll use the 802.11 OFDM spectral mask, as in the standard:</p>
 <li><p>Between these points, the interpolation mode can be specified, e.g. <code class="docutils literal notranslate"><span class="pre">left</span></code> (take value of the left point), <code class="docutils literal notranslate"><span class="pre">greater</span></code> (take the greater of the two points), <code class="docutils literal notranslate"><span class="pre">linear</span></code>, etc.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">-inf</span> <span class="pre">Hz/-inf</span> <span class="pre">dB</span></code> and the <code class="docutils literal notranslate"><span class="pre">+inf</span> <span class="pre">Hz/+inf</span> <span class="pre">dB</span></code> points are implicit (hence the <code class="docutils literal notranslate"><span class="pre">frequencyGains</span></code> string starts with an interpolation mode).</p></li>
 </ul>
-<p>For more on the syntax, see <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.base.packetlevel.DimensionalTransmitterBase.html">DimensionalTransmitterBase</a>.</p>
+<p>For more on the syntax, see <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.base.packetlevel.DimensionalTransmitterBase.html">DimensionalTransmitterBase</a>.</p>
 <p>Also we set the <code class="code literal-ini docutils literal notranslate"><span class="pre">snirThresholdMode</span></code> parameter in the radio’s receiver module,
 and the <code class="code literal-ini docutils literal notranslate"><span class="pre">snirMode</span></code> parameter in the error model to <code class="docutils literal notranslate"><span class="pre">mean</span></code>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*Host*.wlan[*].radio.receiver.snirThresholdMode</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span>
@@ -935,7 +939,7 @@ Here is the configuration for the Wifi host radios in
 <p>The channel number is set to 8 because in INET’s 802.11 model, the channels are numbered from 0, so that this setting corresponds to Wifi Channel 9.</p>
 </div>
 <p>The WPAN hosts are configured to have an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a>,
-with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalRadio.html">Ieee802154NarrowbandDimensionalRadio</a>. As in the case of the Wifi hosts,
+with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalRadio.html">Ieee802154NarrowbandDimensionalRadio</a>. As in the case of the Wifi hosts,
 the default flat signal shape is used in time. In frequency, we’ll use a more
 realistic shape, based on the modulated spectrum of the CC2420 Zigbee transmitter:</p>
 <div class="figure align-center">

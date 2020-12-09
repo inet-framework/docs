@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Step 8. Configuring a mixed wired/wireless network &#8212; INET 4.2.0 documentation</title>
+    <title>Step 8. Configuring a mixed wired/wireless network &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 9. Leaving some parts of the network unconfigured" href="step9.html" />
@@ -740,8 +744,17 @@ same wireless network.</p>
 <p>This step uses the <span>ConfiguratorC</span> network defined in
 <a class="reference download internal" download="" href="../../../_downloads/db08cfff5fd6912d64f3145ab199d8e6/ConfiguratorC.ned"><code class="xref download docutils literal notranslate"><span class="pre">ConfiguratorC.ned</span></code></a>. The network is
 displayed on the following image.</p>
-<a class="reference internal image-reference" href="../../../_images/step8network.png"><img alt="../../../_images/step8network.png" src="../../../_images/step8network.png" style="width: 100%;" /></a>
-<p>The <span>ConfiguratorC</span> network extends <span>ConfiguratorB</span> by adding two
+<a class=""
+               data-lightbox="group-3ae833ff-7926-440b-b1c8-d30b3d0f2dc0"
+               href="../../../_images/step8network1.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step8network1.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>The <span>ConfiguratorC</span> network extends <span>ConfiguratorB</span> by adding two
 wireless LANs, <code class="docutils literal notranslate"><span class="pre">area1lan3</span></code> and <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code>. The additional LANs
 consist of an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.wireless.AccessPoint.html">AccessPoint</a> and three <code class="docutils literal notranslate"><span class="pre">WirelessHosts</span></code>.</p>
 <p>The default SSID setting of all wireless nodes is <code class="docutils literal notranslate"><span class="pre">&quot;SSID&quot;</span></code>. By
@@ -821,8 +834,17 @@ belong to the wireless networks.</p>
 <h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
 <p>The addresses and routes are indicated in the following image. Routes
 leading towards hosts <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code> are visualized.</p>
-<a class="reference internal image-reference" href="../../../_images/step8a_2.png"><img alt="../../../_images/step8a_2.png" src="../../../_images/step8a_2.png" style="width: 100%;" /></a>
-<p>Wireless hosts connect to the router through the access points. The
+<a class=""
+               data-lightbox="group-53861c9e-1611-488b-9159-61d0b14b7948"
+               href="../../../_images/step8a_21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step8a_21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>Wireless hosts connect to the router through the access points. The
 access points are L2 devices, similar to switches, so they are
 transparent for the routing table visualizer arrows. Wireless hosts get
 associated with their corresponding access points before they can
@@ -833,8 +855,17 @@ communication range can receive them correctly (i.e. nodes in the same
 LAN).</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/Step8A_1_cropped.mp4" width="100%" height="" class="align-center"></video><p>The following image shows how the routes would look like if the XML configuration didn’t
 contain the <code class="docutils literal notranslate"><span class="pre">&lt;wireless&gt;</span></code> elements:</p>
-<a class="reference internal image-reference" href="../../../_images/step8fullmesh_2.png"><img alt="../../../_images/step8fullmesh_2.png" src="../../../_images/step8fullmesh_2.png" style="width: 100%;" /></a>
-<p>There are no routes visualized between the <code class="docutils literal notranslate"><span class="pre">backbonerouter</span></code> and
+<a class=""
+               data-lightbox="group-e71c6338-101a-4b40-bb9d-eccba645ab3f"
+               href="../../../_images/step8fullmesh_21.png"
+               title=""
+               data-title=""
+               ><img src="../../../_images/step8fullmesh_21.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><p>There are no routes visualized between the <code class="docutils literal notranslate"><span class="pre">backbonerouter</span></code> and
 <code class="docutils literal notranslate"><span class="pre">area3router</span></code>, because routes towards <code class="docutils literal notranslate"><span class="pre">area3lan3</span></code> go via
 <code class="docutils literal notranslate"><span class="pre">area1router</span></code>. <code class="docutils literal notranslate"><span class="pre">Area3lan3</span></code> can be reached from the
 <code class="docutils literal notranslate"><span class="pre">backbonerouter</span></code> in two ways:</p>

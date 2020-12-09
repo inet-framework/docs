@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Using Simulated Applications in a Real Network &#8212; INET 4.2.0 documentation</title>
+    <title>Using Simulated Applications in a Real Network &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Using Real Applications in a Simulated Network" href="../../videostreaming/doc/index.html" />
@@ -727,7 +731,7 @@ application, running in two separate simulations, and we’ll send realistic VoI
 traffic (contents of an audio file) between them. The received audio will be
 saved to a file, which can be compared to the original to examine how the audio
 quality is affected by the packets passing through the network.</p>
-<p>Note that this showcase requires the <code class="docutils literal notranslate"><span class="pre">VoIPStream</span></code> and <code class="docutils literal notranslate"><span class="pre">Emulation</span></code>
+<p>Note that this showcase requires the <code class="docutils literal notranslate"><span class="pre">VoipStream</span></code> and <code class="docutils literal notranslate"><span class="pre">NetworkEmulationSupport</span></code>
 features of the INET Framework to be turned on (they are off by default), and it
 only runs on Linux.</p>
 <div class="line-block">
@@ -784,8 +788,17 @@ so the following “network” will suffice:</p>
 <p>We’ll configure the <code class="docutils literal notranslate"><span class="pre">app</span></code> submodule to have type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamSender.html">VoipStreamSender</a> and
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.voipstream.VoipStreamReceiver.html">VoipStreamReceiver</a> on the sender and the receiver side, respectively.
 Both networks look like the following when run under Qtenv:</p>
-<a class="reference internal image-reference" href="../../../../_images/VoipStreamSenderApplication.png"><img alt="../../../../_images/VoipStreamSenderApplication.png" class="align-center" src="../../../../_images/VoipStreamSenderApplication.png" style="width: 25%;" /></a>
-<div class="admonition note">
+<a class=""
+               data-lightbox="group-9ef400e5-62dd-455e-bf62-982db26cb179"
+               href="../../../../_images/VoipStreamSenderApplication1.png"
+               title=""
+               data-title=""
+               ><img src="../../../../_images/VoipStreamSenderApplication1.png"
+                     class="align-center"
+                     width="25%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">AppContainer</span></code> module used in this showcase is quite generic. It can
 turn any (UDP-only) simulated application into a real-life application that

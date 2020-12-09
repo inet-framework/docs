@@ -17,11 +17,12 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>IEEE 802.15.4 Smart Home &#8212; INET 4.2.0 documentation</title>
+    <title>IEEE 802.15.4 Smart Home &#8212; INET v4.3.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
@@ -33,6 +34,9 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/language_data.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Power Consumption" href="../../power/doc/index.html" />
@@ -737,24 +741,24 @@ protocols as well.</p>
 <p>INET features a narrowband and an ultra-wideband IEEE 802.15.4 PHY
 model:</p>
 <ul class="simple">
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a></p></li>
-<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.bitlevel.Ieee802154UwbIrRadio.html">Ieee802154UwbIrRadio</a></p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a></p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.bitlevel.Ieee802154UwbIrRadio.html">Ieee802154UwbIrRadio</a></p></li>
 </ul>
 <p>This showcase demonstrates the narrowband model,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a>. It simulates a PHY that uses
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a>. It simulates a PHY that uses
 DSSS-OQPSK modulation and operates at 2.45 GHz. By default, signals
 are transmitted with a bandwidth of 2.8 MHz using 2.24 mW transmission
 power. The model uses the scalar analog model.</p>
 <p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a> module contains a
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a> and the corresponding
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadio.html">Ieee802154NarrowbandScalarRadio</a> and the corresponding
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandMac.html">Ieee802154NarrowbandMac</a>. The radio medium module required by
-the radio is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium.html">Ieee802154NarrowbandScalarRadioMedium</a>. As per the name, the
+the radio is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium.html">Ieee802154NarrowbandScalarRadioMedium</a>. As per the name, the
 radio uses the scalar analog model for signal representation. The radio
 has default values for its parameters, based on the 802.15.4 standard.
 For example, by default, it uses the carrier frequency of 2450 MHz, 2.8
 MHz bandwidth, 250 kbps bitrate, and 2.24 mW transmission power. As
 such, it works “out-of-the-box”, without setting any of its parameters.
-The radio medium uses <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.pathloss.BreakpointPathLoss.html">BreakpointPathLoss</a> by default as its path loss
+The radio medium uses <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.BreakpointPathLoss.html">BreakpointPathLoss</a> by default as its path loss
 model. (Refer to the documentation to see all parameters and default values.)</p>
 </div>
 <div class="section" id="the-configuration">
@@ -778,7 +782,7 @@ from <a class="reference download internal" download="" href="../../../../_downl
 </div>
 <p>The network contains 14 hosts of the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> type, which has an
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a> by default. The network also contains
-an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium.html">Ieee802154NarrowbandScalarRadioMedium</a>,
+an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>, an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium.html">Ieee802154NarrowbandScalarRadioMedium</a>,
 and an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.integrated.IntegratedVisualizer.html">IntegratedVisualizer</a> module.</p>
 <p>Routes are set up according to a star topology, with the controller at
 the center. This setup is achieved with the following configuration of
@@ -851,7 +855,7 @@ by an IEEE 802.15.4 ACK, but the ACKs are not visualized.</p>
 by default, so power consumption can be measured without adding any
 modules to the hosts. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a> contains an
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.power.storage.IdealEpEnergyStorage.html">IdealEpEnergyStorage</a> by default, and the radio in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.SensorNode.html">SensorNode</a>
-contains a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a>. The
+contains a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.energyconsumer.SensorStateBasedEpEnergyConsumer.html">SensorStateBasedEpEnergyConsumer</a>. The
 <code class="docutils literal notranslate"><span class="pre">residualEnergyCapacity</span></code> statistic is available.</p>
 <p>We want to measure the energy consumption of the different nodes in the
 network. For this, we use the <code class="docutils literal notranslate"><span class="pre">Ieee802154Power</span></code> configuration in
