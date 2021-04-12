@@ -4,42 +4,20 @@ Ethernet Cut-Through Switching
 Goals
 -----
 
-.. so
-
-  - cut-through switching can reduce latency of ethernet frames
-  - works best when the frame goes through a lot of switches
-  - cut-through switching (start forwarding the frame on another interface as soon as the header is received, and the next-hop address is available, as opposed to receive the whole packet and forward after that)
-  - the new composable/layered ethernet model supports packet streams and cutthrough switching
-
 Cut-through switching can reduce switching delay of Ethernet frames by immediately forwarding an Ethernet frame after the header is received and the switch knows which outgoing interface to send the frame on (as opposed to store-and-forward switching, in which the whole frame is received and then forwarded).
-
-.. **TODO** which outgoing interface to use/to send the frame on
-
-.. This showcase demonstrates cut-through switching, and compares its delay with store-and-forward switching.
 
 This showcase demonstrates cut-through switching, and compares it to store-and-forward switching in terms of delay.
 
 | INET version: ``4.3``
 | Source files location: `inet/showcases/ethernet/cutthrough <https://github.com/inet-framework/inet-showcases/tree/master/ethernet/cutthrough>`__
 
-.. The new composable/layered Ethernet model supports cut-through switching.
-
 The Model
 ---------
-
-.. - cut through switching reduces delay
-   - it skips the FCS check (its handles in the endpoints)
-   - it requires packet streams (also enables preemption)
-   - need LayeredEthernetInterface, and CuttroughEthernetInterface in switches
-
-.. **TODO** works best when the frame goes through a lot of switches
 
 Cut-through switching reduces switching delay, but skips the FCS check, as the FCS is at the end of the Ethernet frame; the FCS check is performed in at destination host. The delay reduction is more substantial if the packet goes through multiple switches (as one packet transmission duration can be saved at each switch).
 
 Cut-through switching makes use of intra-node  packet streaming in INET's modular Ethernet model.
 Packet streaming is required because the frame needs to be processed as a stream (as opposed to as a whole packet) in order for the switch to be able to start forwarding it before the whole packet is received.
-
-.. **TODO** store-and-forward is the default
 
 .. note:: The default is store-and-forward behavior in hosts such as :ned:`StandardHost`.
 
@@ -49,13 +27,9 @@ The example simulation contains two :ned:`StandardHost` nodes connected by two :
    :align: center
    :width: 100%
 
-.. **TODO** 1Gbps connection
-
-.. There are two configurations in omnetpp.ini. In both of them, host1 sends UDP packets to host2.
-
 In the simulation, host1 sends 1000-Byte UDP packets to host2, with a mean arrival time of 100ms, and X ms jitter. There are two configurations in omnetpp.ini, ``StoreAndForward`` and ``Cutthrough`` (only differing in the use of cut-through switching).
 
-**TODO** NoCuttrough -> StoreAndForward; - in config name (try)
+.. **TODO** NoCuttrough -> StoreAndForward; - in config name (try)
 
 .. In the ``General`` configuration,
 
