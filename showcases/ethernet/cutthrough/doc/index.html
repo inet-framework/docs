@@ -38,13 +38,17 @@
     <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
     <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Generic" href="../../../general/index.html" />
+    <link rel="prev" title="Ethernet Preemption" href="../../preemption/doc/index.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Ethernet</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link is-active">Ethernet Cut-Through Switching</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
@@ -85,16 +89,17 @@ Show Source
         
             
             <nav class="mdl-navigation">
-                <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html">Ethernet</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Ethernet</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../preemption/doc/index.html">Ethernet Preemption</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ethernet Cut-Through Switching</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -388,16 +393,17 @@ Show Source
         
             
             <nav class="mdl-navigation">
-                <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Showcases</a><ul>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html">Ethernet</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Ethernet</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../preemption/doc/index.html">Ethernet Preemption</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ethernet Cut-Through Switching</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
@@ -687,8 +693,14 @@ Show Source
 <h1>Ethernet Cut-Through Switching<a class="headerlink" href="#ethernet-cut-through-switching" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>Cut-through switching can reduce switching delay of Ethernet frames by immediately forwarding an Ethernet frame after the header is received and the switch knows which outgoing interface to send the frame on (as opposed to store-and-forward switching, in which the whole frame is received and then forwarded).</p>
-<p>This showcase demonstrates cut-through switching, and compares it to store-and-forward switching in terms of delay.</p>
+<p>This showcase demonstrates cut-through switching, and compares it to store-and-forward
+switching in terms of delay.</p>
+<p>Cut-through switching, also called cut-through forwarding is a method for packet switching systems,
+wherein the switch starts forwarding a frame (or packet) before the whole frame has been received,
+normally as soon as the destination address and outgoing interface is determined (from Wikipedia).</p>
+<p>Cut-through switching may reduce the switching delay of Ethernet frames, as opposed to store-and-forward
+switching,
+in which the whole frame is received and then forwarded.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.3</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet-showcases/tree/master/ethernet/cutthrough">inet/showcases/ethernet/cutthrough</a></div>
@@ -696,16 +708,24 @@ Show Source
 </div>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>Cut-through switching reduces switching delay, but skips the FCS check, as the FCS is at the end of the Ethernet frame; the FCS check is performed in at destination host. The delay reduction is more substantial if the packet goes through multiple switches (as one packet transmission duration can be saved at each switch).</p>
-<p>Cut-through switching makes use of intra-node  packet streaming in INET’s modular Ethernet model.
-Packet streaming is required because the frame needs to be processed as a stream (as opposed to as a whole packet) in order for the switch to be able to start forwarding it before the whole packet is received.</p>
+<p>Cut-through switching reduces switching delay, but skips the FCS check in the switch. The FCS
+is at the end of the Ethernet frame; the FCS check is performed in destination host.
+(This is because by the time the FCS check could happen, the frame is almost completely transmitted,
+so it makes no sense).
+The delay reduction is more substantial if the packet goes through multiple switches
+(as one packet transmission duration can be saved at each switch).</p>
+<p>Cut-through switching makes use of intra-node  packet streaming in INET’s modular
+Ethernet model. Packet streaming is required because the frame needs to be processed
+as a stream (as opposed to as a whole packet) in order for the switch to be able to
+start forwarding it before the whole packet is received.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default is store-and-forward behavior in hosts such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>.</p>
 </div>
-<p>The example simulation contains two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> nodes connected by two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a>’ nodes (all connections are 1 Gbps):</p>
+<p>The example simulation contains two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> nodes connected by two
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a>’ nodes (all connections are 1 Gbps):</p>
 <a class=""
-               data-lightbox="group-81a99226-3908-4bcf-8f09-851f1f03b139"
+               data-lightbox="group-e14046eb-1f3f-46fb-964a-169a9f95b4c2"
                href="../../../../_images/Network1.png"
                title=""
                data-title=""
@@ -714,20 +734,9 @@ Packet streaming is required because the frame needs to be processed as a stream
                      width="100%"
                      height="auto"
                      alt=""/>
-                </a><p>In the simulation, host1 sends 1000-Byte UDP packets to host2, with a mean arrival time of 100ms, and X ms jitter. There are two configurations in omnetpp.ini, <code class="docutils literal notranslate"><span class="pre">StoreAndForward</span></code> and <code class="docutils literal notranslate"><span class="pre">Cutthrough</span></code> (only differing in the use of cut-through switching).</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration, the following lines configure the hosts and switches to use the modular Ethernet model:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.encap.typename</span> <span class="o">=</span> <span class="s">&quot;OmittedEthernetEncapsulation&quot;</span>
-<span class="na">*.*.ethernet.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetLayer&quot;</span>
-<span class="na">*.*.eth[*].typename</span> <span class="o">=</span> <span class="s">&quot;LayeredEthernetInterface&quot;</span>
-</pre></div>
-</div>
-<p>The encapsulation type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.OmittedEthernetEncapsulation.html">OmittedEthernetEncapsulation</a> is there for backward compatibility purposes;
-it’s a dummy encapsulation module required by the new layered Ethernet model so that it is a drop-in replacement for the old one).</p>
-<p>Also, the link speed is specified:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.eth[*].bitrate</span> <span class="o">=</span> <span class="s">1Gbps</span>
-</pre></div>
-</div>
-<p>To prevent packets from accumulating in the queue of the sender host (and thus increasing the measured end-to-end delay), the queue is limited to one packet.</p>
+                </a><p>In the simulation, <code class="docutils literal notranslate"><span class="pre">host1</span></code> sends 1000-Byte UDP packets to <code class="docutils literal notranslate"><span class="pre">host2</span></code>, with a mean arrival time of 100ms,
+and X ms jitter. There are two configurations in omnetpp.ini, <code class="docutils literal notranslate"><span class="pre">StoreAndForward</span></code> and <code class="docutils literal notranslate"><span class="pre">Cutthrough</span></code>,
+which only differ in the use of cut-through switching.</p>
 <p>Here are the two configurations:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StoreAndForward]</span>
 
@@ -741,14 +750,23 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
 <span class="na">*.host*.eth[*].phyLayer.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetStreamingPhyLayer&quot;</span>
 </pre></div>
 </div>
-<p>The cut-through interface in the switches support packet streaming by default; the <span>EthernetStreamingPhyLayer</span> in the hosts support packet streaming as well.</p>
+<p>The default <span>EthernetInteface</span> in Ethernet switches doesn’t support cut-through. In order to use
+cut-through, we replace the default interface with <span>EthernetCutthroughInterface</span>. Cut-through is
+disabled in this interface by default, thus it needs to be enabled by setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">enableCutthrough</span></code>
+parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>In addition, all necessary components in the switch need to support packet streaming.
+The cut-through interface in the switches supports packet streaming by default; the default PHY layer in
+hosts need to be replaced with
+<span>EthernetStreamingPhyLayer</span>, which support packet streaming.</p>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The following videos store-and-forward and cut-through behavior in Qtenv, respectively:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/storeandforward.mp4" width="100%" height="" class="align-center"></video><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/cutthrough1.mp4" width="100%" height="" class="align-center"></video><p>The following sequence chart excerpt shows a packet sent from host1 to host2 via the switches, for store-and-forward and cut-through, respectively (the timeline is linear):</p>
+<p>The following video shows the store-and-forward behavior in Qtenv:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/storeandforward.mp4" width="90%" height="" class="align-center"></video><p>The next video shows the cut-through behavior:</p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/cutthrough1.mp4" width="90%" height="" class="align-center"></video><p>The following sequence chart excerpt shows a packet sent from <code class="docutils literal notranslate"><span class="pre">host1</span></code> to <code class="docutils literal notranslate"><span class="pre">host2</span></code> via the switches,
+for store-and-forward and cut-through, respectively (the timeline is linear):</p>
 <a class=""
-               data-lightbox="group-cd216079-ed39-412e-baab-c6d070b1150b"
+               data-lightbox="group-35689b44-495f-4574-979d-240a4e849bde"
                href="../../../../_images/storeandforwardseq21.png"
                title=""
                data-title=""
@@ -758,7 +776,7 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
                      height="auto"
                      alt=""/>
                 </a><a class=""
-               data-lightbox="group-218f2cb7-a9b8-4404-a642-29de646cade1"
+               data-lightbox="group-c3d100d2-7116-4633-afaf-12df1cf95def"
                href="../../../../_images/seqchart21.png"
                title=""
                data-title=""
@@ -767,9 +785,10 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
                      width="100%"
                      height="auto"
                      alt=""/>
-                </a><p>We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching vs cut-through switching:</p>
+                </a><p>We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching
+vs cut-through switching:</p>
 <a class=""
-               data-lightbox="group-055737f5-09f9-4e5f-81d5-7518f7497a5c"
+               data-lightbox="group-4b1b5fe1-ae9d-4a51-913c-b39213de8e4f"
                href="../../../../_images/delay1.png"
                title=""
                data-title=""
@@ -778,12 +797,14 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
                      width="100%"
                      height="auto"
                      alt=""/>
-                </a><p>We can verify that result analytically. In case of store-and-forward, the end-to-end duration is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">(transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">propagation</span> <span class="pre">time)</span></code>, around 25.296 ms. In the case of cut-through, the duration is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">cut-through</span> <span class="pre">delay</span></code>, around 8.432 ms.</p>
+                </a><p>We can verify that result analytically. In case of store-and-forward, the end-to-end duration
+is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">(transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">propagation</span> <span class="pre">time)</span></code>, around 25.296 ms. In the case of cut-through,
+the duration is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">cut-through</span> <span class="pre">delay</span></code>, around 8.432 ms.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/88981c0a667f0eae32588db2d9713022/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/8a6c0089c452b20f3446313f62d00061/EthernetCutthroughShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">EthernetCutthroughShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-showcases/issues/TODO">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/685">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
 </div>
 </div>
 
@@ -811,6 +832,20 @@ it’s a dummy encapsulation module required by the new layered Ethernet model s
 
       <div class="clearer"></div>
     </div><div class="pagenation">
+     <a id="button-prev" href="../../preemption/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Ethernet Preemption</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../../general/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Generic</div>
+        </div>
+     </a>
   </div>
         
         </main>
