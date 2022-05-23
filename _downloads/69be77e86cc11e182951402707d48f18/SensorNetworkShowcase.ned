@@ -2,9 +2,10 @@ package inet.showcases.wireless.sensornetwork;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
-import inet.node.inet.StandardHost;
 import inet.node.inet.SensorNode;
+import inet.node.inet.StandardHost;
 import inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium;
+import inet.routing.contract.IManetRouting;
 import inet.visualizer.common.IntegratedVisualizer;
 
 
@@ -77,3 +78,4 @@ network SensorNetworkShowcaseB
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
 }
+

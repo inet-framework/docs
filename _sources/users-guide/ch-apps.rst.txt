@@ -401,10 +401,13 @@ The following UDP modules are provided to allow composing applications with more
 complex traffic without implementing new C++ modules:
 
 -  :ned:`UdpApp`: generic UDP application with composable traffic source and traffic sink
--  :ned:`UdpClientApp`: generic UDP client application with composable traffic source and traffic sink
--  :ned:`UdpServerApp`: generic UDP server application with a UDP session handler to create UDP server sessions
--  :ned:`UdpServerSession`: generic UDP server session with composable traffic source and traffic sink
+-  :ned:`UdpSourceApp`: generic UDP application with a traffic source
+-  :ned:`UdpSinkApp`: generic UDP application with a traffic sink
 -  :ned:`UdpRequestResponseApp`: generic request-response based UDP server application with configurable pre-composed traffic source and traffic sink
+
+.. -  :ned:`UdpClientApp`: generic UDP client application with composable traffic source and traffic sink
+   -  :ned:`UdpServerApp`: generic UDP server application with a UDP session handler to create UDP server sessions
+   -  :ned:`UdpServerSession`: generic UDP server session with composable traffic source and traffic sink
 
 .. _ug:sec:apps:ipv4/ipv6-traffic-generators:
 
@@ -480,7 +483,7 @@ multiple chunks.
 
 Both applications have a :par:`registerSAP` boolean parameter. This
 parameter should be set to ``true`` if the application is connected
-to the :ned:`EtherLlc` module which requires registration of the SAP
+to the :ned:`Ieee8022Llc` module which requires registration of the SAP
 before sending frames.
 
 Both applications collects the following statistics: sentPkBytes,
@@ -488,7 +491,7 @@ rcvdPkBytes, endToEndDelay.
 
 The client and server application works with any model that accepts
 Ieee802Ctrl control info on the packets (e.g. the 802.11 model). The
-applications should be connected directly to the :ned:`EtherLlc` or an
+applications should be connected directly to the :ned:`Ieee8022Llc` or an
 EthernetInterface NIC module.
 
 The model also contains a host component that groups the applications
