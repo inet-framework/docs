@@ -117,6 +117,12 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatescheduling/index.html">Gate Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
@@ -408,6 +414,12 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../trafficshaping/mixingshapers/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../gatescheduling/index.html">Gate Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -721,8 +733,17 @@ hosts need to be replaced with
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/storeandforward.mp4" width="90%" height="" class="align-center"></video><p>The next video shows the cut-through behavior:</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/cutthrough1.mp4" width="90%" height="" class="align-center"></video><p>The following sequence chart excerpt shows a packet sent from <code class="docutils literal notranslate"><span class="pre">device1</span></code> to <code class="docutils literal notranslate"><span class="pre">device2</span></code> via the switches,
 for store-and-forward and cut-through, respectively (the timeline is linear):</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/storeandforwardseq2.png"><img alt="../../../../_images/storeandforwardseq2.png" src="../../../../_images/storeandforwardseq2.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/seqchart2.png"><img alt="../../../../_images/seqchart2.png" src="../../../../_images/seqchart2.png" style="width: 100%;" /></a>
+</div>
 <p>We compared the end-to-end delay of the UDP packets in the case of store-and-forward switching
 vs cut-through switching:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../../../_images/delay.png"><img alt="../../../../_images/delay.png" src="../../../../_images/delay.png" style="width: 100%;" /></a>
+</div>
 <p>We can verify that result analytically. In case of store-and-forward, the end-to-end duration
 is <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">(transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">propagation</span> <span class="pre">time)</span></code>, around 25.296 ms. In the case of cut-through,
 the duration is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">transmission</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">cut-through</span> <span class="pre">delay</span></code>, around 8.432 ms.</p>

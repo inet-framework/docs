@@ -118,6 +118,12 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
@@ -409,6 +415,12 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/mixingshapers/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -724,14 +736,13 @@ sent by all nodes. To generate the UDP application traffic, we configure <code c
 </div>
 <div class="section" id="clocks-and-clock-drift">
 <h4>Clocks and Clock Drift<a class="headerlink" href="#clocks-and-clock-drift" title="Permalink to this headline">¶</a></h4>
-<p>Clocks are configured similarly to the TODO showcase, using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.clock.model.MultiClock.html">MultiClock</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.clock.model.SettableClock.html">SettableClock</a> modules with constant drift oscillators.
-However, we configure the TODO oscillator a bit differently to make the failover effect in the third example simulation more visible:</p>
+<p>Clocks are configured similarly to the <a class="reference internal" href="../../../timesynchronization/gptp/doc/index.html"><span class="doc">Using gPTP</span></a> showcase, using <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.clock.model.MultiClock.html">MultiClock</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.clock.model.SettableClock.html">SettableClock</a> modules with constant drift oscillators.
+However, we configure the drift rate of the oscillator in <code class="docutils literal notranslate"><span class="pre">tsnClock2</span></code> a bit differently to make the failover effect in the third example simulation more visible:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.tsnClock2.clock.clock[*].oscillator.driftRate</span> <span class="o">=</span> <span class="s">-30ppm</span>
 <span class="na">**.oscillator.driftRate</span> <span class="o">=</span> <span class="s">uniform(-100ppm, 100ppm)</span>
 </pre></div>
 </div>
 <p>We specify a random drift rate for all oscillators in the second line, but override this setting for the oscillators of <code class="docutils literal notranslate"><span class="pre">TsnClock2</span></code> in the first line with a specific constant drift rate, in order to make the failover effect more visible.</p>
-<p><strong>TODO</strong> minden time domainnek a timeja minden nodeban nyilvan van tartva -&gt; ez a multiclock lenyege</p>
 </div>
 <div class="section" id="time-aware-shaping">
 <h4>Time-Aware Shaping<a class="headerlink" href="#time-aware-shaping" title="Permalink to this headline">¶</a></h4>
@@ -935,22 +946,15 @@ primary master clock (the other two time domains are still synchronized). After 
 <img alt="../../../../../_images/LinkFailure_domain0.png" src="../../../../../_images/LinkFailure_domain0.png" />
 </div>
 <p>The clocks begin to diverge after time synchronization in this gPTP time domain stops.</p>
-<p>TODO domain -&gt; time domain! too generic</p>
 <p>The next chart shows clock drift in domain 2. This is the domain of the hot-standby master clock, which stays online.
 Thus the clocks in this domain keep being synchronized. (the hot-standby master is denoted with the thick orange line, the primary master with the dotted blue line.)</p>
-<p><strong>TODO</strong> keep being synchronized</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/LinkFailure_domain2.png" src="../../../../../_images/LinkFailure_domain2.png" />
 </div>
 <p>Note that when the primary master node goes offline, the hot-standby master node cannot synchronize to it any more.
-Thus its clock drifts from the primary master’s, denoted by the orange and blue lines diverging. The bridge and slave nodes continue to synchronize to the hot-standby master node.
-(denoted by the other lines following it)</p>
-<p>The next chart shows the active clocks in bridge and slave nodes:</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/LinkFailure_endstations.png" src="../../../../../_images/LinkFailure_endstations.png" />
-</div>
-<p>The active clocks are still the ones using domain 0 as the source of time, thus their times diverge after the link break TODO due to not being synced. Again, this chart is the same as the one displaying domain 0.</p>
-<p>TODO nem kell a chart csak annyi hogy ugynaaz</p>
+Thus its clock drifts from the primary master’s, denoted by the orange and blue lines diverging. The bridge and slave nodes continue to synchronize to the hot-standby master node
+(denoted by the other lines following the hot-standby master node).</p>
+<p>The active clocks in bridge and slave nodes are the ones that use Domain 0 as the source of time, thus the clock drift chart for the active clocks is the same as the one displaying clock drift for Domain 0.</p>
 <p>The next chart shows the delay:</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/delay_linkfailure.png" src="../../../../../_images/delay_linkfailure.png" />
