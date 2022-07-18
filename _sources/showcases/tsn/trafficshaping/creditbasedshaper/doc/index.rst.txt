@@ -6,29 +6,92 @@ Goals
 
 In this example we demonstrate how to use the credit-based traffic shaper.
 
+The Credit-Based shaper can smooth-out traffic to reduce bursting.
+
 | INET version: ``4.4``
 | Source files location: `inet/showcases/tsn/trafficshaping/creditbasedshaper <https://github.com/inet-framework/tree/master/showcases/tsn/trafficshaping/creditbasedshaper>`__
 
 The Model
 ---------
 
-There are three network nodes in the network. The client and the server are
-:ned:`TsnDevice` modules, and the switch is a :ned:`TsnSwitch` module. The
-links between them use 100 Mbps :ned:`EthernetLink` channels.
+Overview
+~~~~~~~~
+
+- the credit based shaper can be added to network interfaces as part of a Time aware shaper module
+- the time aware shaper module is a queue in the network interface
+- the credit based shaper can be added as the optional transmission selection algorithm submodule of the time aware shaper
+- the credit based shaper has an IPacketGate interface/acts a packet gate module (which does what? sometimes dont let packet through?)
+- by default, the gates of the time aware shaper are always open, so there is no time aware shaping
+- thus its a credit based shaper that can optionally be combined with time aware shaping
+
+so
+
+- the Ieee8021qCreditBasedShaper is a packet gate module, which can be combined with a packet queue to implement the credit based shaper algorithm
+- a convenient way to add packet queues to the credit based shaper is to insert it into a time aware shaper module
+- the time aware shaper module is a compound packet queue, that can be inserted into network interfaces
+- it has an optional transmission selection algorithm which can be a credit based shaper
+- by default, the time aware shaper's gates are always open, thus there is no time aware shaping
+- so by inserting a credit based shaper into a time aware shaper, the time aware shaping can optionally be added
+- this for each traffic class
+
+structure
+
+- what does the credit based shaper do
+- parameters
+- inserting
+
+The credit-based shaper can be used to smooth-out traffic and reduce bursting. The shaper maintains a credit count. It only allows frame transmission when its credit count is non-negative.
+When frames are transmitted, credit decreases until the transmission is complete. When there is no transmission, the credits accumulate. The next frame can
+only be transmitted when the credit is zero or positive. The rate of credit decrease and accumulation can be specified with parameters.
+
+In INET, the credit-based shaper is implemented by the :ned:`Ieee8021qCreditBasedShaper` simple module. This is a packet gate module 
+that can be combined with a packet queue to implement the credit based shaper algorithm. A convenient way to combine a credit-based shaper with queues and
+to insert it into network interfaces is to use a :ned:`Ieee8021qTimeAwareShaper`. This module already has queue submodules, supports a configurable number
+of traffic classes, and fits into Ethernet interfaces by replacing the default packet queue module in the MAC layer of the interface.
+The credit-based shaper module takes the place of the optional ``transmissionSelectionAlgorithm`` submodule of the time-aware shaper:
+
+.. figure:: media/timeawareshaper.png
+   :align: center
+
+.. note:: By default, the time-aware shaper doesn't do any time-aware shaping, as its gates are always open. Thus its possible to use the time-aware
+   shaper module as only a credit-based shaper this way, or add optional time-aware shaping in addition to credit-based shaping.
+
+The shaper has parameters for credit decrease and accumulation rate (:par:`idleSlope` and :par:`sendSlope`, both in Mbps),
+and max interference size, i.e. how much overlap can there be with the next frame???? **TODO**
+
+   initial, min and max credit count. The threshold where transmission is possible can also be specified (:par:`transmitCreditLimit`).
+
+**TODO** the number of traffic classes can be specified with the parameter of the time aware shaper -> check out the showcase -> actually earlier
+
+The Configuration
+~~~~~~~~~~~~~~~~~
+
+The showcase uses the following network:
 
 .. figure:: media/Network.png
    :align: center
 
-There are four applications in the network creating two independent data streams
-between the client and the server. The data rate of both streams are ~48 Mbps at
-the application level in the client.
+There are three network nodes in the network. The client and the server are
+:ned:`TsnDevice` modules, and the switch is a :ned:`TsnSwitch` module. The
+links between them use 100 Mbps :ned:`EthernetLink` channels.
+
+Similarly as in the TODO showcase, we want to configure the traffic in such as way that it is only altered in the traffic shaper.
+
+Similarly to the TODO showcase, we want to observe only the effect of the credit-based shaping on the traffic. Thus our goal is
+that the traffic only gets altered in the traffic shaper, and avoid any unintended traffic shaping effect in other parts of the network.
+
+We configure two traffic source applications in the client, creating two independent data streams
+between the client and the server. The data rate of the streams are limited to 42 and 21 Mbps, 
+so that the links are not saturated.
+
+.. the application level in the client. **TODO** 42/21
 
 .. literalinclude:: ../omnetpp.ini
    :start-at: client applications
    :end-before: outgoing streams
    :language: ini
 
-The two streams have two different traffic classes: best effort and video. The
+The two streams belong to two different traffic classes: best effort and video. The
 bridging layer identifies the outgoing packets by their UDP destination port.
 The client encodes and the switch decodes the streams using the IEEE 802.1Q PCP
 field.
@@ -50,6 +113,15 @@ traffic class.
 
 Results
 -------
+
+.. figure:: media/client_shaper.png
+   :align: center
+
+.. figure:: media/shaper_both.png
+   :align: center
+
+.. figure:: media/shaper_server.png
+   :align: center
 
 The first diagram shows the data rate of the application level outgoing traffic
 in the client. The data rate varies randomly over time for both traffic classes

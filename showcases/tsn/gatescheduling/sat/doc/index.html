@@ -17,7 +17,7 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>SAT Solver based Gate Scheduling &#8212; INET 4.4.0 documentation</title>
+    <title>SAT-Solver-based Gate Schedule Configuration &#8212; INET 4.4.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="TSN Sched based Gate Scheduling" href="../../tsnsched/doc/index.html" />
-    <link rel="prev" title="Eager Gate Scheduling" href="../../eager/doc/index.html" /> 
+    <link rel="next" title="TSNsched-based Gate Scheduling" href="../../tsnsched/doc/index.html" />
+    <link rel="prev" title="Eager Gate Schedule Configuration" href="../../eager/doc/index.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
@@ -49,8 +49,8 @@
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../../../index.html">Time-Sensitive Networking</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link" href="../../index.html">Gate Scheduling</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">SAT Solver based Gate Scheduling</a>
+            <a class="mdl-navigation__link" href="../../index.html">Automatic Gate Schedule Configuration</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">SAT-Solver-based Gate Schedule Configuration</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -118,10 +118,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Gate Scheduling</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Automatic Gate Schedule Configuration</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -417,10 +417,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Gate Scheduling</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Automatic Gate Schedule Configuration</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -680,10 +680,11 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="sat-solver-based-gate-scheduling">
-<h1>SAT Solver based Gate Scheduling<a class="headerlink" href="#sat-solver-based-gate-scheduling" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="sat-solver-based-gate-schedule-configuration">
+<h1>SAT-Solver-based Gate Schedule Configuration<a class="headerlink" href="#sat-solver-based-gate-schedule-configuration" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>This showcase demonstrates a gate schedule configurator that solves the autoconfiguration problem using a multivariate linear inequality system, directly producing the gate control lists from the variables.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/tree/master/showcases/tsn/gatescheduling/sat">inet/showcases/tsn/gatescheduling/sat</a></div>
@@ -691,9 +692,121 @@ Show Source
 </div>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>The simulation uses the following network:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/Network18.png" src="../../../../../_images/Network18.png" />
+</div>
+<p>Here is the configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[SAT]</span>
+<span class="na">network</span> <span class="o">=</span> <span class="s">inet.networks.tsn.TsnDumbbellNetwork</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Z3 SAT based gate scheduling&quot;</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">0.2s</span>
+<span class="na">record-eventlog</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="na">*.switch1.typename</span> <span class="o">=</span> <span class="s">&quot;TsnSwitch1&quot;</span>
+<span class="na">*.switch2.typename</span> <span class="o">=</span> <span class="s">&quot;TsnSwitch2&quot;</span>
+
+<span class="c1"># client applications</span>
+<span class="na">*.client*.numApps</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.client*.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSourceApp&quot;</span>
+<span class="na">*.client*.app[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
+<span class="na">*.client*.app[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
+<span class="na">*.client*.app[0].io.destAddress</span> <span class="o">=</span> <span class="s">&quot;server1&quot;</span>
+<span class="na">*.client*.app[1].io.destAddress</span> <span class="o">=</span> <span class="s">&quot;server2&quot;</span>
+<span class="na">*.client1.app[0].io.destPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">*.client1.app[1].io.destPort</span> <span class="o">=</span> <span class="s">1002</span>
+<span class="na">*.client2.app[0].io.destPort</span> <span class="o">=</span> <span class="s">1001</span>
+<span class="na">*.client2.app[1].io.destPort</span> <span class="o">=</span> <span class="s">1003</span>
+<span class="na">*.client*.app[*].source.packetNameFormat</span> <span class="o">=</span> <span class="s">&quot;%M-%m-%c&quot;</span>
+<span class="na">*.client*.app[0].source.packetLength</span> <span class="o">=</span> <span class="s">1000B</span>
+<span class="na">*.client*.app[1].source.packetLength</span> <span class="o">=</span> <span class="s">500B</span>
+<span class="na">*.client*.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">500us </span><span class="c1"># ~16Mbps</span>
+<span class="na">*.client*.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">250us </span><span class="c1"># ~16Mbps</span>
+
+<span class="c1"># server applications</span>
+<span class="na">*.server*.numApps</span> <span class="o">=</span> <span class="s">4</span>
+<span class="na">*.server*.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSinkApp&quot;</span>
+<span class="na">*.server*.app[0..1].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
+<span class="na">*.server*.app[2..3].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
+<span class="na">*.server*.app[0].io.localPort</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">*.server*.app[1].io.localPort</span> <span class="o">=</span> <span class="s">1001</span>
+<span class="na">*.server*.app[2].io.localPort</span> <span class="o">=</span> <span class="s">1002</span>
+<span class="na">*.server*.app[3].io.localPort</span> <span class="o">=</span> <span class="s">1003</span>
+
+<span class="c1"># enable outgoing streams</span>
+<span class="na">*.client*.hasOutgoingStreams</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c1"># client stream identification</span>
+<span class="na">*.client*.bridging.streamIdentifier.identifier.mapping</span> <span class="o">=</span> <span class="s">[{stream: &quot;best effort&quot;, packetFilter: expr(udp.destPort == 1000)},</span>
+<span class="s">                                                          {stream: &quot;video&quot;, packetFilter: expr(udp.destPort == 1002)},</span>
+<span class="s">														  {stream: &quot;best effort&quot;, packetFilter: expr(udp.destPort == 1001)},</span>
+<span class="s">														  {stream: &quot;video&quot;, packetFilter: expr(udp.destPort == 1003)}]</span>
+
+<span class="c1"># client stream encoding</span>
+<span class="na">*.client*.bridging.streamCoder.encoder.mapping</span> <span class="o">=</span> <span class="s">[{stream: &quot;best effort&quot;, pcp: 0},</span>
+<span class="s">                                                  {stream: &quot;video&quot;, pcp: 4}]</span>
+
+<span class="c1"># enable streams</span>
+<span class="na">*.switch*.hasIncomingStreams</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.switch*.hasOutgoingStreams</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="na">*.switch*.bridging.streamCoder.decoder.mapping</span> <span class="o">=</span> <span class="s">[{pcp: 0, stream: &quot;best effort&quot;},</span>
+<span class="s">                                                  {pcp: 4, stream: &quot;video&quot;}]</span>
+
+<span class="na">*.switch*.bridging.streamCoder.encoder.mapping</span> <span class="o">=</span> <span class="s">[{stream: &quot;best effort&quot;, pcp: 0},</span>
+<span class="s">                                                  {stream: &quot;video&quot;, pcp: 4}]</span>
+
+<span class="c1"># enable incoming streams</span>
+<span class="na">*.server*.hasIncomingStreams</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c1"># enable egress traffic shaping</span>
+<span class="na">*.switch*.hasEgressTrafficShaping</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c1"># time-aware traffic shaping with 2 queues</span>
+<span class="na">*.switch*.eth[*].macLayer.queue.numTrafficClasses</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">*.switch*.eth[*].macLayer.queue.queue[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
+<span class="na">*.switch*.eth[*].macLayer.queue.queue[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
+
+<span class="c1"># automatic gate scheduling</span>
+<span class="na">*.gateScheduleConfigurator.typename</span> <span class="o">=</span> <span class="s">&quot;Z3GateScheduleConfigurator&quot;</span>
+<span class="na">*.gateScheduleConfigurator.gateCycleDuration</span> <span class="o">=</span> <span class="s">1ms</span>
+<span class="c1"># 58B = 8B (UDP) + 20B (IP) + 4B (802.1 Q-TAG) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
+<span class="na">*.gateScheduleConfigurator.configuration</span> <span class="o">=</span><span class="s"></span>
+<span class="s">   [{pcp: 0, gateIndex: 0, application: &quot;app[0]&quot;, source: &quot;client1&quot;, destination: &quot;server1&quot;, packetLength: 1000B + 58B, packetInterval: 500us, maxLatency: 500us},</span>
+<span class="s">    {pcp: 4, gateIndex: 1, application: &quot;app[1]&quot;, source: &quot;client1&quot;, destination: &quot;server2&quot;, packetLength: 500B + 58B, packetInterval: 250us, maxLatency: 500us},</span>
+<span class="s">    {pcp: 0, gateIndex: 0, application: &quot;app[0]&quot;, source: &quot;client2&quot;, destination: &quot;server1&quot;, packetLength: 1000B + 58B, packetInterval: 500us, maxLatency: 500us},</span>
+<span class="s">    {pcp: 4, gateIndex: 1, application: &quot;app[1]&quot;, source: &quot;client2&quot;, destination: &quot;server2&quot;, packetLength: 500B + 58B, packetInterval: 250us, maxLatency: 500us}]</span>
+
+<span class="c1"># gate scheduling visualization</span>
+<span class="na">*.visualizer.gateScheduleVisualizer.displayGateSchedules</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.visualizer.gateScheduleVisualizer.displayDuration</span> <span class="o">=</span> <span class="s">100us</span>
+<span class="na">*.visualizer.gateScheduleVisualizer.gateFilter</span> <span class="o">=</span> <span class="s">&quot;*.switch1.eth[2].** or *.switch2.eth[0].**.transmissionGate[0] or *.switch2.eth[1].**.transmissionGate[1]&quot;</span>
+<span class="na">*.visualizer.gateScheduleVisualizer.height</span> <span class="o">=</span> <span class="s">16</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>A gate cycle of 1ms is displayed on the following sequence chart. Note that the time efficiency of the gate schedules is even better than in the <cite>Eager</cite> case:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/seqchart1.png" src="../../../../../_images/seqchart1.png" />
+</div>
+<p>The application end-to-end delay for the different traffic classes is displayed on the following chart:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/delay3.png" src="../../../../../_images/delay3.png" />
+</div>
+<p>The delay is constant for every packet, and within the specified constraint of 500us. Note that the traffic delay is symmetric among the different source and sink combinations (in contrast with the <cite>Eager</cite> case).</p>
+<p>The next sequence chart excerpt displays one packet as it travels from the packet source to the packet sink, with the delay indicated:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/seqchart_delay.png" src="../../../../../_images/seqchart_delay.png" />
+</div>
+<p>All packets have the exact same delay, which can be calculated analytically: <code class="docutils literal notranslate"><span class="pre">(propagation</span> <span class="pre">time</span> <span class="pre">+</span> <span class="pre">transmission</span> <span class="pre">time)</span> <span class="pre">*</span> <span class="pre">3</span></code> (queueing time is zero).
+Inserting the values of 84.64 us transmission time and 0.05 us propagation time per link, the delay is 254.07 us for the best effort traffic category.</p>
+<p>The following charts compare the SAT-based and Eager gate schedule configurators in terms of application end-to-end delay:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/delay_comp.png" src="../../../../../_images/delay_comp.png" />
+</div>
+<p>The difference is that in case of the SAT-based gate schedule configurator, all flows in a given traffic class have the same constant delay; in case of the eager configurator’s delay, some streams have more delay than others.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/b07d203c6a98b6856b7c6e9a750edadf/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a></p>
 </div>
 <div class="section" id="discussion">
@@ -711,7 +824,7 @@ Show Source
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">SAT Solver based Gate Scheduling</a><ul>
+<li><a class="reference internal" href="#">SAT-Solver-based Gate Schedule Configuration</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
 <li><a class="reference internal" href="#the-model">The Model</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
@@ -730,14 +843,14 @@ Show Source
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Eager Gate Scheduling</div>
+            <div>Eager Gate Schedule Configuration</div>
          </div>
      </a>
      <a id="button-next" href="../../tsnsched/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>TSN Sched based Gate Scheduling</div>
+            <div>TSNsched-based Gate Scheduling</div>
         </div>
      </a>
   </div>

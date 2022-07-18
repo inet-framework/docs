@@ -118,10 +118,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -417,10 +417,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -709,13 +709,13 @@ time-aware shaping requires synchronized clocks throughout the network.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Gate scheduling can be a complex problem, especially in a larger network. In INET, various gate scheduling configurators can automate
-this task, see the TSN <a class="reference internal" href="../../../gatescheduling/index.html"><span class="doc">Gate Scheduling</span></a> showcases. In this example simulation, we use a simple schedule that we can configure by hand.</p>
+this task, see the TSN <a class="reference internal" href="../../../gatescheduling/index.html"><span class="doc">Automatic Gate Schedule Configuration</span></a> showcases. In this example simulation, we use a simple schedule that we can configure by hand.</p>
 </div>
 <p>In INET, the Time-aware shaping is implemented by the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module. This is a queue module that can be configured to replace the default simple queue
 in the MAC submodule of modular Ethernet interfaces (such as <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.LayeredEthernetInterface.html">LayeredEthernetInterface</a>). The shaper has multiple sub-queues and corresponding gate submodules, one for each
-traffic priority class. This number can be configured with the <code class="code literal-ini docutils literal notranslate"><span class="pre">numTrufficClasses</span></code> parameter of the shaper. By default, it has eight traffic classes, as per the IEEE 802.1Q
+traffic priority class. This number can be configured with the <code class="code literal-ini docutils literal notranslate"><span class="pre">numTrafficClasses</span></code> parameter of the shaper. By default, it has eight traffic classes, as per the IEEE 802.1Q
 standard.</p>
-<p>Here is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module with two traffic classes (instead of the default eight), as used in the example simulation:</p>
+<p>Here is an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module with two traffic classes (instead of the default eight), as used in the example simulation:</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/tas.png" src="../../../../../_images/tas.png" />
 </div>
@@ -734,27 +734,27 @@ standard.</p>
 </ul>
 <p>The complete period of the gate is the sum of the intervals specified with the <code class="code literal-ini docutils literal notranslate"><span class="pre">durations</span></code> parameter.</p>
 <p>Time-aware shaping functionality can be added to a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> by setting the <code class="code literal-ini docutils literal notranslate"><span class="pre">hasEgressTrafficShaping</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This setting replaces the default queue with
-a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> in all Ethernet interfaces in the switch.</p>
+an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> in all Ethernet interfaces in the switch.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Setting this parameter only adds the possibility of Time-aware shaping to the switch. To use it, gate schedules need to be configured.
+<p>Setting this parameter only adds the option of Time-aware shaping to the switch. To use it, gate schedules need to be configured.
 This is because, by default, the gates are always open; thus, without any configuration, the shaper works as a priority queue, where frames are prioritized by PCP.</p>
 </div>
 </div>
 <div class="section" id="visualizing-gate-schedules">
 <h3>Visualizing Gate Schedules<a class="headerlink" href="#visualizing-gate-schedules" title="Permalink to this headline">¶</a></h3>
-<p>The configured gate schedules can be visualized with the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.common.GateScheduleVisualizer.html">GateScheduleVisualizer</a> module. It displays a gate schedule in time, as a colored bar near the network node containing the gate, on the top-level canvas (by default, to the right). The horizontal axis of the bar is time, and the current time is indicated by a dashed vertical line in the center. The gate schedule is displayed as color-coded blocks on the bar. Green blocks signify the open, and red blocks the closed gate state. The blocks move to the right with simulation time, so that the current time is in the center, the past is to the left, and the future is to the right. Thus the visualization shows if the gate is currently open or closed, and when in the future it will change state.</p>
-<p>The visualization can be enabled by setting the visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">displayGates</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By default, it displays all gates in the network, but this can be narrowed with the
+<p>The configured gate schedules can be visualized with the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.common.GateScheduleVisualizer.html">GateScheduleVisualizer</a> module. It displays a gate schedule in time, as a colored bar near the network node containing the gate, on the top-level canvas (by default, to the right). The horizontal axis of the bar is time, and the current time is indicated by a dashed vertical line in the center. The gate schedule is displayed as color-coded blocks on the bar. Green blocks signify the open, and red blocks the closed gate state. The blocks move to the right with simulation time, so that the current time is in the center, the past is to the left, and the future is to the right. Thus, the visualization shows if the gate is currently open or closed, and when it will change state in the future.</p>
+<p>The visualization can be enabled by setting the visualizer’s <code class="code literal-ini docutils literal notranslate"><span class="pre">displayGates</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. By default, it displays all gates in the network, but this can be narrowed down with the
 <code class="code literal-ini docutils literal notranslate"><span class="pre">gateFilter</span></code> parameter.</p>
 <p>For example, two gates in the same interface are visualized on the image below:</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/gatevisualizer.png" src="../../../../../_images/gatevisualizer.png" />
 </div>
 <p>This visualization can be useful for an overview of gate schedules in the network, troubleshooting configurations and understanding what is happening
-in the network pertaining to gate schedules.</p>
+in the network regarding gate schedules.</p>
 </div>
-<div class="section" id="relationship-with-other-traffic-shapers">
-<h3>Relationship with Other Traffic Shapers<a class="headerlink" href="#relationship-with-other-traffic-shapers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="relationship-to-other-traffic-shapers">
+<h3>Relationship to Other Traffic Shapers<a class="headerlink" href="#relationship-to-other-traffic-shapers" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> makes it possible to add the time-aware shaping feature to other traffic shapers, such as the Credit-based shaper and the Asynchronous shaper.
 For more information, check out the <a class="reference internal" href="../../creditbasedshaper/doc/index.html"><span class="doc">Credit-Based Shaping</span></a> and the <a class="reference internal" href="../../asynchronousshaper/doc/index.html"><span class="doc">Asynchronous Shaping</span></a> showcases.</p>
 </div>
@@ -764,12 +764,12 @@ For more information, check out the <a class="reference internal" href="../../cr
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The
 links between them use 100 Mbps <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetLink.html">EthernetLink</a> channels:</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/Network24.png" src="../../../../../_images/Network24.png" />
+<img alt="../../../../../_images/Network27.png" src="../../../../../_images/Network27.png" />
 </div>
 <p>We configure the client to send traffic to the server, and enable time-aware traffic shaping in the switch.</p>
 <p>In this simulation, we want to focus on how the Time-aware shaper works, and avoid any unintended traffic shaping effects by other parts of the network (such as traffic being limited
-by the bandwidth of a link). Thus our goal is for the traffic to be only altered in the shaper, but be relatively unchanged everywhere else from the source to the destination application.</p>
-<p>Two applications in the client create two different priority data streams, video and best effort. The data rates of the two categories fluctuate around an average nominal value, 40Mbps and 20Mbps, respectively. Note that this traffic doesn’t saturate the link. Also, sometimes the data rate of the streams can be higher during a given time period, because it is specified by a distribution with the average values mentioned above. This excess traffic is held up in the shaper to limit traffic to the nominal value:</p>
+by the bandwidth of a link). Our goal is for the traffic to be only altered in the shaper, but be relatively unchanged everywhere else from the source to the destination application.</p>
+<p>Two applications in the client create two different priority data streams: video and best effort. The data rates of the two categories fluctuate around an average nominal value, 40Mbps and 20Mbps, respectively. Note that this traffic doesn’t saturate the link. Also, sometimes the data rate of the streams can be higher during a given time period, because it is specified by a distribution with the average values mentioned above. This excess traffic is held up in the shaper to limit traffic to the nominal value:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># client applications</span>
 <span class="na">*.client.numApps</span> <span class="o">=</span> <span class="s">2</span>
 <span class="na">*.client.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSourceApp&quot;</span>
@@ -791,9 +791,9 @@ by the bandwidth of a link). Thus our goal is for the traffic to be only altered
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We set different destination ports for the two UDP applications, so that packets can be assigned to streams based on destination port later.</p>
+<p>We set different destination ports for the two UDP applications, so that packets can be assigned to streams by destination port later.</p>
 </div>
-<p>In the client, we want packets from the two applications to belong to two different traffic classes: best effort and video.
+<p>In the client, we want packets from the two applications to be classified into two different traffic classes: best effort and video.
 To this end, we use <cite>stream identification</cite> in the client to assign packets to named streams (<code class="docutils literal notranslate"><span class="pre">&quot;best</span> <span class="pre">effort&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;video&quot;</span></code>), based on destination port. Based on the stream name,
 we use <cite>stream encoding</cite> to assign the streams to traffic classes using PCP numbers.</p>
 <p>The stream identification and stream encoding features can be enabled in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> by setting its <code class="code literal-ini docutils literal notranslate"><span class="pre">hasOutgoingStreams</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>. We do this in the client:</p>
@@ -831,7 +831,7 @@ where both streams pass through. We enable egress traffic shaping in the switch:
 <span class="na">*.switch.hasEgressTrafficShaping</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 </div>
-<p>This setting replaces the default queue with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module in the MAC layer of all interfaces in the switch.</p>
+<p>This setting replaces the default queue with an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module in the MAC layer of all interfaces in the switch.</p>
 <p>Let’s configure the schedules. By default, the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> has
 eight traffic classes, but we only use two. To limit the data rates in the shaper
 to 40Mbps and 20Mbps, we configure the schedules so that the best effort traffic class
@@ -869,7 +869,18 @@ and the switch sends two video packets. Note that during this time, both best ef
 <li><p>The data rate of the same stream is higher in the traffic shaper because the measurement includes protocol headers as well as application data.</p></li>
 <li><p>The two traffic classes are sent from the client to the switch mixed together, so they affect each other (e.g. a best effort frame might have to wait for a video frame to finish transmitting).</p></li>
 </ul>
-<p>Thus the traffic is mostly unchanged when it arrives at the shaper, so we can observe the shaper’s effect on the traffic.</p>
+<p>Thus the traffic is mostly unchanged when it arrives at the shaper, so we can observe the shaper’s effect on the traffic.
+The next diagram shows the data rate of the incoming and outgoing traffic in the shaper:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/ShaperBoth.png" src="../../../../../_images/ShaperBoth.png" />
+</div>
+<p>The shaper limits the data rate to the specified values.</p>
+<p>The following sequence chart displays a duration of two gate cycles (20ms). Blue packets are best effort, red ones are video:</p>
+<div class="figure align-center">
+<img alt="showcases/tsn/trafficshaping/timeawareshaper/doc/media/elog.png" src="showcases/tsn/trafficshaping/timeawareshaper/doc/media/elog.png" />
+</div>
+<p>The packets are sent by the client in random intervals. However, they are forwarded by the switch according to the configured gate schedule (in the first cycle, 0-4ms: best effort, 4-6ms: video, 6-10ms: closed).
+Note that there are less packets in the queues in the first cycle than in the second, thus traffic sent by the switch doesn’t fill the send windows entirely in the first cycle.</p>
 <p>The next diagram shows the queue lengths of the traffic classes in the outgoing
 network interface of the switch. The queue lengths increase over time, because
 packets are not dropped, and the incoming data rate of the shaper is on average
@@ -904,7 +915,8 @@ dips when the unshaped traffic is lower. Also, the data rate is very similar in 
 <img alt="../../../../../_images/TrafficShaperOutgoingServer.png" src="../../../../../_images/TrafficShaperOutgoingServer.png" />
 </div>
 <p>To sum it up, in this scenario, the traffic originating from the sender application
-stays more or less identical up until the shaper. After shaping, it stays identical up to the receiver application.
+stays more or less identical up until the shaper. The shaper forwards packets according to the configured gate
+schedules, and this limits the average data rate of the two streams to the specified values. After shaping, the traffic stays identical up to the receiver application.
 It only changes significantly in the shaper.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/865b9b828ca89bf7ce855f54bad9438f/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a></p>
 </div>
@@ -928,7 +940,7 @@ It only changes significantly in the shaper.</p>
 <li><a class="reference internal" href="#the-model">The Model</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#visualizing-gate-schedules">Visualizing Gate Schedules</a></li>
-<li><a class="reference internal" href="#relationship-with-other-traffic-shapers">Relationship with Other Traffic Shapers</a></li>
+<li><a class="reference internal" href="#relationship-to-other-traffic-shapers">Relationship to Other Traffic Shapers</a></li>
 <li><a class="reference internal" href="#the-configuration">The Configuration</a></li>
 </ul>
 </li>

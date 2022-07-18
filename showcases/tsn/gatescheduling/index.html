@@ -17,7 +17,7 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>Gate Scheduling &#8212; INET 4.4.0 documentation</title>
+    <title>Automatic Gate Schedule Configuration &#8212; INET 4.4.0 documentation</title>
 
     <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -39,7 +39,7 @@
     <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Eager Gate Scheduling" href="eager/doc/index.html" />
+    <link rel="next" title="Eager Gate Schedule Configuration" href="eager/doc/index.html" />
     <link rel="prev" title="Peeking Under the Hood" href="../trafficshaping/underthehood/doc/index.html" /> 
   </head>
 <body>
@@ -49,7 +49,7 @@
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../index.html">Time-Sensitive Networking</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Gate Scheduling</a>
+            <a class="mdl-navigation__link is-active">Automatic Gate Schedule Configuration</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -117,10 +117,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -416,10 +416,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -679,15 +679,26 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="gate-scheduling">
-<h1>Gate Scheduling<a class="headerlink" href="#gate-scheduling" title="Permalink to this headline">¶</a></h1>
-<p>TODO</p>
+  <div class="section" id="automatic-gate-schedule-configuration">
+<h1>Automatic Gate Schedule Configuration<a class="headerlink" href="#automatic-gate-schedule-configuration" title="Permalink to this headline">¶</a></h1>
+<p>In time-aware shaping, gate schedules (i.e. when the gates corresponding to different traffic categories are open or closed) can be specified manually. This might be sufficient in some simple cases.
+However, in complex cases, manually calculating gate schedules may be impossible, thus automation may be required. Gate schedule configurators can be used for this purpose.</p>
+<p>One needs to specify constraints for the different traffic categories, such as maximum delay,
+and the configurator automatically calculates and configures the gate schedules that satisfy
+these constraints.</p>
+<p>Currently, INET contains three gate scheduling configurator models:</p>
+<ul class="simple">
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.configurator.gatescheduling.common.EagerGateScheduleConfigurator.html">EagerGateScheduleConfigurator</a>: This is a simple model, which eagerly allocates the gate schedule. It can fail even in cases where a solution exists.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.configurator.gatescheduling.z3.Z3GateScheduleConfigurator.html">Z3GateScheduleConfigurator</a>: This uses a SAT-solver-based method to find solutions that satisfy the latency and jitter requirements.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.configurator.gatescheduling.common.TSNschedGateScheduleConfigurator.html">TSNschedGateScheduleConfigurator</a>: This uses an external</p></li>
+</ul>
+<p>tool instead of the built-in functionality.</p>
 <p>The following showcases demonstrate gate scheduling for time-aware shaping:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </div>
 </div>
@@ -712,7 +723,7 @@ Show Source
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Eager Gate Scheduling</div>
+            <div>Eager Gate Schedule Configuration</div>
         </div>
      </a>
   </div>

@@ -118,10 +118,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -417,10 +417,10 @@ Show Source
 <li class="toctree-l4"><a class="reference internal" href="../../../trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Gate Scheduling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT Solver based Gate Scheduling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSN Sched based Gate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
@@ -699,11 +699,12 @@ packet bytes over the time window, the latter drops packets in a probabilistic
 way by comparing the measured datarate to the maximum allowed datarate.</p>
 <p>Here is the network:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../../../../_images/Network17.png"><img alt="../../../../../_images/Network17.png" src="../../../../../_images/Network17.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../../_images/Network20.png"><img alt="../../../../../_images/Network20.png" src="../../../../../_images/Network20.png" style="width: 100%;" /></a>
 </div>
 <p>Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">inet.networks.tsn.TsnLinearNetwork</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">1s</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Per-stream filtering using sliding window rate metering and statistical rate limiting&quot;</span>
 
 <span class="c1"># client applications</span>
