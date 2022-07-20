@@ -787,9 +787,15 @@ instructions). The module has the same parameters as the other gate schedule con
 <span class="na">*.visualizer.gateScheduleVisualizer.height</span> <span class="o">=</span> <span class="s">16</span>
 </pre></div>
 </div>
-<p>The traffic is intentionally half as dense as in the Eager and SAT configurator showcases, due to a limitation in the SAT solver tool (currently, the tool can only find a solution
-to the autoconfiguration problem if all transmissions are completed within the gate cycle, though this can be allowed if frame transmissions don’t overlap). Another limitation is that
-currently, 12 Bytes need to be added to the packet size in the XML configuration to account for the inter-frame gap.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two changes in this configuration compared to the Eager and SAT configurator showcases, due to limitations in the SAT solver tool:</p>
+<ul class="simple">
+<li><p>The traffic is half as dense as in the Eager and SAT configurator showcases. Currently, the tool can only find a solution
+to the autoconfiguration problem if all transmissions are completed within the gate cycle (though it should be possible for the individual frame transmissions to overlap).</p></li>
+<li><p>12 Bytes need to be added to the packet size in the XML configuration to account for the inter-frame gap.</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
@@ -812,7 +818,7 @@ currently, 12 Bytes need to be added to the packet size in the XML configuration
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/TODO">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/793">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
 </div>
 </div>
 

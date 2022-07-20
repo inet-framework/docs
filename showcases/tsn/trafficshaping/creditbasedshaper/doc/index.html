@@ -685,7 +685,6 @@ Show Source
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>In this example we demonstrate how to use the credit-based traffic shaper.</p>
-<p>The Credit-Based shaper can smooth-out traffic to reduce bursting.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/tree/master/showcases/tsn/trafficshaping/creditbasedshaper">inet/showcases/tsn/trafficshaping/creditbasedshaper</a></div>
@@ -693,70 +692,15 @@ Show Source
 </div>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>the credit based shaper can be added to network interfaces as part of a Time aware shaper module</p></li>
-<li><p>the time aware shaper module is a queue in the network interface</p></li>
-<li><p>the credit based shaper can be added as the optional transmission selection algorithm submodule of the time aware shaper</p></li>
-<li><p>the credit based shaper has an IPacketGate interface/acts a packet gate module (which does what? sometimes dont let packet through?)</p></li>
-<li><p>by default, the gates of the time aware shaper are always open, so there is no time aware shaping</p></li>
-<li><p>thus its a credit based shaper that can optionally be combined with time aware shaping</p></li>
-</ul>
-<p>so</p>
-<ul class="simple">
-<li><p>the Ieee8021qCreditBasedShaper is a packet gate module, which can be combined with a packet queue to implement the credit based shaper algorithm</p></li>
-<li><p>a convenient way to add packet queues to the credit based shaper is to insert it into a time aware shaper module</p></li>
-<li><p>the time aware shaper module is a compound packet queue, that can be inserted into network interfaces</p></li>
-<li><p>it has an optional transmission selection algorithm which can be a credit based shaper</p></li>
-<li><p>by default, the time aware shaper’s gates are always open, thus there is no time aware shaping</p></li>
-<li><p>so by inserting a credit based shaper into a time aware shaper, the time aware shaping can optionally be added</p></li>
-<li><p>this for each traffic class</p></li>
-</ul>
-<p>structure</p>
-<ul class="simple">
-<li><p>what does the credit based shaper do</p></li>
-<li><p>parameters</p></li>
-<li><p>inserting</p></li>
-</ul>
-<p>The credit-based shaper can be used to smooth-out traffic and reduce bursting. The shaper maintains a credit count. It only allows frame transmission when its credit count is non-negative.
-When frames are transmitted, credit decreases until the transmission is complete. When there is no transmission, the credits accumulate. The next frame can
-only be transmitted when the credit is zero or positive. The rate of credit decrease and accumulation can be specified with parameters.</p>
-<p>In INET, the credit-based shaper is implemented by the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qCreditBasedShaper.html">Ieee8021qCreditBasedShaper</a> simple module. This is a packet gate module
-that can be combined with a packet queue to implement the credit based shaper algorithm. A convenient way to combine a credit-based shaper with queues and
-to insert it into network interfaces is to use a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a>. This module already has queue submodules, supports a configurable number
-of traffic classes, and fits into Ethernet interfaces by replacing the default packet queue module in the MAC layer of the interface.
-The credit-based shaper module takes the place of the optional <code class="docutils literal notranslate"><span class="pre">transmissionSelectionAlgorithm</span></code> submodule of the time-aware shaper:</p>
-<div class="figure align-center">
-<img alt="showcases/tsn/trafficshaping/creditbasedshaper/doc/media/timeawareshaper.png" src="showcases/tsn/trafficshaping/creditbasedshaper/doc/media/timeawareshaper.png" />
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By default, the time-aware shaper doesn’t do any time-aware shaping, as its gates are always open. Thus its possible to use the time-aware
-shaper module as only a credit-based shaper this way, or add optional time-aware shaping in addition to credit-based shaping.</p>
-</div>
-<p>The shaper has parameters for credit decrease and accumulation rate (<code class="code literal-ini docutils literal notranslate"><span class="pre">idleSlope</span></code> and <code class="code literal-ini docutils literal notranslate"><span class="pre">sendSlope</span></code>, both in Mbps),
-and max interference size, i.e. how much overlap can there be with the next frame???? <strong>TODO</strong></p>
-<blockquote>
-<div><p>initial, min and max credit count. The threshold where transmission is possible can also be specified (<code class="code literal-ini docutils literal notranslate"><span class="pre">transmitCreditLimit</span></code>).</p>
-</div></blockquote>
-<p><strong>TODO</strong> the number of traffic classes can be specified with the parameter of the time aware shaper -&gt; check out the showcase -&gt; actually earlier</p>
-</div>
-<div class="section" id="the-configuration">
-<h3>The Configuration<a class="headerlink" href="#the-configuration" title="Permalink to this headline">¶</a></h3>
-<p>The showcase uses the following network:</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/Network25.png" src="../../../../../_images/Network25.png" />
-</div>
 <p>There are three network nodes in the network. The client and the server are
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The
 links between them use 100 Mbps <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetLink.html">EthernetLink</a> channels.</p>
-<p>Similarly as in the TODO showcase, we want to configure the traffic in such as way that it is only altered in the traffic shaper.</p>
-<p>Similarly to the TODO showcase, we want to observe only the effect of the credit-based shaping on the traffic. Thus our goal is
-that the traffic only gets altered in the traffic shaper, and avoid any unintended traffic shaping effect in other parts of the network.</p>
-<p>We configure two traffic source applications in the client, creating two independent data streams
-between the client and the server. The data rate of the streams are limited to 42 and 21 Mbps,
-so that the links are not saturated.</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/Network25.png" src="../../../../../_images/Network25.png" />
+</div>
+<p>There are four applications in the network creating two independent data streams
+between the client and the server. The data rate of both streams are ~48 Mbps at
+the application level in the client.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># client applications</span>
 <span class="na">*.client.numApps</span> <span class="o">=</span> <span class="s">2</span>
 <span class="na">*.client.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSourceApp&quot;</span>
@@ -778,7 +722,7 @@ so that the links are not saturated.</p>
 <span class="na">*.server.app[1].io.localPort</span> <span class="o">=</span> <span class="s">1001</span>
 </pre></div>
 </div>
-<p>The two streams belong to two different traffic classes: best effort and video. The
+<p>The two streams have two different traffic classes: best effort and video. The
 bridging layer identifies the outgoing packets by their UDP destination port.
 The client encodes and the switch decodes the streams using the IEEE 802.1Q PCP
 field.</p>
@@ -812,18 +756,8 @@ traffic class.</p>
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center">
-<img alt="../../../../../_images/client_shaper.png" src="../../../../../_images/client_shaper.png" />
-</div>
-<div class="figure align-center">
-<img alt="../../../../../_images/shaper_both.png" src="../../../../../_images/shaper_both.png" />
-</div>
-<div class="figure align-center">
-<img alt="../../../../../_images/shaper_server.png" src="../../../../../_images/shaper_server.png" />
-</div>
 <p>The first diagram shows the data rate of the application level outgoing traffic
 in the client. The data rate varies randomly over time for both traffic classes
 but the averages are the same.</p>
@@ -878,7 +812,7 @@ are measured at different protocol layers.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/TODO">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/800">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
 </div>
 </div>
 
@@ -893,11 +827,7 @@ are measured at different protocol layers.</p>
     <ul>
 <li><a class="reference internal" href="#">Credit-Based Shaping</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
-<li><a class="reference internal" href="#the-model">The Model</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#the-configuration">The Configuration</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#the-model">The Model</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#discussion">Discussion</a></li>
 </ul>

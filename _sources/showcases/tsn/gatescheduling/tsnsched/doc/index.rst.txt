@@ -25,9 +25,11 @@ Here is the configuration:
 .. literalinclude:: ../omnetpp.ini
     :language: ini
 
-The traffic is intentionally half as dense as in the Eager and SAT configurator showcases, due to a limitation in the SAT solver tool (currently, the tool can only find a solution
-to the autoconfiguration problem if all transmissions are completed within the gate cycle, though this can be allowed if frame transmissions don't overlap). Another limitation is that
-currently, 12 Bytes need to be added to the packet size in the XML configuration to account for the inter-frame gap.
+.. note:: There are two changes in this configuration compared to the Eager and SAT configurator showcases, due to limitations in the SAT solver tool: 
+    
+          - The traffic is half as dense as in the Eager and SAT configurator showcases. Currently, the tool can only find a solution
+            to the autoconfiguration problem if all transmissions are completed within the gate cycle (though it should be possible for the individual frame transmissions to overlap). 
+          - 12 Bytes need to be added to the packet size in the XML configuration to account for the inter-frame gap.
 
 Results
 -------
@@ -58,5 +60,5 @@ Sources: :download:`omnetpp.ini <../omnetpp.ini>`
 Discussion
 ----------
 
-Use `this <https://github.com/inet-framework/inet/discussions/TODO>`__ page in the GitHub issue tracker for commenting on this showcase.
+Use `this <https://github.com/inet-framework/inet/discussions/793>`__ page in the GitHub issue tracker for commenting on this showcase.
 
