@@ -156,7 +156,6 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/relationships/doc/index.html">Understanding Measurement Relationships</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
@@ -455,7 +454,6 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/relationships/doc/index.html">Understanding Measurement Relationships</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
@@ -689,7 +687,7 @@ time-critical high-priority frames.</p>
 <p>This showcase demonstrates Ethernet frame preemption and examines the latency reduction.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.3</span></code></div>
-<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/tree/master/showcases/tsn/framepreemption">inet/showcases/tsn/framepreemption</a></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/framepreemption">inet/showcases/tsn/framepreemption</a></div>
 </div>
 </div>
 <div class="section" id="the-model">
@@ -827,6 +825,16 @@ two traffic categories.</p>
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wired.ethernet.EthernetPhyLayer.html">EthernetPhyLayer</a> modules default in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.LayeredEthernetInterface.html">LayeredEthernetInterface</a> with
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer.html">EthernetPreemptingPhyLayer</a>,
 which support preemption.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config FramePreemption]</span>
+<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Transmission of low priority frames are preempted by high priority frames&quot;</span>
+
+<span class="na">*.host*.eth[0].macLayer.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetPreemptingMacLayer&quot;</span>
+<span class="na">*.host*.eth[0].phyLayer.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetPreemptingPhyLayer&quot;</span>
+
+<span class="na">**.macLayer.*.queue.packetCapacity</span> <span class="o">=</span> <span class="s">4</span>
+<span class="na">**.macLayer.*.queue.typename</span> <span class="o">=</span> <span class="s">&quot;DropTailQueue&quot;</span>
+</pre></div>
+</div>
 <p>There is no priority queue in this configuration, the two MAC submodules both have their own queues.
 We also limit the queue length to 4, and configure the queue type to be <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.queue.DropTailQueue.html">DropTailQueue</a>.</p>
 <div class="admonition note">

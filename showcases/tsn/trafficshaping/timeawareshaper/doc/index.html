@@ -157,7 +157,6 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/relationships/doc/index.html">Understanding Measurement Relationships</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../mobility/index.html">Mobility</a><ul>
@@ -456,7 +455,6 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/relationships/doc/index.html">Understanding Measurement Relationships</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../mobility/index.html">Mobility</a><ul>
@@ -689,7 +687,7 @@ frames in time-triggered windows, and as such guarantees bounded latency for tim
 <p>In this showcase, we demonstrate how to use time-aware traffic shaping.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
-<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/tree/master/showcases/tsn/trafficshaping/timeawareshaper">inet/showcases/tsn/trafficshaping/timeawareshaper</a></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/timeawareshaper">inet/showcases/tsn/trafficshaping/timeawareshaper</a></div>
 </div>
 </div>
 <div class="section" id="the-model">
@@ -778,7 +776,7 @@ by the bandwidth of a link). Our goal is for the traffic to be only altered in t
 <span class="na">*.client.app[*].io.destAddress</span> <span class="o">=</span> <span class="s">&quot;server&quot;</span>
 <span class="na">*.client.app[0].io.destPort</span> <span class="o">=</span> <span class="s">1000</span>
 <span class="na">*.client.app[1].io.destPort</span> <span class="o">=</span> <span class="s">1001</span>
-<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B - 54B </span><span class="c1"># 42B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
+<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B - 54B </span><span class="c1"># 54B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
 <span class="na">*.client.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(200us) </span><span class="c1"># ~40Mbps</span>
 <span class="na">*.client.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(400us) </span><span class="c1"># ~20Mbps</span>
 
@@ -841,7 +839,7 @@ can transmit 40% of the time, and video traffic class 20% of the time:</p>
 <span class="na">*.switch.eth[*].macLayer.queue.*[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
 <span class="na">*.switch.eth[*].macLayer.queue.*[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[0].offset</span> <span class="o">=</span> <span class="s">0ms</span>
-<span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[0].durations</span> <span class="o">=</span> <span class="s">[4ms, 6ms] </span><span class="c1"># period is 10 # length of periods</span>
+<span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[0].durations</span> <span class="o">=</span> <span class="s">[4ms, 6ms] </span><span class="c1"># period is 10</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[1].offset</span> <span class="o">=</span> <span class="s">6ms</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[1].durations</span> <span class="o">=</span> <span class="s">[2ms, 8ms]</span>
 </pre></div>
