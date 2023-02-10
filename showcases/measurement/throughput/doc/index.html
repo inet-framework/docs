@@ -149,7 +149,7 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -447,7 +447,7 @@ Show Source
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -694,7 +694,7 @@ transmission mediums.</p>
 through the transmission medium over time. For both wired and wireless channels,
 the throughput is measured for any pair of communicating network interfaces,
 separately for both directions.</p>
-<p>Channel throughput is a statistic of transmitter modules, such as the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.transceiver.PacketTransmitter.html">PacketTransmitter</a> in <span class="reference-ned">LayeredEthernetPhy</span>.
+<p>Channel throughput is a statistic of transmitter modules, such as the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.transceiver.PacketTransmitter.html">PacketTransmitter</a> in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wired.ethernet.EthernetPhyLayer.html">EthernetPhyLayer</a>.
 Throughput is measured with a sliding window. By default, the window is 0.1s or 100 packets, whichever comes first.
 The parameters of the window, such as the window interval, are configurable from the ini file, as <code class="docutils literal notranslate"><span class="pre">module.statistic.parameter</span></code>. For example:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host.eth[0].phyLayer.transmitter.throughput.interval</span> <span class="o">=</span> <span class="s">0.2s</span>
@@ -738,7 +738,7 @@ The parameters of the window, such as the window interval, are configurable from
 <div class="figure align-center">
 <img alt="../../../../_images/throughput.png" src="../../../../_images/throughput.png" />
 </div>
-<p><strong>TODO</strong> is there an emitting frequency?</p>
+<p>The frequency of data points is denser than 0.1s, so the statistic is emitted more frequently, after 100 packets.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/f30657204540975e04e5aa4b5c08b76a/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/ed87815ae269d61b9472db3d22328c85/ChannelThroughputMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">ChannelThroughputMeasurementShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">

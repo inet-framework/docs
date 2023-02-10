@@ -149,7 +149,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -447,7 +447,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -796,28 +796,14 @@ signal of the radio medium module as input:</p>
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayGroundReflection.html">TwoRayGroundReflection</a>, and
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.TwoRayInterference.html">TwoRayInterference</a> path loss module types, is displayed on the
 following plot:</p>
-<a class=""
-               data-lightbox="group-f89cc380-626b-4c77-8b9f-d9c32737082f"
-               href="../../../../_images/tworay1.svg"
-               title=""
-               data-title=""
-               ><img src="../../../../_images/tworay1.svg"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><p>Here is the same plot zoomed in:</p>
-<a class=""
-               data-lightbox="group-ad14f2cd-d1ec-4ba8-a9e1-5ed9ac72dac8"
-               href="../../../../_images/tworay21.svg"
-               title=""
-               data-title=""
-               ><img src="../../../../_images/tworay21.svg"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><p>It is apparent that the two-ray ground reflection model yields the same
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/tworay.png"><img alt="../../../../_images/tworay.png" src="../../../../_images/tworay.png" style="width: 100%;" /></a>
+</div>
+<p>Here is the same plot zoomed in:</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/tworay_zoomed.png"><img alt="../../../../_images/tworay_zoomed.png" src="../../../../_images/tworay_zoomed.png" style="width: 100%;" /></a>
+</div>
+<p>It is apparent that the two-ray ground reflection model yields the same
 values as the free space path loss model, up until the cross-over
 distance. After that point, the two curves diverge. The power of the
 two-ray interference model fluctuates in the near-field and converges
@@ -827,30 +813,16 @@ propagation simulations.</p>
 <p>The next plot displays the power of the received signal vs. distance
 using the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.RicianFading.html">RicianFading</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.LogNormalShadowing.html">LogNormalShadowing</a> models, and the
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss.html">FreeSpacePathLoss</a> model for reference:</p>
-<a class=""
-               data-lightbox="group-46c871b0-7a79-4189-bf7d-52f601263efb"
-               href="../../../../_images/ricianlognormal1.svg"
-               title=""
-               data-title=""
-               ><img src="../../../../_images/ricianlognormal1.svg"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><p>The sharp visual change in the “raggedness” of the curves near 100m is
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/ricianlognormal.png"><img alt="../../../../_images/ricianlognormal.png" src="../../../../_images/ricianlognormal.png" style="width: 100%;" /></a>
+</div>
+<p>The sharp visual change in the “raggedness” of the curves near 100m is
 due to the data points becoming less dense. Here is the same plot zoomed
 in on the near-field:</p>
-<a class=""
-               data-lightbox="group-582f1dfc-7773-4aad-9e9f-4b8391a8c47c"
-               href="../../../../_images/ricianlognormal21.svg"
-               title=""
-               data-title=""
-               ><img src="../../../../_images/ricianlognormal21.svg"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/a3cdb38685bbb6d9a3e91a15e5e30c2a/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/37c2522f4ab001fa97a14511ef789a84/PathLossShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">PathLossShowcase.ned</span></code></a></p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/ricianlognormal_zoomed.png"><img alt="../../../../_images/ricianlognormal_zoomed.png" src="../../../../_images/ricianlognormal_zoomed.png" style="width: 100%;" /></a>
+</div>
+<p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/a3cdb38685bbb6d9a3e91a15e5e30c2a/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/37c2522f4ab001fa97a14511ef789a84/PathLossShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">PathLossShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="further-information">
 <h2>Further Information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>

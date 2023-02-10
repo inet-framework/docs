@@ -150,7 +150,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -448,7 +448,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -735,6 +735,9 @@ field.</p>
 <span class="c1"># client stream encoding</span>
 <span class="na">*.client.bridging.streamCoder.encoder.mapping</span> <span class="o">=</span> <span class="s">[{stream: &quot;best effort&quot;, pcp: 0},</span>
 <span class="s">                                                 {stream: &quot;video&quot;, pcp: 4}]</span>
+
+<span class="c1"># disable forwarding IEEE 802.1Q C-Tag</span>
+<span class="na">*.switch.bridging.directionReverser.reverser.excludeEncapsulationProtocols</span> <span class="o">=</span> <span class="s">[&quot;ieee8021qctag&quot;]</span>
 
 <span class="c1"># switch stream decoding</span>
 <span class="na">*.switch.bridging.streamCoder.decoder.mapping</span> <span class="o">=</span> <span class="s">[{pcp: 0, stream: &quot;best effort&quot;},</span>

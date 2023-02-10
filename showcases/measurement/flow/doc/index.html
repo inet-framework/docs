@@ -149,7 +149,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -447,7 +447,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -703,7 +703,6 @@ A packet flow is defined by a label that is added to some packets. The label con
 <p class="admonition-title">Note</p>
 <p>A practical problem is that different parts of a packet may have different history, due to fragmentation and reassembly, for example. Therefore, we need to keep track of the measurements for different regions of the packet. For this purpose, each bit in a packet can have its own meta-information associating it to a flow, called a <cite>region tag</cite>. For more information on region tags, check out the <a class="reference internal" href="../../../../developers-guide/ch-packets.html#dg-sec-packets-region-tagging"><span class="std std-ref">Region Tagging</span></a> section of the INET Developer’s Guide.</p>
 </div>
-<p><strong>TODO</strong> more about the available statistics in FlowMeasurementRecorder.ned ?</p>
 </div>
 <div class="section" id="the-measurement-modules">
 <h3>The Measurement Modules<a class="headerlink" href="#the-measurement-modules" title="Permalink to this headline">¶</a></h3>
@@ -718,11 +717,12 @@ A packet flow is defined by a label that is added to some packets. The label con
 <p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> module removes flow labels from packets by default. This is contolled by the <code class="code literal-ini docutils literal notranslate"><span class="pre">endMeasurement</span></code> parameter (<code class="docutils literal notranslate"><span class="pre">true</span></code> by default).</p>
 <p>Some notes:</p>
 <ul class="simple">
-<li><p>Evaluating the measured data when there is cut-through switching or intra-node packet streaming in the network can be more complex than if there is not. This is because measurements are recorded on a per-bit basis, and the transmission time can be different for each bit if there is packet streaming in the network. Also, bits waiting in the transmitter for other bits of a packet to be transmitted and received is only included in the elapsed time measurement. Because of this, the sum of all other measurements might not be equal to the elapsed time. For more information, see the <strong>TODO</strong> section in the INET manual.</p></li>
+<li><p>Evaluating the measured data when there is cut-through switching or intra-node packet streaming in the network can be more complex than if there is not. This is because measurements are recorded on a per-bit basis, and the transmission time can be different for each bit if there is packet streaming in the network. Also, bits waiting in the transmitter for other bits of a packet to be transmitted and received is only included in the elapsed time measurement. Because of this, the sum of all other measurements might not be equal to the elapsed time.</p></li>
+</ul>
+<ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">packetEvent</span></code> measurement is special, because it records the history of the packet as it travels through the network, instead of taking a specific measurement. For example, it records events of the packet’s delaying, queueing, processing, transmission, etc. There is no built-in module that makes use of the packet event measurement data, this can be implemented by the user. This can be useful for more detailed analysis based on a packet’s history.</p></li>
 <li><p>Although both the measurement starter and recorder modules have a <code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter, its meaning is slightly different. For the measurement starter module, the parameter specifies which measurement data to include in the attached flow tag. For the measurement recorder module, it specifies which measurements to record as statistics. Generally, the parameter values for the recorder module should be the same or a subset of the starter module’s parameters. If a recorder module is configured to record a measurement that isn’t on the packet (not set to record in the starter module), the measurement silently fails. Thus it is the user’s responsibility to set up the <code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameters properly.</p></li>
 </ul>
-<p><strong>TODO</strong> is the first point still valid?</p>
 </div>
 <div class="section" id="adding-measurement-modules-to-the-network">
 <h3>Adding Measurement Modules to the Network<a class="headerlink" href="#adding-measurement-modules-to-the-network" title="Permalink to this headline">¶</a></h3>
@@ -784,13 +784,19 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <p class="admonition-title">Note</p>
 <p>A packet can be part of several flows to enable different measurements. For example in the image above, each of the four flows originating from the clients are also part of the flow between the two switches.</p>
 </div>
-<p>Let’s see how we set up these flows. The UDP apps in the clients and servers are the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpApp.html">UdpApp</a> type, i.e. the modular UDP app. This module has an optional <code class="docutils literal notranslate"><span class="pre">outbound</span></code> submodule that we can specify in the .INI file to be a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in the clients:</p>
-<p>Here is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in the UDP app:</p>
-<div class="figure align-center" id="id6">
-<img alt="../../../../_images/Default_UdpApp3.png" src="../../../../_images/Default_UdpApp3.png" />
-<p class="caption"><span class="caption-text">Figure X. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in UDP app</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p>Let’s see how we set up these flows. The UDP apps in the clients and servers are the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSourceApp.html">UdpSourceApp</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSinkApp.html">UdpSinkApp</a> type, which are versions of the modular <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpApp.html">UdpApp</a> suitable only to work as a packet source or sink, respectively. These modules have optional <code class="docutils literal notranslate"><span class="pre">measurementStarter</span></code> and <code class="docutils literal notranslate"><span class="pre">measurementRecorder</span></code> submodules that we can enable in the .INI file. We enable the measurement starter (by setting its type to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a>) in the clients:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.app[*].measurementStarter.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementStarter&quot;</span>
+</pre></div>
 </div>
-<p>Similarly, we specify the inbound module in the server UDP apps to be a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>:</p>
+<p>Here is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in a client’s UDP app:</p>
+<div class="figure align-center" id="id6">
+<img alt="../../../../_images/Default_UdpApp4.png" src="../../../../_images/Default_UdpApp4.png" />
+<p class="caption"><span class="caption-text">Figure X. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in client UDP app</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Similarly, we enable the measurement recorder module in the server UDP apps (by setting their type to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.server*.app[*].measurementRecorder.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementRecorder&quot;</span>
+</pre></div>
+</div>
 <p>For the packet flow between the two switches, we can enable the built-in <code class="docutils literal notranslate"><span class="pre">measurementLayer</span></code> submodule of <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.switch*.eth[2].measurementLayer.typename</span> <span class="o">=</span> <span class="s">&quot;MeasurementLayer&quot;</span>
 </pre></div>
@@ -800,6 +806,29 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <p class="caption"><span class="caption-text">Figure X. <code class="docutils literal notranslate"><span class="pre">measurementLayer</span></code> in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Here is the complete flow definition configuration (including the definitions already mentioned):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.app[*].measurementStarter.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementStarter&quot;</span>
+<span class="na">*.client1.app[0].measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1&quot;</span>
+<span class="na">*.client1.app[1].measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s2&quot;</span>
+<span class="na">*.client1.app[*].measurementStarter.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+<span class="na">*.client2.app[0].measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;c2s1&quot;</span>
+<span class="na">*.client2.app[1].measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;c2s2&quot;</span>
+<span class="na">*.client2.app[*].measurementStarter.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+
+<span class="na">*.server*.app[*].measurementRecorder.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementRecorder&quot;</span>
+<span class="na">*.server1.app[0].measurementRecorder.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1 or c1s2 or c2s1 or c2s2&quot;</span>
+<span class="na">*.server1.app[1].measurementRecorder.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1 or c1s2 or c2s1 or c2s2&quot;</span>
+<span class="na">*.server1.app[*].measurementRecorder.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+<span class="na">*.server2.app[0].measurementRecorder.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1 or c1s2 or c2s1 or c2s2&quot;</span>
+<span class="na">*.server2.app[1].measurementRecorder.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1 or c1s2 or c2s1 or c2s2&quot;</span>
+<span class="na">*.server2.app[*].measurementRecorder.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+
+<span class="na">*.switch*.eth[2].measurementLayer.typename</span> <span class="o">=</span> <span class="s">&quot;MeasurementLayer&quot;</span>
+<span class="na">*.switch1.eth[2].measurementLayer.measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;sw1sw2&quot;</span>
+<span class="na">*.switch1.eth[2].measurementLayer.measurementStarter.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+<span class="na">*.switch2.eth[2].measurementLayer.measurementRecorder.flowName</span> <span class="o">=</span> <span class="s">&quot;sw1sw2&quot;</span>
+<span class="na">*.switch2.eth[2].measurementLayer.measurementRecorder.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+</pre></div>
+</div>
 <p>We set up the four flows between the clients and the servers, and also the flow between the two switches. We name flows based on source and destination node (e.g. <code class="docutils literal notranslate"><span class="pre">c1s1</span></code> for <code class="docutils literal notranslate"><span class="pre">client1-&gt;server1</span></code>). We set the measurement modules to measure the elapsed time and the queueing time. Some notes:</p>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">sw1sw2</span></code> flow is between the two switch interfaces facing each other (<code class="docutils literal notranslate"><span class="pre">eth2</span></code> in both switches), so that it’s unnecessary for the other switch interfaces to have measurement modules.</p></li>
@@ -901,7 +930,6 @@ Here is the result:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/AnyLocationBrowseData.png" src="../../../../_images/AnyLocationBrowseData.png" />
 </div>
-<p><strong>TODO</strong> need to contain both BG and VID flows; but there are NaN’s</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/83e12d34979eb4ed1d3d406d2f6f1d8d/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/2a8a5f7103dac6663561278e14d63e02/FlowMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">FlowMeasurementShowcase.ned</span></code></a></p>
 </div>
 </div>

@@ -148,7 +148,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -446,7 +446,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -1039,7 +1039,7 @@ interface to notify the parser about the packet structure.</p>
 implement a <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector::ICallback</span></code> interface. The callback
 interface will be notified for each part of the packet as the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketDissector</span></code> goes through it.</p>
-<div class="highlight-cpp notranslate" id="packet-dissection-example"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">ProtocolDissectorRegistry</span><span class="o">::</span><span class="n">globalRegistry</span><span class="p">;</span>
+<div class="highlight-cpp notranslate" id="packet-dissection-example"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">ProtocolDissectorRegistry</span><span class="o">::</span><span class="n">getInstance</span><span class="p">();</span>
 <span class="n">PacketDissector</span> <span class="nf">dissector</span><span class="p">(</span><span class="n">registry</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
 <span class="k">auto</span> <span class="n">packetProtocolTag</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">findTag</span><span class="o">&lt;</span><span class="n">PacketProtocolTag</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="k">auto</span> <span class="n">protocol</span> <span class="o">=</span> <span class="n">packetProtocolTag</span><span class="o">-&gt;</span><span class="n">getProtocol</span><span class="p">();</span>

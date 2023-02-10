@@ -148,7 +148,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -446,7 +446,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -721,8 +721,8 @@ actions.</p>
 </div>
 <div class="section" id="mac">
 <span id="ug-sec-80211-mac"></span><h2>MAC<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> module type represents the IEEE 802.11 MAC. The
-implementation is entirely based on the standard IEEE 802.11-2012 Part
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> module type represents the IEEE 802.11 MAC. The structure of the
+implementation closely follows the architecture described in the standard, IEEE 802.11-2012 Part
 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY)
 Specifications.</p>
 <p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> performs transmission of frames according to the
@@ -733,31 +733,35 @@ experimenting with new policies, features and algorithms within the MAC
 layer. Users can easily replace individual components with their own
 implementations. Policies, which most likely to be experimented with,
 are extracted into their own modules.</p>
-<p>The model has the following replaceable built-in policies:</p>
+<p>The new model also separates the following components in the 802.11 standard into modules:</p>
 <ul class="simple">
-<li><p>ACK policy</p></li>
-<li><p>RTS/CTS policy</p></li>
-<li><p>Originator and recipient block ACK agreement policies</p></li>
-<li><p>MSDU aggregation policy</p></li>
-<li><p>Fragmentation policy</p></li>
+<li><p>Coordination function: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Dcf.html">Dcf</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Hcf.html">Hcf</a>. The coordination functions control the medium access as specified by the standard.</p></li>
+<li><p>Channel access method as specified by the standard: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.channelaccess.Edca.html">Edca</a></p></li>
+<li><p>Channel access function: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.channelaccess.Edcaf.html">Edcaf</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html">Dcaf</a>. The channel access function controls channel ownership, etc.</p></li>
+<li><p>MAC data services: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService.html">OriginatorMacDataService</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService.html">RecipientMacDataService</a>, <span class="reference-ned">OriginatorQosDataService</span>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.recipient.RecipientQosMacDataService.html">RecipientQosMacDataService</a>.
+The MAC data services are implemented as compound modules, which combine functions related to transforming data frames (sequence numbering, duplicate removal, frame reordering, fragmentation, aggregation).</p></li>
+<li><p>Aggregation and deaggregation (C++ class in MAC data services): These classes implement aggregation and deaggregation according to the policy modules (see below).</p></li>
+<li><p>Fragmentation and defragmentation (C++ classes in MAC data services): These classes carry out the task of fragmentation and defragmentation according to the policy modules (see below).</p></li>
+<li><p>Block ACK agreements and frame reordering (C++ classes): These classes carry out the task according to the policy modules (see below).</p></li>
+<li><p>Frame exchange sequences (implemented as C++ classes in coordination functions, like <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.coordinationfunction.Hcf.html">Hcf</a>): These classes strictly follow the standard specifying the valid frame sequences.</p></li>
+<li><p>TXOP procedure (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.TxopProcedure.html">TxopProcedure</a>): This module implements the transmission opportunity behavior of the standard.</p></li>
+<li><p>Duplicate removal (C++ class in RecipientMacDataService): This class removes duplicate received frames based on sequence numbers.</p></li>
+<li><p>Rate selection: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.rateselection.QosRateSelection.html">QosRateSelection</a>. This module controls data rate for all kind of frames, including management and control frames.</p></li>
+<li><p>Rate control: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.ratecontrol.AarfRateControl.html">AarfRateControl</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.ratecontrol.OnoeRateControl.html">OnoeRateControl</a>. These modules determine the optimal data rate for data frames.</p></li>
+<li><p>Protection mechanism: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism.html">OriginatorProtectionMechanism</a>. This module provides channel allocation for frame exchange sequences.</p></li>
+<li><p>Recovery procedure: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure.html">NonQosRecoveryProcedure</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.QosRecoveryProcedure.html">QosRecoveryProcedure</a>. These modules determine what to do in case of frame exchange failure.</p></li>
+<li><p>Contention: <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.contention.Contention.html">Contention</a>. The contention module implements contention-based channel access, using defer, backoff, etc.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.queue.PendingQueue.html">PendingQueue</a>: This module is a queue containing frames received from higher layers, waiting for transmission unchanged.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.queue.InProgressFrames.html">InProgressFrames</a>: This modules is a queue containing frames waiting for transmission already processed by the MAC data service.</p></li>
+<li><p>TX/RX (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Tx.html">Tx</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.Rx.html">Rx</a>). Responsible for simple frame transmission/reception.</p></li>
 </ul>
-<p>The new model also separates the following components:</p>
+<p>The MAC model has the following replaceable built-in policy submodules by default:</p>
 <ul class="simple">
-<li><p>Coordination functions</p></li>
-<li><p>Channel access methods</p></li>
-<li><p>MAC data services</p></li>
-<li><p>Aggregation and deaggregation</p></li>
-<li><p>Fragmentation and defragmentation</p></li>
-<li><p>Block ACK agreements and reordering</p></li>
-<li><p>Frame exchange sequences</p></li>
-<li><p>Duplicate removal</p></li>
-<li><p>Rate selection</p></li>
-<li><p>Rate control</p></li>
-<li><p>Protection mechanisms</p></li>
-<li><p>Recovery procedure</p></li>
-<li><p>Contention</p></li>
-<li><p>Frame queues</p></li>
-<li><p>TX/RX</p></li>
+<li><p>ACK policy (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy.html">OriginatorAckPolicy</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy.html">RecipientAckPolicy</a>): controls what kind of acknowledgement is used per-frame (none, normal, block-ack)</p></li>
+<li><p>RTS/CTS policy (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.originator.RtsPolicy.html">RtsPolicy</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.recipient.CtsPolicy.html">CtsPolicy</a>): determines which frames are protected by the RTS/CTS mechanism</p></li>
+<li><p>Originator and recipient block ACK agreement policies (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.blockack.OriginatorBlockAckAgreementPolicy.html">OriginatorBlockAckAgreementPolicy</a>, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.blockack.RecipientBlockAckAgreementPolicy.html">RecipientBlockAckAgreementPolicy</a>): determine when and what kind of agreements are made</p></li>
+<li><p>MSDU aggregation policy (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.aggregation.BasicMsduAggregationPolicy.html">BasicMsduAggregationPolicy</a>): controls when and which frames are aggregated into an A-MSDU</p></li>
+<li><p>Fragmentation policy (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy.html">BasicFragmentationPolicy</a>): controls when and how fragmentation happens</p></li>
 </ul>
 </div>
 <div class="section" id="physical-layer">

@@ -39,7 +39,7 @@
     <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Measuring Packet Jitter" href="../../jitter/doc/index.html" />
+    <link rel="next" title="Measuring Packet Delay Variation" href="../../jitter/doc/index.html" />
     <link rel="prev" title="Measuring Channel Utilization" href="../../utilization/doc/index.html" /> 
   </head>
 <body>
@@ -149,7 +149,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -447,7 +447,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -699,11 +699,12 @@ to deletion in the destination application.</p>
 <p>The <cite>meanBit</cite> part refers to the statistic being defined per bit, and the result is the mean of the per-bit values of all bits in the packet.
 When there is no packet streaming or fragmentation in the network, the bits of a packet travel together, so they have the same lifetime value.</p>
 </div>
-<p>Here is the network:</p>
+<p>The simulations use a network with two hosts (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>) connected via 100Mbps Ethernet:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/Network1.png" src="../../../../_images/Network1.png" />
 </div>
-<p>Here is the configuration:</p>
+<p>We configure the packet source in the source hosts’ UDP app to generate 1200-Byte packets with a period of around 100us randomly.
+This corresponds to about 96Mbps of traffic. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">EndToEndDelayMeasurementShowcase</span>
 <span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Measure packet end-to-end delay&quot;</span>
@@ -721,19 +722,28 @@ When there is no packet streaming or fragmentation in the network, the bits of a
 <span class="na">*.destination.numApps</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.destination.app[0].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSinkApp&quot;</span>
 <span class="na">*.destination.app[0].io.localPort</span> <span class="o">=</span> <span class="s">1000</span>
+
+<span class="c1"># enable modular Ethernet model</span>
+<span class="na">*.*.ethernet.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetLayer&quot;</span>
+<span class="na">*.*.eth[*].typename</span> <span class="o">=</span> <span class="s">&quot;LayeredEthernetInterface&quot;</span>
+
+<span class="c1"># data rate of all network interfaces</span>
+<span class="na">*.*.eth[*].bitrate</span> <span class="o">=</span> <span class="s">100Mbps</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>Here are the results:</p>
+<p>The traffic is around 96 Mbps, but the period is random. Thus, the traffic can be higher than the 100Mbps capacity of the Ethernet link.
+This might result in packets accumulating in the queue in the source host, and increased end-to-end delay (the queue length is unlimited by default).</p>
+<p>We display the end-to-end delay, we plot the <code class="docutils literal notranslate"><span class="pre">meanBitLifeTimePerPacket</span></code> statistic in vector and histogram form:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/EndToEndDelayHistogram.png" src="../../../../_images/EndToEndDelayHistogram.png" />
 </div>
 <div class="figure align-center">
 <img alt="../../../../_images/EndToEndDelayVector.png" src="../../../../_images/EndToEndDelayVector.png" />
 </div>
-<p><strong>TODO</strong> why the uptick ?</p>
+<p>The uptick towards the end of the simulation is due to packets accumulating in the queue.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/b095997b285307bb4860015e5926fab9/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/50d12ffd3159497c2e6e96b998129ab4/EndToEndDelayMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">EndToEndDelayMeasurementShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
@@ -777,7 +787,7 @@ When there is no packet streaming or fragmentation in the network, the bits of a
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Measuring Packet Jitter</div>
+            <div>Measuring Packet Delay Variation</div>
         </div>
      </a>
   </div>

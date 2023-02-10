@@ -150,7 +150,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -448,7 +448,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -774,7 +774,8 @@ the stand-by clock can take over and become the new Master Clock.</p></li>
 <span class="na">*.*.hasTimeSynchronization</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># all oscillators have a random constant drift</span>
-<span class="na">**.oscillator.typename</span> <span class="o">=</span> <span class="s">&quot;ConstantDriftOscillator&quot;</span>
+<span class="na">**.tsnClock*.clock.oscillator.typename</span> <span class="o">=</span> <span class="s">&quot;RandomDriftOscillator&quot;</span>
+<span class="na">**.oscillator.changeInterval</span> <span class="o">=</span> <span class="s">12.5ms</span>
 <span class="na">**.oscillator.driftRate</span> <span class="o">=</span> <span class="s">uniform(-100ppm, 100ppm)</span>
 </pre></div>
 </div>
@@ -847,7 +848,6 @@ In this setup, the clock nodes have one clock, and the others have two (one for 
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.tsnClock2.clock.typename</span> <span class="o">=</span> <span class="s">&quot;SettableClock&quot;</span>
 
 <span class="na">*.tsnClock1.gptp.typename</span> <span class="o">=</span> <span class="s">&quot;Gptp&quot;</span>
-<span class="na">*.tsnClock1.gptp.gptpNodeType</span> <span class="o">=</span> <span class="s">&quot;MASTER_NODE&quot;</span>
 <span class="na">*.tsnClock1.gptp.clockModule</span> <span class="o">=</span> <span class="s">&quot;tsnClock1.clock&quot;</span>
 <span class="na">*.tsnClock1.gptp.masterPorts</span> <span class="o">=</span> <span class="s">[&quot;eth0&quot;]</span>
 

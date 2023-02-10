@@ -149,7 +149,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -447,7 +447,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Jitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
@@ -709,8 +709,8 @@ so that packet transmission is represented as an interruptable stream. Preemptio
 <p>To enable preemption, the default submodules <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetMacLayer.html">EthernetMacLayer</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wired.ethernet.EthernetPhyLayer.html">EthernetPhyLayer</a>
 need to be replaced with <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer.html">EthernetPreemptingPhyLayer</a>.</p>
 <p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a> contains two submodules which themselves represent Ethernet
-MAC layers, a preemptable (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetStreamingMacLayer.html">EthernetStreamingMacLayer</a>) and an express MAC layer
-(<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer.html">EthernetFragmentingMacLayer</a>), each with its own queue for frames:</p>
+MAC layers, a preemptable (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer.html">EthernetFragmentingMacLayer</a>) and an express MAC layer
+(<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.EthernetStreamingMacLayer.html">EthernetStreamingMacLayer</a>), each with its own queue for frames:</p>
 <div class="figure align-center">
 <img alt="../../../../_images/mac.png" src="../../../../_images/mac.png" />
 </div>
@@ -747,11 +747,6 @@ These simulations are the extension of the three configurations mentioned above,
 in the ini file as the configurations with the <code class="docutils literal notranslate"><span class="pre">Realistic</span></code> prefix.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">General</span></code> configuration, the hosts are configured to use the layered Ethernet model
 instead of the default, which must be disabled:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.*.encap.typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="na">*.*.ethernet.typename</span> <span class="o">=</span> <span class="s">&quot;EthernetLayer&quot;</span>
-<span class="na">*.host*.eth[0].typename</span> <span class="o">=</span> <span class="s">&quot;LayeredEthernetInterface&quot;</span>
-</pre></div>
-</div>
 <p>We also want to record a PCAP trace, so we can examine the traffic in Wireshark. We enable PCAP recording,
 and set the PCAP recorder to dump Ethernet PHY frames, because preemption is visible in the PHY header:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.recordPcap</span> <span class="o">=</span> <span class="s">true</span>
