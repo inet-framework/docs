@@ -165,7 +165,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -175,7 +175,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -212,7 +212,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -463,7 +463,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -473,7 +473,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -510,7 +510,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -681,11 +681,17 @@ Show Source
 <h1>IEEE 802.11 Block Acknowledgment<a class="headerlink" href="#ieee-802-11-block-acknowledgment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>Block Acknowledgment is an 802.11 MAC feature that increases throughput by decreasing
-protocol overhead. Instead of individually acknowledging each received packet, a single block
-acknowledgment frame can acknowledge multiple packets. This reduces the number of ack frames
-and corresponding interframe spaces, thereby increasing throughput.</p>
-<p>This showcase demonstrates the block acknowledgment feature in INET’s 802.11 model.</p>
+<p>IEEE 802.11 block acknowledgment is a feature of the Media Access Control (MAC)
+layer of the 802.11 protocol that is designed to increase throughput by reducing
+protocol overhead. It works by allowing a single block acknowledgment frame to
+acknowledge the reception of multiple packets, instead of individually
+acknowledging each packet with a separate acknowledgement (ACK) frame. This
+reduces the number of ACK frames and corresponding interframe spaces, resulting
+in increased throughput.</p>
+<p>In this showcase, we will demonstrate the block acknowledgment feature in INET’s
+802.11 model. By the end of this showcase, you will understand how to enable and configure block
+acknowledgment in INET to improve the performance of
+wireless networks that use the 802.11 protocol.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.1</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/wireless/blockack">inet/showcases/wireless/blockack</a></div>

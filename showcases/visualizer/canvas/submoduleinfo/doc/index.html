@@ -165,7 +165,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Visualization</a><ul class="current">
@@ -175,7 +175,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -212,7 +212,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -463,7 +463,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Visualization</a><ul class="current">
@@ -473,7 +473,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -510,7 +510,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -681,18 +681,17 @@ Show Source
 <h1>Visualizing Submodule Information<a class="headerlink" href="#visualizing-submodule-information" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>In INET, network nodes are typically compound modules that are several levels deep.
-Their submodules (apps, protocols, protocol parts, etc.) often contain information
-that is helpful for understanding model behavior but is difficult to
-access in the graphical runtime environment. (To see them, one needs to drill down
-in the graphical inspector or the object inspector to access them.)</p>
-<p>To help the user, INET contains support for displaying information produced by
-a submodule (or selected submodules) on the top-level canvas, above (or near) the
-corresponding network node icons. This feature makes such information conveniently
-available at a glance.</p>
-<p>This showcase contains the model of a simple WiFi network and
-shows how (1) the number of packets sent/received by an application, and
-(2) IEEE 802.11 MAC state information can be displayed on the network level.</p>
+<p>In INET, network nodes are typically composed of multiple submodules, such as
+apps, protocols, and protocol parts. These submodules often contain important
+information for understanding the behavior of the network, but accessing it can
+be difficult, as it requires drilling down into the graphical inspector or
+object inspector.</p>
+<p>To make this information more accessible, INET provides a feature for displaying
+submodule information on the top-level canvas, near the corresponding network
+node icons. This makes the information readily available at a glance.</p>
+<p>This showcase features a simple WiFi network model and demonstrates how to
+display (1) the number of packets sent and received by an application, and (2)
+the IEEE 802.11 MAC state information, on the network level.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.1</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/visualizer/submoduleinfo">inet/showcases/visualizer/submoduleinfo</a></div>

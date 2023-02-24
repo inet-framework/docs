@@ -166,7 +166,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -176,7 +176,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -213,7 +213,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -464,7 +464,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -474,7 +474,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -511,7 +511,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -682,9 +682,19 @@ Show Source
 <h1>Time-Aware Shaping<a class="headerlink" href="#time-aware-shaping" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>The IEEE 802.1qbv Time-aware shaping schedules the transmission of time-critical and lower priority
-frames in time-triggered windows, and as such guarantees bounded latency for time-critical frames.</p>
-<p>In this showcase, we demonstrate how to use time-aware traffic shaping.</p>
+<p>Time-aware shaping is a feature specified in the IEEE 802.1Qbv standard that
+allows for the scheduling of the transmission of time-critical and lower
+priority frames in time-triggered windows. This helps to guarantee bounded
+latency for time-critical frames, which is important for applications that
+require low and predictable latency in Time-Sensitive Networking (TSN).
+Time-aware shaping works by dividing time into fixed intervals, or windows, and
+scheduling the transmission of frames within these windows based on their
+priority. Higher priority frames are given priority by transmitting them in a
+separate window, while lower priority frames are transmitted in the remaining time.</p>
+<p>In this showcase, we will demonstrate how to use time-aware traffic shaping to
+improve the performance of time-critical applications in an Ethernet network. By
+the end of this showcase, you will understand how time-aware shaping works and
+how it can be used to guarantee bounded latency for time-critical frames.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/timeawareshaper">inet/showcases/tsn/trafficshaping/timeawareshaper</a></div>
@@ -698,7 +708,7 @@ frames in time-triggered windows, and as such guarantees bounded latency for tim
 in their own allotted transmission time windows. This makes the delay bounded, as lower-priority frames cannot hold up higher priority ones.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Time-aware shaping can be combined with 802.1qbu Frame Preemption. This can increase bandwidth utilization because frames that otherwise
+<p>Time-aware shaping can be combined with 802.1Qbu Frame Preemption. This can increase bandwidth utilization because frames that otherwise
 wouldn’t fit in the available time window can be sent in fragments.</p>
 </div>
 <p>The time-aware shaper transmits different traffic streams by opening and closing gates belonging to different queues, according

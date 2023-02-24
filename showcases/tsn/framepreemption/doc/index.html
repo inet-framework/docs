@@ -165,7 +165,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -175,7 +175,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -212,7 +212,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -463,7 +463,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -473,7 +473,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
@@ -510,7 +510,7 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk between adjacent IEEE 802.11 channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -681,10 +681,19 @@ Show Source
 <h1>Frame Preemption<a class="headerlink" href="#frame-preemption" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>Ethernet frame preemption (802.1Qbu) enables higher priority frames to interrupt the transmission
-of lower priority frames in the Ethernet MAC layer. This facilitates creating low latency for
-time-critical high-priority frames.</p>
-<p>This showcase demonstrates Ethernet frame preemption and examines the latency reduction.</p>
+<p>Ethernet frame preemption is a feature specified in the 802.1Qbu standard that
+allows higher priority frames to interrupt the transmission of lower priority
+frames at the Media Access Control (MAC) layer of an Ethernet network. This can
+be useful for time-critical applications that require low latency for
+high-priority frames. For example, in a Time-Sensitive Networking (TSN)
+application, high-priority frames may contain time-critical data that must be
+delivered with minimal delay. Frame preemption can help ensure that these
+high-priority frames are given priority over lower priority frames, reducing the
+latency of their transmission.</p>
+<p>In this showcase, we will demonstrate Ethernet frame preemption and examine the
+latency reduction that it can provide. By the end of this showcase, you will
+understand how frame preemption works and how it can be used to improve the
+performance of time-critical applications in an Ethernet network.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.3</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/framepreemption">inet/showcases/tsn/framepreemption</a></div>
