@@ -110,10 +110,10 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/mixingshapers/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
@@ -408,10 +408,10 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/mixingshapers/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
@@ -716,6 +716,110 @@ the network level by an interface module (<code class="docutils literal notransl
         <span class="n">cable</span><span class="p">.</span><span class="n">aOut</span> <span class="k">--&gt;</span> <span class="n">destination</span><span class="p">.</span><span class="n">lowerIn</span><span class="p">;</span>
         <span class="n">destination</span><span class="p">.</span><span class="n">lowerOut</span> <span class="k">--&gt;</span> <span class="n">cable</span><span class="p">.</span><span class="n">bIn</span><span class="p">;</span>
         <span class="n">cable</span><span class="p">.</span><span class="n">bOut</span> <span class="k">--&gt;</span> <span class="n">source</span><span class="p">.</span><span class="n">lowerIn</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">network</span> <span class="n">InputQueueSwitching</span>
+<span class="p">{</span>
+    <span class="k">parameters</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">numSources</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">numSinks</span><span class="p">;</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">source</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">ActivePacketSource</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sourceTx</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketTransmitter</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=300,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switchRx</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketReceiver</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">queue</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketQueue</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=700,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">server</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">InstantServer</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=900,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">join</span><span class="o">:</span> <span class="n">PacketMultiplexer</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1100,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">classifier</span><span class="o">:</span> <span class="n">ContentBasedClassifier</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1300,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switchTx</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketTransmitter</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1500,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sinkRx</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketReceiver</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1700,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sink</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PassivePacketSink</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1900,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="k">connections</span><span class="o">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mf">0.</span><span class="p">.</span><span class="n">numSources</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="n">source</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">sourceTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">sourceTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="p">{</span>  <span class="n">datarate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">Gbps</span><span class="p">;</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span><span class="n">ns</span><span class="p">;</span> <span class="p">}</span> <span class="k">--&gt;</span> <span class="n">switchRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">switchRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">queue</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">queue</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">server</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">server</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">join</span><span class="p">.</span><span class="n">in</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">join</span><span class="p">.</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">classifier</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mf">0.</span><span class="p">.</span><span class="n">numSinks</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">switchTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">switchTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="p">{</span>  <span class="n">datarate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">Gbps</span><span class="p">;</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span><span class="n">ns</span><span class="p">;</span> <span class="p">}</span> <span class="k">--&gt;</span> <span class="n">sinkRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">sinkRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">sink</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">network</span> <span class="n">OutputQueueSwitching</span>
+<span class="p">{</span>
+    <span class="k">parameters</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">numSources</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">numSinks</span><span class="p">;</span>
+    <span class="k">submodules</span><span class="o">:</span>
+        <span class="n">source</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">ActivePacketSource</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=100,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sourceTx</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketTransmitter</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=300,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switchRx</span><span class="p">[</span><span class="n">numSources</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketReceiver</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=500,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">join</span><span class="o">:</span> <span class="n">PacketMultiplexer</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=700,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">classifier</span><span class="o">:</span> <span class="n">ContentBasedClassifier</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=900,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">queue</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketQueue</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1100,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">server</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">InstantServer</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1300,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">switchTx</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketTransmitter</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1500,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sinkRx</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PacketReceiver</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1700,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">sink</span><span class="p">[</span><span class="n">numSinks</span><span class="p">]</span><span class="o">:</span> <span class="n">PassivePacketSink</span> <span class="p">{</span>
+            <span class="nb">@display</span><span class="p">(</span><span class="s">&quot;p=1900,150,col,150&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="k">connections</span><span class="o">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mf">0.</span><span class="p">.</span><span class="n">numSources</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="n">source</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">sourceTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">sourceTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">DatarateChannel</span> <span class="p">{</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span><span class="n">ns</span><span class="p">;</span> <span class="p">}</span> <span class="k">--&gt;</span> <span class="n">switchRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">switchRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">join</span><span class="p">.</span><span class="n">in</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">join</span><span class="p">.</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">classifier</span><span class="p">.</span><span class="n">in</span><span class="p">;</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mf">0.</span><span class="p">.</span><span class="n">numSinks</span><span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+            <span class="n">classifier</span><span class="p">.</span><span class="n">out</span><span class="o">++</span> <span class="k">--&gt;</span> <span class="n">queue</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">queue</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">server</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">server</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">switchTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">switchTx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">DatarateChannel</span> <span class="p">{</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span><span class="n">ns</span><span class="p">;</span> <span class="p">}</span> <span class="k">--&gt;</span> <span class="n">sinkRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+            <span class="n">sinkRx</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">out</span> <span class="k">--&gt;</span> <span class="n">sink</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">in</span><span class="p">;</span>
+        <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -10,11 +10,12 @@ The following showcases demonstrate scheduling and traffic shaping:
 .. toctree::
    :maxdepth: 1
 
-   creditbasedshaper/doc/index
    timeawareshaper/doc/index
+   creditbasedshaper/doc/index
    asynchronousshaper/doc/index
-   mixingshapers/doc/index
+   cbsandats/doc/index
    underthehood/doc/index
 
+.. cbsandtas/doc/index
 .. tokenbucketbasedshaper/doc/index
 .. htbshaper/doc/index
