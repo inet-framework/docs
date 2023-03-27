@@ -300,6 +300,8 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
@@ -598,6 +600,8 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
@@ -988,8 +992,8 @@ optimize just one parameter of each MAC, the slot duration. Ideally, one
 would want to optimize multiple parameters to find a more
 optimal set of parameter values, but it is out of scope for this
 showcase. The choices for the values of the other parameters are
-arbitrary. The simulations will be run for 100s, and each iteration will
-be run 10 times to get smoother results. We’ll choose the best
+arbitrary.</p>
+<p>We’ll choose the best
 performing parameters according to the number of packets received by the
 server.</p>
 <p>The parameter study configurations for the three MAC protocols will
@@ -997,24 +1001,23 @@ extend the <code class="docutils literal notranslate"><span class="pre">Statisti
 configuration):</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticBase]</span>
 <span class="na">network</span> <span class="o">=</span> <span class="s">SensorNetworkShowcaseB</span>
-<span class="c1">#abstract-config = true (requires omnet 6)</span>
+<span class="c1">#abstract-config = true (requires omnet 7)</span>
 
 <span class="na">**.vector-recording</span> <span class="o">=</span> <span class="s">false</span>
-<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">100s</span>
-<span class="na">repeat</span> <span class="o">=</span> <span class="s">10</span>
+<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">25s</span>
+<span class="na">repeat</span> <span class="o">=</span> <span class="s">2</span>
 </pre></div>
 </div>
 <p>In this base configuration, we set the simulation time limit, the number
 of repetitions, and turn vector recording off to speed up the runs.</p>
-<p>The results are plotted in the <code class="docutils literal notranslate"><span class="pre">StatisticBMac.anf</span></code>,
-<code class="docutils literal notranslate"><span class="pre">StatisticXMac.anf</span></code>, and <code class="docutils literal notranslate"><span class="pre">StatisticLMac.anf</span></code> files. The parameter
+<p>The parameter
 studies for the individual MACs are detailed in the following sections.</p>
 <div class="section" id="optimizing-b-mac">
 <h3>Optimizing B-MAC<a class="headerlink" href="#optimizing-b-mac" title="Permalink to this headline">¶</a></h3>
 <p>The goal is to optimize <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a>’s <code class="code literal-ini docutils literal notranslate"><span class="pre">slotTime</span></code> parameter for the number
 of packets received by the server. The configuration in
 <a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
-<code class="docutils literal notranslate"><span class="pre">StatisticBMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
+<code class="docutils literal notranslate"><span class="pre">StatisticBMac</span></code>. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticBMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
@@ -1028,13 +1031,13 @@ increments (the default of <code class="code literal-ini docutils literal notran
 packets received by the server for each <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> value is shown
 on the following image (time in seconds):</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../../../_images/statisticbmac2.png"><img alt="../../../../_images/statisticbmac2.png" src="../../../../_images/statisticbmac2.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/bmac.png"><img alt="../../../../_images/bmac.png" src="../../../../_images/bmac.png" style="width: 100%;" /></a>
 </div>
-<p>The sensors send 100 packets each during the 100s, thus
-400 packets total. It is apparent from the results that the network
+<p>The sensors send 25 packets each during the 25s, thus
+100 packets total. It is apparent from the results that the network
 cannot carry all traffic in this scenario. The results also outline a
-smooth curve. We choose 0.19s as the best performing value for
-<code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code>.</p>
+smooth curve. The best performing value for
+<code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> is 0.19s.</p>
 </div>
 <div class="section" id="optimizing-x-mac">
 <h3>Optimizing X-MAC<a class="headerlink" href="#optimizing-x-mac" title="Permalink to this headline">¶</a></h3>
@@ -1042,7 +1045,7 @@ smooth curve. We choose 0.19s as the best performing value for
 received by the server. As in the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> configuration, the
 <code class="docutils literal notranslate"><span class="pre">slotTime</span></code> for the gateway will be shorter than for the sensors. The
 configuration in <a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> for this is
-<code class="docutils literal notranslate"><span class="pre">StatisticXMac</span></code>. It contains 1000 runs. Here is the configuration:</p>
+<code class="docutils literal notranslate"><span class="pre">StatisticXMac</span></code>. Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticXMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
@@ -1057,17 +1060,21 @@ similarly to the parameter study for B-MAC. The <code class="code literal-ini do
 sensors will be 2.5 times that of the gateway (an arbitrary value.) Here
 are the results (time in seconds):</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../../../_images/statisticxmac2.png"><img alt="../../../../_images/statisticxmac2.png" src="../../../../_images/statisticxmac2.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/xmac.png"><img alt="../../../../_images/xmac.png" src="../../../../_images/xmac.png" style="width: 100%;" /></a>
 </div>
 <p>According to this, the optimal value for the gateway’s <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code>
-is 0.14s (0.35s for the sensors), so we choose that.</p>
+is 0.13s (0.35s for the sensors).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of the runs have 0 packets received. This is due to a bug in XMAC.</p>
+</div>
 </div>
 <div class="section" id="optimizing-lmac">
 <h3>Optimizing LMAC<a class="headerlink" href="#optimizing-lmac" title="Permalink to this headline">¶</a></h3>
 <p>We’ll optimize the <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> parameter for the number of packets
 received by the server. The configuration for this study in
-<a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>. It
-contains 1000 runs. Here is the configuration:</p>
+<a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a> is <code class="docutils literal notranslate"><span class="pre">StatisticLMac</span></code>.
+Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticLMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
@@ -1082,13 +1089,13 @@ contains 1000 runs. Here is the configuration:</p>
 number of received packets are displayed on the following image (time in
 seconds):</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../../../_images/statisticlmac4.png"><img alt="../../../../_images/statisticlmac4.png" src="../../../../_images/statisticlmac4.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/lmac.png"><img alt="../../../../_images/lmac.png" src="../../../../_images/lmac.png" style="width: 100%;" /></a>
 </div>
 <p>It is apparent from the results that the network can carry almost all
 the traffic in this scenario (as opposed to the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a>
-results.) The best performing value for <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> is 50ms. Note
+results.) The best performing value for <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> is 40ms. Note
 that the lowest <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code> values up until 120ms yield
-approximately the same results (around 400 packets), with the 50ms
+approximately the same results (around 100 packets), with the 40ms
 value performing marginally better. Choosing the higher <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code>
 value would result in about the same performance but lower power
 consumption, but we are optimizing for the number of packets here.</p>
@@ -1113,36 +1120,44 @@ energy consumption. It stores an infinite amount of energy, and cannot
 get fully charged or depleted, and it is useful if we only want to model
 and measure power consumption, but not energy capacity, charging, etc.</p>
 <p>The results for the parameter studies contain the required power
-consumption data. We just need to select the appropriate result files.
-<code class="docutils literal notranslate"><span class="pre">PowerConsumption.anf</span></code> selects the result files corresponding to the
+consumption data. We just need to select the result files corresponding to the
 best performing parameter values selected in the previous sections. We
 will plot the results on bar charts. We’ll examine the following
 statistics:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">packets</span> <span class="pre">received</span></code>: All the packets received by the
-server. The UDP applications in the sensors each send 100 packets
-during the 100s simulations, for a total of 400
-packets.</p></li>
+server. The UDP applications in the sensors each send 25 packets
+during the 25s simulations, for a total of 100
+packets. As there are 100 packets, this value is also the successful packet reception in percent,
+and indirectly, packet loss.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">total</span> <span class="pre">power</span> <span class="pre">consumption</span></code>: The sum of the power consumption
 of the four sensors and the gateway (values in Joules.)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Power</span> <span class="pre">consumption</span> <span class="pre">per</span> <span class="pre">packet</span></code>: Network total power consumption /
 Total number of packets received, thus power consumption per packet
 in the entire network (values in Joules.)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">loss</span></code>: Total number of packets received / total number of
-packets sent, thus how many packets from the 400 sent are lost.</p></li>
 </ul>
 <p>Note that the values for the <code class="docutils literal notranslate"><span class="pre">residualEnergyCapacity</span></code> statistic are
 negative, so it is inverted in the anf file. Here are the results:</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../../../_images/power.png"><img alt="../../../../_images/power.png" src="../../../../_images/power.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/packetsreceived.png"><img alt="../../../../_images/packetsreceived.png" src="../../../../_images/packetsreceived.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/powerconsumption1.png"><img alt="../../../../_images/powerconsumption1.png" src="../../../../_images/powerconsumption1.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../../../_images/powerconsumptionperpacket.png"><img alt="../../../../_images/powerconsumptionperpacket.png" src="../../../../_images/powerconsumptionperpacket.png" style="width: 100%;" /></a>
 </div>
 <p>From this, it is apparent that LMac carried the most packets, and
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> the least. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> consumed significantly more power than the
-others. All three carried around 90-100% of the traffic (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> 90%,
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> 99.25%, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> 97%), thus BMac has significantly more power
-consumption per packet. The conclusion is that in this scenario, with
-the selected parameter values, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> turned out to be the most energy
-efficient MAC protocol, although <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> carried a bit more traffic.</p>
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> the least. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> consumed significantly more power than the
+others. BMac and LMac carried around 90-100% of the traffic, XMac only 16%.
+XMac also has significantly more power
+consumption per packet. This is due to XMac sending lots of preambles. The conclusion is that in this scenario, with
+the selected parameter values, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> turned out to be the most energy
+efficient MAC protocol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>XMac might perform better with another slot duration value for the sensors, for example. However, this is out of scope for this showcase.</p>
+</div>
 <div class="line-block">
 <div class="line">Sources: <a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/69be77e86cc11e182951402707d48f18/SensorNetworkShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">SensorNetworkShowcase.ned</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/cb35ad0bfd5f1fa5d1378c9948c2da14/config.xml"><code class="xref download docutils literal notranslate"><span class="pre">config.xml</span></code></a></div>
 <div class="line">Extra configurations: <a class="reference download internal" download="" href="../../../../_downloads/1d8af91f242caa244f058b22f5d9f879/extras.ini"><code class="xref download docutils literal notranslate"><span class="pre">extras.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/82e6ad21639c4f6df3e741da281fc66a/ExtrasSensorNetworkShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">ExtrasSensorNetworkShowcase.ned</span></code></a></div>
