@@ -17,7 +17,7 @@
   gtag('config', 'UA-240922-3');
 </script>
     
-    <title>MAC Protocols for Wireless Sensor Networks &#8212; INET 4.4.0 documentation</title>
+    <title>MAC Protocols for Wireless Sensor Networks &#8212; INET 4.5.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -362,6 +362,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
@@ -662,6 +663,7 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
@@ -1004,7 +1006,6 @@ configuration):</p>
 <span class="c1">#abstract-config = true (requires omnet 7)</span>
 
 <span class="na">**.vector-recording</span> <span class="o">=</span> <span class="s">false</span>
-<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">25s</span>
 <span class="na">repeat</span> <span class="o">=</span> <span class="s">2</span>
 </pre></div>
 </div>
@@ -1050,7 +1051,8 @@ configuration in <a class="reference download internal" download="" href="../../
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
 
 <span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;XMac&quot;</span>
-<span class="na">**.wlan[*].mac.headerLength</span> <span class="o">=</span> <span class="s">24B</span>
+<span class="c1">#**.wlan[*].mac.headerLength = 24B</span>
+<span class="c1">#**.wlan[*].mac.checkInterval = 25ms</span>
 <span class="na">*.gateway.wlan[*].mac.slotDuration</span> <span class="o">=</span> <span class="s">${gwSlotDuration=0.01..1 step 0.01}s</span>
 </pre></div>
 </div>
@@ -1063,11 +1065,7 @@ are the results (time in seconds):</p>
 <a class="reference internal image-reference" href="../../../../_images/xmac.png"><img alt="../../../../_images/xmac.png" src="../../../../_images/xmac.png" style="width: 100%;" /></a>
 </div>
 <p>According to this, the optimal value for the gateway’s <code class="code literal-ini docutils literal notranslate"><span class="pre">slotDuration</span></code>
-is 0.13s (0.35s for the sensors).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some of the runs have 0 packets received. This is due to a bug in XMAC.</p>
-</div>
+is 0.04s (0.1s for the sensors).</p>
 </div>
 <div class="section" id="optimizing-lmac">
 <h3>Optimizing LMAC<a class="headerlink" href="#optimizing-lmac" title="Permalink to this headline">¶</a></h3>
@@ -1077,6 +1075,7 @@ received by the server. The configuration for this study in
 Here is the configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Config StatisticLMac]</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">StatisticBase</span>
+<span class="c1">#expected-result = &quot;ERROR&quot;</span>
 
 <span class="na">**.wlan[*].mac.typename</span> <span class="o">=</span> <span class="s">&quot;LMac&quot;</span>
 <span class="na">**.mac.slotDuration</span> <span class="o">=</span> <span class="s">${slotDuration=0.01..1 step 0.01}s</span>
@@ -1147,17 +1146,12 @@ negative, so it is inverted in the anf file. Here are the results:</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../../../_images/powerconsumptionperpacket.png"><img alt="../../../../_images/powerconsumptionperpacket.png" src="../../../../_images/powerconsumptionperpacket.png" style="width: 100%;" /></a>
 </div>
-<p>From this, it is apparent that LMac carried the most packets, and
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> the least. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> consumed significantly more power than the
-others. BMac and LMac carried around 90-100% of the traffic, XMac only 16%.
-XMac also has significantly more power
-consumption per packet. This is due to XMac sending lots of preambles. The conclusion is that in this scenario, with
-the selected parameter values, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.lmac.LMac.html">LMac</a> turned out to be the most energy
+<p>From this, it is apparent that LMac and XMac carried all packets, and
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> had some packet loss. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.bmac.BMac.html">BMac</a> consumed significantly more power than the
+others. BMac also has significantly more power
+consumption per packet. The conclusion is that in this scenario, with
+the selected parameter values, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.xmac.XMac.html">XMac</a> turned out to be the most energy
 efficient MAC protocol.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>XMac might perform better with another slot duration value for the sensors, for example. However, this is out of scope for this showcase.</p>
-</div>
 <div class="line-block">
 <div class="line">Sources: <a class="reference download internal" download="" href="../../../../_downloads/062c230986a62d24f221450a95718259/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/69be77e86cc11e182951402707d48f18/SensorNetworkShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">SensorNetworkShowcase.ned</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/cb35ad0bfd5f1fa5d1378c9948c2da14/config.xml"><code class="xref download docutils literal notranslate"><span class="pre">config.xml</span></code></a></div>
 <div class="line">Extra configurations: <a class="reference download internal" download="" href="../../../../_downloads/1d8af91f242caa244f058b22f5d9f879/extras.ini"><code class="xref download docutils literal notranslate"><span class="pre">extras.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/82e6ad21639c4f6df3e741da281fc66a/ExtrasSensorNetworkShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">ExtrasSensorNetworkShowcase.ned</span></code></a></div>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
+    
+    <title>Communicating with Tags &#8212; INET 4.5.0 documentation</title>
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Sockets" href="ch-sockets.html" />
+    <link rel="prev" title="Working with Packets" href="ch-packets.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Developer’s Guide</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Communicating with Tags</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/developers-guide/ch-tags.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="communicating-with-tags">
+<h1>Communicating with Tags<a class="headerlink" href="#communicating-with-tags" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Modules often exchange information by sending packets along with supplementary
+data, referred to as tags. A tag is usually a small data structure that focuses
+on a single parameterization aspect of a protocol. Tags can be attached to the
+whole packet, known as packet tags, or to specific parts of the packet, known
+as region tags. Tags are implemented as data container C++ classes and they are
+usually generated by the OMNeT++ MSG compiler. These are the primary types of
+tags:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>requests</em> carry information from higher layers to lower layers (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">MacAddressReq</span></code>).</p></li>
+<li><p><em>indications</em> carry information from lower layers to higher layers (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceInd</span></code>).</p></li>
+<li><p><em>plain tags</em> contain some meta-information (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code>).</p></li>
+<li><p><em>base classes</em> must not be attached to packets (e.g. <code class="code literal-cpp docutils literal notranslate"><span class="pre">TagBase</span></code>).</p></li>
+</ul>
+</div></blockquote>
+<p>For example, a request tag that specifies the source and destination MAC address
+could be implemented in an MSG file as follows:</p>
+<div class="highlight-msg notranslate" id="tag-definition-example"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">MacAddressReq</span> <span class="k">extends</span> <span class="n">TagBase</span>
+<span class="p">{</span>
+    <span class="n">MacAddress</span> <span class="n">srcAddress</span><span class="p">;</span>  <span class="c1">// may be unspecified</span>
+    <span class="n">MacAddress</span> <span class="n">destAddress</span><span class="p">;</span> <span class="c1">// always specified</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following list gives a short description of several often used packet tags:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtcolTag</span></code> specifies the protocol of the packet’s contents</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolReq</span></code> specifies the receiver protocol module inside the network node</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProcotolReq</span></code> specifies the requested protocol header encapsulation order</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SocketReq</span></code> specifies the application socket</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">L4PortReq</span></code> specifies the source and destination ports</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">L3AddressReq</span></code> specifies source and destination network addresses</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceReq</span></code> specifies the outgoing network interface</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">NextHopAddressReq</span></code> specifies the next hop address for packet routing</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">VlanReq</span></code> specifies the virtual LAN identifier of IEEE 802.1Q</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">PcpReq</span></code> specifies the priority code point of IEEE 802.1Q</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">StreamReq</span></code> specifies the TSN stream identifier inside the network node</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">MacAddressReq</span></code> specifies source and destination MAC addresses</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee80211ModeReq</span></code> specifies the IEEE 802.11 PHY mode</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">Ieee80211ChannelReq</span></code> specifies the IEEE 802.11 channel</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SignalPowerReq</span></code> specifies transmit signal power</p></li>
+</ul>
+</div></blockquote>
+<p>All request tags have their indication counterparts. For example, there are
+indications such as <code class="code literal-cpp docutils literal notranslate"><span class="pre">SocketInd</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceInd</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">StreamInd</span></code>.
+The requests are usually attached to outgoing packets, the indications are
+usually attached to incoming packets.</p>
+<p>The following list gives a short description of several often used region tags:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">IdentityTag</span></code> uniquely identifies individual bits in the network over
+the lifetime of the whole simulation</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">CreationTimeTag</span></code> specifies the creation time of data regions for
+lifetime measurements</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">FlowTag</span></code> specifies the packet flows of data regions for various flow
+specific measurements</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketEventTag</span></code> carries information about queueing, processing,
+transmission, etc. events that happened to data regions</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="communicating-through-protocol-layers">
+<span id="dg-sec-tags-protocol-layers"></span><h2>Communicating Through Protocol Layers<a class="headerlink" href="#communicating-through-protocol-layers" title="Permalink to this headline">¶</a></h2>
+<p>Tags can pass through protocol modules, and they can reach far beyond the module
+that initially attached them, in both downward and upward directions. Typically,
+tags are removed at the point where they are processed, usually being transformed
+into header fields within a packet, or used for some protocol specific decisions.
+Protocols have the liberty to disregard any tags at their discretion based on
+their configuration and state.</p>
+<p>Both packet tags and region tags remain unchanged for many operations that protocol
+modules carry out with packets. For example, when packets are enqueued/dequeued,
+encapsulated/decapsulated, cloned, buffered, or stored for later reuse, the tags
+remain unchanged.</p>
+</div>
+<div class="section" id="specifying-the-protocol-of-a-packet">
+<span id="dg-sec-tags-packet-protocol"></span><h2>Specifying the Protocol of a Packet<a class="headerlink" href="#specifying-the-protocol-of-a-packet" title="Permalink to this headline">¶</a></h2>
+<p>The most important packet tag is the <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code>. It specifies the
+outermost protocol of the packet. This tag should always be present, because the
+packet protocol cannot be correctly determined just by looking at the raw data.
+In contrast, the inner protocol headers in the packet can be usually recursively
+identified by protocol fields such as the protocol ID field of the IPv4 header.
+The <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code> is used among others for dissecting the packet
+along the protocol headers, or for printing the packet as a human readable
+string to help interpreting its contents.</p>
+<p>Normally a packet is transformed from one protocol to another in a single step,
+so the packet protocol tag either specifies the protocol before the operation
+or the protocol after the operation. For example, the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> protocol module
+encapsulates the outgoing packet using a <code class="code literal-cpp docutils literal notranslate"><span class="pre">UdpHeader</span></code>. The packet protocol
+is set to an application specific protocol before the UDP encapsulation and it’s
+set to UDP protocol after the encapsulation.</p>
+<p>Sometimes, protocol implementations themselves are split up into several smaller
+modules. For example, the modular Ethernet implementation uses a separate module
+for the insertion of the Ethernet MAC header and the Ethernet FCS. This module
+structure implies that the packet can be seen between the modules as a partially
+built Ethernet MAC protocol packet. In such a case the packet protocol tag can
+only specify the inner protocol that is being encapsulated into an Ethernet MAC
+frame.</p>
+</div>
+<div class="section" id="dispatching-packets-to-protocol-modules">
+<span id="dg-sec-tags-dispatching-packets"></span><h2>Dispatching Packets to Protocol Modules<a class="headerlink" href="#dispatching-packets-to-protocol-modules" title="Permalink to this headline">¶</a></h2>
+<p>Inside a network node, protocol modules interact with one another by sending
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Packet</span></code> or <code class="code literal-cpp docutils literal notranslate"><span class="pre">Message</span></code> objects. INET is very flexible in terms of what
+structure the protocol modules can be connected. Protocols can be connected
+directly to each other, or they can be connected through one or more
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> modules. This flexibility allows for the creation of
+both simple and complex network node architectures.</p>
+<div class="section" id="how-to-connect-protocol-modules">
+<h3>How to Connect Protocol Modules<a class="headerlink" href="#how-to-connect-protocol-modules" title="Permalink to this headline">¶</a></h3>
+<p>Simple network nodes can be constructed, for example, using a linear protocol
+stack, where protocol modules are directly connected to one another without
+using message dispatcher modules.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/SimpleHost.png"><img alt="../_images/SimpleHost.png" src="../_images/SimpleHost.png" style="width: 160px;" /></a>
+<p class="caption"><span class="caption-text">Simple network node structure in the IDE</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>More complex network nodes can be created by grouping protocols into layers and
+connecting them through <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> modules, which facilitates
+many-to-one and many-to-many relationships among the protocols of the layers.</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/ComplexHost.png"><img alt="../_images/ComplexHost.png" src="../_images/ComplexHost.png" style="width: 240px;" /></a>
+<p class="caption"><span class="caption-text">Complex network node structure in Qtenv</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>It’s also possible to use message dispatcher modules hierarchically within
+multiple levels of nested compound modules. Ultimately, one could even connect
+all protocols to a single central message dispatcher module. There is an important
+limitation though, only one instance of a given protocol module can be connected
+to a message dispatcher.</p>
+<p>To support the packet dispatching mechanism, certain additional requirements
+must be met in C++ code:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>protocols must be registered using <code class="code literal-cpp docutils literal notranslate"><span class="pre">registerProtocol</span></code></p></li>
+<li><p>packets must have <code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolReq</span></code> tags attached</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="registering-protocols">
+<h3>Registering Protocols<a class="headerlink" href="#registering-protocols" title="Permalink to this headline">¶</a></h3>
+<p>Protocol modules must call the <code class="code literal-cpp docutils literal notranslate"><span class="pre">registerProtocol</span></code> function from the <code class="code literal-cpp docutils literal notranslate"><span class="pre">initialize</span></code> method to inform connected <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a>
+modules of their presence. The following code fragment demonstrates this for the
+IPv4 protocol implementation:</p>
+<div class="highlight-cpp notranslate" id="protocol-registration-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Ipv4</span><span class="o">::</span><span class="n">initialize</span><span class="p">(</span><span class="kt">int</span> <span class="n">stage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stage</span> <span class="o">==</span> <span class="n">INITSTAGE_NETWORK_LAYER</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">registerService</span><span class="p">(</span><span class="n">Protocol</span><span class="o">::</span><span class="n">ipv4</span><span class="p">,</span> <span class="n">gate</span><span class="p">(</span><span class="s">&quot;transportIn&quot;</span><span class="p">),</span> <span class="n">gate</span><span class="p">(</span><span class="s">&quot;transportOut&quot;</span><span class="p">));</span>
+        <span class="n">registerProtocol</span><span class="p">(</span><span class="n">Protocol</span><span class="o">::</span><span class="n">ipv4</span><span class="p">,</span> <span class="n">gate</span><span class="p">(</span><span class="s">&quot;queueOut&quot;</span><span class="p">),</span> <span class="n">gate</span><span class="p">(</span><span class="s">&quot;queueIn&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Registering the protocols allows the dispatcher modules to learn which gates
+the protocol modules are connected to. The same protocol is not allowed to be
+registered in the same message dispatcher using different gates, because that
+would make the dispatching mechanism ambiguous.</p>
+</div>
+<div class="section" id="sending-packets-with-dispatch-request">
+<h3>Sending Packets with Dispatch Request<a class="headerlink" href="#sending-packets-with-dispatch-request" title="Permalink to this headline">¶</a></h3>
+<p>Packets and messages must have the <code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolReq</span></code> tag attached to
+them in order for the message dispatcher modules to correctly dispatch them to
+the intended recipient within the network node. The following example shows how
+a MAC protocol could send up a packet to the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> protocol module without
+actually knowing where that module is connected in the network node architecture:</p>
+<div class="highlight-cpp notranslate" id="packet-dispatching-example"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Mac</span><span class="o">::</span><span class="n">sendUp</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">req</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">addTagIfAbsent</span><span class="o">&lt;</span><span class="n">DispatchProtocolReq</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">setProtocol</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Protocol</span><span class="o">::</span><span class="n">ipv4</span><span class="p">);</span> <span class="c1">// set destination protocol</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">setServicePrimitive</span><span class="p">(</span><span class="n">SP_INDICATION</span><span class="p">);</span> <span class="c1">// determine receiving gate</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="s">&quot;upperLayerOut&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">DispatchProtocolReq</span></code> tag specifies both the intended recipient protocol
+and the requested service primitive. The service primitive, similarly to OSI
+terminology, can be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_REQUEST</span></code> for service requests from layer N+1 to layer N</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_CONFIRM</span></code> for service confirmations from layer N to layer N+1</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_INDICATION</span></code> for protocol indications from layer N to layer N+1</p></li>
+<li><p><code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_RESPONSE</span></code> for protocol response from layer N+1 to layer N</p></li>
+</ul>
+</div></blockquote>
+<p>Currently, INET modules only use the <code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_REQUEST</span></code> and <code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_INDICATION</span></code>
+service primitives, the other two are only present for completeness. The request
+service primitive is used when a higher layer protocol module (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a>)
+wants to deliver a packet to a lower layer protocol module (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>).
+Similarly, the <code class="code literal-cpp docutils literal notranslate"><span class="pre">SP_INDICATION</span></code> service primitive is used when a lower layer
+protocol module (e.g. <span class="reference-ned">Ethernet</span>) wants to deliver a packet to a higher layer
+protocol module (e.g. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>).</p>
+</div>
+</div>
+<div class="section" id="determining-the-next-protocol">
+<h2>Determining the Next Protocol<a class="headerlink" href="#determining-the-next-protocol" title="Permalink to this headline">¶</a></h2>
+<p>A protocol module has several options for determining which protocol to forward
+a packet to. The list below shows some possibilities:</p>
+<blockquote>
+<div><ul>
+<li><p>The next protocol can be hard-coded in C++. For example, the UDP protocol is
+hard-coded in C++ in the <code class="code literal-cpp docutils literal notranslate"><span class="pre">UdpSocket</span></code> class, and similarly other protocols
+are also hard-coded in other protocol specific sockets.</p></li>
+<li><p>The next protocol can be specified by a module parameter, as is the case of
+a network interface module specifying its expected protocol. The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a>
+module uses this information to dispatch a packet to the expected protocol
+of the selected route’s network interface.</p></li>
+<li><p>The next protocol can be dependent on module state. For example, the TSN
+stream encoder module forwards packets that match the TSN stream mapping to
+the 802.1 Q-TAG protocol for encapsulation.</p></li>
+<li><p>The next protocol can be determined by a packet header field. For example,
+the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module uses the IP protocol ID header field from the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Header</span></code> to look up the next protocol as shown below:</p>
+<div class="highlight-cpp notranslate" id="next-protocol-example"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">Protocol</span> <span class="o">*</span><span class="n">Ipv4</span><span class="o">::</span><span class="n">getNextProtocol</span><span class="p">(</span><span class="n">Packet</span> <span class="o">*</span><span class="n">packet</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">ipv4Header</span> <span class="o">=</span> <span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAtFront</span><span class="o">&lt;</span><span class="n">Ipv4Header</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="k">auto</span> <span class="n">ipProtocolId</span> <span class="o">=</span> <span class="n">ipv4Header</span><span class="o">-&gt;</span><span class="n">getProtocolId</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ProtocolGroup</span><span class="o">::</span><span class="n">getIpProtocolGroup</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getProtocol</span><span class="p">(</span><span class="n">ipProtocolId</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>The next protocol can be determined by some packet meta-data. For example,
+the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module uses the type of the destination address from the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">L3AddressReq</span></code> tag to determine if the packet should be sent to the
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> or <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv6.Ipv6.html">Ipv6</a> module.</p></li>
+<li><p>The next protocol can be indirectly specified by a protocol encapsulation
+request. For example, other modules may have attached an <code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProtocolReq</span></code>
+to the packet in an earlier stage of the packet processing.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="controlling-the-packet-encapsulation-order">
+<span id="dg-sec-tags-encapsulation-order"></span><h2>Controlling the Packet Encapsulation Order<a class="headerlink" href="#controlling-the-packet-encapsulation-order" title="Permalink to this headline">¶</a></h2>
+<p>A packet typically contains multiple protocol-specific headers, such as TCP, IP,
+Ethernet, and sometimes additional optional headers like 802.1Q, 802.1R, 802.1AE,
+and others. The order of packet headers is determined by the order in which the
+packet reaches the relevant protocol modules for encapsulation.</p>
+<p>The encapsulation process may need to be different for each packet. For example,
+an application may need to send a packet to a specific VLAN. In this case, the
+application should attach a <code class="code literal-cpp docutils literal notranslate"><span class="pre">VlanReq</span></code> tag to the packet with the desired
+VLAN ID. However, it cannot directly send the packet to the relevant 802.1Q
+protocol module, because the packet may need to be delivered to the UDP protocol
+first. To achieve the desired protocol encapsulation order, the application should
+also attach an <code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProtocolReq</span></code> tag specifying that the packet
+should ultimately be delivered to the 802.1Q protocol for encapsulation. The
+underlying protocol modules will use this information to determine when the
+802.1Q encapsulation should take place.</p>
+<p>The <code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProtocolReq</span></code> generally outlines the sequence of protocol
+modules that a packet should be delivered to for further encapsulation. Additional
+tags attached to the packet are used as additional parameters for the requested
+processing steps. The attached encapsulation request may be changed several times
+during packet processing, new protocols may be added, already added protocols
+may be removed, and so on.</p>
+<p>For example, the IP protocol determines the outgoing interface using the routing
+table and the destination address. The selected network interface specifies the
+expected protocol that the packet should have in order for the interface module
+to operate properly. The specified protocol is appended to the end of the requested
+encapsulation protocols of the packet, because it should be the last encapsulation
+before the packet reaches the network interface. For example, if the IP module
+selects an Ethernet network interface, then it appends the Ethernet MAC protocol
+to the <code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProtocolReq</span></code>, and the packet is ultimately encapsulated
+into an <code class="code literal-cpp docutils literal notranslate"><span class="pre">EthernetMacHeader</span></code> before reaching the network interface module.</p>
+</div>
+<div class="section" id="transforming-inbound-packets-to-outbound">
+<span id="dg-sec-tags-inbound-packets-to-outbound"></span><h2>Transforming Inbound Packets to Outbound<a class="headerlink" href="#transforming-inbound-packets-to-outbound" title="Permalink to this headline">¶</a></h2>
+<p>As part of the forwarding process of Ethernet switches, an inbound packet is
+transformed into an outbound packet. This process is carried out by default in
+the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.common.PacketDirectionReverser.html">PacketDirectionReverser</a> module. The transformation is more like a
+policy and it can be replaced by the user with other modules. The default module
+doesn’t change the packet contents except for removing the already popped front
+and back parts, but it changes the attached packet tags significantly.</p>
+<p>The inbound packet usually contains a few tags such as <code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code>
+and <code class="code literal-cpp docutils literal notranslate"><span class="pre">DirectionTag</span></code>, and it also contains several indications such as the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">InterfaceInd</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">MacAddressInd</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">VlandInd</span></code>, <code class="code literal-cpp docutils literal notranslate"><span class="pre">PcpInd</span></code>,
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">EncapsulationProtocolInd</span></code> and so on. The transformation keeps only the
+<code class="code literal-cpp docutils literal notranslate"><span class="pre">PacketProtocolTag</span></code>, it removes all attached indications, and attaches a
+set of requests so that the packet will be encapsulated in the same protocol
+headers, and it will be sent out on the same interface as it came in.</p>
+<p>Of course, this is just the start of the processing of the outbound packet.
+During the several steps that follows any of the attached requests can be
+replaced with new ones potentially ultimately resulting in the packet to be
+handled in a completely different way.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Communicating with Tags</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#communicating-through-protocol-layers">Communicating Through Protocol Layers</a></li>
+<li><a class="reference internal" href="#specifying-the-protocol-of-a-packet">Specifying the Protocol of a Packet</a></li>
+<li><a class="reference internal" href="#dispatching-packets-to-protocol-modules">Dispatching Packets to Protocol Modules</a><ul>
+<li><a class="reference internal" href="#how-to-connect-protocol-modules">How to Connect Protocol Modules</a></li>
+<li><a class="reference internal" href="#registering-protocols">Registering Protocols</a></li>
+<li><a class="reference internal" href="#sending-packets-with-dispatch-request">Sending Packets with Dispatch Request</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#determining-the-next-protocol">Determining the Next Protocol</a></li>
+<li><a class="reference internal" href="#controlling-the-packet-encapsulation-order">Controlling the Packet Encapsulation Order</a></li>
+<li><a class="reference internal" href="#transforming-inbound-packets-to-outbound">Transforming Inbound Packets to Outbound</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="ch-packets.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Working with Packets</div>
+         </div>
+     </a>
+     <a id="button-next" href="ch-sockets.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Using Sockets</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
