@@ -990,7 +990,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_number</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">itervars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">user_interface</span><span class="o">=</span><span class="s2">&quot;Cmdenv&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cpu_time_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">record_eventlog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">record_pcap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;simulation&quot;</span><span class="p">,</span> <span class="n">task_result_class</span><span class="o">=</span><span class="n">SimulationTaskResult</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters:</span>
-<span class="sd">            simulation_config (:py:class:`inet.simulation.config.SimulationConfig`):</span>
+<span class="sd">            simulation_config (:py:class:`SimulationConfig &lt;inet.simulation.config.SimulationConfig&gt;`):</span>
 <span class="sd">                The simulation config that is used to run this simulation task.</span>
 
 <span class="sd">            run_number (number):</span>
@@ -1021,7 +1021,7 @@
 <span class="sd">                The Python class that is used to return the result.</span>
 
 <span class="sd">            kwargs (dict):</span>
-<span class="sd">                Additional parameters are inherited from the :py:class:`inet.common.Task` constructor.</span>
+<span class="sd">                Additional parameters are inherited from the :py:class:`Task &lt;inet.common.Task&gt;` constructor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">task_result_class</span><span class="o">=</span><span class="n">task_result_class</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">run_number</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -1211,7 +1211,7 @@
 <span class="sd">                Determines if the simulation project is built before running any simulation.</span>
 
 <span class="sd">            kwargs (dict):</span>
-<span class="sd">                Additional arguments are inherited from :py:class:`inet.common.task.MultipleTasks` constructor.</span>
+<span class="sd">                Additional arguments are inherited from :py:class:`MultipleTasks &lt;inet.common.task.MultipleTasks&gt;` constructor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">build</span><span class="o">=</span><span class="n">build</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
@@ -1227,8 +1227,8 @@
 
 <span class="sd">        Parameters:</span>
 <span class="sd">            kwargs (dict):</span>
-<span class="sd">                Additional parameters are inherited from the :py:func:`inet.simulation.build.build_project` function</span>
-<span class="sd">                and also from the :py:meth:`inet.common.task.MultipleTasks.run` method.</span>
+<span class="sd">                Additional parameters are inherited from the :py:func:`build_project &lt;inet.simulation.build.build_project&gt;` function</span>
+<span class="sd">                and also from the :py:meth:`run &lt;inet.common.task.MultipleTasks.run&gt;` method.</span>
 
 <span class="sd">        Returns (MultipleTaskResults):</span>
 <span class="sd">            An object that contains a list of :py:class:`SimulationTask`.</span>
@@ -1240,14 +1240,14 @@
 <div class="viewcode-block" id="get_simulation_tasks"><a class="viewcode-back" href="../../../python-api/_autosummary/inet.simulation.task.get_simulation_tasks.html#inet.simulation.task.get_simulation_tasks">[docs]</a><span class="k">def</span> <span class="nf">get_simulation_tasks</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">simulation_configs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="n">run_number</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_number_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_run_number_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cpu_time_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">concurrent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">expected_num_tasks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">simulation_task_class</span><span class="o">=</span><span class="n">SimulationTask</span><span class="p">,</span> <span class="n">multiple_simulation_tasks_class</span><span class="o">=</span><span class="n">MultipleSimulationTasks</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns multiple simulation tasks matching the filter criteria. The returned tasks can be run by calling the</span>
-<span class="sd">    :py:meth:`inet.common.task.MultipleTasks.run` method.</span>
+<span class="sd">    :py:meth:`run &lt;inet.common.task.MultipleTasks.run&gt;` method.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        simulation_project (:py:class:`inet.simulation.project.SimulationProject` or None):</span>
+<span class="sd">        simulation_project (:py:class:`SimulationProject &lt;inet.simulation.project.SimulationProject&gt;` or None):</span>
 <span class="sd">            The simulation project from which simulation tasks are collected. If not specified then the default simulation</span>
 <span class="sd">            project is used.</span>
 
-<span class="sd">        simulation_configs (List of :py:class:`inet.simulation.config.SimulationConfig` or None):</span>
+<span class="sd">        simulation_configs (List of :py:class:`SimulationConfig &lt;inet.simulation.config.SimulationConfig&gt;` or None):</span>
 <span class="sd">            The list of simulation configurations from which the simulation tasks are collected. If not specified then</span>
 <span class="sd">            all simulation configurations are used.</span>
 
@@ -1288,7 +1288,7 @@
 <span class="sd">            Determines the Python class of the returned multiple simulation tasks object.</span>
 
 <span class="sd">        kwargs (dict):</span>
-<span class="sd">            Additional parameters are inherited from the :py:meth:`inet.simulation.config.SimulationConfig.matches_filter`</span>
+<span class="sd">            Additional parameters are inherited from the :py:meth:`matches_filter &lt;inet.simulation.config.SimulationConfig.matches_filter&gt;`</span>
 <span class="sd">            method  and also from the :py:class:`SimulationTask` and :py:class:`MultipleSimulationTasks` constructors.</span>
 
 <span class="sd">    Returns (:py:class:`MultipleSimulationTasks`):</span>
@@ -1326,7 +1326,7 @@
 <span class="sd">            Additional parameters are inherited from the :py:func:`get_simulation_tasks` function and also from the</span>
 <span class="sd">            :py:meth:`MultipleSimulationTasks.run` method.</span>
 
-<span class="sd">    Returns (:py:class:`inet.common.task.MultipleTaskResults`):</span>
+<span class="sd">    Returns (:py:class:`MultipleTaskResults &lt;inet.common.task.MultipleTaskResults&gt;`):</span>
 <span class="sd">        an object that contains a list of :py:class:`SimulationTaskResult` objects. Each object describes the results</span>
 <span class="sd">        of running one simulation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1338,15 +1338,15 @@
 <span class="sd">    Cleans the results folders for the simulation configs matching the provided filter criteria.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        simulation_project (:py:class:`inet.simulation.project.SimulationProject` or None):</span>
+<span class="sd">        simulation_project (:py:class:`SimulationProject &lt;inet.simulation.project.SimulationProject&gt;` or None):</span>
 <span class="sd">            The simulation project from which simulation tasks are collected. If not specified then the default simulation</span>
 <span class="sd">            project is used.</span>
 
-<span class="sd">        simulation_configs (List of :py:class:`inet.simulation.config.SimulationConfig` or None):</span>
+<span class="sd">        simulation_configs (List of :py:class:`SimulationConfig &lt;inet.simulation.config.SimulationConfig&gt;` or None):</span>
 <span class="sd">            The list of simulation configurations from which the simulation tasks are collected. If not specified then</span>
 <span class="sd">            all simulation configurations are used.</span>
 
-<span class="sd">        kwargs (dict): Additional parameters are inherited from the :py:meth:`inet.simulation.project.SimulationProject.get_simulation_configs`</span>
+<span class="sd">        kwargs (dict): Additional parameters are inherited from the :py:meth:`get_simulation_configs &lt;inet.simulation.project.SimulationProject.get_simulation_configs&gt;`</span>
 <span class="sd">            function.</span>
 
 <span class="sd">    Returns (None):</span>

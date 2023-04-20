@@ -1087,8 +1087,7 @@ the 802.1 Q-TAG protocol for encapsulation.</p></li>
 <li><p>The next protocol can be determined by a packet header field. For example,
 the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.ipv4.Ipv4.html">Ipv4</a> module uses the IP protocol ID header field from the
 <code class="code literal-cpp docutils literal notranslate"><span class="pre">Ipv4Header</span></code> to look up the next protocol as shown below:</p>
-<blockquote>
-<div><div class="highlight-cpp notranslate" id="next-protocol-example"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Protocol</span><span class="w"> </span><span class="o">*</span><span class="nf">Ipv4::getNextProtocol</span><span class="p">(</span><span class="n">Packet</span><span class="w"> </span><span class="o">*</span><span class="n">packet</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-cpp notranslate" id="next-protocol-example"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Protocol</span><span class="w"> </span><span class="o">*</span><span class="nf">Ipv4::getNextProtocol</span><span class="p">(</span><span class="n">Packet</span><span class="w"> </span><span class="o">*</span><span class="n">packet</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ipv4Header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">packet</span><span class="o">-&gt;</span><span class="n">peekAtFront</span><span class="o">&lt;</span><span class="n">Ipv4Header</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ipProtocolId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ipv4Header</span><span class="o">-&gt;</span><span class="n">getProtocolId</span><span class="p">();</span><span class="w"></span>
@@ -1096,7 +1095,6 @@ the <a class="reference-ned reference external" href="https://doc.omnetpp.org/in
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div></blockquote>
 </li>
 <li><p>The next protocol can be determined by some packet meta-data. For example,
 the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.tcp.Tcp.html">Tcp</a> module uses the type of the destination address from the
