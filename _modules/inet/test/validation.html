@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
+    
+    <title>inet.test.validation &#8212; INET 4.5.0 documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../index.html">Module code</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">inet.test.validation</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python-api/_autosummary/inet.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.html">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.html">cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.Task.html">Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.TaskResult.html">TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.html">simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.html">build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.html">config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.html">project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.html">test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.html">chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.html">fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.html">task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.html">opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.html">simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.html">smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.html">statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTask.html">TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.html">validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../../../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../python-api/_autosummary/inet.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.html">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.html">cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.Task.html">Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.TaskResult.html">TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.html">simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.html">build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.html">config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.html">project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.html">test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.html">chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.html">fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.html">task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.html">opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.html">simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.html">smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.html">statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTask.html">TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.html">validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <h1>Source code for inet.test.validation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module provides functionality for validation testing of multiple simulations.</span>
+
+<span class="sd">The main function is :py:func:`run_validation_tests`. It allows running multiple validation tests matching</span>
+<span class="sd">the provided filter criteria. Validation tests check simulations results against analytical model results,</span>
+<span class="sd">often cited in research papers, or simulation results of models created for other simulation frameworks.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">omnetpp.scave.results</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">inet.project.inet</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">inet.simulation.project</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">inet.test.simulation</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ValidationTestTask</span><span class="p">(</span><span class="n">SimulationTestTask</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_task</span><span class="p">,</span> <span class="n">check_function</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;validation test&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">simulation_task</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_function</span> <span class="o">=</span> <span class="n">check_function</span>
+
+    <span class="k">def</span> <span class="nf">check_simulation_task_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simulation_task_result</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">compare_test_results</span><span class="p">(</span><span class="n">result1</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">result1</span> <span class="o">-</span> <span class="n">result2</span><span class="p">)</span> <span class="o">/</span> <span class="n">result1</span> <span class="o">&lt;</span> <span class="n">accuracy</span>
+
+<span class="c1">############################</span>
+<span class="c1"># TSN frame replication test</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># 0.6578411405295316</span>
+<span class="k">def</span> <span class="nf">compute_frame_replication_success_rate_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND ((module =~ &quot;*.destination.udp&quot; AND name =~ packetReceived:count) OR (module =~ &quot;*.source.udp&quot; AND name =~ packetSent:count))&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/framereplication/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">packetSent</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;packetSent:count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">packetReceived</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;packetReceived:count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">packetReceived</span> <span class="o">/</span> <span class="n">packetSent</span>
+
+<span class="k">def</span> <span class="nf">compute_frame_replication_success_rate_analytically1</span><span class="p">():</span>
+    <span class="n">combinations</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">7</span><span class="p">)))</span>
+    <span class="n">probabilities</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+    <span class="n">solutions</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">:</span>
+        <span class="n">probability</span> <span class="o">=</span> <span class="p">(</span><span class="n">combination</span> <span class="o">*</span> <span class="n">probabilities</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">combination</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">probabilities</span><span class="p">))</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">solution</span> <span class="ow">in</span> <span class="n">solutions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">solution</span> <span class="o">*</span> <span class="n">combination</span> <span class="o">==</span> <span class="n">solution</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="n">p</span> <span class="o">+=</span> <span class="n">probability</span>
+                <span class="k">break</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">compute_frame_replication_success_rate_analytically2</span><span class="p">():</span>
+    <span class="n">successful</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">1000000</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s1_s2a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s1_s2b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s2a_s2b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s2b_s2a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s2a</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">s1_s2a</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">s1_s2b</span> <span class="ow">and</span> <span class="n">s2b_s2a</span><span class="p">)</span>
+        <span class="n">s2b</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">s1_s2b</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s1</span> <span class="ow">and</span> <span class="n">s1_s2a</span> <span class="ow">and</span> <span class="n">s2a_s2b</span><span class="p">)</span>
+        <span class="n">s3a</span> <span class="o">=</span> <span class="n">s2a</span> <span class="ow">and</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">s3b</span> <span class="o">=</span> <span class="n">s2b</span> <span class="ow">and</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">s3a_s4</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s3b_s4</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+        <span class="n">s4</span> <span class="o">=</span> <span class="p">(</span><span class="n">s3a</span> <span class="ow">and</span> <span class="n">s3a_s4</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s3b</span> <span class="ow">and</span> <span class="n">s3b_s4</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">s4</span><span class="p">:</span>
+            <span class="n">successful</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">successful</span> <span class="o">/</span> <span class="n">n</span>
+
+<span class="k">def</span> <span class="nf">compute_tsn_framereplication_validation_test_results</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">compute_frame_replication_success_rate_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">pa1</span> <span class="o">=</span> <span class="n">compute_frame_replication_success_rate_analytically1</span><span class="p">()</span>
+    <span class="n">pa2</span> <span class="o">=</span> <span class="n">compute_frame_replication_success_rate_analytically2</span><span class="p">()</span>
+    <span class="n">test_result1</span> <span class="o">=</span> <span class="n">compare_test_results</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">pa1</span><span class="p">,</span> <span class="n">test_accuracy</span><span class="p">)</span>
+    <span class="n">test_result2</span> <span class="o">=</span> <span class="n">compare_test_results</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">pa2</span><span class="p">,</span> <span class="n">test_accuracy</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TestTaskResult</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">TestTask</span><span class="p">(),</span> <span class="n">bool_result</span><span class="o">=</span><span class="n">test_result1</span> <span class="ow">and</span> <span class="n">test_result2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_tsn_framereplication_simulation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">simulation_task</span> <span class="o">=</span> <span class="n">get_simulation_tasks</span><span class="p">(</span><span class="n">working_directory_filter</span><span class="o">=</span><span class="s2">&quot;tests/validation/tsn/framereplication&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;0.2s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ValidationTestTask</span><span class="p">(</span><span class="n">simulation_task</span><span class="p">,</span> <span class="n">compute_tsn_framereplication_validation_test_results</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">run_tsn_framereplication_validation_test</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_tsn_framereplication_simulation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">###################################################</span>
+<span class="c1"># TSN traffic shaping asynchronous shaper ICCT test</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># name                      max</span>
+<span class="c1"># module</span>
+<span class="c1"># Flow 1, CDT            505.16</span>
+<span class="c1"># Flow 2, Class A       1579.72</span>
+<span class="c1"># Flow 3, Class B       3371.72</span>
+<span class="c1"># Flow 4, Class A        932.04</span>
+<span class="c1"># Flow 5, Class B       2162.12</span>
+<span class="c1"># Flow 6, Class A        585.16</span>
+<span class="c1"># Flow 7, Class B       1963.24</span>
+<span class="c1"># Flow 8, Best Effort  34913.16</span>
+<span class="k">def</span> <span class="nf">compute_asynchronousshaper_icct_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND name =~ meanBitLifeTimePerPacket:histogram:max&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/asynchronousshaper/icct/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">,</span> <span class="n">include_fields_as_scalars</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*(min|max)&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N6.app</span><span class="se">\\</span><span class="s2">[[0-4]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 4, Class A&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N6.app</span><span class="se">\\</span><span class="s2">[[5-9]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 5, Class B&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[[0-9]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 1, CDT&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[1[0-9]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 2, Class A&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[2[0-9]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 3, Class B&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[3[0-4]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 6, Class A&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[3[5-9]</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 7, Class B&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*N7.app</span><span class="se">\\</span><span class="s2">[40</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 8, Best Effort&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">max</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span> <span class="o">*</span> <span class="mi">1000000</span>
+
+<span class="k">def</span> <span class="nf">compute_asynchronousshaper_icct_endtoend_delay_alternatively</span><span class="p">():</span>
+    <span class="c1"># This validation test compares simulation results to analytical results presented</span>
+    <span class="c1"># in the paper titled &quot;The Delay Bound Analysis Based on Network Calculus for</span>
+    <span class="c1"># Asynchronous Traffic Shaping under Parameter Inconsistency&quot; from the 2020 IEEE</span>
+    <span class="c1"># 20th International Conference on Communication Technology</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Flow 1, CDT&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 2, Class A&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 3, Class B&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 4, Class A&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 5, Class B&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 6, Class A&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 7, Class B&quot;</span><span class="p">,</span> <span class="s2">&quot;Flow 8, Best Effort&quot;</span><span class="p">],</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">867.6</span><span class="p">,</span> <span class="mf">4665.5</span><span class="p">,</span> <span class="mi">10902</span><span class="p">,</span> <span class="mf">2505.2</span><span class="p">,</span> <span class="mf">5678.3</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)]})</span>
+
+<span class="k">def</span> <span class="nf">compute_tsn_trafficshaping_asynchronousshaper_icct_validation_test_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">compute_asynchronousshaper_icct_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">compute_asynchronousshaper_icct_endtoend_delay_alternatively</span><span class="p">()</span>
+    <span class="n">test_result</span> <span class="o">=</span> <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">TestTaskResult</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">TestTask</span><span class="p">(),</span> <span class="n">bool_result</span><span class="o">=</span><span class="n">test_result</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_tsn_trafficshaping_asynchronousshaper_icct_simulation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">simulation_task</span> <span class="o">=</span> <span class="n">get_simulation_tasks</span><span class="p">(</span><span class="n">working_directory_filter</span><span class="o">=</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/asynchronousshaper/icct&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;0.1s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ValidationTestTask</span><span class="p">(</span><span class="n">simulation_task</span><span class="p">,</span> <span class="n">compute_tsn_trafficshaping_asynchronousshaper_icct_validation_test_results</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">run_tsn_trafficshaping_asynchronousshaper_icct_validation_test</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_tsn_trafficshaping_asynchronousshaper_icct_simulation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">########################################################</span>
+<span class="c1"># TSN traffic shaping asynchronous shaper Core4INET test</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># name          max        mean      min      stddev</span>
+<span class="c1"># module</span>
+<span class="c1"># Critical  375.780  298.477239  252.900   36.668923</span>
+<span class="c1"># High      307.260  161.309427   60.900   73.625945</span>
+<span class="c1"># Medium    535.939  247.258720   88.259  106.588325</span>
+<span class="k">def</span> <span class="nf">compute_asynchronousshaper_core4inet_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND (name =~ meanBitLifeTimePerPacket:histogram:min OR name =~ meanBitLifeTimePerPacket:histogram:max OR name =~ meanBitLifeTimePerPacket:histogram:mean OR name =~ meanBitLifeTimePerPacket:histogram:stddev)&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/asynchronousshaper/core4inet/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">,</span> <span class="n">include_fields_as_scalars</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*(min|max|mean|stddev)&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[0</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Best effort&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[1</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Medium&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[2</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[3</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Critical&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;Best effort&quot;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span> <span class="o">*</span> <span class="mi">1000000</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># 2.0</span>
+<span class="k">def</span> <span class="nf">compute_asynchronousshaper_core4inet_max_queuelength_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND module =~ </span><span class="se">\&quot;</span><span class="s2">*.switch.eth[4].macLayer.queue.queue[5..7]</span><span class="se">\&quot;</span><span class="s2"> AND name =~ queueLength:max&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/asynchronousshaper/core4inet/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">,</span> <span class="n">include_fields_as_scalars</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">compute_asynchronousshaper_core4inet_endtoend_delay_alternatively</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># This validation test compares simulation results to analytical results and also</span>
+    <span class="c1"># to results from a different simulation using Core4INET.</span>
+    <span class="c1"># https://github.com/CoRE-RG/CoRE4INET/tree/master/examples/tsn/medium_network</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Medium&quot;</span><span class="p">,</span> <span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="s2">&quot;Critical&quot;</span><span class="p">],</span>
+                      <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">88.16</span><span class="p">,</span> <span class="mf">60.8</span><span class="p">,</span> <span class="mf">252.8</span><span class="p">],</span>
+                            <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">540</span><span class="p">,</span> <span class="mf">307.2</span><span class="p">,</span> <span class="mf">375.84</span><span class="p">],</span>
+                            <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">247.1</span><span class="p">,</span> <span class="mf">161.19</span><span class="p">,</span> <span class="mf">298.52</span><span class="p">],</span>
+                            <span class="s2">&quot;stddev&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">106.53</span><span class="p">,</span> <span class="mf">73.621</span><span class="p">,</span> <span class="mf">36.633</span><span class="p">]})</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">0.001</span> <span class="c1"># 1 ns initial production offset, see INI file</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1"># 50 ns propagation delay per hop</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s2">&quot;trafficclass&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">compute_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test_results</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">compute_asynchronousshaper_core4inet_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">compute_asynchronousshaper_core4inet_endtoend_delay_alternatively</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">maxQueueLength</span> <span class="o">=</span> <span class="n">compute_asynchronousshaper_core4inet_max_queuelength_from_simulation_results</span><span class="p">()</span>
+    <span class="n">test_result</span> <span class="o">=</span> <span class="n">maxQueueLength</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">and</span> \
+                  <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;stddev&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;stddev&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TestTaskResult</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">TestTask</span><span class="p">(),</span> <span class="n">bool_result</span><span class="o">=</span><span class="n">test_result</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">simulation_task</span> <span class="o">=</span> <span class="n">get_simulation_tasks</span><span class="p">(</span><span class="n">working_directory_filter</span><span class="o">=</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/asynchronousshaper/core4inet&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ValidationTestTask</span><span class="p">(</span><span class="n">simulation_task</span><span class="p">,</span> <span class="n">compute_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test_results</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">run_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">##############################################</span>
+<span class="c1"># TSN traffic shaping credit-based shaper test</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># name          max        mean      min      stddev</span>
+<span class="c1"># module</span>
+<span class="c1"># Critical  375.780  298.477239  252.900   36.668923</span>
+<span class="c1"># High      307.260  161.309427   60.900   73.625945</span>
+<span class="c1"># Medium    535.939  247.258720   88.259  106.588325</span>
+<span class="k">def</span> <span class="nf">compute_creditbasedshaper_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND (name =~ meanBitLifeTimePerPacket:histogram:min OR name =~ meanBitLifeTimePerPacket:histogram:max OR name =~ meanBitLifeTimePerPacket:histogram:mean OR name =~ meanBitLifeTimePerPacket:histogram:stddev)&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/creditbasedshaper/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">,</span> <span class="n">include_fields_as_scalars</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*(min|max|mean|stddev)&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">1&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[0</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Best effort&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[1</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Medium&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[2</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;.*app</span><span class="se">\\</span><span class="s2">[3</span><span class="se">\\</span><span class="s2">].*&quot;</span><span class="p">,</span> <span class="s2">&quot;Critical&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span><span class="o">!=</span><span class="s2">&quot;Best effort&quot;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span> <span class="o">*</span> <span class="mi">1000000</span>
+
+<span class="c1"># Observed result</span>
+<span class="c1"># 2.0</span>
+<span class="k">def</span> <span class="nf">compute_creditbasedshaper_max_queuelength_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filter_expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;type =~ scalar AND module =~ </span><span class="se">\&quot;</span><span class="s2">*.switch.eth[4].macLayer.queue.queue[5..7]</span><span class="se">\&quot;</span><span class="s2"> AND name =~ queueLength:max&quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">read_result_files</span><span class="p">(</span><span class="n">inet_project</span><span class="o">.</span><span class="n">get_full_path</span><span class="p">(</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/creditbasedshaper/results/*.sca&quot;</span><span class="p">),</span> <span class="n">filter_expression</span><span class="o">=</span><span class="n">filter_expression</span><span class="p">,</span> <span class="n">include_fields_as_scalars</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">get_scalars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">compute_creditbasedshaper_endtoend_delay_alternatively</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># This validation test compares simulation results to analytical results and also</span>
+    <span class="c1"># to results from a different simulation using Core4INET.</span>
+    <span class="c1"># https://github.com/CoRE-RG/CoRE4INET/tree/master/examples/tsn/medium_network</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Medium&quot;</span><span class="p">,</span> <span class="s2">&quot;High&quot;</span><span class="p">,</span> <span class="s2">&quot;Critical&quot;</span><span class="p">],</span>
+                      <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">88.16</span><span class="p">,</span> <span class="mf">60.8</span><span class="p">,</span> <span class="mf">252.8</span><span class="p">],</span>
+                            <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">540</span><span class="p">,</span> <span class="mf">307.2</span><span class="p">,</span> <span class="mf">375.84</span><span class="p">],</span>
+                            <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">247.1</span><span class="p">,</span> <span class="mf">161.19</span><span class="p">,</span> <span class="mf">298.52</span><span class="p">],</span>
+                            <span class="s2">&quot;stddev&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">106.53</span><span class="p">,</span> <span class="mf">73.621</span><span class="p">,</span> <span class="mf">36.633</span><span class="p">]})</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">0.001</span> <span class="c1"># 1 ns initial production offset, see INI file</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1"># 50 ns propagation delay per hop</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s2">&quot;trafficclass&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">compute_tsn_trafficshaping_creditbasedshaper_validation_test_results</span><span class="p">(</span><span class="n">test_accuracy</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">compute_creditbasedshaper_endtoend_delay_from_simulation_results</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">compute_creditbasedshaper_endtoend_delay_alternatively</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">df1</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">maxQueueLength</span> <span class="o">=</span> <span class="n">compute_creditbasedshaper_max_queuelength_from_simulation_results</span><span class="p">()</span>
+    <span class="n">test_result</span> <span class="o">=</span> <span class="n">maxQueueLength</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="ow">and</span> \
+                  <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> \
+                  <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;stddev&quot;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;stddev&quot;</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="n">test_accuracy</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TestTaskResult</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">TestTask</span><span class="p">(),</span> <span class="n">bool_result</span><span class="o">=</span><span class="n">test_result</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_tsn_trafficshaping_creditbasedshaper_validation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">simulation_task</span> <span class="o">=</span> <span class="n">get_simulation_tasks</span><span class="p">(</span><span class="n">working_directory_filter</span><span class="o">=</span><span class="s2">&quot;tests/validation/tsn/trafficshaping/creditbasedshaper&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">ValidationTestTask</span><span class="p">(</span><span class="n">simulation_task</span><span class="p">,</span> <span class="n">compute_tsn_trafficshaping_creditbasedshaper_validation_test_results</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">run_tsn_trafficshaping_creditbasedshaper_validation_test</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">get_tsn_trafficshaping_creditbasedshaper_validation_test_task</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">###########################</span>
+<span class="c1"># Multiple validation tests</span>
+
+<div class="viewcode-block" id="get_validation_test_tasks"><a class="viewcode-back" href="../../../python-api/_autosummary/inet.test.validation.get_validation_test_tasks.html#inet.test.validation.get_validation_test_tasks">[docs]</a><span class="k">def</span> <span class="nf">get_validation_test_tasks</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns multiple validation test tasks matching the provided filter criteria. The returned tasks can be run by</span>
+<span class="sd">    calling the :py:meth:`inet.common.task.MultipleTasks.run` method.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        kwargs (dict):</span>
+<span class="sd">            The filter criteria parameters are inherited from the :py:meth:`inet.simulation.task.get_simulation_tasks` method.</span>
+
+<span class="sd">    Returns (:py:class:`MultipleTestTasks`):</span>
+<span class="sd">        an object that contains a list of :py:class:`ValidationTestTask` objects matching the provided filter criteria.</span>
+<span class="sd">        The result can be run (and re-run) without providing additional parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">validation_test_task_functions</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_tsn_framereplication_simulation_test_task</span><span class="p">,</span>
+                                      <span class="n">get_tsn_trafficshaping_creditbasedshaper_validation_test_task</span><span class="p">,</span>
+                                      <span class="n">get_tsn_trafficshaping_asynchronousshaper_core4inet_validation_test_task</span><span class="p">,</span>
+                                      <span class="n">get_tsn_trafficshaping_asynchronousshaper_icct_simulation_test_task</span><span class="p">]</span>
+    <span class="n">validation_test_tasks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">validation_test_task_function</span> <span class="ow">in</span> <span class="n">validation_test_task_functions</span><span class="p">:</span>
+        <span class="n">validation_test_task_function_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="s2">&quot;working_directory_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;ini_file_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;config_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;run_filter&quot;</span><span class="p">]:</span>
+            <span class="n">validation_test_task_function_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">validation_test_task</span> <span class="o">=</span> <span class="n">validation_test_task_function</span><span class="p">(</span><span class="o">**</span><span class="n">validation_test_task_function_kwargs</span><span class="p">)</span>
+        <span class="n">simulation_config</span> <span class="o">=</span> <span class="n">validation_test_task</span><span class="o">.</span><span class="n">simulation_task</span><span class="o">.</span><span class="n">simulation_config</span>
+        <span class="k">if</span> <span class="n">simulation_config</span><span class="o">.</span><span class="n">matches_filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">validation_test_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">validation_test_task</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">MultipleTestTasks</span><span class="p">(</span><span class="n">tasks</span><span class="o">=</span><span class="n">validation_test_tasks</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;validation test&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="run_validation_tests"><a class="viewcode-back" href="../../../python-api/_autosummary/inet.test.validation.run_validation_tests.html#inet.test.validation.run_validation_tests">[docs]</a><span class="k">def</span> <span class="nf">run_validation_tests</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs one or more validation tests that match the provided filter criteria.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        kwargs (dict):</span>
+<span class="sd">            The filter criteria parameters are inherited from the :py:func:`get_validation_test_tasks` function.</span>
+
+<span class="sd">    Returns (:py:class:`MultipleTestTaskResults`):</span>
+<span class="sd">        an object that contains a list of :py:class:`TestTaskResult` objects. Each object describes the result of running one test task.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">get_validation_test_tasks</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</pre></div>
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

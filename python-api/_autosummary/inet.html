@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-240922-3');
+</script>
+    
+    <title>inet &#8212; INET 4.5.0 documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" href="../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="common" href="inet.common.html" />
+    <link rel="prev" title="Python API" href="../index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../index.html">Python API</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">inet</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inet.common.html">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.common.cluster.html">cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.common.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.Task.html">Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.TaskResult.html">TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inet.simulation.html">simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.build.html">build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.config.html">config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.project.html">project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inet.test.html">test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.chart.html">chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.get_update_chart_tasks.html">inet.test.chart.get_update_chart_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.update_charts.html">inet.test.chart.update_charts</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.fingerprint.html">fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.fingerprint.task.html">task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.opp.html">opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.simulation.html">simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.smoke.html">smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.statistical.html">statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.get_update_statistical_result_tasks.html">inet.test.statistical.get_update_statistical_result_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.update_statistical_results.html">inet.test.statistical.update_statistical_results</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.TestTask.html">TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.validation.html">validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../showcases/index.html">Showcases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../showcases/tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/routing/index.html">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../showcases/wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../showcases/wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inet.common.html">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.common.cluster.html">cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.common.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.Task.html">Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.common.task.TaskResult.html">TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inet.simulation.html">simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.build.html">build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.config.html">config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.project.html">project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.simulation.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inet.test.html">test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.chart.html">chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.get_update_chart_tasks.html">inet.test.chart.get_update_chart_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.chart.update_charts.html">inet.test.chart.update_charts</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.fingerprint.html">fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.fingerprint.task.html">task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
+<li class="toctree-l6"><a class="reference internal" href="inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.opp.html">opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.simulation.html">simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.smoke.html">smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.statistical.html">statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.get_update_statistical_result_tasks.html">inet.test.statistical.get_update_statistical_result_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.statistical.update_statistical_results.html">inet.test.statistical.update_statistical_results</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.task.html">task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.TestTask.html">TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="inet.test.validation.html">validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <section id="inet">
+<h1>inet<a class="headerlink" href="#inet" title="Permalink to this headline">¶</a></h1>
+<p>from inet</p>
+<p class="rubric">Modules</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="inet.common.html#module-inet.common" title="inet.common"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inet.common</span></code></a></p></td>
+<td><p>This package provides generally useful functionality.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="inet.simulation.html#module-inet.simulation" title="inet.simulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inet.simulation</span></code></a></p></td>
+<td><p>This package supports running simulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="inet.test.html#module-inet.test" title="inet.test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inet.test</span></code></a></p></td>
+<td><p>This package supports automated testing.</p></td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-inet"></span><p>This is the main package for the INET Framework Python library.</p>
+<p>It provides sub-packages for running simulations, analyzing simulation results, generating documentation, automated
+testing, etc.</p>
+<p>Please note that undocumented features are not supposed to be used by the user.</p>
+<section id="inet-framework-python-package">
+<h2>INET Framework Python Package<a class="headerlink" href="#inet-framework-python-package" title="Permalink to this headline">¶</a></h2>
+<p>The following sections give an overview of the INET Framework Python package.</p>
+<section id="using-python-interactively">
+<h3>Using Python Interactively<a class="headerlink" href="#using-python-interactively" title="Permalink to this headline">¶</a></h3>
+<p>The Python programming language is a very adequate tool for interactive development. There are several reasons: running
+Python code doesn’t require compilation, the interactive code execution creates a bidirectional communication channel
+between the user and the system, and the interactive development session is stateful, remembering code blocks executed
+earlier and also their results. Moreover, Python comes with a plethora of open source libraries which are easy to install,
+and they can be used in combination with the functions provided by the INET Python package.</p>
+<p>The simplest way to start using INET in the interactive Python environment is to start the <strong class="command">inet_python_repl</strong>
+shell script. This script is pretty simple, it loads the <code class="xref py py-mod docutils literal notranslate"><span class="pre">inet.repl</span></code> Python module and launches an IPython
+interpreter. Alternatively, it’s also possible to use any other Python interpreter, and also to import the desired
+individual INET packages as needed. A good place to see how to setup the INET Python packages after importing them,
+is to look at how the aforementioned INET package is implemented.</p>
+<p>Once the Python interpreter is up and running, the user can immediately start interacting with it and run simulations
+and carry out many other tasks. The easiest way to get used to the interactive development, is to run the code fragments
+presented in this document. Later with more experience, the user can run any other Python code that is developed with
+the help of the INET Python API reference documentation.</p>
+</section>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>The INET Python package requires certain other Python libraries to be installed before it can be used. The following
+command installs all such required and optional libraries:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/inet$ </span>pip install cppyy dask distributed IPython matplotlib numpy pandas scipy
+<span class="go">Collecting cppyy</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>After the installation is completed, starting the INET Python interpreter from a terminal is pretty straightforward:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp$ </span>. setenv
+<span class="go">Environment for &#39;omnetpp-6.0&#39; in directory &#39;/home/levy/workspace/omnetpp&#39; is ready.</span>
+<span class="gp">levy@valardohaeris:~/workspace/inet$ </span>. setenv
+<span class="go">Environment for INET 4.5.0 in directory &#39;/home/levy/workspace/inet&#39; is ready.</span>
+<span class="gp">levy@valardohaeris:~/workspace/inet$ </span>inet_python_repl
+<span class="go">INFO inet.simulation.project Default project is set to inet (project.py:532)</span>
+<span class="go">INFO inet.repl OMNeT++ Python support is loaded. (repl.py:38)</span>
+</pre></div>
+</div>
+<p>When the Python interpreter starts the following prompt is displayed:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]:</span>
+</pre></div>
+</div>
+<p>You can start typing in the prompt. For example, type <cite>run</cite> and press the TAB key to get the completion options. The
+Python interpreter provides completion options for module and package names, class and function names, and method names
+and their parameters. Each time you complete an input and press <cite>ENTER</cite> the interpreter executes the code and displays
+the returned result:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="gh">Out[1]: </span><span class="go">4</span>
+</pre></div>
+</div>
+</section>
+<section id="main-concepts">
+<h3>Main Concepts<a class="headerlink" href="#main-concepts" title="Permalink to this headline">¶</a></h3>
+<p>The INET Python package contains many useful classes and functions. The following lists the most important concepts
+represented by Python classes:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="inet.simulation.project.SimulationProject.html#inet.simulation.project.SimulationProject" title="inet.simulation.project.SimulationProject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationProject</span></code></a>: represents a project that usually comes
+with its own NED modules, their C++ implementation, and also with several example simulations</p></li>
+<li><p><a class="reference internal" href="inet.simulation.config.SimulationConfig.html#inet.simulation.config.SimulationConfig" title="inet.simulation.config.SimulationConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationConfig</span></code></a>: represents a specific configuration section
+from an INI file under a working directory in a specific simulation project</p></li>
+<li><p><a class="reference internal" href="inet.simulation.task.SimulationTask.html#inet.simulation.task.SimulationTask" title="inet.simulation.task.SimulationTask"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationTask</span></code></a>: represents a completely parameterized simulation
+(using a simulation config) which can be run multiple times</p></li>
+<li><p><a class="reference internal" href="inet.simulation.task.SimulationTaskResult.html#inet.simulation.task.SimulationTaskResult" title="inet.simulation.task.SimulationTaskResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationTaskResult</span></code></a>: represents the result that is created
+when a simulation task is run</p></li>
+</ul>
+<p>There are several other concepts represented in Python: multiple simulation tasks and their results, smoke tests,
+fingerprint tests, and so on.</p>
+</section>
+<section id="defining-projects">
+<h3>Defining Projects<a class="headerlink" href="#defining-projects" title="Permalink to this headline">¶</a></h3>
+<p>The simulation project is an essential concept of the INET Python package. Many functions take a simulation project
+as parameter. The INET python package contains several predefined simulation projects: all omnetpp sample projects
+and the INET simulation project itself.</p>
+<p>An important concept related to simulation projects is the default simulation project. Having a default project greatly
+simplifies using several functions of the INET Python package by implicitly using the default project without always
+explicitly passing it in as a parameter. The default simulation project is automatically set to the one enclosing the
+current working directory when the Python interpreter is started. Alternatively, the default simulation project can also
+be set explicitly using the <a class="reference internal" href="inet.simulation.project.set_default_simulation_project.html#inet.simulation.project.set_default_simulation_project" title="inet.simulation.project.set_default_simulation_project"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_default_simulation_project</span></code></a>
+function.</p>
+</section>
+<section id="building-projects">
+<h3>Building Projects<a class="headerlink" href="#building-projects" title="Permalink to this headline">¶</a></h3>
+<p>It’s essential to make sure that the simulation project is built before running a simulation. OMNeT++ already provides
+several ways to build your simulation project. You can build from the terminal using the <strong class="command">make</strong> command. You
+can also use the OMNeT++ IDE, which has built-in support for automatically building the project before running a
+simulation. Alternatively, you can also start the build manually from the IDE.</p>
+<p>Unfortunately, none of the above can be done easily when you are working from the Python interpreter. To avoid running
+a stale binary, the INET Python package also supports building the simulation project using Python functions:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;inet&quot;</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">build_project</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+<span class="go">INFO inet.simulation.build Building inet started (build.py:61)</span>
+<span class="go">INFO inet.simulation.build Building inet ended (build.py:67)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="inet.simulation.build.build_project.html#inet.simulation.build.build_project" title="inet.simulation.build.build_project"><code class="xref py py-func docutils literal notranslate"><span class="pre">build_project</span></code></a> function currently runs the <strong class="command">make</strong> command
+in the project root directory. Similarly to the <strong class="command">make</strong> build system, you can also build the binaries in different
+modes:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">build_project</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;debug&quot;</span><span class="p">)</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+</section>
+<section id="running-simulations">
+<h3>Running Simulations<a class="headerlink" href="#running-simulations" title="Permalink to this headline">¶</a></h3>
+<p>The most common task performed by users is running simulations. There are already several ways to do this: simulations
+can be run individually from the IDE with a few mouse clicks, they can also be run individually from the command line
+using the <strong class="command">opp_run</strong> command or the simulation model binary, and repetitions or parameter studies can be run
+in parallel batches from the command line using the <strong class="command">opp_runall</strong> command.</p>
+<p>But there are a few other use cases for running simulations. For example, running multiple unrelated simulations from
+the same simulation project, which may have different working directories, INI files, and configurations. For another
+example, running multiple simulations on a cluster of computers connected to a LAN. Ideally, all of these use cases,
+including running single simulations, repetitions and parameter studies, should be provided for the users by a single
+entry point in the toolchain.</p>
+<p>The INET Python library contains a single function that covers all of the above tasks. This function is called
+<a class="reference internal" href="inet.simulation.task.run_simulations.html#inet.simulation.task.run_simulations" title="inet.simulation.task.run_simulations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_simulations</span></code></a> and it is capable of running multiple simulations
+matching the provided filter criteria. The simulations can be run sequentially or concurrently, on the local computer
+or on an SSH cluster.</p>
+<p>In the following we demonstrate this and other functions with a number of examples.</p>
+<p>The simplest example is running all simulations from a specific simulation project. In this context, all simulations
+means all simulation runs from all configurations from all INI files found under the specific simulation project.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_simulations</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;fifo&quot;</span><span class="p">))</span>
+<span class="go">[3/7] . -c TandemQueueExperiment DONE</span>
+<span class="go">[5/7] . -c TandemQueueExperiment -r 2 DONE</span>
+<span class="go">...</span>
+<span class="go">[1/7] . -c Fifo1 DONE</span>
+<span class="go">[2/7] . -c Fifo2 DONE</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple simulation results: DONE, summary: 7 DONE in 0:00:15.642444</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The order of simulation runs is random because they run in parallel utilizing all CPUs by default.</p>
+</div>
+<p>The result of running the above simulations is a <a class="reference internal" href="inet.common.task.MultipleTaskResults.html#inet.common.task.MultipleTaskResults" title="inet.common.task.MultipleTaskResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleTaskResults</span></code></a>
+object, which is represented by a human readable summary in the console output. This object contains several details for
+the individual task results and also for the total result.</p>
+<p>In most cases, it’s useful to set a default simulation project in the Python interpreter. This allows running simulations
+from the same simulation project without always explicitly passing it in as a parameter:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">set_default_simulation_project</span><span class="p">(</span><span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;fifo&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The same effect can be achieved simply by starting the Python interpreter from the directory of the desired simulation
+project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_python_repl
+<span class="go">INFO inet.simulation.project Default project is set to fifo (project.py:533)</span>
+<span class="go">INFO inet.repl OMNeT++ Python support is loaded. (repl.py:40)</span>
+</pre></div>
+</div>
+<p>After the default simulation project is set, running all simulations can be done with a single parameterless function call:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_simulations</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The project is automatically built by <a class="reference internal" href="inet.simulation.task.run_simulations.html#inet.simulation.task.run_simulations" title="inet.simulation.task.run_simulations"><code class="xref py py-func docutils literal notranslate"><span class="pre">run_simulations</span></code></a> unless
+the <cite>build=False</cite> parameter is used.</p>
+</div>
+<p>In some cases, running all simulations from a simulation project (e.g. aloha) may not terminate because one or more
+simulations don’t have a pre-configured simulation time limit in the respective INI files:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_simulations</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;aloha&quot;</span><span class="p">))</span>
+<span class="go">[44/49] . -c PureAlohaExperiment -r 39 DONE</span>
+<span class="go">[34/49] . -c PureAlohaExperiment -r 29 DONE</span>
+<span class="go">...</span>
+<span class="go">^C[04/49] . -c PureAloha3 CANCEL (unexpected) (Cancel by user)</span>
+<span class="go">[47/49] . -c SlottedAloha1 CANCEL (unexpected) (Cancel by user)</span>
+<span class="go">...</span>
+<span class="go">[49/49] . -c SlottedAloha3 CANCEL (unexpected) (Cancel by user)</span>
+<span class="go">[02/49] . -c PureAloha1 CANCEL (unexpected) (Cancel by user)</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple simulation results: CANCEL, summary: 49 TOTAL, 42 DONE, 1 SKIP (expected), 6 CANCEL (unexpected) in 0:00:06.791716</span>
+</pre></div>
+</div>
+<p>Pressing Control-C (see ^C above) cancels the execution of the remaining simulations. The result object still contains
+all simulation task results including those that were collected up to the cancellation point and also those describing
+the cancelled simulation tasks.</p>
+<p>Running a set of simulation configs from a specific simulation project up to a specific simulation time limit:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">run_simulations</span><span class="p">(</span><span class="n">config_filter</span><span class="o">=</span><span class="s2">&quot;PureAloha&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span>
+<span class="go">[02/45] . -c PureAloha2 for 1s DONE</span>
+<span class="go">[06/45] . -c PureAlohaExperiment -r 2 for 1s DONE</span>
+<span class="go">...</span>
+<span class="go">[44/45] . -c PureAlohaExperiment -r 40 for 1s DONE</span>
+<span class="go">[35/45] . -c PureAlohaExperiment -r 31 for 1s DONE</span>
+
+<span class="gp">In [2]: </span><span class="n">r</span>
+<span class="gh">Out[2]: </span><span class="go">Multiple simulation results: DONE, summary: 45 DONE in 0:00:00.144779</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on filter parameters see the <a class="reference internal" href="inet.simulation.config.SimulationConfig.html#inet.simulation.config.SimulationConfig.matches_filter" title="inet.simulation.config.SimulationConfig.matches_filter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">matches_filter</span></code></a>
+method.</p>
+</div>
+<p>Storing the result object allows the user to later re-run the same set of simulations with a simple method call:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rerun</span><span class="p">()</span>
+<span class="go">[02/45] . -c PureAloha2 for 1s DONE</span>
+<span class="go">[03/45] . -c PureAloha3 for 1s DONE</span>
+<span class="go">...</span>
+<span class="go">[40/45] . -c PureAlohaExperiment -r 36 for 1s DONE</span>
+<span class="go">[41/45] . -c PureAlohaExperiment -r 37 for 1s DONE</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple simulation results: DONE, summary: 45 DONE in 0:00:00.131351</span>
+</pre></div>
+</div>
+<p>You can also filter the result for the simulations which terminated with error and re-run only them:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">r</span><span class="o">.</span><span class="n">get_error_results</span><span class="p">()</span><span class="o">.</span><span class="n">rerun</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go">Empty simulation result</span>
+</pre></div>
+</div>
+<p>In this case, there were no tasks resulting in error, so there was nothing to do.</p>
+<p>You can also control many other aspects of running simulations. The <cite>mode</cite> parameter allows choosing between release
+and debug mode binaries, the <cite>sim_time_limit</cite> and <cite>cpu_time_limit</cite> parameters can be used to control the termination of
+simulations, the <cite>concurrent</cite>, <cite>scheduler</cite>, and <cite>simulation_runner</cite> parameters can be used to control how and where
+simulations are run, etc.</p>
+<p>The <a class="reference internal" href="inet.simulation.task.run_simulations.html#inet.simulation.task.run_simulations" title="inet.simulation.task.run_simulations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_simulations</span></code></a> function (and all similar run functions) is
+implemented using the <a class="reference internal" href="inet.simulation.task.get_simulation_tasks.html#inet.simulation.task.get_simulation_tasks" title="inet.simulation.task.get_simulation_tasks"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_simulation_tasks</span></code></a> function (and other
+similarly named functions). The latter simply returns a list of tasks that can be stored in variables, passed around in
+functions, and run at any later moment, even multiple times if desired.</p>
+</section>
+<section id="running-simulations-on-a-cluster">
+<h3>Running Simulations on a Cluster<a class="headerlink" href="#running-simulations-on-a-cluster" title="Permalink to this headline">¶</a></h3>
+<p>Running multiple simulations can be drastically sped up by utilizing multiple computers called a cluster. The INET
+Python package provides direct support to use SSH clusters. An SSH cluster is a set of network nodes usually connected
+to a single LAN, all of which can login into each other using SSH passwordless login. The SSH cluster utilizes all
+network nodes with automatic and transparent load balancing as if it were a single computer.</p>
+<p>The first step to use an SSH cluster is to create one by specifying the scheduler and worker hostnames and start it:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">SSHCluster</span><span class="p">(</span><span class="n">scheduler_hostname</span><span class="o">=</span><span class="s2">&quot;valardohaeris.local&quot;</span><span class="p">,</span> <span class="n">worker_hostnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;valardohaeris.local&quot;</span><span class="p">,</span> <span class="s2">&quot;valarmorghulis.local&quot;</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="n">c</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="go">INFO inet.common.cluster Starting SSH cluster: scheduler=valardohaeris, workers=[&#39;valardohaeris&#39;, &#39;valarmorghulis&#39;] ...</span>
+<span class="go">INFO asyncssh Opening SSH connection to valardohaeris.local, port 22 (logging.py:92)</span>
+<span class="go">INFO asyncssh [conn=0] Connected to SSH server at valardohaeris.local, port 22 (logging.py:92)</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>After the SSH cluster is started, open the <a class="reference external" href="http://localhost:8797">http://localhost:8797</a> web page and see the live dashboard. The dashboard
+displays among others what the cluster is doing.</p>
+<p>It is easy to check if the cluster is operating correctly by running the following:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">c</span><span class="o">.</span><span class="n">run_gethostname</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gh">Out[1]: </span><span class="go">&#39;valardohaeris, valarmorghulis, valarmorghulis, valarmorghulis, valarmorghulis, valardohaeris, valarmorghulis, valardohaeris, valardohaeris, valarmorghulis, valardohaeris, valardohaeris&#39;</span>
+</pre></div>
+</div>
+<p>The result should contain a permutation of the hostnames of all worker nodes similarly to the above.</p>
+<p>The next step to use the SSH cluster to run simulations is to build a simulation project, preferably in both release
+and debug mode, and distribute the binary files to all worker nodes:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;aloha&quot;</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">build_project</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;release&quot;</span><span class="p">)</span>
+<span class="go">INFO inet.simulation.build Building aloha started (build.py:61)</span>
+<span class="go">...</span>
+<span class="go">INFO inet.simulation.build Building aloha ended (build.py:67)</span>
+
+<span class="gp">In [3]: </span><span class="n">p</span><span class="o">.</span><span class="n">copy_binary_simulation_distribution_to_cluster</span><span class="p">([</span><span class="s2">&quot;valardohaeris.local&quot;</span><span class="p">,</span> <span class="s2">&quot;valarmorghulis.local&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The binary distribution files are incrementally copied using the <strong class="command">rsync</strong> command.</p>
+<p>Running a set of simulations on the cluster is done with the same <a class="reference internal" href="inet.simulation.task.run_simulations.html#inet.simulation.task.run_simulations" title="inet.simulation.task.run_simulations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">run_simulations</span></code></a>
+function with some additional parameters:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_simulations</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;PureAlohaExperiment&quot;</span><span class="p">,</span> <span class="n">scheduler</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple simulation results: DONE, summary: 42 DONE in 0:00:04.783647</span>
+</pre></div>
+</div>
+<p>The log output is not present when simulations are executed on a cluster.</p>
+<p>Another way is to collect multiple simulation tasks and run them on the cluster, potentially multiple times:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">mt</span> <span class="o">=</span> <span class="n">get_simulation_tasks</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;release&quot;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="s2">&quot;PureAlohaExperiment&quot;</span><span class="p">,</span> <span class="n">scheduler</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">mt</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="gh">Out[2]: </span><span class="go">Multiple simulation results: DONE, summary: 42 DONE in 0:00:04.109337</span>
+</pre></div>
+</div>
+<p>Exiting from the interactive Python session also automatically stops the SSH cluster.</p>
+</section>
+<section id="testing-projects">
+<h3>Testing Projects<a class="headerlink" href="#testing-projects" title="Permalink to this headline">¶</a></h3>
+<p>Developing simulation models and creating simulations is a very time consuming, complicated, and error prone process.
+Continuous automated testing is the simplest tool that can be utilized to increase the quality of the final solution.</p>
+<section id="smoke-testing">
+<h4>Smoke Testing<a class="headerlink" href="#smoke-testing" title="Permalink to this headline">¶</a></h4>
+<p>The most basic tests, called smoke tests, simply check if simulations run without crashing and terminate properly. For
+example, running the smoke tests for all simulations from the default simulation project:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_smoke_tests</span><span class="p">()</span>
+<span class="go">[6/7] . -c TandemQueueExperiment -r 3 PASS</span>
+<span class="go">[5/7] . -c TandemQueueExperiment -r 2 PASS</span>
+<span class="go">...</span>
+<span class="go">[7/7] . -c TandemQueues PASS</span>
+<span class="go">[2/7] . -c Fifo2 PASS</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple smoke test results: PASS, summary: 7 PASS in 0:00:01.117562</span>
+</pre></div>
+</div>
+<p>Running smoke tests for a set of simulation configs from a specific simulation project:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">get_simulation_project</span><span class="p">(</span><span class="s2">&quot;aloha&quot;</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">run_smoke_tests</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">config_filter</span><span class="o">=</span><span class="s2">&quot;PureAlohaExperiment&quot;</span><span class="p">)</span>
+<span class="go">[13/42] . -c PureAlohaExperiment -r 12 PASS</span>
+<span class="go">[11/42] . -c PureAlohaExperiment -r 10 PASS</span>
+<span class="go">...</span>
+<span class="go">[30/42] . -c PureAlohaExperiment -r 29 PASS</span>
+<span class="go">[29/42] . -c PureAlohaExperiment -r 28 PASS</span>
+
+<span class="gp">In [3]: </span><span class="n">r</span>
+<span class="gh">Out[3]: </span><span class="go">Multiple smoke test results: PASS, summary: 42 PASS in 0:00:00.807932</span>
+</pre></div>
+</div>
+<p>Repeating the execution of all smoke tests from the last result:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rerun</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The result is the same as before. Of course, you can filter the results to re-run only the failed tests.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get_failed_results</span><span class="p">()</span><span class="o">.</span><span class="n">rerun</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="fingerprint-testing">
+<h4>Fingerprint Testing<a class="headerlink" href="#fingerprint-testing" title="Permalink to this headline">¶</a></h4>
+<p>Detecting regressions during the development of simulation projects is a very time consuming task.</p>
+<p>Running fingerprint tests is somewhat more complicated, because the test framework needs a database to store fingerprints.
+If there are no fingerprints in the database yet, then they must be first calculated and inserted:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">update_correct_fingerprints</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">config_filter</span><span class="o">=</span><span class="s2">&quot;PureAlohaExperiment&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span>
+<span class="go">[04/42] Updating fingerprint . -c PureAlohaExperiment -r 3 for 1s INSERT 856a-c13d/tplx</span>
+<span class="go">[11/42] Updating fingerprint . -c PureAlohaExperiment -r 10 for 1s INSERT 835c-d8e8/tplx</span>
+<span class="go">...</span>
+<span class="go">[28/42] Updating fingerprint . -c PureAlohaExperiment -r 27 for 1s INSERT 1b5b-3e28/tplx</span>
+<span class="go">[09/42] Updating fingerprint . -c PureAlohaExperiment -r 8 for 1s INSERT 83fb-e5d5/tplx</span>
+<span class="gh">Out[1]:</span>
+
+<span class="go">Details:</span>
+<span class="go">  . -c PureAlohaExperiment for 1s INSERT ec03-9cdf/tplx</span>
+<span class="go">  . -c PureAlohaExperiment -r 1 for 1s INSERT 27df-ce58/tplx</span>
+<span class="go">  ...</span>
+<span class="go">  . -c PureAlohaExperiment -r 40 for 1s INSERT 3fbc-cdb2/tplx</span>
+<span class="go">  . -c PureAlohaExperiment -r 41 for 1s INSERT f657-bebb/tplx</span>
+
+<span class="go">Multiple update fingerprint results: INSERT, summary: 42 INSERT (unexpected) in 0:00:01.567479</span>
+</pre></div>
+</div>
+<p>When the fingerprints are already present in the database, then the fingerprint tests can be run:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">run_fingerprint_tests</span><span class="p">(</span><span class="n">simulation_project</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">config_filter</span><span class="o">=</span><span class="s2">&quot;PureAlohaExperiment&quot;</span><span class="p">,</span> <span class="n">sim_time_limit</span><span class="o">=</span><span class="s2">&quot;1s&quot;</span><span class="p">)</span>
+<span class="go">[02/42] Checking fingerprint . -c PureAlohaExperiment -r 1 for 1s PASS</span>
+<span class="go">[06/42] Checking fingerprint . -c PureAlohaExperiment -r 5 for 1s PASS</span>
+<span class="go">...</span>
+<span class="go">[16/42] Checking fingerprint . -c PureAlohaExperiment -r 15 for 1s PASS</span>
+<span class="go">[08/42] Checking fingerprint . -c PureAlohaExperiment -r 7 for 1s PASS</span>
+<span class="gh">Out[1]: </span><span class="go">Multiple fingerprint test results: PASS, summary: 42 PASS in 0:00:01.129969</span>
+</pre></div>
+</div>
+<p>The PASS result means that the calculated fingerprint of the simulation matches the fingerprint stored in the database.</p>
+</section>
+</section>
+<section id="command-line-tools">
+<h3>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h3>
+<p>Some of the tasks that can be carried out using the Python interpreter, can also be done directly from the command line.
+The following list gives a brief overview of these command line tools:</p>
+<ul class="simple">
+<li><p><strong class="command">inet_python_repl</strong>: starts the INET Python interpreter</p></li>
+<li><p><strong class="command">inet_build_project</strong>: builds a simulation project using tasks</p></li>
+<li><p><strong class="command">inet_run_simulations</strong>: runs multiple simulations matching a filter criteria</p></li>
+<li><p><strong class="command">inet_run_smoke_tests</strong>: runs multiple smoke tests matching a filter criteria</p></li>
+<li><p><strong class="command">inet_run_fingerprint_tests</strong>: runs multiple fingerprint tests matching a filter criteria</p></li>
+<li><p><strong class="command">inet_update_correct_fingerprints</strong>: updates stored correct fingerprints matching a filter criteria</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All command line tools print a detailed description of their options when run with the <cite>-h</cite> option.</p>
+</div>
+<p>Building the simulation project enclosing the current working directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/aloha$ </span>inet_build_project
+<span class="go">[1/2] Compiling Host.cc DONE</span>
+<span class="go">[2/2] Compiling Server.cc DONE</span>
+<span class="go">[1/1] Linking libaloha.so DONE</span>
+<span class="go">[1/1] Copying dynamic libraries DONE</span>
+<span class="go">Multiple build task results: DONE, summary: 3 DONE in 0:00:00.455684</span>
+</pre></div>
+</div>
+<p>Of course, building the same project again skips all subtasks because everything is up to date.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/aloha$ </span>inet_build_project
+<span class="go">Multiple build task results: SKIP, summary: 3 SKIP (expected) in 0:00:00.000395</span>
+</pre></div>
+</div>
+<p>Building a project outside the current working directory is also possible:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp$ </span>inet_build_project -p tictoc
+<span class="go">[15/24] Compiling txc13.cc DONE</span>
+<span class="go">[11/24] Compiling txc14.cc DONE</span>
+<span class="go">...</span>
+<span class="go">[18/24] Compiling txc6.cc DONE</span>
+<span class="go">[24/24] Compiling txc15.cc DONE</span>
+<span class="go">[1/1] Linking libtictoc.so DONE</span>
+<span class="go">[1/1] Copying dynamic libraries DONE</span>
+<span class="go">Multiple build task results: DONE, summary: 4 TOTAL, 3 DONE, 1 SKIP (expected) in 0:00:00.104676</span>
+</pre></div>
+</div>
+<p>Running all simulations from the <cite>fifo</cite> sample project using the current working directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_run_simulations
+<span class="go">[3/7] . -c TandemQueueExperiment DONE</span>
+<span class="go">[5/7] . -c TandemQueueExperiment -r 2 DONE</span>
+<span class="go">...</span>
+<span class="go">[1/7] . -c Fifo1 DONE</span>
+<span class="go">[2/7] . -c Fifo2 DONE</span>
+<span class="go">Multiple simulation results: DONE, summary: 7 DONE in 0:00:15.856987</span>
+</pre></div>
+</div>
+<p>Running all simulation runs from the <cite>PureAlohaExperiment</cite> config for 1 second on a SSH cluster of two hosts in debug mode:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/aloha$ </span>inet_run_simulations -m debug -t 1s --filter PureAlohaExperiment --hosts valarmorghulis.local,valardohaeris.local
+<span class="go">Multiple simulation results: DONE, summary: 42 DONE in 0:00:01.196147</span>
+</pre></div>
+</div>
+<p>Running the fingerprint tests from the <cite>fifo</cite> sample project using the default fingerprint database:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_run_fingerprint_tests -t 1s
+<span class="go">Multiple fingerprint test results: SKIP, summary: 7 SKIP (unexpected) in 0:00:00.004558</span>
+</pre></div>
+</div>
+<p>Not surprisingly all tests are skipped because the database doesn’t have any correct fingerprints yet.
+We first need to update the correct fingerprints in the database:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_update_correct_fingerprints -t 1s
+<span class="go">[2/7] Updating fingerprint . -c Fifo2 for 1s INSERT 6593-438a/tplx</span>
+<span class="go">[3/7] Updating fingerprint . -c TandemQueueExperiment for 1s INSERT 4cbd-3dae/tplx</span>
+<span class="go">...</span>
+<span class="go">[4/7] Updating fingerprint . -c TandemQueueExperiment -r 1 for 1s INSERT f27b-15fd/tplx</span>
+<span class="go">[6/7] Updating fingerprint . -c TandemQueueExperiment -r 3 for 1s INSERT 4cbd-3dae/tplx</span>
+
+<span class="go">Details:</span>
+<span class="go">  . -c Fifo1 for 1s INSERT 01de-529f/tplx</span>
+<span class="go">  . -c Fifo2 for 1s INSERT 6593-438a/tplx</span>
+<span class="go">  ...</span>
+<span class="go">  . -c TandemQueueExperiment -r 3 for 1s INSERT 4cbd-3dae/tplx</span>
+<span class="go">  . -c TandemQueues for 1s INSERT 4cbd-3dae/tplx</span>
+
+<span class="go">Multiple update fingerprint results: INSERT, summary: 7 INSERT (unexpected) in 0:00:00.172821</span>
+</pre></div>
+</div>
+<p>Now, we can run all fingerprint tests comparing the fingerprints against the latest results:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_run_fingerprint_tests -t 1s
+<span class="go">[3/7] Checking fingerprint . -c TandemQueueExperiment for 1s PASS</span>
+<span class="go">[5/7] Checking fingerprint . -c TandemQueueExperiment -r 2 for 1s PASS</span>
+<span class="go">...</span>
+<span class="go">[7/7] Checking fingerprint . -c TandemQueues for 1s PASS</span>
+<span class="go">[4/7] Checking fingerprint . -c TandemQueueExperiment -r 1 for 1s PASS</span>
+<span class="go">Multiple fingerprint test results: PASS, summary: 7 PASS in 0:00:00.164720</span>
+</pre></div>
+</div>
+<p>Of course, trying to update the correct fingerprints again doesn’t change the stored values:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">levy@valardohaeris:~/workspace/omnetpp/samples/fifo$ </span>inet_update_correct_fingerprints -t 1s
+<span class="go">[5/7] Updating fingerprint . -c TandemQueueExperiment -r 2 for 1s KEEP 4cbd-3dae/tplx</span>
+<span class="go">[7/7] Updating fingerprint . -c TandemQueues for 1s KEEP 4cbd-3dae/tplx</span>
+<span class="go">...</span>
+<span class="go">[4/7] Updating fingerprint . -c TandemQueueExperiment -r 1 for 1s KEEP f27b-15fd/tplx</span>
+<span class="go">[2/7] Updating fingerprint . -c Fifo2 for 1s KEEP 6593-438a/tplx</span>
+<span class="go">Multiple update fingerprint results: KEEP, summary: 7 KEEP in 0:00:00.218112</span>
+</pre></div>
+</div>
+</section>
+<section id="tips-and-tricks">
+<h3>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h3>
+<p>The real power of using the Python interpreter comes with having your own utilities. This includes importing additional
+Python packages, adding specific functions tailored to your needs, adding state variables to quickly access what you use
+often, etc. So it is highly advisable to start writing your own Python package where you can add what is required.</p>
+</section>
+</section>
+</section>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">inet</a><ul>
+<li><a class="reference internal" href="#inet-framework-python-package">INET Framework Python Package</a><ul>
+<li><a class="reference internal" href="#using-python-interactively">Using Python Interactively</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#main-concepts">Main Concepts</a></li>
+<li><a class="reference internal" href="#defining-projects">Defining Projects</a></li>
+<li><a class="reference internal" href="#building-projects">Building Projects</a></li>
+<li><a class="reference internal" href="#running-simulations">Running Simulations</a></li>
+<li><a class="reference internal" href="#running-simulations-on-a-cluster">Running Simulations on a Cluster</a></li>
+<li><a class="reference internal" href="#testing-projects">Testing Projects</a><ul>
+<li><a class="reference internal" href="#smoke-testing">Smoke Testing</a></li>
+<li><a class="reference internal" href="#fingerprint-testing">Fingerprint Testing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-line-tools">Command Line Tools</a></li>
+<li><a class="reference internal" href="#tips-and-tricks">Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Python API</div>
+         </div>
+     </a>
+     <a id="button-next" href="inet.common.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>common</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
