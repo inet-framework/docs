@@ -3,35 +3,40 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-240922-3"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WPFKHJQDQW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-240922-3');
+  gtag('config', 'G-WPFKHJQDQW');
 </script>
     
     <title>Step 12. Changing to a more realistic radio model &#8212; INET 4.5.0 documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
     <link rel="stylesheet" href="../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/fonts.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Step 13. Configuring a more accurate path loss model" href="step13.html" />
@@ -99,7 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
@@ -355,111 +360,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../python-api/_autosummary/inet.html">inet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.html">common</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.html">cluster</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.Task.html">Task</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.TaskResult.html">TaskResult</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.html">simulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.html">build</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.html">config</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.html">project</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.html">test</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.html">chart</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_update_chart_tasks.html">inet.test.chart.get_update_chart_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.update_charts.html">inet.test.chart.update_charts</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.html">fingerprint</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.html">task</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.html">opp</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.html">simulation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.html">smoke</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.html">statistical</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_update_statistical_result_tasks.html">inet.test.statistical.get_update_statistical_result_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.update_statistical_results.html">inet.test.statistical.update_statistical_results</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTask.html">TestTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.html">validation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
@@ -505,7 +406,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../showcases/tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
@@ -761,111 +662,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../python-api/_autosummary/inet.html">inet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.html">common</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.html">cluster</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.cluster.SSHCluster.html">SSHCluster</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTaskResults.html">MultipleTaskResults</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.MultipleTasks.html">MultipleTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.Task.html">Task</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.common.task.TaskResult.html">TaskResult</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.html">simulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.html">build</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project.html">inet.simulation.build.build_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_makefile.html">inet.simulation.build.build_project_using_makefile</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.build_project_using_tasks.html">inet.simulation.build.build_project_using_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.build.BuildSimulationProjectTask.html">BuildSimulationProjectTask</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.html">config</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.config.SimulationConfig.html">SimulationConfig</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.html">project</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.define_simulation_project.html">inet.simulation.project.define_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_default_simulation_project.html">inet.simulation.project.get_default_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.get_simulation_project.html">inet.simulation.project.get_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.set_default_simulation_project.html">inet.simulation.project.set_default_simulation_project</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.project.SimulationProject.html">SimulationProject</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.clean_simulation_results.html">inet.simulation.task.clean_simulation_results</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.get_simulation_tasks.html">inet.simulation.task.get_simulation_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.run_simulations.html">inet.simulation.task.run_simulations</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.MultipleSimulationTasks.html">MultipleSimulationTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTask.html">SimulationTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.simulation.task.SimulationTaskResult.html">SimulationTaskResult</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.html">test</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.html">chart</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_chart_test_tasks.html">inet.test.chart.get_chart_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.get_update_chart_tasks.html">inet.test.chart.get_update_chart_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.run_chart_tests.html">inet.test.chart.run_chart_tests</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.chart.update_charts.html">inet.test.chart.update_charts</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.html">fingerprint</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.html">task</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_fingerprint_test_tasks.html">inet.test.fingerprint.task.get_fingerprint_test_tasks</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.get_update_correct_fingerprint_tasks.html">inet.test.fingerprint.task.get_update_correct_fingerprint_tasks</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.run_fingerprint_tests.html">inet.test.fingerprint.task.run_fingerprint_tests</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.fingerprint.task.update_correct_fingerprints.html">inet.test.fingerprint.task.update_correct_fingerprints</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.html">opp</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.get_opp_test_tasks.html">inet.test.opp.get_opp_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.opp.run_opp_tests.html">inet.test.opp.run_opp_tests</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.html">simulation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTask.html">SimulationTestTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.simulation.SimulationTestTaskResult.html">SimulationTestTaskResult</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.html">smoke</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.get_smoke_test_tasks.html">inet.test.smoke.get_smoke_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.smoke.run_smoke_tests.html">inet.test.smoke.run_smoke_tests</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.html">statistical</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_statistical_test_tasks.html">inet.test.statistical.get_statistical_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.get_update_statistical_result_tasks.html">inet.test.statistical.get_update_statistical_result_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.run_statistical_tests.html">inet.test.statistical.run_statistical_tests</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.statistical.update_statistical_results.html">inet.test.statistical.update_statistical_results</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.html">task</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTaskResults.html">MultipleTestTaskResults</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.MultipleTestTasks.html">MultipleTestTasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTask.html">TestTask</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.task.TestTaskResult.html">TestTaskResult</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.html">validation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.get_validation_test_tasks.html">inet.test.validation.get_validation_test_tasks</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../../../python-api/_autosummary/inet.test.validation.run_validation_tests.html">inet.test.validation.run_validation_tests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python-api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
@@ -880,21 +677,21 @@
     <div class="document">
         <div class="page-content">
         
-  <section id="step-12-changing-to-a-more-realistic-radio-model">
+  <div class="section" id="step-12-changing-to-a-more-realistic-radio-model">
 <h1>Step 12. Changing to a more realistic radio model<a class="headerlink" href="#step-12-changing-to-a-more-realistic-radio-model" title="Permalink to this headline">¶</a></h1>
-<section id="goals">
+<div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
 <p>After so many steps, we let go of the unit disk radio model and introduce a
 more realistic one. Our new radio will use an APSK modulation scheme,
 but still without other techniques like forward error correction,
 interleaving or spreading. We also want our model of the radio channel
 to simulate attenuation and obstacle loss.</p>
-</section>
-<section id="the-model">
+</div>
+<div class="section" id="the-model">
 <h2>The model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<section id="switching-to-apsk-radio">
+<div class="section" id="switching-to-apsk-radio">
 <h3>Switching to APSK radio<a class="headerlink" href="#switching-to-apsk-radio" title="Permalink to this headline">¶</a></h3>
-<p>In this step, we replace <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a> with <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>.
+<p>In this step, we replace <span class="reference-ned">GenericUnitDiskRadio</span> with <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>.
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a> models a radio with an APSK (amplitude and
 phase-shift keying) modulation scheme. By default it uses BPSK, but
 QPSK, QAM-16, QAM-64, QAM-256 and several other modulations can also be
@@ -924,14 +721,14 @@ reception is not successful if the SNIR is below this threshold</p>
 <p>The concrete values in the inifile were chosen to approximately
 reproduce the communication and interference ranges used in the previous
 steps.</p>
-</section>
-<section id="setting-up-the-wireless-channel">
+</div>
+<div class="section" id="setting-up-the-wireless-channel">
 <h3>Setting up the wireless channel<a class="headerlink" href="#setting-up-the-wireless-channel" title="Permalink to this headline">¶</a></h3>
 <p>Since we switched the radio to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadio.html">ApskScalarRadio</a>, we also need to
-change the medium to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a>. In general, one always
+change the medium to <span class="reference-ned">ScalarRadioMedium</span>. In general, one always
 needs to use a medium that is compatible with the given radio. (With
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>, we also used <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>.)</p>
-<p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium.html">ApskScalarRadioMedium</a> has “slots” to plug in various propagation
+<span class="reference-ned">GenericUnitDiskRadio</span>, we also used <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>.)</p>
+<p><span class="reference-ned">ScalarRadioMedium</span> has “slots” to plug in various propagation
 models, path loss models, obstacle loss models, analog models, and
 background noise models. Here we make use of the fact that the default
 background noise model is homogeneous isotropic white noise, and set up
@@ -941,11 +738,12 @@ the noise level to a nonzero value (-90dBm).</p>
 <span class="na">description</span> <span class="o">=</span> <span class="s">Changing to a more realistic radio model</span>
 <span class="na">extends</span> <span class="o">=</span> <span class="s">Wireless11</span>
 
-<span class="na">*.radioMedium.typename</span> <span class="o">=</span> <span class="s">&quot;ApskScalarRadioMedium&quot;</span>
+<span class="na">*.radioMedium.signalAnalogRepresentation</span> <span class="o">=</span> <span class="s">&quot;scalar&quot;</span>
 <span class="na">*.radioMedium.backgroundNoise.power</span> <span class="o">=</span> <span class="s">-90dBm</span>
 <span class="na">*.radioMedium.mediumLimitCache.centerFrequency</span> <span class="o">=</span> <span class="s">2GHz</span>
 
-<span class="na">*.host*.wlan[0].radio.typename</span> <span class="o">=</span> <span class="s">&quot;ApskScalarRadio&quot;</span>
+<span class="na">*.host*.wlan[0].radio.typename</span> <span class="o">=</span> <span class="s">&quot;ApskRadio&quot;</span>
+<span class="na">*.host*.wlan[0].radio.signalAnalogRepresentation</span> <span class="o">=</span> <span class="s">&quot;scalar&quot;</span>
 <span class="na">*.host*.wlan[0].radio.centerFrequency</span> <span class="o">=</span> <span class="s">2GHz</span>
 <span class="na">*.host*.wlan[0].radio.bandwidth</span> <span class="o">=</span> <span class="s">2MHz</span>
 <span class="na">*.host*.wlan[0].radio.transmitter.power</span> <span class="o">=</span> <span class="s">1.4mW</span>
@@ -958,9 +756,9 @@ the noise level to a nonzero value (-90dBm).</p>
 <span class="na">*.hostR1.wlan[*].radio.bitErrorRate.result-recording-modes</span> <span class="o">=</span> <span class="s">default,+vector</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="results">
+</div>
+</div>
+<div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>What happens is about the same as in the previous step. At first, host
 A’s packets are relayed by host R2 until it moves so that the wall
@@ -971,24 +769,24 @@ new route goes through hosts R2 and R3.</p>
 steps. There are radio signal attenuation, background noise and a more
 realistic radio model. The blue circles representing the communication range
 is an approximation. There is no distinct distance where receptions
-fail, as in the case of <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.physicallayer.wireless.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>.</p>
+fail, as in the case of <span class="reference-ned">GenericUnitDiskRadio</span>.</p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/wireless-step12-1.mp4" width="655" height="575" class="align-center"></video><p>In host A, the MAC receives the packet UDPData-408 from the radio. The
 MAC drops the packet because of bit errors; this can be seen in the
 following log:</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../../_images/wireless-step12-log.png"><img alt="../../../_images/wireless-step12-log.png" src="../../../_images/wireless-step12-log.png" style="width: 100%;" /></a>
-</figure>
+</div>
 <p><strong>Number of packets received by host B: 665</strong></p>
-<p>Sources: <a class="reference download internal" download="" href="../../../_downloads/f97352a22ceefd0ec097be85e0d1319f/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
-<a class="reference download internal" download="" href="../../../_downloads/ab196863a400456839da01f9d1687c23/WirelessC.ned"><code class="xref download docutils literal notranslate"><span class="pre">WirelessC.ned</span></code></a></p>
-</section>
-<section id="discussion">
+<p>Sources: <a class="reference download internal" download="" href="../../../_downloads/84c3e3d9f7fe1d859c57b87d38ad1571/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>,
+<a class="reference download internal" download="" href="../../../_downloads/12d07a1d761c6265da3b7d2ae30f7286/WirelessC.ned"><code class="xref download docutils literal notranslate"><span class="pre">WirelessC.ned</span></code></a></p>
+</div>
+<div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
 <p>Use <a class="reference external" href="https://github.com/inet-framework/inet-tutorials/issues/1">this
 page</a> in
 the GitHub issue tracker for commenting on this tutorial.</p>
-</section>
-</section>
+</div>
+</div>
 
 
         </div>

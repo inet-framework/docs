@@ -23,7 +23,7 @@ It relies on several models:
 
 #. background noise model
 
-#. signal analog model
+#. medium analog model
 
 With the help of the above models, the medium module computes when,
 where, and how signals arrive at receivers, including the set of
@@ -53,7 +53,7 @@ types:
 .. code-block:: ned
 
    propagation: <default("ConstantSpeedPropagation")> like IPropagation;
-   analogModel: <default("ScalarAnalogModel")> like IAnalogModel;
+   analogModel: <default("ScalarMediuAnalogModel")> like IMediumAnalogModel;
    backgroundNoise: <default("IsotropicScalarBackgroundNoise")> like IRadioBackgroundNoise
        if typename != "";
    pathLoss: <default("FreeSpacePathLoss")> like IPathLoss;
@@ -66,17 +66,13 @@ types:
 
 There are many preconfigured versions of :ned:`RadioMedium`:
 
--  For use with :ned:`UnitDiskRadio`: :ned:`UnitDiskRadioMedium`
+-  For use with :ned:`GenericUnitDiskRadio`: :ned:`UnitDiskRadioMedium`
 
--  For APSK radios: :ned:`ApskScalarRadioMedium`,
-   :ned:`ApskDimensionalRadioMedium`,
-   :ned:`ApskLayeredScalarRadioMedium`,
-   :ned:`ApskLayeredDimensionalRadioMedium`,
+-  For APSK radios: :ned:`ScalarRadioMedium`,
+   :ned:`DimensionalRadioMedium`
 
 -  For IEEE 802.11: :ned:`Ieee80211ScalarRadioMedium`,
-   :ned:`Ieee80211DimensionalRadioMedium`,
-   :ned:`Ieee80211LayeredScalarRadioMedium`,
-   :ned:`Ieee80211LayeredDimensionalRadioMedium`,
+   :ned:`Ieee80211DimensionalRadioMedium`.
 
 -  For IEEE 802.15.4: :ned:`Ieee802154UwbIrRadioMedium`,
    :ned:`Ieee802154NarrowbandScalarRadioMedium`
@@ -247,8 +243,8 @@ The simplest background noise model can be configured as follows:
 
 .. _ug:sec:medium:analog-models:
 
-Analog Models
--------------
+Medium Analog Models
+--------------------
 
 The analog signal is a complex physical phenomenon which can be modeled
 in many different ways. Choosing the right analog domain signal
@@ -257,13 +253,13 @@ accuracy and performance. The analog model of the transmission medium
 determines how signals are represented while being transmitted,
 propagated, and received.
 
-In INET, an analog model is an OMNeT++ simple module. Its main purpose
+In INET, a medium analog model is an OMNeT++ simple module. Its main purpose
 is to compute the received signal from the transmitted signal. The
 analog model combines the effect of the antenna, path loss, and obstacle
 loss models. Transceivers must be configured transmit and receive
 signals according to the representation used by the analog model.
 
-The most commonly used analog model, which uses a scalar signal power
+The most commonly used medium analog model, which uses a scalar signal power
 representation over a frequency and time interval, can be configured as
 follows:
 
@@ -273,7 +269,7 @@ follows:
    :language: ini
    :start-after: !AnalogModelConfigurationExample
    :end-before: !End
-   :name: Analog model configuration example
+   :name: Medium analog model configuration example
 
 .. _ug:sec:medium:neighbor-cache:
 
