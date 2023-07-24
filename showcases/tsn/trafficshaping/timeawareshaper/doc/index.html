@@ -106,8 +106,9 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -408,8 +409,9 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -772,7 +774,7 @@ For more information, check out the <a class="reference internal" href="../../cr
 <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The
 links between them use 100 Mbps <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetLink.html">EthernetLink</a> channels:</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/Network27.png" src="../../../../../_images/Network27.png" />
+<img alt="../../../../../_images/Network28.png" src="../../../../../_images/Network28.png" />
 </div>
 <p>We configure the client to send traffic to the server, and enable time-aware traffic shaping in the switch.</p>
 <p>In this simulation, we want to focus on how the Time-aware shaper works, and avoid any unintended traffic shaping effects by other parts of the network (such as traffic being limited
@@ -894,7 +896,7 @@ network interface of the switch. The queue lengths increase over time, because
 packets are not dropped, and the incoming data rate of the shaper is on average
 more than 40Mbps and 20Mbps. This is due to protocol overhead.</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/TrafficShaperQueueLengths2.png" src="../../../../../_images/TrafficShaperQueueLengths2.png" />
+<img alt="../../../../../_images/TrafficShaperQueueLengths1.png" src="../../../../../_images/TrafficShaperQueueLengths1.png" />
 </div>
 <p>The next diagram shows the transmitting state and the gate states of the time-aware
 shaper. The open periods of the two gates are back-to-back, and the transmitter is active
@@ -902,7 +904,7 @@ for 60% of the time, for a total traffic of 60Mbps. Note that the transmitting s
 diagram appears solid orange, but the state actually fluctuates rapidly between transmitting
 and not transmitting.</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/TransmittingStateAndGateStates2.png" src="../../../../../_images/TransmittingStateAndGateStates2.png" />
+<img alt="../../../../../_images/TransmittingStateAndGateStates1.png" src="../../../../../_images/TransmittingStateAndGateStates1.png" />
 </div>
 <p>The next diagram shows the relationships (for both traffic classes) between
 the gate state of the transmission gates, the transmitting state of the

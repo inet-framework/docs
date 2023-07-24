@@ -17,7 +17,7 @@
   gtag('config', 'G-WPFKHJQDQW');
 </script>
     
-    <title>Mixing Different Shapers &#8212; INET 4.5.0 documentation</title>
+    <title>Using Different Traffic Shapers for Different Traffic Classes &#8212; INET 4.5.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -39,7 +39,7 @@
     <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="Peeking Under the Hood" href="../../underthehood/doc/index.html" />
+    <link rel="next" title="Combining Time-Aware and Credit-Based Shaping" href="../../cbsandtas/doc/index.html" />
     <link rel="prev" title="Asynchronous Traffic Shaping" href="../../asynchronousshaper/doc/index.html" /> 
   </head>
 <body>
@@ -50,7 +50,7 @@
             <a class="mdl-navigation__link" href="../../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../../../index.html">Time-Sensitive Networking</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../../index.html">Scheduling and Traffic Shaping</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Mixing Different Shapers</a>
+            <a class="mdl-navigation__link is-active">Using Different Traffic Shapers for Different Traffic Classes</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -106,8 +106,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -408,8 +409,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -678,22 +680,35 @@
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="mixing-different-shapers">
-<h1>Mixing Different Shapers<a class="headerlink" href="#mixing-different-shapers" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-different-traffic-shapers-for-different-traffic-classes">
+<h1>Using Different Traffic Shapers for Different Traffic Classes<a class="headerlink" href="#using-different-traffic-shapers-for-different-traffic-classes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>In this example we demonstrate how to use different traffic shapers in the same
-network interface.</p>
+<p>In INET, it is possible to use different traffic shapers for different traffic classes in a
+TSN switch. In this showcase, we demonstrate using a Credit-Based Shaper (CBS)
+and an Asynchronous Traffic Shaper (ATS), together in the same switch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might be interested in looking at another showcase, in which multiple traffic shapers are combined in the same traffic stream: <a class="reference internal" href="../../cbsandtas/doc/index.html"><span class="doc">Combining Time-Aware and Credit-Based Shaping</span></a>.</p>
+</div>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
-<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/mixingshapers">inet/showcases/tsn/trafficshaping/mixingshapers</a></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/cbsandats">inet/showcases/tsn/trafficshaping/cbsandats</a></div>
 </div>
 </div>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>In this demonstration, similarly to the <a class="reference internal" href="../../creditbasedshaper/doc/index.html"><span class="doc">Credit-Based Shaping</span></a> and <a class="reference internal" href="../../asynchronousshaper/doc/index.html"><span class="doc">Asynchronous Traffic Shaping</span></a> showcases, we employ a
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module with two traffic classes. However, unlike the previously mentioned two showcases, here one
+class is shaped using a CBS, and the other class is shaped
+by an ATS. Time-aware shaping is not enabled.</p>
 <p>There are three network nodes in the network. The client and the server are
-<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The
-links between them use 100 Mbps <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetLink.html">EthernetLink</a> channels.</p>
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The links
+between them use 100 Mbps <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetLink.html">EthernetLink</a> channels. The client generates two
+traffic streams, and transmits them to the switch. In the switch, these streams
+undergo traffic shaping, and are transmitted to the
+server. In the results section, we plot the traffic in the switch before and
+after shapers, to see the effects of traffic shaping.</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/Network25.png" src="../../../../../_images/Network25.png" />
 </div>
@@ -708,9 +723,9 @@ the application level in the client.</p>
 <span class="na">*.client.app[*].io.destAddress</span> <span class="o">=</span> <span class="s">&quot;server&quot;</span>
 <span class="na">*.client.app[0].io.destPort</span> <span class="o">=</span> <span class="s">1000</span>
 <span class="na">*.client.app[1].io.destPort</span> <span class="o">=</span> <span class="s">1001</span>
-<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B - 54B </span><span class="c1"># 42B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
-<span class="na">*.client.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(200us) </span><span class="c1"># ~40Mbps</span>
-<span class="na">*.client.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(400us) </span><span class="c1"># ~20Mbps</span>
+<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B</span><span class="c1"># - 54B # 42B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
+<span class="na">*.client.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(sin(dropUnit(simTime() * 1)) + sin(dropUnit(simTime() * 8)) + 5, &quot;ms&quot;) / 25	</span><span class="c1"># ~40Mbps</span>
+<span class="na">*.client.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(sin(dropUnit(simTime() * 2)) + 5, &quot;ms&quot;) / 12.5					</span><span class="c1"># ~20Mbps</span>
 
 <span class="c1"># server applications</span>
 <span class="na">*.server.numApps</span> <span class="o">=</span> <span class="s">2</span>
@@ -750,13 +765,13 @@ each packet to be already calculated by the ingress per-stream filtering.</p>
 <span class="na">*.switch.hasIngressTrafficFiltering</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># per-stream filtering for video stream</span>
-<span class="na">*.switch.bridging.streamFilter.ingress.typename</span> <span class="o">=</span> <span class="s">&quot;SimpleIeee8021qFilter&quot;</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.numStreams</span> <span class="o">=</span> <span class="s">1</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.classifier.mapping</span> <span class="o">=</span> <span class="s">{video: 0}</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.*[0].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.meter[0].typename</span> <span class="o">=</span> <span class="s">&quot;EligibilityTimeMeter&quot;</span>
-<span class="na">*.switch.bridging.streamFilter.ingress.meter[0].committedInformationRate</span> <span class="o">=</span> <span class="s">20Mbps</span>
+<span class="na">*.switch.bridging.streamFilter.ingress.meter[0].committedInformationRate</span> <span class="o">=</span> <span class="s">20.84Mbps	</span><span class="c1"># shaper data rate</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.meter[0].committedBurstSize</span> <span class="o">=</span> <span class="s">10kB</span>
+<span class="na">*.switch.bridging.streamFilter.ingress.meter[0].packetOverheadLength</span> <span class="o">=</span> <span class="s">18B				</span><span class="c1"># 1046-1028 (14 MAC header + 4 FCS)</span>
 <span class="na">*.switch.bridging.streamFilter.ingress.filter[0].typename</span> <span class="o">=</span> <span class="s">&quot;EligibilityTimeFilter&quot;</span>
 </pre></div>
 </div>
@@ -768,69 +783,33 @@ traffic class.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># enable egress traffic shaping</span>
 <span class="na">*.switch.hasEgressTrafficShaping</span> <span class="o">=</span> <span class="s">true</span>
 
-<span class="c1"># credit-based and asynchronous traffic shaping</span>
+<span class="c1"># traffic classes</span>
 <span class="na">*.switch.eth[*].macLayer.queue.numTrafficClasses</span> <span class="o">=</span> <span class="s">2</span>
+
+<span class="c1"># credit-based traffic shaping</span>
 <span class="na">*.switch.eth[*].macLayer.queue.*[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
+<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee8021qCreditBasedShaper&quot;</span>
+<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].idleSlope</span> <span class="o">=</span> <span class="s">42.64Mbps		</span><span class="c1"># channel data rate</span>
+
+<span class="c1"># asynchronous traffic shaping</span>
 <span class="na">*.switch.eth[*].macLayer.queue.*[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
 <span class="na">*.switch.eth[*].macLayer.queue.queue[1].typename</span> <span class="o">=</span> <span class="s">&quot;EligibilityTimeQueue&quot;</span>
-<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee8021qCreditBasedShaper&quot;</span>
-<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].idleSlope</span> <span class="o">=</span> <span class="s">40Mbps</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[1].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee8021qAsynchronousShaper&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The first diagram shows the data rate of the application level outgoing traffic
-in the client. The data rate varies randomly over time but the averages are the
-same.</p>
+<p>Let’s examine the traffic shaping process within the switch. The chart below
+illustrates the incoming and outgoing data rates within the base time-aware
+shaper module for the two traffic streams:</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/ClientApplicationTraffic2.png" src="../../../../../_images/ClientApplicationTraffic2.png" />
+<img alt="../../../../../_images/shaper_both.png" src="../../../../../_images/shaper_both.png" />
 </div>
-<p>The next diagram shows the data rate of the incoming traffic of the traffic
-shapers of the outgoing network interface in the switch. This is different
-from the previous because the traffic is already in the switch and it is also
-measured at different protocol level.</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/TrafficShaperIncomingTraffic.png" src="../../../../../_images/TrafficShaperIncomingTraffic.png" />
-</div>
-<p>The next diagram shows the data rate of the already shaped outgoing traffic of
-the outgoing network interface in the switch. The randomly varying data rate of
-the incoming traffic is transformed into a quite stable data rate for the outgoing
-traffic.</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/TrafficShaperOutgoingTraffic.png" src="../../../../../_images/TrafficShaperOutgoingTraffic.png" />
-</div>
-<p>TODO</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/TransmittingStateAndGateStates.png" src="../../../../../_images/TransmittingStateAndGateStates.png" />
-</div>
-<p>The next diagram shows the queue lengths of the traffic shapers in the outgoing
-network interface of the switch. The queue lengths increase over time because
-the data rate of the incoming traffic of the shapers is greater than the data
-rate of the outgoing traffic.</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/TrafficShaperQueueLengths.png" src="../../../../../_images/TrafficShaperQueueLengths.png" />
-</div>
-<p>The next diagram shows the relationships between the number of credits, the gate
-state of the credit based transmission selection algorithm, and the transmitting
-state of the outgoing network interface for the best effort traffic class.</p>
-<div class="figure align-center">
-<img alt="showcases/tsn/trafficshaping/cbsandats/doc/media/BestEffortTrafficClass.png" src="showcases/tsn/trafficshaping/cbsandats/doc/media/BestEffortTrafficClass.png" />
-</div>
-<p>The next diagram shows the relationships between the number of credits, the gate
-state of the credit based transmission selection algorithm, and the transmitting
-state of the outgoing network interface for the video traffic class.</p>
-<div class="figure align-center">
-<img alt="showcases/tsn/trafficshaping/cbsandats/doc/media/VideoTrafficClass.png" src="showcases/tsn/trafficshaping/cbsandats/doc/media/VideoTrafficClass.png" />
-</div>
-<p>The last diagram shows the data rate of the application level incoming traffic
-in the server. The data rate is somewhat lower than the data rate of the
-outgoing traffic of the corresponding traffic shaper. The reason is that they
-are measured at different protocol layers.</p>
-<div class="figure align-center">
-<img alt="../../../../../_images/ServerApplicationTraffic2.png" src="../../../../../_images/ServerApplicationTraffic2.png" />
-</div>
+<p>The CBS shapes the best effort traffic by restricting the data rate to a fixed
+value of 40 Mbps without any bursts. The ATS shapes the video
+stream by not only limiting the data rate to the desired nominal value but also
+allowing for bursts when the traffic exceeds the nominal rate.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/749ec808178105f7e64cf655da6a0be8/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a></p>
 </div>
 <div class="section" id="discussion">
@@ -848,7 +827,7 @@ are measured at different protocol layers.</p>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Mixing Different Shapers</a><ul>
+<li><a class="reference internal" href="#">Using Different Traffic Shapers for Different Traffic Classes</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
 <li><a class="reference internal" href="#the-model">The Model</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
@@ -870,11 +849,11 @@ are measured at different protocol layers.</p>
             <div>Asynchronous Traffic Shaping</div>
          </div>
      </a>
-     <a id="button-next" href="../../underthehood/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../cbsandtas/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Peeking Under the Hood</div>
+            <div>Combining Time-Aware and Credit-Based Shaping</div>
         </div>
      </a>
   </div>

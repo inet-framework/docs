@@ -17,7 +17,7 @@
   gtag('config', 'G-WPFKHJQDQW');
 </script>
     
-    <title>Peeking Under the Hood &#8212; INET 4.5.0 documentation</title>
+    <title>Using Traffic Shapers Independently &#8212; INET 4.5.0 documentation</title>
 
     <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="Automatic Gate Schedule Configuration" href="../../../gatescheduling/index.html" />
-    <link rel="prev" title="Mixing Different Shapers" href="../../cbsandats/doc/index.html" /> 
+    <link rel="prev" title="Combining Time-Aware and Credit-Based Shaping" href="../../cbsandtas/doc/index.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
@@ -50,7 +50,7 @@
             <a class="mdl-navigation__link" href="../../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../../../index.html">Time-Sensitive Networking</a><i class="material-icons">navigate_next</i>
             <a class="mdl-navigation__link" href="../../index.html">Scheduling and Traffic Shaping</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Peeking Under the Hood</a>
+            <a class="mdl-navigation__link is-active">Using Traffic Shapers Independently</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -106,8 +106,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -408,8 +409,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -678,39 +680,107 @@
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="peeking-under-the-hood">
-<h1>Peeking Under the Hood<a class="headerlink" href="#peeking-under-the-hood" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-traffic-shapers-independently">
+<h1>Using Traffic Shapers Independently<a class="headerlink" href="#using-traffic-shapers-independently" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="goals">
 <h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>This showcase demonstrates that the scheduling and traffic shaping modules can
-work outside the context of a network node. Doing so may facilitate assembling
-and validating specific complex scheduling and traffic shaping behaviors which
-can be difficult to replicate in a complete network.</p>
+<p>Within the INET framework, scheduling and traffic shaping modules can operate
+independently from a network node. Leveraging these modules in this manner
+offers the advantage of easily constructing and verifying intricate scheduling
+and traffic shaping behaviors that may be challenging to replicate within a
+comprehensive network setup.</p>
+<p>In this showcase, we demonstrate the creation of a fully operational
+Asynchronous Traffic Shaper (ATS) by directly interconnecting its individual
+components. Next, we construct a straightforward queueing network by linking the
+ATS to traffic sources and traffic sinks. The key highlight is the observation
+of traffic shaping within the network, achieved by plotting the generated
+traffic both before and after the shaping process.</p>
 <div class="line-block">
 <div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/underthehood">inet/showcases/tsn/trafficshaping/underthehood</a></div>
 </div>
 </div>
+<div class="section" id="asynchronous-traffic-shaping-in-inet">
+<h2>Asynchronous Traffic Shaping in INET<a class="headerlink" href="#asynchronous-traffic-shaping-in-inet" title="Permalink to this headline">¶</a></h2>
+<p>The Asynchronous Traffic Shaper, as defined in the IEEE 802.1Qcr standard,
+effectively smooths traffic flow by capping the data rate to a nominal value
+while permitting certain bursts. In INET, this mechanism is realized through
+four essential modules:</p>
+<ul class="simple">
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeMeter.html">EligibilityTimeMeter</a>: Calculates the transmission eligibility time, determining when a packet becomes eligible for transmission.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeFilter.html">EligibilityTimeFilter</a>: Filters out expired packets, those that would wait excessively before becoming eligible for transmission.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeQueue.html">EligibilityTimeQueue</a>: Stores packets in order of their transmission eligibility time.</p></li>
+<li><p><a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeGate.html">EligibilityTimeGate</a>: Opens at the transmission eligibility time for the next packet</p></li>
+</ul>
+<p>In a complete network setup, these modules are typically distributed across
+various components of a network node, such as an Ethernet switch. Specifically,
+the meter and filter modules are positioned within the ingress filter of the
+bridging layer, while the queue and gate modules reside in the network
+interfaces. Refer to the annotated image of a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> below for a visual
+representation of their locations:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/TsnSwitch3.png" src="../../../../../_images/TsnSwitch3.png" />
+</div>
+<p>The next image displays an internal view of the ingress filter module in the bridging layer of the switch, with the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeQueue.html">EligibilityTimeQueue</a> and the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeFilter.html">EligibilityTimeFilter</a>
+modules highlighted:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/filter2.png" src="../../../../../_images/filter2.png" />
+</div>
+<p>The following image displays an internal view of the queue module in the Ethernet interface’s MAC layer, with the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeQueue.html">EligibilityTimeQueue</a>
+and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeGate.html">EligibilityTimeGate</a> modules highlighted:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/tas2.png" src="../../../../../_images/tas2.png" />
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more comprehensive information on ATS in a complete network and additional details about ATS configuration,
+please refer to the <a class="reference internal" href="../../asynchronousshaper/doc/index.html"><span class="doc">Asynchronous Traffic Shaping</span></a> showcase.</p>
+</div>
+</div>
 <div class="section" id="the-model">
 <h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>TODO incomplete</p>
-<p>The network contains three independent packet sources which are connected to a
-single asynchronous traffic shaper using a packet multiplexer.</p>
+<p>In the next sections, we present a simulation model, which demonstrates how ATS components can be
+used outside INET network nodes. The network is depicted in the following image:</p>
 <div class="figure align-center">
-<img alt="../../../../../_images/Network28.png" src="../../../../../_images/Network28.png" />
+<img alt="../../../../../_images/network3.png" src="../../../../../_images/network3.png" />
 </div>
-<p>The three sources generate the same stochastic traffic. The traffic shaper is
-driven by an active packet server module with a constant processing time.</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
-<span class="na">network</span> <span class="o">=</span> <span class="s">PeekingUnderTheHoodShowcase</span>
-<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">1s</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Traffic shaping several packet sources directly&quot;</span>
-
-<span class="na">*.numSources</span> <span class="o">=</span> <span class="s">3</span>
+<p>The queueing network includes three independent packet sources, each linked to an
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeMeter.html">EligibilityTimeMeter</a>, ensuring individual data rate metering for each packet
+stream. These meters are then connected to a single <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeFilter.html">EligibilityTimeFilter</a>
+module that drops expired packets.</p>
+<p>Subsequently, the filter is linked to an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeQueue.html">EligibilityTimeQueue</a>, effectively
+organizing packets based on their transmission eligibility time. From there, the
+queue is connected to an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.shaper.EligibilityTimeGate.html">EligibilityTimeGate</a>, which opens to allow packets through in
+accordance with their transmission eligibility time.</p>
+<p>Finally, the gate connects to a server responsible for periodically pulling
+packets from the queue while the gate is open. The server then sends these
+packets to one of the packet sinks via a classifier, which separates the three streams.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although there is only one filter, queue, and gate module, the three packet streams are still individually shaped. This is made possible because the transmission eligibility time is calculated per-stream by the three meters.</p>
+</div>
+<div class="section" id="traffic">
+<h3>Traffic<a class="headerlink" href="#traffic" title="Permalink to this headline">¶</a></h3>
+<p>The packet sources generate traffic with different sinusoidal production
+rates:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.numSources</span> <span class="o">=</span> <span class="s">3</span>
 <span class="na">*.source[*].packetLength</span> <span class="o">=</span> <span class="s">1000B</span>
-<span class="na">*.source[*].productionInterval</span> <span class="o">=</span> <span class="s">exponential(0.5ms)</span>
-
-<span class="na">*.meter[*].committedInformationRate</span> <span class="o">=</span> <span class="s">8Mbps</span>
+<span class="na">*.source[0].productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(sin(dropUnit(simTime() * 2)) + 5, &quot;ms&quot;) / 10</span>
+<span class="na">*.source[1].productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(sin(dropUnit(simTime() * 3)) + 5, &quot;ms&quot;) / 10</span>
+<span class="na">*.source[2].productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(sin(dropUnit(simTime() * 1)) + sin(dropUnit(simTime() * 8)) + 5, &quot;ms&quot;) / 10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="traffic-shaping">
+<h3>Traffic Shaping<a class="headerlink" href="#traffic-shaping" title="Permalink to this headline">¶</a></h3>
+<p>To configure the traffic shaping, we specify the committed information rate and
+burst size parameters in the meter modules. Additionally, we set a maximum residence time
+in the meter, which enables the filter to discard packets that would otherwise
+wait excessively in the queue before becoming eligible for transmission.</p>
+<p>The active server module pulls packets from the traffic shaper when the gate
+allows it. We set a constant processing time for each packet in the server, so
+the server tries to pull packets every 0.1ms:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.meter[*].committedInformationRate</span> <span class="o">=</span> <span class="s">16Mbps</span>
 <span class="na">*.meter[*].committedBurstSize</span> <span class="o">=</span> <span class="s">10kB</span>
 <span class="na">*.meter[*].maxResidenceTime</span> <span class="o">=</span> <span class="s">10ms</span>
 
@@ -718,16 +788,84 @@ driven by an active packet server module with a constant processing time.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="classifying">
+<h3>Classifying<a class="headerlink" href="#classifying" title="Permalink to this headline">¶</a></h3>
+<p>To measure and plot the post-shaping data rates of the individual streams,
+we need to separate them.
+To that end, we set up the classifier to
+make traffic flow from each source to its sink counterpart (i.e. <code class="docutils literal notranslate"><span class="pre">source[0]</span></code> -&gt;
+<code class="docutils literal notranslate"><span class="pre">sink[0]</span></code> and so on). The classifier is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.classifier.ContentBasedClassifier.html">ContentBasedClassifier</a>.
+It classifies packets by name, which contains the name of the source
+module:</p>
+<p>To measure and plot the post-shaping data rates of individual
+streams, we require their separation. For this purpose, we configure the
+classifier to route traffic from each source to its corresponding sink (e.g.,
+<code class="docutils literal notranslate"><span class="pre">source[0]</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">sink[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">source[1]</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">sink[1]</span></code>, and so on). Utilizing the
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.classifier.ContentBasedClassifier.html">ContentBasedClassifier</a>, we classify packets based on their names, which include
+the source module’s name:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.classifier.packetFilters</span> <span class="o">=</span> <span class="s">[&quot;source[0]*&quot;, &quot;source[1]*&quot;, &quot;source[2]*&quot;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a complete network setup, managing streams involves several features, such as stream identification, encoding, and decoding.
+Typically, packets would be assigned to specific streams using VLAN IDs or PCP (Priority Code Point) numbers.</p>
+</div>
+</div>
+</div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>Let’s examine the data rate of the corresponding source-sink pairs. We’ll
+observe the traffic from the sources and compare it to the traffic arriving at
+the sinks after the shaping process:</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/datarate.png" src="../../../../../_images/datarate.png" />
+</div>
+<p>The data rate of the sinusoidal source traffic occasionally exceeds the 16Mbps
+per-stream shaper limit. However, the shaper does allow a brief burst before
+limiting the traffic to the configured limit.</p>
+<p>Next, we’ll examine the relationship between traffic before and after
+shaping, as well as the packet drop rate. Due to having only one filter, we are
+limited to presenting the sum of dropped packets for all streams. Consequently,
+we will display the same data as on the earlier plots but consolidate all streams
+onto a single chart. Additionally, we will include the packet drop rate of the
+filter module to provide a comprehensive overview of the shaping process.</p>
+<div class="figure align-center">
+<img alt="../../../../../_images/drop.png" src="../../../../../_images/drop.png" />
+</div>
+<p>Despite the presence of a single combined shaper in the network (comprising one
+filter, queue, and gate), each stream is individually limited to 16Mbps due to
+separate metering. Notably, we can observe a higher packet drop rate when the
+source traffic exceeds the per-stream shaper limit.</p>
+<p>Note that as traffic increases above the shaper limit, first some packets are
+stored in the queue to be sent later. If the traffic stays above the shaper
+limit, some packets would have to wait in the queue for longer than the max
+residence time, so the filter drops these excess packets. The drop rate roughly
+follows the incoming traffic rate.</p>
+<p>The next chart shows how the queueing time changes:</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/QueueingTime.png" src="../../../../../_images/QueueingTime.png" />
 </div>
-<p>TODO</p>
+<p>The maximum of the queueing time is 10ms, which is due to the max residence time
+set in the filter. Packets that would wait longer in the queue are dropped by
+the filter before getting there.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The chart above might give the appearance of three data series
+plotted with the same color. This is because the streams are metered separately,
+but the filter doesn’t distinguish them.</p>
+</div>
+<p>The next chart shows the queue length:</p>
 <div class="figure align-center">
 <img alt="../../../../../_images/QueueLength.png" src="../../../../../_images/QueueLength.png" />
 </div>
+<p>The maximum number of packets that can accumulate in the queue from each stream
+is 20, calculated as follows: <cite>average production interval / max residence time
+= 10ms / 0.5ms = 20</cite>. Since the traffic pattern is different for the three
+streams, the 20 packets/stream limit is reached at different times for each of
+them. We can observe on the chart as the queue becomes satured for each stream
+individually. The maximum of the queue length is 60, when all streams reach
+their maximum packet count in the queue.</p>
 <p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/eaf80cffcbc7847857f3746c6ff6fdb3/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../../_downloads/380d7b51143ca4f22a905697b49df501/PeekingUnderTheHoodShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">PeekingUnderTheHoodShowcase.ned</span></code></a></p>
 </div>
 <div class="section" id="discussion">
@@ -745,9 +883,15 @@ driven by an active packet server module with a constant processing time.</p>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Peeking Under the Hood</a><ul>
+<li><a class="reference internal" href="#">Using Traffic Shapers Independently</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
-<li><a class="reference internal" href="#the-model">The Model</a></li>
+<li><a class="reference internal" href="#asynchronous-traffic-shaping-in-inet">Asynchronous Traffic Shaping in INET</a></li>
+<li><a class="reference internal" href="#the-model">The Model</a><ul>
+<li><a class="reference internal" href="#traffic">Traffic</a></li>
+<li><a class="reference internal" href="#traffic-shaping">Traffic Shaping</a></li>
+<li><a class="reference internal" href="#classifying">Classifying</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#discussion">Discussion</a></li>
 </ul>
@@ -760,11 +904,11 @@ driven by an active packet server module with a constant processing time.</p>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../../cbsandats/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="../../cbsandtas/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Mixing Different Shapers</div>
+            <div>Combining Time-Aware and Credit-Based Shaping</div>
          </div>
      </a>
      <a id="button-next" href="../../../gatescheduling/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
