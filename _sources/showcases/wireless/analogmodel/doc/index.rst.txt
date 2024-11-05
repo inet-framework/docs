@@ -54,7 +54,7 @@ INET contains the following analog model types, presented in the order of increa
 
 More complex models are more accurate but more computationally intensive.
 INET contains a version of radio and radio medium module for each type and technology, e.g.
-:ned:`Ieee80211UnitDiskRadio`/:ned:`UnitDiskRadioMedium`, :ned:`ApskScalarRadio`/:ned:`ScalarRadioMedium`,
+:ned:`Ieee80211UnitDiskRadio`/:ned:`UnitDiskRadioMedium`, :ned:`ApskScalarRadio`/:ned:`ApskScalarRadioMedium`,
 :ned:`Ieee802154NarrowbandDimensionalRadio`/ :ned:`Ieee802154NarrowbandDimensionalRadioMedium`, etc.
 These models use the appropriate analog signal representation (i.e. in the receiver, the transmitter,
 and the radio medium)
@@ -100,8 +100,8 @@ In this case, it is an adequate abstraction for physical layer behavior.
 The following modules use the unit disk analog model:
 
 - :ned:`UnitDiskRadioMedium`: the only radio medium using the unit disk analog model; to be used with all unit disk radio types
-- :ned:`GenericUnitDiskRadio`: generic radio using the unit disk analog model; contains :ned:`GenericTransmitter` and :ned:`GenericReceiver`
-- :ned:`Ieee80211UnitDiskRadio`: unit disk version of Wifi; contains :ned:`Ieee80211Transmitter`, :ned:`Ieee80211Receiver` and :ned:`Ieee80211Mac`
+- :ned:`UnitDiskRadio`: generic radio using the unit disk analog model; contains :ned:`UnitDiskTransmitter` and :ned:`UnitDiskReceiver`
+- :ned:`Ieee80211UnitDiskRadio`: unit disk version of Wifi; contains :ned:`Ieee80211UnitDiskTransmitter`, :ned:`Ieee80211UnitDiskReceiver` and :ned:`Ieee80211Mac`
 
 Example: Testing Routing Protocols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -334,7 +334,7 @@ A noise source (:ned:`NoiseSource`) creates small bursts of noise periodically,
 which overlaps with all transmissions.
 
 The :ned:`NoiseSource` module creates dimensional transmissions, which interfere
-with other signals. It contains a transmitter module (:ned:`NoiseTransmitter`),
+with other signals. It contains a transmitter module (:ned:`NoiseDimensionalTransmitter`),
 an antenna module (:ned:`IsotropicAntenna` by default), mobility module (so that it
 has a position, and can optinally move around):
 
@@ -390,6 +390,40 @@ the spectrograms have a colored background due to the background noise (also dis
 on the spectrum figures).
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`AnalogModelShowcase.ned <../AnalogModelShowcase.ned>`
+
+
+Try It Yourself
+---------------
+
+If you already have INET and OMNeT++ installed, start the IDE by typing
+``omnetpp``, import the INET project into the IDE, then navigate to the
+``inet/showcases/wireless/analogmodel`` folder in the `Project Explorer`. There, you can view
+and edit the showcase files, run simulations, and analyze results.
+
+Otherwise, there is an easy way to install INET and OMNeT++ using `opp_env
+<https://omnetpp.org/opp_env>`__, and run the simulation interactively.
+Ensure that ``opp_env`` is installed on your system, then execute:
+
+.. code-block:: bash
+
+    $ opp_env run inet-4.2 --init -w inet-workspace --install --chdir \
+       -c 'cd inet-4.2.*/showcases/wireless/analogmodel && inet'
+
+This command creates an ``inet-workspace`` directory, installs the appropriate
+versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
+showcase directory for interactive simulation.
+
+Alternatively, for a more hands-on experience, you can first set up the
+workspace and then open an interactive shell:
+
+.. code-block:: bash
+
+    $ opp_env install --init -w inet-workspace inet-4.2
+    $ cd inet-workspace
+    $ opp_env shell
+
+Inside the shell, start the IDE by typing ``omnetpp``, import the INET project,
+then start exploring.
 
 Discussion
 ----------
