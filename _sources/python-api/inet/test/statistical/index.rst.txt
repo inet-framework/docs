@@ -1,0 +1,94 @@
+inet.test.statistical
+=====================
+
+.. py:module:: inet.test.statistical
+
+.. autoapi-nested-parse::
+
+   This module provides functionality for statistical testing of multiple simulations.
+
+   The main function is :py:func:`run_statistical_tests`. It allows running multiple statistical tests
+   matching the provided filter criteria. Statistical tests check if scalar results of the simulations
+   are the same as the saved baseline results. The baseline results can be found in the statistics folder
+   of the simulation project.  For the INET Framework the media folder can be found at
+   https://github.com/inet-framework/statistics in a separate GitHub repository.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/test/statistical/StatisticalResultsUpdateTask
+   /python-api/inet/test/statistical/StatisticalTestTask
+
+.. autoapisummary::
+
+   inet.test.statistical.StatisticalResultsUpdateTask
+   inet.test.statistical.StatisticalTestTask
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.test.statistical.get_statistical_test_tasks
+   inet.test.statistical.get_update_statistical_result_tasks
+   inet.test.statistical.run_statistical_tests
+   inet.test.statistical.update_statistical_results
+
+
+Module Contents
+---------------
+
+.. py:function:: get_statistical_test_tasks(sim_time_limit=get_statistical_test_sim_time_limit, run_number=0, **kwargs)
+
+   Returns multiple statistical test tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:meth:`get_simulation_tasks <inet.simulation.task.get_simulation_tasks>` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTasks`):
+       an object that contains a list of :py:class:`StatisticalTestTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: get_update_statistical_result_tasks(run_number=0, **kwargs)
+
+   Returns multiple update statistical results tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:meth:`get_simulation_tasks <inet.simulation.task.get_simulation_tasks>` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleUpdateTasks`):
+       an object that contains a list of :py:class:`StatisticalResultsUpdateTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: run_statistical_tests(append_args=[], **kwargs)
+
+   Runs one or more statistical tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_statistical_test_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleSimulationTestTaskResults`):
+       an object that contains a list of :py:class:`SimulationTestTaskResult` objects. Each object describes the result of running one test task.
+
+
+.. py:function:: update_statistical_results(sim_time_limit=get_statistical_test_sim_time_limit, append_args=[], **kwargs)
+
+   Updates the stored statistical results for one or more chart tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_update_statistical_result_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleUpdateTaskResults`):
+       an object that contains a list of :py:class:`UpdateTaskResult` objects. Each object describes the result of running one update task.
+
+

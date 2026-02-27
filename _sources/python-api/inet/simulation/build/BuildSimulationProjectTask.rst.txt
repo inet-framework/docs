@@ -1,0 +1,38 @@
+inet.simulation.build.BuildSimulationProjectTask
+================================================
+
+.. py:class:: inet.simulation.build.BuildSimulationProjectTask(simulation_project, name='build task', mode='release', concurrent=True, multiple_task_results_class=MultipleBuildTaskResults, **kwargs)
+
+   Bases: :py:obj:`inet.common.compile.MultipleTasks`
+
+
+   Represents a task that builds a simulation project.
+
+   Initializes a new build simulation project task.
+
+   :param concurrent: Flag specifying whether the build is allowed to run sub-tasks concurrently or not.
+   :type concurrent: bool
+   :param mode: Specifies the build mode for the output binaries. Valie values are "debug" and "release".
+   :type mode: string
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the tasks again.
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The task results.
+
+
+
+   .. py:method:: run(context=None, progress=None, index=0, count=1, **kwargs)
+
+      Runs all tasks sequentially or concurrently.
+
+      :param kwargs: Additional  parameters are inherited from :py:meth:`Task.run`.
+      :type kwargs: dict
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The task results.
+
+

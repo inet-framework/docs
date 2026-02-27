@@ -1,0 +1,41 @@
+inet.simulation.task.MultipleSimulationTasks
+============================================
+
+.. py:class:: inet.simulation.task.MultipleSimulationTasks(simulation_project=None, mode='release', build=None, name='simulation', **kwargs)
+
+   Bases: :py:obj:`inet.simulation.iderunner.MultipleTasks`
+
+
+   Represents multiple simulation tasks that can be run together.
+
+   Initializes a new multiple simulation tasks object.
+
+   :param mode: Specifies the build mode for running. Valid values are "debug", "release", and "sanitize".
+   :type mode: string
+   :param build: Determines if the simulation project is built before running any simulation.
+   :type build: bool
+   :param kwargs: Additional arguments are inherited from :py:class:`MultipleTasks <inet.common.task.MultipleTasks>` constructor.
+   :type kwargs: dict
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the tasks again.
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The task results.
+
+
+
+   .. py:method:: run(**kwargs)
+
+      Runs multiple simulation tasks.
+
+      :param kwargs: Additional parameters are inherited from the :py:func:`build_project <inet.simulation.build.build_project>` function
+                     and also from the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+      :type kwargs: dict
+
+      Returns (MultipleTaskResults):
+          An object that contains a list of :py:class:`SimulationTask`.
+
+

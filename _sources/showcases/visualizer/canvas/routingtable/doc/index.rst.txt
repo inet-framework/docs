@@ -14,14 +14,14 @@ routing in a simulation without having to inspect individual routing tables.
 This showcase includes three simulation models of increasing complexity,
 demonstrating the different features of routing table visualization.
 
-| INET version: ``3.6``
+| Verified with INET version: ``3.6``
 | Source files location: `inet/showcases/visualizer/routingtable <https://github.com/inet-framework/inet/tree/master/showcases/visualizer/routingtable>`__
 
 About the visualizer
 --------------------
 
 In INET, the :ned:`RoutingTableVisualizer` module (included in the network
-as part of :ned:`IntegratedVisualizer`) is responsible for visualizing
+as part of :ned:`IntegratedCanvasVisualizer`) is responsible for visualizing
 routing table entries.
 
 The visualizer basically annotates network links with labeled arrows
@@ -46,7 +46,7 @@ parameter.
 Filtering is also possible. The :par:`nodeFilter` parameter controls which
 nodes' routing tables should be visualized (by default, all nodes), and
 the :par:`destinationFilter` parameter selects the set of destination nodes
-to consider (again, by default all nodes.)
+to consider (again, by default all nodes).
 
 The visualizer reacts to changes. For example, when a routing protocol
 changes a routing entry, or an IP address gets assigned to an interface
@@ -63,7 +63,7 @@ be run by choosing the ``DisplayingAll`` configuration from the ini
 file. The network for the simulation contains two :ned:`StandardHost`'s,
 each connected to a :ned:`Router`. IP addresses are assigned by the
 :ned:`Ipv4NetworkConfigurator` module, which also fills in the routing tables
-automatically. The visualizer module is an :ned:`IntegratedVisualizer`
+automatically. The visualizer module is an :ned:`IntegratedCanvasVisualizer`
 which contains all available visualizers as submodules.
 
 The configuration contains one line, which enables the visualization of
@@ -81,7 +81,7 @@ When the simulation is run, the network looks like this:
    :width: 80%
    :align: center
 
-Note that IP addresses are displayed above the nodes. These annotations has nothing
+Note that IP addresses are displayed above the nodes. These annotations have nothing
 to do with the :ned:`RoutingTableVisualizer`; they are displayed because we
 configured it in :ned:`InterfaceTableVisualizer` to improve clarity.
 
@@ -131,7 +131,7 @@ simulations demonstrate the visualization when it is unfiltered and when
 it is filtered. The network looks like the following:
 
 .. figure:: media/filtersnetwork.png
-   :width: 80%
+   :width: 60%
    :align: center
 
 It consists of a router connected to a switch. Two :ned:`StandardHost`'s are
@@ -186,7 +186,7 @@ and the changes take effect immediately. Just select the
 inspector panel:
 
 .. figure:: media/parameters.png
-   :width: 100%
+   :width: 80%
 
 Visualizing changing routing tables
 -----------------------------------
@@ -217,7 +217,7 @@ configures the routing tables. To reduce clutter, we set the
 The following animation depicts what happens when the simulation is run.
 
 .. video:: media/routingtablevisualizer2.mp4
-   :width: 100%
+   :width: 90%
 
 When ``destinationHost`` starts to move downwards, packets get routed
 along the chain to the host that is currently adjacent to
@@ -255,8 +255,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-3.6 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-3.6.*/showcases/visualizer/canvas/routingtable && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/visualizer/canvas/routingtable && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -267,7 +267,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-3.6
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

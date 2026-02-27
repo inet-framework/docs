@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,26 +18,42 @@
   gtag('config', 'G-WPFKHJQDQW');
 </script>
     
-    <title>Measuring Time Along Packet Flows &#8212; INET 4.5.4 documentation</title>
+    <title>Measuring Time Along Packet Flows &#8212; INET 4.6.0 documentation</title>
+    
+    <script>
+    (function() {
+        try {
+            var w = localStorage.getItem('opptheme-drawer-width');
+            if (w && !isNaN(parseInt(w))) {
+                document.documentElement.style.setProperty('--drawer-width', w + 'px');
+            }
+        } catch(e) {}
+        // Mark page as ready for fade-in transition
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.classList.add('page-ready');
+        });
+    })();
+    </script>
 
-    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic.css?v=29da98fa" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
     <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="stylesheet" href="../../../../_static/drawer_resize.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/page_transitions.css" type="text/css" />
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=cc8a4273"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Mobility" href="../../../mobility/index.html" />
@@ -92,8 +109,10 @@ Show Source
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
@@ -104,7 +123,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
@@ -112,9 +131,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -164,8 +184,13 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/aodvexternal/doc/index.html">AODV External Gateway Routing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -321,6 +346,80 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
@@ -329,18 +428,20 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
@@ -352,7 +453,6 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
@@ -372,8 +472,125 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
 </ul>
 
@@ -385,6 +602,7 @@ Show Source
         <main class="mdl-layout__content" tabIndex="0">
 
 	<script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js "></script>
+	<script type="text/javascript" src="../../../../_static/drawer_resize.js"></script>
     <header class="mdl-layout__drawer">
     
     
@@ -397,8 +615,10 @@ Show Source
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
@@ -409,7 +629,7 @@ Show Source
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
@@ -417,9 +637,10 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -469,8 +690,13 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../routing/aodvexternal/doc/index.html">AODV External Gateway Routing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -626,6 +852,80 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
@@ -634,18 +934,20 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
@@ -657,7 +959,6 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
@@ -677,8 +978,125 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
 </ul>
 
@@ -691,93 +1109,159 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="measuring-time-along-packet-flows">
-<h1>Measuring Time Along Packet Flows<a class="headerlink" href="#measuring-time-along-packet-flows" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>This showcase demonstrates how to group packets into flows for the purpose of taking measurements on them, such as elapsed time, time spent in queues, or transmission time.</p>
+  <section id="measuring-time-along-packet-flows">
+<h1>Measuring Time Along Packet Flows<a class="headerlink" href="#measuring-time-along-packet-flows" title="Link to this heading">¶</a></h1>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">¶</a></h2>
+<p>This showcase demonstrates how to group packets into flows for the purpose of
+taking measurements on them, such as elapsed time, time spent in queues, or
+transmission time.</p>
 <div class="line-block">
-<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
+<div class="line">Verified with INET version: <code class="docutils literal notranslate"><span class="pre">4.6</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/general/flowmeasurement">inet/showcases/general/flowmeasurement</a></div>
 </div>
-</div>
-<div class="section" id="the-model">
-<h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>The following sections contain an overview of measuring time associated with packets. For more information, refer to the <a class="reference internal" href="../../../../users-guide/ch-collecting-results.html"><span class="doc">Collecting Results</span></a> section of the INET manual.</p>
-<div class="section" id="overview-of-packet-flows">
-<h3>Overview of Packet Flows<a class="headerlink" href="#overview-of-packet-flows" title="Permalink to this headline">¶</a></h3>
-<p>By default, statistics in INET are collected based on local events associated with a particular module (e.g. packets received by the module). Sometimes this local data might not be sufficient. For example, when we want to measure the incurred queueing time separately for packets that arrived at the same destination but took different paths in the network.</p>
-<p>For timing measurements that are associated with events happening to a packet, <cite>packet flows</cite> can be defined. A packet flow is a logical classification of packets, identified by its name, in the whole network and over the whole duration of the simulation.
-A packet flow is defined by a label that is added to some packets. The label contains the flow name (the flow’s identity), and some specified measurement requests.</p>
-<p>Time measurement along packet flows is useful in situations when the timing data to be measured is associated with a packet, rather then the modules it passes through, processed or arrives at. For example, we might want to measure queueing time for a packet at all the modules it passes through, as opposed to measuring queueing time at a queue module for all packets that it processes.</p>
-<p>A packet is associated with the flow by specialized modules called <cite>measurement starters</cite>. These modules attach a label to the packet, that indicates which flow it is part of and what measurements are requested. When the packet travels through the network, certain modules add the measured time (or other data) to the packet as meta-information. Other specialized modules (<cite>measurement recorders</cite>) record the attached data as a statistic associated with that particular flow. These modules can optionally remove the label from the packet (then the packet can continue along its route).</p>
-<p>For example, a label is added to the packet in a measurement starter module specifying the flow name <code class="docutils literal notranslate"><span class="pre">flow1</span></code>, and the queueing time measurement. As the packet is processed in various queue modules in the network, the queue modules attach the time spent in them to the packet as meta-information. The label is removed at a measurement recorder module, and the queueing time accumulated by the packet is recorded. The data can be found in the analysis tool’s browse data tab as the <code class="docutils literal notranslate"><span class="pre">flowname:statisticname</span></code> result name of the measurement recorder module (for example, <code class="docutils literal notranslate"><span class="pre">flow1:queueingTime:histogram</span></code>). By default, <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> records the specified measurements as both vectors and historgrams. The statistics can be plotted, exported and analyzed as any other statistic.</p>
-<p>Any number of flow labels can be added to a packet (it can be part of multiple flows). Also, the same flow can have multiple start and end points.</p>
+</section>
+<section id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Link to this heading">¶</a></h2>
+<p>The following sections contain an overview of measuring time associated with
+packets. For more information, refer to the <a class="reference internal" href="../../../../users-guide/ch-collecting-results.html"><span class="doc">Collecting Results</span></a> section of the INET manual.</p>
+<section id="overview-of-packet-flows">
+<h3>Overview of Packet Flows<a class="headerlink" href="#overview-of-packet-flows" title="Link to this heading">¶</a></h3>
+<p>By default, statistics in INET are collected based on local events associated
+with a particular module (e.g. packets received by the module). Sometimes this
+local data might not be sufficient. For example, when we want to measure the
+incurred queueing time separately for packets that arrived at the same
+destination but took different paths in the network.</p>
+<p>For timing measurements that are associated with events happening to a packet,
+<cite>packet flows</cite> can be defined. A packet flow is a logical classification of
+packets, identified by its name, in the whole network and over the whole
+duration of the simulation. A packet flow is defined by a label that is added to
+some packets. The label contains the flow name (the flow’s identity), and some
+specified measurement requests.</p>
+<p>Time measurement along packet flows is useful in situations when the timing data
+to be measured is associated with a packet, rather than the modules it passes
+through, gets processed by, or arrives at. For example, we might want to measure the
+queueing time for a packet at all the modules it passes through, as opposed to
+measuring queueing time at a queue module for all packets that it processes.</p>
+<p>A packet is associated with the flow by specialized modules called <cite>measurement
+starters</cite>. These modules attach a label to the packet that indicates which flow
+it is part of and what measurements are requested. When the packet travels
+through the network, certain modules add the measured time (or other data) to
+the packet as meta-information. Other specialized modules (<cite>measurement
+recorders</cite>) record the attached data as a statistic associated with that
+particular flow. These modules can optionally remove the label from the packet
+(then the packet can continue along its route).</p>
+<p>For example, a label is added to the packet in a measurement starter module
+specifying the flow name <code class="docutils literal notranslate"><span class="pre">flow1</span></code> and the queueing time measurement. As the
+packet is processed in various queue modules in the network, the queue modules
+attach the time spent in them to the packet as meta-information. The label is
+removed at a measurement recorder module, and the queueing time accumulated by
+the packet is recorded. The data can be found in the analysis tool’s browse data
+tab as the <code class="docutils literal notranslate"><span class="pre">flowname:statisticname</span></code> result name of the measurement recorder
+module (for example, <code class="docutils literal notranslate"><span class="pre">flow1:queueingTime:histogram</span></code>). By default,
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> records the specified measurements as both
+vectors and histograms. The statistics can be plotted, exported, and analyzed as
+any other statistic.</p>
+<p>Any number of flow labels can be added to a packet (it can be part of multiple
+flows). Also, the same flow can have multiple start and end points.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A practical problem is that different parts of a packet may have different history, due to fragmentation and reassembly, for example. Therefore, we need to keep track of the measurements for different regions of the packet. For this purpose, each bit in a packet can have its own meta-information associating it to a flow, called a <cite>region tag</cite>. For more information on region tags, check out the <a class="reference internal" href="../../../../developers-guide/ch-packets.html#dg-sec-packets-region-tagging"><span class="std std-ref">Region Tagging</span></a> section of the INET Developer’s Guide.</p>
+<p>A practical problem is that different parts of a packet may have different history, due to fragmentation and reassembly, for example. Therefore, we need to keep track of the measurements for different regions of the packet. For this purpose, each bit in a packet can have its own meta-information associating it with a flow, called a <cite>region tag</cite>. For more information on region tags, check out the <a class="reference internal" href="../../../../developers-guide/ch-packets.html#dg-sec-packets-region-tagging"><span class="std std-ref">Region Tagging</span></a> section of the INET Developer’s Guide.</p>
 </div>
-</div>
-<div class="section" id="the-measurement-modules">
-<h3>The Measurement Modules<a class="headerlink" href="#the-measurement-modules" title="Permalink to this headline">¶</a></h3>
-<p>The dedicated module responsible for adding flow labels and specifying measurements to be made on packets is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a>. Its counterpart responsible for removing flow labels and recording measurements is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> module.</p>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> modules have the same set of parameters that specify the flow name (<code class="code literal-ini docutils literal notranslate"><span class="pre">flowName</span></code> parameter), the set of packets that enter or exit the flow (<code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code> parameter), and the required measurements (<code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter).</p>
-<p>By default, the filters match all packets (<code class="docutils literal notranslate"><span class="pre">packetFilter</span> <span class="pre">=</span> <span class="pre">'true'</span></code>). The <code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter is a list containinig elements from the following set, separated by spaces:</p>
+</section>
+<section id="the-measurement-modules">
+<h3>The Measurement Modules<a class="headerlink" href="#the-measurement-modules" title="Link to this heading">¶</a></h3>
+<p>The dedicated module responsible for adding flow labels and specifying
+measurements to be made on packets is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a>. Its
+counterpart responsible for removing flow labels and recording measurements is
+the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> module.</p>
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> modules
+have the same set of parameters that specify the flow name (<code class="code literal-ini docutils literal notranslate"><span class="pre">flowName</span></code>
+parameter), the set of packets that enter or exit the flow (<code class="code literal-ini docutils literal notranslate"><span class="pre">packetFilter</span></code>
+parameter), and the required measurements (<code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter).</p>
+<p>By default, the filters match all packets (<code class="docutils literal notranslate"><span class="pre">packetFilter</span> <span class="pre">=</span> <span class="pre">'*'</span></code>). The
+<code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter is a list containing elements from the following set,
+separated by spaces:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">delayingTime</span></code>, <code class="docutils literal notranslate"><span class="pre">queueingTime</span></code>, <code class="docutils literal notranslate"><span class="pre">processingTime</span></code>, <code class="docutils literal notranslate"><span class="pre">transmissionTime</span></code>, <code class="docutils literal notranslate"><span class="pre">propagationTime</span></code>: Time for the different cases, on a <em>per-bit</em> basis</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">elapsedTime</span></code>: The total elapsed time for the packet being in the flow (see first note below)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">packetEvent</span></code>: Record all events that happen to the packet (see second note below)</p></li>
 </ul>
-<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> module removes flow labels from packets by default. This is contolled by the <code class="code literal-ini docutils literal notranslate"><span class="pre">endMeasurement</span></code> parameter (<code class="docutils literal notranslate"><span class="pre">true</span></code> by default).</p>
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> module removes flow labels from packets by
+default. This is controlled by the <code class="code literal-ini docutils literal notranslate"><span class="pre">endMeasurement</span></code> parameter (<code class="docutils literal notranslate"><span class="pre">true</span></code> by
+default).</p>
 <p>Some notes:</p>
 <ul class="simple">
 <li><p>Evaluating the measured data when there is cut-through switching or intra-node packet streaming in the network can be more complex than if there is not. This is because measurements are recorded on a per-bit basis, and the transmission time can be different for each bit if there is packet streaming in the network. Also, bits waiting in the transmitter for other bits of a packet to be transmitted and received is only included in the elapsed time measurement. Because of this, the sum of all other measurements might not be equal to the elapsed time.</p></li>
-</ul>
-<ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">packetEvent</span></code> measurement is special, because it records the history of the packet as it travels through the network, instead of taking a specific measurement. For example, it records events of the packet’s delaying, queueing, processing, transmission, etc. There is no built-in module that makes use of the packet event measurement data, this can be implemented by the user. This can be useful for more detailed analysis based on a packet’s history.</p></li>
 <li><p>Although both the measurement starter and recorder modules have a <code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameter, its meaning is slightly different. For the measurement starter module, the parameter specifies which measurement data to include in the attached flow tag. For the measurement recorder module, it specifies which measurements to record as statistics. Generally, the parameter values for the recorder module should be the same or a subset of the starter module’s parameters. If a recorder module is configured to record a measurement that isn’t on the packet (not set to record in the starter module), the measurement silently fails. Thus it is the user’s responsibility to set up the <code class="code literal-ini docutils literal notranslate"><span class="pre">measure</span></code> parameters properly.</p></li>
 </ul>
-</div>
-<div class="section" id="adding-measurement-modules-to-the-network">
-<h3>Adding Measurement Modules to the Network<a class="headerlink" href="#adding-measurement-modules-to-the-network" title="Permalink to this headline">¶</a></h3>
-<p>The FlowMeasurementStarter and FlowMeasurementRecorder modules can be inserted anywhere in the network (inside network nodes or protocol modules, etc.) in NED by editing the NED source of modules or extending them as a new type.
-However, some modules such as the LayeredEthernetInterface, already have built-in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a> submodules. This module contains a FlowMeasurementStarter and a FlowMeasurementRecorder, but they are disabled by default (the type is set to empty string). The modules can be enabled from the .INI file (e.g. <code class="docutils literal notranslate"><span class="pre">*.host.eth[0].measurementLayer.typename</span> <span class="pre">=</span> <span class="pre">&quot;MeasurementLayer&quot;</span></code>).</p>
-<div class="figure align-center" id="id3">
+</section>
+<section id="adding-measurement-modules-to-the-network">
+<h3>Adding Measurement Modules to the Network<a class="headerlink" href="#adding-measurement-modules-to-the-network" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> modules can be inserted
+anywhere in the network (inside network nodes or protocol modules, etc.) in NED
+by editing the NED source of modules or extending them as a new type. However,
+some modules such as the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.LayeredEthernetInterface.html">LayeredEthernetInterface</a> already have built-in
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a> submodules. This module contains a
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>, but they are disabled by
+default (the type is set to empty string). The modules can be enabled from the
+.INI file (e.g. <code class="docutils literal notranslate"><span class="pre">*.host.eth[0].measurementLayer.typename</span> <span class="pre">=</span>
+<span class="pre">&quot;MeasurementLayer&quot;</span></code>):</p>
+<figure class="align-center">
 <img alt="../../../../_images/Default_MeasurementLayer.png" src="../../../../_images/Default_MeasurementLayer.png" />
-<p class="caption"><span class="caption-text">Figure X. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="associating-packets-to-flows-based-on-multiple-criteria">
-<h3>Associating Packets to Flows Based on Multiple Criteria<a class="headerlink" href="#associating-packets-to-flows-based-on-multiple-criteria" title="Permalink to this headline">¶</a></h3>
-<p>A measurement module can filter which packets to associate with a flow, using a packet filter and a packet data filter. Packets can be associated to multiple flows based on multiple criteria by using several measurement modules connected in series. The MultiMeasurementLayer module makes this convenient. It can be used in place of a MeasurementLayer module. It contains a variable number of FlowMeasurementStarter and FlowMeasurementRecorder modules; the number of modules is specified with its <code class="code literal-ini docutils literal notranslate"><span class="pre">numMeasurementModules</span></code> parameter. For example, <code class="docutils literal notranslate"><span class="pre">numMeasurementModules</span> <span class="pre">=</span> <span class="pre">2</span></code>:</p>
-<p>The example simulations demonstrate both inserting measurement modules into specific locations (below the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module) and using built-in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a> submodules.</p>
-</div>
-<div class="section" id="limitations">
-<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
-<p>Support for fragmentation and frame aggregation is planned for a later release, currently these are not supported.</p>
-</div>
-<div class="section" id="visualizing-packet-flows">
-<h3>Visualizing Packet Flows<a class="headerlink" href="#visualizing-packet-flows" title="Permalink to this headline">¶</a></h3>
-<p>The module type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.common.PacketFlowVisualizer.html">PacketFlowVisualizer</a> (also included in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.common.IntegratedVisualizer.html">IntegratedVisualizer</a>) can display packet flows in the network as dashed arrows annotated by the flow name. The arrows are color-coded so that flows can be differentiated by color. The visualization can be enabled with the <code class="code literal-ini docutils literal notranslate"><span class="pre">displayPacketFlows</span></code> parameter, e.g. <code class="docutils literal notranslate"><span class="pre">*.visualizer.packetFlowVisualizer.displayPacketFlows</span> <span class="pre">=</span> <span class="pre">true</span></code> in the .INI file.</p>
-</div>
-</div>
-<div class="section" id="example-simulations">
-<h2>Example Simulations<a class="headerlink" href="#example-simulations" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="associating-packets-to-flows-based-on-multiple-criteria">
+<h3>Associating Packets to Flows Based on Multiple Criteria<a class="headerlink" href="#associating-packets-to-flows-based-on-multiple-criteria" title="Link to this heading">¶</a></h3>
+<p>A measurement module can filter which packets to associate with a flow, using a
+packet filter and a packet data filter. Packets can be associated with multiple
+flows based on multiple criteria by using several measurement modules connected
+in series. The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a> module makes this convenient. It can be
+used in place of a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a> module. It contains a variable number of
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a> modules; the number of
+modules is specified with its <code class="code literal-ini docutils literal notranslate"><span class="pre">numMeasurementModules</span></code> parameter. For
+example, <code class="docutils literal notranslate"><span class="pre">numMeasurementModules</span> <span class="pre">=</span> <span class="pre">2</span></code>:</p>
+<p>The example simulations demonstrate both inserting measurement modules into
+specific locations (below the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module) and using built-in
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a> submodules.</p>
+</section>
+<section id="visualizing-packet-flows">
+<h3>Visualizing Packet Flows<a class="headerlink" href="#visualizing-packet-flows" title="Link to this heading">¶</a></h3>
+<p>The module type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.common.PacketFlowVisualizer.html">PacketFlowVisualizer</a> (also included in
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a>) can display packet flows in the network as dashed
+arrows annotated by the flow name. The arrows are color-coded so that flows can
+be differentiated by color. The visualization can be enabled with the
+<code class="code literal-ini docutils literal notranslate"><span class="pre">displayRoutes</span></code> parameter, e.g.
+<code class="docutils literal notranslate"><span class="pre">*.visualizer.packetFlowVisualizer.displayRoutes</span> <span class="pre">=</span> <span class="pre">true</span></code> in the .INI
+file.</p>
+</section>
+</section>
+<section id="example-simulations">
+<h2>Example Simulations<a class="headerlink" href="#example-simulations" title="Link to this heading">¶</a></h2>
 <p>This showcase contains two simulations. Both simulations use the following network:</p>
-<div class="figure align-center" id="id4">
-<img alt="../../../../_images/Network3.png" src="../../../../_images/Network3.png" />
-<p class="caption"><span class="caption-text">Figure X. The network</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<p>The network contains hosts connected via switches (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a>) in a dumbbell topology. Note that the host types are parametric (so that they can be configured from the ini file):</p>
+<figure class="align-center">
+<img alt="../../../../_images/Network4.png" src="../../../../_images/Network4.png" />
+</figure>
+<p>The network contains hosts connected via switches (<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a>) in a
+dumbbell topology. Note that the host types are parametric (so that they can be
+configured from the INI file):</p>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span>        <span class="n">client1</span><span class="o">:</span> <span class="o">&lt;</span><span class="k">default</span><span class="p">(</span><span class="s">&quot;StandardHost&quot;</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">like</span> <span class="n">IEthernetNetworkNode</span> <span class="p">{</span>
 </pre></div>
 </div>
-<div class="section" id="example-1-enabling-measurement-modules">
-<h3>Example 1: Enabling Measurement Modules<a class="headerlink" href="#example-1-enabling-measurement-modules" title="Permalink to this headline">¶</a></h3>
-<p>This simulation demonstrates grouping packets into packet flows and measuring time along the flows, using measurement modules <cite>built into</cite> UDP apps and Ethernet interfaces.</p>
-<div class="section" id="configuration">
-<h4>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h4>
-<p>The host type is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>. Two UDP apps in both clients send packets to the servers (<code class="docutils literal notranslate"><span class="pre">app[0]</span></code> to <code class="docutils literal notranslate"><span class="pre">server1</span></code>, <code class="docutils literal notranslate"><span class="pre">app[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">server2</span></code>); each server has a UDP app that accepts the packets. This traffic results in four <cite>streams of packets</cite>. Let’s denote <code class="docutils literal notranslate"><span class="pre">server</span></code> with <code class="docutils literal notranslate"><span class="pre">s</span></code>, and <code class="docutils literal notranslate"><span class="pre">client</span></code> with <code class="docutils literal notranslate"><span class="pre">c</span></code>. The four streams, using origin-destination pairs to refer to them, are <code class="docutils literal notranslate"><span class="pre">c1s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c1s2</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s2</span></code>.</p>
+<section id="example-1-enabling-measurement-modules">
+<h3>Example 1: Enabling Measurement Modules<a class="headerlink" href="#example-1-enabling-measurement-modules" title="Link to this heading">¶</a></h3>
+<p>This simulation demonstrates grouping packets into packet flows and measuring
+time along the flows, using measurement modules <cite>built into</cite> UDP apps and
+Ethernet interfaces.</p>
+<section id="configuration">
+<h4>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h4>
+<p>The host type is <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a>. Two UDP apps in both clients send packets
+to the servers (<code class="docutils literal notranslate"><span class="pre">app[0]</span></code> to <code class="docutils literal notranslate"><span class="pre">server1</span></code>, <code class="docutils literal notranslate"><span class="pre">app[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">server2</span></code>); each
+server has a UDP app that accepts the packets. This traffic results in four
+<cite>streams of packets</cite>. Let’s denote <code class="docutils literal notranslate"><span class="pre">server</span></code> with <code class="docutils literal notranslate"><span class="pre">s</span></code>, and <code class="docutils literal notranslate"><span class="pre">client</span></code> with
+<code class="docutils literal notranslate"><span class="pre">c</span></code>. The four streams, using origin-destination pairs to refer to them, are
+<code class="docutils literal notranslate"><span class="pre">c1s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c1s2</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s2</span></code>.</p>
 <p>We want to measure the following:</p>
 <ul class="simple">
 <li><p>Elapsed time and queueing time for traffic between the originating and destination UDP apps, <cite>individually</cite> for the four client-server packet streams.</p></li>
@@ -788,37 +1272,43 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <li><p>Four packet flows corresponding to the packet streams <code class="docutils literal notranslate"><span class="pre">c1s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c1s2</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s1</span></code> and <code class="docutils literal notranslate"><span class="pre">c2s2</span></code> (i.e. each flow is between the client and server UDP apps)</p></li>
 <li><p>A packet flow going between the Ethernet interfaces connecting <code class="docutils literal notranslate"><span class="pre">switch1</span></code> and <code class="docutils literal notranslate"><span class="pre">switch2</span></code>.</p></li>
 </ul>
-<p>For simplicity, let’s name the <cite>packet flows</cite> according to the origin-destination naming scheme mentioned above (let’s abreviate <code class="docutils literal notranslate"><span class="pre">switch</span></code> as <code class="docutils literal notranslate"><span class="pre">sw</span></code>). Thus, we have the following packet flows: <code class="docutils literal notranslate"><span class="pre">c1s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c1s2</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s1</span></code>,  <code class="docutils literal notranslate"><span class="pre">c2s2</span></code> and <code class="docutils literal notranslate"><span class="pre">sw1sw2</span></code></p>
+<p>For simplicity, let’s name the <cite>packet flows</cite> according to the
+origin-destination naming scheme mentioned above (let’s abreviate <code class="docutils literal notranslate"><span class="pre">switch</span></code> as
+<code class="docutils literal notranslate"><span class="pre">sw</span></code>). Thus, we have the following packet flows: <code class="docutils literal notranslate"><span class="pre">c1s1</span></code>, <code class="docutils literal notranslate"><span class="pre">c1s2</span></code>, <code class="docutils literal notranslate"><span class="pre">c2s1</span></code>,
+<code class="docutils literal notranslate"><span class="pre">c2s2</span></code> and <code class="docutils literal notranslate"><span class="pre">sw1sw2</span></code></p>
 <p>The following is a screenshot showing the five defined packet flows in action:</p>
-<div class="figure align-center" id="id5">
+<figure class="align-center">
 <img alt="../../../../_images/flows3.png" src="../../../../_images/flows3.png" />
-<p class="caption"><span class="caption-text">Figure X. Screenshot from the simulation showing the five specified packet flows in action</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
+</figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A packet can be part of several flows to enable different measurements. For example in the image above, each of the four flows originating from the clients are also part of the flow between the two switches.</p>
 </div>
-<p>Let’s see how we set up these flows. The UDP apps in the clients and servers are the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSourceApp.html">UdpSourceApp</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSinkApp.html">UdpSinkApp</a> type, which are versions of the modular <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpApp.html">UdpApp</a> suitable only to work as a packet source or sink, respectively. These modules have optional <code class="docutils literal notranslate"><span class="pre">measurementStarter</span></code> and <code class="docutils literal notranslate"><span class="pre">measurementRecorder</span></code> submodules that we can enable in the .INI file. We enable the measurement starter (by setting its type to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a>) in the clients:</p>
+<p>Let’s see how we set up these flows. The UDP apps in the clients and servers are
+the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSourceApp.html">UdpSourceApp</a> and <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpSinkApp.html">UdpSinkApp</a> type, which are versions of the
+modular <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.applications.udpapp.UdpApp.html">UdpApp</a> suitable only to work as a packet source or sink,
+respectively. These modules have optional <code class="docutils literal notranslate"><span class="pre">measurementStarter</span></code> and
+<code class="docutils literal notranslate"><span class="pre">measurementRecorder</span></code> submodules that we can enable in the .INI file. We
+enable the measurement starter (by setting its type to
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a>) in the clients:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.app[*].measurementStarter.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementStarter&quot;</span>
 </pre></div>
 </div>
 <p>Here is the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in a client’s UDP app:</p>
-<div class="figure align-center" id="id6">
+<figure class="align-center">
 <img alt="../../../../_images/Default_UdpApp4.png" src="../../../../_images/Default_UdpApp4.png" />
-<p class="caption"><span class="caption-text">Figure X. <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> in client UDP app</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
+</figure>
 <p>Similarly, we enable the measurement recorder module in the server UDP apps (by setting their type to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>):</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.server*.app[*].measurementRecorder.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementRecorder&quot;</span>
 </pre></div>
 </div>
-<p>For the packet flow between the two switches, we can enable the built-in <code class="docutils literal notranslate"><span class="pre">measurementLayer</span></code> submodule of <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a>:</p>
+<p>For the packet flow between the two switches, we can enable the built-in <code class="docutils literal notranslate"><span class="pre">measurementLayer</span></code> submodule of <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.modular.LayeredEthernetInterface.html">LayeredEthernetInterface</a>:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.switch*.eth[2].measurementLayer.typename</span> <span class="o">=</span> <span class="s">&quot;MeasurementLayer&quot;</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id7">
+<figure class="align-center">
 <img alt="../../../../_images/EthernetInterface.png" src="../../../../_images/EthernetInterface.png" />
-<p class="caption"><span class="caption-text">Figure X. <code class="docutils literal notranslate"><span class="pre">measurementLayer</span></code> in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
+</figure>
 <p>Here is the complete flow definition configuration (including the definitions already mentioned):</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.app[*].measurementStarter.typename</span> <span class="o">=</span> <span class="s">&quot;FlowMeasurementStarter&quot;</span>
 <span class="na">*.client1.app[0].measurementStarter.flowName</span> <span class="o">=</span> <span class="s">&quot;c1s1&quot;</span>
@@ -841,7 +1331,10 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <span class="na">*.switch2.eth[2].measurementLayer.measurementRecorder.measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
 </pre></div>
 </div>
-<p>We set up the four flows between the clients and the servers, and also the flow between the two switches. We name flows based on source and destination node (e.g. <code class="docutils literal notranslate"><span class="pre">c1s1</span></code> for <code class="docutils literal notranslate"><span class="pre">client1-&gt;server1</span></code>). We set the measurement modules to measure the elapsed time and the queueing time. Some notes:</p>
+<p>We set up the four flows between the clients and the servers, and also the flow
+between the two switches. We name flows based on source and destination node
+(e.g. <code class="docutils literal notranslate"><span class="pre">c1s1</span></code> for <code class="docutils literal notranslate"><span class="pre">client1-&gt;server1</span></code>). We set the measurement modules to
+measure the elapsed time and the queueing time. Some notes:</p>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">sw1sw2</span></code> flow is between the two switch interfaces facing each other (<code class="docutils literal notranslate"><span class="pre">eth2</span></code> in both switches), so that it’s unnecessary for the other switch interfaces to have measurement modules.</p></li>
 <li><div class="line-block">
@@ -854,18 +1347,20 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <p class="admonition-title">Note</p>
 <p>We don’t specify any packet filter parameters of measurement modules, and they match all packets by default. We use packet filters in Example 2.</p>
 </div>
-</div>
-<div class="section" id="results">
-<h4>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
-<p>The measured timing data is available as a statistic of the measurement recorder modules. For example, here are the statistics recorded from the measurements in <code class="docutils literal notranslate"><span class="pre">server1</span></code> (<code class="docutils literal notranslate"><span class="pre">c1s1</span></code> and <code class="docutils literal notranslate"><span class="pre">c2s1</span></code> flows), displayed in the <cite>browse data</cite> tab in the Analysis Tool:</p>
-<div class="figure align-center" id="id8">
+</section>
+<section id="results">
+<h4>Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h4>
+<p>The measured timing data is available as a statistic of the measurement recorder
+modules. For example, here are the statistics recorded from the measurements in
+<code class="docutils literal notranslate"><span class="pre">server1</span></code> (<code class="docutils literal notranslate"><span class="pre">c1s1</span></code> and <code class="docutils literal notranslate"><span class="pre">c2s1</span></code> flows), displayed in the <cite>browse data</cite> tab in
+the Analysis Tool:</p>
+<figure class="align-center">
 <img alt="../../../../_images/BasicBrowseData.png" src="../../../../_images/BasicBrowseData.png" />
-<p class="caption"><span class="caption-text">Figure X. The measurements recorded for the <code class="docutils literal notranslate"><span class="pre">c1s1</span></code> and <code class="docutils literal notranslate"><span class="pre">c2s1</span></code> flows in <code class="docutils literal notranslate"><span class="pre">server1</span></code></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="example-2-inserting-new-measurement-modules">
-<h3>Example 2: Inserting New Measurement Modules<a class="headerlink" href="#example-2-inserting-new-measurement-modules" title="Permalink to this headline">¶</a></h3>
+</figure>
+</section>
+</section>
+<section id="example-2-inserting-new-measurement-modules">
+<h3>Example 2: Inserting New Measurement Modules<a class="headerlink" href="#example-2-inserting-new-measurement-modules" title="Link to this heading">¶</a></h3>
 <p>This simulation demonstrates the following:</p>
 <ul class="simple">
 <li><p>Adding measurement modules to an arbitrary module</p></li>
@@ -873,12 +1368,20 @@ However, some modules such as the LayeredEthernetInterface, already have built-i
 <li><p>Assigning packets to flows based on port numbers</p></li>
 </ul>
 <p>The simulation is defined in the <code class="docutils literal notranslate"><span class="pre">AnyLocation</span></code> config in omnetpp.ini.</p>
-<div class="section" id="id1">
-<h4>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<p>In this configuration, we want to demonstrate adding measurement modules to the network without using built-in ones.
-To do that, we want to group packets into packet flows below the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module in hosts. Compared to the previous configuration where each UDP app had its own flow,
-here packets from the two applications are mixed in the flows.</p>
-<p>The easiest way to insert a measurement module into any module (which doesn’t already have one built in) is to derive a new type extended with a measurement module. For example, we extend <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> into <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code> in FlowMeasurementShowcase.ned. We could create two versions, one with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and one with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>, but it is more convenient (and more generic) to add a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a>, which contains both:</p>
+<section id="id1">
+<h4>Configuration<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p>In this configuration, we want to demonstrate adding measurement modules to the
+network without using built-in ones. To do that, we want to group packets into
+packet flows below the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module in hosts. Compared to the previous
+configuration where each UDP app had its own flow, here packets from the two
+applications are mixed in the flows.</p>
+<p>The easiest way to insert a measurement module into any module (which doesn’t
+already have one built in) is to derive a new type extended with a measurement
+module. For example, we extend <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.inet.StandardHost.html">StandardHost</a> into <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code> in
+<a class="reference download internal" download="" href="../../../../_downloads/73030e0bd496fbebd327d66ecb5c9d84/FlowMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">FlowMeasurementShowcase.ned</span></code></a>. We could create two versions, one with a
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> and one with a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementRecorder.html">FlowMeasurementRecorder</a>, but
+it is more convenient (and more generic) to add a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a>, which
+contains both:</p>
 <div class="highlight-ned notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">MyStandardHost</span> <span class="k">extends</span> <span class="n">StandardHost</span>
 <span class="p">{</span>
     <span class="k">submodules</span><span class="o">:</span>
@@ -893,19 +1396,26 @@ here packets from the two applications are mixed in the flows.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>To make <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code> even more generic, we make the measurement layer module disabled by default. We can enable the measurement layer module from the .INI file.</p>
-<p>We insert the measurement layer module between the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module and the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> below it. The gates need to be reconnected to the new module (as per the connection section in the NED code above).
-Here is the result:</p>
-<div class="figure align-center" id="id9">
+<p>To make <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code> even more generic, we make the measurement layer
+module disabled by default. We can enable the measurement layer module from the
+.INI file.</p>
+<p>We insert the measurement layer module between the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.transportlayer.udp.Udp.html">Udp</a> module and the
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.common.MessageDispatcher.html">MessageDispatcher</a> below it. The gates need to be reconnected to the new
+module (as per the connection section in the NED code above). Here is the
+result:</p>
+<figure class="align-center">
 <img alt="../../../../_images/MyStandardHost.png" src="../../../../_images/MyStandardHost.png" />
-<p class="caption"><span class="caption-text">Figure X. The Contents of <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
+</figure>
 <p>Now, we can use the <code class="docutils literal notranslate"><span class="pre">MyStandardHost</span></code> type in the .INI configuration:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.typename</span> <span class="o">=</span> <span class="s">&quot;MyStandardHost&quot;</span>
 <span class="na">*.server*.typename</span> <span class="o">=</span> <span class="s">&quot;MyStandardHost&quot;</span>
 </pre></div>
 </div>
-<p>We want to demonstrate grouping packets into multiple packet flows based on source port. Our goal is to assign UDP packets with source port 500 to flow <code class="docutils literal notranslate"><span class="pre">VID</span></code>, and those with source port 1000 to flow <code class="docutils literal notranslate"><span class="pre">BG</span></code>. To do that, we need two <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> modules, each assigning packets to one of the flows. We can simply use the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a> module in the hosts:</p>
+<p>We want to demonstrate grouping packets into multiple packet flows based on
+source port. Our goal is to assign UDP packets with source port 500 to flow
+<code class="docutils literal notranslate"><span class="pre">VID</span></code>, and those with source port 1000 to flow <code class="docutils literal notranslate"><span class="pre">BG</span></code>. To do that, we need two
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.queueing.flow.FlowMeasurementStarter.html">FlowMeasurementStarter</a> modules, each assigning packets to one of the
+flows. We can simply use the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a> module in the hosts:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.client*.measurementLayer.typename</span> <span class="o">=</span> <span class="s">&quot;MultiMeasurementLayer&quot;</span>
 <span class="na">*.server*.measurementLayer.typename</span> <span class="o">=</span> <span class="s">&quot;MultiMeasurementLayer&quot;</span>
 
@@ -922,40 +1432,49 @@ Here is the result:</p>
 <span class="na">*.client*.measurementLayer.measurementStarter[1].flowName</span> <span class="o">=</span> <span class="s">&quot;BG&quot;</span>
 <span class="na">*.client*.measurementLayer.measurementStarter[1].packetFilter</span> <span class="o">=</span> <span class="s">expr(has(udp) &amp;&amp; udp.srcPort == 1000)</span>
 <span class="na">*.client*.measurementLayer.measurementStarter[*].measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
-<span class="na">*.client*.measurementLayer.measurementRecorder[*].typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="na">*.client*.measurementLayer.measurementMaker[*].typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 
-<span class="na">*.server*.measurementLayer.measurementRecorder[0].flowName</span> <span class="o">=</span> <span class="s">&quot;VID or BG&quot;</span>
-<span class="na">*.server*.measurementLayer.measurementRecorder[*].measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
+<span class="na">*.server*.measurementLayer.measurementMaker[0].flowName</span> <span class="o">=</span> <span class="s">&quot;VID or BG&quot;</span>
+<span class="na">*.server*.measurementLayer.measurementMaker[*].measure</span> <span class="o">=</span> <span class="s">&quot;elapsedTime or queueingTime&quot;</span>
 <span class="na">*.server*.measurementLayer.measurementStarter[*].typename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
 </pre></div>
 </div>
-<p>The flow definition sets up two flows (<code class="docutils literal notranslate"><span class="pre">BG</span></code> and <code class="docutils literal notranslate"><span class="pre">VID</span></code>) based on the source port of packets. The flows have multiple start and end points (in both clients and servers, respectively). Each measurement module in MultiMeasurementLayer assigns packets to one of the flows, using the packet data filter. As in the previous configuration, we measure elapsed time and queueing time.</p>
+<p>The flow definition sets up two flows (<code class="docutils literal notranslate"><span class="pre">BG</span></code> and <code class="docutils literal notranslate"><span class="pre">VID</span></code>) based on the source
+port of packets. The flows have multiple start and end points (in both clients
+and servers, respectively). Each measurement module in <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a>
+assigns packets to one of the flows, using the packet data filter. As in the
+previous configuration, we measure elapsed time and queueing time.</p>
 <p>Note that:</p>
 <ul class="simple">
 <li><p>A recorder records both flows independently</p></li>
 <li><p>Packets from multiple sources that belong to the same flow are recorded in the same statistic</p></li>
-<li><p>We don’t need the measurement recorders in the clients, and the measurement starters in the servers, so we disable them within the Multimeasurement module.</p></li>
+<li><p>We don’t need the measurement recorders in the clients, and the measurement starters in the servers, so we disable them within the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a> module.</p></li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h4>Results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="figure align-center">
+</section>
+<section id="id2">
+<h4>Results<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<p>The measured elapsed time and queueing time values are available as the
+statistics of the measurement recorder modules. For example, here are the two
+elapsed time vectors (for the <code class="docutils literal notranslate"><span class="pre">BG</span></code> and <code class="docutils literal notranslate"><span class="pre">VID</span></code> flows) recorded as separate
+statitics by the measurement recorder modules in <code class="docutils literal notranslate"><span class="pre">server1</span></code>, displayed in the
+IDE’s analysis tool:</p>
+<figure class="align-center">
 <img alt="../../../../_images/AnyLocationBrowseData.png" src="../../../../_images/AnyLocationBrowseData.png" />
-</div>
-<p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/83e12d34979eb4ed1d3d406d2f6f1d8d/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/2a8a5f7103dac6663561278e14d63e02/FlowMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">FlowMeasurementShowcase.ned</span></code></a></p>
-</div>
-</div>
-</div>
-<div class="section" id="try-it-yourself">
-<h2>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">¶</a></h2>
+</figure>
+<p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/f07e6fbdcb6788adecf1cf707e0d941f/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/73030e0bd496fbebd327d66ecb5c9d84/FlowMeasurementShowcase.ned"><code class="xref download docutils literal notranslate"><span class="pre">FlowMeasurementShowcase.ned</span></code></a></p>
+</section>
+</section>
+</section>
+<section id="try-it-yourself">
+<h2>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading">¶</a></h2>
 <p>If you already have INET and OMNeT++ installed, start the IDE by typing
 <code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project into the IDE, then navigate to the
 <code class="docutils literal notranslate"><span class="pre">inet/showcases/measurement/flow</span></code> folder in the <cite>Project Explorer</cite>. There, you can view
 and edit the showcase files, run simulations, and analyze results.</p>
 <p>Otherwise, there is an easy way to install INET and OMNeT++ using <a class="reference external" href="https://omnetpp.org/opp_env">opp_env</a>, and run the simulation interactively.
 Ensure that <code class="docutils literal notranslate"><span class="pre">opp_env</span></code> is installed on your system, then execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ opp_env run inet-4.4 --init -w inet-workspace --install --chdir <span class="se">\</span>
-   -c <span class="s1">&#39;cd inet-4.4.*/showcases/measurement/flow &amp;&amp; inet&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>run<span class="w"> </span>inet-4.6<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--install<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>--chdir<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-c<span class="w"> </span><span class="s1">&#39;cd inet-4.6.*/showcases/measurement/flow &amp;&amp; inet&#39;</span>
 </pre></div>
 </div>
 <p>This command creates an <code class="docutils literal notranslate"><span class="pre">inet-workspace</span></code> directory, installs the appropriate
@@ -963,19 +1482,19 @@ versions of INET and OMNeT++ within it, and launches the <code class="docutils l
 showcase directory for interactive simulation.</p>
 <p>Alternatively, for a more hands-on experience, you can first set up the
 workspace and then open an interactive shell:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ opp_env install --init -w inet-workspace inet-4.4
-$ <span class="nb">cd</span> inet-workspace
-$ opp_env shell
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>install<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>inet-4.6
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>inet-workspace
+$<span class="w"> </span>opp_env<span class="w"> </span>shell
 </pre></div>
 </div>
 <p>Inside the shell, start the IDE by typing <code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project,
 then start exploring.</p>
-</div>
-<div class="section" id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://github.com/inet-framework/inet-showcases/discussions/TODO">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
-</div>
-</div>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/1076">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+</section>
+</section>
 
 
         </div>
@@ -993,7 +1512,6 @@ then start exploring.</p>
 <li><a class="reference internal" href="#the-measurement-modules">The Measurement Modules</a></li>
 <li><a class="reference internal" href="#adding-measurement-modules-to-the-network">Adding Measurement Modules to the Network</a></li>
 <li><a class="reference internal" href="#associating-packets-to-flows-based-on-multiple-criteria">Associating Packets to Flows Based on Multiple Criteria</a></li>
-<li><a class="reference internal" href="#limitations">Limitations</a></li>
 <li><a class="reference internal" href="#visualizing-packet-flows">Visualizing Packet Flows</a></li>
 </ul>
 </li>

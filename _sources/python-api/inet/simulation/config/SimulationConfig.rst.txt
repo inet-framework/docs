@@ -1,0 +1,67 @@
+inet.simulation.config.SimulationConfig
+=======================================
+
+.. py:class:: inet.simulation.config.SimulationConfig(simulation_project, working_directory, ini_file='omnetpp.ini', config='General', num_runs=1, sim_time_limit=None, abstract=False, emulation=False, expected_result='DONE', user_interface='Cmdenv', description=None)
+
+   Represents a simulation config from an INI file under a working directory in a specific simulation project.
+
+   Initializes a new simulation config.
+
+   :param simulation_project: The simulation project that this simulation config belongs to.
+   :type simulation_project: :py:class:`SimulationProject <inet.simulation.project.SimulationProject>`
+   :param working_directory: The working directory relative to the root directory of the simulation project.
+   :type working_directory: string
+   :param ini_file: The name of the INI file within the working directory.
+   :type ini_file: string
+   :param config: The name of the configuration section within the INI file.
+   :type config: string
+   :param num_runs: The total number of runs specified by the configuration section of the INI file.
+   :type num_runs: integer
+   :param sim_time_limit: The simulation time limit specified by the configuration section of the INI file.
+   :type sim_time_limit: string
+   :param abstract: Specifies if the simulation config is not final (i.e. it's meant to be derived from) and thus it cannot be run.
+   :type abstract: bool
+   :param emulation: Specifies if the simulation config is used for emulation, so it cannot be run without setting up the
+                     external software and hardware resources.
+   :type emulation: bool
+   :param expected_result: The expected result of running the simulation.
+   :type expected_result: string
+   :param user_interface: The user interface extracted from the INI file.
+   :type user_interface: string
+   :param description: The human readable description extracted from the INI file.
+   :type description: string
+
+
+   .. py:method:: matches_filter(filter=None, exclude_filter=None, working_directory_filter=None, exclude_working_directory_filter=None, ini_file_filter=None, exclude_ini_file_filter=None, config_filter=None, exclude_config_filter=None, simulation_config_filter=lambda simulation_config: not simulation_config.abstract and not simulation_config.emulation, full_match=False, **kwargs)
+
+      Determines if this simulation config matches the provided filter parameters or not. If a filter parameter is
+      not specified, then it is ignored.
+
+      :param filter: A regular expression that must match the string representation of the simulation config.
+      :type filter: string or None
+      :param exclude_filter: A regular expression that must not match the string representation of the simulation config.
+      :type exclude_filter: string or None
+      :param working_directory_filter: A regular expression that must match the working directory of the simulation config.
+      :type working_directory_filter: string or None
+      :param exclude_working_directory_filter: A regular expression that must not match the working directory of the simulation config.
+      :type exclude_working_directory_filter: string or None
+      :param ini_file_filter: A regular expression that must match the INI file of the simulation config.
+      :type ini_file_filter: string or None
+      :param exclude_ini_file_filter: A regular expression that must not match the INI file of the simulation config.
+      :type exclude_ini_file_filter: string or None
+      :param config_filter: A regular expression that must match the config of the simulation config.
+      :type config_filter: string or None
+      :param exclude_config_filter: A regular expression that must not match the config of the simulation config.
+      :type exclude_config_filter: string or None
+      :param simulation_config_filter: A predicate that is additionally called with the simulation config. By default, abstract and emulation
+                                       simulation configs do not match.
+      :type simulation_config_filter: function or None
+      :param full_match: Specifies if the regular expression parameters must match completely or a substring match is sufficient.
+      :type full_match: bool
+      :param kwargs: Ignored.
+      :type kwargs: dict
+
+      Returns (bool):
+          Flag indicating that the simulation config matches the provided filter criteria.
+
+

@@ -1,0 +1,96 @@
+inet.simulation.project
+=======================
+
+.. py:module:: inet.simulation.project
+
+.. autoapi-nested-parse::
+
+   This module provides abstractions for simulation projects.
+
+   The main functions are:
+
+   - :py:func:`get_simulation_project`:
+   - :py:func:`get_default_simulation_project`:
+
+   In general, it's a good idea to use the default project, because it makes calling the various functions easier and in
+   most cases there's only one simulation project is worked on. The default simulation project is automatically set to the
+   one above the current working directory when the omnetpp.repl package is loaded, but it can be overridden by the user
+   later.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/simulation/project/SimulationProject
+
+.. autoapisummary::
+
+   inet.simulation.project.SimulationProject
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.simulation.project.define_simulation_project
+   inet.simulation.project.get_default_simulation_project
+   inet.simulation.project.get_simulation_project
+   inet.simulation.project.set_default_simulation_project
+
+
+Module Contents
+---------------
+
+.. py:function:: define_simulation_project(name, version=None, **kwargs)
+
+   Defines a simulation project for the provided name, version and additional parameters.
+
+   :param name: The name of the simulation project.
+   :type name: string
+   :param version: The version of the simulation project. If unspecified, then no version is assumed.
+   :type version: string or None
+   :param kwargs: Additional parameters are inherited from the constructor of :py:class:`SimulationProject`.
+   :type kwargs: dict
+
+   Returns (:py:class:`SimulationProject`):
+       the new simulation project.
+
+
+.. py:function:: get_default_simulation_project()
+
+   Returns the currently selected default simulation project from the set of defined simulation projects. The default
+   simulation project is usually the one that is above the current working directory.
+
+   Returns (:py:class:`SimulationProject`):
+       a simulation project.
+
+
+.. py:function:: get_simulation_project(name, version=None)
+
+   Returns a defined simulation project for the provided name and version.
+
+   :param name: The name of the simulation project.
+   :type name: string
+   :param version: The version of the simulation project. If unspecified, then the latest version is returned.
+   :type version: string or None
+
+   Returns (py:class:`SimulationProject` or None):
+       a simulation project.
+
+
+.. py:function:: set_default_simulation_project(project)
+
+   Changes the currently selected default simulation project from the set of defined simulation projects.
+
+   :param project: The simulation project that is set as the default.
+   :type project: :py:class:`SimulationProject`
+
+   Returns (None):
+       nothing.
+
+

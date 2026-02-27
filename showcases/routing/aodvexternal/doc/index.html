@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WPFKHJQDQW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WPFKHJQDQW');
+</script>
+    
+    <title>AODV External Gateway Routing &#8212; INET 4.6.0 documentation</title>
+    
+    <script>
+    (function() {
+        try {
+            var w = localStorage.getItem('opptheme-drawer-width');
+            if (w && !isNaN(parseInt(w))) {
+                document.documentElement.style.setProperty('--drawer-width', w + 'px');
+            }
+        } catch(e) {}
+        // Mark page as ready for fade-in transition
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.classList.add('page-ready');
+        });
+    })();
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic.css?v=29da98fa" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
+    <link rel="stylesheet" href="../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/drawer_resize.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/page_transitions.css" type="text/css" />
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=cc8a4273"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Visualization" href="../../../visualizer/canvas/index.html" />
+    <link rel="prev" title="Exploring MANET Routing Protocols" href="../../manet/doc/index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Routing</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">AODV External Gateway Routing</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../../../_sources/showcases/routing/aodvexternal/doc/index.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Routing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AODV External Gateway Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../../../../_static/sphinx_materialdesign_theme.js "></script>
+	<script type="text/javascript" src="../../../../_static/drawer_resize.js"></script>
+    <header class="mdl-layout__drawer">
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Showcases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tsn/index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/timesynchronization/index.html">Time Synchronization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/trafficshaping/index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/cbsandtas/doc/index.html">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/trafficshaping/underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/eager/doc/index.html">Eager Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/sat/doc/index.html">SAT-Solver-based Gate Schedule Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/gatescheduling/tsnsched/doc/index.html">TSNsched-based Gate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/framereplication/index.html">Frame Replication and Elimination for Reliability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/manualconfiguration/doc/index.html">Manual Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/automaticmultipathconfiguration/doc/index.html">Automatic Multipath Stream Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/automaticfailureprotection/doc/index.html">Automatic Stream Configuration with Failure Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/framereplication/multicastfailureprotection/doc/index.html">Multicast Streams with Failure Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/framepreemption/doc/index.html">Frame Preemption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/cutthroughswitching/doc/index.html">Cut-Through Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tsn/combiningfeatures/index.html">Combining Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/gptpandtas/doc/index.html">Effects of Time Synchronization on Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/frerandtas/doc/index.html">Frame Replication with Time-Aware Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tsn/combiningfeatures/invehicle/doc/index.html">In-vehicle Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html">Generic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/pcaprecording/doc/index.html">PCAP Recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../general/diffserv/doc/index.html">Differentiated Services</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../measurement/index.html">Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/throughput/doc/index.html">Measuring Channel Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/utilization/doc/index.html">Measuring Channel Utilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/endtoenddelay/doc/index.html">Measuring End-to-end Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/jitter/doc/index.html">Measuring Packet Delay Variation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/transmissiontime/doc/index.html">Measuring Transmission Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/propagationtime/doc/index.html">Measuring Propagation Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/queueingtime/doc/index.html">Measuring Queueing Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/residencetime/doc/index.html">Measuring Residence Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/datarate/doc/index.html">Measuring Data Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../measurement/flow/doc/index.html">Measuring Time Along Packet Flows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mobility/index.html">Mobility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/basic/doc/index.html">Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/combining/doc/index.html">Combining Mobility Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Routing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AODV External Gateway Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/canvas/index.html">Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/packetdrop/doc/index.html">Visualizing Packet Drops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportpathactivity/doc/index.html">Visualizing Transport Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/networkpathactivity/doc/index.html">Visualizing Network Path Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/datalinkactivity/doc/index.html">Visualizing Data Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/physicallinkactivity/doc/index.html">Visualizing Physical Link Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/radiomediumactivity/doc/index.html">Visualizing Radio Medium Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/routingtable/doc/index.html">Visualizing IPv4 Routing Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/interfacetable/doc/index.html">Displaying IP Addresses and Other Interface Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/ieee80211/doc/index.html">Visualizing IEEE 802.11 Network Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/transportconnection/doc/index.html">Visualizing Transport Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/spectrum/doc/index.html">Visualizing the Spectrum of Radio Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/mobility/doc/index.html">Visualizing Node Mobility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/instrumentfigures/doc/index.html">Instrument Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/styling/doc/index.html">Styling and Appearance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/submoduleinfo/doc/index.html">Visualizing Submodule Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/canvas/statistic/doc/index.html">Visualizing Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../visualizer/osg/index.html">3D Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/networknode/doc/index.html">Visualizing Network Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/environment/doc/index.html">Visualizing the Physical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../visualizer/osg/earth/doc/index.html">Visualizing Terrain and Urban Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../wireless/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/pathloss/doc/index.html">Path Loss Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/directionalantennas/doc/index.html">Modeling Directional Antennas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/sensornetwork/doc/index.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ieee802154/doc/index.html">IEEE 802.15.4 Smart Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/power/doc/index.html">Power Consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/coexistence/doc/index.html">Coexistence of IEEE 802.11 and 802.15.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/analogmodel/doc/index.html">Wireless Signal Analog Domain Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/throughput/doc/index.html">IEEE 802.11 Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/handover/doc/index.html">IEEE 802.11 Handover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/ratecontrol/doc/index.html">IEEE 802.11 Rate Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/fragmentation/doc/index.html">IEEE 802.11 Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/qos/doc/index.html">IEEE 802.11 Quality of Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/blockack/doc/index.html">IEEE 802.11 Block Acknowledgment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/aggregation/doc/index.html">IEEE 802.11 Frame Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/txop/doc/index.html">IEEE 802.11 Transmit Opportunity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/errorrate/doc/index.html">Packet Loss vs. Distance Using Various WiFi Bitrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/hiddennode/doc/index.html">The Hidden Node Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/multiradio/doc/index.html">Multiple Wireless Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wireless/crosstalk/doc/index.html">Crosstalk Between Adjacent IEEE 802.11 Channels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/wireless/doc/index.html">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step1.html">Step 1. Two hosts communicating wirelessly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step2.html">Step 2. Setting up some animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step3.html">Step 3. Adding more nodes and decreasing the communication range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step4.html">Step 4. Setting up static routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step5.html">Step 5. Taking interference into account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step6.html">Step 6. Using CSMA to better utilize the medium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step7.html">Step 7. Turning on ACKs in CSMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step8.html">Step 8. Modeling energy consumption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step9.html">Step 9. Configuring node movements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step10.html">Step 10. Configuring ad-hoc routing (AODV)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step11.html">Step 11. Adding obstacles to the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step12.html">Step 12. Changing to a more realistic radio model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step13.html">Step 13. Configuring a more accurate path loss model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/step14.html">Step 14. Introducing antenna gain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/wireless/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/configurator/doc/index.html">IPv4 Network Configurator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step1.html">Step 1. Fully automatic IP address assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step2.html">Step 2. Manually overriding individual IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step3.html">Step 3. Automatically assigning IP addresses to a subnet from a given range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step4.html">Step 4. Fully automatic static routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step5.html">Step 5. Manually overriding individual routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step6.html">Step 6. Setting different metric for automatic routing table configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step7.html">Step 7. Configuring a hierarchical network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step8.html">Step 8. Configuring a mixed wired/wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step9.html">Step 9. Leaving some part of the network unconfigured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step10.html">Step 10. Configuring a completely wireless network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step11.html">Step 11. Manually modifying an automatically created configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/step12.html">Step 12. Mixing different kinds of autorouting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/configurator/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/queueing/doc/index.html">Queueing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ActiveSourcePassiveSink.html">Active Source - Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PassiveSourceActiveSink.html">Passive Source - Active Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Queue.html">Enqueueing Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/DropTailQueue.html">Dropping Packets from a Finite Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Comparator.html">Ordering the Packets in the Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Buffer.html">Storing Packets on Behalf of Multiple Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityClassifier.html">Priority Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/WrrClassifier.html">Weighted Round-Robin Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedClassifier.html">Content-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/MarkovClassifier.html">Markov-Chain-Based Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/GenericClassifier.html">Generic Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityScheduler.html">Priority Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/WrrScheduler.html">Weighted Round-Robin Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedScheduler.html">Content-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/MarkovScheduler.html">Markov-Chain-Based Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/GenericScheduler.html">Generic Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityBuffer.html">Priority Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PriorityQueue.html">Priority Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/CompoundQueue.html">Building Complex Queues via Composition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Filter1.html">Content-Based Filtering (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Filter2.html">Content-Based Filtering (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OrdinalBasedDropper.html">Ordinal-Based Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RedDropper.html">RED Dropper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Server.html">Time-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TokenBasedServer.html">Token-Based Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TimeBasedTokenGenerator.html">Generating Tokens Periodically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/PacketBasedTokenGenerator.html">Generating Tokens after Received Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/QueueBasedTokenGenerator.html">Generating Tokens When a Queue Becomes Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/SignalBasedTokenGenerator.html">Generating Tokens Based on Received Signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Meter.html">Limiting the Data Rate of a Packet Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Tagger.html">Requesting Protocol-Specific Behavior for Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/ContentBasedTagger.html">Requesting Protocol-Specific Behavior Based on Packet Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Labeler.html">Labeling Packets with Textual Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/LeakyBucket.html">Leaky Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/TokenBucket.html">Token Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Delayer.html">Delaying Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Multiplexer.html">Connecting Multiple Active Sources to a Passive Sink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Demultiplexer.html">Connecting a Passive Source to Multiple Active Sinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Gate1.html">Blocking/Unblocking Packet Flow (Active Source)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Gate2.html">Blocking/Unblocking Packet Flow (Active Sink)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Duplicator.html">Duplicating Packets from One Input to One Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OrdinalBasedDuplicator.html">Duplicating Packets Based On Their Ordinal Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Cloner.html">Cloning Packets from One Input To Multiple Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/QueueFiller.html">Preventing a Queue from Becoming Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/RequestResponse.html">Example: Request/Response-Based Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Telnet.html">Example: Generating Telnet Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/Network.html">Example: Simulating a Transmission Channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/InputQueueSwitching.html">Example: Input Queue Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/queueing/doc/OutputQueueSwitching.html">Example: Output Queue Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/index.html">Regression Testing and Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/first.html">About Fingerprint Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/refactoring.html">Easy to Handle Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/renaming_submodule.html">Renaming a Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/renaming_module_parameter.html">Renaming a Module Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/packet.html">Changing Packet Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/changing_timer.html">Changing a Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/newevents_filtering.html">Adding New Events - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/newevents_nid.html">Adding New Events - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/removingevents.html">Removing Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../users-guide/index.html">User’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-usage.html">Using the INET Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-networks.html">Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-apps.html">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-routing.html">Internet Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-sensor-macs.html">MAC Protocols for Wireless Sensor Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-clock.html">Clock Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-physicallayer.html">The Physical Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-transmission-medium.html">The Transmission Medium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-environment.html">The Physical Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-collecting-results.html">Collecting Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-instrument-figures.html">Instrument Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../users-guide/ch-history.html">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers-guide/index.html">Developer’s Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-packets.html">Working with Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-tags.html">Communicating with Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-sockets.html">Using Sockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <section id="aodv-external-gateway-routing">
+<h1>AODV External Gateway Routing<a class="headerlink" href="#aodv-external-gateway-routing" title="Link to this heading">¶</a></h1>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">¶</a></h2>
+<p>In typical Mobile Ad Hoc Networks (MANETs), all nodes participate in the same
+routing protocol. However, in real-world scenarios, it’s often necessary to
+route traffic between a MANET and an external network that uses different
+routing mechanisms. This showcase demonstrates AODV routing with external
+gateway support, where AODV-enabled wireless nodes can communicate with hosts
+on a conventional wired network through a designated gateway router.</p>
+<p>The goal of this showcase is to demonstrate how AODV’s external gateway feature
+enables seamless routing between an ad hoc wireless network and a traditional
+Ethernet-based network infrastructure.</p>
+<div class="line-block">
+<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.6</span></code></div>
+<div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/routing/aodvexternal">inet/showcases/routing/aodvexternal</a></div>
+</div>
+</section>
+<section id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Link to this heading">¶</a></h2>
+<section id="the-network">
+<h3>The Network<a class="headerlink" href="#the-network" title="Link to this heading">¶</a></h3>
+<p>This showcase uses the <code class="docutils literal notranslate"><span class="pre">AODVNetwork</span></code> network, defined in
+<a class="reference download internal" download="" href="../../../../_downloads/0613df5bd3e760639ce5829f1247573d/AODVNetwork.ned"><code class="xref download docutils literal notranslate"><span class="pre">AODVNetwork.ned</span></code></a>.</p>
+<p>The network contains:</p>
+<ul class="simple">
+<li><p><strong>20 mobile wireless hosts</strong> of type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>, equipped with AODV
+routing protocol and wireless interfaces</p></li>
+<li><p><strong>A gateway router</strong> (also of type <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.aodv.AodvRouter.html">AodvRouter</a>) that has both wireless
+and Ethernet interfaces, connecting the wireless and wired segments</p></li>
+<li><p><strong>An Ethernet switch</strong> for the wired network</p></li>
+<li><p><strong>An Ethernet host</strong> representing a destination on the wired network</p></li>
+</ul>
+<p>All wireless hosts are mobile nodes that form an ad hoc network using AODV
+routing. The gateway router participates in the AODV network via its wireless
+interface and forwards traffic to the wired network via its Ethernet interface.</p>
+</section>
+<section id="aodv-external-gateway-configuration">
+<h3>AODV External Gateway Configuration<a class="headerlink" href="#aodv-external-gateway-configuration" title="Link to this heading">¶</a></h3>
+<p>The key feature demonstrated in this showcase is AODV’s external gateway
+support. In INET’s AODV implementation, the <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.routing.aodv.Aodv.html">Aodv</a> module provides a
+<code class="docutils literal notranslate"><span class="pre">gatewayAddress</span></code> parameter that designates which node should act as the
+gateway for routing traffic to external (non-AODV) destinations.</p>
+<p>All AODV nodes are configured with the router as the gateway:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.aodv.gatewayAddress</span> <span class="o">=</span> <span class="s">&quot;router&quot;</span>
+</pre></div>
+</div>
+<p>This configuration tells all AODV nodes that when they need to send packets to
+destinations outside the AODV network, they should route them towards the
+<code class="docutils literal notranslate"><span class="pre">router</span></code>, which serves as the gateway.</p>
+<p>The gateway router has both a wireless interface (for AODV communication) and
+an Ethernet interface (for connection to the wired network).</p>
+</section>
+<section id="network-addressing">
+<h3>Network Addressing<a class="headerlink" href="#network-addressing" title="Link to this heading">¶</a></h3>
+<p>The network uses two separate address ranges:</p>
+<ul class="simple">
+<li><p><strong>Wireless AODV network</strong>: <code class="docutils literal notranslate"><span class="pre">10.0.x.x</span></code> with netmask <code class="docutils literal notranslate"><span class="pre">255.255.0.0</span></code></p></li>
+<li><p><strong>Wired Ethernet network</strong>: <code class="docutils literal notranslate"><span class="pre">192.168.x.x</span></code> with netmask <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code></p></li>
+</ul>
+<p>This separation clearly delineates the two network segments. The gateway router
+has interfaces in both address ranges, enabling it to forward traffic between
+them.</p>
+<p>For all AODV hosts, the routing table configuration is disabled because AODV
+manages routes dynamically:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host[*].ipv4.configurator.configureRoutingTable</span> <span class="o">=</span> <span class="s">false</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>The simulation is configured in <a class="reference download internal" download="" href="../../../../_downloads/5f40bf4a2e83d03efe15bc09bab278b6/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>. Key
+configuration parameters include:</p>
+<section id="the-application">
+<h3>The Application<a class="headerlink" href="#the-application" title="Link to this heading">¶</a></h3>
+<p>In the simulation, <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> acts as the source and sends ping packets to
+<code class="docutils literal notranslate"><span class="pre">ethernetHost</span></code>, which is on the wired network. The traffic must traverse the
+wireless AODV network, pass through the gateway router, and then reach the
+destination via the Ethernet segment.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.host[0].numApps</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">*.host[0].app[0].typename</span> <span class="o">=</span> <span class="s">&quot;PingApp&quot;</span>
+<span class="na">*.host[0].app[0].startTime</span> <span class="o">=</span> <span class="s">2s</span>
+<span class="na">*.host[0].app[0].printPing</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">*.host[0].app[0].destAddr</span> <span class="o">=</span> <span class="s">&quot;ethernetHost&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="gateway-configuration">
+<h3>Gateway Configuration<a class="headerlink" href="#gateway-configuration" title="Link to this heading">¶</a></h3>
+<p>As mentioned earlier, the <code class="docutils literal notranslate"><span class="pre">gatewayAddress</span></code> parameter on all AODV nodes points
+to <code class="docutils literal notranslate"><span class="pre">router</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">**.aodv.gatewayAddress</span> <span class="o">=</span> <span class="s">&quot;router&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="network-configuration">
+<h3>Network Configuration<a class="headerlink" href="#network-configuration" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> is configured with XML to set up the address
+ranges and routing:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">*.configurator.config</span> <span class="o">=</span> <span class="s">xml(</span>
+<span class="s">    &quot;&lt;config&gt;\</span>
+<span class="s">      &lt;interface hosts=&#39;host[*] or router&#39; names=&#39;wlan*&#39; address=&#39;10.0.x.x&#39; netmask=&#39;255.255.0.0&#39;/&gt;\</span>
+<span class="s">      &lt;route hosts=&#39;router&#39; destination=&#39;*&#39; interface=&#39;eth0&#39; /&gt;\</span>
+<span class="s">      &lt;interface hosts=&#39;*&#39; names=&#39;eth*&#39; address=&#39;192.168.x.x&#39; netmask=&#39;255.255.255.0&#39;/&gt;\</span>
+<span class="s">    &lt;/config&gt;&quot;)</span>
+</pre></div>
+</div>
+<p>This configuration:</p>
+<ol class="arabic simple">
+<li><p>Assigns <code class="docutils literal notranslate"><span class="pre">10.0.x.x</span></code> addresses to all wireless interfaces on AODV hosts and the router</p></li>
+<li><p>Creates a default route on the router directing traffic to its Ethernet interface</p></li>
+<li><p>Assigns <code class="docutils literal notranslate"><span class="pre">192.168.x.x</span></code> addresses to all Ethernet interfaces</p></li>
+</ol>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h2>
+<section id="simulation-behavior">
+<h3>Simulation Behavior<a class="headerlink" href="#simulation-behavior" title="Link to this heading">¶</a></h3>
+<p>When the simulation runs:</p>
+<ol class="arabic simple">
+<li><p><strong>Initial Route Discovery</strong>: When <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> wants to send a ping to
+<code class="docutils literal notranslate"><span class="pre">ethernetHost</span></code>, AODV performs route discovery. Since <code class="docutils literal notranslate"><span class="pre">ethernetHost</span></code> is
+not part of the AODV network, all AODV nodes recognize it as an external
+destination and route towards the configured gateway (<code class="docutils literal notranslate"><span class="pre">router</span></code>).</p></li>
+<li><p><strong>Route Establishment</strong>: AODV establishes routes from <code class="docutils literal notranslate"><span class="pre">host[0]</span></code> to the
+router using the standard AODV route request/reply mechanism. The route
+dynamically adapts to the mobile topology as nodes move.</p></li>
+<li><p><strong>Traffic Flow</strong>: Once the route is established, ping packets flow from
+<code class="docutils literal notranslate"><span class="pre">host[0]</span></code> through intermediate AODV nodes to the router. The gateway
+forwards the packets via its Ethernet interface to the switch, which then
+delivers them to <code class="docutils literal notranslate"><span class="pre">ethernetHost</span></code>.</p></li>
+<li><p><strong>Topology Changes</strong>: As the mobile nodes move, AODV adapts the routes in
+the wireless segment. If the path to the gateway breaks due to mobility,
+AODV discovers a new route.</p></li>
+</ol>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/aodv-external.mp4" width="60%" height="" class="align-center"></video><p>Sources: <a class="reference download internal" download="" href="../../../../_downloads/5f40bf4a2e83d03efe15bc09bab278b6/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a>, <a class="reference download internal" download="" href="../../../../_downloads/0613df5bd3e760639ce5829f1247573d/AODVNetwork.ned"><code class="xref download docutils literal notranslate"><span class="pre">AODVNetwork.ned</span></code></a></p>
+</section>
+</section>
+<section id="try-it-yourself">
+<h2>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading">¶</a></h2>
+<p>If you already have INET and OMNeT++ installed, start the IDE by typing
+<code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project into the IDE, then navigate to the
+<code class="docutils literal notranslate"><span class="pre">inet/showcases/routing/aodvexternal</span></code> folder in the <cite>Project Explorer</cite>. There, you can view
+and edit the showcase files, run simulations, and analyze results.</p>
+<p>Otherwise, there is an easy way to install INET and OMNeT++ using <a class="reference external" href="https://omnetpp.org/opp_env">opp_env</a>, and run the simulation interactively.
+Ensure that <code class="docutils literal notranslate"><span class="pre">opp_env</span></code> is installed on your system, then execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>run<span class="w"> </span>inet-4.6<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--install<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>--chdir<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-c<span class="w"> </span><span class="s1">&#39;cd inet-4.6.*/showcases/routing/aodvexternal &amp;&amp; inet&#39;</span>
+</pre></div>
+</div>
+<p>This command creates an <code class="docutils literal notranslate"><span class="pre">inet-workspace</span></code> directory, installs the appropriate
+versions of INET and OMNeT++ within it, and launches the <code class="docutils literal notranslate"><span class="pre">inet</span></code> command in the
+showcase directory for interactive simulation.</p>
+<p>Alternatively, for a more hands-on experience, you can first set up the
+workspace and then open an interactive shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>install<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>inet-4.6
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>inet-workspace
+$<span class="w"> </span>opp_env<span class="w"> </span>shell
+</pre></div>
+</div>
+<p>Inside the shell, start the IDE by typing <code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project,
+then start exploring.</p>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/1058">this page</a> in
+the GitHub issue tracker for commenting on this showcase.</p>
+</section>
+</section>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">AODV External Gateway Routing</a><ul>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#the-model">The Model</a><ul>
+<li><a class="reference internal" href="#the-network">The Network</a></li>
+<li><a class="reference internal" href="#aodv-external-gateway-configuration">AODV External Gateway Configuration</a></li>
+<li><a class="reference internal" href="#network-addressing">Network Addressing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#the-application">The Application</a></li>
+<li><a class="reference internal" href="#gateway-configuration">Gateway Configuration</a></li>
+<li><a class="reference internal" href="#network-configuration">Network Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a><ul>
+<li><a class="reference internal" href="#simulation-behavior">Simulation Behavior</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#try-it-yourself">Try It Yourself</a></li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../../manet/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Exploring MANET Routing Protocols</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../../visualizer/canvas/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Visualization</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

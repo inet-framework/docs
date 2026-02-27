@@ -4,29 +4,51 @@ Cut-Through Switching
 Goals
 -----
 
-Cut-through switching is a method used in packet switching systems, such as Ethernet switches, to forward frames or 
-packets through the network. It involves starting the forwarding process before the entire frame has been received, 
-typically as soon as the destination address and outgoing interface are determined. This is in contrast to store-and-forward 
-switching, which waits until the entire frame has been received before forwarding it. One advantage of cut-through switching 
-is that it may reduce the switching delay of Ethernet frames, since the switch can begin forwarding the frame as soon as it 
-has enough information to do so. However, cut-through switching also has some potential disadvantages, such as a higher error 
-rate compared to store-and-forward switching, since it does not check the entire frame for errors before forwarding it. In this 
-showcase, we will demonstrate cut-through switching and compare it to store-and-forward switching in terms of delay.
+In conventional store-and-forward switching, each switch must receive and buffer
+the entire frame before forwarding it to the next hop. This store-and-forward
+process adds delay per hop that is proportional to the frame size, as the switch
+cannot begin transmission until the complete frame has been received. When
+packets traverse multiple switches, these delays accumulate, resulting in
+significant end-to-end latency. 
 
-| INET version: ``4.3``
+.. figure:: media/storeandforward.png
+   :align: center
+   :width: 50%
+
+Cut-through switching addresses this problem by
+starting the forwarding process as soon as the destination MAC address and
+outgoing interface are determined, typically after receiving just the frame
+header. This allows the switch to begin forwarding the frame while it is still
+being received, substantially reducing switching delay, especially in multi-hop
+scenarios.
+
+.. figure:: media/cutthrough.png
+   :align: center
+   :width: 50%
+
+However, cut-through switching involves trade-offs compared to store-and-forward
+switching. Since forwarding begins before the entire frame is received, the
+frame check sequence (FCS) cannot be verified at each switch, potentially
+leading to a higher error rate as corrupted frames may be forwarded through the
+network. The FCS check is instead performed at the destination host. In this
+showcase, we will demonstrate cut-through switching and compare it to
+store-and-forward switching in terms of delay, highlighting the performance
+benefits of this forwarding method.
+
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/tsn/cutthroughswitching <https://github.com/inet-framework/inet/tree/master/showcases/tsn/cutthroughswitching>`__
 
 The Model
 ---------
 
-Cut-through switching reduces switching delay, but skips the FCS check in the switch. The FCS
-is at the end of the Ethernet frame; the FCS check is performed in destination host.
-(This is because by the time the FCS check could happen, the frame is almost completely transmitted,
-so it makes no sense).
-The delay reduction is more substantial if the packet goes through multiple switches
-(as one packet transmission duration can be saved at each switch).
+.. Cut-through switching reduces the switching delay but skips the FCS check in the switch. The FCS
+.. is at the end of the Ethernet frame; the FCS check is performed in the destination host.
+.. (This is because by the time the FCS check could happen, the frame is almost completely transmitted,
+.. so it makes no sense).
+.. The delay reduction is more substantial if the packet goes through multiple switches
+.. (as one packet transmission duration can be saved at each switch).
 
-Cut-through switching makes use of intra-node  packet streaming in INET's modular
+Cut-through switching makes use of intranode packet streaming in INET's modular
 Ethernet model. Packet streaming is required because the frame needs to be processed
 as a stream (as opposed to as a whole packet) in order for the switch to be able to
 start forwarding it before the whole packet is received.
@@ -34,33 +56,23 @@ start forwarding it before the whole packet is received.
 .. note:: The default is store-and-forward behavior in hosts such as :ned:`StandardHost`.
 
 The example simulation contains two :ned:`TsnDevice` nodes connected by two
-:ned:`TsnSwitch`' nodes (all connections are 1 Gbps):
+:ned:`TsnSwitch` nodes (all connections are 1 Gbps):
 
-.. .. figure:: media/Network.png
+.. figure:: media/Network_.png
    :align: center
-   :width: 100%
 
-In the simulation, ``device1`` sends 1000-Byte UDP packets to ``device2``, with a mean arrival time of 100ms,
-and X ms jitter. There are two configurations in omnetpp.ini, ``StoreAndForward`` and ``CutthroughSwitching``,
+In the simulation, ``host1`` sends 1000-Byte UDP packets to ``host2``, with a mean arrival time of 200ms,
+and 50ms jitter. There are two configurations in omnetpp.ini, ``StoreAndForward`` and ``CutthroughSwitching``,
 which only differ in the use of cut-through switching.
 
-Here are the two configurations:
+Here are the configurations:
 
 .. literalinclude:: ../omnetpp.ini
-   :start-at: StoreAndForward
-   :end-at: phyLayer
    :language: ini
 
 
-The default :ned:`EthernetInterface` in Ethernet switches doesn't support cut-through. In order to use 
-cut-through, we replace the default interface with :ned:`EthernetCutthroughInterface`. Cut-through is 
-disabled in this interface by default, thus it needs to be enabled by setting the :par:`enableCutthrough` 
-parameter to ``true``.
-
-In addition, all necessary components in the switch need to support packet streaming.
-The cut-through interface in the switches supports packet streaming by default; the default PHY layer in 
-hosts need to be replaced with
-:ned:`EthernetStreamingPhyLayer`, which support packet streaming.
+The default :ned:`LayeredEthernetInterface` in :ned:`TsnDevice` and :ned:`TsnSwitch` has cut-through disabled by default. In order to use 
+Cut-through is enabled by setting the :par:`hasCutthroughSwitching` parameter to ``true``.
 
 Results
 -------
@@ -68,16 +80,16 @@ Results
 The following video shows the store-and-forward behavior in Qtenv:
 
 .. video:: media/storeandforward.mp4
-   :width: 90%
+   :width: 80%
    :align: center
 
 The next video shows the cut-through behavior:
 
 .. video:: media/cutthrough1.mp4
-   :width: 90%
+   :width: 80%
    :align: center
 
-The following sequence chart excerpt shows a packet sent from ``device1`` to ``device2`` via the switches,
+The following sequence chart excerpt shows a packet sent from ``host1`` to ``host2`` via the switches,
 for store-and-forward and cut-through, respectively (the timeline is linear):
 
 .. figure:: media/storeandforwardseq2.png
@@ -93,11 +105,11 @@ vs cut-through switching:
 
 .. figure:: media/delay.png
    :align: center
-   :width: 100%
+   :width: 90%
 
-We can verify that result analytically. In case of store-and-forward, the end-to-end duration
-is ``3 * (transmission time + propagation time)``, around 25.296 ms. In the case of cut-through,
-the duration is ``1 * transmission time + 3 propagation time + 2 * cut-through delay``, around 8.432 ms.
+We can verify that result analytically. In the case of store-and-forward, the end-to-end duration
+is ``3 * (transmission time + propagation time)``, around 30.246us. In the case of cut-through,
+the duration is ``1 * transmission time + 3 propagation time + 2 * cut-through delay``, around 10.534us.
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`CutthroughSwitchingShowcase.ned <../CutthroughSwitchingShowcase.ned>`
 
@@ -116,8 +128,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.3 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.3.*/showcases/tsn/cutthroughswitching && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/tsn/cutthroughswitching && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -128,7 +140,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.3
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

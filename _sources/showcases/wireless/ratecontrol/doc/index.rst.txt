@@ -15,7 +15,7 @@ allowing users to choose the most appropriate one for their specific needs.
 This showcase demonstrates how rate control mechanisms can improve application-level
 throughput.
 
-| INET version: ``4.0``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/wireless/ratecontrol <https://github.com/inet-framework/inet/tree/master/showcases/wireless/ratecontrol>`__
 
 The model
@@ -33,10 +33,10 @@ About rate control
 The physical layers of IEEE 802.11 devices are capable of transmitting
 at several different rates. The different rates can use different
 channel access methods, like orthogonal frequency division multiplexing
-(OFDM) or directs sequence spread spectrum (DSSS), and different
+(OFDM) or direct sequence spread spectrum (DSSS), and different
 modulation schemes like binary phase shift keying (BPSK) or types of
 quadrature amplitude modulation (QAM). Each of these has different
-tolerances of effects like fading, attenuation, and interference from
+tolerances for effects like fading, attenuation, and interference from
 other radio sources. In varying channel conditions, using the fastest
 rate might not be optimal for performance. Rate control algorithms adapt
 the transmission rate dynamically to the changing channel conditions, so
@@ -54,7 +54,7 @@ Rate control algorithms
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Some rate control algorithms change the transmission rate according to
-packet loss. When too many packets are lost (ie. the ACK for them
+packet loss. When too many packets are lost (i.e. the ACK for them
 doesn't arrive), the transmission rate is lowered. When a number of
 packets are sent without loss, the rate is increased.
 
@@ -64,7 +64,7 @@ INET has different rate control models, such as :ned:`ArfRateControl`,
 The network
 ~~~~~~~~~~~
 
-Two :ned:`StandardHost`'s (``sourceHost`` and ``sinkHost``) are placed on
+Two :ned:`WirelessHost`'s (``sourceHost`` and ``sinkHost``) are placed on
 the edge of the scene. During the simulation, they will move along
 the edge of the scene with different speeds, while ``sourceHost``
 will send UDP packets to ``sinkHost``. There is a forest in the middle
@@ -108,8 +108,7 @@ forest.
 
 Bitrate and throughput are recorded during the simulations. The
 following plots show the nominal data bitrate and the actual application
-level throughput for the two configurations (the values are in s and
-bps).
+level throughput for the two configurations.
 
 .. figure:: media/noratecontrol2.png
    :width: 100%
@@ -136,15 +135,17 @@ rate for the two scenarios can be compared on the following plots.
 .. image:: media/bitrate2.png
    :width: 100%
 
-The received packet count at ``sinkHost`` is 18366 for 'No rate
-control', and 35966 for 'AarfRateControl'.
+Here is the received packet count at ``sinkHost``:
+
+.. figure:: media/numpackets.png
+   :width: 50%
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`RateControlShowcase.ned <../RateControlShowcase.ned>`
 
 Conclusion
 ~~~~~~~~~~
 
-These results shows that rate control is effective in increasing the performance
+These results show that rate control is effective in increasing the performance
 of the wireless network, as it increases throughput during varying
 channel conditions. Also, throughput is not zero in situations when it
 would be if rate control weren't used.
@@ -164,8 +165,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.0 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.0.*/showcases/wireless/ratecontrol && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/wireless/ratecontrol && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -176,7 +177,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.0
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

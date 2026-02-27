@@ -1,0 +1,98 @@
+inet.simulation.task.SimulationTask
+===================================
+
+.. py:class:: inet.simulation.task.SimulationTask(simulation_config=None, run_number=0, inifile_entries=[], itervars=None, mode='release', debug=None, remove_launch=True, break_at_event_number=None, break_at_matching_event=None, user_interface='Cmdenv', result_folder='results', sim_time_limit=None, cpu_time_limit=None, record_eventlog=None, record_pcap=None, stdout_file_path=None, eventlog_file_path=None, scalar_file_path=None, vector_file_path=None, wait=True, name='simulation', task_result_class=SimulationTaskResult, **kwargs)
+
+   Bases: :py:obj:`inet.simulation.iderunner.Task`
+
+
+   Represents a simulation task that can be run as a separate process or in the process where Python is running.
+
+   Please note that undocumented features are not supposed to be called by the user.
+
+   :param simulation_config: The simulation config that is used to run this simulation task.
+   :type simulation_config: :py:class:`SimulationConfig <inet.simulation.config.SimulationConfig>`
+   :param run_number: The number uniquely identifying the simulation run.
+   :type run_number: number
+   :param inifile_entries: A list of additional inifile entries.
+   :type inifile_entries: list
+   :param itervars: The list of iteration variables.
+   :type itervars: string
+   :param mode: The build mode that is used to run this simulation task. Valid values are "release", "debug", and "sanitize".
+   :type mode: string
+   :param debug: Specifies that the IDE debugger should be attached to the running simulation.
+   :type debug: bool
+   :param remove_launch: Specifies if the IDE should remove the launch after the simulation terminates.
+   :type remove_launch: bool
+   :param break_at_event_number: Specifies an event number at which a breakpoint is to be set.
+   :type break_at_event_number: int
+   :param break_at_matching_event: Specifies a C++ expression at which a breakpoint is to be set.
+   :type break_at_matching_event: string
+   :param user_interface: The user interface that is used to run this simulation task. Valid values are "Cmdenv", and "Qtenv".
+   :type user_interface: string
+   :param result_folder: The result folder where the output files are generated.
+   :type result_folder: string
+   :param sim_time_limit: The simulation time limit as quantity with unit (e.g. "1s").
+   :type sim_time_limit: string
+   :param cpu_time_limit: The CPU time limit as quantity with unit (e.g. "1s").
+   :type cpu_time_limit: string
+   :param record_eventlog: Specifies whether the eventlog file should be recorded or not.
+   :type record_eventlog: bool
+   :param record_pcap: Specifies whether PCAP files should be recorded or not.
+   :type record_pcap: bool
+   :param stdout_file_path: Overrides the relative file path of the STDOUT file, not set by default.
+   :type stdout_file_path: string
+   :param eventlog_file_path: Overrides the relative file path of the eventlog file, not set by default.
+   :type eventlog_file_path: string
+   :param scalar_file_path: Overrides the relative file path of the scalar file, not set by default.
+   :type scalar_file_path: string
+   :param vector_file_path: Overrides the relative file path of the vector file, not set by default.
+   :type vector_file_path: string
+   :param wait: Determines if running the task waits the simulation to complete or not.
+   :type wait: bool
+   :param task_result_class: The Python class that is used to return the result.
+   :type task_result_class: type
+   :param kwargs: Additional parameters are inherited from the :py:class:`Task <inet.common.Task>` constructor.
+   :type kwargs: dict
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the task again.
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+
+
+   .. py:method:: run(**kwargs)
+
+      Runs a simulation task by running the simulation as a child process or in the same process where Python is running.
+
+      :param append_args: Additional command line arguments for the simulation executable.
+      :type append_args: list
+      :param simulation_runner: Determines if the simulation is run as a separate process or in the same process where Python is running.
+                                Valid values are "subprocess" and "inprocess".
+      :type simulation_runner: string
+      :param simulation_runner_class: The simulation runner class that is used to run the simulation. If not specified, then this is determined
+                                      by the simulation_runner parameter.
+      :type simulation_runner_class: type
+
+      Returns (SimulationTaskResult):
+          a simulation task result that contains the several simulation specific information and also the subprocess
+          result if applicable.
+
+
+
+   .. py:method:: run_protected(prepend_args=[], append_args=[], simulation_runner=None, simulation_runner_class=None, **kwargs)
+
+      Runs the task in the protected environment wrapped by :py:meth:`run`. This method is expected to be overridden
+      by derived classes. The default implementation simply returns a task result with "DONE" result code.
+
+      :param kwargs: Not used in this implementation.
+      :type kwargs: dict
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+

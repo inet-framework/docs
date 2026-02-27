@@ -1,0 +1,79 @@
+inet.simulation.project.SimulationProject
+=========================================
+
+.. py:class:: inet.simulation.project.SimulationProject(name, version, git_hash=None, git_diff_hash=None, folder_environment_variable=None, folder='.', omnetpp_environment_variable='__omnetpp_root_dir', bin_folder='.', library_folder='.', executables=None, dynamic_libraries=None, static_libraries=None, build_types=['dynamic library'], ned_folders=['.'], ned_exclusions=[], ini_file_folders=['.'], python_folders=['python'], image_folders=['.'], include_folders=['.'], cpp_folders=['.'], cpp_defines=[], msg_folders=['.'], media_folder='.', statistics_folder='.', fingerprint_store='fingerprint.json', speed_store='speed.json', used_projects=[], external_bin_folders=[], external_library_folders=[], external_libraries=[], external_include_folders=[], simulation_configs=None, **kwargs)
+
+   Represents a simulation project that usually comes with its own modules and their C++ implementation, and also with
+   several example simulations.
+
+   Please note that undocumented features are not supposed to be called by the user.
+
+   Initializes a new simulation project.
+
+   :param name: The human readable name of the simulation project.
+   :type name: string
+   :param version: The version string.
+   :type version: string or None
+   :param git_hash: The git hash of the corresponding git repository for the specific version.
+   :type git_hash: string or None
+   :param git_diff_hash: The hash of the local modifications on top of the clean checkout of from the git repository.
+   :type git_diff_hash: string
+   :param folder_environment_variable: The operating system environment variable.
+   :type folder_environment_variable: string
+   :param omnetpp_environment_variable: The operating system environment variable specifying the root folder of the omnetpp installation.
+   :type omnetpp_environment_variable: string
+   :param folder: The directory of the simulation project relative to the value of the folder_environment_variable attribute.
+   :type folder: string
+   :param bin_folder: The directory of the binary output files relative to the value of the folder_environment_variable attribute.
+   :type bin_folder: string
+   :param library_folder: The directory of the library output files relative to the value of the folder_environment_variable attribute.
+   :type library_folder: string
+   :param executables: The list of executables that are built.
+   :type executables: List of strings
+   :param dynamic_libraries: The list of dynamic libraries that are built.
+   :type dynamic_libraries: List of strings
+   :param static_libraries: TODO
+   :type static_libraries: List of strings
+   :param build_types: The list of build output types. Valid values are "executable", "dynamic library", "static library".
+   :type build_types: List of strings
+   :param ned_folders: The list of folder_environment_variable relative directories for NED files.
+   :type ned_folders: List of strings
+   :param ned_exclusions: The list of excluded NED packages.
+   :type ned_exclusions: List of strings
+   :param ini_file_folders: The list of folder_environment_variable relative directories for INI files.
+   :type ini_file_folders: List of strings
+   :param python_folders: The list of folder_environment_variable relative directories for Python source files.
+   :type python_folders: List of strings
+   :param image_folders: The list of folder_environment_variable relative directories for image files.
+   :type image_folders: List of strings
+   :param include_folders: The list of folder_environment_variable relative directories for C++ include files.
+   :type include_folders: List of strings
+   :param cpp_folders: The list of folder_environment_variable relative directories for C++ source files.
+   :type cpp_folders: List of strings
+   :param cpp_defines: The list of C++ macro definitions that are passed to the C++ compiler.
+   :type cpp_defines: List of strings
+   :param msg_folders: The list of folder_environment_variable relative directories for MSG files.
+   :type msg_folders: List of strings
+   :param media_folder: The relative path of chart image files for chart tests.
+   :type media_folder: String
+   :param statistics_folder: The relative path of scalar statistic result files for statistical tests.
+   :type statistics_folder: String
+   :param fingerprint_store: The relative path of the JSON fingerprint store for fingerprint tests.
+   :type fingerprint_store: String
+   :param speed_store: The relative path of the JSON measurement store for speed tests.
+   :type speed_store: String
+   :param used_projects: The list of used simulation project names.
+   :type used_projects: List of strings
+   :param external_bin_folders: The list of absolute directories that contains external binaries.
+   :type external_bin_folders: List of strings
+   :param external_library_folders: The list of absolute directories that contains external libraries.
+   :type external_library_folders: List of strings
+   :param external_libraries: The list external library names.
+   :type external_libraries: List of strings
+   :param external_include_folders: The list of absolute directories that contains external C++ include files.
+   :type external_include_folders: List of strings
+   :param simulation_configs: The list of simulation configs available in this simulation project.
+   :type simulation_configs: List of :py:class:`SimulationConfig <inet.simulation.config.SimulationConfig>`
+   :param kwargs: Ignored.
+   :type kwargs: dict
+

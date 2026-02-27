@@ -1,0 +1,60 @@
+inet.test.statistical.StatisticalTestTask
+=========================================
+
+.. py:class:: inet.test.statistical.StatisticalTestTask(simulation_config=None, run_number=0, name='statistical test', task_result_class=SimulationTestTaskResult, **kwargs)
+
+   Bases: :py:obj:`inet.test.simulation.SimulationTestTask`
+
+
+   Represents a simulation test task that can be run (and re-run) without providing additional parameters.
+
+   Please note that undocumented features are not supposed to be called by the user.
+
+   Initializes a new task object.
+
+   :param name: A human readable short description of the task, usually a noun.
+   :type name: string
+   :param action: A human readable short description of the operation the task is carrying out, usually a verb.
+   :type action: string
+   :param task_result_class: The Python class name of the produced task result object.
+   :type task_result_class: string
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the task again.
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+
+
+   .. py:method:: run(context=None, progress=None, index=0, count=1, print_run_start_separately=False, dry_run=False, keyboard_interrupt_handler=None, handle_exception=True, **kwargs)
+
+      Runs the task.
+
+      :param dry_run: Specifies to skip the actual running of the task but do everything else.
+      :type dry_run: bool
+      :param keyboard_interrupt_handler: Provides a class that will handle keyboard interrupts. This allows seamless exit from running multiple
+                                         tasks.
+      :type keyboard_interrupt_handler: :py:class:`inet.common.KeyboardInterruptHandler` or None
+      :param handle_exception: Specifies if exceptions are caught and processed or passed to the caller.
+      :type handle_exception: bool
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+
+
+   .. py:method:: run_protected(output_stream=sys.stdout, **kwargs)
+
+      Runs the task in the protected environment wrapped by :py:meth:`run`. This method is expected to be overridden
+      by derived classes. The default implementation simply returns a task result with "DONE" result code.
+
+      :param kwargs: Not used in this implementation.
+      :type kwargs: dict
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+

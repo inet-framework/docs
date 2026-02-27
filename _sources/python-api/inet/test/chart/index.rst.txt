@@ -1,0 +1,104 @@
+inet.test.chart
+===============
+
+.. py:module:: inet.test.chart
+
+.. autoapi-nested-parse::
+
+   This module provides functionality for chart testing of multiple simulations.
+
+   The main function is :py:func:`run_chart_tests`. It allows running multiple chart tests matching the
+   provided filter criteria. Chart tests check if charts of the result analysis are the same as the saved
+   baseline charts. The baseline charts can be found in the media folder of the simulation project. For
+   the INET Framework the media folder can be found at https://github.com/inet-framework/media in a separate
+   GitHub repository.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/test/chart/ChartTestTask
+   /python-api/inet/test/chart/ChartUpdateTask
+   /python-api/inet/test/chart/MultipleChartTestTasks
+   /python-api/inet/test/chart/MultipleChartUpdateTasks
+
+.. autoapisummary::
+
+   inet.test.chart.ChartTestTask
+   inet.test.chart.ChartUpdateTask
+   inet.test.chart.MultipleChartTestTasks
+   inet.test.chart.MultipleChartUpdateTasks
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.test.chart.get_chart_test_tasks
+   inet.test.chart.get_update_chart_tasks
+   inet.test.chart.pad_to_size_centered
+   inet.test.chart.run_chart_tests
+   inet.test.chart.update_charts
+
+
+Module Contents
+---------------
+
+.. py:function:: get_chart_test_tasks(simulation_project=None, run_simulations=True, filter='showcases', working_directory_filter=None, chart_filter=None, exclude_chart_filter=None, **kwargs)
+
+   Returns multiple chart test tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: TODO
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTasks`):
+       an object that contains a list of :py:class:`ChartTestTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: get_update_chart_tasks(simulation_project=None, run_simulations=True, filter=None, working_directory_filter=None, chart_filter=None, exclude_chart_filter=None, **kwargs)
+
+   Returns multiple update chart tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: TODO
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleUpdateTasks`):
+       an object that contains a list of :py:class:`ChartUpdateTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: pad_to_size_centered(img, height, width)
+
+   Pad image to (height, width) centered.
+
+
+.. py:function:: run_chart_tests(**kwargs)
+
+   Runs one or more chart tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_chart_test_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTaskResults`):
+       an object that contains a list of :py:class:`TestTaskResult` objects. Each object describes the result of running one test task.
+
+
+.. py:function:: update_charts(simulation_project=None, **kwargs)
+
+   Updates the stored charts for one or more chart tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_update_chart_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleUpdateTaskResults`):
+       an object that contains a list of :py:class:`UpdateTaskResult` objects. Each object describes the result of running one update task.
+
+

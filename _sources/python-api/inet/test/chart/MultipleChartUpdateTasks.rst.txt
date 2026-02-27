@@ -1,0 +1,48 @@
+inet.test.chart.MultipleChartUpdateTasks
+========================================
+
+.. py:class:: inet.test.chart.MultipleChartUpdateTasks(multiple_simulation_tasks=None, name='chart update', multiple_task_results_class=MultipleUpdateTaskResults, **kwargs)
+
+   Bases: :py:obj:`inet.test.task.MultipleUpdateTasks`
+
+
+   Represents multiple tasks that can be run together.
+
+   Initializes a new multiple tasks object.
+
+   :param tasks: The list of individual tasks that are run when this multiple tasks is run.
+   :type tasks: List of :py:class:`Task`
+   :param name: A human readable short description of the multiple tasks, usually a noun.
+   :type name: string
+   :param concurrent: Specifies if the individual tasks are run sequentially or concurrently.
+   :type concurrent: bool
+   :param randomize: Specifies if the order of execution is random or follows the order of storage for the tasks.
+   :type randomize: bool
+   :param chunksize: The number of tasks that are run together in a single batch if the tasks are running concurrently.
+   :type chunksize: integer
+   :param scheduler: Specifies how the tasks are scheduled. Valid values are "process", "thread", and "cluster".
+   :type scheduler: string
+   :param multiple_task_results_class: The Python class name of the produced multiple task results object.
+   :type multiple_task_results_class: string
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the tasks again.
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The task results.
+
+
+
+   .. py:method:: run(context=None, progress=None, index=0, count=1, **kwargs)
+
+      Runs all tasks sequentially or concurrently.
+
+      :param kwargs: Additional  parameters are inherited from :py:meth:`Task.run`.
+      :type kwargs: dict
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The task results.
+
+

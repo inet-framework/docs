@@ -1,0 +1,110 @@
+inet.test.fingerprint.task
+==========================
+
+.. py:module:: inet.test.fingerprint.task
+
+.. autoapi-nested-parse::
+
+   This module provides functionality for fingerprint testing of multiple simulations.
+
+   The main function is :py:func:`run_fingerprint_tests`. It allows running multiple fingerprint tests matching the provided
+   filter criteria. Fingerprint tests check for regressions in the simulation execution trajectory.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/test/fingerprint/task/FingerprintTestGroupTask
+   /python-api/inet/test/fingerprint/task/FingerprintTestTask
+   /python-api/inet/test/fingerprint/task/FingerprintTestTaskResult
+   /python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask
+   /python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult
+   /python-api/inet/test/fingerprint/task/FingerprintUpdateTask
+   /python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult
+   /python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults
+   /python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks
+   /python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults
+   /python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks
+
+.. autoapisummary::
+
+   inet.test.fingerprint.task.FingerprintTestGroupTask
+   inet.test.fingerprint.task.FingerprintTestTask
+   inet.test.fingerprint.task.FingerprintTestTaskResult
+   inet.test.fingerprint.task.FingerprintTrajectoryTestTask
+   inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult
+   inet.test.fingerprint.task.FingerprintUpdateTask
+   inet.test.fingerprint.task.FingerprintUpdateTaskResult
+   inet.test.fingerprint.task.MultipleFingerprintTestTaskResults
+   inet.test.fingerprint.task.MultipleFingerprintTestTasks
+   inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults
+   inet.test.fingerprint.task.MultipleFingerprintUpdateTasks
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.test.fingerprint.task.get_fingerprint_test_tasks
+   inet.test.fingerprint.task.get_update_correct_fingerprint_tasks
+   inet.test.fingerprint.task.run_fingerprint_tests
+   inet.test.fingerprint.task.update_correct_fingerprints
+
+
+Module Contents
+---------------
+
+.. py:function:: get_fingerprint_test_tasks(**kwargs)
+
+   Returns multiple fingerprint test tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:meth:`get_simulation_tasks <inet.simulation.task.get_simulation_tasks>` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleFingerprintTestTasks`):
+       an object that contains a list of :py:class:`FingerprintTestTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: get_update_correct_fingerprint_tasks(**kwargs)
+
+   Returns multiple fingerprint update tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:meth:`get_simulation_tasks <inet.simulation.task.get_simulation_tasks>` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleFingerprintUpdateTasks`):
+       an object that contains a list of :py:class:`FingerprintUpdateTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: run_fingerprint_tests(**kwargs)
+
+   Runs one or more fingerprint tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_fingerprint_test_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleFingerprintTestTaskResults`):
+       an object that contains a list of :py:class:`FingerprintTestTaskResult` objects. Each object describes the result of running one test task.
+
+
+.. py:function:: update_correct_fingerprints(**kwargs)
+
+   Updates the stored correct fingerprints in the database for one or more fingerprint tests that match the provided
+   filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_update_correct_fingerprint_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleFingerprintUpdateTaskResults`):
+       an object that contains a list of :py:class:`FingerprintUpdateTaskResult` objects. Each object describes the result of running one update task.
+
+

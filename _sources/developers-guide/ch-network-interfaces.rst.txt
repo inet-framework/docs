@@ -2,7 +2,7 @@
 
 .. _dg:cha:network-interfaces:
 
-Network Interafces
+Network Interfaces
 ==================
 
 Overview
@@ -27,8 +27,6 @@ If a module wants to work with the interface table, first it needs to
 obtain a pointer to it. This can be done with the help of the
 :cpp:`InterfaceTableAccess` utility class:
 
-
-
 .. code-block:: c++
 
    IInterfaceTable *ift = InterfaceTableAccess().get();
@@ -38,7 +36,7 @@ direct child of the host and be called ``"interfaceTable"`` in order
 to be able to find it. The :fun:`get()` method never returns
 ``NULL``: if it cannot find the interface table module or cannot cast
 it to the appropriate C++ type (:cpp:`IInterfaceTable`), it throws an
-exception and stop the simulation with an error message.
+exception and stops the simulation with an error message.
 
 For completeness, :cpp:`InterfaceTableAccess` also has a
 :fun:`getIfExists()` method which can be used if the code does not
@@ -57,13 +55,13 @@ Interface Entries
 
 Interfaces in the interface table are represented with the
 :cpp:`NetworkInterface` class. :cpp:`IInterfaceTable` provides member
-functions for adding, removing, enumerating and looking up interfaces.
+functions for adding, removing, enumerating, and looking up interfaces.
 
 Interfaces have unique names and interface IDs; either can be used to
 look up an interface (IDs are naturally more efficient). Interface IDs
 are invariant to the addition and removal of other interfaces.
 
-Data stored by an interface entry include:
+Data stored by an interface entry includes:
 
 -  *name* and *interface ID* (as described above)
 
@@ -75,9 +73,9 @@ Data stored by an interface entry include:
 
    -  *broadcast*: whether the interface supports broadcast
 
-   -  *multicast* whether the interface supports multicast
+   -  *multicast*: whether the interface supports multicast
 
-   -  *pointToPoint*: whether the interface is point-to-point link
+   -  *pointToPoint*: whether the interface is a point-to-point link
 
    -  *loopback*: whether the interface is a loopback interface
 
@@ -186,24 +184,23 @@ Interface Change Notifications
 the granularity of interface entries.
 
 Clients that wish to be notified when something changes in
-:ned:`InterfaceTable` can subscribe to the following notification
-categories in the host’s :ned:`NotificationBoard`:
+:ned:`InterfaceTable` can subscribe to signals:
 
--  ``NF_INTERFACE_CREATED``: an interface entry has been created and
+-  ``interfaceCreated``: an interface entry has been created and
    added to the interface table
 
--  ``NF_INTERFACE_DELETED``: an interface entry is going to be
+-  ``interfaceDeleted``: an interface entry is going to be
    removed from the interface table. This is a pre-delete notification
    so that clients have access to interface data that are possibly
    needed to react to the change
 
--  ``NF_INTERFACE_CONFIG_CHANGED``: a configuration setting in an
+-  ``interfaceConfigChanged``: a configuration setting in an
    interface entry has changed (e.g. MTU or IP address)
 
--  ``NF_INTERFACE_STATE_CHANGED``: a state variable in an interface
+-  ``interfaceStateChanged``: a state variable in an interface
    entry has changed (e.g. the up/down flag)
 
 In all those notifications, the data field is a pointer to the
 corresponding :cpp:`NetworkInterface` object. This is even true for
-``NF_INTERFACE_DELETED`` (which is actually a pre-delete
+``interfaceDeleted`` (which is actually a pre-delete
 notification).

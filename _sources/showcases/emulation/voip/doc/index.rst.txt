@@ -26,7 +26,7 @@ Please note that the ``VoipStream`` and ``NetworkEmulationSupport`` features of 
 Framework must be enabled for this demonstration (they are disabled by default),
 and it is only compatible with Linux systems.
 
-| INET version: ``4.0``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/emulation/voip <https://github.com/inet-framework/inet/tree/master/showcases/emulation/voip>`__
 
 
@@ -117,7 +117,7 @@ separate simulations.
 The :ned:`ExtLowerUdp` module behaves just like the :ned:`Udp` module from the point of view
 of the modules above them. In this showcase (aside from assigning the :ned:`ExtLowerUdp`
 modules to network namespaces) only the VoIP modules need to be configured.
-The simulations are defined in separate configurations of :download:`omnetpp.ini <../omnetpp.ini>`.
+The simulations are defined in separate configurations of :download:`voipsender.ini <../voipsender.ini>` and :download:`voipreceiver.ini <../voipreceiver.ini>`.
 
 - The :ned:`VoipStreamSender` module transmits the contents of an audio file
   as VoIP traffic. The module resamples the audio, encodes it with a codec,
@@ -133,18 +133,29 @@ The simulations are defined in separate configurations of :download:`omnetpp.ini
 
 The :ned:`VoipStreamSender` and :ned:`VoipStreamReceiver` modules are configured
 just like they would be in a fully simulated scenario, no special configuration
-is needed. Here is the relevant configuration:
+is needed. Here is the relevant configuration for :ned:`VoipStreamSender`:
 
-.. literalinclude:: ../omnetpp.ini
+.. literalinclude:: ../voipsender.ini
    :language: ini
-   :end-before: VoipSenderLoopback
+   :start-after: General
+   :end-before: Loopback
+
+Here is the relevant configuration for :ned:`VoipStreamReceiver`:
+
+.. literalinclude:: ../voipreceiver.ini
+   :language: ini
+   :start-after: General
+   :end-before: Loopback
 
 Running
 -------
 
-Several setups are provided here. In addition to running the setup over a real
-network, two other setup are also provided that only use the local computer, so
-they are supposedly easier to try out.
+This section presents various configurations for running the VoIP simulation.
+It includes a setup for running the experiment over a real network, and
+various configurations for running it in a virtual network on the local computer.
+
+.. note:: A different showcase (:doc:`/showcases/emulation/mininet/doc/index`) is dedicated to showing the use of
+   Mininet for setting up the virtual network.
 
 Over a Real Network
 ~~~~~~~~~~~~~~~~~~~
@@ -156,7 +167,7 @@ First, run the following command on the receiver side:
 
 .. code-block:: bash
 
-   $ inet -u Cmdenv -c VoipReceiver
+   $ inet -u Cmdenv voipreceiver.ini
 
 Once the receiver is running, enter the following command on the sender side
 (replace ``10.0.0.8`` with the IP address of the host the receiver side is
@@ -164,7 +175,7 @@ running on):
 
 .. code-block:: bash
 
-   $ inet -u Cmdenv -c VoipSender '--*.app.destAddress="10.0.0.8"'
+   $ inet -u Cmdenv voipsender.ini '--*.app.destAddress="10.0.0.8"'
 
 That's all. When the receiver-side simulation exits, you'll find the received
 audio file in ``results/received.wav``. You may need to raise the CPU time limit
@@ -190,8 +201,8 @@ You can run this scenario in the same way as the previous one, just specify
 
 .. code-block:: bash
 
-   $ inet -u Cmdenv -c VoipReceiver &
-   $ inet -u Cmdenv -c VoipSender '--*.app.destAddress="127.0.0.1"'
+   $ inet -u Cmdenv voipreceiver.ini &
+   $ inet -u Cmdenv voipsender.ini '--*.app.destAddress="127.0.0.1"'
 
 Loopback Interface with Realistic Network Conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -253,16 +264,26 @@ In the simulation configurations, we need to tell the :ned:`ExtLowerUdp` modules
 to use the ``net0`` / ``net1`` namespaces, and set the sender's ``destAddress``
 parameter to ``192.168.2.2``.
 
-.. literalinclude:: ../omnetpp.ini
+In ``voipsender.ini``:
+
+.. literalinclude:: ../voipsender.ini
    :language: ini
-   :start-at: VoipSenderVirtualEth
+   :start-at: VirtualEth
+   :end-at: net0
+
+In ``voipreceiver.ini``:
+
+.. literalinclude:: ../voipreceiver.ini
+   :language: ini
+   :start-at: VirtualEth
+   :end-at: net1
 
 You can run the simulations with the following commands:
 
 .. code-block:: bash
 
-   $ inet -s -u Cmdenv -c VoipReceiverVirtualEth &
-   $ inet -s -u Cmdenv -c VoipSenderVirtualEth
+   $ inet -s -u Cmdenv voipreceiver.ini -c VirtualEth &
+   $ inet -s -u Cmdenv voipsender.ini -c VirtualEth
 
 When you are finished, you can remove the virtual Ethernet interfaces by
 deleting the namespaces with the following commands (also to be run as *root*):
@@ -285,7 +306,7 @@ clicking the play button below:
 
 .. raw:: html
 
-   <p><audio controls> <source src="media/Beatify_Dabei_cut.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio></p>
+   <p><audio controls> <source src="media/Stereotype_News.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio></p>
 
 Here is the received audio file:
 
@@ -313,7 +334,9 @@ The quality would be nearly as good as the original file. (To reduce burstiness
 and keep the packet order, a data rate can be specified in the ``netem`` command,
 e.g. ``rate 1000kbps``. This eliminates reordering in this scenario.)
 
-Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`AppContainer.ned <../AppContainer.ned>`,
+Sources: :download:`voipsender.ini <../voipsender.ini>`,
+:download:`voipreceiver.ini <../voipreceiver.ini>`,
+:download:`AppContainer.ned <../AppContainer.ned>`,
 :download:`run_loopback <../run_loopback>`, :download:`run_veth <../run_veth>`,
 :download:`veth_setup <../veth_setup>`, :download:`veth_teardown <../veth_teardown>`
 
@@ -321,13 +344,33 @@ Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`AppContainer.ned <
 Try It Yourself
 ---------------
 
-First, install INET and OMNeT++. Then, start the IDE by typing
+If you already have INET and OMNeT++ installed, start the IDE by typing
 ``omnetpp``, import the INET project into the IDE, then navigate to the
 ``inet/showcases/emulation/voip`` folder in the `Project Explorer`. There, you can view
 and edit the showcase files, run simulations, and analyze results.
 
-Currently, `opp_env <https://omnetpp.org/opp_env>`__-based installation is not
-available for the emulation showcases.
+Otherwise, there is an easy way to install INET and OMNeT++ using `opp_env
+<https://omnetpp.org/opp_env>`__, and run the simulation interactively.
+Ensure that ``opp_env`` is installed on your system, then execute:
+
+.. code-block:: bash
+
+    $ opp_env install --init -w inet-workspace inet-4.6 --build-modes=release --options=inet:full
+    $ cd inet-workspace
+    $ sudo setcap cap_sys_admin+ep omnetpp-*/bin/opp_run_release
+    $ opp_env shell --options=inet:full
+
+This command creates an ``inet-workspace`` directory, installs the appropriate
+versions of INET and OMNeT++ within it, and opens an interactive shell. (The
+``--options=inet:full`` argument is required to enable the Emulation feature in
+opp_env.)
+
+Inside the shell, start the IDE by typing ``omnetpp``, import the INET project,
+then start exploring.
+
+To experiment with the emulation examples, navigate to the
+``inet/showcases/emulation/voip`` directory. From there, you can execute the
+commands outlined in the previous sections.
 
 
 Discussion

@@ -1,0 +1,64 @@
+inet.test.validation
+====================
+
+.. py:module:: inet.test.validation
+
+.. autoapi-nested-parse::
+
+   This module provides functionality for validation testing of multiple simulations.
+
+   The main function is :py:func:`run_validation_tests`. It allows running multiple validation tests matching
+   the provided filter criteria. Validation tests check simulations results against analytical model results,
+   often cited in research papers, or simulation results of models created for other simulation frameworks.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/test/validation/ValidationTestTask
+
+.. autoapisummary::
+
+   inet.test.validation.ValidationTestTask
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.test.validation.get_validation_test_tasks
+   inet.test.validation.run_validation_tests
+
+
+Module Contents
+---------------
+
+.. py:function:: get_validation_test_tasks(**kwargs)
+
+   Returns multiple validation test tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:meth:`get_simulation_tasks <inet.simulation.task.get_simulation_tasks>` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTasks`):
+       an object that contains a list of :py:class:`ValidationTestTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: run_validation_tests(**kwargs)
+
+   Runs one or more validation tests that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_validation_test_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTaskResults`):
+       an object that contains a list of :py:class:`TestTaskResult` objects. Each object describes the result of running one test task.
+
+

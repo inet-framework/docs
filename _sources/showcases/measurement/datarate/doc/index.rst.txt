@@ -4,19 +4,19 @@ Measuring Data Rate
 Goals
 -----
 
-In this example we explore the data rate statistics of application, queue, and
+In this example, we explore the data rate statistics of application, queue, and
 filter modules inside network nodes.
 
-| INET version: ``4.4``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/measurement/datarate <https://github.com/inet-framework/inet/tree/master/showcases/measurement/datarate>`__
 
 The Model
 ---------
 
-The data rate is measured by observing the packets as they are passing through
+The data rate is measured by observing the packets as they pass through
 over time at a certain point in the node architecture. For example, an application
-source module produces packets over time and this process has its own data rate.
-Similarly, a queue module enqueues and dequeues packets over time and both of
+source module produces packets over time, and this process has its own data rate.
+Similarly, a queue module enqueues and dequeues packets over time, and both of
 these processes have their own data rate. These data rates are different, which
 in turn causes the queue length to increase or decrease over time.
 
@@ -37,15 +37,19 @@ Here are the results:
 
 .. figure:: media/source_outgoing.png
    :align: center
+   :width: 90%
 
 .. figure:: media/destination_incoming.png
    :align: center
+   :width: 90%
 
 .. figure:: media/switch_incoming.png
    :align: center
+   :width: 90%
 
 .. figure:: media/switch_outgoing.png
    :align: center
+   :width: 90%
 
 .. **TODO** why does the switch has more datarate ? protocol headers?
 
@@ -66,8 +70,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.4 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.4.*/showcases/measurement/datarate && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/measurement/datarate && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -78,7 +82,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.4
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 
@@ -88,5 +92,5 @@ then start exploring.
 Discussion
 ----------
 
-Use `this <https://github.com/inet-framework/inet/discussions/TODO>`__ page in the GitHub issue tracker for commenting on this showcase.
+Use `this <https://github.com/inet-framework/inet/discussions/1074>`__ page in the GitHub issue tracker for commenting on this showcase.
 

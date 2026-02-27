@@ -1,0 +1,126 @@
+inet.simulation.task
+====================
+
+.. py:module:: inet.simulation.task
+
+.. autoapi-nested-parse::
+
+   This module provides abstractions for simulation tasks and their results.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/simulation/task/MultipleSimulationTasks
+   /python-api/inet/simulation/task/SimulationTask
+   /python-api/inet/simulation/task/SimulationTaskResult
+
+.. autoapisummary::
+
+   inet.simulation.task.MultipleSimulationTasks
+   inet.simulation.task.SimulationTask
+   inet.simulation.task.SimulationTaskResult
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.simulation.task.clean_simulation_results
+   inet.simulation.task.get_simulation_tasks
+   inet.simulation.task.run_simulations
+
+
+Module Contents
+---------------
+
+.. py:function:: clean_simulation_results(simulation_project=None, simulation_configs=None, **kwargs)
+
+   Cleans the results folders for the simulation configs matching the provided filter criteria.
+
+   :param simulation_project: The simulation project from which simulation tasks are collected. If not specified then the default simulation
+                              project is used.
+   :type simulation_project: :py:class:`SimulationProject <inet.simulation.project.SimulationProject>` or None
+   :param simulation_configs: The list of simulation configurations from which the simulation tasks are collected. If not specified then
+                              all simulation configurations are used.
+   :type simulation_configs: List of :py:class:`SimulationConfig <inet.simulation.config.SimulationConfig>` or None
+   :param kwargs: Additional parameters are inherited from the :py:meth:`get_simulation_configs <inet.simulation.project.SimulationProject.get_simulation_configs>`
+                  function.
+   :type kwargs: dict
+
+   Returns (None):
+       nothing.
+
+
+.. py:function:: get_simulation_tasks(simulation_project=None, simulation_configs=None, mode=None, debug=None, break_at_event_number=None, break_at_matching_event=None, run_number=None, run_number_filter=None, exclude_run_number_filter=None, sim_time_limit=None, cpu_time_limit=None, concurrent=True, expected_num_tasks=None, simulation_task_class=SimulationTask, multiple_simulation_tasks_class=MultipleSimulationTasks, **kwargs)
+
+   Returns multiple simulation tasks matching the filter criteria. The returned tasks can be run by calling the
+   :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param simulation_project: The simulation project from which simulation tasks are collected. If not specified then the default simulation
+                              project is used.
+   :type simulation_project: :py:class:`SimulationProject <inet.simulation.project.SimulationProject>` or None
+   :param simulation_configs: The list of simulation configurations from which the simulation tasks are collected. If not specified then
+                              all simulation configurations are used.
+   :type simulation_configs: List of :py:class:`SimulationConfig <inet.simulation.config.SimulationConfig>` or None
+   :param mode: Determines the build mode for the simulation project before running any of the returned simulation tasks.
+                Valid values are "debug" and "release".
+   :type mode: string
+   :param debug: Specifies that the IDE debugger should be attached to the running simulation.
+   :type debug: bool
+   :param break_at_event_number: Specifies an event number at which a breakpoint is to be set.
+   :type break_at_event_number: int
+   :param break_at_matching_event: Specifies a C++ expression at which a breakpoint is to be set.
+   :type break_at_matching_event: string
+   :param run_number: The simulation run number of all returned simulation tasks. If not specified, then this filter criteria is
+                      ignored.
+   :type run_number: int or None
+   :param run_number_filter: A regular expression that matches the simulation run number of the returned simulation tasks. If not specified,
+                             then this filter criteria is ignored.
+   :type run_number_filter: string or None
+   :param exclude_run_number_filter: A regular expression that does not match the simulation run number of the returned simulation tasks. If not
+                                     specified, then this filter criteria is ignored.
+   :type exclude_run_number_filter: string or None
+   :param sim_time_limit: The simulation time limit of the returned simulation tasks. If not specified, then the value in the simulation
+                          configuration is used.
+   :type sim_time_limit: string or None
+   :param cpu_time_limit: The CPU processing time limit of the returned simulation tasks. If not specified, then the value in the
+                          simulation configuration is used.
+   :type cpu_time_limit: string or None
+   :param concurrent: Specifies if collecting simulation configurations and simulation tasks is done sequentially or concurrently.
+   :type concurrent: bool
+   :param expected_num_tasks: The number of tasks that is expected to be returned. If the result doesn't match an exception is raised.
+   :type expected_num_tasks: int
+   :param simulation_task_class: Determines the Python class of the returned simulation task objects.
+   :type simulation_task_class: type
+   :param multiple_simulation_tasks_class: Determines the Python class of the returned multiple simulation tasks object.
+   :type multiple_simulation_tasks_class: type
+   :param kwargs: Additional parameters are inherited from the :py:meth:`matches_filter <inet.simulation.config.SimulationConfig.matches_filter>`
+                  method  and also from the :py:class:`SimulationTask` and :py:class:`MultipleSimulationTasks` constructors.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleSimulationTasks`):
+       An object that contains a list of :py:class:`SimulationTask` matching the filter criteria. Each simulation task
+       describes a simulation that can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: run_simulations(**kwargs)
+
+   Runs one or more simulations that match the provided filter criteria. The simulations can be run sequentially or
+   concurrently on a single computer or on an SSH cluster. Besides, the simulations can be run as separate processes
+   and also in the same Python process loading the required libraries.
+
+   :param kwargs: Additional parameters are inherited from the :py:func:`get_simulation_tasks` function and also from the
+                  :py:meth:`MultipleSimulationTasks.run` method.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTaskResults <inet.common.task.MultipleTaskResults>`):
+       an object that contains a list of :py:class:`SimulationTaskResult` objects. Each object describes the results
+       of running one simulation.
+
+

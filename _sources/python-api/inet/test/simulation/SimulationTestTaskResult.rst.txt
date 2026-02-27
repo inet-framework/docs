@@ -1,0 +1,50 @@
+inet.test.simulation.SimulationTestTaskResult
+=============================================
+
+.. py:class:: inet.test.simulation.SimulationTestTaskResult(simulation_task_result=None, **kwargs)
+
+   Bases: :py:obj:`inet.test.task.TestTaskResult`
+
+
+   Represents a simulation test task result that is collected when a simulation test task is run.
+
+   Please note that undocumented features are not supposed to be called by the user.
+
+   Initializes a new task result object.
+
+   :param task: The original task that was run when this task result was produced.
+   :type task: :py:class:`Task`
+   :param result: The result of the task execution. The value must be one of the values in the possible_results attribute.
+   :type result: string
+   :param expected_result: The originally expected result of the task execution. The value must be one of the values in the possible_results attribute.
+   :type expected_result: string
+   :param reason: An optional human readable explanation for the task result.
+   :type reason: string or None
+   :param error_message: An optional error message that is most often extracted from an exception raised during the task execution.
+   :type error_message: string or None
+   :param exception: An optional exception that was raised during the task execution.
+   :type exception: Exception
+   :param store_complete_binary_hash: Requests storing the hash of the complete binary distribution that is needed to run the original task.
+   :type store_complete_binary_hash: bool
+   :param store_complete_source_hash: Requests storing the hash of the complete source distribution that is needed to run the original task.
+   :type store_complete_source_hash: bool
+   :param store_partial_binary_hash: Requests storing the hash of the optimized partial binary distribution that is needed to run the original task.
+   :type store_partial_binary_hash: bool
+   :param store_partial_source_hash: Requests storing the hash of the optimized partial source distribution that is needed to run the original task.
+   :type store_partial_source_hash: bool
+   :param elapsed_wall_time: The elapsed time while the task was running.
+   :type elapsed_wall_time: number
+   :param possible_results: The list of possible results with which the execution of the original task can end.
+   :type possible_results: List of string
+   :param possible_result_colors: The list of colors for the corresponding possible results.
+   :type possible_result_colors: List of string
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the original task again that created this task result.
+
+      Returns (:py:class:`TaskResult`):
+          The task result.
+
+

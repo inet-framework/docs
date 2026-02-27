@@ -19,12 +19,12 @@
    ------
 
    The INET defines these frames in the :file:`EtherFrame.msg` file.
-   The models supports Ethernet II, 803.2 with LLC header, and 803.3 with
+   The models support Ethernet II, 803.2 with LLC header, and 803.3 with
    LLC and SNAP headers. The corresponding classes are:
    :msg:`EthernetIIFrame`, :msg:`EtherFrameWithLlc` and
-   :msg:`EtherFrameWithSNAP`. They all class from :msg:`EtherFrame` which
+   :msg:`EtherFrameWithSNAP`. They all derive from :msg:`EtherFrame` which
    only represents the basic MAC frame with source and destination
-   addresses. :ned:`EthernetCsmaMac` only deals with :msg:`EtherFrame`’s, and does
+   addresses. :ned:`EthernetCsmaMacPhy` only deals with :msg:`EtherFrame`’s, and does
    not care about the specific subclass.
 
    Ethernet frames carry data packets as encapsulated cMessage objects.
@@ -71,7 +71,7 @@
    In general, if :ned:`Ieee8022Llc` receives a packet from the higher layers,
    it interprets the message kind as a command. The commands include
    IEEE802CTRL_DATA (send a frame), IEEE802CTRL_REGISTER_DSAP (register
-   highher layer) IEEE802CTRL_DEREGISTER_DSAP (deregister higher layer) and
+   higher layer) IEEE802CTRL_DEREGISTER_DSAP (deregister higher layer) and
    IEEE802CTRL_SENDPAUSE (send PAUSE frame) – see EtherLLC for a more
    complete list.
 
@@ -105,11 +105,11 @@
       the interface packets.
 
    Using a control structure is more efficient than the interface packet
-   approach, because the control structure can be created once inside the
+   approach because the control structure can be created once inside the
    higher layer and be reused for every packet.
 
    It may also appear to be more intuitive in Tkenv because one can observe
-   data packets travelling between the higher layer and Ethernet modules –
+   data packets traveling between the higher layer and Ethernet modules –
    as opposed to "interface" packets.
 
    EtherLLC: SAP Registration
@@ -138,16 +138,16 @@
    .. graphviz:: figures/EtherMAC_txstates.dot
       :align: center
 
-   Unlike :ned:`EthernetMac`, this MAC module processes the incoming
+   Unlike :ned:`EthernetMacPhy`, this MAC module processes the incoming
    packets when their first bit is received. The end of the reception is
    calculated by the MAC and detected by scheduling a self message.
 
    When frames collide the transmission is aborted – in this case the
    transmitting station transmits a jam signal. Jam signals are represented
-   by a :msg:`EthernetJamSignal` message. The jam message contains the tree
+   by an :msg:`EthernetJamSignal` message. The jam message contains the tree
    identifier of the frame whose transmission is aborted. When the
-   :ned:`EthernetCsmaMac` receives a jam signal, it knows that the corresponding
-   transmission ended in jamming and have been aborted. Thus when it
+   :ned:`EthernetCsmaMacPhy` receives a jam signal, it knows that the corresponding
+   transmission ended in jamming and has been aborted. Thus when it
    receives as many jams as collided frames, it can be sure that the
    channel is free again. (Receiving a jam message marks the beginning of
    the jam signal, so actually has to wait for the duration of the
@@ -169,13 +169,13 @@
    ~~~~~~~~
 
    When the transmission line is busy, messages received from the upper
-   layer needs to be queued.
+   layer need to be queued.
 
    In routers, MAC relies on an external queue module (see
-   :ned:`OutputQueue`), and requests packets from this external queue
+   :ned:`PacketQueue`), and requests packets from this external queue
    one-by-one. The name of the external queue must be given as the
-   :par:`queueModule` parameer. There are implementations of
-   :ned:`OutputQueue` to model finite buffer, QoS and/or RED.
+   :par:`queueModule` parameter. There are implementations of
+   :ned:`IPacketQueue` to model finite buffer, QoS and/or RED.
 
    In hosts, no such queue is used, so MAC contains an internal queue named
    :var:`txQueue` to queue up packets waiting for transmission.
@@ -196,12 +196,12 @@
    transmitter with a timer value of zero, allowing the transmitter to
    resume immediately.
 
-   :ned:`EthernetCsmaMac` will properly respond to PAUSE frames it receives
-   (:msg:`EtherPauseFrame` class), however it will never send a PAUSE frame
+   :ned:`EthernetCsmaMacPhy` will properly respond to PAUSE frames it receives
+   (:msg:`EtherPauseFrame` class), however, it will never send a PAUSE frame
    by itself. (For one thing, it doesn’t have an input buffer that can
    overflow.)
 
-   :ned:`EthernetCsmaMac`, however, transmits PAUSE frames received by higher
+   :ned:`EthernetCsmaMacPhy`, however, transmits PAUSE frames received by higher
    layers, and :ned:`Ieee8022Llc` can be instructed by a command to send a
    PAUSE frame to MAC.
 
@@ -213,6 +213,6 @@
    it receives. It is currently not supported to dynamically
    connect/disconnect a MAC.
 
-   CRC checks are modeled by the :var:`bitError` flag of the packets.
+   FCS checks are modeled by the :var:`bitError` flag of the packets.
    Erronous packets are dropped by the MAC.
 

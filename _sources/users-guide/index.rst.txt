@@ -4,9 +4,9 @@ Release: |release|
 
 This manual is written for users who are interested in assembling
 simulations using the components provided by the INET Framework. (In
-contrast, if you are interested in modifying INET’s components or plan to
-extend INET with new protocols or other components using C++, we
-recommend the :doc:`INET Developer's Guide </developers-guide/index>`.)
+contrast, if you need to modify INET's components or plan to
+extend INET with new protocols or other components using C++, the
+:doc:`INET Developer's Guide </developers-guide/index>` is recommended.)
 
 .. only:: html
 
@@ -20,18 +20,20 @@ recommend the :doc:`INET Developer's Guide </developers-guide/index>`.)
    ch-networks
    ch-network-nodes
    ch-network-interfaces
-   ch-queueing
    ch-apps
    ch-transport
    ch-ipv4
    ch-ipv6
    ch-other-network-protocols
+   ch-network-autoconfig
    ch-routing
    ch-adhoc-routing
+   ch-queueing
    ch-diffserv
    ch-mpls
    ch-ppp
    ch-ethernet
+   ch-10base-t1s
    ch-tsn
    ch-80211
    ch-802154
@@ -43,7 +45,6 @@ recommend the :doc:`INET Developer's Guide </developers-guide/index>`.)
    ch-mobility
    ch-power
    ch-emulation
-   ch-network-autoconfig
    ch-scenario-scripting
    ch-lifecycle
    ch-packetfilter

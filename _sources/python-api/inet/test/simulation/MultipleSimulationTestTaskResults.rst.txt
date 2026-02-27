@@ -1,0 +1,34 @@
+inet.test.simulation.MultipleSimulationTestTaskResults
+======================================================
+
+.. py:class:: inet.test.simulation.MultipleSimulationTestTaskResults(multiple_tasks=None, results=[], expected_result='PASS', possible_results=['PASS', 'SKIP', 'CANCEL', 'FAIL', 'ERROR'], possible_result_colors=[COLOR_GREEN, COLOR_CYAN, COLOR_CYAN, COLOR_YELLOW, COLOR_RED], **kwargs)
+
+   Bases: :py:obj:`inet.test.task.MultipleTestTaskResults`
+
+
+   Represents multiple test task results that are created when multiple test tasks are run.
+
+   Initializes a new multiple task results object.
+
+   :param multiple_tasks: The original multiple tasks object that was run when this multiple task result was produced.
+   :type multiple_tasks: :py:class:`MultipleTasks`
+   :param results: The list of individual task results corresponding to the individual tasks.
+   :type results: List of :py:class:`TaskResult`
+   :param expected_result="DONE": The expected result of the multiple task execution. The value must be one of the values in the possible_results attribute.
+   :type expected_result="DONE": string
+   :param elapsed_wall_time: The elapsed time while the task was running.
+   :type elapsed_wall_time: number
+   :param possible_results: The list of possible results with which the execution of the original multiple task can end.
+   :type possible_results: List of string
+   :param possible_result_colors: The list of colors for the corresponding possible results.
+   :type possible_result_colors: List of string
+
+
+   .. py:method:: rerun(**kwargs)
+
+      Runs the original multiple tasks again that created this multiple task results.
+
+      Returns (:py:class:`MultipleTaskResults`):
+          The multiple task results.
+
+

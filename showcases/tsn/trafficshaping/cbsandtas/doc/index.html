@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="../../../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,35 +18,56 @@
   gtag('config', 'G-WPFKHJQDQW');
 </script>
     
-    <title>Credit-based Shaper and Time-aware Shaper &#8212; INET 4.5.4 documentation</title>
+    <title>Combining Time-Aware and Credit-Based Shaping &#8212; INET 4.6.0 documentation</title>
+    
+    <script>
+    (function() {
+        try {
+            var w = localStorage.getItem('opptheme-drawer-width');
+            if (w && !isNaN(parseInt(w))) {
+                document.documentElement.style.setProperty('--drawer-width', w + 'px');
+            }
+        } catch(e) {}
+        // Mark page as ready for fade-in transition
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.classList.add('page-ready');
+        });
+    })();
+    </script>
 
-    <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/basic.css?v=29da98fa" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.min.css?v=6e7d0de0" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/pointer.css?v=c97663ff" />
     <link rel="stylesheet" href="../../../../../_static/material-design-lite-1.3.0/material.blue-light_blue.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/fonts.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
-    <script src="../../../../../_static/jquery.js"></script>
-    <script src="../../../../../_static/underscore.js"></script>
-    <script src="../../../../../_static/doctools.js"></script>
-    <script src="../../../../../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
-    <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
-    <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="stylesheet" href="../../../../../_static/drawer_resize.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/page_transitions.css" type="text/css" />
+    <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../../_static/documentation_options.js?v=cc8a4273"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=f0ca4bb6"></script>
+    <script src="../../../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Using Traffic Shapers Independently" href="../../underthehood/doc/index.html" />
+    <link rel="prev" title="Using Different Traffic Shapers for Different Traffic Classes" href="../../cbsandats/doc/index.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header  ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Credit-based Shaper and Time-aware Shaper</a>
+            <a class="mdl-navigation__link" href="../../../../index.html">Showcases</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../../index.html">Time-Sensitive Networking</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link" href="../../index.html">Scheduling and Traffic Shaping</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Combining Time-Aware and Credit-Based Shaping</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -85,32 +107,35 @@ Show Source
         
             
             <nav class="mdl-navigation">
-                <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Showcases</a><ul>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Time-Sensitive Networking</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../timesynchronization/index.html">Time Synchronization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Scheduling and Traffic Shaping</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -160,8 +185,13 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/aodvexternal/doc/index.html">AODV External Gateway Routing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -317,6 +347,80 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../users-guide/index.html">User’s Guide</a><ul>
@@ -325,18 +429,20 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-networks.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-apps.html">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-routing.html">Internet Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
@@ -348,7 +454,6 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
@@ -368,8 +473,125 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
 </ul>
 
@@ -381,6 +603,7 @@ Show Source
         <main class="mdl-layout__content" tabIndex="0">
 
 	<script type="text/javascript" src="../../../../../_static/sphinx_materialdesign_theme.js "></script>
+	<script type="text/javascript" src="../../../../../_static/drawer_resize.js"></script>
     <header class="mdl-layout__drawer">
     
     
@@ -390,32 +613,35 @@ Show Source
         
             
             <nav class="mdl-navigation">
-                <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Showcases</a><ul>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Showcases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../../emulation/index.html">Emulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../emulation/webserver/doc/index.html">Webserver Emulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/babel/doc/index.html">Testing a Linux Routing Daemon in a Simulated Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/voip/doc/index.html">Using Simulated Applications in a Real Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../emulation/mininet/doc/index.html">Using Mininet to Set Up the Virtual Network</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../emulation/videostreaming/doc/index.html">Using Real Applications in a Simulated Network</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../index.html">Time-Sensitive Networking</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Time-Sensitive Networking</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../timesynchronization/index.html">Time Synchronization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../timesynchronization/clockdrift/doc/index.html">Clock Drift</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../timesynchronization/gptp/doc/index.html">Using gPTP</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../streamfiltering/index.html">Per-Stream Filtering and Policing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/tokenbucket/doc/index.html">Token Bucket based Policing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/tokenbucket/doc/index.html">Token-Bucket-Based Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/statistical/doc/index.html">Statistical Policing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../streamfiltering/underthehood/doc/index.html">Peeking Under the Hood</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../index.html">Scheduling and Traffic Shaping</a><ul>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Scheduling and Traffic Shaping</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../timeawareshaper/doc/index.html">Time-Aware Shaping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../creditbasedshaper/doc/index.html">Credit-Based Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Shaping</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Mixing Different Shapers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Peeking Under the Hood</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../asynchronousshaper/doc/index.html">Asynchronous Traffic Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cbsandats/doc/index.html">Using Different Traffic Shapers for Different Traffic Classes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Combining Time-Aware and Credit-Based Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../underthehood/doc/index.html">Using Traffic Shapers Independently</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gatescheduling/index.html">Automatic Gate Schedule Configuration</a><ul>
@@ -465,8 +691,13 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../mobility/spatial/doc/index.html">3D Mobility</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quic/index.html">QUIC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quic/linksharing/doc/index.html">QUIC Bandwidth Sharing on a Bottleneck Link</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../routing/index.html">Routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../routing/manet/doc/index.html">Exploring MANET Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../routing/aodvexternal/doc/index.html">AODV External Gateway Routing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../visualizer/canvas/index.html">Visualization</a><ul>
@@ -622,6 +853,80 @@ Show Source
 <li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/fingerprint/doc/accepting.html">Accepting Fingerprint Changes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/rip/doc/index.html">RIP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step1.html">Step 1. Static Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step2.html">Step 2. Pinging after RIP Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step3.html">Step 3. Link Breakage and Routing Table Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step4.html">Step 4. RIP Timers: Timeout and Garbage Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step5.html">Step 5. Triggered Updates: Speeding Up Convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step6.html">Step 6. Count to Infinity Problem (Two-node Loop Instability)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step7.html">Step 7. Count to Infinity in Complex Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step8.html">Step 8. Hold-Down Timer: Preventing Routing Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step9.html">Step 9. Measuring RIP Recovery Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/step10.html">Step 10. Configuring RIP Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/rip/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/bgp/doc/index.html">BGP Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step1.html">Step 1. BGP Basic Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step2.html">Step 2. BGP Scenario with E-BGP session only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step3.html">Step 3. BGP Path Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step4.html">Step 4. BGP Scenario with I-BGP over directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step4a.html">Step 4a. Enable nextHopSelf on RB1 and RB2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5.html">Step 5. BGP Scenario with I-BGP over not directly-connected BGP speakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5a.html">Step 5a. BGP internal distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step5b.html">Step 5b. Enabling BGP on RB3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step6.html">Step 6. BGP Scenario and using loopbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step7.html">Step 7. BGP with RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step8.html">Step 8. BGP with OSPF and RIP redistribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step9.html">Step 9. Using Network attribute to advertise specific networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step10.html">Step 10. LOCAL_PREF Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/step11.html">Step 11. Multi-hop E-BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/bgp/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../tutorials/ospf/doc/index.html">OSPF Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step1.html">Step 1. Pinging after OSPF convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step2.html">Step 2. Change link cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step2a.html">Step 2a. Reroute after link breakage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step3.html">Step 3. OSPF full adjacency establishment and LSDB sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step4.html">Step 4. Router LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step4a.html">Step 4a. Advertising loopback interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step5.html">Step 5. Effect of network type of an interface on routing table routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step5a.html">Step 5a. Mismatched Parameters between two OSPF neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step6.html">Step 6. OSPF DR/BDR election in a multi-access network (Ethernet)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step7.html">Step 7. Influencing OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step8.html">Step 8. Setting all router priorities to zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step9.html">Step 9. High-priority OSPF router joins after OSPF DR/BDR election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10.html">Step 10. Network Topology Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10a.html">Step 10a. Router R4 goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10b.html">Step 10b. Router R2 (DROTHER) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step10d.html">Step 10d. Router R1 (DR) goes down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step11.html">Step 11. Configure an interface as NoOSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step12.html">Step 12. Configure an interface as Passive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step13.html">Step 13. Freshness of a LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step14.html">Step 14. Hierarchical OSPF topology and summary LSA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step15.html">Step 15. Set advertisement of a network to ‘false’</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step16.html">Step 16. OSPF topology change in multi-area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17.html">Step 17. Loop avoidance in multi-area OSPF topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17a.html">Step 17a. Make R3 an ABR - advertise its loopback to backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step17b.html">Step 17b. Make R3 an ABR - create a virtual link between R1 and R3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18.html">Step 18. AS-External LSAs of ‘type 1 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18a.html">Step 18a. AS-External LSAs of ‘type 1 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18b.html">Step 18b. AS-External LSAs of ‘type 2 metric’ with different advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18c.html">Step 18c. AS-External LSAs of ‘type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18d.html">Step 18d. AS-External LSAs of mixed ‘type 1/type 2 metric’ with the same advertised destination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step18e.html">Step 18e. Address Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step19.html">Step 19. Default-route distribution in OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step20.html">Step 20. Stub area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step21.html">Step 21. Virtual link - connect two separate parts of a discontinuous backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step22.html">Step 22. Virtual link - connect a disconnected area to the backbone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step23.html">Step 23. OSPF Path Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step24.html">Step 24. OSPF Path Selection - Suboptimal routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/step25.html">Step 25. PCAP recording</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../tutorials/ospf/doc/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../users-guide/index.html">User’s Guide</a><ul>
@@ -630,18 +935,20 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-networks.html">Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-nodes.html">Network Nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-interfaces.html">Network Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-apps.html">Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-transport.html">Transport Protocols</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ipv4.html">The IPv4 Protocol Family</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ipv6.html">IPv6 and Mobile IPv6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-other-network-protocols.html">Other Network Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-routing.html">Internet Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-adhoc-routing.html">Ad Hoc Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-queueing.html">Queueing Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-diffserv.html">Differentiated Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-mpls.html">The MPLS Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ppp.html">Point-to-Point Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-ethernet.html">The Ethernet Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-10base-t1s.html">Ethernet 10BASE-T1S</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-tsn.html">Time-Sensitive Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-80211.html">The 802.11 Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-802154.html">The 802.15.4 Model</a></li>
@@ -653,7 +960,6 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-mobility.html">Node Mobility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-power.html">Modeling Power Consumption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-emulation.html">Network Emulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-network-autoconfig.html">Network Autoconfiguration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-scenario-scripting.html">Scenario Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-lifecycle.html">Modeling Node Failures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../users-guide/ch-packetfilter.html">Packet Filter Expressions</a></li>
@@ -673,8 +979,125 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../../../../../developers-guide/ch-authors-guide.html">Appendix: Author’s Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://omnetpp.org/doc/inet/api-current/neddoc/">NED Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../python-api/index.html">Python Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../python-api/inet/index.html">inet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/common/index.html">inet.common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/common/cluster/index.html">inet.common.cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/cluster/SSHCluster.html">inet.common.cluster.SSHCluster</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/common/task/index.html">inet.common.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/ErroneousTask.html">inet.common.task.ErroneousTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/FailingTask.html">inet.common.task.FailingTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/MultipleTaskResults.html">inet.common.task.MultipleTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/MultipleTasks.html">inet.common.task.MultipleTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/SuccessfulTask.html">inet.common.task.SuccessfulTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/Task.html">inet.common.task.Task</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/TaskProgress.html">inet.common.task.TaskProgress</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/common/task/TaskResult.html">inet.common.task.TaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/simulation/index.html">inet.simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/index.html">inet.simulation.build</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/BuildSimulationProjectTask.html">inet.simulation.build.BuildSimulationProjectTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/CopyBinaryTask.html">inet.simulation.build.CopyBinaryTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleBuildTasks.html">inet.simulation.build.MultipleBuildTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleCppCompileTasks.html">inet.simulation.build.MultipleCppCompileTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/build/MultipleMsgCompileTasks.html">inet.simulation.build.MultipleMsgCompileTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/config/index.html">inet.simulation.config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/config/SimulationConfig.html">inet.simulation.config.SimulationConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/project/index.html">inet.simulation.project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/project/SimulationProject.html">inet.simulation.project.SimulationProject</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/index.html">inet.simulation.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/MultipleSimulationTasks.html">inet.simulation.task.MultipleSimulationTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/SimulationTask.html">inet.simulation.task.SimulationTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/simulation/task/SimulationTaskResult.html">inet.simulation.task.SimulationTaskResult</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../python-api/inet/test/index.html">inet.test</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/chart/index.html">inet.test.chart</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/ChartTestTask.html">inet.test.chart.ChartTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/ChartUpdateTask.html">inet.test.chart.ChartUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/MultipleChartTestTasks.html">inet.test.chart.MultipleChartTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/chart/MultipleChartUpdateTasks.html">inet.test.chart.MultipleChartUpdateTasks</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/index.html">inet.test.fingerprint</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/index.html">inet.test.fingerprint.task</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestGroupTask.html">inet.test.fingerprint.task.FingerprintTestGroupTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestTask.html">inet.test.fingerprint.task.FingerprintTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTestTaskResult.html">inet.test.fingerprint.task.FingerprintTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTask.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintTrajectoryTestTaskResult.html">inet.test.fingerprint.task.FingerprintTrajectoryTestTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTask.html">inet.test.fingerprint.task.FingerprintUpdateTask</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/FingerprintUpdateTaskResult.html">inet.test.fingerprint.task.FingerprintUpdateTaskResult</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintTestTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintTestTasks.html">inet.test.fingerprint.task.MultipleFingerprintTestTasks</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTaskResults.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTaskResults</a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../../../../python-api/inet/test/fingerprint/task/MultipleFingerprintUpdateTasks.html">inet.test.fingerprint.task.MultipleFingerprintUpdateTasks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/opp/index.html">inet.test.opp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/opp/MultipleOppTestTasks.html">inet.test.opp.MultipleOppTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/opp/OppTestTask.html">inet.test.opp.OppTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/index.html">inet.test.simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationTestTaskResults.html">inet.test.simulation.MultipleSimulationTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationTestTasks.html">inet.test.simulation.MultipleSimulationTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/MultipleSimulationUpdateTasks.html">inet.test.simulation.MultipleSimulationUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationTestTask.html">inet.test.simulation.SimulationTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationTestTaskResult.html">inet.test.simulation.SimulationTestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationUpdateTask.html">inet.test.simulation.SimulationUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/simulation/SimulationUpdateTaskResult.html">inet.test.simulation.SimulationUpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/smoke/index.html">inet.test.smoke</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/smoke/SmokeTestTask.html">inet.test.smoke.SmokeTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/speed/index.html">inet.test.speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/index.html">inet.test.statistical</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/StatisticalResultsUpdateTask.html">inet.test.statistical.StatisticalResultsUpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/statistical/StatisticalTestTask.html">inet.test.statistical.StatisticalTestTask</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/task/index.html">inet.test.task</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleTestTaskResults.html">inet.test.task.MultipleTestTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleTestTasks.html">inet.test.task.MultipleTestTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleUpdateTaskResults.html">inet.test.task.MultipleUpdateTaskResults</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/MultipleUpdateTasks.html">inet.test.task.MultipleUpdateTasks</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TaskTestTask.html">inet.test.task.TaskTestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TestTask.html">inet.test.task.TestTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/TestTaskResult.html">inet.test.task.TestTaskResult</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/UpdateTask.html">inet.test.task.UpdateTask</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/task/UpdateTaskResult.html">inet.test.task.UpdateTaskResult</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../python-api/inet/test/validation/index.html">inet.test.validation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../../python-api/inet/test/validation/ValidationTestTask.html">inet.test.validation.ValidationTestTask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../migration-guide/index.html">Migrating Code from INET 3.x</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://inet.omnetpp.org">← Back to the INET Site</a></li>
 </ul>
 
@@ -687,26 +1110,51 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="credit-based-shaper-and-time-aware-shaper">
-<h1>Credit-based Shaper and Time-aware Shaper<a class="headerlink" href="#credit-based-shaper-and-time-aware-shaper" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="goals">
-<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+  <section id="combining-time-aware-and-credit-based-shaping">
+<h1>Combining Time-Aware and Credit-Based Shaping<a class="headerlink" href="#combining-time-aware-and-credit-based-shaping" title="Link to this heading">¶</a></h1>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading">¶</a></h2>
+<p>INET allows multiple traffic shapers to be used in the same traffic stream. This showcase
+demonstrates this option by showing a simple network where credit-based and time-aware shaping
+are combined.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might be interested in looking at another showcase, in which multiple traffic shapers are used in different traffic streams: <a class="reference internal" href="../../cbsandats/doc/index.html"><span class="doc">Using Different Traffic Shapers for Different Traffic Classes</span></a>.</p>
+</div>
 <div class="line-block">
-<div class="line">INET version: <code class="docutils literal notranslate"><span class="pre">4.4</span></code></div>
+<div class="line">Verified with INET version: <code class="docutils literal notranslate"><span class="pre">4.6</span></code></div>
 <div class="line">Source files location: <a class="reference external" href="https://github.com/inet-framework/inet/tree/master/showcases/tsn/trafficshaping/cbsandtas">inet/showcases/tsn/trafficshaping/cbsandtas</a></div>
 </div>
-</div>
-<div class="section" id="the-model">
-<h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
-<p>Here is the network:</p>
-<p>Here is the configuration:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[General]</span>
-<span class="na">network</span> <span class="o">=</span> <span class="s">inet.networks.tsn.TsnLinearNetwork</span>
-<span class="na">sim-time-limit</span> <span class="o">=</span> <span class="s">1s</span>
-<span class="na">description</span> <span class="o">=</span> <span class="s">&quot;Traffic shaping using mixed asynchronous and credit-based shapers&quot;</span>
-
-<span class="c1"># client applications</span>
+</section>
+<section id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Link to this heading">¶</a></h2>
+<p>Time-aware shapers (TAS) and credit-based shapers (CBS) can be combined by
+inserting an <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module into an interface, and
+setting the queue type to <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qCreditBasedShaper.html">Ieee8021qCreditBasedShaper</a>. The number of
+credits in the CBS only changes when the corresponding gate of the TAS
+is open.</p>
+<section id="the-network">
+<h3>The Network<a class="headerlink" href="#the-network" title="Link to this heading">¶</a></h3>
+<p>In this demonstration, similarly to the <a class="reference internal" href="../../creditbasedshaper/doc/index.html"><span class="doc">Credit-Based Shaping</span></a> showcase, we employ a
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a> module with two traffic classes. The two traffic classes
+are shaped with both CBS and TAS.</p>
+<p>There are three network nodes in the network. The client and the server are
+<a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnDevice.html">TsnDevice</a> modules, and the switch is a <a class="reference-ned reference external" href="https://doc.omnetpp.org/inet/api-current/neddoc/inet.node.tsn.TsnSwitch.html">TsnSwitch</a> module. The links between them
+use 100 Mbps Ethernet links. The client generates two traffic streams,
+and transmits them to the switch. In the switch, these streams undergo traffic
+shaping, and are transmitted to the server. In the results section, we plot the
+traffic in the switch before and after shapers, to see the effects of traffic
+shaping.</p>
+<figure class="align-center">
+<img alt="../../../../../_images/Network26.png" src="../../../../../_images/Network26.png" />
+</figure>
+</section>
+<section id="traffic">
+<h3>Traffic<a class="headerlink" href="#traffic" title="Link to this heading">¶</a></h3>
+<p>We create two sinusoidally changing traffic streams (called <code class="docutils literal notranslate"><span class="pre">best</span> <span class="pre">effort</span></code> and
+<code class="docutils literal notranslate"><span class="pre">video</span></code>) in the <code class="docutils literal notranslate"><span class="pre">client</span></code>, with an average data rate of 40 and 20 Mbps. The
+two streams are terminated in two packet sinks in the <code class="docutils literal notranslate"><span class="pre">server</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># client applications</span>
 <span class="na">*.client.numApps</span> <span class="o">=</span> <span class="s">2</span>
 <span class="na">*.client.app[*].typename</span> <span class="o">=</span> <span class="s">&quot;UdpSourceApp&quot;</span>
 <span class="na">*.client.app[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
@@ -714,9 +1162,9 @@ Show Source
 <span class="na">*.client.app[*].io.destAddress</span> <span class="o">=</span> <span class="s">&quot;server&quot;</span>
 <span class="na">*.client.app[0].io.destPort</span> <span class="o">=</span> <span class="s">1000</span>
 <span class="na">*.client.app[1].io.destPort</span> <span class="o">=</span> <span class="s">1001</span>
-<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B - 54B </span><span class="c1"># 42B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
-<span class="na">*.client.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(200us) </span><span class="c1"># ~40Mbps</span>
-<span class="na">*.client.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">exponential(400us) </span><span class="c1"># ~20Mbps</span>
+<span class="na">*.client.app[*].source.packetLength</span> <span class="o">=</span> <span class="s">1000B </span><span class="c1"># 42B = 8B (UDP) + 20B (IP) + 14B (ETH MAC) + 4B (ETH FCS) + 8B (ETH PHY)</span>
+<span class="na">*.client.app[0].source.productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(1 / (sin(dropUnit(simTime()) * 3) + 4.5), &quot;ms&quot;)</span>
+<span class="na">*.client.app[1].source.productionInterval</span> <span class="o">=</span> <span class="s">replaceUnit(1 / (sin(dropUnit(simTime() * 1)) + sin(dropUnit(simTime() * 8)) + 2), &quot;ms&quot;)</span>
 
 <span class="c1"># server applications</span>
 <span class="na">*.server.numApps</span> <span class="o">=</span> <span class="s">2</span>
@@ -725,8 +1173,16 @@ Show Source
 <span class="na">*.server.app[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
 <span class="na">*.server.app[0].io.localPort</span> <span class="o">=</span> <span class="s">1000</span>
 <span class="na">*.server.app[1].io.localPort</span> <span class="o">=</span> <span class="s">1001</span>
-
-<span class="c1"># enable outgoing streams</span>
+</pre></div>
+</div>
+</section>
+<section id="stream-identification-and-encoding">
+<h3>Stream Identification and Encoding<a class="headerlink" href="#stream-identification-and-encoding" title="Link to this heading">¶</a></h3>
+<p>The two streams have two different traffic classes: best effort and video. The
+bridging layer in the client identifies the outgoing packets by their UDP destination port.
+The client encodes and the switch decodes the streams using the IEEE 802.1Q PCP
+field.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># enable outgoing streams</span>
 <span class="na">*.client.hasOutgoingStreams</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># enable incoming streams</span>
@@ -743,8 +1199,17 @@ Show Source
 <span class="c1"># switch stream decoding</span>
 <span class="na">*.switch.bridging.streamCoder.decoder.mapping</span> <span class="o">=</span> <span class="s">[{pcp: 0, stream: &quot;best effort&quot;},</span>
 <span class="s">                                                 {pcp: 4, stream: &quot;video&quot;}]</span>
-
-<span class="c1"># enable egress traffic shaping</span>
+</pre></div>
+</div>
+</section>
+<section id="traffic-shaping">
+<h3>Traffic Shaping<a class="headerlink" href="#traffic-shaping" title="Link to this heading">¶</a></h3>
+<p>The traffic shaping takes place in the outgoing network interface of the switch
+where both streams pass through. We configure the CBS to limit the data rate of
+the best effort stream to ~40 Mbps, and the video stream to ~20 Mbps.
+In the time-aware shaper, we configure the gates to be open for 4ms for best effort, and 2ms for video.</p>
+<p>Here is the egress traffic shaping configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># enable egress traffic shaping</span>
 <span class="na">*.switch.hasEgressTrafficShaping</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="c1"># credit-based and asynchronous traffic shaping</span>
@@ -752,31 +1217,53 @@ Show Source
 <span class="na">*.switch.eth[*].macLayer.queue.*[0].display-name</span> <span class="o">=</span> <span class="s">&quot;best effort&quot;</span>
 <span class="na">*.switch.eth[*].macLayer.queue.*[1].display-name</span> <span class="o">=</span> <span class="s">&quot;video&quot;</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee8021qCreditBasedShaper&quot;</span>
-<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].idleSlope</span> <span class="o">=</span> <span class="s">60Mbps</span>
+<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[0].idleSlope</span> <span class="o">=</span> <span class="s">63.96Mbps		</span><span class="c1"># channel data rate * 2/3</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[1].typename</span> <span class="o">=</span> <span class="s">&quot;Ieee8021qCreditBasedShaper&quot;</span>
-<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[1].idleSlope</span> <span class="o">=</span> <span class="s">60Mbps</span>
+<span class="na">*.switch.eth[*].macLayer.queue.transmissionSelectionAlgorithm[1].idleSlope</span> <span class="o">=</span> <span class="s">63.96Mbps		</span><span class="c1"># channel data rate * 1/3</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[0].initiallyOpen</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[1].initiallyOpen</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">*.switch.eth[*].macLayer.queue.transmissionGate[*].durations</span> <span class="o">=</span> <span class="s">[4ms, 2ms]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The following video shows the behavior in Qtenv:</p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();"     src="media/behavior.mp4" width="90%" height="" class="align-center"></video><p>Here are the simulation results:</p>
-<p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/8cb5a0b72e9ec152100e044597218c06/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a></p>
-</div>
-<div class="section" id="try-it-yourself">
-<h2>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Permalink to this headline">¶</a></h2>
+<p>Note that the actual committed information rate for CBS is 1/3 and 2/3 of the idle slope values set
+here, because the corresponding gates are open for 1/3 and 2/3 of the time.</p>
+<p>Packets that are held up by the shapers are stored in the MAC layer subqueues of
+the corresponding traffic class.</p>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h2>
+<p>The following chart displays the incoming and outgoing data rate in the
+credit-based shapers:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../../../_images/shaper_both1.png"><img alt="../../../../../_images/shaper_both1.png" src="../../../../../_images/shaper_both1.png" style="width: 100%;" />
+</a>
+</figure>
+<p>Data rate measurement produces a data point after every 100 packet
+transmissions, i.e. ~10 ms of continuous transmission. This is the same as the
+cycle time of the time-aware shaping (including the periods when the gate is
+closed), so ~2.5 open-gate periods for best effort, ~5 for video. Thus, the
+fluctuation depends on how many idle periods are counted in a measurement
+interval (so the data rate seems to fluctuate between two distinct values).</p>
+<p>The following sequence chart displays packet transmissions for both traffic
+categories (blue for best effort, orange for video). We can observe the
+time-aware shaping gate schedules:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../../../_images/seqchart21.png"><img alt="../../../../../_images/seqchart21.png" src="../../../../../_images/seqchart21.png" style="width: 100%;" />
+</a>
+</figure>
+<p>Sources: <a class="reference download internal" download="" href="../../../../../_downloads/ca6978cc790fbc251b18473af0421df3/omnetpp.ini"><code class="xref download docutils literal notranslate"><span class="pre">omnetpp.ini</span></code></a></p>
+</section>
+<section id="try-it-yourself">
+<h2>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading">¶</a></h2>
 <p>If you already have INET and OMNeT++ installed, start the IDE by typing
 <code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project into the IDE, then navigate to the
 <code class="docutils literal notranslate"><span class="pre">inet/showcases/tsn/trafficshaping/cbsandtas</span></code> folder in the <cite>Project Explorer</cite>. There, you can view
 and edit the showcase files, run simulations, and analyze results.</p>
 <p>Otherwise, there is an easy way to install INET and OMNeT++ using <a class="reference external" href="https://omnetpp.org/opp_env">opp_env</a>, and run the simulation interactively.
 Ensure that <code class="docutils literal notranslate"><span class="pre">opp_env</span></code> is installed on your system, then execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ opp_env run inet-4.4 --init -w inet-workspace --install --chdir <span class="se">\</span>
-   -c <span class="s1">&#39;cd inet-4.4.*/showcases/tsn/trafficshaping/cbsandtas &amp;&amp; inet&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>run<span class="w"> </span>inet-4.6<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--install<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>--chdir<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-c<span class="w"> </span><span class="s1">&#39;cd inet-4.6.*/showcases/tsn/trafficshaping/cbsandtas &amp;&amp; inet&#39;</span>
 </pre></div>
 </div>
 <p>This command creates an <code class="docutils literal notranslate"><span class="pre">inet-workspace</span></code> directory, installs the appropriate
@@ -784,19 +1271,19 @@ versions of INET and OMNeT++ within it, and launches the <code class="docutils l
 showcase directory for interactive simulation.</p>
 <p>Alternatively, for a more hands-on experience, you can first set up the
 workspace and then open an interactive shell:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ opp_env install --init -w inet-workspace inet-4.4
-$ <span class="nb">cd</span> inet-workspace
-$ opp_env shell
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>opp_env<span class="w"> </span>install<span class="w"> </span>--init<span class="w"> </span>-w<span class="w"> </span>inet-workspace<span class="w"> </span>--build-modes<span class="o">=</span>release<span class="w"> </span>inet-4.6
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>inet-workspace
+$<span class="w"> </span>opp_env<span class="w"> </span>shell
 </pre></div>
 </div>
 <p>Inside the shell, start the IDE by typing <code class="docutils literal notranslate"><span class="pre">omnetpp</span></code>, import the INET project,
 then start exploring.</p>
-</div>
-<div class="section" id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/TODO">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
-</div>
-</div>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<p>Use <a class="reference external" href="https://github.com/inet-framework/inet/discussions/900">this</a> page in the GitHub issue tracker for commenting on this showcase.</p>
+</section>
+</section>
 
 
         </div>
@@ -807,9 +1294,15 @@ then start exploring.</p>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Credit-based Shaper and Time-aware Shaper</a><ul>
+<li><a class="reference internal" href="#">Combining Time-Aware and Credit-Based Shaping</a><ul>
 <li><a class="reference internal" href="#goals">Goals</a></li>
-<li><a class="reference internal" href="#the-model">The Model</a></li>
+<li><a class="reference internal" href="#the-model">The Model</a><ul>
+<li><a class="reference internal" href="#the-network">The Network</a></li>
+<li><a class="reference internal" href="#traffic">Traffic</a></li>
+<li><a class="reference internal" href="#stream-identification-and-encoding">Stream Identification and Encoding</a></li>
+<li><a class="reference internal" href="#traffic-shaping">Traffic Shaping</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#try-it-yourself">Try It Yourself</a></li>
 <li><a class="reference internal" href="#discussion">Discussion</a></li>
@@ -823,6 +1316,20 @@ then start exploring.</p>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
+     <a id="button-prev" href="../../cbsandats/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Using Different Traffic Shapers for Different Traffic Classes</div>
+         </div>
+     </a>
+     <a id="button-next" href="../../underthehood/doc/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Using Traffic Shapers Independently</div>
+        </div>
+     </a>
   </div>
         
         </main>

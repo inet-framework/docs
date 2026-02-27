@@ -8,14 +8,14 @@ The positioning and mobility of nodes play a crucial role in many simulation
 scenarios, especially those that involve wireless communication. INET allows you
 to add mobility to nodes by using modules that represent different mobility
 models, such as linear motion or random waypoint. There is a wide variety of
-mobility models available in INET and you can even combine them to create
+mobility models available in INET, and you can even combine them to create
 complex motion patterns.
 
 This showcase provides a demonstration of some of the elementary mobility models
 available in INET. The topic of combining multiple mobility models is covered in
 a separate showcase, :doc:`../../combining/doc/index`.
 
-| INET version: ``4.0``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/mobility/basic <https://github.com/inet-framework/inet/tree/master/showcases/mobility/basic>`__
 
 Overview
@@ -34,7 +34,7 @@ package. This showcase presents an example for most of the frequently used mobil
 
 Mobility models can be categorized in numerous different ways (see User's Guide),
 but here we present them organized in two groups: ones describing proper
-motion and/or dynamic orientation, and ones describing the placement and
+motion and/or dynamic orientation and ones describing the placement and
 orientation of stationary nodes.
 
 For the interested reader, the `INET User’s Guide <https://inet.omnetpp.org/docs/users-guide/ch-mobility.html>`__
@@ -44,16 +44,16 @@ contains a more in-depth treatment of mobility models.
 The Model
 ---------
 
-All simulations use the :ned:`MobilityShowcase` network.
+All simulations use the :ned:`BasicMobilityShowcase` network.
 The size of the scene is 400x400x0 meters. It contains a configurable
-number of hosts and an :ned:`IntegratedVisualizer` module to
-visualize some aspects of mobility. The following image shows the layout of the network:
+number of hosts and an :ned:`IntegratedCanvasVisualizer` module to
+visualize aspects of mobility. The following image shows the layout of the network:
 
 .. figure:: media/scene.png
    :scale: 100%
    :align: center
 
-The ``General`` configuration in the ``omnetpp.ini`` contains some configuration
+The ``General`` configuration in the ``omnetpp.ini`` file contains some configuration
 keys common to all example simulations:
 
 .. literalinclude:: ../omnetpp.ini
@@ -95,8 +95,8 @@ Some of these mobility models are introduced by the following example simulation
 LinearMobility
 ~~~~~~~~~~~~~~
 
-The :ned:`LinearMobility` module describes linear motion with a constant speed or
-constant acceleration. As such, it has parameters for speed, acceleration, and starting angle.
+The :ned:`LinearMobility` module describes linear motion with a constant speed.
+As such, it has parameters for speed and starting heading.
 The model also has parameters for initial positioning (:par:`initialX`,
 :par:`initialY`, :par:`initialZ`), which, by default, are random
 values inside the constraint area.
@@ -108,8 +108,8 @@ The configuration in omnetpp.ini is the following:
    :start-at: *.host[*].mobility.typename = "LinearMobility"
    :end-at: speed
 
-We leave both acceleration and angle on their default values, which is
-zero for acceleration and a random value for the angle.
+We leave the :par:`initialMovementHeading` parameter on its default value,
+which is a random value.
 
 The following video shows the motion of the nodes:
 
@@ -126,14 +126,14 @@ CircleMobility
 
 The :ned:`CircleMobility` module describes circular motion around a center.
 This example uses two hosts orbiting the same center (the center of the scene)
-with different radii, directions and speeds:
+with different radii, directions, and speeds:
 
 .. literalinclude:: ../omnetpp.ini
    :language: ini
    :start-at: *.host[*].mobility.typename = "CircleMobility"
    :end-at: *.host[1].mobility.startAngle = 270deg
 
-You can see the result of the configuration on the following video:
+You can see the result of the configuration in the following video:
 
 .. video:: media/CircleMobility.mp4
    :width: 50%
@@ -163,9 +163,9 @@ can see the XML script for ``host[0]``:
 The flexibility of :ned:`TurtleMobility` allows the implementation of
 the functionality of some of the other mobility models.
 As such, ``host[1]``'s XML script describes another mobility model, :ned:`MassMobility`.
-This is a mobility model describing a random motion. The node is assumed to have a mass, and so it
-can not turn abruptly. This kind of motion is achieved by allowing only
-small time intervals for forward motion, and small turning angles:
+This is a mobility model describing random motion. The node is assumed to have mass, and so it
+cannot turn abruptly. This kind of motion is achieved by allowing only
+small time intervals for forward motion and small turning angles:
 
 .. literalinclude:: ../config2.xml
    :language: xml
@@ -184,7 +184,7 @@ It has an :par:`alpha` parameter which can run from 0
 (totally random motion) to 1 (deterministic linear motion), with the
 default value of 0.5.
 The random variable has a mean of 0, and its variance can be set by
-the :par:`variance` parameter.
+the :par:`speedStdDev` and :par:`angleStdDev` parameters.
 The :par:`margin` parameter adds a margin to the boundaries of the constraint
 area, so that the mobility bounces back before reaching it.
 
@@ -195,9 +195,9 @@ Here is the configuration in omnetpp.ini:
    :start-at: *.host[*].mobility.typename = "GaussMarkovMobility"
    :end-at: alpha
 
-The mobility module is set to totally random motion, with a variance of 0.5.
+The mobility module is set to totally random motion, with a variance of 0.5mps and 0.5rad for the speed and the angle, respectively.
 
-The following video shows the resulted random motion:
+The following video shows the resulting random motion:
 
 .. video:: media/GaussMarkovMobility.mp4
    :width: 50%
@@ -257,9 +257,9 @@ of triplets (2D) or quadruples (3D). Here you can see the configuration in the i
    :end-at: **.host[*].mobility.nodeId = -1
 
 The :par:`nodeId` parameter selects the line in the trace file for the given mobility module.
-The value -1 gets substituted to the parent module's index.
+The value -1 gets substituted for the parent module's index.
 
-The ``bonnmotion.movements`` contains the trace that we want the nodes to follow:
+The ``bonnmotion.movements`` file contains the trace that we want the nodes to follow:
 
 .. literalinclude:: ../bonnmotion.movements
    :language: xml
@@ -298,7 +298,7 @@ The configuration in omnetpp.ini is the following:
    :end-at: mobility.numHosts
 
 We specify only the :par:`numHosts` parameter; the other parameters of the
-mobility are left on their defaults. Thus the layout conforms to the
+mobility are left at their defaults. Thus the layout conforms to the
 available space:
 
 .. figure:: media/StaticGridMobility.png
@@ -311,8 +311,8 @@ StationaryMobility
 The :ned:`StationaryMobility` model only sets position. It has :par:`initialX`, :par:`initialY`, :par:`initialZ`
 and :par:`initFromDisplayString` parameters. By default, the :par:`initFromDisplayString` parameter is
 true, and the initial coordinate parameters select a random value inside the constraint
-area. Additionally, there are parameters to set the initial heading, elevation and bank
-(i.e. orientation in 3D), all zero by default. Note that :ned:`StationaryMobility` is the
+area. Additionally, there are parameters to set the initial heading, elevation, and bank
+(i.e., orientation in 3D), all zero by default. Note that :ned:`StationaryMobility` is the
 default mobility model in :ned:`WirelessHost` and derivatives.
 
 The configuration for the example simulation in omnetpp.ini is the following:
@@ -328,7 +328,7 @@ The configuration just sets the mobility type. Here is what it looks like when t
    :scale: 100%
    :align: center
 
-Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`MobilityShowcase.ned <../MobilityShowcase.ned>`
+Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`BasicMobilityShowcase.ned <../BasicMobilityShowcase.ned>`
 
 
 Try It Yourself
@@ -345,8 +345,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.0 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.0.*/showcases/mobility/basic && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/mobility/basic && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -357,7 +357,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.0
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

@@ -4,9 +4,9 @@ Measuring End-to-end Delay
 Goals
 -----
 
-In this example we explore the end-to-end delay statistics of applications.
+In this example, we explore the end-to-end delay statistics of applications.
 
-| INET version: ``4.4``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/measurement/endtoenddelay <https://github.com/inet-framework/inet/tree/master/showcases/measurement/endtoenddelay>`__
 
 The Model
@@ -16,7 +16,7 @@ The end-to-end delay is measured from the moment the packet leaves the source
 application to the moment the same packet arrives at the destination application.
 
 The end-to-end delay is measured by the ``meanBitLifeTimePerPacket`` statistic.
-The statistic measures the lifetime of the packet, i.e. time from creation in the source application
+The statistic measures the lifetime of the packet, i.e., time from creation in the source application
 to deletion in the destination application.
 
 .. note:: The `meanBit` part refers to the statistic being defined per bit, and the result is the mean of the per-bit values of all bits in the packet.
@@ -27,7 +27,7 @@ The simulations use a network with two hosts (:ned:`StandardHost`) connected via
 .. figure:: media/Network.png
    :align: center
 
-We configure the packet source in the source hosts' UDP app to generate 1200-Byte packets with a period of around 100us randomly.
+We configure the packet source in the source host's UDP app to generate 1200-Byte packets with a period of around 100us randomly.
 This corresponds to about 96Mbps of traffic. Here is the configuration:
 
 .. literalinclude:: ../omnetpp.ini
@@ -39,15 +39,17 @@ Results
 The traffic is around 96 Mbps, but the period is random. Thus, the traffic can be higher than the 100Mbps capacity of the Ethernet link.
 This might result in packets accumulating in the queue in the source host, and increased end-to-end delay (the queue length is unlimited by default).
 
-We display the end-to-end delay, we plot the ``meanBitLifeTimePerPacket`` statistic in vector and histogram form:
+To display the end-to-end delay, we plot the ``meanBitLifeTimePerPacket`` statistic in vector and histogram form:
 
 .. figure:: media/EndToEndDelayHistogram.png
    :align: center
+   :width: 90%
 
 .. figure:: media/EndToEndDelayVector.png
    :align: center
+   :width: 90%
 
-.. **TODO** why the uptick ?
+.. **TODO** why the uptick?
 
 The uptick towards the end of the simulation is due to packets accumulating in the queue.
 
@@ -68,8 +70,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.4 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.4.*/showcases/measurement/endtoenddelay && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/measurement/endtoenddelay && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -80,7 +82,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.4
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 
@@ -90,5 +92,4 @@ then start exploring.
 Discussion
 ----------
 
-Use `this <https://github.com/inet-framework/inet/discussions/TODO>`__ page in the GitHub issue tracker for commenting on this showcase.
-
+Use `this <https://github.com/inet-framework/inet/discussions/1075>`__ page in the GitHub issue tracker for commenting on this showcase.

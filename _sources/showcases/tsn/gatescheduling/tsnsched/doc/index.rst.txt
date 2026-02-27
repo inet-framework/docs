@@ -6,13 +6,13 @@ Goals
 
 This showcase demonstrates the TSNsched gate schedule configurator that solves the autoconfiguration problem with an external SAT solver tool.
 
-| INET version: ``4.4``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/tsn/gatescheduling/tsnsched <https://github.com/inet-framework/inet/tree/master/showcases/tsn/gatescheduling/tsnsched>`__
 
 The Model
 ---------
 
-The :ned:`TsnSchedGateScheduleConfigurator` module provides a gate scheduling configurator that uses the `TSNsched` tool that is available at https://github.com/ACassimiro/TSNsched (check the NED documentation of the configurator for installation
+The :ned:`TSNschedGateScheduleConfigurator` module provides a gate scheduling configurator that uses the `TSNsched` tool that is available at https://github.com/ACassimiro/TSNsched (check the NED documentation of the configurator for installation
 instructions). The module has the same parameters as the other gate schedule configurators.
 
 The simulation uses the same network as the showcases for the Eager and SAT configurators:
@@ -39,7 +39,7 @@ The following sequence chart shows a gate cycle period (1ms):
 .. figure:: media/seqchart3.png
     :align: center
 
-Note that the frames are forwarded immediatelly by the switches.
+Note that the frames are forwarded immediately by the switches.
 
 The following sequence chart shows frame transmissions, with the best effort gate state displayed on the axes for the two switches.
 
@@ -53,7 +53,7 @@ The following figure shows application end-to-end delay for the four streams:
 .. figure:: media/delay.png
     :align: center
 
-All streams have the minimal possible delay, as they are forwarded immediatelly.
+All streams have the minimal possible delay, as they are forwarded immediately.
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`
 
@@ -72,8 +72,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.4 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.4.*/showcases/tsn/gatescheduling/tsnsched && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/tsn/gatescheduling/tsnsched && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -84,7 +84,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.4
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

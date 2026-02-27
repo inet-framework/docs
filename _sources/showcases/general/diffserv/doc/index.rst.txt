@@ -14,7 +14,7 @@ transfer.
 This showcase presents an example network that employs DiffServ to
 provide preferential service to voice over other types of traffic.
 
-| INET version: ``4.0``
+| Verified with INET version: ``4.6``
 | Source files location: `inet/showcases/general/diffserv <https://github.com/inet-framework/inet/tree/master/showcases/general/diffserv>`__
 
 About Differentiated Services
@@ -34,15 +34,15 @@ In theory, a network could have up to 64 (i.e. 2^6) different traffic
 classes using different DSCPs. In practice, however, most networks use
 the following commonly defined per-hop behaviors:
 
--  *Default PHB* typically maps to best-effort traffic.
--  *Expedited Forwarding (EF) PHB* is dedicated to low-loss, low-latency
-   traffic.
--  *Assured Forwarding (AF) PHBs* give assurance of delivery under
-   prescribed conditions; there are four classes and three drop
-   probabilities, yielding twelve separate DSCP encodings from AF11
-   through AF43.
--  *Class Selector PHBs* provide backward compatibility with the
-   IP Precedence field.
+- *Default PHB* typically maps to best-effort traffic.
+- *Expedited Forwarding (EF) PHB* is dedicated to low-loss, low-latency
+  traffic.
+- *Assured Forwarding (AF) PHBs* give assurance of delivery under
+  prescribed conditions; there are four classes and three drop
+  probabilities, yielding twelve separate DSCP encodings from AF11
+  through AF43.
+- *Class Selector PHBs* provide backward compatibility with the
+  IP Precedence field.
 
 As EF is often used for carrying VoIP traffic, we'll also configure our
 example network to do that.
@@ -63,7 +63,7 @@ reduce latency.
 The following image shows the layout of the network:
 
 .. figure:: media/diffserv_network_layout.png
-   :width: 100%
+   :width: 90%
 
 In our setup, ``voipPhone1`` will transmit VoIP packets to ``voipPhone2``.
 ``client`` will generate background traffic towards ``server``.
@@ -86,15 +86,15 @@ Configuration and Behavior
 
 The showcase contains three different configurations:
 
--  ``VoIP_WithoutQoS``: The queue in the router's PPP interface is
-   overloaded and packets are dropped.
--  ``VoIP_WithPolicing``: The VoIP traffic is classified as EF
-   traffic and others as AF. AF traffic is rate
-   limited using Token Bucket to 70% of the link's capacity.
--  ``VoIP_WithPolicingAndQueuing``: This is the same as the previous
-   configuration, except the router's queue is configured so that EF
-   packets are prioritized over other packets, so lower delays are
-   expected.
+- ``VoIP_WithoutQoS``: The queue in the router's PPP interface is
+  overloaded and packets are dropped.
+- ``VoIP_WithPolicing``: The VoIP traffic is classified as EF
+  traffic and others as AF. AF traffic is rate
+  limited using Token Bucket to 70% of the link's capacity.
+- ``VoIP_WithPolicingAndQueueing``: This is the same as the previous
+  configuration, except the router's queue is configured so that EF
+  packets are prioritized over other packets, so lower delays are
+  expected.
 
 The router's PPP interface contains the key elements of Differentiated
 Services in this network: a queue (``queue``) and a traffic conditioner (``egressTC``).
@@ -104,15 +104,15 @@ If both of them are used, the layout of the interface looks like the following:
    :scale: 100%
    :align: center
 
-In the ``VoIP_WithPolicing`` and ``VoIP_WithPolicingAndQueuing``
-configurations, INET's :ned:`TrafficConditioner` module is used in the
+In the ``VoIP_WithPolicing`` and ``VoIP_WithPolicingAndQueueing``
+configurations, the :ned:`DiffservTrafficConditioner` module is used in the
 router's PPP interface to achieve the required policing.
 
 .. figure:: media/TrafficConditioner.png
    :scale: 100%
    :align: center
 
-In :ned:`TrafficConditioner`, the ``mfClassifier`` submodule is used for
+In :ned:`DiffservTrafficConditioner`, the ``mfClassifier`` submodule is used for
 separating packets of different flows for marking with different DSCP values.
 It contains a list of filters that identifies the flow and determines their classes.
 Each filter can match the source and destination address, IP protocol
@@ -143,7 +143,7 @@ the ``omnetpp.ini`` file:
    :start-at: WithPolicing
    :end-before: ####
 
-In the ``VoIP_WithPolicingAndQueuing`` configuration, a
+In the ``VoIP_WithPolicingAndQueueing`` configuration, a
 :ned:`DiffservQueue` module is used instead of :ned:`DropTailQueue` in the
 router's PPP interface to achieve priority queuing.
 
@@ -199,7 +199,7 @@ which is way too much compared to a real phone call. The following plot
 shows the delay of each VoIP packet:
 
 .. figure:: media/VoIP_WithoutQoS_delay.png
-   :width: 100%
+   :width: 80%
 
 The dropouts you hear can also easily be observed if we zoom into the
 timeline of the received audio using `Audacity <https://www.audacityteam.org/>`__:
@@ -231,7 +231,7 @@ at the beginning of the recording:
 The following plot shows the delay of the VoIP packets:
 
 .. figure:: media/VoIP_WithPolicing_delay.png
-   :width: 100%
+   :width: 80%
 
 Although the delay of the packets is much less than it was with the
 previous configuration (0.3s instead of 2.5s), it is still very high for
@@ -247,7 +247,7 @@ if we take a look at the audio track:
 With Traffic Policing and Priority Queuing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``VoIP_WithPolicingAndQueuing`` configuration, the router's queue
+With the ``VoIP_WithPolicingAndQueueing`` configuration, the router's queue
 is configured to prioritize EF packets over other traffic.
 The following video shows how the different types of packets are handled:
 
@@ -268,7 +268,7 @@ the previous configuration are almost inaudible now.
 As seen from the next plot, the delay of voice packets has been reduced to about 0.11s:
 
 .. figure:: media/VoIP_WithPolicingAndQueueing_delay.png
-   :width: 100%
+   :width: 80%
 
 Sources: :download:`omnetpp.ini <../omnetpp.ini>`, :download:`DiffservNetwork.ned <../DiffservNetwork.ned>`
 
@@ -287,8 +287,8 @@ Ensure that ``opp_env`` is installed on your system, then execute:
 
 .. code-block:: bash
 
-    $ opp_env run inet-4.0 --init -w inet-workspace --install --chdir \
-       -c 'cd inet-4.0.*/showcases/general/diffserv && inet'
+    $ opp_env run inet-4.6 --init -w inet-workspace --install --build-modes=release --chdir \
+       -c 'cd inet-4.6.*/showcases/general/diffserv && inet'
 
 This command creates an ``inet-workspace`` directory, installs the appropriate
 versions of INET and OMNeT++ within it, and launches the ``inet`` command in the
@@ -299,7 +299,7 @@ workspace and then open an interactive shell:
 
 .. code-block:: bash
 
-    $ opp_env install --init -w inet-workspace inet-4.0
+    $ opp_env install --init -w inet-workspace --build-modes=release inet-4.6
     $ cd inet-workspace
     $ opp_env shell
 

@@ -1,0 +1,65 @@
+inet.test.opp
+=============
+
+.. py:module:: inet.test.opp
+
+.. autoapi-nested-parse::
+
+   This module provides functionality for running multiple tests using the :command:`opp_test` command.
+
+   The main function is :py:func:`run_opp_tests`. It allows running multiple tests matching the provided
+   filter criteria.
+
+
+
+Classes
+-------
+
+.. toctree::
+   :hidden:
+
+   /python-api/inet/test/opp/MultipleOppTestTasks
+   /python-api/inet/test/opp/OppTestTask
+
+.. autoapisummary::
+
+   inet.test.opp.MultipleOppTestTasks
+   inet.test.opp.OppTestTask
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   inet.test.opp.get_opp_test_tasks
+   inet.test.opp.run_opp_tests
+
+
+Module Contents
+---------------
+
+.. py:function:: get_opp_test_tasks(test_folder, simulation_project=None, filter='.*', full_match=False, **kwargs)
+
+   Returns multiple opp test tasks matching the provided filter criteria. The returned tasks can be run by
+   calling the :py:meth:`run <inet.common.task.MultipleTasks.run>` method.
+
+   :param kwargs: TODO
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTasks`):
+       an object that contains a list of :py:class:`OppTestTask` objects matching the provided filter criteria.
+       The result can be run (and re-run) without providing additional parameters.
+
+
+.. py:function:: run_opp_tests(test_folder, **kwargs)
+
+   Runs one or more tests using the :command:`opp_test` command that match the provided filter criteria.
+
+   :param kwargs: The filter criteria parameters are inherited from the :py:func:`get_opp_test_tasks` function.
+   :type kwargs: dict
+
+   Returns (:py:class:`MultipleTestTaskResults`):
+       an object that contains a list of :py:class:`TestTaskResult` objects. Each object describes the result of running one test task.
+
+

@@ -1,0 +1,47 @@
+inet.common.cluster.SSHCluster
+==============================
+
+.. py:class:: inet.common.cluster.SSHCluster(scheduler_hostname, worker_hostnames, nix_shell=None)
+
+   Represents an SSH cluster. An SSH cluster is basically a set of network nodes, most often connected to a single LAN,
+   all of which can login into each other using SSH passwordless login. The SSH cluster utilizes all network nodes with
+   automatic and transparent load balancing as if it were a single computer.
+
+   There are a couple of pitfalls that can prevent the SSH cluster from working correctly. If you encounter problems
+   with the SSH cluster, make sure the following conditions are met:
+
+   - scheduler and worker node hostnames can be resolved to IP addresses on all nodes
+   - all nodes can SSH login into all other nodes (even themselves!) without any user interaction (no password is required)
+   - the Python version and all required Python library versions are the same on all nodes
+   - no firewall rule prevents the scheduler to connect to the workers
+   - simulation projects are compiled both in release and debug versions
+
+   Initializes a new SSH cluster object.
+
+   :param scheduler_hostname: The hostname of the scheduler node.
+   :type scheduler_hostname: string
+   :param worker_hostnames: The hostnames of the worker nodes.
+   :type worker_hostnames: list
+   :param nix_shell: A Nix shell name that is used to execute tasks on the SSH cluster for repeatable results.
+   :type nix_shell: string or None
+
+
+   .. py:method:: run_gethostname(num_tasks=12)
+
+      Collects the result of calling :py:func:`socket.gethostname` multiple times on the SSH cluster. This function is
+      primarily useful to test the correct operation of the SSH cluster. The result should contain a permutation of the
+      hostnames of all worker nodes.
+
+      :param num_tasks: The number of times :py:func:`socket.gethostname` is called.
+      :type num_tasks: int
+
+      Returns (List):
+          The hostname of worker nodes where :py:func:`socket.gethostname` was called.
+
+
+
+   .. py:method:: start()
+
+      Starts the SSH cluster and the dashboard web page.
+
+

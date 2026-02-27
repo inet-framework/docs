@@ -101,15 +101,15 @@ The fingerprint tool
   - can be filtered with -m which is a regex?
   - for more info -h
 
-The fingerprint tool is a conventient way to run fingerprint tests. It is located in the ``inet/bin`` folder, and when the ``inet`` directory is added to the PATH, it can be run from any project directory.
+The fingerprint tool is a convenient way to run fingerprint tests. It is located in the ``inet/bin`` folder, and when the ``inet`` directory is added to the PATH, it can be run from any project directory.
 
 .. (inet subdirectory?).
 
-The fingerprint test tool uses .csv files to run fingerprint tests./uses .csv files to keep track of test runs
+The fingerprint test tool uses .csv files to run fingerprint tests. It uses .csv files to keep track of test runs.
 A line in the .csv file defines a simulation run by specifying the working directory, command line arguments, sim time limit, fingerprint+ingredients, expected result, and tags.
 The result of one fingerprint test can either be PASS, FAILED or ERROR. A test results in FAILED if the calculated fingerprint differs from the one in the .csv file; it results in ERROR when there was an error during the simulation.
 
-.. By default, the fingerprint test tool runs all simulations defined in .csv files in the current folder.TODO later
+.. By default, the fingerprint test tool runs all simulations defined in .csv files in the current folder. TODO later
    The set of simulations can be filtered with the ``-m`` command line option.
 
 When run without arguments, the fingerprint test tool runs all tests in all .csv files in the current directory. Specific .csv files to run can be selected with the first argument.
@@ -173,13 +173,13 @@ The tutorial contains several simulations, which will be used to demonstrate how
 - ``Ethernet``: Contains an Ethernet network with wired hosts and routers. The server host sends UDP packets to two of the hosts:
 
   .. figure:: media/EthernetNetwork.png
-     :width: 100%
+     :width: 90%
      :align: center
 
 - ``Wifi``: Contains two ad-hoc hosts; one of them sends UDP packets to the other:
 
   .. figure:: media/WifiNetwork.png
-     :width: 100%
+     :width: 80%
      :align: center
 
 - ``EthernetShortPacket``: The same as the ``Ethernet`` configuration, but the server sends 10-Byte UDP packets.
@@ -221,7 +221,7 @@ The fingerprints can be run from the command line. Make sure to run ``. setenv``
 
 .. TODO: the setenv and the fingerprinttest separately ?
 
-The ``inet_fingerprinttest`` runs all simulations specified in all .csv files in the currect folder:
+The ``inet_fingerprinttest`` runs all simulations specified in all .csv files in the current folder:
 
 .. code-block:: fp
 
